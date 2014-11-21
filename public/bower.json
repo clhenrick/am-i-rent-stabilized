@@ -1,0 +1,34 @@
+{
+  "name": "'Am I Rent Stabilized?'",
+  "version": "0.0.0",
+  "authors": [
+    "Chris Henrick <chrishenrick@gmail.com>"
+  ],
+  "description": "'A website that determines if your apartment in NYC might be rent stabilized'",
+  "main": "'index.html, main.js'",
+  "keywords": [
+    "nyc",
+    "map-pluto",
+    "postgres",
+    "postgis"
+  ],
+  "license": "MIT",
+  "homepage": "'amirentstabilized.nyc'",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "leaflet": "~0.7.3",
+    "jquery": "~2.1.1",
+    "underscore": "~1.7.0",
+    "cartodb.js": "~3.11.30",
+    "bootstrap": "~3.3.1",
+    "html5-reset": "~2.1.2",
+    "normalize.css": "~3.0.2"
+  }
+}

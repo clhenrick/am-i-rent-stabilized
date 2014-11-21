@@ -1,0 +1,159 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  font-family: Helvetica, sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: hsl(0,0%,97%);
+/*  background: url('../img/bk-rent-stabilized-reg-vs-likely.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;*/
+}
+
+.clearfix {
+  overflow: auto;
+  zoom: 1; /* IE 6 */
+}
+
+#wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.box {
+  position: absolute;
+  top: 50px;
+  width: 600px;
+  margin: 0 auto;
+
+  left: 0;
+  right: 0;
+  padding: 15px 20px 20px 20px;
+
+  background-color: #fff;
+  border: 1px solid orange;
+  border-radius: 15px;
+  box-shadow: .5em .5em .5em hsl(0,0%,80%);
+}
+
+.box h1 {
+  margin: 0;
+  font-size: 3.5em;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.box h3 {
+  margin: 0 0 10px 0;
+  font-size: 2.5em;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+}
+
+.box p {
+  font-size: 1.6em;
+  font-weight: 300;
+  padding: .7em 0 .2em 0;
+}
+
+.box hr {
+  background-color: hsl(0,0%,70%);
+  width: 500px;
+  margin-bottom: 25px;
+  float: left;
+}
+
+.box button {
+  display: block;
+  padding: 5px;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.address-box {
+  margin: 1em 0;
+}
+
+.address-box input[type=text] {
+  border: 1px solid hsl(0,0%,60%);
+  padding: 5px;
+  transition: box-shadow 0.3s, border 0.3s;
+  width: 500px;
+  font-size: 2em;     
+  color: #000;
+}
+
+.address-box input[type="text"]:focus {
+  outline: none;
+}
+
+.address-box input[type="text"]:focus,
+.address-box input[type="text"].focus {
+  border: solid 1px #707070;
+  box-shadow: 0 0 5px 1px #969696;
+}
+
+.select-box{
+   margin: 0 0 10px 0;
+   overflow: hidden;
+   width: 100%;
+}
+
+select {
+   border: 1px solid hsl(0,0%,60%);
+   font-size: 2em;
+   color: hsl(0,0%,40%);
+   padding: .5em;
+   transition: box-shadow 0.3s, border 0.3s;
+}
+
+select:focus {
+  border: solid 1px #707070;
+  box-shadow: 0 0 5px 1px #969696;
+}
+
+#submit  {
+  font-size: 2em;
+  color: hsl(0,0%,40%);
+  transition: box-shadow 0.3s, border 0.3s;
+}
+
+#submit:focus {
+  border: solid 1px #707070;
+  box-shadow: 0 0 5px 1px #969696;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.action ol, .action ul {
+  position: relative;
+  left: 30px;
+  width: 400px;
+}
+
+.action ol li, ul li {
+  font-size: 2em;
+  margin-top: 10px;
+}
+
+.action ul li {
+  text-decoration: none;
+  list-style: none;
+}
+
+.action li p {
+  font-size: .5em;
+  line-height: 1.5em;
+}
