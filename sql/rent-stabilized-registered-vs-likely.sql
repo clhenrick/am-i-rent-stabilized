@@ -1,7 +1,9 @@
--- 13441 rows from registered rent stabilized units brooklyn
--- 11959 rows from likely rent stabilized units brooklyn
-
-
+-- select likely rent stabilized properties
+SELECT * FROM all_map_pluto_2014v1 
+WHERE "yearbuilt"<'1974' AND 
+  "unitsres" > '6' AND 
+  "ownername" NOT IN ('NEW YORK CITY HOUSING', 'NYC HOUSING AUTHORITY')
+  
 -- select features from bk_rent_stablized and bk_rentstab_registered that don't intersect
 SELECT a.*
 FROM bk_likely_rent_stablized a left join

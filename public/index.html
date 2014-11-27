@@ -1,116 +1,119 @@
 <!DOCTYPE html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Am I Rent Stabilized?</title>
-        <meta name="description" content="search likely rent stabilized properties in NYC">
-        <meta name="HandheldFriendly" content="True">
-        <meta name="MobileOptimized" content="320">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="cleartype" content="on">
-        <link rel="stylesheet" type="text/css" href="bower_components/normalize.css/normalize.css">        
-        <link rel="stylesheet" type="text/css" href="bower_components/cartodb.js/dist/cartodb.css">
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Project Name</title>
+      <meta name="description" content="">      
+      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Browser favicon -->
-        <!-- <link rel="shortcut icon" href="favicon.png"> -->
+      <!-- Browser favicon -->
+      <link rel="shortcut icon" href="favicon.png">            
+      <!-- CSS files -->
+      <link rel="stylesheet" type="text/css" href="css/styles2.css">
+      <!-- Uncomment to include modernizer.js
+      <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+      -->
 
-        <!-- Uncomment to include modernizer.js
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-        -->
+  </head>
+  <body>
 
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
-        
-        <div id="wrapper">
-          <div id="form" class="box">
-            <h1>NYC: am I rent stabilized?</h1>              
-            <hr>
-            <div class="address-box">
-                <input id="address" type="text" placeholder="Enter your street address"></input>      
-            </div>
-            <p></p>
-            <!-- <p>Select your borough:</p> -->
-            <div class="select-box">
-                <select id="boro">
-                    <option>Select Your Borough</option>
-                    <option>Bronx</option>
-                    <option>Brooklyn</option>                
-                    <option>Manhattan</option>
-                    <option>Queens</option>
-                    <option>Staten Island</option>
-                </select>                          
-            </div>
-            <button id="submit">Submit</button>          
+    <div id="wrapper">
+      <section class="one">
+        <p class="callout">Hey NYC!</p>
+        <h1>am i rent stabilized?</h1>
+        <p class="center">let's find out!</p>
+        <p class="center arrow">&#9660;</p>
+      </section>
+      <section class="two">
+        <h3>Let's have your <br>address and Borough:</h3>
+        <div id="form" class="box">
+          <div class="address-box">
+              <input id="address" type="text" placeholder="Enter your street address"></input>      
+          </div>          
+          <!-- <p>Select your borough:</p> -->
+          <div class="select-box">
+              <select id="boro">
+                  <option>Select Your Borough</option>
+                  <option>Bronx</option>
+                  <option>Brooklyn</option>                
+                  <option>Manhattan</option>
+                  <option>Queens</option>
+                  <option>Staten Island</option>
+              </select>                          
           </div>
-          <div id="yes" class="box hidden">
-              <h1>You just may be rent stabilized!</h1>
-              <h3>Follow these directions to take action:</h3>
-              <div class="action">
-                <ol>
-                  <li>
-                    Request your rent history from DHCR by emailing them at rentinfo@nyshcr.org or calling them at 718 739-6400.
-                    <br>Here's a sample email:
-                    <ul>
-                        <li>
-                            <div class="letter">
-                               <p>
-                                   Hello,<br>
-                                    I, (your name), am currently renting (your address, APARTMENT NUMBER, borough, zipcode) and would like the rent history for the unit I am renting. Any information you can provide me would be greatly appreciated.<br>
-                                    thank you,
-                                    <br><br>
-                                    - (your name)
-                               </p>
-                            </div>
-                        </li>
-                    </ul>
-                  </li>
-                  <li>Wait for it in the mail.</li>
-                  <li>When your rent history arrives it will tell you if your apartment is rent stabilized. If your rent is looks way higher than the previous tenant then file a complaint!</li>
-                </ol>
-              </div>
-          </div>
-          <div id="no" class="box hidden">
-              <h1>Sorry, looks like you may not be rent stabilized :(</h1>
-              <h3 class="clearfix">But, you can still request your rent history and double check. Follow these steps:</h3>              
-              <div class="action">                  
-                  <ol>
-                      <li>Request your rent history from DHCR by emailing them at rentinfo@nyshcr.org or calling them at 718 739-6400.
-                        <ul>
-                            <li>
-                                <div class="letter">
-                                   <p>
-                                       Hello,<br>
-                                        I, (your name), am currently renting (your address, APARTMENT NUMBER, borough, zipcode) and would like the rent history for the unit I am renting. Any information you can provide me would be greatly appreciated.<br>
-                                        thank you,
-                                        <br><br>
-                                        - (your name)
-                                   </p>
-                                </div>
-                            </li>
-                        </ul>
-                      </li>
-                      <li>Wait for it in the mail</li>
-                      <li>When your rent history arrives it will tell you if your apartment is rent stabilized. If your rent is x% higher than the previous tenant file a complaint!</li>
-                  </ol>
-              </div>
-          </div>  
-        </div>        
-        <script src="bower_components/cartodb.js/dist/cartodb.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvc75lurezNSnEDDYzoz2grEBOHK7ToT8"></script>
-        <script src="js/main.js"></script>
+          <button id="submit">Okay!</button>          
+        </div>
+      </section>
+      <section class="three">
+        <h3>Hold on, we're checking...</h3>
+        <p class="center">(display huge loading GIF?)</p>        
+      </section>
+      <section class="four">        
+        <div class="yes">
+          <h3>Good news! <br> Your building may be rent stabilized!</h3> 
+          <p class="center">(show map here.)</p>
+          <div id="map"></div>          
+        </div>
+        <div class="no hidden">
+          <h3>Sorry, we couldn't find your building :(</h3>
+          <p>But you should double check anyway!
+                  Heres how.
+          </p>          
+        </div>
+        <p class="center arrow">&#9660;</p>        
+      </section>
+      <section>
+        <h1>Here's how to take action:</h1>
+        <p class="center arrow">&#9660;</p>
+      </section>      
+      <section>
+        <h3>1. Request your rent history.</h3>
+        <p class="center">Email or Call the <a href="#">DHCR:</a><br>
+          rentinfo@nyshcr.org<br>
+          718 739-6400
+ </p>
+        <p class="center arrow">&#9660;</p>
+      </section>
+      <section>
+        <h3>2. Wait for it in the mail.</h3>
+        <p class="center">It shouldn't take more than a few days!</p>
+        <p class="center arrow">&#9660;</p>
+      </section>
+      <section>
+        <h3>3. When you recieve it check it out.</h3>
+        <p class="small center">Look at what the previous tenant was paying, 
+          and whether or not they were rent stabilized.</p>
+        <p class="small center">(sample rent history image here)</p>
+      </section>
+      <section>
+        <h3>4. If they were paying a lot less than you are, file a complaint with the DHCR!</h3>
+        <p class="center"><em>Fill out and mail <a href="#">this form</a></em></p>
+      </section>
+      <section>
+        <p class="center">
+          If the DHCR finds your complaint to be valid they will require
+          your landlord to<br>
+          <strong>reimburse you for past rent!</strong>
+        </p>
+        <p class="center">You can learn more <a href="#">here</a></p>
+      </section>
+    </div>
+      
+    <!-- JavaScript libraries -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/underscore/underscore-min.js"></script>
+    <!-- Javascripts -->
+    <script src="js/second.js"></script>
 
-        <!-- Uncomment to include Google Analytics
-        <script>
-            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g,s)}(document,'script'));
-        </script>
-        -->
+    <!-- Uncomment to include Google Analytics
+    <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+    -->
 
-    </body>
+  </body>
 </html>
