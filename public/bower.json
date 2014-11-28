@@ -29,6 +29,8 @@
     "cartodb.js": "~3.11.30",
     "bootstrap": "~3.3.1",
     "html5-reset": "~2.1.2",
-    "normalize.css": "~3.0.2"
+    "normalize.css": "~3.0.2",
+    "modernizr": "~2.8.3",
+    "jquery-smooth-scroll": "~1.5.4"
   }
 }

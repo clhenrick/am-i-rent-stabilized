@@ -3,29 +3,27 @@
   <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Project Name</title>
+      <title>Am I Rent Stabilized?</title>
       <meta name="description" content="">      
       <meta name="viewport" content="width=device-width, initial-scale=1">
-
-      <!-- Browser favicon -->
-      <link rel="shortcut icon" href="favicon.png">            
-      <!-- CSS files -->
-      <link rel="stylesheet" type="text/css" href="css/styles2.css">
-      <!-- Uncomment to include modernizer.js
-      <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-      -->
-
+      <link rel="shortcut icon" href="favicon.png">
+      <link rel="stylesheet" type="text/css" href="bower_components/cartodb.js/dist/cartodb.css">
+      <link rel="stylesheet" type="text/css" href="bower_components/normalize.css/normalize.css">            
+      <link rel="stylesheet" type="text/css" href="css/styles.css">      
+      <script src="bower_components/modernizr/modernizr.js"></script>      
   </head>
   <body>
-
     <div id="wrapper">
-      <section class="one">
+      <!-- slide one -->
+      <section>
         <p class="callout">Hey NYC!</p>
         <h1>am i rent stabilized?</h1>
         <p class="center">let's find out!</p>
-        <p class="center arrow">&#9660;</p>
+        <p class="center arrow"><a href="#test">&#9660;</a></p>        
       </section>
-      <section class="two">
+      <!-- two -->
+      <section> 
+        <a name="test"></a>       
         <h3>Let's have your <br>address and Borough:</h3>
         <div id="form" class="box">
           <div class="address-box">
@@ -42,55 +40,73 @@
                   <option>Staten Island</option>
               </select>                          
           </div>
-          <button id="submit">Okay!</button>          
+          <a id="submit" href="#three">Okay!</a>          
         </div>
       </section>
+      <!-- three -->
       <section class="three">
+        <a name="three"></a>        
         <h3>Hold on, we're checking...</h3>
-        <p class="center">(display huge loading GIF?)</p>        
+        <div id="gif"></div>
+        <a href="#four"></a>        
       </section>
-      <section class="four">        
-        <div class="yes">
+      <!-- four -->
+      <section class="four">
+        <a name="four"></a>        
+        <div class="yes hidden">
           <h3>Good news! <br> Your building may be rent stabilized!</h3> 
-          <p class="center">(show map here.)</p>
+          <p class="center">(show map here?)</p>
           <div id="map"></div>          
         </div>
         <div class="no hidden">
           <h3>Sorry, we couldn't find your building :(</h3>
-          <p>But you should double check anyway!
-                  Heres how.
+          <p>But you should double check anyway!                  
           </p>          
         </div>
-        <p class="center arrow">&#9660;</p>        
+        <p class="center arrow"><a href="#five">&#9660;</a></p>        
       </section>
+      <!-- five -->
       <section>
+        <a name="five"></a>
         <h1>Here's how to take action:</h1>
-        <p class="center arrow">&#9660;</p>
-      </section>      
+        <p class="center arrow"><a href="#six">&#9660;</a></p>
+      </section>
+      <!-- six  -->
       <section>
+        <a name="six"></a>
         <h3>1. Request your rent history.</h3>
-        <p class="center">Email or Call the <a href="#">DHCR:</a><br>
+        <p class="center"><strong>Email</strong> or <strong>Call</strong> the <a href="http://www.nyshcr.org/">DHCR:</a><br>
           rentinfo@nyshcr.org<br>
           718 739-6400
- </p>
-        <p class="center arrow">&#9660;</p>
+        </p>
+        <p class="center arrow"><a href="#seven">&#9660;</a></p>
       </section>
+      <!-- seven -->
       <section>
+        <a name="seven"></a>
         <h3>2. Wait for it in the mail.</h3>
         <p class="center">It shouldn't take more than a few days!</p>
-        <p class="center arrow">&#9660;</p>
+        <p class="center arrow"><a href="#eight">&#9660;</a></p>
       </section>
+      <!-- eight -->
       <section>
+        <a name="eight"></a>
         <h3>3. When you recieve it check it out.</h3>
         <p class="small center">Look at what the previous tenant was paying, 
           and whether or not they were rent stabilized.</p>
         <p class="small center">(sample rent history image here)</p>
+        <p class="center arrow"><a href="#nine">&#9660;</a></p>
       </section>
+      <!-- nine -->
       <section>
+        <a name="nine"></a>
         <h3>4. If they were paying a lot less than you are, file a complaint with the DHCR!</h3>
-        <p class="center"><em>Fill out and mail <a href="#">this form</a></em></p>
+        <p class="center"><em>Fill out and mail <a href="http://www.nyshcr.org/Forms/Rent/ra89.pdf">this form</a></em></p>
+        <p class="center arrow"><a href="#ten">&#9660;</a></p>
       </section>
+      <!-- ten -->
       <section>
+        <a name="ten"></a>
         <p class="center">
           If the DHCR finds your complaint to be valid they will require
           your landlord to<br>
@@ -99,11 +115,15 @@
         <p class="center">You can learn more <a href="#">here</a></p>
       </section>
     </div>
+    <!-- end -->
       
     <!-- JavaScript libraries -->
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/underscore/underscore-min.js"></script>
+    <script src="bower_components/cartodb.js/dist/cartodb.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvc75lurezNSnEDDYzoz2grEBOHK7ToT8"></script>
+    <script src="bower_components/spin.js/spin.js"></script>
+    <script src="bower_components/spin.js/jquery.spin.js"></script>
     <!-- Javascripts -->
+    <script src="js/main.js"></script>
     <script src="js/second.js"></script>
 
     <!-- Uncomment to include Google Analytics

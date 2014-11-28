@@ -98,16 +98,30 @@ section p.small {
   margin-top: 10%;
 }
 
+#gif {
+  top: 15%;
+  width: 400px;
+  height: 400px;
+  padding: 0;
+  margin: 0 auto;
+}
+
 .center {
   text-align: center;
 }
 
-.arrow {
+p.arrow, p.arrow a {
   position: absolute;
   margin: 0 auto;
   bottom: 0;
+  color: #FFF;
   left: 48%;
-  font-size: 10em;
+  font-size: 3em;
+}
+
+p.arrow a:hover {
+  background-color: #000;
+  color: hsl(300, 100%, 50%);
 }
 
 .box {
@@ -165,11 +179,14 @@ select:focus {
 }
 
 #submit  {
+  display: inline-block;
   left: 42%;
   margin-top: 5%;
+  cursor: pointer;
   padding: 1%;
   font-size: 5em;
   color: hsl(0,0%,40%);
+  background-color: hsl(0,0%,80%);
   border: 1px solid #000;
   transition: box-shadow 0.3s, border 0.3s;
 }

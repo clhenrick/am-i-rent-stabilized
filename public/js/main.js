@@ -1,6 +1,6 @@
 // main variables
-var  yes = $('#yes'),
-      no = $('#no'),
+var  yes = $('.yes'),
+      no = $('.no'),
       form = $('#form'),
       submit = $('#submit'),
       // url to cartodb sql api
@@ -15,13 +15,18 @@ var  yes = $('#yes'),
 
 // if the results of the CDB SQL query have a row then yes else no
 var checkData = function(json) {  
-  if (json.rows.length !==0) {    
+
+  if (json.rows.length !==0) 
+  {    
     console.log('yay!');
-    form.addClass('hidden');
+    $('a[href=#four]').trigger('click');
     yes.removeClass('hidden');
-  } else {
+  } 
+  else if  (json.rows.length ===0) 
+  {
     console.log('boo!');
-    form.addClass('hidden');
+    $('a[href=#four]').trigger('click');
+    yes.addClass('hidden');
     no.removeClass('hidden');
   }
 }
