@@ -153,6 +153,13 @@
         }
       }
 
+      var setIOSHeight = function() {
+        var i = 1, len = sections.length;
+        for (i; i<len; i++) {
+          sections[i].style.height = window.innerHeight + getHeightOfIOSToolbars() + 'px';
+        }
+      }
+
       var getIOSWindowHeight = function() {
         var zoomLevel = document.documentElement.clientWidth / window.innerWidth;
         return window.innerHeight * zoomLevel;
@@ -165,7 +172,7 @@
       if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) {
         console.log('iphone detected');
         window.resizeTo(window.innerWidth, getIOSWindowHeight);
-        setHeight();
+        setIOSHeight();
       } else {
         setHeight();
       }
