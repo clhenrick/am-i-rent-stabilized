@@ -7,17 +7,16 @@
       <meta name="description" content="Find out if your NYC apartment is rent stabilized!">      
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="shortcut icon" href="favicon.png">
-      <link rel="stylesheet" type="text/css" href="css/reset.css">
-      <!-- <link rel="stylesheet" type="text/css" href="bower_components/normalize.css/normalize.css"> -->
+      <!-- <link rel="stylesheet" type="text/css" href="css/reset.css"> -->
+      <link rel="stylesheet" type="text/css" href="bower_components/normalize.css/normalize.css">
       <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-      <link rel="stylesheet" type="text/css" href="bower_components/cartodb.js/themes/css/cartodb.css">
-      <link rel="stylesheet" type="text/css" href="bower_components/normalize.css/normalize.css">            
+      <link rel="stylesheet" type="text/css" href="bower_components/cartodb.js/themes/css/cartodb.css">            
       <link rel="stylesheet" type="text/css" href="css/styles.css">      
-      <script src="bower_components/modernizr/modernizr.js"></script>      
+      <!--<script src="bower_components/modernizr/modernizr.js"></script>      -->
   </head>
-  <body>
-    <!-- <hr id="guide"> -->
+  <body>    
     <div id="wrapper">
+      <hr id="guide">
       <!-- slide one -->
       <section>
         <p class="callout">Hey NYC!</p>
@@ -59,7 +58,7 @@
       <section class="four">
         <a name="four"></a>
         <div class="cheating">
-          <h3>Hey!<br> Go <a href="#two">^back^</a> and fill out the form! </h3>
+          <h3>Hey! Go <a href="#two">^back^</a> and fill out the form! </h3>
         </div>        
         <div class="yes hidden">
           <h3>Good news! <br> Your building may be rent stabilized!</h3>           
@@ -139,12 +138,36 @@
      <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <script src="bower_components/cartodb.js/dist/cartodb.noleaflet.js"></script>
     <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.3"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvc75lurezNSnEDDYzoz2grEBOHK7ToT8"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvc75lurezNSnEDDYzoz2grEBOHK7ToT8"></script> 
     <script src="bower_components/spin.js/spin.js"></script>
     <script src="bower_components/spin.js/jquery.spin.js"></script>
     <!-- Javascripts -->
+    <script type="text/javascript">
+    var init =function() {
+      var userAgent = window.navigator.userAgent;
+      var getIOSWindowHeight = function() {
+        var zoomLevel = document.documentElement.clientWidth / window.innerWidth;
+        return window.innerHeight * zoomLevel;
+      };
+      var getHeightOfIOSToolbars = function() {
+        var tH = (window.orientation === 0 ? screen.height : screen.width) -  getIOSWindowHeight();
+        return tH > 1 ? tH : 0;
+      };
+
+      if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) {
+        console.log('iphone detected');
+        window.resizeTo(window.innerWidth, getIOSWindowHeight);
+      }
+
+      return {
+        userAgent : userAgent
+      }
+    }
+    window.onload = function() {
+      init();
+    }
+    </script>
     <script src="js/main.js"></script>
-    <!--<script src="js/second.js"></script> -->
 
     <!-- Uncomment to include Google Analytics
     <script>
