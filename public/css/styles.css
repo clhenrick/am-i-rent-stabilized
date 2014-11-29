@@ -308,11 +308,10 @@ select:focus {
 }
 
 @media screen and (min-width: 300px) and (max-width:414px)  {
-  section h1 { font-size: 8em; }
+  section h1 { font-size: 8em; padding-top: 2%; }
   section h3 { font-size: 5em; }
   section p { font-size: 4em; margin-top: 5%; }
   section p.small { font-size: 3em; margin-top: 5%; }
-  /*section p strong { display: inline; }*/
   section p.callout  { padding-top: 3%; }
   section p.arrow, p.arrow a { left: 39%; font-size: 2.6em; }
   .box { top: 0;}

@@ -36,6 +36,11 @@ $(window).on('load', function(){
       $section.height($(window).height());
     });
 
+    // hide arrows other than the first one for mobile
+    if (($(window).width() > 300) &&  ($(window).width() < 420)) {
+        $('p.arrow a:gt(0)').css('display', 'none');
+    }
+
     // smooth scroll transition via CSS Tricks blog:
     // http://css-tricks.com/snippets/jquery/smooth-scrolling/
     $(function() {
@@ -119,7 +124,7 @@ $(window).on('load', function(){
 
     if ($(window).width() <=600) {
       $('#gif').spin('med', '#fff');
-    }
+    }    
 
     $startOver.on('click', function(){
       $address.val('Enter your street address');
