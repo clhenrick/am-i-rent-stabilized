@@ -1,11 +1,17 @@
 // code for map / cartodb stuff 
 $(window).on('load', function(){
   // main variables
-  var yes = $('.yes'),
-        no = $('.no'),
-        cheating = $('.cheating'),
-        form = $('#form'),
-        submit = $('#submit'),
+  var $body = $('body'),
+        $wrapper = $('#wrapper'),
+        $section = $('section'),        
+        $yes = $('.yes'),
+        $no = $('.no'),
+        $cheating = $('.cheating'),
+        $form = $('#form'),
+        $address = $('#address'),
+        $boro = $('#boro'),
+        $submit = $('#submit'),
+        $startOver = $("a[href$='#top']"),
         // url to cartodb sql api
         cdbURL = "http://chenrick.cartodb.com/api/v2/sql?q=",
         // bounding box for nyc to improve geocoder results
@@ -17,27 +23,150 @@ $(window).on('load', function(){
         geocoder = new google.maps.Geocoder(),
         map,
         geocoderMarker;
+    
+    /********* UI Stuff *********/ 
+    // set slide dimensions to user window
+    $wrapper.width($(window).width());
+    $section.width($(window).width());
+    $section.height($(window).height());
 
-  // if the results of the CDB SQL query have a row then yes else no
-  var checkData = function(json) {  
-    $('#map').removeClass('hidden');
+    $(window).resize(function(){
+      $wrapper.width($(window).width());
+      $section.width($(window).width());
+      $section.height($(window).height());
+    });
 
-    if (json.rows.length !==0) 
-    {    
-      console.log('yay!');
-      $('a[href=#four]').trigger('click');
-      cheating.addClass('hidden');
-      if (!no.hasClass('hidden')) { no.addClass('hidden'); }
-      yes.removeClass('hidden');
-    } 
-    else if  (json.rows.length ===0) 
-    {
-      console.log('boo!');
-      $('a[href=#four]').trigger('click');
-      cheating.addClass('hidden');
-      if (!yes.hasClass('hidden')) { yes.addClass('hidden'); }
-      no.removeClass('hidden');
+    // smooth scroll transition via CSS Tricks blog:
+    // http://css-tricks.com/snippets/jquery/smooth-scrolling/
+    $(function() {
+      $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html,body').animate({
+              scrollTop: target.offset().top
+            }, 1000);
+            return false;
+          }
+        }
+      });
+    });
+
+    // loading GIF
+    $.fn.spin.presets.huge = {
+        lines: 13, // The number of lines to draw
+        length: 100, // The length of each line
+        width: 40, // The line thickness
+        radius: 100, // The radius of the inner circle
+        corners: 0.5, // Corner roundness (0..1)
+        rotate: 0, // The rotation offset
+        direction: 1, // 1: clockwise, -1: counterclockwise
+        color: '#fff', // #rgb or #rrggbb or array of colors
+        speed: 0.7, // Rounds per second
+        trail: 60, // Afterglow percentage
+        shadow: false, // Whether to render a shadow
+        hwaccel: false, // Whether to use hardware acceleration
+        className: 'huge', // The CSS class to assign to the spinner
+        zIndex: 2e9, // The z-index (defaults to 2000000000)
+        top: '50%', // Top position relative to parent
+        left: '50%' // Left position relative to parent
+      }
+
+      $.fn.spin.presets.large = {
+        lines: 11, 
+        length: 70, 
+        width: 30, 
+        radius: 70, 
+        corners: 0.5, 
+        rotate: 0, 
+        direction: 1, 
+        color: '#fff', 
+        speed: 0.7, 
+        trail: 60, 
+        shadow: false, 
+        hwaccel: false, 
+        className: 'large', 
+        zIndex: 2e9, 
+        top: '50%', 
+        left: '50%' 
+      } 
+
+      $.fn.spin.presets.med = {
+        lines: 11, 
+        length: 40, 
+        width: 20, 
+        radius: 50, 
+        corners: 0.5, 
+        rotate: 0, 
+        direction: 1, 
+        color: '#fff', 
+        speed: 0.7, 
+        trail: 60, 
+        shadow: false, 
+        hwaccel: false, 
+        className: 'large', 
+        zIndex: 2e9, 
+        top: '50%', 
+        left: '50%' 
+      }   
+
+    $('#gif').spin('huge','#fff');
+
+    if ($(window).width() <= 960 || $(window).height() <=770) {
+      $('#gif').spin('large', '#fff');
     }
+
+    if ($(window).width() <=600) {
+      $('#gif').spin('med', '#fff');
+    }
+
+    $startOver.on('click', function(){
+      $address.val('Enter your street address');
+      $boro.val('select');
+      if ($cheating.hasClass('hidden')) { $cheating.removeClass('hidden'); }
+      hideYes();
+      hideNo();
+
+
+      if (geocoderMarker) { 
+        map.removeLayer(geocoderMarker);
+        map.setView([40.7127, -74.0059], 10);
+      }
+    });
+
+  var showYes = function() {            
+      if ($yes.hasClass('hidden')) { $yes.removeClass('hidden'); }
+  }
+
+  var hideYes = function() {
+    if (! $yes.hasClass('hidden')) { $yes.addClass('hidden'); }
+  }
+
+  var showNo = function() {            
+     if ($no.hasClass('hidden')) { $no.removeClass('hidden'); }
+  }
+
+  var hideNo = function() {
+    if (! $no.hasClass('hidden')) { $no.addClass('hidden'); }
+  }
+
+  /******** Map Stuff! ********/
+  // if the results of the CDB SQL query have a row then $yes else no
+  var checkData = function(json) {  
+    $cheating.addClass('hidden');
+    $('a[href=#four]').trigger('click');
+
+    if (json.rows.length !==0) {    
+        console.log('yay!');
+        showYes();
+        hideNo();
+      } 
+    else if  (json.rows.length ===0) {
+        console.log('boo!');
+        showNo();
+        hideYes();      
+      }
   }
 
   // geocode the user input
@@ -80,16 +209,17 @@ $(window).on('load', function(){
     });
   };
 
-  // when user clicks the submit button fire the app!
-  submit.on('click', function(){
-    var streetAddress = $('#address').val(),
-          boro = $('#boro').val(),
+  // when user clicks the $submit button fire the app!
+  $submit.on('click', function(){
+    var streetAddress = $address.val(),
+          boro = $boro.val(),
           fullAddress = streetAddress + ', ' + boro + ', NY'
 
     console.log('address is: ', fullAddress );
     geocodeAddress(fullAddress);
   });
 
+  // set up the leaflet / cartodb map
   var initMap = function() {
     map = new L.Map('map', {
       center : [40.7127, -74.0059],

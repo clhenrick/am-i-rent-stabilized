@@ -24,12 +24,17 @@ body {
   height: 400px;
   margin: 0 auto;
   color: #000;
+  border: 1px solid white;
 }
 
 #guide {
   position: absolute;
-  transform: rotate(90deg) translateX(130%);
-  transform-origin: 50%;
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-transform-origin: 50%;
+      -ms-transform-origin: 50%;
+          transform-origin: 50%;
   width: 100%;
   border: 1px solid hsla(0,100%,50%,0.4);
   z-index: 9000;
@@ -37,7 +42,7 @@ body {
 
 .clearfix {
   overflow: auto;
-  zoom: 1; /* IE 6 */
+  zoom: 1 /* IE 6 */
 }
 
 .hidden {
@@ -56,7 +61,8 @@ a {
   color: hsl(300,100%,50%);
   font-weight: 600;
   padding: 0 1%;
-  transition: all 0.5s linear;
+  -webkit-transition: all 0.5s linear;
+          transition: all 0.5s linear;
   border-radius: 10px;
 }
 
@@ -119,8 +125,12 @@ section p.callout {
   width: auto;
   font-weight: 400;
   font-style: italic;
-  transform: rotate(-45deg); 
-  transform-origin: 90% 140%;
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg); 
+  -webkit-transform-origin: 90% 140%; 
+      -ms-transform-origin: 90% 140%; 
+          transform-origin: 90% 140%;
 }
 
 section p.small {
@@ -180,7 +190,8 @@ p.arrow a:hover {
   display: block;
   margin: 0 auto;
   padding: 5px;
-  transition: box-shadow 0.3s, border 0.3s;
+  -webkit-transition: box-shadow 0.3s, border 0.3s;
+          transition: box-shadow 0.3s, border 0.3s;
   width: 60%;
   text-align: center;
   font-size: 5em;     
@@ -209,7 +220,8 @@ select {
    font-size: 5em;
    color: hsl(0,0%,40%);
    padding: .5em;
-   transition: box-shadow 0.3s, border 0.3s;
+   -webkit-transition: box-shadow 0.3s, border 0.3s;
+           transition: box-shadow 0.3s, border 0.3s;
 }
 
 select:focus {
@@ -227,7 +239,8 @@ select:focus {
   color: hsl(0,0%,40%);
   background-color: hsl(0,0%,80%);
   border: 1px solid #000;
-  transition: box-shadow 0.3s, border 0.3s;
+  -webkit-transition: box-shadow 0.3s, border 0.3s;
+          transition: box-shadow 0.3s, border 0.3s;
 }
 
 #submit:hover {
@@ -277,8 +290,12 @@ select:focus {
   section p { font-size: 5em;}
   section p.small { font-size: 4.5em;}
   section p.callout {
-    transform: rotate(0deg);
-    transform-origin: 0;
+    -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+            transform: rotate(0deg);
+    -webkit-transform-origin: 0;
+        -ms-transform-origin: 0;
+            transform-origin: 0;
     position: relative;
     margin: 0 auto;
     text-align: center;

@@ -7,6 +7,8 @@
       <meta name="description" content="Find out if your NYC apartment is rent stabilized!">      
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="shortcut icon" href="favicon.png">
+      <link rel="stylesheet" type="text/css" href="css/reset.css">
+      <!-- <link rel="stylesheet" type="text/css" href="bower_components/normalize.css/normalize.css"> -->
       <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
       <link rel="stylesheet" type="text/css" href="bower_components/cartodb.js/themes/css/cartodb.css">
       <link rel="stylesheet" type="text/css" href="bower_components/normalize.css/normalize.css">            
@@ -35,7 +37,7 @@
           <!-- <p>Select your borough:</p> -->
           <div class="select-box">
               <select id="boro">
-                  <option>Select Your Borough</option>
+                  <option value='select'>Select Your Borough</option>
                   <option>Bronx</option>
                   <option>Brooklyn</option>                
                   <option>Manhattan</option>
@@ -142,7 +144,7 @@
     <script src="bower_components/spin.js/jquery.spin.js"></script>
     <!-- Javascripts -->
     <script src="js/main.js"></script>
-    <script src="js/second.js"></script>
+    <!--<script src="js/second.js"></script> -->
 
     <!-- Uncomment to include Google Analytics
     <script>
