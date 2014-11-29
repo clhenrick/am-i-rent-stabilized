@@ -26,9 +26,9 @@ $(window).on('load', function(){
     
     /********* UI Stuff *********/ 
     // set slide dimensions to user window
-    $wrapper.width($(window).width());
-    $section.width($(window).width());
-    $section.height($(window).height());
+    // $wrapper.width($(window).width());
+    // $section.width($(window).width());
+    // $section.height($(window).height());
 
     $(window).resize(function(){
       $wrapper.width($(window).width());

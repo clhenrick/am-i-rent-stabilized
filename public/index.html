@@ -145,6 +145,14 @@
     <script type="text/javascript">
     var init =function() {
       var userAgent = window.navigator.userAgent;
+      var sections = document.documentElement.getElementsByTagName('section');
+      var setHeight = function() {
+        var i = 0, len = sections.length;
+        for (i; i<len; i++) {
+          sections[i].style.height = window.innerHeight + 'px';
+        }
+      }
+
       var getIOSWindowHeight = function() {
         var zoomLevel = document.documentElement.clientWidth / window.innerWidth;
         return window.innerHeight * zoomLevel;
@@ -157,6 +165,9 @@
       if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) {
         console.log('iphone detected');
         window.resizeTo(window.innerWidth, getIOSWindowHeight);
+        setHeight();
+      } else {
+        setHeight();
       }
 
       return {

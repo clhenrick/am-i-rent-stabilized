@@ -74,6 +74,7 @@ a:hover {
 section {
   margin: 0;
   padding: 0;
+  width: 100%;
   background: #000;
   border-bottom: 1px solid white;
   color: white;
