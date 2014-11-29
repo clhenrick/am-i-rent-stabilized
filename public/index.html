@@ -155,8 +155,9 @@
 
       var setIOSHeight = function() {
         var i = 1, len = sections.length;
+        sections[0].style.height = getIOSWindowHeight() + 'px';
         for (i; i<len; i++) {
-          sections[i].style.height = window.innerHeight + getHeightOfIOSToolbars() + 'px';
+          sections[i].style.height = getIOSWindowHeight()  + getHeightOfIOSToolbars() + 'px';
         }
       }
 
