@@ -1,23 +1,38 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   position: relative;
 }
 
-html, body {
+html {
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
-  font-size: 10px;
-  font-family: Helvetica, sans-serif;
+  font-size: 10px;  
 }
 
 body {
-  margin: 0;
+  width: 100%;
+  height: 100%;
   background-color: hsl(0,0%,97%);
-/*  background: url('../img/bk-rent-stabilized-reg-vs-likely.jpg');
-  background-repeat: no-repeat;
-  background-size: 100%;*/
+  font-family: Helvetica, sans-serif;
+  font-size: 62.5%;
+}
+
+#map {
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  color: #000;
+}
+
+#guide {
+  position: absolute;
+  transform: rotate(90deg) translateX(130%);
+  transform-origin: 50%;
+  width: 100%;
+  border: 1px solid hsla(0,100%,50%,0.4);
+  z-index: 9000;
 }
 
 .clearfix {
@@ -59,43 +74,57 @@ section {
 }
 
 section h1 {
-  margin: 0;
-  margin-top: 10%;  
+  margin: 10% auto 3% auto;  
+  width: 70%;
+  color: hsl(60, 100%, 60%);
   font-size: 20em;
   text-align: center;
 }
 
 section h3 {
-  margin: 0 8%;
+  margin: 0 auto;
   margin-top: 3%;
-  font-size: 12em;
+  width: 75%;
+  color: hsl(150, 100%, 55%);
+  font-size: 15em;
   font-weight: 400;
   text-align: center;
 }
 
+section h3.steps {
+  color: hsl(150, 100%, 55%);
+}
+
 section p {
-  margin: 5% 10%;
+  margin: 3% auto;
+  width: 75%;
   font-size: 10em;
   font-weight: 300;
 }
 
+section p em {
+  font-weight: 400;
+}
+
 section p strong {
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 1%;
+  color: hsl(60, 100%, 60%);
 }
 
 section p.callout {
   position: absolute;
+  display: block;
   margin: 0;
-  padding: 0  ;
+  width: auto;
+  font-weight: 400;
   font-style: italic;
   transform: rotate(-45deg); 
   transform-origin: 90% 140%;
 }
 
 section p.small {
-  font-size: 6em;
-  margin-top: 10%;
+  font-size: 8em;
 }
 
 #gif {
@@ -110,12 +139,18 @@ section p.small {
   text-align: center;
 }
 
+.vcenter {
+  margin-top: 10%;
+}
+
 p.arrow, p.arrow a {
   position: absolute;
+  display: inline-block;
+  width: auto;
   margin: 0 auto;
   bottom: 0;
   color: #FFF;
-  left: 48%;
+  left: 46.5%;
   font-size: 3em;
 }
 
@@ -142,9 +177,12 @@ p.arrow a:hover {
 }
 
 .address-box input[type=text] {
+  display: block;
+  margin: 0 auto;
   padding: 5px;
   transition: box-shadow 0.3s, border 0.3s;
-  width: 100%;
+  width: 60%;
+  text-align: center;
   font-size: 5em;     
   color: #000;
 }
@@ -160,12 +198,13 @@ p.arrow a:hover {
 }
 
 .select-box{
-  left: 22%;
    margin: 0 auto;
    width: 100%;
 }
 
 select {
+  display: block;
+  margin: 0 auto;
    border: 1px solid hsl(0,0%,60%);
    font-size: 5em;
    color: hsl(0,0%,40%);
@@ -179,9 +218,9 @@ select:focus {
 }
 
 #submit  {
-  display: inline-block;
-  left: 42%;
-  margin-top: 5%;
+  display: block;
+  width: 105px;
+  margin: 5% auto 5% auto;
   cursor: pointer;
   padding: 1%;
   font-size: 5em;
@@ -199,4 +238,71 @@ select:focus {
 #submit:focus {
   border: solid 1px #707070;
   box-shadow: 0 0 5px 1px #969696;
+}
+
+@media screen and (max-width: 1281px) {
+  p.arrow, p.arrow a { left: 46.5%; }
+}
+
+@media screen and (max-height: 880px) {
+  section h1 { font-size: 15em;}
+  section h3 { font-size: 12em; } 
+  section p { font-size: 7em; }
+  section p.small { font-size: 6em; }
+  section p.vcenter { margin-top: 5%; }
+  p.arrow, p.arrow a { left: 44.5%; }
+  #form.box { margin-top: 5%; top: 0; }
+  #map {width:350px; height: 350px; margin-top: 5%;}
+}
+
+@media screen and (max-width: 960px) {
+  section h1 { width: 80%; }
+  p em { display: inline-block; width: 65%; }
+  p.arrow, p.arrow a { left: 44%; }
+  .address-box input[type=text] { width: 70%; font-size: 3.5em; }
+  .select-box select { font-size: 3.5em;}   
+  #gif { width: 200px; height: 200px; }
+}
+
+@media screen and (max-width: 800px) {
+  section h1 { font-size: 12em; }
+  section h3 { font-size: 10em; }
+  section p { font-size: 8em; }
+  p.arrow, p.arrow a { left: 42%; font-size: 2.8em; }  
+}
+
+@media screen and (max-width: 604px) {
+  section h1 { margin: 5% auto }
+  section h3 { font-size: 9em; }
+  section p { font-size: 5em;}
+  section p.small { font-size: 4.5em;}
+  section p.callout {
+    transform: rotate(0deg);
+    transform-origin: 0;
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .address-box input[type=text] { width: 80%; font-size: 3.5em; }
+  p.arrow, p.arrow a { left: 42%; font-size: 2.8em; }
+  /*section p strong { display: inline; }*/
+}
+
+@media screen and (min-width: 300px) and (max-width:414px)  {
+  section h1 { font-size: 8em; }
+  section h3 { font-size: 5em; }
+  section p { font-size: 4em; margin-top: 5%; }
+  section p.small { font-size: 3em; margin-top: 5%; }
+  /*section p strong { display: inline; }*/
+  section p.callout  { margin-top: 10%; }
+  section p.arrow, p.arrow a { left: 39%; font-size: 2.6em; }
+  .box { top: 0;}
+  .address-box input[type=text] { width: 100%; font-size: 2.8em; margin-top: 10%;}
+  .select-box select { font-size: 2.8em; margin-top: 10%;}
+  #submit { width:72px; font-size: 3.5em; margin-top: 10%;}
+}
+
+@media screen and (max-width: 320px) {
+  section p.small { font-size: 3.2em; margin-top: 7%; }
+  section p.arrow, p.arrow a { left: 38.5%; font-size: 2.2em; }
 }

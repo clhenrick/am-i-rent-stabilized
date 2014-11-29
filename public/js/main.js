@@ -1,90 +1,141 @@
-// main variables
-var  yes = $('.yes'),
-      no = $('.no'),
-      form = $('#form'),
-      submit = $('#submit'),
-      // url to cartodb sql api
-      cdbURL = "http://chenrick.cartodb.com/api/v2/sql?q=",
-      // bounding box for nyc to improve geocoder results
-      bounds = new google.maps.LatLngBounds(
-            new google.maps.LatLng(40.4959961, -74.2590879), //sw
-            new google.maps.LatLng(40.91525559999999, -73.7002721) //ne
-            ),
-      // use google maps api geocoder
-      geocoder = new google.maps.Geocoder();
+// code for map / cartodb stuff 
+$(window).on('load', function(){
+  // main variables
+  var yes = $('.yes'),
+        no = $('.no'),
+        cheating = $('.cheating'),
+        form = $('#form'),
+        submit = $('#submit'),
+        // url to cartodb sql api
+        cdbURL = "http://chenrick.cartodb.com/api/v2/sql?q=",
+        // bounding box for nyc to improve geocoder results
+        bounds = new google.maps.LatLngBounds(
+              new google.maps.LatLng(40.4959961, -74.2590879), //sw
+              new google.maps.LatLng(40.91525559999999, -73.7002721) //ne
+              ),
+        // use google maps api geocoder
+        geocoder = new google.maps.Geocoder(),
+        map,
+        geocoderMarker;
 
-// if the results of the CDB SQL query have a row then yes else no
-var checkData = function(json) {  
+  // if the results of the CDB SQL query have a row then yes else no
+  var checkData = function(json) {  
+    $('#map').removeClass('hidden');
 
-  if (json.rows.length !==0) 
-  {    
-    console.log('yay!');
-    $('a[href=#four]').trigger('click');
-    yes.removeClass('hidden');
-  } 
-  else if  (json.rows.length ===0) 
-  {
-    console.log('boo!');
-    $('a[href=#four]').trigger('click');
-    yes.addClass('hidden');
-    no.removeClass('hidden');
+    if (json.rows.length !==0) 
+    {    
+      console.log('yay!');
+      $('a[href=#four]').trigger('click');
+      cheating.addClass('hidden');
+      if (!no.hasClass('hidden')) { no.addClass('hidden'); }
+      yes.removeClass('hidden');
+    } 
+    else if  (json.rows.length ===0) 
+    {
+      console.log('boo!');
+      $('a[href=#four]').trigger('click');
+      cheating.addClass('hidden');
+      if (!yes.hasClass('hidden')) { yes.addClass('hidden'); }
+      no.removeClass('hidden');
+    }
   }
-}
 
-// geocode the user input
-var geocodeAddress = function(address) {
-        geocoder.geocode({ 'address': address, 'bounds' : bounds }, function(results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-          var geo = results[0].address_components[0].long_name + ' ' + 
-                          results[0].address_components[1].long_name;
-          var lonLat = results[0].geometry.location.B + ' ' + results[0].geometry.location.k;
-          console.log('gecoder results: ', results);
-          console.log('lonLat: ', lonLat)
-          console.log('address to pass: ', geo);
-          //checkAddress(geo);
-          checkAddress(lonLat);
-        };
-      });
+  // geocode the user input
+  var geocodeAddress = function(address) {
+          geocoder.geocode({ 'address': address, 'bounds' : bounds }, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            var geo = results[0].address_components[0].long_name + ' ' + 
+                            results[0].address_components[1].long_name;
+            var lonLat = results[0].geometry.location.B + ' ' + results[0].geometry.location.k;
+            var latlng = [results[0].geometry.location.k, results[0].geometry.location.B];
+            console.log('gecoder results: ', results);
+            console.log('lonLat: ', lonLat)
+            console.log('address to pass: ', geo);
+            //checkAddress(geo);
+            checkAddress(lonLat);
+          
+          // remove geocoded marker if one already exists
+          if (geocoderMarker) { 
+            map.removeLayer(geocoderMarker);
+          }
+          // add a marker and pan and zoom the map to it
+          geocoderMarker = new L.marker(latlng).addTo(map);
+          geocoderMarker.bindPopup("<h4>" + results[0].formatted_address + "</h4>" ).openPopup();
+          map.setView(latlng, 17);            
+          };
+        });
+    };
+
+  // check the address using a longitude and latitude coordinates with a PostGIS SQL query
+  var checkAddress = function(lonLat) {
+    var sql = "SELECT * FROM nyc_likely_rent_stabilized where " +
+                   "ST_Intersects(ST_GeomFromText('Point(" +
+                          lonLat + ")',4326), the_geom)";
+    
+    console.log('the sql: ', sql);
+
+    $.getJSON(cdbURL + sql, function(data) {
+        console.log('data: ', data);
+        checkData(data);
+    });
   };
 
-// check the address using a longitude and latitude coordinates with a PostGIS SQL query
-var checkAddress = function(lonLat) {
-  var sql = "SELECT * FROM nyc_likely_rent_stabilized where " +
-                 "ST_Intersects(ST_GeomFromText('Point(" +
-                        lonLat + ")',4326), the_geom)";
-  
-  console.log('the sql: ', sql);
+  // when user clicks the submit button fire the app!
+  submit.on('click', function(){
+    var streetAddress = $('#address').val(),
+          boro = $('#boro').val(),
+          fullAddress = streetAddress + ', ' + boro + ', NY'
 
-  $.getJSON(cdbURL + sql, function(data) {
-      console.log('data: ', data);
-      checkData(data);
+    console.log('address is: ', fullAddress );
+    geocodeAddress(fullAddress);
   });
-};
 
-// when user clicks the submit button fire the app!
-submit.on('click', function(){
-  var streetAddress = $('#address').val(),
-        boro = $('#boro').val(),
-        fullAddress = streetAddress + ', ' + boro + ', NY'
+  var initMap = function() {
+    map = new L.Map('map', {
+      center : [40.7127, -74.0059],
+      zoom : 10,
+      dragging : false,
+      touchZoom : false,
+      doubleClickZoom : false,
+      scrollWheelZoom : false,
+      zoomControl : false
+    });
 
-  console.log('address is: ', fullAddress );
-  geocodeAddress(fullAddress);
+    var tonerLite = new L.StamenTileLayer('toner-lite');
+    map.addLayer(tonerLite);
+
+    cartodb.createLayer(map, {
+      user_name : 'chenrick',
+      type: 'cartodb',
+      sublayers: [{
+        sql : 'Select * from all_map_pluto_rent_stabl_reg_2014v1',
+        cartocss : "#all_map_pluto_rent_stabl_reg_2014v1 {" +
+                          "polygon-fill: #FF6600;" +
+                          "polygon-opacity: 0.7;" +
+                          "line-color: #FFF;" +
+                          "line-width: 0.3;" +
+                          "line-opacity: 1;" +
+                        "}"
+      },
+      {
+        sql : 'Select * from all_nyc_likely_rent_stabl_not_reg',
+        cartocss : "#all_nyc_likely_rent_stabl_not_reg {" +
+                          "polygon-fill: #FFCC00;" +
+                          "polygon-opacity: 0.9;" +
+                          "line-color: #FFF;" +
+                          "line-width: 0.3;" +
+                          "line-opacity: 1;" +
+                        "}"
+      }
+      ]
+    })
+    .addTo(map)
+    .done(function(layer){
+      // console.log(layer);
+      tonerLite.bringToBack();
+    });    
+
+  } // end initMap()
+
+  initMap();
 });
-
-/*** scratch code ***/
-// test out geocoding some addresses from the console...
-var testGeocode = function(testAddress) {
-  geocoder.geocode({'address' : testAddress, 'bounds' : bounds}, function(results, status) {
-    if (status == google.maps.GeocoderStatus.OK) {
-      console.log('test geocode results: ', results);
-
-      var resultBounds = new google.maps.LatLngBounds(
-          results[0].geometry.viewport.getSouthWest(), 
-          results[0].geometry.viewport.getNorthEast()
-      );
-
-      console.log('test geocode result bounds: ', resultBounds);
-
-    }
-  });
-};

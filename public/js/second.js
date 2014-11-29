@@ -1,3 +1,4 @@
+// code for UI interaction
 $(window).on('load', function(){
 
   var $body = $('body'),
@@ -52,6 +53,52 @@ $(window).on('load', function(){
       left: '50%' // Left position relative to parent
     }
 
+    $.fn.spin.presets.large = {
+      lines: 11, // The number of lines to draw
+      length: 70, // The length of each line
+      width: 30, // The line thickness
+      radius: 70, // The radius of the inner circle
+      corners: 0.5, // Corner roundness (0..1)
+      rotate: 0, // The rotation offset
+      direction: 1, // 1: clockwise, -1: counterclockwise
+      color: '#fff', // #rgb or #rrggbb or array of colors
+      speed: 0.7, // Rounds per second
+      trail: 60, // Afterglow percentage
+      shadow: false, // Whether to render a shadow
+      hwaccel: false, // Whether to use hardware acceleration
+      className: 'large', // The CSS class to assign to the spinner
+      zIndex: 2e9, // The z-index (defaults to 2000000000)
+      top: '50%', // Top position relative to parent
+      left: '50%' // Left position relative to parent
+    } 
+
+    $.fn.spin.presets.med = {
+      lines: 11, // The number of lines to draw
+      length: 40, // The length of each line
+      width: 20, // The line thickness
+      radius: 50, // The radius of the inner circle
+      corners: 0.5, // Corner roundness (0..1)
+      rotate: 0, // The rotation offset
+      direction: 1, // 1: clockwise, -1: counterclockwise
+      color: '#fff', // #rgb or #rrggbb or array of colors
+      speed: 0.7, // Rounds per second
+      trail: 60, // Afterglow percentage
+      shadow: false, // Whether to render a shadow
+      hwaccel: false, // Whether to use hardware acceleration
+      className: 'large', // The CSS class to assign to the spinner
+      zIndex: 2e9, // The z-index (defaults to 2000000000)
+      top: '50%', // Top position relative to parent
+      left: '50%' // Left position relative to parent
+    }   
+
   $('#gif').spin('huge','#fff');
+
+  if ($(window).width() <= 960 || $(window).height() <=770) {
+    $('#gif').spin('large', '#fff');
+  }
+
+  if ($(window).width() <=600) {
+    $('#gif').spin('med', '#fff');
+  }
 
 });
