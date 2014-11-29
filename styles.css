@@ -75,7 +75,7 @@ section {
   margin: 0;
   padding: 0;
   background: #000;
-  border: 1px solid orange;
+  border-bottom: 1px solid orange;
   color: white;
 }
 
