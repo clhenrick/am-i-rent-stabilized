@@ -20,10 +20,11 @@ body {
 }
 
 #map {
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 500px;
   margin: 0 auto;
   color: #000;
+  cursor: default;
   border: 1px solid white;
 }
 
