@@ -113,6 +113,7 @@ section p {
 
 section p em {
   font-weight: 400;
+  padding: 0 1% 0 1%;
 }
 
 section p strong {
@@ -268,7 +269,7 @@ select:focus {
   section p.vcenter { margin-top: 5%; }
   p.arrow, p.arrow a { left: 44.5%; }
   #form.box { margin-top: 5%; top: 0; }
-  #map {width:350px; height: 350px; margin-top: 5%;}
+  #map {width:350px; height: 350px; margin-top: 1%;}
 }
 
 @media screen and (max-width: 960px) {
