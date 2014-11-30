@@ -127,7 +127,7 @@ $(window).on('load', function(){
     }    
 
     $startOver.on('click', function(){
-      $address.val('Enter your street address');
+      $address.val('');
       $boro.val('select');
       if ($cheating.hasClass('hidden')) { $cheating.removeClass('hidden'); }
       hideYes();
