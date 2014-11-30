@@ -202,7 +202,7 @@ $(window).on('load', function(){
 
   // check the address using a longitude and latitude coordinates with a PostGIS SQL query
   var checkAddress = function(lonLat) {
-    var sql = "SELECT * FROM nyc_likely_rent_stabilized where " +
+    var sql = "SELECT * FROM all_nyc_likely_rent_stabl_merged where " +
                    "ST_Intersects(ST_GeomFromText('Point(" +
                           lonLat + ")',4326), the_geom)";
     
@@ -243,26 +243,15 @@ $(window).on('load', function(){
       user_name : 'chenrick',
       type: 'cartodb',
       sublayers: [{
-        sql : 'Select * from all_map_pluto_rent_stabl_reg_2014v1',
+        sql : 'SELECT * FROM all_nyc_likely_rent_stabl_merged',
         cartocss : "#all_map_pluto_rent_stabl_reg_2014v1 {" +
                           "polygon-fill: #FF6600;" +
-                          "polygon-opacity: 0.7;" +
+                          "polygon-opacity: 0.8;" +
                           "line-color: #FFF;" +
-                          "line-width: 0.3;" +
+                          "line-width: 0;" +
                           "line-opacity: 1;" +
                         "}"
-      },
-      {
-        sql : 'Select * from all_nyc_likely_rent_stabl_not_reg',
-        cartocss : "#all_nyc_likely_rent_stabl_not_reg {" +
-                          "polygon-fill: #FFCC00;" +
-                          "polygon-opacity: 0.9;" +
-                          "line-color: #FFF;" +
-                          "line-width: 0.3;" +
-                          "line-opacity: 1;" +
-                        "}"
-      }
-      ]
+      }]
     })
     .addTo(map)
     .done(function(layer){
