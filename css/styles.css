@@ -19,13 +19,22 @@ body {
   font-size: 62.5%;
 }
 
-#map {
+section.four #map-container {
+  margin: 1% auto 0 auto;
+  width: 500px;
+  height: 500px;  
+  border: 1px solid white;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 10000;
+}
+
+section.four #map {
   width: 500px;
   height: 500px;
   margin: 0 auto;
   color: #000;
   cursor: default;
-  border: 1px solid white;
 }
 
 #guide {
@@ -76,6 +85,7 @@ section {
   margin: 0;
   padding: 0;
   width: 100%;
+  height: 100vh;
   background: #000;
   border-bottom: 1px solid white;
   color: white;
@@ -268,6 +278,7 @@ select:focus {
   section p.vcenter { margin-top: 5%; }
   p.arrow, p.arrow a { left: 44.5%; }
   #form.box { margin-top: 5%; top: 0; }
+  #map-container { width:350px; height: 350px; }
   #map {width:350px; height: 350px; margin-top: 1%;}
 }
 
@@ -319,6 +330,7 @@ select:focus {
   .address-box input[type=text] { width: 100%; font-size: 2.8em; margin-top: 10%;}
   .select-box select { font-size: 2.8em; margin-top: 10%;}
   #submit { width:72px; font-size: 3.5em; margin-top: 10%;}
+  #map-container { width:300px; height: 300px; }
   #map { width: 300px; height: 200px;}
 }
 

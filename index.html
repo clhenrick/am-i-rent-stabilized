@@ -67,7 +67,9 @@
           <h3>Sorry, we couldn't find your building :(</h3>
           <p class="center">But keep reading anyway!</p>          
         </div>
-        <div id="map"></div>
+        <div id="map-container">
+          <div id="map"></div>
+        </div>        
         <p class="center arrow"><a href="#five">next<br>&#9660;</a></p>        
       </section>
       <!-- five -->
@@ -142,50 +144,6 @@
     <script src="bower_components/spin.js/spin.js"></script>
     <script src="bower_components/spin.js/jquery.spin.js"></script>
     <!-- Javascripts -->
-    <script type="text/javascript">
-    var init =function() {
-      var userAgent = window.navigator.userAgent;
-      var sections = document.documentElement.getElementsByTagName('section');
-      var setHeight = function() {
-        var i = 0, len = sections.length;
-        for (i; i<len; i++) {
-          sections[i].style.height = window.innerHeight + 'px';
-        }
-      }
-
-      var setIOSHeight = function() {
-        var i = 1, len = sections.length;
-        sections[0].style.height = getIOSWindowHeight() + 'px';
-        for (i; i<len; i++) {
-          sections[i].style.height = getIOSWindowHeight()  + getHeightOfIOSToolbars() + 'px';
-        }
-      }
-
-      var getIOSWindowHeight = function() {
-        var zoomLevel = document.documentElement.clientWidth / window.innerWidth;
-        return window.innerHeight * zoomLevel;
-      };
-      var getHeightOfIOSToolbars = function() {
-        var tH = (window.orientation === 0 ? screen.height : screen.width) -  getIOSWindowHeight();
-        return tH > 1 ? tH : 0;
-      };
-
-      if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) {
-        console.log('iphone detected');
-        window.resizeTo(window.innerWidth, getIOSWindowHeight);
-        setIOSHeight();
-      } else {
-        setHeight();
-      }
-
-      return {
-        userAgent : userAgent
-      }
-    }
-    window.onload = function() {
-      init();
-    }
-    </script>
     <script src="js/main.js"></script>
 
     <!-- Uncomment to include Google Analytics
