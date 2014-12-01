@@ -96,6 +96,7 @@ section h1 {
   padding-top: 5%;
   width: 70%;
   color: hsl(60, 100%, 60%);
+  font-weight: 600;
   font-size: 20em;
   text-align: center;
 }
