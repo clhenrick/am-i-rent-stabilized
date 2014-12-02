@@ -26,6 +26,11 @@ body {
   cursor: default;
 }
 
+#map .leaflet-popup-content h4 {
+  color: #000;
+  width: 200px;
+}
+
 #map-container {
   margin: 1% auto 0 auto;
   width: 500px;
