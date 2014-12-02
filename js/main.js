@@ -1,4 +1,3 @@
-// code for map / cartodb stuff 
 $(window).on('load', function(){
   // main variables
   var $body = $('body'),
@@ -22,7 +21,8 @@ $(window).on('load', function(){
         // use google maps api geocoder
         geocoder = new google.maps.Geocoder(),
         map,
-        geocoderMarker;
+        geocoderMarker,
+        dhcrMessage;
     
     /********* UI Stuff *********/ 
     // set slide dimensions to user window
@@ -156,6 +156,21 @@ $(window).on('load', function(){
     if (! $no.hasClass('hidden')) { $no.addClass('hidden'); }
   }
 
+  var createMailTo = function() {
+    var email = "rentinfo@nyshcr.org",
+          subject = "request for rent history",
+          body = "Hello, \n\n" +
+                    "I, <YOUR NAME HERE>, am currently renting <your address, APARTMENT NUMBER, borough, zipcode>" +
+                    " and would like the rent history for the apartment I am renting." +
+                    " Any information you can provide me would be greatly appreciated. \n\n" +
+                    "thank you,\n\n" +
+                    "- <YOUR NAME HERE>",
+          msg = 'mailto:' + encodeURIComponent(email) +
+                     '?subject=' + encodeURIComponent(subject) +
+                     '&body=' + encodeURIComponent(body); 
+     $('#mailto').attr('href',msg);
+  }  
+
   /******** Map Stuff! ********/
   // if the results of the CDB SQL query have a row then $yes else no
   var checkData = function(json) {  
@@ -261,5 +276,6 @@ $(window).on('load', function(){
 
   } // end initMap()
 
-  initMap();
+  createMailTo();
+  initMap(); 
 });
