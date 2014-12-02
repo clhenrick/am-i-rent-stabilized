@@ -160,7 +160,7 @@ $(window).on('load', function(){
     var email = "rentinfo@nyshcr.org",
           subject = "request for rent history",
           body = "Hello, \n\n" +
-                    "I, <YOUR NAME HERE>, am currently renting <your address, APARTMENT NUMBER, borough, zipcode>" +
+                    "I, <YOUR NAME HERE>, am currently renting <YOUR ADDRESS, APARTMENT NUMBER, BOROUGH, ZIPCODE>" +
                     " and would like the rent history for the apartment I am renting." +
                     " Any information you can provide me would be greatly appreciated. \n\n" +
                     "thank you,\n\n" +
