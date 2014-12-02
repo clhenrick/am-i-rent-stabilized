@@ -1,8 +1,10 @@
 $(window).on('load', function(){
   // main variables
-  var $body = $('body'),
+  var $w = $(window),
+        $body = $('body'),
         $wrapper = $('#wrapper'),
-        $section = $('section'),        
+        $section = $('section'),
+        $arrow = $('p.arrow a'),        
         $yes = $('.yes'),
         $no = $('.no'),
         $cheating = $('.cheating'),
@@ -25,12 +27,17 @@ $(window).on('load', function(){
         dhcrMessage;
     
     /********* UI Stuff *********/ 
-    // set slide dimensions to user window
-    // $wrapper.width($(window).width());
-    // $section.width($(window).width());
-    // $section.height($(window).height());
+
+    $('p.arrow a').offset({left: ($(window).width()/2) - ($('p.arrow a').width()/2)});
 
     $(window).resize(function(){
+      var hc = $(window).width()/2,
+            aw = $arrow.width()/2.
+            offset = hc - aw;
+      console.log('offset: ', offset);
+      // set the arrow offset to horizontally center
+      $arrow.offset({ left : offset });
+      // set the wrapper and section width and height to that of the window's
       $wrapper.width($(window).width());
       $section.width($(window).width());
       $section.height($(window).height());

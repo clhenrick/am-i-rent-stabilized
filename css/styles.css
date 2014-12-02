@@ -178,7 +178,7 @@ p.arrow, p.arrow a {
   margin: 0 auto;
   bottom: 0;
   color: #FFF;
-  left: 46.5%;
+  /*left: 46.5%;*/
   font-size: 2.6em;
 }
 
@@ -272,16 +272,16 @@ select:focus {
 }
 
 @media screen and (max-width: 1281px) {
-  p.arrow, p.arrow a { left: 46.5%; }
+  p.arrow, p.arrow a { /*left: 46.5%;*/ }
 }
 
 @media screen and (max-height: 880px) {
-  section h1 { font-size: 15em;}
+  section h1 { font-size: 15em; width: 55%;}
   section h3 { font-size: 12em; } 
-  section p { font-size: 7em; }
+  section p { font-size: 7em; margin-top: 5%;}
   p.small { font-size: 6em; }
   p.vcenter { margin-top: 5%; }
-  p.arrow, p.arrow a { left: 44.5%; }
+  p.arrow, p.arrow a { /*left: 44.5%;*/ }
   #form.box { margin-top: 5%; top: 0; }
   #map-container { width:350px; height: 350px; }
   #map {width:350px; height: 350px; margin-top: 1%;}
@@ -294,7 +294,7 @@ select:focus {
 @media screen and (max-width: 960px) {
   /*section h1 { width: 80%; }*/
   p em { display: inline-block; width: 65%; }
-  p.arrow, p.arrow a { left: 44%; }
+  p.arrow, p.arrow a { /*left: 44%;*/ }
   .address-box input[type=text] { width: 70%; font-size: 3.5em; }
   .select-box select { font-size: 3.5em;}   
   #gif { width: 200px; height: 200px; }
@@ -304,11 +304,11 @@ select:focus {
   section h1 { font-size: 12em; }
   section h3 { font-size: 10em; }
   section p { font-size: 8em; }
-  p.arrow, p.arrow a { left: 42%; font-size: 2.8em; }  
+  p.arrow, p.arrow a { /*left: 42%;*/ font-size: 2.8em; }  
 }
 
 @media screen and (max-width: 704px) {
-  section h1 { margin: 5% auto }
+  section h1 { margin: 5% auto; font-size: 11em; width: 80%; }
   section h3 { font-size: 9em; }
   section p { font-size: 5em;}
   p.small { font-size: 4.5em;}
@@ -325,18 +325,18 @@ select:focus {
     text-align: center;
   }
   .address-box input[type=text] { width: 80%; font-size: 3.5em; }
-  p.arrow, p.arrow a { left: 42%; font-size: 2.8em; }
+  p.arrow, p.arrow a { /*left: 42%;*/ font-size: 2.8em; }
   #map-container { margin-top: 5%; width: 250px; height: 250px; }
   #map { width: 250px; height: 250px;}  
 }
 
-@media screen and (min-width: 300px) and (max-width:414px)  {
-  section h1 { font-size: 8em; padding-top: 2%; }
+@media screen and (min-width: 300px) and (max-width:470px)  {
+  section h1 { font-size: 8em; padding-top: 2%; width: 75%; }
   section h3 { font-size: 5em; }
   section p { font-size: 4em; margin-top: 5%; }
   p.small { font-size: 3em; margin-top: 5%; }
   p.callout  { padding-top: 3%; }
-  p.arrow, p.arrow a { left: 39%; font-size: 2.6em; }
+  p.arrow, p.arrow a { /*left: 39%;*/ font-size: 2.6em; }
   .box { top: 0;}
   .address-box input[type=text] { width: 100%; font-size: 2.8em; margin-top: 10%;}
   .select-box select { font-size: 2.8em; margin-top: 10%;}
@@ -347,5 +347,5 @@ select:focus {
 
 @media screen and (max-width: 320px) {
   p.small { font-size: 3.2em; margin-top: 7%; }
-  p.arrow, p.arrow a { left: 41.5%; font-size: 2.1em; font-weight: 400; }
+  p.arrow, p.arrow a { /*left: 41.5%;*/ font-size: 2.1em; font-weight: 400; }
 }
