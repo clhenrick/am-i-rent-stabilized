@@ -28,8 +28,10 @@ $(window).on('load', function(){
     
     /********* UI Stuff *********/ 
 
-    $('p.arrow a').offset({left: ($(window).width()/2) - ($('p.arrow a').width()/2)});
+    // center nav arrow on page load
+    $arrow.offset({ left: ($w.width()/2) - ($arrow.width()/2) });
 
+    // adjust dimensions and positioning when window size changes
     $(window).resize(function(){
       var hc = $(window).width()/2,
             aw = $arrow.width()/2.
