@@ -292,8 +292,13 @@ select:focus {
   #map {width:350px; height: 350px; margin-top: 1%;}
 }
 
-@media screen and (max-height: 730px) {
+@media screen and (max-height: 770px) {
   p.small { font-size: 5em; }
+  p.legend { position: absolute; width: 300px; right: 5%; bottom: 5%; }
+}
+
+@media screen and (max-height: 736px) {
+  p.legend { position: relative; width: auto; right:0; bottom:0;}
 }
 
 @media screen and (max-width: 960px) {

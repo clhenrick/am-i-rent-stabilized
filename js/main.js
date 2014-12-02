@@ -36,7 +36,7 @@ $(window).on('load', function(){
       var hc = $(window).width()/2,
             aw = $arrow.width()/2.
             offset = hc - aw;
-      console.log('offset: ', offset);
+      // console.log('offset: ', offset);
       // set the arrow offset to horizontally center
       $arrow.offset({ left : offset });
       // set the wrapper and section width and height to that of the window's
