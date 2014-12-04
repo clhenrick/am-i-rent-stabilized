@@ -14,21 +14,37 @@ html {
 body {
   width: 100%;
   height: 100%;
-  background-color: hsl(0,0%,97%);
+  background-color: #000;
   font-family: Helvetica, sans-serif;
   font-size: 62.5%;
 }
 
 #map {
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 500px;
   margin: 0 auto;
+  cursor: default;
+}
+
+#map .leaflet-popup-content h4 {
   color: #000;
+  width: 200px;
+}
+
+#map-container {
+  margin: 1% auto 0 auto;
+  width: 500px;
+  height: 500px;  
   border: 1px solid white;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  overflow: hidden;
+  z-index: 10000;
 }
 
 #guide {
-  position: absolute;
+  position: fixed;
   -webkit-transform: rotate(90deg);
       -ms-transform: rotate(90deg);
           transform: rotate(90deg);
@@ -74,23 +90,26 @@ a:hover {
 section {
   margin: 0;
   padding: 0;
+  width: 100%;
+  height: 100vh;
   background: #000;
-  border-bottom: 1px solid orange;
+  border-bottom: 1px solid white;
   color: white;
 }
 
 section h1 {
-  margin: 10% auto 3% auto;  
+  margin: 0 auto;
+  padding-top: 5%;
   width: 70%;
   color: hsl(60, 100%, 60%);
+  font-weight: 600;
   font-size: 20em;
   text-align: center;
 }
 
 section h3 {
   margin: 0 auto;
-  margin-top: 3%;
-  width: 75%;
+  width: 85%;
   color: hsl(150, 100%, 55%);
   font-size: 15em;
   font-weight: 400;
@@ -102,7 +121,7 @@ section h3.steps {
 }
 
 section p {
-  margin: 3% auto;
+  margin: 1% auto;
   width: 75%;
   font-size: 10em;
   font-weight: 300;
@@ -110,6 +129,7 @@ section p {
 
 section p em {
   font-weight: 400;
+  padding: 0 1% 0 1%;
 }
 
 section p strong {
@@ -133,8 +153,13 @@ section p.callout {
           transform-origin: 90% 140%;
 }
 
-section p.small {
-  font-size: 8em;
+p.small {
+  font-size: 6em;
+}
+
+span.orange {
+  color: #FF6600;
+  font-weight: 400;
 }
 
 #gif {
@@ -160,8 +185,8 @@ p.arrow, p.arrow a {
   margin: 0 auto;
   bottom: 0;
   color: #FFF;
-  left: 46.5%;
-  font-size: 3em;
+  /*left: 46.5%;*/
+  font-size: 2.6em;
 }
 
 p.arrow a:hover {
@@ -196,6 +221,7 @@ p.arrow a:hover {
   text-align: center;
   font-size: 5em;     
   color: #000;
+  border-radius: 25px;
 }
 
 .address-box input[type="text"]:focus {
@@ -254,42 +280,53 @@ select:focus {
 }
 
 @media screen and (max-width: 1281px) {
-  p.arrow, p.arrow a { left: 46.5%; }
+  p.arrow, p.arrow a { /*left: 46.5%;*/ }
 }
 
 @media screen and (max-height: 880px) {
-  section h1 { font-size: 15em;}
+  section h1 { font-size: 15em; width: 55%;}
   section h3 { font-size: 12em; } 
-  section p { font-size: 7em; }
-  section p.small { font-size: 6em; }
-  section p.vcenter { margin-top: 5%; }
-  p.arrow, p.arrow a { left: 44.5%; }
+  section p { font-size: 7em; margin-top: 5%;}
+  p.small { font-size: 6em; }
+  p.vcenter { margin-top: 5%; }
+  p.arrow, p.arrow a { /*left: 44.5%;*/ }
   #form.box { margin-top: 5%; top: 0; }
-  #map {width:350px; height: 350px; margin-top: 5%;}
+  #map-container { width:350px; height: 350px; }
+  #map {width:350px; height: 350px; margin-top: 1%;}
+}
+
+@media screen and (max-height: 770px) {
+  p.small { font-size: 5em; }
+  p.legend { position: absolute; width: 300px; right: 5%; bottom: 5%; }
+}
+
+@media screen and (max-height: 736px) {
+  p.legend { position: relative; width: auto; right:0; bottom:0;}
 }
 
 @media screen and (max-width: 960px) {
-  section h1 { width: 80%; }
+  /*section h1 { width: 80%; }*/
   p em { display: inline-block; width: 65%; }
-  p.arrow, p.arrow a { left: 44%; }
+  p.arrow, p.arrow a { /*left: 44%;*/ }
   .address-box input[type=text] { width: 70%; font-size: 3.5em; }
   .select-box select { font-size: 3.5em;}   
   #gif { width: 200px; height: 200px; }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 970px) {
   section h1 { font-size: 12em; }
   section h3 { font-size: 10em; }
   section p { font-size: 8em; }
-  p.arrow, p.arrow a { left: 42%; font-size: 2.8em; }  
+  p.arrow, p.arrow a { /*left: 42%;*/ font-size: 2.8em; }  
 }
 
-@media screen and (max-width: 604px) {
-  section h1 { margin: 5% auto }
+@media screen and (max-width: 704px) {
+  section h1 { margin: 5% auto; font-size: 11em; width: 80%; }
   section h3 { font-size: 9em; }
   section p { font-size: 5em;}
-  section p.small { font-size: 4.5em;}
+  p.small { font-size: 4.5em;}
   section p.callout {
+    padding-top: 3%;
     -webkit-transform: rotate(0deg);
         -ms-transform: rotate(0deg);
             transform: rotate(0deg);
@@ -301,25 +338,27 @@ select:focus {
     text-align: center;
   }
   .address-box input[type=text] { width: 80%; font-size: 3.5em; }
-  p.arrow, p.arrow a { left: 42%; font-size: 2.8em; }
-  /*section p strong { display: inline; }*/
+  p.arrow, p.arrow a { /*left: 42%;*/ font-size: 2.8em; }
+  #map-container { margin-top: 5%; width: 250px; height: 250px; }
+  #map { width: 250px; height: 250px;}  
 }
 
-@media screen and (min-width: 300px) and (max-width:414px)  {
-  section h1 { font-size: 8em; }
+@media screen and (min-width: 300px) and (max-width:470px)  {
+  section h1 { font-size: 8em; padding-top: 2%; width: 75%; }
   section h3 { font-size: 5em; }
   section p { font-size: 4em; margin-top: 5%; }
-  section p.small { font-size: 3em; margin-top: 5%; }
-  /*section p strong { display: inline; }*/
-  section p.callout  { margin-top: 10%; }
-  section p.arrow, p.arrow a { left: 39%; font-size: 2.6em; }
+  p.small { font-size: 3em; margin-top: 5%; }
+  p.callout  { padding-top: 3%; }
+  p.arrow, p.arrow a { /*left: 39%;*/ font-size: 2.6em; }
   .box { top: 0;}
   .address-box input[type=text] { width: 100%; font-size: 2.8em; margin-top: 10%;}
   .select-box select { font-size: 2.8em; margin-top: 10%;}
   #submit { width:72px; font-size: 3.5em; margin-top: 10%;}
+  #map-container { margin-top: 5%; width: 250px; height: 250px; }
+  #map { width: 250px; height: 250px;}
 }
 
 @media screen and (max-width: 320px) {
-  section p.small { font-size: 3.2em; margin-top: 7%; }
-  section p.arrow, p.arrow a { left: 38.5%; font-size: 2.2em; }
+  p.small { font-size: 3.2em; margin-top: 7%; }
+  p.arrow, p.arrow a { /*left: 41.5%;*/ font-size: 2.1em; font-weight: 400; }
 }
