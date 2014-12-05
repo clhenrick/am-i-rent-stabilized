@@ -304,13 +304,18 @@ select:focus {
   p.arrow, p.arrow a { font-size: 2.8em; }  
 }
 
+@media screen and (max-height: 765px) {
+  #map, #map-container { width: 300px; height: 300px; }
+}
+
+
 @media screen and (max-height: 700px) {
   section p { font-size: 7em; }
   p.small { font-size: 5em; }
   p.legend { font-size:  5em; margin-top: 1%; }
 }
 
-@media screen and (max-width: 704px) {
+@media screen and (max-width: 705px) {
   section h1 { margin: 5% auto; font-size: 11em; width: 80%; }
   section h3 { font-size: 9em; }
   section p { font-size: 5em;}
