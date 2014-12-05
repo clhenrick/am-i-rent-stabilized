@@ -282,7 +282,7 @@ select:focus {
 @media screen and (max-height: 880px) {
   section h1 { font-size: 15em; width: 55%;}
   section h3 { font-size: 12em; } 
-  section p { font-size: 7em; margin-top: 5%;}
+  section p { font-size: 7em; margin-top: 2%;}
   p.small { font-size: 6em; }
   p.vcenter { margin-top: 5%; }
   #form.box { margin-top: 5%; top: 0; }

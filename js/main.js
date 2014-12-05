@@ -285,6 +285,8 @@ $(window).on('load', function(){
 
   } // end initMap()
 
+  // fix iOS viewport units issue
+  window.viewportUnitsBuggyfill.init();
   createMailTo();
   initMap(); 
 });
