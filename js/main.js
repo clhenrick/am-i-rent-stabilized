@@ -27,7 +27,7 @@ $(window).on('load', function(){
         dhcrMessage;
     
     /********* UI Stuff *********/ 
-
+    $section.height($(window).height());
     // center nav arrow on page load
     $arrow.offset({ left: ($w.width()/2) - ($arrow.width()/2) });
 
