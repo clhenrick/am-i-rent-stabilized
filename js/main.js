@@ -203,8 +203,8 @@ $(window).on('load', function(){
           if (status == google.maps.GeocoderStatus.OK) {
             var geo = results[0].address_components[0].long_name + ' ' + 
                             results[0].address_components[1].long_name;
-            var lonLat = results[0].geometry.location.B + ' ' + results[0].geometry.location.k;
-            var latlng = [results[0].geometry.location.k, results[0].geometry.location.B];
+            var lonLat = results[0].geometry.location.lng() + ' ' + results[0].geometry.location.lat();
+            var latlng = [results[0].geometry.location.lat(), results[0].geometry.location.lng()];
             console.log('gecoder results: ', results);
             console.log('lonLat: ', lonLat)
             console.log('address to pass: ', geo);
