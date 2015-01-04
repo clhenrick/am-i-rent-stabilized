@@ -300,9 +300,9 @@ $(window).on('load', function(){
         cartocss : "#all_map_pluto_rent_stabl_reg_2014v1 {" +
                           "polygon-fill: #FF6600;" +
                           "polygon-opacity: 0.8;" +
-                          "line-color: #FFF;" +
-                          "line-width: 0;" +
-                          "line-opacity: 1;" +
+                          "line-color: #000;" +
+                          "line-width: 0.5;" +
+                          "line-opacity: 0.2;" +
                         "}"
       }]
     })
