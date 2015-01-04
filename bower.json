@@ -29,6 +29,7 @@
     "html5-reset": "~2.1.2",
     "normalize.css": "~3.0.2",
     "modernizr": "~2.8.3",
-    "viewport-units-buggyfill": "~0.4.1"
+    "viewport-units-buggyfill": "~0.4.1",
+    "proj4": "~2.3.3"
   }
 }
