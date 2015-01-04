@@ -1,4 +1,5 @@
 $(window).on('load', function(){
+ 
   // main variables
   var $w = $(window),
         $body = $('body'),
@@ -25,6 +26,7 @@ $(window).on('load', function(){
         // geocoder = new google.maps.Geocoder(),
         map,
         geocoderMarker,
+        reproject = proj4($('meta[name=pluto-proj4]').attr('content')).inverse,
         dhcrMessage;
     
     /********* UI Stuff *********/ 
@@ -142,7 +144,6 @@ $(window).on('load', function(){
       hideYes();
       hideNo();
 
-
       if (geocoderMarker) { 
         map.removeLayer(geocoderMarker);
         map.setView([40.7127, -74.0059], 10);
@@ -178,25 +179,21 @@ $(window).on('load', function(){
                      '?subject=' + encodeURIComponent(subject) +
                      '&body=' + encodeURIComponent(body); 
      $('#mailto').attr('href',msg);
-  }  
-
-  /******** Map Stuff! ********/
-  // if the results of the CDB SQL query have a row then $yes else no
-  var checkData = function(json) {  
-    $cheating.addClass('hidden');
-    $('a[href=#four]').trigger('click');
-
-    if (json.rows.length !==0) {    
-        console.log('yay!');
-        showYes();
-        hideNo();
-      } 
-    else if  (json.rows.length ===0) {
-        console.log('boo!');
-        showNo();
-        hideYes();      
-      }
   }
+
+  // when user clicks the $submit button fire the app!
+  $submit.on('click', function(){
+    var streetNum = $number.val(),
+          streetAddress = $address.val(),
+          boro = $boro.val(),
+          fullAddress = streetAddress + ', ' + boro + ', NY'
+
+    // console.log('address is: ', fullAddress );
+    // geocodeAddress(fullAddress);
+    geoclient(streetNum, streetAddress, boro);
+  });  
+
+  /******** Geocode User Input & Query DB ********/
 
   // grab property data from nyc geo-client api
   var geoclient = function(num, name, boro) {
@@ -219,6 +216,9 @@ $(window).on('load', function(){
         url : urlConcat,
         success : function(data, status) {
           console.log(data);
+          var bbl = data.address.bbl;          
+          getCDBdata(bbl);
+          showMarker(data)
         },
         error: function(xhr, textStatus, err) { 
             console.log("readyState: "+xhr.readyState+"\n xhrStatus: "+xhr.status);
@@ -227,59 +227,56 @@ $(window).on('load', function(){
       });
   }
 
-  // geocode the user input
-  // var geocodeAddress = function(address) {
-  //         geocoder.geocode({ 'address': address, 'bounds' : bounds }, function(results, status) {
-  //         if (status == google.maps.GeocoderStatus.OK) {
-  //           var geo = results[0].address_components[0].long_name + ' ' + 
-  //                           results[0].address_components[1].long_name;
-  //           var lonLat = results[0].geometry.location.lng() + ' ' + results[0].geometry.location.lat();
-  //           var latlng = [results[0].geometry.location.lat(), results[0].geometry.location.lng()];
-  //           console.log('gecoder results: ', results);
-  //           console.log('lonLat: ', lonLat)
-  //           console.log('address to pass: ', geo);
-  //           //checkAddress(geo);
-  //           checkAddress(lonLat);
-          
-  //         // remove geocoded marker if one already exists
-  //         if (geocoderMarker) { 
-  //           map.removeLayer(geocoderMarker);
-  //         }
-  //         // add a marker and pan and zoom the map to it
-  //         geocoderMarker = new L.marker(latlng).addTo(map);
-  //         geocoderMarker.bindPopup("<h4>" + results[0].formatted_address + "</h4>" ).openPopup();
-  //         map.setView(latlng, 17);            
-  //         };
-  //       });
-  //   };
-
-  // check the address using a longitude and latitude coordinates with a PostGIS SQL query
-  var checkAddress = function(lonLat) {
-    var sql = "SELECT * FROM all_nyc_likely_rent_stabl_merged where " +
-                   "ST_Intersects(ST_GeomFromText('Point(" +
-                          lonLat + ")',4326), the_geom)";
+ // check the bbl number against the cartodb data
+  var getCDBdata = function(bbl) {
+    // sql to pass cartodb's sql api
+    var sql = "SELECT * FROM all_nyc_likely_rent_stabl_merged " +
+                  "WHERE bbl = " + bbl;
     
     console.log('the sql: ', sql);
 
     $.getJSON(cdbURL + sql, function(data) {
-        console.log('data: ', data);
+        console.log('CDB data: ', data);
         checkData(data);
     });
   };
 
-  // when user clicks the $submit button fire the app!
-  $submit.on('click', function(){
-    var streetNum = $number.val(),
-          streetAddress = $address.val(),
-          boro = $boro.val(),
-          fullAddress = streetAddress + ', ' + boro + ', NY'
+  // if the results of the CDB SQL query have a row then show yes else display no
+  var checkData = function(json) {  
+    $cheating.addClass('hidden');
+    $('a[href=#four]').trigger('click');
 
-    // console.log('address is: ', fullAddress );
-    // geocodeAddress(fullAddress);
-    geoclient(streetNum, streetAddress, boro);
+    if (json.rows.length !==0) {    
+        console.log('yay!');
+        showYes();
+        hideNo();
+      } 
+    else if  (json.rows.length ===0) {
+        console.log('boo!');
+        showNo();
+        hideYes();      
+      }
+  }
 
-  });
+  var showMarker = function(data) {
+    var x = data.address.longitudeInternalLabel,
+          y = data.address.latitudeInternalLabel,
+          latlng = [y, x],
+          address = data.address.houseNumber + ' ' + 
+                          data.address.firstStreetNameNormalized + ', ' +
+                          data.address.uspsPreferredCityName + ', NY ' +
+                          data.address.zipCode;
+    // remove geocoded marker if one already exists
+    if (geocoderMarker) { 
+      map.removeLayer(geocoderMarker);
+    }
+    // add a marker and pan and zoom the map to it
+    geocoderMarker = new L.marker(latlng).addTo(map);
+    geocoderMarker.bindPopup("<h4>" + address + "</h4>" ).openPopup();
+    map.setView(latlng, 17);       
+  }
 
+  /******** Map Stuff! ********/
   // set up the leaflet / cartodb map
   var initMap = function() {
     map = new L.Map('map', {
@@ -317,11 +314,8 @@ $(window).on('load', function(){
 
   } // end initMap()
 
-  return {
-    geoclient : geoclient
-  }
-
-  // fix iOS viewport units issue
+  /******** Get it all Going ********/
+  // fixes iOS viewport units issue
   window.viewportUnitsBuggyfill.init();
   createMailTo();
   initMap(); 
