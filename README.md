@@ -6,11 +6,16 @@ A web site that informs NYC residents about rent regulation laws and how to find
 ## Runs on
 - JQuery
 - CartoDB's SQL API
-- Google Maps API for geocoding
+- NYC Geoclient API
+- Proj4 JS
 
 ## Uses Data From
 - NYC Map Pluto
 - DHCR rent stabilized buldings
 
-### Data Processing
+## Installation
+
+Do `bower install` in the root folder to grab all dependencies.
+
+## Data Processing
 See the `sql` and `scripts` directories for code to process the Map Pluto spatial data using Postgres with PostGIS and OGR2OGR.
