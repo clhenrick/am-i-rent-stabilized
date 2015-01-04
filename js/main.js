@@ -139,6 +139,7 @@ $(window).on('load', function(){
 
     $startOver.on('click', function(){
       $address.val('');
+      $number.val('');
       $boro.val('select');
       if ($cheating.hasClass('hidden')) { $cheating.removeClass('hidden'); }
       hideYes();
