@@ -9,6 +9,7 @@ $(window).on('load', function(){
         $no = $('.no'),
         $cheating = $('.cheating'),
         $form = $('#form'),
+        $number = $('#number'),
         $address = $('#address'),
         $boro = $('#boro'),
         $submit = $('#submit'),
@@ -16,12 +17,12 @@ $(window).on('load', function(){
         // url to cartodb sql api
         cdbURL = "http://chenrick.cartodb.com/api/v2/sql?q=",
         // bounding box for nyc to improve geocoder results
-        bounds = new google.maps.LatLngBounds(
-              new google.maps.LatLng(40.4959961, -74.2590879), //sw
-              new google.maps.LatLng(40.91525559999999, -73.7002721) //ne
-              ),
-        // use google maps api geocoder
-        geocoder = new google.maps.Geocoder(),
+        // bounds = new google.maps.LatLngBounds(
+        //       new google.maps.LatLng(40.4959961, -74.2590879), //sw
+        //       new google.maps.LatLng(40.91525559999999, -73.7002721) //ne
+        //       ),
+        // // use google maps api geocoder
+        // geocoder = new google.maps.Geocoder(),
         map,
         geocoderMarker,
         dhcrMessage;
@@ -197,31 +198,60 @@ $(window).on('load', function(){
       }
   }
 
+  // grab property data from nyc geo-client api
+  var geoclient = function(num, name, boro) {
+    // create URL to pass to geoclient api
+    var id = '9cd0a15f',
+          appID = 'app_id=' + id + '&',
+          key = '54dc84bcaca9ff4877da771750033275',
+          appKey = 'app_key=' + key,
+          stNum = 'houseNumber='+ num + '&',
+          nameEncoded = name.replace(' ', '+'),
+          stName = 'street=' + nameEncoded + '&',
+          boro = 'borough=' + boro + '&',
+          url = 'https://api.cityofnewyork.us/geoclient/v1/address.json?',
+          urlConcat = url + stNum + stName + boro + appID + appKey;
+
+      // console.log('the concatenated url is: ', urlConcat);
+      
+      $.ajax({
+        dataType : "jsonp",
+        url : urlConcat,
+        success : function(data, status) {
+          console.log(data);
+        },
+        error: function(xhr, textStatus, err) { 
+            console.log("readyState: "+xhr.readyState+"\n xhrStatus: "+xhr.status);
+            console.log("responseText: "+xhr.responseText);
+        }        
+      });
+  }
+
   // geocode the user input
-  var geocodeAddress = function(address) {
-          geocoder.geocode({ 'address': address, 'bounds' : bounds }, function(results, status) {
-          if (status == google.maps.GeocoderStatus.OK) {
-            var geo = results[0].address_components[0].long_name + ' ' + 
-                            results[0].address_components[1].long_name;
-            var lonLat = results[0].geometry.location.lng() + ' ' + results[0].geometry.location.lat();
-            var latlng = [results[0].geometry.location.lat(), results[0].geometry.location.lng()];
-            console.log('gecoder results: ', results);
-            console.log('lonLat: ', lonLat)
-            console.log('address to pass: ', geo);
-            //checkAddress(geo);
-            checkAddress(lonLat);
+  // var geocodeAddress = function(address) {
+  //         geocoder.geocode({ 'address': address, 'bounds' : bounds }, function(results, status) {
+  //         if (status == google.maps.GeocoderStatus.OK) {
+  //           var geo = results[0].address_components[0].long_name + ' ' + 
+  //                           results[0].address_components[1].long_name;
+  //           var lonLat = results[0].geometry.location.lng() + ' ' + results[0].geometry.location.lat();
+  //           var latlng = [results[0].geometry.location.lat(), results[0].geometry.location.lng()];
+  //           console.log('gecoder results: ', results);
+  //           console.log('lonLat: ', lonLat)
+  //           console.log('address to pass: ', geo);
+  //           //checkAddress(geo);
+  //           checkAddress(lonLat);
           
-          // remove geocoded marker if one already exists
-          if (geocoderMarker) { 
-            map.removeLayer(geocoderMarker);
-          }
-          // add a marker and pan and zoom the map to it
-          geocoderMarker = new L.marker(latlng).addTo(map);
-          geocoderMarker.bindPopup("<h4>" + results[0].formatted_address + "</h4>" ).openPopup();
-          map.setView(latlng, 17);            
-          };
-        });
-    };
+  //         // remove geocoded marker if one already exists
+  //         if (geocoderMarker) { 
+  //           map.removeLayer(geocoderMarker);
+  //         }
+  //         // add a marker and pan and zoom the map to it
+  //         geocoderMarker = new L.marker(latlng).addTo(map);
+  //         geocoderMarker.bindPopup("<h4>" + results[0].formatted_address + "</h4>" ).openPopup();
+  //         map.setView(latlng, 17);            
+  //         };
+  //       });
+  //   };
 
   // check the address using a longitude and latitude coordinates with a PostGIS SQL query
   var checkAddress = function(lonLat) {
@@ -239,12 +269,15 @@ $(window).on('load', function(){
 
   // when user clicks the $submit button fire the app!
   $submit.on('click', function(){
-    var streetAddress = $address.val(),
+    var streetNum = $number.val(),
+          streetAddress = $address.val(),
           boro = $boro.val(),
           fullAddress = streetAddress + ', ' + boro + ', NY'
 
-    console.log('address is: ', fullAddress );
-    geocodeAddress(fullAddress);
+    // console.log('address is: ', fullAddress );
+    // geocodeAddress(fullAddress);
+    geoclient(streetNum, streetAddress, boro);
+
   });
 
   // set up the leaflet / cartodb map
@@ -283,6 +316,10 @@ $(window).on('load', function(){
     });    
 
   } // end initMap()
+
+  return {
+    geoclient : geoclient
+  }
 
   // fix iOS viewport units issue
   window.viewportUnitsBuggyfill.init();
