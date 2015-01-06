@@ -10,23 +10,13 @@ $(window).on('load', function(){
         $no = $('.no'),
         $cheating = $('.cheating'),
         $form = $('#form'),
-        $number = $('#number'),
         $address = $('#address'),
         $boro = $('#boro'),
         $submit = $('#submit'),
-        $startOver = $("a[href$='#top']"),
-        // url to cartodb sql api
-        cdbURL = "http://chenrick.cartodb.com/api/v2/sql?q=",
-        // bounding box for nyc to improve geocoder results
-        // bounds = new google.maps.LatLngBounds(
-        //       new google.maps.LatLng(40.4959961, -74.2590879), //sw
-        //       new google.maps.LatLng(40.91525559999999, -73.7002721) //ne
-        //       ),
-        // // use google maps api geocoder
-        // geocoder = new google.maps.Geocoder(),
+        $startOver = $("a[href$='#top']"),        
+        cdbURL = "http://chenrick.cartodb.com/api/v2/sql?q=", // url to cartodb sql api
         map,
         geocoderMarker,
-        reproject = proj4($('meta[name=pluto-proj4]').attr('content')).inverse,
         dhcrMessage;
     
     /********* UI Stuff *********/ 
@@ -138,8 +128,7 @@ $(window).on('load', function(){
     }    
 
     $startOver.on('click', function(){
-      $address.val('');
-      $number.val('');
+      $address.val('');      
       $boro.val('select');
       if ($cheating.hasClass('hidden')) { $cheating.removeClass('hidden'); }
       hideYes();
@@ -171,7 +160,8 @@ $(window).on('load', function(){
     var email = "rentinfo@nyshcr.org",
           subject = "request for rent history",
           body = "Hello, \n\n" +
-                    "I, <YOUR NAME HERE>, am currently renting <YOUR ADDRESS, APARTMENT NUMBER, BOROUGH, ZIPCODE>" +
+                    "I, <YOUR NAME HERE>, am currently renting " + 
+                    "<YOUR ADDRESS, APARTMENT NUMBER, BOROUGH, ZIPCODE>" +
                     " and would like the rent history for the apartment I am renting." +
                     " Any information you can provide me would be greatly appreciated. \n\n" +
                     "thank you,\n\n" +
@@ -184,13 +174,34 @@ $(window).on('load', function(){
 
   // when user clicks the $submit button fire the app!
   $submit.on('click', function(){
-    var streetNum = $number.val(),
-          streetAddress = $address.val(),
-          boro = $boro.val(),
-          fullAddress = streetAddress + ', ' + boro + ', NY'
+    var  streetAddress = $address.val(),
+          boro = $boro.val(),          
+          parsedStreetAddress = parseAddress.parseLocation(streetAddress),
+          streetNum = parsedStreetAddress.number,
+          streetAddress;
 
-    // console.log('address is: ', fullAddress );
-    // geocodeAddress(fullAddress);
+    // check the parsed street address 
+    if (parsedStreetAddress.type && !parsedStreetAddress.prefix) { 
+
+      streetAddress = parsedStreetAddress.street + ' ' + parsedStreetAddress.type;
+
+    } else if (parsedStreetAddress.type && parsedStreetAddress.prefix) {
+      
+      streetAddress = parsedStreetAddress.prefix + ' ' +
+                                parsedStreetAddress.street + ' ' + 
+                                parsedStreetAddress.type;         
+
+    } else if (parsedStreetAddress.prefix && !parsedStreetAddress.type) {
+      
+      streetAddress = parsedStreetAddress.prefix + ' ' +
+                                parsedStreetAddress.street;
+      
+    } else {
+      streetAddress = parsedStreetAddress.street;
+    };          
+
+    // console.log('streetAddress is: ', streetAddress, 
+    //                   ' parsedStreetAddress is: ', parsedStreetAddress);
     geoclient(streetNum, streetAddress, boro);
   });  
 
