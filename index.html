@@ -9,8 +9,6 @@
       <title>Am I Rent Stabilized?</title>
       <meta name="description" content="Find out if your NYC apartment is rent stabilized!">      
       <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-      <!-- PROJ4 JS here -->
-      <meta name="pluto-proj4" content='PROJCS["NAD_1983_StatePlane_New_York_Long_Island_FIPS_3104_Feet",GEOGCS["GCS_North_American_1983",DATUM["D_North_American_1983",SPHEROID["GRS_1980",6378137.0,298.257222101]],PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]],PROJECTION["Lambert_Conformal_Conic"],PARAMETER["False_Easting",984250.0],PARAMETER["False_Northing",0.0],PARAMETER["Central_Meridian",-74.0],PARAMETER["Standard_Parallel_1",40.66666666666666],PARAMETER["Standard_Parallel_2",41.03333333333333],PARAMETER["Latitude_Of_Origin",40.16666666666666],UNIT["Foot_US",0.3048006096012192]]'>
       
       <link rel="shortcut icon" href="favicon.png">
       <link rel="stylesheet" type="text/css" href="css/reset.css">
@@ -41,12 +39,9 @@
         <a name="two"></a>       
         <h3>First, let's have your building address and Borough:</h3>
         <p class="center"><em>We won't keep this info, promise!</em></p>
-        <div id="form" class="box">
-            <div class="address-box">
-              <input id="number" type="text" placeholder="Enter your building Number"></input>      
-          </div>    
+        <div id="form" class="box">    
           <div class="address-box">
-              <input id="address" type="text" placeholder="Enter your Street Name"></input>      
+              <input id="address" type="text" placeholder="Enter your street address"></input>      
           </div>          
           <!-- <p>Select your borough:</p> -->
           <div class="select-box">
@@ -156,8 +151,7 @@
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <script src="bower_components/cartodb.js/dist/cartodb.noleaflet.js"></script>
     <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.3"></script>
-    <script src="bower_components/proj4/dist/proj4.js"></script>
-    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvc75lurezNSnEDDYzoz2grEBOHK7ToT8"></script> -->
+    <script src="js/parse-address.min.js"></script>
     <script src="bower_components/spin.js/spin.js"></script>
     <script src="bower_components/spin.js/jquery.spin.js"></script>
     <script src="bower_components/viewport-units-buggyfill/viewport-units-buggyfill.js"></script>
