@@ -178,9 +178,10 @@ span.orange {
   margin-top: 10%;
 }
 
+p.arrow a { display: none; }
+
 p.arrow, p.arrow a {
-  position: absolute;
-  display: inline-block;
+  position: absolute;  
   width: auto;
   margin: 0 auto;
   bottom: 0;

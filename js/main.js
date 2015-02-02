@@ -22,15 +22,17 @@ $(window).on('load', function(){
     /********* UI Stuff *********/ 
     // center nav arrow on page load
     $arrow.offset({ left: ($w.width()/2) - ($arrow.width()/2) });
+    $arrow.css('display', 'inline-block');
 
     // adjust dimensions and positioning when window size changes
     $(window).resize(function(){
       var hc = $(window).width()/2,
             aw = $arrow.width()/2.
             offset = hc - aw;
-      // console.log('offset: ', offset);
-      // set the arrow offset to horizontally center
-      $arrow.offset({ left : offset });
+      
+      // set the arrow offset to horizontally center and reveal it after
+      $arrow.offset({ left : offset });      
+      
       // set the wrapper and section width and height to that of the window's
       $wrapper.width($(window).width());
       $section.width($(window).width());
