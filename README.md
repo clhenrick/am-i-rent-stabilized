@@ -1,7 +1,7 @@
 Am I Rent Stabilized dot com
 ============================
 
-A web site that informs NYC residents about rent regulation laws, how to find out if they may be rent regulated and paying too much rent, and how to take action.
+A web site that informs NYC residents about rent regulation laws, how to find out if they may be rent regulated and paying too much rent, and how to take action. See it in action at [amirentstabilized.com](http://amirentstabilized.com/).
 
 ## Runs on
 - JQuery
