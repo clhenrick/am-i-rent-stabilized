@@ -257,7 +257,7 @@ select:focus {
 
 #submit  {
   display: block;
-  width: 105px;
+  width: 125px;
   margin: 5% auto 5% auto;
   cursor: pointer;
   padding: 1%;
@@ -349,7 +349,7 @@ select:focus {
   .box { top: 0;}
   .address-box input[type=text] { width: 100%; font-size: 2.5em; margin-top: 10%;}
   .select-box select { font-size: 2.8em; margin-top: 10%;}
-  #submit { width:72px; font-size: 3.5em; margin-top: 10%; padding: 2% 2% 3% 3%;}
+  #submit { width:85px; font-size: 3.5em; margin-top: 10%; padding: 2% 2% 3% 3%;}
   #map-container { margin-top: 5%; width: 250px; height: 250px; }
   #map { width: 250px; height: 250px;}
 }
