@@ -229,16 +229,27 @@ $(window).on('load', function(){
         dataType : "jsonp",
         url : urlConcat,
         success : function(data, status) {
-          console.log(data);
-          var bbl = data.address.bbl;          
-          getCDBdata(bbl);
-          showMarker(data)
+          // console.log('ajax request body: ', data);
+          checkResult(data);
         },
         error: function(xhr, textStatus, err) { 
             console.log("readyState: "+xhr.readyState+"\n xhrStatus: "+xhr.status);
-            console.log("responseText: "+xhr.responseText);
+            console.log("responseText: "+xhr.responseText);            
         }        
       });
+  }
+
+  var checkResult = function(data) {
+          if (data.address.bbl) {
+            var bbl = data.address.bbl;          
+            getCDBdata(bbl);
+            showMarker(data)            
+          } else {
+            $cheating.addClass('hidden');
+            $('a[href=#four]').trigger('click');            
+            showNo();
+            hideYes();              
+          }       
   }
 
  // check the bbl number against the cartodb data
@@ -247,7 +258,7 @@ $(window).on('load', function(){
     var sql = "SELECT * FROM all_nyc_likely_rent_stabl_merged " +
                   "WHERE bbl = " + bbl;
     
-    console.log('the sql: ', sql);
+    // console.log('the sql: ', sql);
 
     $.getJSON(cdbURL + sql, function(data) {
         console.log('CDB data: ', data);
@@ -277,7 +288,7 @@ $(window).on('load', function(){
           y = data.address.latitudeInternalLabel,
           latlng = [y, x],
           address = data.address.houseNumber + ' ' + 
-                          data.address.firstStreetNameNormalized + ', ' +
+                          data.address.firstStreetNameNormalized + '\n' +
                           data.address.uspsPreferredCityName + ', NY ' +
                           data.address.zipCode;
     // remove geocoded marker if one already exists
