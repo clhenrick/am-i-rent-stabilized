@@ -1,0 +1,22 @@
+{
+    "thumbnailUrl": "",
+    "status": "Beta",
+    "bornAt" : "Parsons, The New School For Design",
+    "geography": "NYC",
+    "politicalEntity": "NY HPD",
+    "name": "Am I Rent Stabilized?",
+    "type" : "Web App",
+    "needs": [
+      {"need": "UI / UX designer"},
+      {"need": "Web Hosting"},
+      {"need":  "Promotion"},
+      {"need":  "User Testing"}
+    ],
+    "categories" : [
+      {"category": "Rent Regulation"},
+      {"category": "Rent Stabilization"},
+      {"category": "Housing"},
+      {"category":"Open Data"},
+      {"category":"Civic action"}
+    ]
+}
