@@ -181,6 +181,7 @@ span.orange {
 p.arrow a { display: none; }
 
 p.arrow, p.arrow a {
+  text-transform: uppercase;
   position: absolute;  
   width: auto;
   margin: 0 auto;
