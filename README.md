@@ -33,6 +33,9 @@ The processed data is [publicly available for download on CartoDB](http://chenri
 2. Load the GeoJSON exported from Postgres to a CartoDB account (a free plan should suffice).
 3. Point the CDB SQL API to the CartoDB account name and data table (it must be set to public).
 
+## Credits
+Big thanks to [Caroline Woolard](http://carolinewoolard.com/) for suggesting the idea to me.
+
 ## LICENSE
 [Creative Commons Attribution-NonCommercial ](http://creativecommons.org/licenses/by-nc/4.0/)   
 (CC BY-NC)
