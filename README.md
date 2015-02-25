@@ -41,6 +41,3 @@ Big thanks to [Caroline Woolard](http://carolinewoolard.com/) for suggesting the
 (CC BY-NC)
 
 In other words: **_Not For Profit!_**
-
-
-
