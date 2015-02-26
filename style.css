@@ -8,10 +8,17 @@ html, body, div, p {
 }
 
 body {
+    width: 960px;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 300;
     letter-spacing: 0.0625em;
     font-size: 62.5%; /* so that 1em = 10px */
+}
+
+* {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */    
 }
 
 h1 {
@@ -28,6 +35,11 @@ h3 {
 
 a {
     text-decoration: none;
+}
+
+span.orange {
+    font-weight: 600;
+    color: orange;
 }
 
 nav {
@@ -51,10 +63,6 @@ nav ul li {
 
 nav ul li:last-child {
     margin-right: 0;
-}
-
-#back-to-tutorial {
-    margin-left: 100px;
 }
 
 nav a {
@@ -81,7 +89,12 @@ nav a.active {
     box-shadow: 0 4px 0 0 #51a65f;
 }
 
-.hide {
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+.hidden {
     display: none;
 }
 
@@ -104,7 +117,8 @@ nav a.active {
 
 .slide .centered {
     width: 60%;
-    margin: 50px auto 0;
+    margin: 0 auto;
+    border: 1px solid orange;
 }
 
 .slide .centered h1 {
@@ -115,6 +129,14 @@ nav a.active {
     text-align: center;
     margin-top: 20px;
     font-size: 4em;
+}
+
+.slide .centered .spinner {
+/*    top: 15%;*/
+    width: 400px;
+    height: 400px;
+    padding: 0;
+    margin: 0 auto;
 }
 
 #address-form {
@@ -162,4 +184,9 @@ nav a.active {
     cursor: pointer;
     font-weight: bold;
     text-decoration: underline;
+}
+
+#map {
+    width: 450px;
+    height: 450px;
 }

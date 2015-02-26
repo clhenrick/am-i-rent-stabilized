@@ -1,17 +1,27 @@
-$(document).ready(function(){
+var app = app || {};
+
+app.ui = (function(w,d,$, parseAddress){
 	//First the variables our app is going to use need to be declared
 
 	//References to DOM elements
-	var $window = $(window);
-	var $document = $(document);
-	//Only links that starts with #
-	var $navButtons = $("nav a").filter("[href^=#]");
-	var $navGoPrev = $(".go-prev");
-	var $navGoNext = $(".go-next");
-	var $navGoFirst = $(".go-first");
-	var $slidesContainer = $(".slides-container");
-	var $slides = $(".slide");
-	var $currentSlide = $slides.first();
+	var $window = $(window),
+		$document = $(document),	
+	 	$navButtons = $("nav a").filter("[href^=#]"), //Only links that starts with #
+	 	$navGoPrev = $(".go-prev"),
+	 	$navGoNext = $(".go-next"),
+	 	$navGoFirst = $(".go-first"),
+	 	$slidesContainer = $(".slides-container"),
+	 	$slides = $(".slide"),
+	 	$currentSlide = $slides.first(),
+	 	$addressInput = $(".address-input"),
+	 	$selectBoro = $('.select-borough'),
+	 	$search = $('.search'),
+	 	$yes = $('.yes'),
+	 	$no = $('.no'),
+	 	$spinner = $('.spinner'),
+	 	$spinnerColor = '#000',
+	 	$map = $('#map'),
+	 	$mapMessage = $('.map-message');
 
 	//Animating flag - is our app animating
 	var isAnimating = false;
@@ -25,10 +35,6 @@ $(document).ready(function(){
 		DOWN: 40
 	}
 
-	//Going to the first slide
-	goToSlide($currentSlide);
-
-
 	/*
 	*   Adding event listeners
 	* */
@@ -39,7 +45,7 @@ $(document).ready(function(){
 	$navButtons.on("click", onNavButtonClick);
 	$navGoPrev.on("click", goToPrevSlide);
 	$navGoNext.on("click", goToNextSlide);
-	$navGoFirst.on("click", goToFirstSlide);
+	$navGoFirst.on("click", goToFirstSlide);	
 
 	/*
 	*   Internal functions
@@ -134,6 +140,9 @@ $(document).ready(function(){
 	{
 		if($currentSlide.length)
 		{
+			$addressInput.val('');
+			$selectBoro.val('select');
+			toggleMessage();
 			goToSlide($slides.first());
 		}
 	}
@@ -194,4 +203,157 @@ $(document).ready(function(){
 		}
 
 	}
+
+	// toggle which message is shown to user
+	function toggleMessage(){
+		$yes.toggleClass('hidden');
+		$no.toggleClass('hidden');
+	}
+
+	// creates the mail to for requesting rent history
+  	function createMailTo(address) {
+    		var email = "rentinfo@nyshcr.org",
+          		subject = "request for rent history",
+          		body = "Hello, \n\n" +
+		                    "I, <YOUR NAME HERE>, am currently renting " + 
+		                    "<YOUR ADDRESS, APARTMENT NUMBER, BOROUGH, ZIPCODE>" +
+		                    " and would like the rent history for the apartment I am renting." +
+		                    " Any information you can provide me would be greatly appreciated. \n\n" +
+		                    "thank you,\n\n" +
+		                    "- <YOUR NAME HERE>",
+          		msg = 'mailto:' + encodeURIComponent(email) +
+	                     '?subject=' + encodeURIComponent(subject) +
+	                     '&body=' + encodeURIComponent(body); 
+		$('#mailto').attr('href',msg);
+  	}
+
+	function checkAddress(address, borough) {
+	      var parsedStreetAddress = parseAddress.parseLocation(address),
+	      	streetNum = parsedStreetAddress.number;	  	
+		// check the parsed street address 
+		if (parsedStreetAddress.type && !parsedStreetAddress.prefix) { 
+
+		  streetAddress = parsedStreetAddress.street + ' ' + parsedStreetAddress.type;
+
+		} else if (parsedStreetAddress.type && parsedStreetAddress.prefix) {
+		  
+		  streetAddress = parsedStreetAddress.prefix + ' ' +
+		                            parsedStreetAddress.street + ' ' + 
+		                            parsedStreetAddress.type;         
+
+		} else if (parsedStreetAddress.prefix && !parsedStreetAddress.type) {
+		  
+		  streetAddress = parsedStreetAddress.prefix + ' ' +
+		                            parsedStreetAddress.street;
+		  
+		} else {
+		  streetAddress = parsedStreetAddress.street;
+		};
+
+		app.map.geoclient(streetNum, streetAddress, borough);    
+	}	  	
+
+	// when user clicks the search button fire the app!
+	$search.on('click', function(){
+	  var  streetAddress = $addressInput.val(),
+	        boro = $selectBoro.val();        
+	  // check to make sure user filled out form correctly
+	  if (streetAddress !== "" && boro !== "select") {
+		goToNextSlide();
+		checkAddress(streetAddress, boro);			  	
+	  } else if (boro === "select") {
+	  	alert('Please select a borough.');
+	  } else if (streetAddress === "") {
+	  	alert('Please enter your house number and street.');
+	  } else {
+	  	alert('Please re-enter your address and borough.');
+	  };	                
+	});   		
+
+    // spinner presets
+    $.fn.spin.presets.huge = {
+        lines: 13, // The number of lines to draw
+        length: 100, // The length of each line
+        width: 40, // The line thickness
+        radius: 100, // The radius of the inner circle
+        corners: 0.5, // Corner roundness (0..1)
+        rotate: 0, // The rotation offset
+        direction: 1, // 1: clockwise, -1: counterclockwise
+        color: $spinnerColor, // #rgb or #rrggbb or array of colors
+        speed: 0.7, // Rounds per second
+        trail: 60, // Afterglow percentage
+        shadow: false, // Whether to render a shadow
+        hwaccel: false, // Whether to use hardware acceleration
+        className: 'huge', // The CSS class to assign to the spinner
+        zIndex: 2e9, // The z-index (defaults to 2000000000)
+        top: '50%', // Top position relative to parent
+        left: '50%' // Left position relative to parent
+      }
+
+      $.fn.spin.presets.large = {
+        lines: 11, 
+        length: 70, 
+        width: 30, 
+        radius: 70, 
+        corners: 0.5, 
+        rotate: 0, 
+        direction: 1, 
+        color: $spinnerColor, 
+        speed: 0.7, 
+        trail: 60, 
+        shadow: false, 
+        hwaccel: false, 
+        className: 'large', 
+        zIndex: 2e9
+        // top: '50%', 
+        // left: '50%' 
+      } 
+
+      $.fn.spin.presets.med = {
+        lines: 11, 
+        length: 40, 
+        width: 20, 
+        radius: 50, 
+        corners: 0.5, 
+        rotate: 0, 
+        direction: 1, 
+        color: $spinnerColor, 
+        speed: 0.7, 
+        trail: 60, 
+        shadow: false, 
+        hwaccel: false, 
+        className: 'large', 
+        zIndex: 2e9, 
+        top: '50%', 
+        left: '50%' 
+      }   
+
+	$spinner.spin('large', $spinnerColor);
+
+	if ($(window).width() <= 960 || $(window).height() <=770) {
+	  $spinner.spin('large', $spinnerColor);
+	}
+
+	if ($(window).width() <=600) {
+	  $spinner.spin('med', $spinnerColor);
+	} 
+
+	function init(){
+		goToSlide($currentSlide);
+		$yes.addClass('hidden');
+		// $map.addClass('hidden');
+		// $mapMessage.addClass('hidden');
+	}
+
+	return {
+		init : init,
+		toggleMessage: toggleMessage,
+		goToSlide : goToSlide
+	};
+
+})(window, document, jQuery, parseAddress);
+
+window.addEventListener('DOMContentLoaded', function(){
+	app.ui.init();
+	app.map.initMap();
 });

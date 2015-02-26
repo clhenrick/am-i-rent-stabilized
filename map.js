@@ -1,8 +1,10 @@
-// map & cartodb 
+// map & cartodb stuff
 var app = app || {};
 
-app.map = (function(w,d,$){
-  /******** Geocode User Input & Query DB ********/
+app.map = (function(w,d,$){   
+   var map,
+     addressMarker,
+     sqlURL = "http://chenrick.cartodb.com/api/v2/sql?q=";  
 
   // grab property data from nyc geo-client api
   var geoclient = function(num, name, boro) {
@@ -24,7 +26,7 @@ app.map = (function(w,d,$){
         dataType : "jsonp",
         url : urlConcat,
         success : function(data, status) {
-          // console.log('ajax request body: ', data);
+          console.log('geoclient data: ', data);
           checkResult(data);
         },
         error: function(xhr, textStatus, err) { 
@@ -38,13 +40,8 @@ app.map = (function(w,d,$){
           if (data.address.bbl) {
             var bbl = data.address.bbl;          
             getCDBdata(bbl);
-            showMarker(data)            
-          } else {
-            $cheating.addClass('hidden');
-            $('a[href=#four]').trigger('click');            
-            showNo();
-            hideYes();              
-          }       
+            showMarker(data);
+          }      
   }
 
  // check the bbl number against the cartodb data
@@ -52,51 +49,54 @@ app.map = (function(w,d,$){
     // sql to pass cartodb's sql api
     var sql = "SELECT * FROM all_nyc_likely_rent_stabl_merged " +
                   "WHERE bbl = " + bbl;
-    
-    // console.log('the sql: ', sql);
 
-    $.getJSON(cdbURL + sql, function(data) {
+    $.getJSON(sqlURL + sql, function(data) {
         console.log('CDB data: ', data);
         checkData(data);
     });
   };
 
   // if the results of the CDB SQL query have a row then show yes else display no
-  var checkData = function(json) {  
-    $cheating.addClass('hidden');
-    $('a[href=#four]').trigger('click');
-
-    if (json.rows.length !==0) {    
-        console.log('yay!');
-        showYes();
-        hideNo();
-      } 
-    else if  (json.rows.length ===0) {
-        console.log('boo!');
-        showNo();
-        hideYes();      
-      }
+  var checkData = function(json) {      
+    app.ui.toggleMessage();
+    app.ui.goToSlide($('#slide-4'));
+    // $('#map').toggleClass('hidden');
+    // $('.map-message').toggleClass('hidden');    
+    // if (json.rows.length !==0) {    
+    //     console.log('yay!');
+    //     showYes();
+    //     hideNo();
+    //   } 
+    // else if  (json.rows.length ===0) {
+    //     console.log('boo!');
+    //     showNo();
+    //     hideYes();      
+    //   }
   }
 
   var showMarker = function(data) {
+    // console.log('showMarker data: ', data);
     var x = data.address.longitudeInternalLabel,
           y = data.address.latitudeInternalLabel,
           latlng = [y, x],
           address = data.address.houseNumber + ' ' + 
-                          data.address.firstStreetNameNormalized + '\n' +
+                          data.address.firstStreetNameNormalized + '<br>' +
                           data.address.uspsPreferredCityName + ', NY ' +
                           data.address.zipCode;
+    console.log('x: ', x, ' y: ', y, ' latlng: ', latlng);
     // remove geocoded marker if one already exists
-    if (geocoderMarker) { 
-      map.removeLayer(geocoderMarker);
+    if (addressMarker) { 
+      map.removeLayer(addressMarker);
     }
     // add a marker and pan and zoom the map to it
-    geocoderMarker = new L.marker(latlng).addTo(map);
-    geocoderMarker.bindPopup("<h4>" + address + "</h4>" ).openPopup();
-    map.setView(latlng, 17);       
+    addressMarker = new L.marker(latlng).addTo(map);
+    addressMarker.on('popupopen', function(e){
+      console.log('marker pop up open: ', e);
+      map.setView(latlng, 17);  
+    }); 
+    addressMarker.bindPopup("<h4>" + address + "</h4>" ).openPopup();   
   }
 
-  /******** Map Stuff! ********/
   // set up the leaflet / cartodb map
   var initMap = function() {
     map = new L.Map('map', {
@@ -114,6 +114,8 @@ app.map = (function(w,d,$){
 
     cartodb.createLayer(map, {
       user_name : 'chenrick',
+      legends: false,
+      cartodb_logo: false,
       type: 'cartodb',
       sublayers: [{
         sql : 'SELECT * FROM all_nyc_likely_rent_stabl_merged',
@@ -133,5 +135,10 @@ app.map = (function(w,d,$){
     });    
 
   } // end initMap()  
+
+  return {
+    initMap : initMap,
+    geoclient : geoclient
+  }
 
 })(window, document, jQuery);
