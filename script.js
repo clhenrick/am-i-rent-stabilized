@@ -100,7 +100,7 @@ app.ui = (function(w,d,$, parseAddress){
 	{
 		//Normalize event wheel delta
 		var delta = event.originalEvent.wheelDelta / 30 || -event.originalEvent.detail;
-
+		console.log('delta: ', delta);
 		//If the user scrolled up, it goes to previous slide, otherwise - to next slide
 		if(delta < -1)
 		{

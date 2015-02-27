@@ -41,7 +41,10 @@ app.map = (function(w,d,$){
             var bbl = data.address.bbl;          
             getCDBdata(bbl);
             showMarker(data);
-          }      
+          } else {
+            app.ui.goToSlide($('#slide-2'));
+            alert('Sorry but we didn\'t recognize that address, please try again.');
+          }     
   }
 
  // check the bbl number against the cartodb data

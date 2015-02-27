@@ -2,7 +2,7 @@
 
 var app = app || {};
 
-app.ui = (function(w,d){
+app.ui = (function(w,d, parseAddress){
   
   // References to DOM elements
   var navGoPrev = d.querySelector('.go-prev'),
@@ -20,6 +20,9 @@ app.ui = (function(w,d){
         map = d.querySelector('#map'),
         mapMessage = d.querySelector('.map-message'),
         mailTo = d.getElementById('mail-to');
+
+  // store user address 
+  var parsedStreetAddress = {};
 
   // slide animation flag - is app animating?
   var isAnimating = false;
@@ -76,45 +79,42 @@ app.ui = (function(w,d){
   /*
   * Event listeners
   */
+
+  // resize window height
   w.onresize = onResize;
   
+  // use mouse wheel to scroll
   addWheelListener( w, function(e) { 
     onMouseWheel(e.deltaY); 
     e.preventDefault(); 
   });
   
+  // up / down key navigation
   w.onkeydown = onKeyDown;
   
   // navGoPrev.addEventListener('click', function(e){
   //   goToPrevSlide();
   // });
   
-  // navGoNext.addEventListener('click', function(e){
-  //   goToNextSlide();
-  // });
+  navGoNext.addEventListener('click', function(e){
+    goToNextSlide();
+  });
   
   // search button for address
   search.addEventListener('click', function(e){
     var streetAddress = addressInput.value,
           boro = selectBoro.value;
-    // check to make sure user filled out form correctly
-    if (streetAddress !== "" && boro !== "select") {
-      goToNextSlide();
-      checkAddress(streetAddress, boro);          
-    } else if (streetAddress === "" && boro === "select") {
-      alert('Please enter your address and select your borough.');
-    } else if (boro === "select") {
-      alert('Please select your borough.');
-    } else if (streetAddress === "") {
-      alert('Please enter your house number and street.');
-    } else {
-      alert('Please enter your address and select your borough.');
-    };            
+    checkAddressInput(streetAddress, boro);
   });
 
+  // start over
   navGoFirst.addEventListener('click', function(e){
     goToFirstSlide();
   });
+
+  /*
+  * Helper functions
+  **/
 
   function onKeyDown(event){
     var pressedKey = event.keyCode;
@@ -217,10 +217,26 @@ app.ui = (function(w,d){
     toggleClass(no, 'hidden');
   }
 
-  function checkAddress(address, borough) {
-        var parsedStreetAddress = parseAddress.parseLocation(address),
+  function checkAddressInput(address, borough) {
+    // check to make sure user filled out form correctly
+    if (address !== "" && borough !== "select") {
+      goToNextSlide();
+      parseStreetAddress(address, borough);          
+    } else if (address === "" && borough === "select") {
+      alert('Please enter your address and select your borough.');
+    } else if (borough === "select") {
+      alert('Please select your borough.');
+    } else if (address === "") {
+      alert('Please enter your house number and street.');
+    } else {
+      return;
+    };   
+  }
+
+  function parseStreetAddress(address, borough) {
+    var parsedStreetAddress = parseAddress.parseLocation(address),
           streetNum = parsedStreetAddress.number;     
-    // check the parsed street address 
+
     if (parsedStreetAddress.type && !parsedStreetAddress.prefix) { 
 
       streetAddress = parsedStreetAddress.street + ' ' + parsedStreetAddress.type;
@@ -275,7 +291,7 @@ app.ui = (function(w,d){
     goToSlide : goToSlide
   };
 
-})(window, document);
+})(window, document, parseAddress);
 
 window.addEventListener('DOMContentLoaded', function(){
   app.ui.init();

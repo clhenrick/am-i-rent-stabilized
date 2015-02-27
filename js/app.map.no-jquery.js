@@ -4,8 +4,10 @@ var app = app || {};
 app.map = (function(w,d){   
    var map,
      addressMarker,
-     sqlURL = "http://chenrick.cartodb.com/api/v2/sql?q=";  
+     sqlURL = "http://chenrick.cartodb.com/api/v2/sql?q=",
+     geoclientResult = {};
 
+  // function to perform JSONP GET request
   var loadJSONP = (function(){
     var unique = 0;
     return function(url, callback, context) {
@@ -46,31 +48,35 @@ app.map = (function(w,d){
           url = 'https://api.cityofnewyork.us/geoclient/v1/address.json?',
           urlConcat = url + stNum + stName + boro + appID + appKey;
 
-      // console.log('the concatenated url is: ', urlConcat);
       loadJSONP(urlConcat, checkResult);      
-      // $.ajax({
-      //   dataType : "jsonp",
-      //   url : urlConcat,
-      //   success : function(data, status) {
-      //     console.log('geoclient data: ', data);
-      //     checkResult(data);
-      //   },
-      //   error: function(xhr, textStatus, err) { 
-      //       console.log("readyState: "+xhr.readyState+"\n xhrStatus: "+xhr.status);
-      //       console.log("responseText: "+xhr.responseText);            
-      //   }        
-      // });
   }
 
+  // see if the geolient result has a bbl
   var checkResult = function(data) {
-          if (data.address.bbl) {
-            var bbl = data.address.bbl;          
-            getCDBdata(bbl);
-            showMarker(data);
-          } else {
-            app.ui.goToSlide(d.getElementById('slide-2'));
-            alert('Sorry but we didn\'t recognize that address, please try again.');
-          }     
+    var d = data.address;    
+    geoclientResult =  {
+      bbl : d.bbl,
+      lon : d.longitudeInternalLabel,
+      lat : d.latitudeInternalLabel,
+      hNo : d.houseNumber,
+      sName : d.streetName1In,
+      bCode : d.boroughCode1In,
+      bUSPS : d.uspsPreferredCityName,
+      zip : d.zipCode,
+      cd: d.communityDistrict,
+      bin : d.giBuildingIdentificationNumber1
+    };
+
+    // console.log('geoclient result: ', geoclientResult);
+    
+    if (data.address.bbl) {
+      var bbl = data.address.bbl;          
+      getCDBdata(bbl);
+      showMarker(data);
+    } else {
+      app.ui.goToSlide(d.getElementById('slide-2'));
+      alert('Sorry but we didn\'t recognize that address, please try again.');
+    }     
   }
 
  // check the bbl number against the cartodb data
