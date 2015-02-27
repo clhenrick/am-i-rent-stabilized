@@ -106,6 +106,7 @@ img {
     height: 100%;
     overflow: hidden;
     z-index: 10;
+    background-color: rgb(247, 249, 254);
 }
 
 .slide {
@@ -132,7 +133,7 @@ img {
 }
 
 .slide .centered .spinner {
-/*    top: 15%;*/
+    position: relative;
     width: 400px;
     height: 400px;
     padding: 0;

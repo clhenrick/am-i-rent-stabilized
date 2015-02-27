@@ -18,6 +18,7 @@
     }
   ],
   "dependencies": {
+    "cartodb.js": "^3.5.6",
     "parse-address": "0.0.4"
   },
   "devDependencies": {
