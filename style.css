@@ -22,7 +22,7 @@ body {
 }
 
 div {
-    border: 1px solid green;
+    /*border: 1px solid green;*/
 }
 
 h1, h2, h3 {
@@ -50,6 +50,7 @@ h4 {
 
 a {
     text-decoration: none;
+    font-weight: 600;
 }
 
 img {
@@ -162,7 +163,19 @@ nav a.active {
 }
 
 .slide .centered p.arrow {
-    font-size: 12em;
+    font-size: 6em;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.slide .centered p.arrow span.arrow {
+    font-size: 2em;
+    text-decoration: none;
+    line-height: .6em;
+}
+
+.slide .centered p.arrow:hover {
+    color: green;
 }
 
 .slide .centered .spinner {
@@ -171,6 +184,11 @@ nav a.active {
     height: 400px;
     padding: 0;
     margin: 0 auto;
+}
+
+.slide .centered .title {
+    font-style: italic;
+    font-weight: 600;
 }
 
 #address-form {
@@ -203,7 +221,12 @@ nav a.active {
     text-decoration: underline;
 }
 
+.go-next:hover {
+    color: green;
+}
+
 #map {
     width: 450px;
     height: 450px;
+    border: 1px solid #999;
 }
