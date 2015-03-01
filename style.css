@@ -10,7 +10,7 @@ html, body, div, p {
 body {
     width: 960px;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-weight: 300;
+    font-weight: 100;
     letter-spacing: 0.0625em;
     font-size: 62.5%; /* so that 1em = 10px */
 }
@@ -21,8 +21,18 @@ body {
   box-sizing: border-box;         /* Opera/IE 8+ */    
 }
 
+div {
+    border: 1px solid green;
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 h1 {
     font-size: 18em;
+    line-height: 1em;
 }
 
 h2 {
@@ -30,11 +40,21 @@ h2 {
 }
 
 h3 {
-    font-size: 12em;
+    font-size: 10em;
+    line-height: 1em;
+}
+
+h4 {
+    font-size: 8em;
 }
 
 a {
     text-decoration: none;
+}
+
+img {
+    display: block;
+    margin: 2% auto;
 }
 
 button {
@@ -94,11 +114,6 @@ nav a.active {
     box-shadow: 0 4px 0 0 #51a65f;
 }
 
-img {
-    display: block;
-    margin: 0 auto;
-}
-
 .hidden {
     display: none;
 }
@@ -124,17 +139,30 @@ img {
 .slide .centered {
     width: 60%;
     margin: 0 auto;
-    border: 1px solid orange;
 }
 
-.slide .centered h1 {
+.slide .centered h1, .slide .centered h3,
+.slide .centered h4 {
     text-align: center;
 }
 
+.slide .centered h3.go {    
+    margin-bottom: 5%;
+}
+
+.slide .centered h3.go .arrow-2 {
+    font-size: 1.5em;
+    line-height: 1.1em;
+    text-decoration: none;
+}
 .slide .centered p {
     text-align: center;
     margin-top: 20px;
     font-size: 4em;
+}
+
+.slide .centered p.arrow {
+    font-size: 12em;
 }
 
 .slide .centered .spinner {
@@ -168,23 +196,6 @@ img {
 #address-form select option {
     font-size: 3em;
 }
-
-/*#slide-1 {
-    background-color: #FFFFFF;
-}
-
-#slide-2 {
-    background-color: #45959b;
-}
-
-#slide-3 {
-    background-color: #778899;
-}
-
-#slide-4 {
-    color: #FFFFFF;
-    background-color: #291F37;
-}*/
 
 .go-prev, .go-next, .go-first {
     cursor: pointer;
