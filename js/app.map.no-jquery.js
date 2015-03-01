@@ -2,10 +2,11 @@
 var app = app || {};
 
 app.map = (function(w,d){   
-   var map,
-     addressMarker,
-     sqlURL = "http://chenrick.cartodb.com/api/v2/sql?q=",
-     geoclientResult = {};
+   var el = {},
+      f = {}, 
+      addressMarker,
+      sqlURL = "http://chenrick.cartodb.com/api/v2/sql?q=",
+      geoclientResult = {};
 
   // function to perform JSONP GET request
   var loadJSONP = (function(){
@@ -67,14 +68,14 @@ app.map = (function(w,d){
       bin : d.giBuildingIdentificationNumber1
     };
 
-    // console.log('geoclient result: ', geoclientResult);
+    console.log('geoclient result: ', geoclientResult);
     
-    if (data.address.bbl) {
-      var bbl = data.address.bbl;          
+    if (d.bbl) {
+      var bbl = d.bbl; 
       getCDBdata(bbl);
       showMarker(data);
     } else {
-      app.ui.goToSlide(d.getElementById('slide-2'));
+      f.goToPrevSide();
       alert('Sorry but we didn\'t recognize that address, please try again.');
     }     
   }
@@ -90,9 +91,10 @@ app.map = (function(w,d){
 
     request.onload = function() {
       if (request.status >= 200 && request.status < 400) {
-        // Success!
+        // Success!      
         var data = JSON.parse(request.responseText);
         checkData(data);
+        console.log('cdb success: ', data);
       } else {
         // We reached our target server, but it returned an error
         console.log('error reaching cdb sql api');
@@ -109,22 +111,13 @@ app.map = (function(w,d){
   };
 
   // if the results of the CDB SQL query have a row then show yes else display no
-  var checkData = function(json) {      
-    app.ui.toggleMessage();
-    app.ui.goToSlide(d.getElementById('slide-4'));
-    // $('#map').toggleClass('hidden');
-    // $('.map-message').toggleClass('hidden');    
-    // if (json.rows.length !==0) {    
-    //     console.log('yay!');
-    //     showYes();
-    //     hideNo();
-    //   } 
-    // else if  (json.rows.length ===0) {
-    //     console.log('boo!');
-    //     showNo();
-    //     hideYes();      
-    //   }
-  }
+  var checkData = function(data) {    
+    if (data.rows.length > 0) {
+      f.toggleMessage();    
+    } 
+    f.goToNextSlide();
+    console.log('checkData goToNextSlide called');
+  };
 
   var showMarker = function(data) {
     // console.log('showMarker data: ', data);
@@ -138,20 +131,20 @@ app.map = (function(w,d){
     console.log('x: ', x, ' y: ', y, ' latlng: ', latlng);
     // remove geocoded marker if one already exists
     if (addressMarker) { 
-      map.removeLayer(addressMarker);
+      el.map.removeLayer(addressMarker);
     }
-    // add a marker and pan and zoom the map to it
-    addressMarker = new L.marker(latlng).addTo(map);
+    // add a marker and pan and zoom the el.map to it
+    addressMarker = new L.marker(latlng).addTo(el.map);
     addressMarker.on('popupopen', function(e){
       // console.log('marker pop up open: ', e);
-      map.setView(latlng, 17);  
+      el.map.setView(latlng, 17);  
     }); 
     addressMarker.bindPopup("<h4>" + address + "</h4>" ).openPopup();   
-  }
+  };
 
   // set up the leaflet / cartodb map
   var initMap = function() {
-    map = new L.Map('map', {
+    el.map = new L.Map('map', {
       center : [40.7127, -74.0059],
       zoom : 10,
       dragging : false,
@@ -162,9 +155,9 @@ app.map = (function(w,d){
     });
 
     var tonerLite = new L.StamenTileLayer('toner-lite');
-    map.addLayer(tonerLite);
+    el.map.addLayer(tonerLite);
 
-    cartodb.createLayer(map, {
+    cartodb.createLayer(el.map, {
       user_name : 'chenrick',
       legends: false,
       cartodb_logo: false,
@@ -180,16 +173,22 @@ app.map = (function(w,d){
                         "}"
       }]
     })
-    .addTo(map)
+    .addTo(el.map)
     .done(function(layer){
       // console.log(layer);
       tonerLite.bringToBack();
     });    
 
-  } // end initMap()  
+  } // end initMap()
+
+  function init() {
+    el = app.ui.el;
+    f = app.ui.f
+    initMap();
+  }
 
   return {
-    initMap : initMap,
+    init : init,
     geoclient : geoclient
   }
 

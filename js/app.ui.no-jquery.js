@@ -5,21 +5,23 @@ var app = app || {};
 app.ui = (function(w,d, parseAddress){
   
   // References to DOM elements
-  var navGoPrev = d.querySelector('.go-prev'),
-        navGoNext = d.querySelector('.go-next'),
-        navGoFirst = d.querySelector('.go-first'),
-        slidesContainer = d.querySelector('.slides-container'),
-        slides = d.querySelectorAll('.slide'),
-        currentSlide = slides[0],
-        addressInput = d.querySelector('.address-input'),
-        selectBoro = d.querySelector('.select-borough'),
-        search = d.querySelector('.search'),
-        yes = d.querySelector('.yes'),
-        no = d.querySelector('.no'),
-        spinnerTarget = d.querySelector('.spinner'),
-        map = d.querySelector('#map'),
-        mapMessage = d.querySelector('.map-message'),
-        mailTo = d.getElementById('mail-to');
+  var el = {
+    navGoPrev : d.querySelector('.go-prev'),
+    navGoNext : d.querySelector('.go-next'),
+    navGoFirst : d.querySelector('.go-first'),
+    slidesContainer : d.querySelector('.slides-container'),
+    slides : d.querySelectorAll('.slide'),
+    currentSlide : null,
+    addressInput : d.querySelector('.address-input'),
+    selectBoro : d.querySelector('.select-borough'),
+    search : d.querySelector('.search'),
+    yes : d.querySelector('.yes'),
+    no : d.querySelector('.no'),
+    spinnerTarget : d.querySelector('.spinner'),
+    map : d.getElementById('map'),
+    mapMessage : d.querySelector('.map-message'),
+    mailTo : d.getElementById('mail-to')
+  };
 
   // store user address 
   var parsedStreetAddress = {};
@@ -70,7 +72,7 @@ app.ui = (function(w,d, parseAddress){
             className: 'large', 
             zIndex: 2e9
           },
-          spinner = new Spinner(spinOptsLarge).spin(spinnerTarget);
+          spinner = new Spinner(spinOptsLarge).spin(el.spinnerTarget);
       
       if (w.width <= 600) {
         spinner.spin(spinOptsMed, spinnerColor);
@@ -90,25 +92,31 @@ app.ui = (function(w,d, parseAddress){
   });
   
   // up / down key navigation
-  w.onkeydown = onKeyDown;
+  // w.onkeydown = onKeyDown;
   
   // navGoPrev.addEventListener('click', function(e){
   //   goToPrevSlide();
   // });
   
-  navGoNext.addEventListener('click', function(e){
+  el.navGoNext.addEventListener('click', function(e){
     goToNextSlide();
   });
   
   // search button for address
-  search.addEventListener('click', function(e){
-    var streetAddress = addressInput.value,
-          boro = selectBoro.value;
-    checkAddressInput(streetAddress, boro);
+  el.search.addEventListener('click', function(e){    
+    var streetAddress = el.addressInput.value,
+          boro = el.selectBoro.value;
+    
+    goToNextSlide();
+    //  delay API calls so user sees loading gif
+    setTimeout(function(){
+      checkAddressInput(streetAddress, boro);    
+    }, 1000);
+    
   });
 
   // start over
-  navGoFirst.addEventListener('click', function(e){
+  el.navGoFirst.addEventListener('click', function(e){
     goToFirstSlide();
   });
 
@@ -141,8 +149,8 @@ app.ui = (function(w,d, parseAddress){
 
   function getSlideIndex(slide){
       var index;
-      for (var i=0; i < slides.length; i++) { 
-        if (slides[i] === slide) { 
+      for (var i=0; i < el.slides.length; i++) { 
+        if (el.slides[i] === slide) { 
           index = i; 
         }        
       }
@@ -152,30 +160,43 @@ app.ui = (function(w,d, parseAddress){
   function goToSlide(slide){
     if (!isAnimating && slide) {
       isAnimating = true;
-      currentSlide = slide;
+      el.currentSlide = slide;
       var index = getSlideIndex(slide);
-      TweenLite.to(slidesContainer, 1, {scrollTo: {y: pageHeight * index}, onComplete: onSlideChangeEnd});
+      TweenLite.to(el.slidesContainer, 1, {scrollTo: {y: pageHeight * index}, onComplete: onSlideChangeEnd});
     }
   }
 
-  function goToPrevSlide(){
-    if (currentSlide.previousElementSibling) {
-      goToSlide(currentSlide.previousElementSibling);
-    }
+  function goToPrevSlide(callback){
+    if (el.currentSlide.previousElementSibling) {
+      
+      goToSlide(el.currentSlide.previousElementSibling);
+      
+      if (callback && typeof callback === "function") { 
+        callback();
+        console.log('goToPrevSlide callback called.');
+      }
+    }    
   }
 
-  function goToNextSlide() {
-    if (currentSlide.nextElementSibling) {
-      goToSlide(currentSlide.nextElementSibling);
-    }
+  function goToNextSlide(callback) {
+    if (el.currentSlide.nextElementSibling) {
+      
+      goToSlide(el.currentSlide.nextElementSibling);
+      console.log('go to next slide called');
+      
+      if (callback && typeof callback === "function") { 
+        callback(); 
+        console.log('goToNextSlide callback called.');
+      }  
+    }      
   }
 
   function goToFirstSlide() {
-    if (currentSlide) {
-      addressInput.value = '';
-      selectBoro.value = '';
+    if (el.currentSlide) {
+      el.addressInput.value = '';
+      el.selectBoro.value = '';
       toggleMessage();
-      goToSlide(slides[0]);
+      goToSlide(el.slides[0]);
     }
   }
 
@@ -184,16 +205,16 @@ app.ui = (function(w,d, parseAddress){
   }
 
   function onResize() {
-    console.log('onResize called');
+    // console.log('onResize called');
     var newPageHeight = w.innerHeight;
-    var slide = currentSlide;
+    var slide = el.currentSlide;
     var index = getSlideIndex(slide);
     if (pageHeight !== newPageHeight) {
       pageHeight = newPageHeight;
       //This can be done via CSS only, but fails into some old browsers, so I prefer to set height via JS
-      TweenLite.set([slidesContainer, slides], {height: pageHeight + "px"});
+      TweenLite.set([el.slidesContainer, el.slides], {height: pageHeight + "px"});
       //The current slide should be always on the top
-      TweenLite.set(slidesContainer, {scrollTo: {y: pageHeight * index}});
+      TweenLite.set(el.slidesContainer, {scrollTo: {y: pageHeight * index}});
     }
   }
 
@@ -213,14 +234,13 @@ app.ui = (function(w,d, parseAddress){
   }
 
   function toggleMessage(){
-    toggleClass(yes, 'hidden');
-    toggleClass(no, 'hidden');
+    toggleClass(el.yes, 'hidden');
+    toggleClass(el.no, 'hidden');
   }
 
   function checkAddressInput(address, borough) {
     // check to make sure user filled out form correctly
-    if (address !== "" && borough !== "select") {
-      goToNextSlide();
+    if (address !== "" && borough !== "select") {      
       parseStreetAddress(address, borough);          
     } else if (address === "" && borough === "select") {
       alert('Please enter your address and select your borough.');
@@ -273,27 +293,35 @@ app.ui = (function(w,d, parseAddress){
           msg = 'mailto:' + encodeURIComponent(email) +
                      '?subject=' + encodeURIComponent(subject) +
                      '&body=' + encodeURIComponent(body); 
-    mailTo.setAttribute('href', msg);
+    el.mailTo.setAttribute('href', msg);
   }  
 
   function init(){
-    goToSlide(currentSlide);
+    el.currentSlide = el.slides[0];
+    goToSlide(el.currentSlide);
 
-    if (yes.classList)
-      yes.classList.add('hidden');
-    else
-      yes.className += ' ' + 'hidden';
+    if (el.yes.classList) {
+      el.yes.classList.add('hidden');
+    }      
+    else {
+      el.yes.className += ' ' + 'hidden';
+    }      
+    app.map.init();
   }
   
   return {
     init : init,
-    toggleMessage : toggleMessage,
-    goToSlide : goToSlide
+    el : el,    
+    f : {
+      goToSlide: goToSlide,
+      goToPrevSlide : goToPrevSlide,
+      goToNextSlide : goToNextSlide,
+      toggleMessage : toggleMessage
+    }
   };
 
 })(window, document, parseAddress);
 
 window.addEventListener('DOMContentLoaded', function(){
-  app.ui.init();
-  app.map.initMap();
+  app.ui.init();  
 });
