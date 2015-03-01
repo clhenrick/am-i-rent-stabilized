@@ -37,6 +37,11 @@ a {
     text-decoration: none;
 }
 
+button {
+    padding: 0 5px;
+    font-weight: 600;
+}
+
 span.orange {
     font-weight: 600;
     color: orange;
