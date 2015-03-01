@@ -74,9 +74,11 @@ app.map = (function(w,d){
       var bbl = d.bbl; 
       getCDBdata(bbl);
       showMarker(data);
-    } else {
-      f.goToPrevSide();
+    } else {      
+      el.addressInput.value='';
+      el.selectBoro.value='select';
       alert('Sorry but we didn\'t recognize that address, please try again.');
+      app.ui.f.goToPrevSlide();
     }     
   }
 

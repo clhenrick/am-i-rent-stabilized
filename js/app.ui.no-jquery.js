@@ -6,9 +6,9 @@ app.ui = (function(w,d, parseAddress){
   
   // References to DOM elements
   var el = {
-    navGoPrev : d.querySelector('.go-prev'),
-    navGoNext : d.querySelector('.go-next'),
-    navGoFirst : d.querySelector('.go-first'),
+    // navGoPrev : d.querySelectorAll('.go-prev'),
+    navGoNext : d.querySelectorAll('.go-next'),
+    navGoFirst : d.querySelectorAll('.go-first'),
     slidesContainer : d.querySelector('.slides-container'),
     slides : d.querySelectorAll('.slide'),
     currentSlide : null,
@@ -92,16 +92,12 @@ app.ui = (function(w,d, parseAddress){
   });
   
   // up / down key navigation
-  // w.onkeydown = onKeyDown;
-  
-  // navGoPrev.addEventListener('click', function(e){
-  //   goToPrevSlide();
-  // });
-  
-  el.navGoNext.addEventListener('click', function(e){
-    goToNextSlide();
-  });
-  
+  w.onkeydown = onKeyDown;
+  // go back
+  // addEventListenerList(el.navGoPrev, 'click', goToPrevSlide);
+  // go forward
+  addEventListenerList(el.navGoNext, 'click', goToNextSlide);
+
   // search button for address
   el.search.addEventListener('click', function(e){    
     var streetAddress = el.addressInput.value,
@@ -111,18 +107,23 @@ app.ui = (function(w,d, parseAddress){
     //  delay API calls so user sees loading gif
     setTimeout(function(){
       checkAddressInput(streetAddress, boro);    
-    }, 1000);
-    
+    }, 1000);    
   });
 
   // start over
-  el.navGoFirst.addEventListener('click', function(e){
-    goToFirstSlide();
-  });
+  addEventListenerList(el.navGoFirst, 'click', goToFirstSlide);
 
   /*
   * Helper functions
   **/
+
+  function addEventListenerList(list, event, fn) {
+    var i=0, len=list.length;
+    for (i; i< len; i++) {
+        list[i].addEventListener(event, fn, false);
+    }
+    console.log('event listener added to: ', list);
+  }
 
   function onKeyDown(event){
     var pressedKey = event.keyCode;
@@ -194,7 +195,7 @@ app.ui = (function(w,d, parseAddress){
   function goToFirstSlide() {
     if (el.currentSlide) {
       el.addressInput.value = '';
-      el.selectBoro.value = '';
+      el.selectBoro.value = 'select';
       toggleMessage();
       goToSlide(el.slides[0]);
     }
