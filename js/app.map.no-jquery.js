@@ -141,14 +141,14 @@ app.map = (function(w,d){
       // console.log('marker pop up open: ', e);
       el.map.setView(latlng, 17);  
     }); 
-    addressMarker.bindPopup("<h4>" + address + "</h4>" ).openPopup();   
+    addressMarker.bindPopup("<b>" + address + "</b>" ).openPopup();   
   };
 
   // set up the leaflet / cartodb map
   var initMap = function() {
     el.map = new L.Map('map', {
       center : [40.7127, -74.0059],
-      zoom : 10,
+      zoom : 12,
       dragging : false,
       touchZoom : false,
       doubleClickZoom : false,
@@ -170,7 +170,7 @@ app.map = (function(w,d){
                           "polygon-fill: #FF6600;" +
                           "polygon-opacity: 0.8;" +
                           "line-color: #000;" +
-                          "line-width: 0.5;" +
+                          "line-width: 0.2;" +
                           "line-opacity: 0.2;" +
                         "}"
       }]

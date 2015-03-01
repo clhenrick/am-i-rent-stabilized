@@ -15,8 +15,8 @@ app.ui = (function(w,d, parseAddress){
     addressInput : d.querySelector('.address-input'),
     selectBoro : d.querySelector('.select-borough'),
     search : d.querySelector('.search'),
-    yes : d.querySelector('.yes'),
-    no : d.querySelector('.no'),
+    yes : d.querySelectorAll('.yes'),
+    no : d.querySelectorAll('.no'),
     spinnerTarget : d.querySelector('.spinner'),
     map : d.getElementById('map'),
     mapMessage : d.querySelector('.map-message'),
@@ -101,10 +101,9 @@ app.ui = (function(w,d, parseAddress){
   // search button for address
   el.search.addEventListener('click', function(e){    
     var streetAddress = el.addressInput.value,
-          boro = el.selectBoro.value;
-    
+          boro = el.selectBoro.value;    
     goToNextSlide();
-    //  delay API calls so user sees loading gif
+    // delay API calls so user sees loading gif
     setTimeout(function(){
       checkAddressInput(streetAddress, boro);    
     }, 1000);    
@@ -219,19 +218,22 @@ app.ui = (function(w,d, parseAddress){
     }
   }
 
-  function toggleClass(el, className) {
-    if (el.classList) {
-        el.classList.toggle(className);
-      } else {
-        var classes = el.className.split(' ');
-        var existingIndex = classes.indexOf(className);
+  function toggleClass(elem, className) {
+    var i=0; len=elem.length;
+    for (i; i<len; i++) {
+      if (elem[i].classList) {
+          elem[i].classList.toggle(className);
+        } else {
+          var classes = elem[i].className.split(' ');
+          var existingIndex = classes.indexOf(className);
 
-        if (existingIndex >= 0)
-          classes.splice(existingIndex, 1);
-        else
-          classes.push(className);
-        el.className = classes.join(' ');
-      }
+          if (existingIndex >= 0)
+            classes.splice(existingIndex, 1);
+          else
+            classes.push(className);
+          elem[i].className = classes.join(' ');
+        }
+    }
   }
 
   function toggleMessage(){
@@ -244,13 +246,16 @@ app.ui = (function(w,d, parseAddress){
     if (address !== "" && borough !== "select") {      
       parseStreetAddress(address, borough);          
     } else if (address === "" && borough === "select") {
-      alert('Please enter your address and select your borough.');
+      goToPrevSlide();
+      alert('Please enter your address and select your borough.');      
     } else if (borough === "select") {
-      alert('Please select your borough.');
+      goToPrevSlide();
+      alert('Please select your borough.');      
     } else if (address === "") {
-      alert('Please enter your house number and street.');
+      goToPrevSlide();
+      alert('Please enter your house number and street.');      
     } else {
-      return;
+      goToPrevSlide();
     };   
   }
 
@@ -295,18 +300,24 @@ app.ui = (function(w,d, parseAddress){
                      '?subject=' + encodeURIComponent(subject) +
                      '&body=' + encodeURIComponent(body); 
     el.mailTo.setAttribute('href', msg);
-  }  
+  } 
+
+  function setMessageBoolean() {
+    var i=0, len=el.yes.length;
+    for (i; i<len; i++){
+      if (el.yes[i].classList) {
+        el.yes[i].classList.add('hidden');
+      }      
+      else {
+        el.yes[i].className += ' ' + 'hidden';
+      }     
+    }
+  } 
 
   function init(){
     el.currentSlide = el.slides[0];
     goToSlide(el.currentSlide);
-
-    if (el.yes.classList) {
-      el.yes.classList.add('hidden');
-    }      
-    else {
-      el.yes.className += ' ' + 'hidden';
-    }      
+    setMessageBoolean(); 
     app.map.init();
   }
   
