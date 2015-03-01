@@ -221,7 +221,7 @@ nav a.active {
     text-decoration: underline;
 }
 
-.go-next:hover {
+.go-next:hover, h3.go :hover {
     color: green;
 }
 
