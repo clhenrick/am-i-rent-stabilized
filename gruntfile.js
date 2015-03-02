@@ -68,14 +68,14 @@ module.exports = function(grunt) {
         },
 
         connect: {
-            port: 8000            
+            port: 8000
         },
 
         watch: {
-            jshint: {
-                files: ['js/*.js'],
-                tasks: ['jshint']
-            },
+            // jshint: {
+            //     files: ['js/*.js'],
+            //     tasks: ['jshint']
+            // },
 
             // less: {
             //     files: ['css/*.less', 'css/*/*.less'],
