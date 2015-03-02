@@ -30,6 +30,7 @@
     "normalize.css": "~3.0.2",
     "modernizr": "~2.8.3",
     "viewport-units-buggyfill": "~0.4.1",
-    "proj4": "~2.3.3"
+    "proj4": "~2.3.3",
+    "parsleyjs": "~2.0.7"
   }
 }

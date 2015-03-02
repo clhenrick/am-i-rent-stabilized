@@ -1,50 +1,100 @@
-module.exports = function (grunt) {
-    // load all grunt tasks
-    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-    
+module.exports = function(grunt) {
     grunt.initConfig({
-        pkg: grunt.file.readJSON('package.json'),
-
-        compass: {
-              dev: {
+        pkg: grunt.file.readJSON('package.json'), // doesn't have to be included
+        browserify: {
+            dev: {
                 options: {
-                  config: 'config.rb',
-                  force: true
-                }
-              }
-        },
-        autoprefixer: {
-            dist: {
-                files: {
-                    'build/styles.css': 'css/styles.css'
-                }
+                    browserifyOptions: {
+                        debug: true
+                    },
+                    watch: true
+                },
+                src: 'js/app.ui.no-jquery.js',
+                dest: 'js/bundle.dev.js'
+            },
+            production: {
+                options: {
+                    watch: true
+                },
+                src: '<%= browserify.dev.src %>',
+                dest: 'js/bundle.js'
             }
         },
-        watch: {
-          sass: {
-            files: ['assets/sass/**/*.scss'],
-            tasks: ['compass:dev']
-          },
-          /* watch and see if our javascript files change, or new packages are installed */
-          styles: {
-                files: ['css/styles.css'],
-                tasks: ['autoprefixer']
-          },
-          js: {
-            files: ['assets/js/main.js', 'components/**/*.js'],
-            tasks: ['uglify']
-          },
-          /* watch our files for change, reload */
-          livereload: {
-            files: ['*.html', 'assets/css/*.css', 'assets/images/*', 'assets/js/{main.min.js, plugins.min.js}'],
-            options: {
-              livereload: true
-            }
-          },
-        }
 
+        cssmin: {
+            minify: {
+                src: 'css/style.css', //'<%= less.production.dest %>',
+                dest: 'css/style.min.css'
+            }
+        },
+
+        jshint: {
+            all: {
+                files: {
+                    src: [
+                        'js/*.js',
+                        '!<%= browserify.dev.dest %>',
+                        '!<%= browserify.production.dest %>',
+                        '!<%= uglify.production.dest %>'
+                    ]
+                }
+            }
+        },
+
+        // less: {
+        //     dev: {
+        //         options: {
+        //             paths: ['css'],
+        //             sourceMap: true
+        //         },
+        //         src: 'css/style.less',
+        //         dest: 'css/style.dev.css'
+        //     },
+        //     production: {
+        //         options: {
+        //             paths: ['css'],
+        //             yuicompress: true
+        //         },
+        //         src: '<%= less.dev.src %>',
+        //         dest: 'css/style.css'
+        //     }
+        // },
+
+        uglify: {
+            production: {
+                src: '<%= browserify.production.dest %>',
+                dest: 'js/bundle.min.js'
+            }
+        },
+
+        connect: {
+            port: 8000            
+        },
+
+        watch: {
+            jshint: {
+                files: ['js/*.js'],
+                tasks: ['jshint']
+            },
+
+            // less: {
+            //     files: ['css/*.less', 'css/*/*.less'],
+            //     tasks: ['less', 'cssmin']
+            // },
+
+            uglify: {
+                files: ['<%= browserify.production.dest %>'],
+                tasks: ['uglify']
+            }
+        }
     });
-    grunt.registerTask('default', 'watch');
-    grunt.loadNpmTasks('grunt-autoprefixer');
+
+    grunt.loadNpmTasks('grunt-browserify');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-connect');
+
+    grunt.registerTask('dev', ['browserify', 'connect', 'watch']);
 };
