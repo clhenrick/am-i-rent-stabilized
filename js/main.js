@@ -288,7 +288,7 @@ $(window).on('load', function(){
           y = data.address.latitudeInternalLabel,
           latlng = [y, x],
           address = data.address.houseNumber + ' ' + 
-                          data.address.firstStreetNameNormalized + '\n' +
+                          data.address.firstStreetNameNormalized + '<br>' +
                           data.address.uspsPreferredCityName + ', NY ' +
                           data.address.zipCode;
     // remove geocoded marker if one already exists

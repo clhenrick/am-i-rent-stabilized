@@ -28,7 +28,7 @@ body {
 
 #map .leaflet-popup-content h4 {
   color: #000;
-  width: 200px;
+  /*width: 200px;*/
 }
 
 #map-container {
