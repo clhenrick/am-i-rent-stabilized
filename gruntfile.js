@@ -9,7 +9,10 @@ module.exports = function(grunt) {
                     },
                     watch: true
                 },
-                src: 'js/app.ui.no-jquery.js',
+                src: [
+                    'js/app.ui.no-jquery.js', 
+                    'js/app.map.no-jquery.js',
+                    ],
                 dest: 'js/bundle.dev.js'
             },
             production: {
@@ -23,7 +26,7 @@ module.exports = function(grunt) {
 
         cssmin: {
             minify: {
-                src: 'css/style.css', //'<%= less.production.dest %>',
+                src: 'css/*.css', //'<%= less.production.dest %>',
                 dest: 'css/style.min.css'
             }
         },
@@ -69,6 +72,7 @@ module.exports = function(grunt) {
 
         connect: {
             port: 8000
+            // debug: true
         },
 
         watch: {

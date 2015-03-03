@@ -58,6 +58,11 @@ img {
     margin: 2% auto;
 }
 
+img.monster {
+    position: relative;
+    left: 25px;
+}
+
 button {
     padding: 0 5px;
     font-weight: 600;
@@ -183,12 +188,11 @@ nav a.active {
     width: 400px;
     height: 400px;
     padding: 0;
-    margin: 0 auto;
+    margin: 30px auto 0 auto;
 }
 
 .slide .centered .title {
     font-style: italic;
-    font-weight: 600;
 }
 
 #address-form {
@@ -260,4 +264,20 @@ li.parsley-required {
     width: 450px;
     height: 450px;
     border: 1px solid #999;
+}
+
+.slide .share-box-end {
+    display: inline-block;
+    position: relative;
+    left: 25%;
+}
+
+.slide .share-box-end p {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.slide .twitter-like.social, .slide .fb-share-button.social {
+    display: inline-block;
+    margin-right: 5px;
 }

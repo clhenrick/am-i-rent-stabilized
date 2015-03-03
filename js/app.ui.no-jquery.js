@@ -21,7 +21,8 @@ app.ui = (function(w,d, parseAddress){
     spinnerTarget : d.querySelector('.spinner'),
     map : d.getElementById('map'),
     mapMessage : d.querySelector('.map-message'),
-    mailTo : d.getElementById('mail-to')
+    mailTo : d.getElementById('mail-to'),
+    fbShare : d.querySelector('.fb-share-button')
   };
 
   // store user address 
@@ -94,22 +95,36 @@ app.ui = (function(w,d, parseAddress){
   
   // up / down key navigation
   w.onkeydown = onKeyDown;
+  
   // go back
   // addEventListenerList(el.navGoPrev, 'click', goToPrevSlide);
+  
   // go forward
   addEventListenerList(el.navGoNext, 'click', goToNextSlide);
 
   // search button for address
   el.search.addEventListener('click', function(e){
-    e.preventDefault();    
+    e.preventDefault();
     var streetAddress = el.addressInput.value,
           boro = getCheckedRadioValue(el.selectBoro);
     console.log('street address: ', streetAddress, ' boro: ', boro);
-    checkAddressInput(streetAddress, boro);
+    checkAddressInput(streetAddress, boro);        
   });
 
   // start over
   addEventListenerList(el.navGoFirst, 'click', goToFirstSlide);
+
+  addEventListener(el.fbShare, 'click', function(e) {
+    e.preventDefault();
+    FB.ui({
+      method : 'feed',
+      name : 'Am I Rent Stabilized?',
+      link : 'http://amirentstabilized.com',
+      picture: 'assets/png/no1.png',
+      description: 'Find out if your land lord might owe you money!',
+      message : ''
+    });
+  });
 
   /*
   * Helper functions
