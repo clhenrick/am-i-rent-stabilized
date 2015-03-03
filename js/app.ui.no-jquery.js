@@ -13,7 +13,8 @@ app.ui = (function(w,d, parseAddress){
     slides : d.querySelectorAll('.slide'),
     currentSlide : null,
     addressInput : d.querySelector('.address-input'),
-    selectBoro : d.querySelector('.select-borough'),
+    // selectBoro : d.querySelector('.select-borough'),
+    selectBoro : d.getElementsByName('borough'),
     search : d.querySelector('.search'),
     yes : d.querySelectorAll('.yes'),
     no : d.querySelectorAll('.no'),
@@ -99,14 +100,12 @@ app.ui = (function(w,d, parseAddress){
   addEventListenerList(el.navGoNext, 'click', goToNextSlide);
 
   // search button for address
-  el.search.addEventListener('click', function(e){    
+  el.search.addEventListener('click', function(e){
+    e.preventDefault();    
     var streetAddress = el.addressInput.value,
-          boro = el.selectBoro.value;    
-    goToNextSlide();
-    // delay API calls so user sees loading gif
-    setTimeout(function(){
-      checkAddressInput(streetAddress, boro);    
-    }, 1000);    
+          boro = getCheckedRadioValue(el.selectBoro);
+    console.log('street address: ', streetAddress, ' boro: ', boro);
+    checkAddressInput(streetAddress, boro);
   });
 
   // start over
@@ -121,7 +120,6 @@ app.ui = (function(w,d, parseAddress){
     for (i; i< len; i++) {
         list[i].addEventListener(event, fn, false);
     }
-    console.log('event listener added to: ', list);
   }
 
   function onKeyDown(event){
@@ -241,19 +239,20 @@ app.ui = (function(w,d, parseAddress){
     toggleClass(el.no, 'hidden');
   }
 
-  function checkAddressInput(address, borough) {
+  function checkAddressInput(address, borough) {        
     // check to make sure user filled out form correctly
-    if (address !== "" && borough !== "select") {      
-      parseStreetAddress(address, borough);          
-    } else if (address === "" && borough === "select") {
-      goToPrevSlide();
+    if (address !== '' && borough !== undefined) {
+      goToNextSlide();
+      // delay API calls so user sees loading gif
+      setTimeout(function(){
+        parseStreetAddress(address, borough);
+      }, 1000);              
+    } else if (address === '' && borough === 'select') {
       alert('Please enter your address and select your borough.');      
     } else if (borough === "select") {
-      goToPrevSlide();
-      alert('Please select your borough.');      
-    } else if (address === "") {
-      goToPrevSlide();
-      alert('Please enter your house number and street.');      
+      alert('Please select your borough.');    
+    } else if (address === '') {
+      alert('Please enter your house number and street.');
     } else {
       goToPrevSlide();
     };   
@@ -261,7 +260,9 @@ app.ui = (function(w,d, parseAddress){
 
   function parseStreetAddress(address, borough) {
     var parsedStreetAddress = parseAddress.parseLocation(address),
-          streetNum = parsedStreetAddress.number;     
+          streetNum = parsedStreetAddress.number;  
+
+    console.log('parsed address: ', streetNum, ' ', parsedStreetAddress);   
 
     if (parsedStreetAddress.type && !parsedStreetAddress.prefix) { 
 
@@ -313,6 +314,16 @@ app.ui = (function(w,d, parseAddress){
       }     
     }
   } 
+
+  function getCheckedRadioValue(radio_group) {
+    for (var i = 0; i < radio_group.length; i++) {
+        var button = radio_group[i];
+        if (button.checked) {
+            return button.value;
+        }
+    }
+    return undefined;
+  }
 
   function init(){
     el.currentSlide = el.slides[0];
