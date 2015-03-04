@@ -75,9 +75,18 @@ app.map = (function(w,d){
       getCDBdata(bbl);
       showMarker(data);
     } else {      
-      el.addressInput.value='';
-      el.selectBoro.value='select';
-      alert('Sorry but we didn\'t recognize that address, please try again.');
+      app.ui.el.addressInput.value='';
+      app.ui.f.resetBoroValue();
+      // alert('Sorry but we didn\'t recognize that address, please try again.');
+      if (app.ui.f.hasClass(app.ui.el.valErrorNF, 'hidden')===true) {
+        app.ui.f.toggleClass(app.ui.el.valErrorNF, 'hidden');
+      }
+      if (app.ui.f.hasClass(app.ui.el.valErrorBoro, 'hidden')===false) {
+        app.ui.f.addClass(app.ui.el.valErrorBoro, 'hidden');
+      }
+      if (app.ui.f.hasClass(app.ui.el.valErrorAddress, 'hidden')===false) {
+        app.ui.f.addClass(app.ui.el.valErrorAddress, 'hidden');
+      }      
       app.ui.f.goToPrevSlide();
     }     
   }
@@ -107,15 +116,14 @@ app.map = (function(w,d){
       // There was a connection error of some sort
       console.log('request error');
     };
-
     request.send();
-
   };
 
   // if the results of the CDB SQL query have a row then show yes else display no
   var checkData = function(data) {    
     if (data.rows.length > 0) {
-      f.toggleMessage();    
+      f.toggleClass(el.yes, 'hidden');
+      f.toggleClass(el.no, 'hidden');    
     } 
     f.goToNextSlide();
     console.log('checkData goToNextSlide called');

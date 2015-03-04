@@ -16,6 +16,10 @@ app.ui = (function(w,d, parseAddress){
     // selectBoro : d.querySelector('.select-borough'),
     selectBoro : d.getElementsByName('borough'),
     search : d.querySelector('.search'),
+    valErrors : d.querySelectorAll('.validation-error'),
+    valErrorAddress : d.getElementById('error-address'),
+    valErrorBoro : d.getElementById('error-boro'),
+    valErrorNF : d.getElementById('error-not-found'),
     yes : d.querySelectorAll('.yes'),
     no : d.querySelectorAll('.no'),
     spinnerTarget : d.querySelector('.spinner'),
@@ -106,9 +110,9 @@ app.ui = (function(w,d, parseAddress){
   el.search.addEventListener('click', function(e){
     e.preventDefault();
     var streetAddress = el.addressInput.value,
-          boro = getCheckedRadioValue(el.selectBoro);
+          boro = getBoroValue(el.selectBoro);
     console.log('street address: ', streetAddress, ' boro: ', boro);
-    checkAddressInput(streetAddress, boro);        
+    checkAddressInput(streetAddress, boro);
   });
 
   // start over
@@ -150,8 +154,7 @@ app.ui = (function(w,d, parseAddress){
   }
 
   function onMouseWheel(event) {
-    var delta = event / 30 || -event;
-    
+    var delta = event / 30 || -event;    
     if (delta < -1) {
       goToNextSlide();
     }
@@ -180,10 +183,8 @@ app.ui = (function(w,d, parseAddress){
   }
 
   function goToPrevSlide(callback){
-    if (el.currentSlide.previousElementSibling) {
-      
-      goToSlide(el.currentSlide.previousElementSibling);
-      
+    if (el.currentSlide.previousElementSibling) {      
+      goToSlide(el.currentSlide.previousElementSibling);      
       if (callback && typeof callback === "function") { 
         callback();
         console.log('goToPrevSlide callback called.');
@@ -192,11 +193,9 @@ app.ui = (function(w,d, parseAddress){
   }
 
   function goToNextSlide(callback) {
-    if (el.currentSlide.nextElementSibling) {
-      
+    if (el.currentSlide.nextElementSibling) {      
       goToSlide(el.currentSlide.nextElementSibling);
-      console.log('go to next slide called');
-      
+      console.log('go to next slide called');      
       if (callback && typeof callback === "function") { 
         callback(); 
         console.log('goToNextSlide callback called.');
@@ -205,10 +204,13 @@ app.ui = (function(w,d, parseAddress){
   }
 
   function goToFirstSlide() {
+    // reset everything to defaults
     if (el.currentSlide) {
       el.addressInput.value = '';
       el.selectBoro.value = 'select';
       toggleMessage();
+      hideFormValidationErrors();
+      resetBoroValue();
       goToSlide(el.slides[0]);
     }
   }
@@ -216,6 +218,10 @@ app.ui = (function(w,d, parseAddress){
   function onSlideChangeEnd(){
     isAnimating = false;
   }
+
+  /*
+  ** jQuery-esque functions
+   */
 
   function onResize() {
     // console.log('onResize called');
@@ -231,43 +237,103 @@ app.ui = (function(w,d, parseAddress){
     }
   }
 
-  function toggleClass(elem, className) {
-    var i=0; len=elem.length;
-    for (i; i<len; i++) {
-      if (elem[i].classList) {
-          elem[i].classList.toggle(className);
-        } else {
-          var classes = elem[i].className.split(' ');
-          var existingIndex = classes.indexOf(className);
+  function hasClass(el, className) {
+    if (el && el.length) {
+      var i=0, len=el.length;
+      for (i; i<len; i++) {
+        if (el[i].classList)
+          return el[i].classList.contains(className);
+        else
+          return new RegExp('(^| )' + className + '( |$)', 'gi').test(el[i].className);        
+      }
+    }
+    if (el && el.classList)
+      return el.classList.contains(className);
+    else
+      return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
+  }
 
-          if (existingIndex >= 0)
-            classes.splice(existingIndex, 1);
-          else
-            classes.push(className);
-          elem[i].className = classes.join(' ');
+  function addClass(el, className) {
+    if (el && el.length){
+      var i=0, len=el.length;
+      for (i; i<len; i++) {
+        if (el[i].classList) {
+          el[i].classList.add(className);
+        } else {
+          el[i].className += ' ' + className;
         }
+      }
+    } else {
+      if (el && el.classList) {
+        el.classList.add(className);
+      } else {
+        el.className += ' ' + className;
+      }      
     }
   }
 
-  function toggleMessage(){
-    toggleClass(el.yes, 'hidden');
-    toggleClass(el.no, 'hidden');
+  function toggleClass(el, className) {    
+    if (el &&  el.length){
+      var i=0; len=el.length;
+      for (i; i<len; i++) {
+        if (el[i].classList) {
+            el[i].classList.toggle(className);
+          } else {
+            var classes = el[i].className.split(' ');
+            var existingIndex = classes.indexOf(className);
+
+            if (existingIndex >= 0)
+              classes.splice(existingIndex, 1);
+            else
+              classes.push(className);
+            el[i].className = classes.join(' ');
+          }
+      }
+    } else {
+      if (el && el.classList) {
+        el.classList.toggle(className);
+      } else {
+        var classes = el.className.split(' ');
+        var existingIndex = classes.indexOf(className);
+
+        if (existingIndex >= 0)
+          classes.splice(existingIndex, 1);
+        else
+          classes.push(className);
+        el.className = classes.join(' ');
+      }
+    }
   }
 
-  function checkAddressInput(address, borough) {        
+  /*
+  ** User address related functions
+   */
+
+  function checkAddressInput(address, borough) {    
     // check to make sure user filled out form correctly
+    console.log('checkAddress: ', address, borough);
     if (address !== '' && borough !== undefined) {
       goToNextSlide();
       // delay API calls so user sees loading gif
       setTimeout(function(){
         parseStreetAddress(address, borough);
       }, 1000);              
-    } else if (address === '' && borough === 'select') {
-      alert('Please enter your address and select your borough.');      
-    } else if (borough === "select") {
-      alert('Please select your borough.');    
+    } else if (address === '' && borough === undefined) {
+      // alert('Please enter your address and select your borough.');
+      if (hasClass(el.valErrorAddress, 'hidden')===true && hasClass(el.valErrorBoro, 'hidden')===true){
+        toggleClass(el.valErrorAddress, 'hidden');
+        toggleClass(el.valErrorBoro, 'hidden');
+      }
+    } else if (borough === undefined) {
+      // alert('Please select your borough.');
+      if (hasClass(el.valErrorBoro, 'hidden')===true) {
+        toggleClass(el.valErrorBoro, 'hidden');
+      }
     } else if (address === '') {
-      alert('Please enter your house number and street.');
+      // alert('Please enter your house number and street.');
+      if (hasClass(el.valErrorAddress, 'hidden')===true) {
+        toggleClass(el.valErrorAddress, 'hidden');
+      }
     } else {
       goToPrevSlide();
     };   
@@ -276,28 +342,19 @@ app.ui = (function(w,d, parseAddress){
   function parseStreetAddress(address, borough) {
     var parsedStreetAddress = parseAddress.parseLocation(address),
           streetNum = parsedStreetAddress.number;  
-
-    console.log('parsed address: ', streetNum, ' ', parsedStreetAddress);   
-
+    // console.log('parsed address: ', streetNum, ' ', parsedStreetAddress);   
     if (parsedStreetAddress.type && !parsedStreetAddress.prefix) { 
-
       streetAddress = parsedStreetAddress.street + ' ' + parsedStreetAddress.type;
-
     } else if (parsedStreetAddress.type && parsedStreetAddress.prefix) {
-      
       streetAddress = parsedStreetAddress.prefix + ' ' +
                                 parsedStreetAddress.street + ' ' + 
                                 parsedStreetAddress.type;         
-
-    } else if (parsedStreetAddress.prefix && !parsedStreetAddress.type) {
-      
+    } else if (parsedStreetAddress.prefix && !parsedStreetAddress.type) {      
       streetAddress = parsedStreetAddress.prefix + ' ' +
-                                parsedStreetAddress.street;
-      
+                                parsedStreetAddress.street;      
     } else {
       streetAddress = parsedStreetAddress.street;
     };
-
     app.map.geoclient(streetNum, streetAddress, borough);    
   } 
 
@@ -318,32 +375,42 @@ app.ui = (function(w,d, parseAddress){
     el.mailTo.setAttribute('href', msg);
   } 
 
-  function setMessageBoolean() {
-    var i=0, len=el.yes.length;
-    for (i; i<len; i++){
-      if (el.yes[i].classList) {
-        el.yes[i].classList.add('hidden');
-      }      
-      else {
-        el.yes[i].className += ' ' + 'hidden';
-      }     
-    }
-  } 
+  // toggle yes / no message
+  function toggleMessage(){
+    toggleClass(el.yes, 'hidden');
+    toggleClass(el.no, 'hidden');
+  }
 
-  function getCheckedRadioValue(radio_group) {
+  function hideFormValidationErrors() {
+    var i=0, len=el.valErrors.length;
+    for (i; i<len; i++) {
+      if (hasClass(el.valErrors[i], 'hidden')===false){
+        addClass(el.valErrors[i], 'hidden');
+      }   
+    }    
+  }
+
+  function getBoroValue(radio_group) {
     for (var i = 0; i < radio_group.length; i++) {
         var button = radio_group[i];
         if (button.checked) {
             return button.value;
-        }
+        }           
     }
-    return undefined;
+    return undefined;    
+  }
+
+  function resetBoroValue() {
+    var i=0, len=el.selectBoro.length;
+    for (i; i<len; i++){
+      el.selectBoro[i].checked=false;
+    }
   }
 
   function init(){
     el.currentSlide = el.slides[0];
     goToSlide(el.currentSlide);
-    setMessageBoolean(); 
+    addClass(el.yes, 'hidden');
     app.map.init();
   }
   
@@ -353,8 +420,11 @@ app.ui = (function(w,d, parseAddress){
     f : {
       goToSlide: goToSlide,
       goToPrevSlide : goToPrevSlide,
-      goToNextSlide : goToNextSlide,
-      toggleMessage : toggleMessage
+      goToNextSlide : goToNextSlide,      
+      toggleClass : toggleClass,
+      hasClass : hasClass,
+      addClass : addClass,
+      resetBoroValue : resetBoroValue
     }
   };
 
