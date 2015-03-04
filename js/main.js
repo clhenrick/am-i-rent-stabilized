@@ -132,6 +132,7 @@ $(window).on('load', function(){
     $startOver.on('click', function(){
       $address.val('');      
       $boro.val('select');
+      window.location.hash = "";
       if ($cheating.hasClass('hidden')) { $cheating.removeClass('hidden'); }
       hideYes();
       hideNo();
@@ -158,6 +159,12 @@ $(window).on('load', function(){
     if (! $no.hasClass('hidden')) { $no.addClass('hidden'); }
   }
 
+  function scrollTo(hash){
+    setTimeout(function(){
+      location.hash = "#" + hash;
+    },1000);    
+  }
+
   var createMailTo = function() {
     var email = "rentinfo@nyshcr.org",
           subject = "request for rent history",
@@ -175,37 +182,45 @@ $(window).on('load', function(){
   }
 
   // when user clicks the $submit button fire the app!
-  $submit.on('click', function(){
+  $submit.on('click', function(e) {
+    e.preventDefault();
+    window.location.hash="";
     var  streetAddress = $address.val(),
-          boro = $boro.val(),          
-          parsedStreetAddress = parseAddress.parseLocation(streetAddress),
+          boro = $boro.val(); 
+    console.log('submit street address: ', streetAddress, ', ', boro);
+    if (boro!=="select" && streetAddress!=="") {
+      parseUserAddress(streetAddress, boro);
+    } else if (boro==="select" && streetAddress===""){      
+      alert('Please enter your building number and street name. Then select your borough.');
+      scrollTo('two');
+    } else if (streetAddress===""){
+      alert('Please enter your building number and street name.');
+      scrollTo('two');
+    } else if  (boro==="select"){
+      alert('Please select your borough.');
+      scrollTo('two');
+    }
+  });
+
+  function parseUserAddress(streetAddress, boro) {
+    var parsedStreetAddress = parseAddress.parseLocation(streetAddress),
           streetNum = parsedStreetAddress.number,
           streetAddress;
-
     // check the parsed street address 
     if (parsedStreetAddress.type && !parsedStreetAddress.prefix) { 
-
       streetAddress = parsedStreetAddress.street + ' ' + parsedStreetAddress.type;
-
-    } else if (parsedStreetAddress.type && parsedStreetAddress.prefix) {
-      
+    } else if (parsedStreetAddress.type && parsedStreetAddress.prefix) {      
       streetAddress = parsedStreetAddress.prefix + ' ' +
                                 parsedStreetAddress.street + ' ' + 
                                 parsedStreetAddress.type;         
-
     } else if (parsedStreetAddress.prefix && !parsedStreetAddress.type) {
-      
       streetAddress = parsedStreetAddress.prefix + ' ' +
                                 parsedStreetAddress.street;
-      
     } else {
       streetAddress = parsedStreetAddress.street;
     };          
-
-    // console.log('streetAddress is: ', streetAddress, 
-    //                   ' parsedStreetAddress is: ', parsedStreetAddress);
     geoclient(streetNum, streetAddress, boro);
-  });  
+  } 
 
   /******** Geocode User Input & Query DB ********/
 
@@ -306,7 +321,7 @@ $(window).on('load', function(){
   var initMap = function() {
     map = new L.Map('map', {
       center : [40.7127, -74.0059],
-      zoom : 10,
+      zoom : 12,
       dragging : false,
       touchZoom : false,
       doubleClickZoom : false,
