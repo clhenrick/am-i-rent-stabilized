@@ -193,6 +193,7 @@ nav a.active {
 
 .slide .centered .title {
     font-style: italic;
+    font-weight: 300;
 }
 
 #address-form {
@@ -242,12 +243,16 @@ p#boroughs {
     line-height: normal;
 }
 
-li.parsley-required {
+li.parsley-required, ul.validation-error li {
     display: inline-block;
-    padding: 2px;
-    font-size: 2em;
+    padding: 2px 4px;
+    margin-top: 5px;
+    font-size: 3em;
+    font-weight: 300;
+    font-style: italic; 
+    letter-spacing: 1px;
     list-style: none;
-    background-color: hsl(0,50%,80%);
+    background-color: hsl(0,100%,80%);
 }
 
 .go-prev, .go-next, .go-first {
@@ -261,6 +266,7 @@ li.parsley-required {
 }
 
 #map {
+    margin-top: 30px;
     width: 450px;
     height: 450px;
     border: 1px solid #999;

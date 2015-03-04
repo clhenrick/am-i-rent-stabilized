@@ -70,8 +70,14 @@
                     <form id="address-form" class="centered" data-parsley-validate>
                         <label class="address-form" for="address-input">Street Address:*</label>
                         <input class="address-input" name="address-input" type="text" placeholder="Type your street address here" required>
+                        <ul id="error-address" class="validation-error hidden">
+                            <li>*Please enter your building's number and street name </li>
+                        </ul>
                         <div class="borough-select">
                             <label class="address-form" for="borough">Borough:*</label>
+                            <ul id="error-boro" class="validation-error hidden">
+                                <li>*Please select your borough</li>
+                            </ul>
                             <p id="boroughs">
                                 Bronx: <input type="radio" name="borough" id="boroughBX" value="BX" required><br>
                                 Brooklyn: <input type="radio" name="borough" id="boroughBK" value="BK"><br>
@@ -81,6 +87,9 @@
                             </p>
                         </div>                
                         <button type="submit" class="search">Search</button>
+                        <ul id="error-not-found" class="validation-error hidden">
+                            <li>Sorry, we don't recognize that NYC address. Try again.</li>
+                        </ul>                        
                     </form>
                 </div>
             </div>  
