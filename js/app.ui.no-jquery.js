@@ -115,7 +115,7 @@ app.ui = (function(w,d, parseAddress){
     e.preventDefault();
     var streetAddress = el.addressInput.value,
           boro = getBoroValue(el.selectBoro);
-    console.log('street address: ', streetAddress, ' boro: ', boro);
+    // console.log('street address: ', streetAddress, ' boro: ', boro);
     checkAddressInput(streetAddress, boro);
   });
 
@@ -217,7 +217,6 @@ app.ui = (function(w,d, parseAddress){
   function goToNextSlide(callback) {
     if (el.currentSlide.nextElementSibling) {      
       goToSlide(el.currentSlide.nextElementSibling);
-      console.log('go to next slide called');      
       if (callback && typeof callback === "function") { 
         callback(); 
         console.log('goToNextSlide callback called.');
@@ -241,18 +240,6 @@ app.ui = (function(w,d, parseAddress){
     isAnimating = false;
   }
 
-  function iterateNodeList(list,fn) {
-    if (list && list.length) {
-      var i=0, len=list.length;
-      for (i; i<len; i++) {
-        return fn(list[i]);
-      }
-    }
-    if (list && !list.length) {
-      return fn(list);
-    }
-  }
-
   /*
   ** jQuery-esque helper functions
    */
@@ -272,6 +259,19 @@ app.ui = (function(w,d, parseAddress){
     }
   }
 
+  // iterate over node lists
+  function iterateNodeList(list,fn) {
+    if (list && list.length) {
+      var i=0, len=list.length;
+      for (i; i<len; i++) {
+        return fn(list[i]);
+      }
+    }
+    if (list && !list.length) {
+      return fn(list);
+    }
+  }
+
   function hasClass(el, className) {
     return iterateNodeList(el, function(el){
       if (el.classList) {
@@ -282,91 +282,31 @@ app.ui = (function(w,d, parseAddress){
     });
   }
 
-  // function hasClass2(el, className) {
-  //   if (el && el.length){
-  //     return iterateNodeList(el, function(el){      
-  //       if (el.classList) {
-  //         return el.classList.contains(className);
-  //       } else {
-  //         return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
-  //       }
-  //     });
-  //   }
-  //   if (el && el.classList)
-  //     return el.classList.contains(className);
-  //   else
-  //     return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
-  // }
-
-  // // check if an element or node list has a given class
-  // function hasClass(el, className) {
-  //   if (el && el.length) {
-  //     var i=0, len=el.length;
-  //     for (i; i<len; i++) {
-  //       if (el[i].classList)
-  //         return el[i].classList.contains(className);
-  //       else
-  //         return new RegExp('(^| )' + className + '( |$)', 'gi').test(el[i].className);        
-  //     }
-  //   }
-  //   if (el && el.classList)
-  //     return el.classList.contains(className);
-  //   else
-  //     return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
-  // }
-
-  // add a class to an element or node list
   function addClass(el, className) {
-    if (el && el.length){
-      var i=0, len=el.length;
-      for (i; i<len; i++) {
-        if (el[i].classList) {
-          el[i].classList.add(className);
-        } else {
-          el[i].className += ' ' + className;
-        }
-      }
-    } else {
-      if (el && el.classList) {
+    iterateNodeList(el, function(el) {
+      if (el.classList) {
         el.classList.add(className);
       } else {
         el.className += ' ' + className;
-      }      
-    }
+      }
+    });
   }
 
-  // toggle the class of an element or node list
-  function toggleClass(el, className) {    
-    if (el &&  el.length){
-      var i=0; len=el.length;
-      for (i; i<len; i++) {
-        if (el[i].classList) {
-            el[i].classList.toggle(className);
-          } else {
-            var classes = el[i].className.split(' ');
-            var existingIndex = classes.indexOf(className);
-
-            if (existingIndex >= 0)
-              classes.splice(existingIndex, 1);
-            else
-              classes.push(className);
-            el[i].className = classes.join(' ');
-          }
-      }
-    } else {
-      if (el && el.classList) {
+  function toggleClass(el, className) {
+    iterateNodeList(el, function(el){
+      if (el.classList) {
         el.classList.toggle(className);
       } else {
         var classes = el.className.split(' ');
         var existingIndex = classes.indexOf(className);
-
-        if (existingIndex >= 0)
+        if (existingIndex >=0) {
           classes.splice(existingIndex, 1);
-        else
+        } else {
           classes.push(className);
-        el.className = classes.join(' ');
+          el.className = classes.join(' ');
+        }
       }
-    }
+    });
   }
 
   /*
@@ -376,7 +316,7 @@ app.ui = (function(w,d, parseAddress){
    // form validation for when user enters address and selects boro
   function checkAddressInput(address, borough) {    
     // check to make sure user filled out form correctly
-    console.log('checkAddress: ', address, borough);
+    // console.log('checkAddress: ', address, borough);
     if (address !== '' && borough !== undefined) {
       goToNextSlide();
       // delay API calls so user sees loading gif
