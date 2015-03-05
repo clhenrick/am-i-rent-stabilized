@@ -167,6 +167,11 @@ nav a.active {
     font-size: 4em;
 }
 
+.slide .centered p em {
+    font-weight: 600;
+    font-style: italic;
+}
+
 .slide .centered p.arrow {
     font-size: 6em;
     font-weight: 600;
