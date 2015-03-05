@@ -2,11 +2,11 @@
 var app = app || {};
 
 app.map = (function(w,d){   
-   var el = {},
-      f = {}, 
-      addressMarker,
-      sqlURL = "http://chenrick.cartodb.com/api/v2/sql?q=",
-      geoclientResult = {};
+   var el = {}, // to store DOM element references from app.ui
+      f = {},  // to store DOM manipulation and UI functions from app.ui
+      addressMarker, // leaflet marker to locate user's address on map
+      sqlURL = "http://chenrick.cartodb.com/api/v2/sql?q=", //cartodb SQL API reference
+      geoclientResult = {}; // to store properties from NYC Geoclient API result
 
   // function to perform JSONP GET request
   var loadJSONP = (function(){
@@ -126,7 +126,7 @@ app.map = (function(w,d){
       f.toggleClass(el.no, 'hidden');    
     } 
     f.goToNextSlide();
-    console.log('checkData goToNextSlide called');
+    // console.log('checkData goToNextSlide called');
   };
 
   var showMarker = function(data) {

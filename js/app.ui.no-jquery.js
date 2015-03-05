@@ -118,7 +118,8 @@ app.ui = (function(w,d, parseAddress){
   // start over
   addEventListenerList(el.navGoFirst, 'click', goToFirstSlide);
 
-  addEventListener(el.fbShare, 'click', function(e) {
+  // add data to facebook button
+  addEventListenerList(el.fbShare, 'click', function(e) {
     e.preventDefault();
     FB.ui({
       method : 'feed',
@@ -128,6 +129,23 @@ app.ui = (function(w,d, parseAddress){
       description: 'Find out if your land lord might owe you money!',
       message : ''
     });
+  });
+
+  // hide address error message if it's displayed and user enters text
+  el.addressInput.addEventListener("blur", function(e){
+    if (el.addressInput.value !== "" && hasClass(el.valErrorAddress, 'hidden') !== true) {
+      addClass(el.valErrorAddress, 'hidden');
+    }
+    if (el.addressInput.value !== "" && hasClass(el.valErrorNF, 'hidden') !== true) {
+      addClass(el.valErrorNF, 'hidden');
+    }    
+  });
+
+  // hide boro error message if it's displayed and user clicks a button
+  addEventListenerList(el.selectBoro, 'click', function(e) {
+    if (hasClass(el.valErrorBoro, 'hidden') !== true) {
+      addClass(el.valErrorBoro, 'hidden');
+    }
   });
 
   /*
@@ -220,9 +238,10 @@ app.ui = (function(w,d, parseAddress){
   }
 
   /*
-  ** jQuery-esque functions
+  ** jQuery-esque helper functions
    */
 
+   // resize window
   function onResize() {
     // console.log('onResize called');
     var newPageHeight = w.innerHeight;
@@ -237,6 +256,7 @@ app.ui = (function(w,d, parseAddress){
     }
   }
 
+  // check if an element or node list has a given class
   function hasClass(el, className) {
     if (el && el.length) {
       var i=0, len=el.length;
@@ -253,6 +273,7 @@ app.ui = (function(w,d, parseAddress){
       return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
   }
 
+  // add a class to an element or node list
   function addClass(el, className) {
     if (el && el.length){
       var i=0, len=el.length;
@@ -272,6 +293,7 @@ app.ui = (function(w,d, parseAddress){
     }
   }
 
+  // toggle the class of an element or node list
   function toggleClass(el, className) {    
     if (el &&  el.length){
       var i=0; len=el.length;
@@ -309,6 +331,7 @@ app.ui = (function(w,d, parseAddress){
   ** User address related functions
    */
 
+   // form validation for when user enters address and selects boro
   function checkAddressInput(address, borough) {    
     // check to make sure user filled out form correctly
     console.log('checkAddress: ', address, borough);
@@ -339,6 +362,7 @@ app.ui = (function(w,d, parseAddress){
     };   
   }
 
+  // if form is valid then parse the user's address and send it to the geoclient api
   function parseStreetAddress(address, borough) {
     var parsedStreetAddress = parseAddress.parseLocation(address),
           streetNum = parsedStreetAddress.number;  
@@ -358,7 +382,7 @@ app.ui = (function(w,d, parseAddress){
     app.map.geoclient(streetNum, streetAddress, borough);    
   } 
 
-  // creates the mail to for requesting rent history
+  // create the mailto content for requesting rent history from dhcr
   function createMailTo(address) {
     var email = "rentinfo@nyshcr.org",
           subject = "request for rent history",
@@ -375,12 +399,13 @@ app.ui = (function(w,d, parseAddress){
     el.mailTo.setAttribute('href', msg);
   } 
 
-  // toggle yes / no message
+  // toggle yes / no message above map
   function toggleMessage(){
     toggleClass(el.yes, 'hidden');
     toggleClass(el.no, 'hidden');
   }
 
+  // hide all validation errors
   function hideFormValidationErrors() {
     var i=0, len=el.valErrors.length;
     for (i; i<len; i++) {
@@ -390,6 +415,7 @@ app.ui = (function(w,d, parseAddress){
     }    
   }
 
+  // get the value of the radio button that is checked
   function getBoroValue(radio_group) {
     for (var i = 0; i < radio_group.length; i++) {
         var button = radio_group[i];
@@ -400,6 +426,7 @@ app.ui = (function(w,d, parseAddress){
     return undefined;    
   }
 
+  // reset the radio buttons for select boro
   function resetBoroValue() {
     var i=0, len=el.selectBoro.length;
     for (i; i<len; i++){
@@ -407,6 +434,7 @@ app.ui = (function(w,d, parseAddress){
     }
   }
 
+  // get the whole damn thing going
   function init(){
     el.currentSlide = el.slides[0];
     goToSlide(el.currentSlide);
