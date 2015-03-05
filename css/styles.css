@@ -34,8 +34,8 @@ body {
 #map-container {
   position: static;
   margin: 1% auto 0 auto;
-  width: 500px;
-  height: 500px;  
+  width: 400px;
+  height: 400px;  
   border: 1px solid white;
   border-radius: 50%;
   overflow: hidden;
@@ -116,6 +116,11 @@ section h3 {
   text-align: center;
 }
 
+section h3 em {
+  font-style: italic;
+  font-weight: 600;
+}
+
 section h3.steps {
   color: hsl(150, 100%, 55%);
 }
@@ -187,7 +192,7 @@ p.arrow, p.arrow a {
   margin: 0 auto;
   bottom: 0;
   color: #FFF;
-  font-size: 2.6em;
+  font-size: 2.2em;
 }
 
 p.arrow a:hover {
