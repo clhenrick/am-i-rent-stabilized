@@ -19,6 +19,7 @@
   ],
   "dependencies": {
     "cartodb.js": "^3.5.6",
+    "gsap": "^1.16.0",
     "parse-address": "0.0.4"
   },
   "devDependencies": {
