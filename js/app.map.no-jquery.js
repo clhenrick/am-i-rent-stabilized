@@ -164,8 +164,11 @@ app.map = (function(w,d){
       zoomControl : false
     });
 
-    var tonerLite = new L.StamenTileLayer('toner-lite');
-    el.map.addLayer(tonerLite);
+    var basemap = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',{
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+    });
+
+    el.map.addLayer(basemap);
 
     cartodb.createLayer(el.map, {
       user_name : 'chenrick',
@@ -176,10 +179,10 @@ app.map = (function(w,d){
         sql : 'SELECT * FROM all_nyc_likely_rent_stabl_merged',
         cartocss : "#all_map_pluto_rent_stabl_reg_2014v1 {" +
                           "polygon-fill: #FF6600;" +
-                          "polygon-opacity: 0.8;" +
+                          "polygon-opacity: 0.6;" +
                           "line-color: #000;" +
-                          "line-width: 0.2;" +
-                          "line-opacity: 0.2;" +
+                          "line-width: 0.7;" +
+                          "line-opacity: 0.5;" +
                         "}"
       }]
     })
@@ -188,7 +191,6 @@ app.map = (function(w,d){
       // console.log(layer);
       tonerLite.bringToBack();
     });    
-
   } // end initMap()
 
   function init() {
