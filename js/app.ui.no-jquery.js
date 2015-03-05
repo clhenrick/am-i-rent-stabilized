@@ -1,4 +1,8 @@
 //ui no jQuery
+// require('spin.js');
+// require('parse-address').parseLocation;
+// require('cartodb.js');
+// require('gsap');
 
 var app = app || {};
 
@@ -237,6 +241,18 @@ app.ui = (function(w,d, parseAddress){
     isAnimating = false;
   }
 
+  function iterateNodeList(list,fn) {
+    if (list && list.length) {
+      var i=0, len=list.length;
+      for (i; i<len; i++) {
+        return fn(list[i]);
+      }
+    }
+    if (list && !list.length) {
+      return fn(list);
+    }
+  }
+
   /*
   ** jQuery-esque helper functions
    */
@@ -256,22 +272,48 @@ app.ui = (function(w,d, parseAddress){
     }
   }
 
-  // check if an element or node list has a given class
   function hasClass(el, className) {
-    if (el && el.length) {
-      var i=0, len=el.length;
-      for (i; i<len; i++) {
-        if (el[i].classList)
-          return el[i].classList.contains(className);
-        else
-          return new RegExp('(^| )' + className + '( |$)', 'gi').test(el[i].className);        
-      }
-    }
-    if (el && el.classList)
-      return el.classList.contains(className);
-    else
-      return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
+    return iterateNodeList(el, function(el){
+      if (el.classList) {
+        return el.classList.contains(className);
+      } else {
+        return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
+      }        
+    });
   }
+
+  // function hasClass2(el, className) {
+  //   if (el && el.length){
+  //     return iterateNodeList(el, function(el){      
+  //       if (el.classList) {
+  //         return el.classList.contains(className);
+  //       } else {
+  //         return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
+  //       }
+  //     });
+  //   }
+  //   if (el && el.classList)
+  //     return el.classList.contains(className);
+  //   else
+  //     return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
+  // }
+
+  // // check if an element or node list has a given class
+  // function hasClass(el, className) {
+  //   if (el && el.length) {
+  //     var i=0, len=el.length;
+  //     for (i; i<len; i++) {
+  //       if (el[i].classList)
+  //         return el[i].classList.contains(className);
+  //       else
+  //         return new RegExp('(^| )' + className + '( |$)', 'gi').test(el[i].className);        
+  //     }
+  //   }
+  //   if (el && el.classList)
+  //     return el.classList.contains(className);
+  //   else
+  //     return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
+  // }
 
   // add a class to an element or node list
   function addClass(el, className) {
