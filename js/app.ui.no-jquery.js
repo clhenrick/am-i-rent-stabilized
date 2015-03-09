@@ -229,7 +229,7 @@ app.ui = (function(w,d, parseAddress){
     if (el.currentSlide) {
       el.addressInput.value = '';
       el.selectBoro.value = 'select';
-      toggleMessage();
+      resetSearchResultMsg();
       hideFormValidationErrors();
       resetBoroValue();
       goToSlide(el.slides[0]);
@@ -381,10 +381,12 @@ app.ui = (function(w,d, parseAddress){
     el.mailTo.setAttribute('href', msg);
   } 
 
-  // toggle yes / no message above map
-  function toggleMessage(){
-    toggleClass(el.yes, 'hidden');
-    toggleClass(el.no, 'hidden');
+  // reset the yes / no message above map on slide 4
+  function resetSearchResultMsg() {
+    if (hasClass(el.yes, 'hidden') !== true && hasClass(el.no, 'hidden') === true) {
+      toggleClass(el.yes, 'hidden');
+      toggleClass(el.no, 'hidden');
+    }
   }
 
   // hide all validation errors

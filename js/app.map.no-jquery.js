@@ -189,7 +189,7 @@ app.map = (function(w,d){
     .addTo(el.map)
     .done(function(layer){
       // console.log(layer);
-      tonerLite.bringToBack();
+      basemap.bringToBack();
     });    
   } // end initMap()
 
