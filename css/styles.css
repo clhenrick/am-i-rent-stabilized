@@ -116,9 +116,9 @@ section h3 {
   text-align: center;
 }
 
-section h3 em {
+section em {
   font-style: italic;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 section h3.steps {
@@ -130,11 +130,6 @@ section p {
   width: 75%;
   font-size: 10em;
   font-weight: 300;
-}
-
-section p em {
-  font-weight: 400;
-  padding: 0 1% 0 1%;
 }
 
 section p strong {
