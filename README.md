@@ -15,7 +15,7 @@ A web site that informs NYC residents about rent regulation laws, how to find ou
 ## Data Sources
 - [NYC Map Pluto](http://www.nyc.gov/html/dcp/html/bytes/dwn_pluto_mappluto.shtml) (Tax Lot data)
 - New York State's [HCR](http://www.nyshcr.org/) - [Rent Stabilized Buldings List](https://github.com/clhenrick/dhcr-rent-stabilized-data)
-- [Stamen Toner Tiles](http://maps.stamen.com/#toner)
+- [Positron basemap tiles](#)
 
 ## Installation
 1. In terminal `cd` to this repo and do `bower install` to grab all dependencies.  
