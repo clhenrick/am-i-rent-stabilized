@@ -26,6 +26,9 @@ echo "URL string is: $urlconcat"
 curl -v  -X GET $urlconcat
 
 # sample url string
-# "https://api.cityofnewyork.us/geoclient/v1/address.json?" +  
-# "houseNumber=146&street=Fenimore+St&borough=Brooklyn&" + 
+# "https://api.cityofnewyork.us/geoclient/v1/address.json?" 
+# "houseNumber=146&street=Fenimore+St&borough=Brooklyn&" 
 # "app_id=9cd0a15f&app_key=54dc84bcaca9ff4877da771750033275"
+
+# sample addresses to search...
+# 211-01 TO 211-05 75TH AVE 4  11364 > 211-01-211-05 75TH AVE 4  11364
