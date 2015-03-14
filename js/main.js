@@ -190,7 +190,7 @@ $(window).on('load', function(){
     console.log('submit street address: ', streetAddress, ', ', boro);
     if (boro!=="select" && streetAddress!=="") {
       parseUserAddress(streetAddress, boro);        
-      _gaq.push(['_trackEvent', 'Address', 'Search', 'Address Entered By User', streetAddress + ', ' + boro ]);
+      _gaq.push(['_trackEvent', 'Address', 'Search', streetAddress + ', ' + boro ]);
     } else if (boro==="select" && streetAddress===""){      
       alert('Please enter your building number and street name. Then select your borough.');
       scrollTo('two');
@@ -258,7 +258,7 @@ $(window).on('load', function(){
   var checkResult = function(data) {
           if (data.address.bbl) {
             var bbl = data.address.bbl;
-            _gaq.push(['_trackEvent', 'Address', 'Search', 'BBL', bbl ]);       
+            _gaq.push(['_trackEvent', 'BBL', 'GeoClient', bbl ]);       
             getCDBdata(bbl);
             showMarker(data)            
           } else {
@@ -290,7 +290,7 @@ $(window).on('load', function(){
     if (json.rows.length !==0) {    
         console.log('yay!');
         var bbl = json.rows[0].bbl
-        _gaq.push(['_trackEvent', 'Address', 'Search', 'CartoDB BBL', bbl ]);
+        _gaq.push(['_trackEvent', 'CDB BBL', 'Match', bbl ]);
         showYes();
         hideNo();
       } 
