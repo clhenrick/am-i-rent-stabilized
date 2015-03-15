@@ -290,7 +290,7 @@ $(window).on('load', function(){
     if (json.rows.length !==0) {    
         console.log('yay!');
         var bbl = json.rows[0].bbl
-        _gaq.push(['_trackEvent', 'CDB BBL', 'Match', bbl ]);
+        _gaq.push(['_trackEvent', 'BBL', 'Match', bbl ]);
         showYes();
         hideNo();
       } 
