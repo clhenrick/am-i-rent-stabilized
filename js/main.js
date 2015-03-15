@@ -273,12 +273,8 @@ $(window).on('load', function(){
   var getCDBdata = function(bbl) {
     // sql to pass cartodb's sql api
     var sql = "SELECT * FROM all_nyc_likely_rent_stabl_merged " +
-                  "WHERE bbl = " + bbl;
-    
-    // console.log('the sql: ', sql);
-
-    $.getJSON(cdbURL + sql, function(data) {
-        console.log('CDB data: ', data);
+                  "WHERE bbl = " + bbl;    
+    $.getJSON(cdbURL + sql, function(data) {        
         checkData(data);
     });
   };
@@ -287,8 +283,7 @@ $(window).on('load', function(){
   var checkData = function(json) {  
     $cheating.addClass('hidden');
     $('a[href=#four]').trigger('click');
-    if (json.rows.length !==0) {    
-        console.log('yay!');
+    if (json.rows.length !==0) {            
         var bbl = json.rows[0].bbl
         _gaq.push(['_trackEvent', 'BBL', 'Match', bbl ]);
         showYes();
