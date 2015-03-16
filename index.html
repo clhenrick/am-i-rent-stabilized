@@ -11,9 +11,12 @@
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">    
         <link rel="stylesheet" type="text/css" href="bower_components/normalize.css/normalize.css">
         <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
-        <link rel="stylesheet" type="text/css" href="bower_components/cartodb.js/themes/css/cartodb.css">     
+        <link rel="stylesheet" type="text/css" href="bower_components/cartodb.js/themes/css/cartodb.css">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <script src="js/modernizr.custom.32828.js"></script>    
+        <script src="js/modernizr.custom.32828.js"></script>
+        <script src="http://use.typekit.net/emf7xrp.js"></script>
+        <script>try{Typekit.load();}catch(e){}</script>    
     </head>
     <body>
         <script>
@@ -25,7 +28,6 @@
               version    : 'v2.2'
             });
           };
-
           (function(d, s, id){
              var js, fjs = d.getElementsByTagName(s)[0];
              if (d.getElementById(id)) {return;}
@@ -34,14 +36,19 @@
              fjs.parentNode.insertBefore(js, fjs);
            }(document, 'script', 'facebook-jssdk'));
         </script>
-    <!--     <nav>
-            <ul>
-                <li><a href="#slide-1">Slide 1</a></li>
-                <li><a href="#slide-2">Slide 2</a></li>
-                <li><a href="#slide-3">Slide 3</a></li>
-                <li><a href="#slide-4">Slide 4</a></li>
-            </ul>
-        </nav> -->
+        <nav>
+          <h1>
+            Am I Rent<br>Stabilized?
+          </h1>
+          <ul>
+            <li><a href="#">Why it Matters</a></li>
+            <li><a href="#">How it Works</a></li>
+            <li><a href="#">En Español</a></li>
+            <li><a href="#">FB</a></li>
+            <li><a href="#">TW</a></li>
+            <li><a href="#">Email</a></li>
+          </ul>
+        </nav>
 
         <div class="slides-container">
             <!-- <div class="slide" id="slide-no">
@@ -52,22 +59,26 @@
             </div> -->
             <div class="slide" id="slide-1">
                 <div class="centered">
-                    <h1>Am I Rent Stabilized?</h1>
-                    <!-- <div class="fb-like centered" data-share="true" data-width="450" data-show-faces="true"></div>             -->        
+                    <h2>Am I Rent Stabilized?</h2>
                     <img src="assets/png/no2.png">
-                    <h3>Tell me, <a href="http://www.dnainfo.com/new-york/20150302/hamilton-heights/landlord-owes-tenant-112000-after-overcharging-him-for-years    " target="_blank">why should I care?</a></h3>
-                    <h4>or</h4>
-                    <h3 class="go">
-                        <span class="go-next">Find Out!</span>
-                        <br><span class="go-next arrow-2">&#9660;</span>
-                    </h3>
-                    <!-- <p class="arrow centered"></p> -->
+<!--                     <h3>Tell me, <a href="http://www.dnainfo.com/new-york/20150302/hamilton-heights/landlord-owes-tenant-112000-after-overcharging-him-for-years    " target="_blank">why should I care?</a></h3> -->
+                    <h1>Is your landlord over charging you in rent? If so you could be owed $1,000's in back rent!</h1>
+                    <p>If you've already received your rent history go <a href="#">here</a>.</p>
+                    <div class="go-next">
+                      <h2>Begin</h2>
+                      <h2 class="arrow">&#62;</h2>
+                    </div>                    
                 </div>
             </div>        
             <div class="slide" id="slide-2">
                 <div class="centered">
+                    <h3>Step 1 of 5</h3>
                     <h1>First, let's have your address and borough.</h1>
+                    <p>We keep this information completely private.</p>
                     <form id="address-form" class="centered" data-parsley-validate>
+                        <ul id="error-not-found" class="validation-error hidden">
+                            <li>Sorry, we don't recognize that NYC address. Try again.</li>
+                        </ul>
                         <label class="address-form" for="address-input">Street Address:*</label>
                         <input class="address-input" name="address-input" type="text" placeholder="Type your street address here" required>
                         <ul id="error-address" class="validation-error hidden">
@@ -86,10 +97,8 @@
                                 Staten Island: <input type="radio" name="borough" id="boroughSI" value="SI">
                             </p>
                         </div>                
-                        <button type="submit" class="search">Search</button>
-                        <ul id="error-not-found" class="validation-error hidden">
-                            <li>Sorry, we don't recognize that NYC address. Try again.</li>
-                        </ul>                        
+                        <!-- <button type="submit" class="search">Search</button> -->
+                        <p class="button search" type="submit"><a href="#">Search</a></p>                        
                     </form>
                 </div>
             </div>  
@@ -103,7 +112,7 @@
                 <div class="centered yes">
                     <h1>Good News!</h1>                
                     <p>Your apartment <em>might be</em> rent stabilized!<br>
-                    But, there's only one way to know for sure, so keep reading.</p>                
+                    But, there's only one way to know for sure, so keep reading.</p>
                 </div>
                 <div class="centered no">
                     <h1>Sorry!</h1>                
@@ -114,65 +123,90 @@
                     <p class="map-message"><span class="orange">Orange</span> means a property likely has rent stabilized apartments.
                     <br>
                     View a map of this data for the whole city <a href="http://cdb.io/1CvSBy7" target="_blank">here.</a></p>
-                    <p class="arrow centered go-next">
-                        Next<br><span class="arrow">&#9660;</span></p>
+                    <div class="go-next">
+                      <h2>Next</h2>
+                      <h2 class="arrow">&#62;</h2>
+                    </div>
                 </div>
             </div>        
-            <div class="slide" id="slide-5">
+<!--             <div class="slide" id="slide-5">
                 <div class="centered">
                     <h1>Okay, Here's how to take action:</h1>
                     <img class="monster" src="assets/png/no1.png">
                     <p>Follow these four simple steps...</p>
-                    <p class="arrow centered go-next">
-                        Next<br><span class="arrow">&#9660;</span></p>
+                    <div class="go-next">
+                      <h2>Next</h2>
+                      <h2 class="arrow">&#62;</h2>
+                    </div>
                 </div>
-            </div>
+            </div> -->
             <div class="slide" id="slide-6">
                 <div class="centered">
-                    <h1>1. Request your rent history from the DHCR</h1>
+                    <h3>Step 2 of 5</h3>
+                    <h1>To find out for sure, request your rent history from the DHCR.</h1>
                     <p>Click <a id="mail-to" href="#">here</a> to request it by email.</p>
                     <p>Or call them at <a href="tel:1-718-739-6400">718 739-6400</a>.</p>
-                    <p class="arrow centered go-next">
-                        Next<br><span class="arrow">&#9660;</span></p>
+                    <p>You can also visit a <a href="#">DHCR office.</a></p>
+                    <div class="go-next">
+                      <h2>Next</h2>
+                      <h2 class="arrow">&#62;</h2>
+                    </div>
                 </div>
             </div>
             <div class="slide" id="slide-7">
                 <div class="centered">
-                    <h1>2. Have your neighbors check here too!</h1>  
-                    <p>It will take a few days to a week for your rent history to come in the mail. You can also visit an <a href="">HCR office.</a> While you're waiting have your friends and neighbors check their apartment too.</p>
+                    <h3>Step 3 of 5</h3>
+                    <h1>While you wait, have your neighbors check here too!</h1>  
+                    <p>It shouldn't take more than a week.</p>
+                    <p>Meanwhile, have your friends and neighbors check their apartment too!</p>
                     <p>Click <a href="#">here</a> to have an email sent to remind you to come back here once you have it.</p>
-                    <p class="arrow centered go-next">
-                        Next<br><span class="arrow">&#9660;</span></p>
+                    <div class="go-next">
+                      <h2>Next</h2>
+                      <h2 class="arrow">&#62;</h2>
+                    </div>
                 </div>
             </div>                
             <div class="slide" id="slide-8">
                 <div class="centered">
-                    <h1>3. Once you have it, check it out.</h1>
+                    <h3>Step 4 of 5</h3>
+                    <h2>When you recieve your rent history, you'll be able to see what previous tenants were paying and whether or not they were rent stabilized.</h2>
                     <img classs="centered" src="http://media.giphy.com/media/izxswKdmqmQrS/giphy.gif">                
-                    <p>Look to see what the previous tenant was paying.</p>
-                    <p class="arrow centered go-next">
-                        Next<br><span class="arrow">&#9660;</span></p>
+                    <!-- <p>Look to see what the previous tenant was paying.</p> -->
+                    <div class="go-next">
+                      <h2>Next</h2>
+                      <h2 class="arrow">&#62;</h2>
+                    </div>
                 </div>
             </div>                
             <div class="slide" id="slide-9">
                 <div class="centered">
-                    <h1>4. Paying too much? File a complaint!</h1>
-                    <p>If it looks like you're paying too much compared to what the last tenant was paying you should file a complaint with the DHCR.</p>
-                    <p>Fill out and mail <a href="#" target="_blank">this form</a> ASAP!</p>
-                    <p class="arrow centered go-next">
-                        Next<br><span class="arrow">&#9660;</span></p>
+                    <h3>Step 5 of 5</h3>
+                    <h1>If they were paying a lot less than you are, here's how to take action:</h1>
+                    <h3>Option 1:</h3>
+                    <p>Contact a tenants rights group for advice. These groups can provide useful information and help you take the best course of action.</p>
+                    <h3>Option 2:</h3>
+                    <p>File a complaint with the DHCR by filling out and mailing <a href="#" target="_blank">this form</a>. But be aware that your landlord will be notified when you file a complaint.</p>
+                    <div class="go-next">
+                      <h2>Next</h2>
+                      <h2 class="arrow">&#62;</h2>
+                    </div>
                 </div>
             </div>    
             <div class="slide" id="slide-10">
                 <div class="centered">
                     <h1>Nice Work!</h1>
                     <img src="assets/png/yes.png">
-                    <p><span class="go-first">Start Over</span></p>
+                    <!-- <p><span class="go-first">Start Over</span></p> -->
+                    <div class="button-holder">
+                      <p class="button start-over go-first" type="submit"><a href="#">Start Over</a></p>
+                      <p class="button learn-more" type="submit"><a href="#">Learn More</a></p>
+                    </div>
+                    <br>                    
                     <div class="share-box-end">
-                        <p>Share <span class="title">Am I Rent Stabilized</span>:</p>   
+                        <p>Share <span class="title">Am I Rent Stabilized</span> : </p>   
                         <div class="fb-share-button social" data-layout="button_count"></div>
                         <div class="twitter-like social">
-                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://amirentstabilized.com" data-text="Find out if your NYC apartment is rent stabilized." data-via="chrislhenrick" data-hashtags="amirentstabilized">Tweet</a>
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://amirentstabilized.com" data-text="Find out if your NYC apartment is rent stabilized." data-hashtags="amirentstabilized nyc">Tweet</a>
                             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
                         </div>                                         
                     </div>                                    

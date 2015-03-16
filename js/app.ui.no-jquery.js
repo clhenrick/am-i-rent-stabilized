@@ -30,7 +30,8 @@ app.ui = (function(w,d, parseAddress){
     map : d.getElementById('map'),
     mapMessage : d.querySelector('.map-message'),
     mailTo : d.getElementById('mail-to'),
-    fbShare : d.querySelector('.fb-share-button')
+    fbShare : d.querySelector('.fb-share-button'),    
+    learnMore : d.querySelector('.button.learn-more')
   };
 
   // store user address 
@@ -151,6 +152,10 @@ app.ui = (function(w,d, parseAddress){
       addClass(el.valErrorBoro, 'hidden');
     }
   });
+
+  // addEventListenerList(el.startOver, 'click', function(e){
+  //   goToFirstSlide();
+  // });
 
   /*
   * Helper functions
