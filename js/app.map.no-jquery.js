@@ -5,7 +5,7 @@ app.map = (function(w,d){
    var el = {}, // to store DOM element references from app.ui
       f = {},  // to store DOM manipulation and UI functions from app.ui
       addressMarker, // leaflet marker to locate user's address on map
-      sqlURL = "http://chenrick.cartodb.com/api/v2/sql?q=", //cartodb SQL API reference
+      sqlURL = "https://chenrick.cartodb.com/api/v2/sql?q=", //cartodb SQL API reference
       geoclientResult = {}; // to store properties from NYC Geoclient API result
 
   // function to perform JSONP GET request
@@ -94,7 +94,7 @@ app.map = (function(w,d){
  // check the bbl number against the cartodb data
   var getCDBdata = function(bbl) {
     // sql to pass cartodb's sql api
-    var sql = "SELECT * FROM all_nyc_likely_rent_stabl_merged " +
+    var sql = "SELECT bbl FROM all_nyc_likely_rent_stabl_merged " +
                   "WHERE bbl = " + bbl;
 
     var request = new XMLHttpRequest();
