@@ -13,8 +13,10 @@ app.ui = (function(w,d, parseAddress){
     // navGoPrev : d.querySelectorAll('.go-prev'),
     navGoNext : d.querySelectorAll('.go-next'),
     navGoFirst : d.querySelectorAll('.go-first'),
+    navGoFour : d.querySelectorAll('.go-step4'),
     slidesContainer : d.querySelector('.slides-container'),
     slides : d.querySelectorAll('.slide'),
+    slide4 : d.querySelector('#slide-8'),
     currentSlide : null,
     addressInput : d.querySelector('.address-input'),
     // selectBoro : d.querySelector('.select-borough'),
@@ -111,6 +113,12 @@ app.ui = (function(w,d, parseAddress){
   // go forward
   addEventListenerList(el.navGoNext, 'click', goToNextSlide);
 
+  // go to step four
+  addEventListenerList(el.navGoFour, 'click', function(e){
+    e.preventDefault();
+    goToSlide(el.slide4);
+  });
+
   // search button for address
   el.search.addEventListener('click', function(e){
     e.preventDefault();
@@ -153,9 +161,6 @@ app.ui = (function(w,d, parseAddress){
     }
   });
 
-  // addEventListenerList(el.startOver, 'click', function(e){
-  //   goToFirstSlide();
-  // });
 
   /*
   * Helper functions

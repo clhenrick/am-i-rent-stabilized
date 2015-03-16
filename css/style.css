@@ -47,13 +47,13 @@ h1, h2, h3 {
     margin-bottom: 0;
 }
 
-h1 { font-size: 8em; }
+h1 { font-size: 7em; }
 
 h2 { font-size: 6em; }
 
 h3 { font-size: 4em; }
 
-p { font-size: 4em; color: #4ec4a8;}
+p { font-size: 3em; color: #4ec4a8;}
 
 a {
     text-decoration: none;
@@ -64,16 +64,20 @@ a {
 img {
     display: block;
     margin: 2% auto;
+    width: 200px;    
 }
 
-img.monster {
+img.mascot {
+    width: 175px;
+}
+
+img.mascot.monster {
     position: relative;
     left: 25px;
 }
 
-button {
-    padding: 0 5px;
-    font-weight: 600;
+img.mascot.intro {
+    width: 130px;
 }
 
 span.orange {
@@ -121,11 +125,11 @@ nav ul li:last-child {
 nav a {
     position: relative;
     top: 0;
-    padding: 10px 20px;
+    margin: 0 10px;
+    padding-bottom: 3px;
     font-weight: normal;
     font-size: 2.5em;
-    text-align: center;
-    border-radius: 4px;
+    text-align: center;    
     background-color: #4a4a4a;
     color: #fff;
 }
@@ -138,6 +142,8 @@ nav a.active {
 
 nav a:hover {
     color: #ffc462;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
 }
 
 .hidden {
@@ -164,7 +170,7 @@ nav a:hover {
 }
 
 .slide .centered {
-    width: 60%;
+    width: 650px;
     margin: 0 auto;
 }
 
@@ -174,8 +180,18 @@ nav a:hover {
 }
 
 /* Navigation Arrow */
-.go-prev, .go-next, .go-first {
+.go-prev, .go-next, .go-first, .button.search {
     cursor: pointer;  
+}
+
+.go-next.bottom-arrow {
+    position: absolute;
+    width: 125px;
+    margin: 0 auto;
+    margin-left: -62.5px;
+    left: 50%;
+    bottom: 40px;
+
 }
 
 .go-next h2 {
@@ -183,7 +199,7 @@ nav a:hover {
     font-weight: 300;
     text-transform: uppercase;    
     text-align: center;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .go-next .arrow {
@@ -193,7 +209,7 @@ nav a:hover {
     -o-transform:      matrix(0, 1, -2, 0, 0, 0);    
     transform:  matrix(0, 1, -2, 0, 0, 0);    
     position: relative;
-    top: -.9em;
+    top: -.5em;
     text-decoration: none;
     font-size: 10em;
     color: #ff6d3c;
@@ -243,7 +259,7 @@ nav a:hover {
     margin-top: 50px;
 }
 
-#address-form input, #address-form select, #address-form button {
+#address-form input, #address-form select {
     display: block;
     margin-top: 10px;
     height: 30px;
@@ -304,11 +320,15 @@ li.parsley-required, ul.validation-error li {
     width: 125px;
     margin: 0 auto;
     font-size: 3em;
-    text-align: center;    
+    text-align: center;
+    background-color: #ffc462;    
     border: 2px solid #4a4a4a;
     padding: 5px 20px;
     border-radius: 25px;    
 }
+
+.slide .centered .button:hover { background-color: #ffffff; }
+
 .slide .centered .button a { color: #4a4a4a; }
 
 .slide .centered .button.search { display: block; margin-top: 30px;}
@@ -322,6 +342,7 @@ li.parsley-required, ul.validation-error li {
 }
 
 #map {
+    margin: 0 auto;
     margin-top: 30px;
     width: 450px;
     height: 350px;
