@@ -14,7 +14,7 @@ $(window).on('load', function(){
         $boro = $('#boro'),
         $submit = $('#submit'),
         $startOver = $("a[href$='#top']"),        
-        cdbURL = "http://chenrick.cartodb.com/api/v2/sql?q=", // url to cartodb sql api
+        cdbURL = "https://chenrick.cartodb.com/api/v2/sql?q=", // url to cartodb sql api
         map,
         geocoderMarker,
         dhcrMessage;
@@ -272,7 +272,7 @@ $(window).on('load', function(){
  // check the bbl number against the cartodb data
   var getCDBdata = function(bbl) {
     // sql to pass cartodb's sql api
-    var sql = "SELECT * FROM all_nyc_likely_rent_stabl_merged " +
+    var sql = "SELECT bbl FROM all_nyc_likely_rent_stabl_merged " +
                   "WHERE bbl = " + bbl;    
     $.getJSON(cdbURL + sql, function(data) {        
         checkData(data);
