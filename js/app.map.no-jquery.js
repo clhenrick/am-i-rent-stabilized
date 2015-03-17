@@ -1,39 +1,24 @@
 // map & cartodb stuff
 var app = app || {};
 
-app.map = (function(w,d){   
+app.map = (function(w,d,a){   
    var el = {}, // to store DOM element references from app.ui
       f = {},  // to store DOM manipulation and UI functions from app.ui
       addressMarker, // leaflet marker to locate user's address on map
       sqlURL = "https://chenrick.cartodb.com/api/v2/sql?q=", //cartodb SQL API reference
       geoclientResult = {}; // to store properties from NYC Geoclient API result
 
-  // function to perform JSONP GET request
-  var loadJSONP = (function(){
-    var unique = 0;
-    return function(url, callback, context) {
-      // INIT
-      var name = "_jsonp_" + unique++;
-      if (url.match(/\?/)) url += "&callback="+name;
-      else url += "?callback="+name;
-      
-      // Create script
-      var script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src = url;
-      
-      // Setup handler
-      window[name] = function(data){
-        callback.call((context || window), data);
-        document.getElementsByTagName('head')[0].removeChild(script);
-        script = null;
-        delete window[name];
-      };
-      
-      // Load JSON
-      document.getElementsByTagName('head')[0].appendChild(script);
-    };
-  })();
+  function getJSON(url, type, callback) {
+    a().url(url)
+        .type(type)
+        .on('success', function(data){
+          callback(data);
+        })
+        .on('error', function(err){
+          callback('error');
+        })
+        .go();
+  }
 
   // grab property data from nyc geo-client api
   var geoclient = function(num, name, boro) {
@@ -49,35 +34,31 @@ app.map = (function(w,d){
           url = 'https://api.cityofnewyork.us/geoclient/v1/address.json?',
           urlConcat = url + stNum + stName + boro + appID + appKey;
 
-      loadJSONP(urlConcat, checkResult);      
+      getJSON(urlConcat, 'jsonp', checkResult);      
   }
 
   // see if the geolient result has a bbl
   var checkResult = function(data) {
-    var d = data.address;    
-    geoclientResult =  {
-      bbl : d.bbl,
-      lon : d.longitudeInternalLabel,
-      lat : d.latitudeInternalLabel,
-      hNo : d.houseNumber,
-      sName : d.streetName1In,
-      bCode : d.boroughCode1In,
-      bUSPS : d.uspsPreferredCityName,
-      zip : d.zipCode,
-      cd: d.communityDistrict,
-      bin : d.giBuildingIdentificationNumber1
-    };
-
-    console.log('geoclient result: ', geoclientResult);
-    
-    if (d.bbl) {
+    if (data !== 'error') {
+      var d = data.address;    
+      geoclientResult =  {
+        bbl : d.bbl,
+        lon : d.longitudeInternalLabel,
+        lat : d.latitudeInternalLabel,
+        hNo : d.houseNumber,
+        sName : d.streetName1In,
+        bCode : d.boroughCode1In,
+        bUSPS : d.uspsPreferredCityName,
+        zip : d.zipCode,
+        cd: d.communityDistrict,
+        bin : d.giBuildingIdentificationNumber1
+      };      
       var bbl = d.bbl; 
       getCDBdata(bbl);
       showMarker(data);
     } else {      
       app.ui.el.addressInput.value='';
-      app.ui.f.resetBoroValue();
-      // alert('Sorry but we didn\'t recognize that address, please try again.');
+      app.ui.f.resetBoroValue();      
       if (app.ui.f.hasClass(app.ui.el.valErrorNF, 'hidden')===true) {
         app.ui.f.toggleClass(app.ui.el.valErrorNF, 'hidden');
       }
@@ -96,27 +77,7 @@ app.map = (function(w,d){
     // sql to pass cartodb's sql api
     var sql = "SELECT bbl FROM all_nyc_likely_rent_stabl_merged " +
                   "WHERE bbl = " + bbl;
-
-    var request = new XMLHttpRequest();
-    request.open('GET', sqlURL + sql, true);
-
-    request.onload = function() {
-      if (request.status >= 200 && request.status < 400) {
-        // Success!      
-        var data = JSON.parse(request.responseText);
-        checkData(data);
-        console.log('cdb success: ', data);
-      } else {
-        // We reached our target server, but it returned an error
-        console.log('error reaching cdb sql api');
-      }
-    };
-
-    request.onerror = function() {
-      // There was a connection error of some sort
-      console.log('request error');
-    };
-    request.send();
+    getJSON(sqlURL + sql, 'json', checkData);
   };
 
   // if the results of the CDB SQL query have a row then show yes else display no
@@ -176,7 +137,7 @@ app.map = (function(w,d){
       cartodb_logo: false,
       type: 'cartodb',
       sublayers: [{
-        sql : 'SELECT * FROM all_nyc_likely_rent_stabl_merged',
+        sql : 'SELECT the_geom, the_geom_webmercator, cartodb_id FROM all_nyc_likely_rent_stabl_merged',
         cartocss : "#all_map_pluto_rent_stabl_reg_2014v1 {" +
                           "polygon-fill: #FF6600;" +
                           "polygon-opacity: 0.6;" +
@@ -204,4 +165,4 @@ app.map = (function(w,d){
     geoclient : geoclient
   }
 
-})(window, document);
+})(window, document, aja);

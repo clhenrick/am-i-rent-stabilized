@@ -330,6 +330,7 @@ app.ui = (function(w,d){
     if (address !== '' && borough !== undefined) {
       goToNextSlide();
       var parsed_address = parseAddressInput(address);
+      console.log('parsed address: ', parsed_address);
       // delay API calls so user sees loading gif
       setTimeout(function(){
         // parseStreetAddress(address, borough);        
