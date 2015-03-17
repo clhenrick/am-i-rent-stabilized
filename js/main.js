@@ -258,7 +258,7 @@ $(window).on('load', function(){
   var checkResult = function(data) {
           if (data.address.bbl) {
             var bbl = data.address.bbl;
-            _gaq.push(['_trackEvent', 'BBL', 'GeoClient', bbl ]);       
+            _gaq.push(['_trackEvent', 'BBL', 'GeoClient', bbl ]);
             getCDBdata(bbl);
             showMarker(data)            
           } else {
@@ -285,7 +285,8 @@ $(window).on('load', function(){
     $('a[href=#four]').trigger('click');
     if (json.rows.length !==0) {            
         var bbl = json.rows[0].bbl
-        _gaq.push(['_trackEvent', 'BBL', 'Match', bbl ]);
+        // console.log('cdb bbl: ', bbl);
+        _gaq.push(['_trackEvent', 'CDB', 'Match', bbl ]);
         showYes();
         hideNo();
       } 
