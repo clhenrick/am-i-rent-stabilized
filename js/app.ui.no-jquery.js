@@ -6,7 +6,7 @@
 
 var app = app || {};
 
-app.ui = (function(w,d, parseAddress){
+app.ui = (function(w,d){
   
   // References to DOM elements
   var el = {
@@ -462,7 +462,7 @@ app.ui = (function(w,d, parseAddress){
     }
   };
 
-})(window, document, parseAddress);
+})(window, document);
 
 window.addEventListener('DOMContentLoaded', function(){
   app.ui.init();  
