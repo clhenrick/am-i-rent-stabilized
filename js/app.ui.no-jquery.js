@@ -329,9 +329,12 @@ app.ui = (function(w,d, parseAddress){
     // console.log('checkAddress: ', address, borough);
     if (address !== '' && borough !== undefined) {
       goToNextSlide();
+      var parsed_address = parseAddressInput(address);
       // delay API calls so user sees loading gif
       setTimeout(function(){
-        parseStreetAddress(address, borough);
+        // parseStreetAddress(address, borough);        
+        app.map.geoclient(parsed_address[0], parsed_address[1], borough); 
+
       }, 1000);              
     } else if (address === '' && borough === undefined) {
       // alert('Please enter your address and select your borough.');
@@ -354,25 +357,34 @@ app.ui = (function(w,d, parseAddress){
     };   
   }
 
+  function parseAddressInput(input) {
+    var input_split = input.split(' '),
+          len = input_split.length,
+          num = input_split[0],
+          input_last = input_split.splice(1, len),
+          street = input_last.join(' ');
+    return [num, street];
+  }
+
   // if form is valid then parse the user's address and send it to the geoclient api
-  function parseStreetAddress(address, borough) {
-    var parsedStreetAddress = parseAddress.parseLocation(address),
-          streetNum = parsedStreetAddress.number;  
-    // console.log('parsed address: ', streetNum, ' ', parsedStreetAddress);   
-    if (parsedStreetAddress.type && !parsedStreetAddress.prefix) { 
-      streetAddress = parsedStreetAddress.street + ' ' + parsedStreetAddress.type;
-    } else if (parsedStreetAddress.type && parsedStreetAddress.prefix) {
-      streetAddress = parsedStreetAddress.prefix + ' ' +
-                                parsedStreetAddress.street + ' ' + 
-                                parsedStreetAddress.type;         
-    } else if (parsedStreetAddress.prefix && !parsedStreetAddress.type) {      
-      streetAddress = parsedStreetAddress.prefix + ' ' +
-                                parsedStreetAddress.street;      
-    } else {
-      streetAddress = parsedStreetAddress.street;
-    };
-    app.map.geoclient(streetNum, streetAddress, borough);    
-  } 
+  // function parseStreetAddress(address, borough) {
+  //   var parsedStreetAddress = parseAddress.parseLocation(address),
+  //         streetNum = parsedStreetAddress.number;  
+  //   // console.log('parsed address: ', streetNum, ' ', parsedStreetAddress);   
+  //   if (parsedStreetAddress.type && !parsedStreetAddress.prefix) { 
+  //     streetAddress = parsedStreetAddress.street + ' ' + parsedStreetAddress.type;
+  //   } else if (parsedStreetAddress.type && parsedStreetAddress.prefix) {
+  //     streetAddress = parsedStreetAddress.prefix + ' ' +
+  //                               parsedStreetAddress.street + ' ' + 
+  //                               parsedStreetAddress.type;         
+  //   } else if (parsedStreetAddress.prefix && !parsedStreetAddress.type) {      
+  //     streetAddress = parsedStreetAddress.prefix + ' ' +
+  //                               parsedStreetAddress.street;      
+  //   } else {
+  //     streetAddress = parsedStreetAddress.street;
+  //   };
+  //   app.map.geoclient(streetNum, streetAddress, borough);    
+  // } 
 
   // create the mailto content for requesting rent history from dhcr
   function createMailTo(address) {
