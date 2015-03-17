@@ -12,8 +12,8 @@
         <link rel="stylesheet" type="text/css" href="bower_components/normalize.css/normalize.css">
         <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
         <link rel="stylesheet" type="text/css" href="bower_components/cartodb.js/themes/css/cartodb.css">
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>        
+        <link rel="stylesheet" type="text/css" href="css/style.css">        
         <script src="js/modernizr.custom.32828.js"></script>
         <script src="http://use.typekit.net/emf7xrp.js"></script>
         <script>try{Typekit.load();}catch(e){}</script>    
@@ -37,16 +37,17 @@
            }(document, 'script', 'facebook-jssdk'));
         </script>
         <nav>
-          <h1 class="go-first">
+          <img class="logo" src="assets/png/building-logo.png">
+          <h1 class="go-first">            
             Am I Rent<br>Stabilized?
           </h1>
           <ul>
-            <li><a href="#">Why it Matters</a></li>
-            <li><a href="#">How it Works</a></li>
-            <li><a href="#">En Español</a></li>
-            <li><a href="#">FB</a></li>
-            <li><a href="#">TW</a></li>
-            <li><a href="#">Email</a></li>
+            <li class="nav"><a href="#">Why it Matters</a></li>
+            <li class="nav"><a href="#">How it Works</a></li>
+            <li class="nav"><a href="#">En Español</a></li>
+            <li class="social"><a class="social fb" href="#"></a></li>
+            <li class="social"><a class="social tw" href="https://twitter.com/share"></a></li>
+            <li class="social"><a class="social mail" href="#"></a></li>
           </ul>
         </nav>
 
@@ -203,8 +204,8 @@
                         <p>Share <span class="title">Am I Rent Stabilized</span> : </p>   
                         <div class="fb-share-button social" data-layout="button_count"></div>
                         <div class="twitter-like social">
-                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://amirentstabilized.com" data-text="Find out if your NYC apartment is rent stabilized." data-hashtags="amirentstabilized nyc">Tweet</a>
-                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://amirentstabilized.com" data-size="large" data-hashtags="amirentstabilized">Tweet</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
                         </div>                                         
                     </div>                                    
                 </div>

@@ -4,7 +4,7 @@
 /*orange: #ffc462 */
 /* purple: #7a5de8 */
 /* green: #4ec4a8 */
-/* warm grey: #9cddf0 */
+/* light blue: #9cddf0 */
 /* blue: ; #45acff */
 /* gray: #4a4a4a */
 /* white: #FFFFFF; */
@@ -95,11 +95,19 @@ nav {
     z-index: 100;
 }
 
+nav .logo {
+    height: 80px;
+    display: inline;
+    margin: 0 0 0 5px;
+    padding: 5px;
+    float: left;
+}
+
 nav h1 {
     float: left;    
     display: inline-block;
     margin-top: 15px;
-    margin-left: 20px;
+    margin-left: 10px;
     color: #fff;
     font-size: 3.5em;
     letter-spacing: .1em;
@@ -118,10 +126,22 @@ nav ul li {
     margin-right: 20px;
 }
 
+nav ul li:nth-child(3) {
+    margin-right: 30px;
+}
+
+nav ul li.social {
+    margin-right: 8px
+}
+
+nav ul li.social:last-child {
+    margin-right: 20px;
+}
+
 nav a {
     position: relative;
     top: 0;
-    margin: 0 10px;
+    margin: 0;
     padding-bottom: 3px;
     font-weight: normal;
     font-size: 2.5em;
@@ -140,6 +160,34 @@ nav a:hover {
     color: #ffc462;
     border-bottom-width: 2px;
     border-bottom-style: solid;
+}
+
+nav a.social {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    margin: 0;
+    margin-top: -15px;
+    left: 5px;
+    top: 10px;
+}
+
+nav a.social.tw {
+    background-image: url("../assets/png/twitter_logo_white_sm.png");
+    background-size: 30px;
+    background-repeat: no-repeat;
+}
+
+nav a.social.fb {
+    background-image: url("../assets/png/FB-f-Logo__white_29.png");
+    background-size: 25px;
+    background-repeat: no-repeat;
+}
+
+nav a.social.mail {
+    background-image: url("../assets/png/mail.png");
+    background-size: 30px;
+    background-repeat: no-repeat;
 }
 
 .hidden {
@@ -209,6 +257,11 @@ nav a:hover {
     text-decoration: none;
     font-size: 10em;
     color: #ff6d3c;
+
+    -webkit-animation: bounce 800ms ease-out;
+    -moz-animation: bounce 800ms ease-out;
+    -o-animation: bounce 800ms ease-out;
+    animation: bounce 800ms ease-out;    
 }
 
 .go-next h2:hover, .go-next .arrow:hover {
