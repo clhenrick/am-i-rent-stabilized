@@ -64,7 +64,7 @@ a {
 img {
     display: block;
     margin: 2% auto;
-    width: 200px;    
+    max-width: 400px;    
 }
 
 img.mascot {
@@ -166,7 +166,7 @@ nav a:hover {
 }
 
 .slide .centered {
-    width: 650px;
+    width: 655px;
     margin: 0 auto;
 }
 
