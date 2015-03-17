@@ -28,6 +28,7 @@ app.ui = (function(w,d){
     valErrorNF : d.getElementById('error-not-found'),
     yes : d.querySelectorAll('.yes'),
     no : d.querySelectorAll('.no'),
+    yesNoState : false,
     spinnerTarget : d.querySelector('.spinner'),
     map : d.getElementById('map'),
     mapMessage : d.querySelector('.map-message'),
@@ -239,9 +240,10 @@ app.ui = (function(w,d){
     if (el.currentSlide) {
       el.addressInput.value = '';
       el.selectBoro.value = 'select';
-      resetSearchResultMsg();
+      resetSearchResultMsg();      
       hideFormValidationErrors();
       resetBoroValue();
+      app.map.resetMap();
       goToSlide(el.slides[0]);
     }
   }
@@ -329,30 +331,31 @@ app.ui = (function(w,d){
     // console.log('checkAddress: ', address, borough);
     if (address !== '' && borough !== undefined) {
       goToNextSlide();
-      var parsed_address = parseAddressInput(address);
-      console.log('parsed address: ', parsed_address);
+      var parsed_address = parseAddressInput(address);      
       // delay API calls so user sees loading gif
-      setTimeout(function(){
-        // parseStreetAddress(address, borough);        
+      setTimeout(function(){        
         app.map.geoclient(parsed_address[0], parsed_address[1], borough); 
-
       }, 1000);              
+
     } else if (address === '' && borough === undefined) {
       // alert('Please enter your address and select your borough.');
       if (hasClass(el.valErrorAddress, 'hidden')===true && hasClass(el.valErrorBoro, 'hidden')===true){
         toggleClass(el.valErrorAddress, 'hidden');
         toggleClass(el.valErrorBoro, 'hidden');
       }
+
     } else if (borough === undefined) {
       // alert('Please select your borough.');
       if (hasClass(el.valErrorBoro, 'hidden')===true) {
         toggleClass(el.valErrorBoro, 'hidden');
       }
+
     } else if (address === '') {
       // alert('Please enter your house number and street.');
       if (hasClass(el.valErrorAddress, 'hidden')===true) {
         toggleClass(el.valErrorAddress, 'hidden');
       }
+
     } else {
       goToPrevSlide();
     };   
@@ -366,26 +369,6 @@ app.ui = (function(w,d){
           street = input_last.join(' ');
     return [num, street];
   }
-
-  // if form is valid then parse the user's address and send it to the geoclient api
-  // function parseStreetAddress(address, borough) {
-  //   var parsedStreetAddress = parseAddress.parseLocation(address),
-  //         streetNum = parsedStreetAddress.number;  
-  //   // console.log('parsed address: ', streetNum, ' ', parsedStreetAddress);   
-  //   if (parsedStreetAddress.type && !parsedStreetAddress.prefix) { 
-  //     streetAddress = parsedStreetAddress.street + ' ' + parsedStreetAddress.type;
-  //   } else if (parsedStreetAddress.type && parsedStreetAddress.prefix) {
-  //     streetAddress = parsedStreetAddress.prefix + ' ' +
-  //                               parsedStreetAddress.street + ' ' + 
-  //                               parsedStreetAddress.type;         
-  //   } else if (parsedStreetAddress.prefix && !parsedStreetAddress.type) {      
-  //     streetAddress = parsedStreetAddress.prefix + ' ' +
-  //                               parsedStreetAddress.street;      
-  //   } else {
-  //     streetAddress = parsedStreetAddress.street;
-  //   };
-  //   app.map.geoclient(streetNum, streetAddress, borough);    
-  // } 
 
   // create the mailto content for requesting rent history from dhcr
   function createMailTo(address) {
@@ -406,9 +389,10 @@ app.ui = (function(w,d){
 
   // reset the yes / no message above map on slide 4
   function resetSearchResultMsg() {
-    if (hasClass(el.yes, 'hidden') !== true && hasClass(el.no, 'hidden') === true) {
+    if (el.yesNoState === true) {
       toggleClass(el.yes, 'hidden');
       toggleClass(el.no, 'hidden');
+      el.yesNoState = false;
     }
   }
 

@@ -39,7 +39,7 @@ app.map = (function(w,d,a){
 
   // see if the geolient result has a bbl
   var checkResult = function(data) {
-    if (data !== 'error') {
+    if (typeof data === "object" && data.address.bbl !== undefined ) {
       var d = data.address;    
       geoclientResult =  {
         bbl : d.bbl,
@@ -82,9 +82,10 @@ app.map = (function(w,d,a){
 
   // if the results of the CDB SQL query have a row then show yes else display no
   var checkData = function(data) {    
-    if (data.rows.length > 0) {
+    if (data.rows.length > 0 && el.yesNoState === false) {      
       f.toggleClass(el.yes, 'hidden');
-      f.toggleClass(el.no, 'hidden');    
+      f.toggleClass(el.no, 'hidden');
+      el.yesNoState = true;
     } 
     f.goToNextSlide();
     // console.log('checkData goToNextSlide called');
@@ -154,6 +155,13 @@ app.map = (function(w,d,a){
     });    
   } // end initMap()
 
+  var resetMap = function() {
+    if (addressMarker) {
+      el.map.removeLayer(addressMarker);
+    }
+    el.map.setView([40.7127, -74.0059], 12);
+  }
+
   function init() {
     el = app.ui.el;
     f = app.ui.f
@@ -162,7 +170,8 @@ app.map = (function(w,d,a){
 
   return {
     init : init,
-    geoclient : geoclient
+    geoclient : geoclient,
+    resetMap : resetMap
   }
 
 })(window, document, aja);
