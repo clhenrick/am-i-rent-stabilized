@@ -16,7 +16,17 @@
         <link rel="stylesheet" type="text/css" href="css/style.css">        
         <script src="js/modernizr.custom.32828.js"></script>
         <script src="http://use.typekit.net/emf7xrp.js"></script>
-        <script>try{Typekit.load();}catch(e){}</script>    
+        <script>try{Typekit.load();}catch(e){}</script>
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-57236362-1']);
+          _gaq.push(['_trackPageview']);
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>        
     </head>
     <body>
         <script>
@@ -106,17 +116,17 @@
             </div>
             <div class="slide" id="slide-4">
                 <div class="centered yes">
-                    <h1>Good News!</h1>                
+                    <h2>Good News!</h2>
                     <p>Your apartment <em>might be</em> rent stabilized!<br>
                     But, there's only one way to know for sure, so keep reading.</p>
                 </div>
                 <div class="centered no">
-                    <h1>Sorry!</h1>                
+                    <h2>Sorry!</h2>                
                     <p>Your address wasn't found in our database, however we still can’t be 100&#37; sure you aren’t rent stabilized, so definitely keep reading!</p>
                 </div>
                 <div class="centered" id="map-container">
                     <div id="map" class="centered"></div>
-                    <p class="map-message"><span class="orange">Orange</span> means a property likely has rent stabilized apartments.
+                    <p class="map-message">Orange means a property likely has rent stabilized apartments.
                     <br>
                     View a map of this data for the whole city <a href="http://cdb.io/1CvSBy7" target="_blank">here.</a></p>
                 </div>
@@ -139,7 +149,7 @@
             <div class="slide" id="slide-6">
                 <div class="centered">
                     <h4>Step 2 of 5</h4>
-                    <h1>To find out for sure, request your rent history from the DHCR.</h1>
+                    <h2>To find out for sure, request your rent history from the DHCR.</h2>
                     <p>Click <a id="mail-to" href="#">here</a> to request it by email.</p>
                     <p>Or call them at <a href="tel:1-718-739-6400">718 739-6400</a>.</p>
                     <p>You can also visit a <a href="#">DHCR office.</a></p>
@@ -152,7 +162,7 @@
             <div class="slide" id="slide-7">
                 <div class="centered">
                     <h4>Step 3 of 5</h4>
-                    <h1>While you wait, have your neighbors check here too!</h1>  
+                    <h2>While you wait, have your neighbors check here too!</h2>
                     <p>It shouldn't take more than a week.</p>
                     <p>Meanwhile, have your friends and neighbors check their apartment too!</p>
                     <p>Click <a href="#">here</a> to have an email sent to remind you to come back here once you have it.</p>
@@ -191,7 +201,7 @@
             </div>    
             <div class="slide" id="slide-10">
                 <div class="centered">
-                    <h1>Nice Work!</h1>
+                    <h2>Nice Work!</h2>
                     <img class="mascot" src="assets/png/yes.png">
                     <!-- <p><span class="go-first">Start Over</span></p> -->
                     <div class="button-holder">
@@ -210,6 +220,14 @@
                 </div>
             </div>                        
         </div> <!-- end slides container -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-57236362-1', 'auto');
+          ga('send', 'pageview');
+        </script>
         <!-- Javascripts -->
         <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>    -->
         <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.6/TweenLite.min.js"></script>

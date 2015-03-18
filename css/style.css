@@ -48,7 +48,7 @@ h1, h2, h3, h4 {
     margin-bottom: 0;
 }
 
-h1 { font-size: 7em; }
+h1 { font-size: 8em; }
 
 h2 { font-size: 5em; }
 
@@ -60,8 +60,12 @@ p { font-size: 2em; color: #4ec4a8;}
 
 a {
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 600;    
     color: #45acff;
+}
+
+a.internal {
+    color: #ffc462;
 }
 
 img {
@@ -404,6 +408,10 @@ li.parsley-required, ul.validation-error li {
     width: 450px;
     height: 350px;
     border: 1px solid #999;
+}
+
+#map:hover {
+    cursor: default;
 }
 
 .slide .share-box-end {
