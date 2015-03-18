@@ -53,7 +53,9 @@ app.map = (function(w,d,a){
         cd: d.communityDistrict,
         bin : d.giBuildingIdentificationNumber1
       };      
-      var bbl = d.bbl; 
+      var bbl = d.bbl;
+      var gcr_stringify = JSON.stringify(geoclientResult);
+      _gaq.push(['_trackEvent', 'Geoclient Success', 'Result', gcr_stringify]);
       getCDBdata(bbl);
       showMarker(data);
     } else {      
@@ -82,7 +84,9 @@ app.map = (function(w,d,a){
 
   // if the results of the CDB SQL query have a row then show yes else display no
   var checkData = function(data) {    
-    if (data.rows.length > 0 && el.yesNoState === false) {      
+    if (data.rows.length > 0 && el.yesNoState === false) {
+      var bbl_match = data.rows[0].bbl;
+      _gaq.push(['_trackEvent', 'CDB', 'Match', bbl_match]);
       f.toggleClass(el.yes, 'hidden');
       f.toggleClass(el.no, 'hidden');
       el.yesNoState = true;

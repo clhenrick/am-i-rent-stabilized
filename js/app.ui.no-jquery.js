@@ -126,6 +126,7 @@ app.ui = (function(w,d){
     var streetAddress = el.addressInput.value,
           boro = getBoroValue(el.selectBoro);
     // console.log('street address: ', streetAddress, ' boro: ', boro);
+    _gaq.push(['_trackEvent', 'Address Entered', 'Search', streetAddress + ', ' + boro ]);
     checkAddressInput(streetAddress, boro);
   });
 
