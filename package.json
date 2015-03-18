@@ -19,7 +19,7 @@
   ],
   "dependencies": {
     "cartodb.js": "^3.5.6",
-    "gsap": "^1.16.0",
+    "gsap": "^1.16.0"
   },
   "devDependencies": {
     "aja": "^0.3.3",
@@ -48,8 +48,6 @@
   },
   "browserify-shim": {
     "handlebars": "Handlebars",
-    "leaflet.utfgrid": "utfgrid",
-    "leaflet-vector-layers": "lvector",
     "spinjs": "Spinner"
   }
 }
