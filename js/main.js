@@ -284,9 +284,8 @@ $(window).on('load', function(){
     $cheating.addClass('hidden');
     $('a[href=#four]').trigger('click');
     if (json.rows.length !==0) {            
-        var bbl = json.rows[0].bbl
-        // console.log('cdb bbl: ', bbl);
-        _gaq.push(['_trackEvent', 'CDB', 'Match', bbl ]);
+        var bbl_match = JSON.stringify(json.rows[0].bbl);        
+        _gaq.push(['_trackEvent', 'CDB', 'Match', bbl_match ]);
         showYes();
         hideNo();
       } 
