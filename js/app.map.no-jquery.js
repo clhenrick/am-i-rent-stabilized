@@ -1,9 +1,6 @@
 // map & cartodb stuff
 var d = document;
 var w = window;
-var a = require('aja');
-var app = require('./app.js');
-app.ui = require('./app.ui.no-jquery.js');
 
    var el = {}, // to store DOM element references from app.ui
       f = {},  // to store DOM manipulation and UI functions from app.ui

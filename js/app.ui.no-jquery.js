@@ -1,7 +1,6 @@
 //ui no jQuery
 var d = document;
 var w = window;
-var app = require('./app.js');
   
   // References to DOM elements
   var el = {
