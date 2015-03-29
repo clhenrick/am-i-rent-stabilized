@@ -134,17 +134,17 @@ app.ui = (function(w,d){
   addEventListenerList(el.navGoFirst, 'click', goToFirstSlide);
 
   // add data to facebook button
-  addEventListenerList(el.fbShare, 'click', function(e) {
-    e.preventDefault();
-    FB.ui({
-      method : 'feed',
-      name : 'Am I Rent Stabilized?',
-      link : 'http://amirentstabilized.com',
-      picture: 'assets/png/no1.png',
-      description: 'Find out if your land lord might owe you money!',
-      message : ''
-    });
-  });
+  // addEventListenerList(el.fbShare, 'click', function(e) {
+  //   e.preventDefault();
+  //   FB.ui({
+  //     method : 'feed',
+  //     name : 'Am I Rent Stabilized?',
+  //     link : 'http://amirentstabilized.com',
+  //     picture: 'assets/png/no1.png',
+  //     description: 'Find out if your land lord might owe you money!',
+  //     message : ''
+  //   });
+  // });
 
   // hide address error message if it's displayed and user enters text
   el.addressInput.addEventListener("blur", function(e){
