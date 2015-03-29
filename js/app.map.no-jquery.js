@@ -1,7 +1,9 @@
 // map & cartodb stuff
 var d = document;
 var w = window;
-var app = app || {};
+var a = require('aja');
+var app = require('./app.js');
+app.ui = require('./app.ui.no-jquery.js');
 
    var el = {}, // to store DOM element references from app.ui
       f = {},  // to store DOM manipulation and UI functions from app.ui
@@ -167,7 +169,7 @@ var app = app || {};
     el.map.setView([40.7127, -74.0059], 12);
   };
 
-  function mInit() {
+  function init() {
     el = app.ui.el;
     f = app.ui.f;
     initMap();

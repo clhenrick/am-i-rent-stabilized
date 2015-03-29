@@ -1,7 +1,7 @@
 //ui no jQuery
 var d = document;
 var w = window;
-var app = app || {};
+var app = require('./app.js');
   
   // References to DOM elements
   var el = {
@@ -83,9 +83,9 @@ var app = app || {};
           },
           spinner = new Spinner(spinOptsLarge).spin(el.spinnerTarget);
       
-      if (w.width <= 600) {
-        spinner.spin(spinOptsMed, spinnerColor);
-      }
+  if (w.width <= 600) {
+    spinner.spin(spinOptsMed, spinnerColor);
+  }
 
   /*
   * Event listeners
@@ -442,7 +442,7 @@ var app = app || {};
     }
   };
 
-// app.ui.init();
+app.ui.init();
 
 module.exports = app.ui;
 
