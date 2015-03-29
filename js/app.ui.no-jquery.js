@@ -1,12 +1,7 @@
 //ui no jQuery
-// require('spin.js');
-// require('parse-address').parseLocation;
-// require('cartodb.js');
-// require('gsap');
-
+var d = document;
+var w = window;
 var app = app || {};
-
-app.ui = (function(w,d){
   
   // References to DOM elements
   var el = {
@@ -359,7 +354,7 @@ app.ui = (function(w,d){
 
     } else {
       goToPrevSlide();
-    };   
+    } 
   }
 
   function parseAddressInput(input) {
@@ -431,10 +426,9 @@ app.ui = (function(w,d){
     el.currentSlide = el.slides[0];
     goToSlide(el.currentSlide);
     addClass(el.yes, 'hidden');
-    app.map.init();
   }
   
-  return {
+  app.ui = {
     init : init,
     el : el,    
     f : {
@@ -448,8 +442,10 @@ app.ui = (function(w,d){
     }
   };
 
-})(window, document);
+// app.ui.init();
 
-window.addEventListener('DOMContentLoaded', function(){
-  app.ui.init();  
-});
+module.exports = app.ui;
+
+// window.addEventListener('DOMContentLoaded', function(){
+//   app.ui.init();  
+// });

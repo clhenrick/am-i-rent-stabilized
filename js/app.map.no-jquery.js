@@ -1,7 +1,8 @@
 // map & cartodb stuff
+var d = document;
+var w = window;
 var app = app || {};
 
-app.map = (function(w,d,a){   
    var el = {}, // to store DOM element references from app.ui
       f = {},  // to store DOM manipulation and UI functions from app.ui
       addressMarker, // leaflet marker to locate user's address on map
@@ -30,12 +31,12 @@ app.map = (function(w,d,a){
           stNum = 'houseNumber='+ num + '&',
           nameEncoded = name.replace(' ', '+'),
           stName = 'street=' + nameEncoded + '&',
-          boro = 'borough=' + boro + '&',
+          borough = 'borough=' + boro + '&',
           url = 'https://api.cityofnewyork.us/geoclient/v1/address.json?',
-          urlConcat = url + stNum + stName + boro + appID + appKey;
+          urlConcat = url + stNum + stName + borough + appID + appKey;
 
       getJSON(urlConcat, 'jsonp', checkResult);      
-  }
+  };
 
   // see if the geolient result has a bbl
   var checkResult = function(data) {
@@ -72,7 +73,7 @@ app.map = (function(w,d,a){
       }      
       app.ui.f.goToPrevSlide();
     }     
-  }
+  };
 
  // check the bbl number against the cartodb data
   var getCDBdata = function(bbl) {
@@ -157,25 +158,25 @@ app.map = (function(w,d,a){
       // console.log(layer);
       basemap.bringToBack();
     });    
-  } // end initMap()
+  }; // end initMap()
 
   var resetMap = function() {
     if (addressMarker) {
       el.map.removeLayer(addressMarker);
     }
     el.map.setView([40.7127, -74.0059], 12);
-  }
+  };
 
-  function init() {
+  function mInit() {
     el = app.ui.el;
-    f = app.ui.f
+    f = app.ui.f;
     initMap();
   }
 
-  return {
+app.map =   {
     init : init,
     geoclient : geoclient,
     resetMap : resetMap
-  }
+  };
 
-})(window, document, aja);
+module.exports = app.map;
