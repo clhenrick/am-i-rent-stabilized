@@ -48,16 +48,19 @@ gulp.task('sass', function() {
 
 gulp.task('browserify', function () {
   var browserified = transform(function(filename) {
-    var b = browserify(filename);
+    var b = browserify(filename, {
+      debug: true,
+      extensions : ['.js']
+    });
     return b.bundle();
   });
   
-  return gulp.src(['./js/*.js'])
+  return gulp.src([ './js/*.js' ])
     .pipe(browserified)
     .pipe(rename('all.js'))
-    .pipe(gulp.dest('./dist'))    
+    .pipe(gulp.dest('./dist'))        
+    .pipe(uglify())
     .pipe(rename('all.min.js'))
-    .pipe(uglify())    
     .pipe(gulp.dest('./dist'));
 });
 
@@ -78,4 +81,4 @@ gulp.task('watch', function() {
 });
 
 // Default Task
-gulp.task('default', ['lint', 'sass', 'browserify', 'webserver', 'watch']);
+gulp.task('default', ['lint', 'sass', 'webserver', 'browserify', 'watch']);

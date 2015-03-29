@@ -8,6 +8,6 @@ require('cssPlugin');
 require('scrollToPlugin');
 
 var app = app || {};
-require('./app.map.no-jquery.js');
-require('./app.ui.no-jquery.js');
+app.map = require('./app.map.no-jquery.js');
+app.ui = require('./app.ui.no-jquery.js');
 app.ui.init();
