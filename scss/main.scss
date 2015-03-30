@@ -1,4 +1,5 @@
 $gray: #4a4a4a;
+$medgray: #9B9B9B;
 $lightgray: #CACACA;
 $green: #5AAB31;
 $orange: #FFC462;
@@ -7,6 +8,9 @@ $purple: #7a5de8;
 $lightblue: #9cddf0;
 $blue: #45acff;
 $white: #FFFFFF;
+
+$header-font: "Oxygen", Arial,"Helvetica Neue", Helvetica, sans-serif;
+$body-font: "museo-sans-rounded", "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
 
 html {
   font-size: 10px;
@@ -22,7 +26,7 @@ body, div, p {
 body {
   width: 1366px;
   color: #4a4a4a;
-  font-family: 'Open Sans', sans-serif;
+  font-family: $header-font;
   font-weight: 400;
   letter-spacing: 0.0625em;
   /*font-size: 62.5%;*/
@@ -30,7 +34,7 @@ body {
   background-color: #4a4a4a;
 }
 
-* {
+*, *:before, *:after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -40,7 +44,7 @@ h1, h2, h3, h4 {
   width: 100%;
   margin: 0 auto; 
   margin-bottom: 0;
-  font-family: "museo-slab", serif;
+  font-family: $body-font;
   font-weight: 700;
   line-height: 1em;
   color: #4a4a4a;
@@ -82,6 +86,9 @@ a {
   color: $darkteal;
   &.internal {
     color: $orange;
+  }
+  &:hover {
+    color: $lightblue;
   }
 }
 
@@ -141,8 +148,7 @@ nav.main-nav {
   }
   ul {
     float: right;
-    list-style: none;
-    text-align: center;
+    list-style: none;    
     margin-top: 28px;
     li {
       display: inline-block;
@@ -155,6 +161,11 @@ nav.main-nav {
         &:last-child {
           margin-right: 20px;
         }
+      }
+      a {
+        text-align: center;
+        font-family: $body-font;
+        font-weight: 500;
       }
     }
   }
@@ -208,7 +219,7 @@ nav.main-nav {
 nav.margin-circles {
   position: fixed;
   z-index: 100;
-  top: 150px;
+  top: 215px;
   left: 30px;
   ul {
     list-style-type: none;
@@ -321,21 +332,65 @@ nav.margin-circles {
 #address-form {
   position: relative;
   margin-top: 30px;
-  width: 550px;
-  input, select {
-    display: block;
-    margin-top: 10px;
-    height: 30px;
-    font-size: 3em;
-  }
+  width: 1000px;
   input.address-input {
     width: 500px;
-    height: 30px;
-    font-size: 1.8em;
-    padding-left: .2em;
+    height: 70px;
+    border: none;
+    background-image: url('../assets/png/address-enter-line.png');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    text-transform: capitalize;
+    font-weight: 300;
+    color: $medgray;
   }
-  select option {
-    font-size: 3em;
+  div.user-data {
+    position: relative;
+    display: inline-block;
+    max-width: 500px;
+    font-size: 3.8em;
+    color: $medgray;
+
+    &.borough-select {
+      position: relative;
+      width: 395px;
+      padding: 10px;
+      margin-top: 30px;
+      margin-left: 30px;
+      text-transform: capitalize;
+      cursor: pointer;
+      border: 3px solid $medgray;
+
+      span {
+        font-weight: 300;
+      }
+
+      /* triangl: e */
+      &:after {
+        content: "";
+        width: 35px;
+        height: 20px;
+        position: absolute;
+        right: 20px;
+        top: 45%;
+        margin-top: -1px;
+        background-image: url('../assets/png/drop-down-triangle.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+      }
+      ul.drop-down {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        pointer-events: none;        
+      }
+      li {
+        list-style: none;
+      }
+    }
   }
 }
 
@@ -343,10 +398,6 @@ label.address-form {
   margin-top: 20px;
   font-size: 2.5em;
   font-weight: 600;
-}
-
-.borough-select {
-  margin-top: 30px;
 }
 
 p#boroughs {
@@ -439,4 +490,33 @@ li.parsley-required, ul.validation-error li {
     display: inline-block;
     margin-right: 5px;
   }
+}
+
+input[placeholder] {
+  color: $medgray !important;
+  font-family: $body-font !important;
+  font-weight: 300 !important;
+}
+input::-webkit-input-placeholder {
+   color: $medgray !important;
+   font-family: $body-font !important;
+   font-weight: 300 !important;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+   color: $medgray !important;
+   font-family: $body-font !important;
+   font-weight: 300  !important;
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+   color: $medgray !important;
+   font-family: $body-font !important;
+   font-weight: 300  !important;
+}
+
+input:-ms-input-placeholder {  
+   color: $medgray !important;
+   font-family: $body-font !important;
+   font-weight: 300  !important;
 }
