@@ -1,7 +1,7 @@
 // map & cartodb stuff
-var d = document;
-var w = window;
+var app = app || {};
 
+app.map = (function(d,w,a){
    var el = {}, // to store DOM element references from app.ui
       f = {},  // to store DOM manipulation and UI functions from app.ui
       addressMarker, // leaflet marker to locate user's address on map
@@ -172,10 +172,10 @@ var w = window;
     initMap();
   }
 
-app.map =   {
+  return   {
     init : init,
     geoclient : geoclient,
     resetMap : resetMap
   };
 
-module.exports = app.map;
+})(document, window, aja);

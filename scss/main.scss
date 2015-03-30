@@ -1,13 +1,12 @@
-/***
-** Swatches
-***/
-/*orange: #ffc462 */
-/* purple: #7a5de8 */
-/* green: #4ec4a8 */
-/* light blue: #9cddf0 */
-/* blue: ; #45acff */
-/* gray: #4a4a4a */
-/* white: #FFFFFF; */
+$gray: #4a4a4a;
+$lightgray: #CACACA;
+$green: #5AAB31;
+$orange: #FFC462;
+$darkteal: #277159;
+$purple: #7a5de8;
+$lightblue: #9cddf0;
+$blue: #45acff;
+$white: #FFFFFF;
 
 html {
   font-size: 10px;
@@ -21,8 +20,7 @@ body, div, p {
 }
 
 body {
-  width: 960px;
-  /*font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;*/
+  width: 1366px;
   color: #4a4a4a;
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
@@ -34,32 +32,31 @@ body {
 
 * {
   -webkit-box-sizing: border-box;
-  /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;
-  /* Firefox, other Gecko */
   box-sizing: border-box;
-  /* Opera/IE 8+ */
-}
-
-div {
-  /*border: 1px solid green;*/
 }
 
 h1, h2, h3, h4 {
+  width: 100%;
+  margin: 0 auto; 
+  margin-bottom: 0;
   font-family: "museo-slab", serif;
   font-weight: 700;
   line-height: 1em;
   color: #4a4a4a;
-  margin-top: 20px;
-  margin-bottom: 0;
 }
 
 h1 {
-  font-size: 8em;
+  font-size: 5.4em;
+  color: $gray;
 }
 
 h2 {
-  font-size: 5em;
+  font-size: 4.8em;
+  color: $lightgray;
+  &.sub-head {
+    margin-top: 50px;
+  }
 }
 
 h3 {
@@ -67,29 +64,41 @@ h3 {
 }
 
 h4 {
-  font-size: 3em;
+  font-size: 2.4em;
+  color: $orange;
+  &.step {
+    margin-top: 20px;
+  }
 }
 
 p {
-  font-size: 2em;
-  color: #4ec4a8;
+  font-size: 2.8em;
+  color: $green;
 }
 
 a {
   text-decoration: none;
   font-weight: 600;
-  color: #45acff;
+  color: $darkteal;
   &.internal {
-    color: #ffc462;
+    color: $orange;
   }
 }
 
 img {
   display: block;
-  margin: 2% auto;
+  margin: 0 auto;
   max-width: 400px;
+  &.triple-s {
+    width: 40px;
+    margin-top: 30px;
+  }
+  &.building.intro {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
   &.mascot {
-    width: 175px;
+    width: 125px;
     &.monster {
       position: relative;
       left: 11px;
@@ -105,41 +114,40 @@ span.orange {
   color: orange;
 }
 
-nav {
+nav.main-nav {
   position: fixed;
-  background-color: #4a4a4a;
-  margin-left: -400px;
-  left: 50%;
+  background-color: $gray;
   top: 0;
-  width: 800px;
+  width: 100%;
   height: 80px;
   z-index: 100;
   .logo {
     height: 80px;
     display: inline;
-    margin: 0 0 0 5px;
+    margin: 0 0 0 20px;
     padding: 5px;
     float: left;
   }
   h1 {
+    display: inline-block;
+    width: auto;
     float: left;
     display: inline-block;
-    margin-top: 15px;
+    margin-top: 30px;
     margin-left: 10px;
     color: #fff;
-    font-size: 2.5em;
-    letter-spacing: .1em;
-    line-height: 1.2em;
+    font-size: 2.8em;
+    letter-spacing: .05em;    
   }
   ul {
     float: right;
     list-style: none;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 28px;
     li {
       display: inline-block;
-      margin-right: 20px;
-      &:nth-child(3) {
+      margin-right: 55px;
+      &:last-child {
         margin-right: 30px;
       }
       &.social {
@@ -156,7 +164,7 @@ nav {
     margin: 0;
     padding-bottom: 3px;
     font-weight: normal;
-    font-size: 1.6em;
+    font-size: 2.4em;
     text-align: center;
     background-color: #4a4a4a;
     color: #fff;
@@ -170,30 +178,27 @@ nav {
       border-bottom-width: 2px;
       border-bottom-style: solid;
     }
-    &.social {
-      display: inline-block;
-      height: 30px;
-      width: 30px;
-      margin: 0;
-      margin-top: -15px;
-      left: 5px;
-      top: 10px;
-      &.tw {
-        background-image: url("../assets/png/twitter_logo_white_sm.png");
-        background-size: 30px;
-        background-repeat: no-repeat;
-      }
-      &.fb {
-        background-image: url("../assets/png/FB-f-Logo__white_29.png");
-        background-size: 25px;
-        background-repeat: no-repeat;
-      }
-      &.mail {
-        background-image: url("../assets/png/mail.png");
-        background-size: 30px;
-        background-repeat: no-repeat;
-      }
-    }
+  }
+}
+
+nav.margin-circles {
+  position: fixed;
+  z-index: 100;
+  top: 150px;
+  left: 30px;
+  ul {
+    list-style-type: none;
+  }
+  li {
+    width: 25px;
+    height: 25px;
+    margin-top: 33px;
+    background-image: url('../assets/png/oval_25_blank.png');
+    background-size: 25px;
+    background-repeat: no-repeat;    
+  }
+  li:first-child {
+    background-image: url('../assets/png/oval_25_filled.png');
   }
 }
 
@@ -219,8 +224,10 @@ nav {
   height: 100%;
   overflow: hidden;
   .centered {
-    width: 750px;
+    width: 80%;
     margin: 0 auto;
+    position: relative;
+    left: 30px;
     h1, h2, h3, h4 {
       text-align: center;
     }
@@ -238,33 +245,26 @@ nav {
     position: absolute;
     width: 125px;
     margin: 0 auto;
-    margin-left: -62.5px;
+    margin-left: -34.5px;
     left: 50%;
-    bottom: 40px;
+    bottom: 100px;
   }
-  h2 {
+  h3 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
-    font-size: 4em;
+    font-size: 3.5em;
     text-transform: uppercase;
     text-align: center;
     margin-top: 20px;
   }
   .arrow {
-    -webkit-transform: matrix(0, 1, -2, 0, 0, 0);
-    -moz-transform: matrix(0, 1, -2, 0, 0, 0);
-    -ms-transform: matrix(0, 1, -2, 0, 0, 0);
-    -o-transform: matrix(0, 1, -2, 0, 0, 0);
-    transform: matrix(0, 1, -2, 0, 0, 0);
     position: relative;
-    top: -.5em;
-    text-decoration: none;
-    font-size: 7em;
-    color: #ff6d3c;
-    -webkit-animation: bounce 800ms ease-out;
-    -moz-animation: bounce 800ms ease-out;
-    -o-animation: bounce 800ms ease-out;
-    animation: bounce 800ms ease-out;
+    top: 10px;
+    height: 28px;
+    width: 76px;
+    margin: 0 auto;    
+    background-image: url('../assets/png/chevron.png');
+    background-repeat: no-repeat;
   }
   h2:hover, .arrow:hover {
     color: green;
@@ -294,17 +294,22 @@ nav {
   }
 }
 
-/*.slide .centered p.arrow {
-    font-size: 6em;
-    font-weight: 600;
+#lang-toggle {
+  position: absolute;
+  ul { }
+  li {
+    list-style-type: none;
+    display: inline-block;
+  }
+  li:last-child {
+    list-style-type: disc; 
+    // margin-left: 10px;
+  }
+  a {
     text-decoration: none;
+    font-size: 1.8em;
+  }
 }
-
-.slide .centered p.arrow span.arrow {
-    font-size: 2em;
-    text-decoration: none;
-    line-height: .6em;
-}*/
 
 #address-form {
   position: relative;

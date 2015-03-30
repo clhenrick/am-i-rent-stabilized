@@ -1,7 +1,7 @@
 //ui no jQuery
-var d = document;
-var w = window;
-  
+var app = app || {};
+
+app.ui = (function(w,d){
   // References to DOM elements
   var el = {
     // navGoPrev : d.querySelectorAll('.go-prev'),
@@ -425,9 +425,10 @@ var w = window;
     el.currentSlide = el.slides[0];
     goToSlide(el.currentSlide);
     addClass(el.yes, 'hidden');
+    app.map.init();
   }
   
-  app.ui = {
+  return {
     init : init,
     el : el,    
     f : {
@@ -441,10 +442,8 @@ var w = window;
     }
   };
 
-app.ui.init();
+})(window, document);
 
-module.exports = app.ui;
-
-// window.addEventListener('DOMContentLoaded', function(){
-//   app.ui.init();  
-// });
+window.addEventListener('DOMContentLoaded', function(){
+  app.ui.init();  
+});
