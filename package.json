@@ -18,25 +18,25 @@
     }
   ],
   "main" : "js/index.js",
-  "browser" : {
-    "tweenLite" : "./node_modules/gsap/src/uncompressed/TweenLite.js",
-    "cssPlugin" : "./node_modules/gsap/src/uncompressed/plugins/CSSPlugin.js",
-    "scrollToPlugin" : "./node_modules/gsap/src/uncompressed/plugins/ScrollToPlugin.js",
-    "onWheel" : "./js/vendor/onwheel.js",
-    "modernizer" : "./js/vendor/modernizr.custom.32828.js"
-  },
-  "browserify-shim": {
-    "handlebars": "Handlebars",
-    "spin.js": "spinner",
-    "onWheel" : "onwheel",
-    "modernizer" : "modernizer",
-    "tweenLite" : "TweenLite",
-    "cssPlugin" : "CSSPlugin",
-    "scrollToPlugin" : "ScrollToPlugin"
-  },    
-  "browserify": {
-    "transform": [ "browserify-shim" ]
-  },  
+  // "browser" : {
+  //   "tweenLite" : "./node_modules/gsap/src/uncompressed/TweenLite.js",
+  //   "cssPlugin" : "./node_modules/gsap/src/uncompressed/plugins/CSSPlugin.js",
+  //   "scrollToPlugin" : "./node_modules/gsap/src/uncompressed/plugins/ScrollToPlugin.js",
+  //   "onWheel" : "./js/vendor/onwheel.js",
+  //   "modernizer" : "./js/vendor/modernizr.custom.32828.js"
+  // },
+  // "browserify-shim": {
+  //   "handlebars": "Handlebars",
+  //   "spin.js": "spinner",
+  //   "onWheel" : "onwheel",
+  //   "modernizer" : "modernizer",
+  //   "tweenLite" : "TweenLite",
+  //   "cssPlugin" : "CSSPlugin",
+  //   "scrollToPlugin" : "ScrollToPlugin"
+  // },    
+  // "browserify": {
+  //   "transform": [ "browserify-shim" ]
+  // },  
   "dependencies": {
     "cartodb.js": "^3.5.6",
     "gsap": "^1.16.0",
@@ -45,8 +45,8 @@
     "spin.js": "v2.0.2"
   },
   "devDependencies": {
-    "browserify": "^9.0.3",
-    "browserify-shim": "^3.8.3",
+    // "browserify": "^9.0.3",
+    // "browserify-shim": "^3.8.3",
     "gulp": "^3.8.11",
     "gulp-concat": "^2.5.2",
     "gulp-jshint": "^1.9.4",
