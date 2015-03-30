@@ -9,7 +9,7 @@ var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var server = require('gulp-webserver');
 var plumber = require('gulp-plumber');
-var browserify = require('browserify');
+// var browserify = require('browserify');
 var transform = require('vinyl-transform');
 
 // config settings for local server
@@ -28,41 +28,41 @@ gulp.task('lint', function() {
 
 // Compile Our Sass
 gulp.task('sass', function() {
-    return gulp.src('scss/*.scss')
-        .pipe(plumber())
+    return gulp.src('scss/*.scss')        
         .pipe(sass())
+        .pipe(plumber())
         .pipe(gulp.dest('css'))
-        .pipe(rename('style.css'))
+        .pipe(rename('main.css'))
         .pipe(gulp.dest('css'));
 });
 
 // Concatenate & Minify JS
-// gulp.task('scripts', function() {
-//     return gulp.src('js/*.js')
-//         .pipe(concat('all.js'))
-//         .pipe(gulp.dest('dist'))
-//         .pipe(rename('all.min.js'))
-//         .pipe(uglify())
-//         .pipe(gulp.dest('dist'));
-// });
-
-gulp.task('browserify', function () {
-  var browserified = transform(function(filename) {
-    var b = browserify(filename, {
-      debug: true,
-      extensions : ['.js']
-    });
-    return b.bundle();
-  });
-  
-  return gulp.src([ './js/*.js' ])
-    .pipe(browserified)
-    .pipe(rename('all.js'))
-    .pipe(gulp.dest('./dist'))        
-    .pipe(uglify())
-    .pipe(rename('all.min.js'))
-    .pipe(gulp.dest('./dist'));
+gulp.task('scripts', function() {
+    return gulp.src([ 'js/vendor/*.js', 'js/*.js' ])
+        .pipe(concat('all.js'))
+        .pipe(gulp.dest('dist'))
+        .pipe(rename('all.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('dist'));
 });
+
+// gulp.task('browserify', function () {
+//   var browserified = transform(function(filename) {
+//     var b = browserify(filename, {
+//       debug: true,
+//       extensions : ['.js']
+//     });
+//     return b.bundle();
+//   });
+  
+//   return gulp.src([ './js/*.js' ])
+//     .pipe(browserified)
+//     .pipe(rename('all.js'))
+//     .pipe(gulp.dest('./dist'))        
+//     .pipe(uglify())
+//     .pipe(rename('all.min.js'))
+//     .pipe(gulp.dest('./dist'));
+// });
 
 gulp.task('webserver', function() {
   gulp.src('.')
@@ -76,9 +76,9 @@ gulp.task('webserver', function() {
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-    gulp.watch('js/*.js', ['lint', 'browserify']);
+    gulp.watch('js/*.js', ['lint', 'scripts']);
     gulp.watch('scss/*.scss', ['sass']);
 });
 
 // Default Task
-gulp.task('default', ['lint', 'sass', 'webserver', 'browserify', 'watch']);
+gulp.task('default', ['lint', 'sass', 'webserver', 'scripts', 'watch']);
