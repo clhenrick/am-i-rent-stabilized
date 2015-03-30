@@ -181,6 +181,30 @@ nav.main-nav {
   }
 }
 
+#lang-toggle {
+  position: absolute;
+  top: 90px;
+  left: 30px;
+  z-index: 100;
+  li {
+    list-style: none;
+    display: inline-block;
+  }
+  li:last-child {
+    list-style: disc;
+    list-style-position: inside;
+    // margin-left: 10px;
+  }
+  a, p {
+    text-decoration: none;
+    font-size: 1.8em;
+    color: $lightgray;
+  }
+  a:hover {
+    color: $gray;
+  }
+}
+
 nav.margin-circles {
   position: fixed;
   z-index: 100;
@@ -291,23 +315,6 @@ nav.margin-circles {
   .title {
     font-style: italic;
     font-weight: 300;
-  }
-}
-
-#lang-toggle {
-  position: absolute;
-  ul { }
-  li {
-    list-style-type: none;
-    display: inline-block;
-  }
-  li:last-child {
-    list-style-type: disc; 
-    // margin-left: 10px;
-  }
-  a {
-    text-decoration: none;
-    font-size: 1.8em;
   }
 }
 
