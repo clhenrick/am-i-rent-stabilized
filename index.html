@@ -84,8 +84,7 @@
                 <div class="centered"> 
                     <img class="triple-s" src="assets/png/triple-sss.png">              
                     <img class="building intro" src="assets/png/building_.png">
-                    <h1 class="landing">Half of all apartments in</h1>
-                    <h1 class="landing"> NYC are rent stabilized.</h1> 
+                    <h1 class="landing">Half of all apartments in NYC are rent stabilized.</h1> 
                     <h2 class="sub-head">Find out if yours is one of them.</h2>
                     <p>If you've already received your rent history go <a class="go-step4" href="#">here</a>.</p>
                 </div>
@@ -98,27 +97,22 @@
             <div class="slide" id="slide-2">
                 <div class="centered">
                     <h4 class="step">Step 1 of 5</h4>
-                    <h1 class="step">First, let's have your</h1>
-                    <h1>building address and borough.</h1>
+                    <h1 class="step">First, let's have your building address and borough.</h1>
                     <p>We keep this information completely private.</p>
 
                     <form id="address-form" class="centered">
-                        <ul id="error-not-found" class="validation-error hidden">
-                            <li>Sorry, we don't recognize that NYC address.<br>Please try again. <br>
-                                  <strong>Tip:</strong> Make sure you enter just your building number and street name.<br></li>
-                        </ul>
+                        <ul id="error-not-found" class="validation-error not-found vis-hidden">
+                            <li>Sorry, we don't recognize that NYC address, please try again! <br>
+                                  Make sure you enter only your building number and street name.</li>
+                        </ul>                      
                         <div class="user-data street-address">
                             <!-- <label class="address-form" for="address-input">Street Address:*</label> -->
                             <input class="address-input" name="address-input" type="text" placeholder="Building No. &amp; street name">
-                            <ul id="error-address" class="validation-error hidden">
-                                <li>*Please enter your building's number and street name </li>
-                            </ul>    
+<!--                             <ul id="error-address" class="validation-error hidden">
+                                <li>*Please enter your building's<br>number and street name </li>
+                            </ul> -->
                         </div>                        
                         <div class="user-data borough-select" tabindex="1">
-                            <!-- <label class="address-form" for="borough">Borough:*</label> -->
-                            <ul id="error-boro" class="validation-error hidden">
-                                <li>*Please select your borough</li>
-                            </ul>
                             <span id="select-boro">Select Borough</span>
                             <ul class="drop-down" id="boroughs" tabindex="1">
                               <li><a href="#">Bronx</a></li>
@@ -126,10 +120,14 @@
                               <li><a href="#">Manhattan</a></li>
                               <li><a href="#">Queens</a></li>
                               <li><a href="#">Staten Island</a></li>
-                            </ul>
-                        </div>                
-                        <p class="button search" type="submit"><a href="#">Search</a></p>
-                    </form>                    
+                            </ul>                            
+                        </div>
+                        <ul class="validation-error vis-hidden">                            
+                            <li class="error-address">^Please enter your building's number and street name </li>
+                            <li class="error-boro">^Please select your borough</li>
+                        </ul>                                                
+                    </form>   
+                    <p class="button search" type="submit"><a href="#">Search</a></p>
                 </div>
             </div>  
 

@@ -34,13 +34,16 @@ h1, h2, h3, h4 {
 h1 {
   font-size: 5.4em;
   color: #4a4a4a;
+  max-width: 70%;
   margin-top: 30px; }
   h1.landing {
     margin-top: 0px; }
+  #slide-2 .centered h1 {
+    max-width: 70%; }
 
 h2 {
   font-size: 4.8em;
-  color: #CACACA; }
+  color: #ABABAB; }
   h2.sub-head {
     margin-top: 50px; }
 
@@ -52,12 +55,12 @@ h4 {
   color: #FFC462; }
   h4.step {
     margin-top: 20px;
-    font-family: "museo-sans-rounded", "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+    font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif;
     font-weight: 300; }
 
 p {
   font-size: 2.8em;
-  color: #5AAB31; }
+  color: #417505; }
 
 a {
   text-decoration: none;
@@ -165,7 +168,7 @@ nav.main-nav {
     font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif;
     font-weight: 300;
     font-size: 1.8em;
-    color: #CACACA; }
+    color: #ABABAB; }
   #lang-toggle a:hover {
     color: #4a4a4a; }
 
@@ -179,7 +182,7 @@ nav.margin-circles {
   nav.margin-circles li {
     width: 25px;
     height: 25px;
-    margin-top: 33px;
+    margin-top: 25px;
     background-image: url('../assets/png/oval_25_blank.png');
     background-size: 25px;
     background-repeat: no-repeat; }
@@ -188,6 +191,9 @@ nav.margin-circles {
 
 .hidden {
   display: none; }
+
+.vis-hidden {
+  visibility: hidden; }
 
 .slides-container {
   position: absolute;
@@ -262,9 +268,10 @@ nav.margin-circles {
 /* User address entry form */
 #address-form {
   position: relative;
-  margin-top: 30px;
+  margin-top: 10px;
   width: 1000px;
-  font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif; }
+  font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 3em; }
   #address-form input.address-input {
     width: 465px;
     height: 70px;
@@ -279,7 +286,7 @@ nav.margin-circles {
     position: relative;
     display: inline-block;
     max-width: 500px;
-    font-size: 3em;
+    margin-top: 10px;
     color: #9B9B9B; }
     #address-form div.user-data.borough-select.active ul.drop-down {
       opacity: 1;
@@ -288,7 +295,6 @@ nav.margin-circles {
       position: relative;
       width: 400px;
       padding: 10px;
-      margin-top: 30px;
       margin-left: 100px;
       text-transform: capitalize;
       cursor: pointer;
@@ -350,17 +356,33 @@ p#boroughs {
   padding: 0;
   line-height: normal; }
 
-li.parsley-required, ul.validation-error li {
+ul.validation-error li {
   display: inline-block;
-  max-width: 500px;
-  padding: 2px 4px;
+  position: relative;
+  max-width: 465px;
+  padding: 10px;
+  border: 3px solid #FFFFFF;
   margin-top: 5px;
-  font-size: 1.8em;
+  color: #FFFFFF;
+  font-size: 0.7em;
   font-weight: 300;
   font-style: italic;
   letter-spacing: 1px;
   list-style: none;
-  background-color: #ff9999; }
+  background-color: #FF0000; }
+  ul.validation-error li:last-child {
+    margin-left: 100px;
+    top: -34px;
+    padding-right: 58px; }
+ul.validation-error.not-found {
+  max-width: 900px;
+  margin: 0 auto; }
+  ul.validation-error.not-found li {
+    top: 0;
+    text-align: center;
+    margin-left: 78px;
+    max-width: 900px;
+    padding: 10px; }
 
 .slide .centered .button {
   display: inline-block;
@@ -370,17 +392,17 @@ li.parsley-required, ul.validation-error li {
   font-size: 3em;
   text-align: center;
   text-transform: uppercase;
-  background-color: #CE912D;
+  background-color: #FFC462;
   padding: 10px 20px;
   border-radius: 35px; }
   .slide .centered .button:hover {
-    background-color: #FFC462; }
+    background-color: #CE912D; }
   .slide .centered .button a {
     color: #FFFFFF; }
   .slide .centered .button.search {
     display: block;
-    margin-top: 100px;
-    left: -30px; }
+    margin-top: 50px;
+    left: 15px; }
   .slide .centered .button.start-over {
     width: 150px; }
   .slide .centered .button.learn-more {

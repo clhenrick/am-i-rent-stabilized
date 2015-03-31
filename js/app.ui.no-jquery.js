@@ -127,7 +127,7 @@ app.ui = (function(w,d){
     this.dd = el;
     this.placeholder = this.dd.children('span');
     this.opts = this.dd.find('ul.drop-down > li');
-    this.val = '';    
+    this.val = undefined;    
     this.index = -1;
     this.initEvents();
   }
