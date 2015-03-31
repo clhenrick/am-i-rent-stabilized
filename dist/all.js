@@ -612,7 +612,8 @@ app.ui = (function(w,d){
     slide4 : d.querySelector('#slide-8'),
     currentSlide : null,
     addressInput : d.querySelector('.address-input'),
-    // selectBoro : d.querySelector('.select-borough'),
+    boroSelect : d.querySelector('.user-data.borough-select'),
+    boroDropDown : d.getElementById('boroughs'),
     selectBoro : d.getElementsByName('borough'),
     search : d.querySelector('.search'),
     valErrors : d.querySelectorAll('.validation-error'),
@@ -713,13 +714,76 @@ app.ui = (function(w,d){
     goToSlide(el.slide4);
   });
 
+  // drop down for borough
+  // addEventListenerList(el.boroSelect, 'click', function(e){
+  //   e.preventDefault();    
+  //   addClass(el.boroDropDown, 'active');
+  // });
+
+  // drop down class
+  //  code reference: http://tympanus.net/codrops/2012/10/04/custom-drop-down-list-styling/
+  function DropDown(el) {
+    this.dd = el;
+    this.placeholder = this.dd.children('span');
+    this.opts = this.dd.find('ul.drop-down > li');
+    this.val = '';    
+    this.index = -1;
+    this.initEvents();
+  }
+
+  DropDown.prototype = {
+    initEvents : function() {
+      var obj = this;
+
+      console.log('initEvents this: ', this);
+
+      obj.dd.on('click', function(e){
+        e.preventDefault();
+        // $(this).toggleClass('active');
+        toggleClass(this, 'active');
+        return false;
+      });
+
+      obj.opts.on('click',function(e){
+        e.preventDefault();
+        var opt = $(this);
+        obj.val = opt.text();
+        // obj.data = opt.children('span').text();
+        obj.index = opt.index();
+        obj.placeholder.text('Borough: ' + obj.val);        
+        console.log('obj: ', obj);  
+      });
+    },
+
+    getValue : function() {
+      return this.val;
+    },
+
+    getIndex : function() {
+      return this.index;
+    }
+  };
+
+  var dd = new DropDown( $('.user-data.borough-select') );
+
+  $(document).click(function() {
+    // all dropdowns
+      $('.user-data.borough-select').removeClass('active');
+  });
+
+  // el.slidesContainer.addEventListener('click', function(e){
+  //   if (hasClass(el.boroSelect, 'active')) {
+  //     removeClass(el.boroSelect, 'active');
+  //   }    
+  // });
+
   // search button for address
   el.search.addEventListener('click', function(e){
     e.preventDefault();
     var streetAddress = el.addressInput.value,
-          boro = getBoroValue(el.selectBoro);
-    // console.log('street address: ', streetAddress, ' boro: ', boro);
-    _gaq.push(['_trackEvent', 'Address Entered', 'Search', streetAddress + ', ' + boro ]);
+          boro = dd.val;
+    console.log('streetAddress: ', streetAddress, ' boro: ', boro);    
+    // _gaq.push(['_trackEvent', 'Address Entered', 'Search', streetAddress + ', ' + boro ]);
     checkAddressInput(streetAddress, boro);
   });
 
@@ -878,6 +942,14 @@ app.ui = (function(w,d){
     }
   }
 
+  function indexOf(array, item) {
+    for (var i = 0; i < array.length; i++) {
+      if (array[i] === item)
+        return i;
+    }
+    return -1;
+  }  
+  
   function hasClass(el, className) {
     return iterateNodeList(el, function(el){
       if (el.classList) {
@@ -911,6 +983,17 @@ app.ui = (function(w,d){
           classes.push(className);
           el.className = classes.join(' ');
         }
+      }
+    });
+  }
+
+  function removeClass(el, className) {
+    iterateNodeList(el, function(el){
+      if (el.classList) {
+        el.classList.remove(className);
+      }
+      else {
+        el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
       }
     });
   }

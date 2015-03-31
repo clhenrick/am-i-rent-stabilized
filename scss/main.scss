@@ -3,14 +3,15 @@ $medgray: #9B9B9B;
 $lightgray: #CACACA;
 $green: #5AAB31;
 $orange: #FFC462;
+$darkorange: #CE912D;
 $darkteal: #277159;
 $purple: #7a5de8;
 $lightblue: #9cddf0;
 $blue: #45acff;
 $white: #FFFFFF;
 
-$header-font: "Oxygen", Arial,"Helvetica Neue", Helvetica, sans-serif;
-$body-font: "museo-sans-rounded", "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+$header-font: "museo-sans-rounded", "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+$body-font: "Oxygen", Arial,"Helvetica Neue", Helvetica, sans-serif;
 
 html {
   font-size: 10px;
@@ -26,7 +27,7 @@ body, div, p {
 body {
   width: 1366px;
   color: #4a4a4a;
-  font-family: $header-font;
+  font-family: $body-font;
   font-weight: 400;
   letter-spacing: 0.0625em;
   /*font-size: 62.5%;*/
@@ -44,7 +45,7 @@ h1, h2, h3, h4 {
   width: 100%;
   margin: 0 auto; 
   margin-bottom: 0;
-  font-family: $body-font;
+  font-family: $header-font;
   font-weight: 700;
   line-height: 1em;
   color: #4a4a4a;
@@ -53,6 +54,10 @@ h1, h2, h3, h4 {
 h1 {
   font-size: 5.4em;
   color: $gray;
+  margin-top: 30px;
+  &.landing {
+    margin-top: 0px;
+  }
 }
 
 h2 {
@@ -72,6 +77,8 @@ h4 {
   color: $orange;
   &.step {
     margin-top: 20px;
+    font-family: $header-font;
+    font-weight: 300;
   }
 }
 
@@ -118,7 +125,7 @@ img {
 
 span.orange {
   font-weight: 600;
-  color: orange;
+  color: $orange;
 }
 
 nav.main-nav {
@@ -126,10 +133,10 @@ nav.main-nav {
   background-color: $gray;
   top: 0;
   width: 100%;
-  height: 80px;
+  height: 60px;
   z-index: 100;
   .logo {
-    height: 80px;
+    height: 65px;
     display: inline;
     margin: 0 0 0 20px;
     padding: 5px;
@@ -140,7 +147,7 @@ nav.main-nav {
     width: auto;
     float: left;
     display: inline-block;
-    margin-top: 30px;
+    margin-top: 15px;
     margin-left: 10px;
     color: #fff;
     font-size: 2.8em;
@@ -149,7 +156,7 @@ nav.main-nav {
   ul {
     float: right;
     list-style: none;    
-    margin-top: 28px;
+    margin-top: 15px;
     li {
       display: inline-block;
       margin-right: 55px;
@@ -164,7 +171,7 @@ nav.main-nav {
       }
       a {
         text-align: center;
-        font-family: $body-font;
+        font-family: $header-font;
         font-weight: 500;
       }
     }
@@ -208,6 +215,8 @@ nav.main-nav {
   }
   a, p {
     text-decoration: none;
+    font-family: $body-font;
+    font-weight: 300;
     font-size: 1.8em;
     color: $lightgray;
   }
@@ -244,7 +253,7 @@ nav.margin-circles {
 .slides-container {
   position: absolute;
   left: 0;
-  top: 80px;
+  top: 60px;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -329,12 +338,15 @@ nav.margin-circles {
   }
 }
 
+/* User address entry form */ 
+
 #address-form {
   position: relative;
   margin-top: 30px;
   width: 1000px;
+  font-family: $body-font;
   input.address-input {
-    width: 500px;
+    width: 465px;
     height: 70px;
     border: none;
     background-image: url('../assets/png/address-enter-line.png');
@@ -348,15 +360,25 @@ nav.margin-circles {
     position: relative;
     display: inline-block;
     max-width: 500px;
-    font-size: 3.8em;
+    font-size: 3em;
     color: $medgray;
+
+    &.borough-select.active {
+      ul.drop-down {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      &:after {
+      // do to: change direction of arrow to point up
+      }      
+    }
 
     &.borough-select {
       position: relative;
-      width: 395px;
+      width: 400px;
       padding: 10px;
       margin-top: 30px;
-      margin-left: 30px;
+      margin-left: 100px;
       text-transform: capitalize;
       cursor: pointer;
       border: 3px solid $medgray;
@@ -365,7 +387,7 @@ nav.margin-circles {
         font-weight: 300;
       }
 
-      /* triangl: e */
+      /* triangle */
       &:after {
         content: "";
         width: 35px;
@@ -385,10 +407,26 @@ nav.margin-circles {
         left: 0;
         right: 0;
         opacity: 0;
-        pointer-events: none;        
+        background: $white;
+        pointer-events: none;       
       }
       li {
         list-style: none;
+        display: block;        
+      }
+      li a {        
+        text-decoration: none;
+        font-weight: 300;
+        color: $medgray;
+        padding: 5px 10px;
+        display: block;
+        span.value {
+          display: none;
+        }
+      }
+      li a:hover {
+        background: $gray;
+        color: $white;
       }
     }
   }
@@ -432,23 +470,25 @@ li.parsley-required, ul.validation-error li {
 .slide .centered {
   .button {
     display: inline-block;
-    width: 125px;
+    position: relative;
+    width: 170px;
     margin: 0 auto;
-    font-size: 2em;
+    font-size: 3em;
     text-align: center;
-    background-color: #ffc462;
-    border: 2px solid #4a4a4a;
-    padding: 5px 20px;
-    border-radius: 25px;
+    text-transform: uppercase;
+    background-color: $darkorange;
+    padding: 10px 20px;
+    border-radius: 35px;
     &:hover {
-      background-color: #ffffff;
+      background-color: $orange;
     }
     a {
-      color: #4a4a4a;
+      color: $white;
     }
     &.search {
       display: block;
-      margin-top: 30px;
+      margin-top: 100px;
+      left: -30px;
     }
     &.start-over {
       width: 150px;

@@ -33,7 +33,10 @@ h1, h2, h3, h4 {
 
 h1 {
   font-size: 5.4em;
-  color: #4a4a4a; }
+  color: #4a4a4a;
+  margin-top: 30px; }
+  h1.landing {
+    margin-top: 0px; }
 
 h2 {
   font-size: 4.8em;
@@ -48,7 +51,9 @@ h4 {
   font-size: 2.4em;
   color: #FFC462; }
   h4.step {
-    margin-top: 20px; }
+    margin-top: 20px;
+    font-family: "museo-sans-rounded", "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+    font-weight: 300; }
 
 p {
   font-size: 2.8em;
@@ -83,17 +88,17 @@ img {
 
 span.orange {
   font-weight: 600;
-  color: orange; }
+  color: #FFC462; }
 
 nav.main-nav {
   position: fixed;
   background-color: #4a4a4a;
   top: 0;
   width: 100%;
-  height: 80px;
+  height: 60px;
   z-index: 100; }
   nav.main-nav .logo {
-    height: 80px;
+    height: 65px;
     display: inline;
     margin: 0 0 0 20px;
     padding: 5px;
@@ -103,7 +108,7 @@ nav.main-nav {
     width: auto;
     float: left;
     display: inline-block;
-    margin-top: 30px;
+    margin-top: 15px;
     margin-left: 10px;
     color: #fff;
     font-size: 2.8em;
@@ -111,7 +116,7 @@ nav.main-nav {
   nav.main-nav ul {
     float: right;
     list-style: none;
-    margin-top: 28px; }
+    margin-top: 15px; }
     nav.main-nav ul li {
       display: inline-block;
       margin-right: 55px; }
@@ -157,6 +162,8 @@ nav.main-nav {
     list-style-position: inside; }
   #lang-toggle a, #lang-toggle p {
     text-decoration: none;
+    font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: 300;
     font-size: 1.8em;
     color: #CACACA; }
   #lang-toggle a:hover {
@@ -185,7 +192,7 @@ nav.margin-circles {
 .slides-container {
   position: absolute;
   left: 0;
-  top: 80px;
+  top: 60px;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -252,12 +259,14 @@ nav.margin-circles {
   font-style: italic;
   font-weight: 300; }
 
+/* User address entry form */
 #address-form {
   position: relative;
   margin-top: 30px;
-  width: 1000px; }
+  width: 1000px;
+  font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif; }
   #address-form input.address-input {
-    width: 500px;
+    width: 465px;
     height: 70px;
     border: none;
     background-image: url('../assets/png/address-enter-line.png');
@@ -270,18 +279,21 @@ nav.margin-circles {
     position: relative;
     display: inline-block;
     max-width: 500px;
-    font-size: 3.8em;
+    font-size: 3em;
     color: #9B9B9B; }
+    #address-form div.user-data.borough-select.active ul.drop-down {
+      opacity: 1;
+      pointer-events: auto; }
     #address-form div.user-data.borough-select {
       position: relative;
-      width: 395px;
+      width: 400px;
       padding: 10px;
       margin-top: 30px;
-      margin-left: 30px;
+      margin-left: 100px;
       text-transform: capitalize;
       cursor: pointer;
       border: 3px solid #9B9B9B;
-      /* triangl: e */ }
+      /* triangle */ }
       #address-form div.user-data.borough-select span {
         font-weight: 300; }
       #address-form div.user-data.borough-select:after {
@@ -302,9 +314,22 @@ nav.margin-circles {
         left: 0;
         right: 0;
         opacity: 0;
+        background: #FFFFFF;
         pointer-events: none; }
       #address-form div.user-data.borough-select li {
-        list-style: none; }
+        list-style: none;
+        display: block; }
+      #address-form div.user-data.borough-select li a {
+        text-decoration: none;
+        font-weight: 300;
+        color: #9B9B9B;
+        padding: 5px 10px;
+        display: block; }
+        #address-form div.user-data.borough-select li a span.value {
+          display: none; }
+      #address-form div.user-data.borough-select li a:hover {
+        background: #4a4a4a;
+        color: #FFFFFF; }
 
 label.address-form {
   margin-top: 20px;
@@ -339,21 +364,23 @@ li.parsley-required, ul.validation-error li {
 
 .slide .centered .button {
   display: inline-block;
-  width: 125px;
+  position: relative;
+  width: 170px;
   margin: 0 auto;
-  font-size: 2em;
+  font-size: 3em;
   text-align: center;
-  background-color: #ffc462;
-  border: 2px solid #4a4a4a;
-  padding: 5px 20px;
-  border-radius: 25px; }
+  text-transform: uppercase;
+  background-color: #CE912D;
+  padding: 10px 20px;
+  border-radius: 35px; }
   .slide .centered .button:hover {
-    background-color: #ffffff; }
+    background-color: #FFC462; }
   .slide .centered .button a {
-    color: #4a4a4a; }
+    color: #FFFFFF; }
   .slide .centered .button.search {
     display: block;
-    margin-top: 30px; }
+    margin-top: 100px;
+    left: -30px; }
   .slide .centered .button.start-over {
     width: 150px; }
   .slide .centered .button.learn-more {
@@ -386,27 +413,27 @@ li.parsley-required, ul.validation-error li {
 
 input[placeholder] {
   color: #9B9B9B !important;
-  font-family: "museo-sans-rounded", "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif !important;
+  font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif !important;
   font-weight: 300 !important; }
 
 input::-webkit-input-placeholder {
   color: #9B9B9B !important;
-  font-family: "museo-sans-rounded", "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif !important;
+  font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif !important;
   font-weight: 300 !important; }
 
 input:-moz-placeholder {
   /* Firefox 18- */
   color: #9B9B9B !important;
-  font-family: "museo-sans-rounded", "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif !important;
+  font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif !important;
   font-weight: 300  !important; }
 
 input::-moz-placeholder {
   /* Firefox 19+ */
   color: #9B9B9B !important;
-  font-family: "museo-sans-rounded", "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif !important;
+  font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif !important;
   font-weight: 300  !important; }
 
 input:-ms-input-placeholder {
   color: #9B9B9B !important;
-  font-family: "museo-sans-rounded", "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif !important;
+  font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif !important;
   font-weight: 300  !important; }

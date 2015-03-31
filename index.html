@@ -13,8 +13,7 @@
         <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
         <link rel="stylesheet" type="text/css" href="bower_components/cartodb.js/themes/css/cartodb.css">
         <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700,300' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" type="text/css" href="css/main.css">        
-        <script src="js/modernizr.custom.32828.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/main.css">                
         <script src="http://use.typekit.net/emf7xrp.js"></script>
         <script>try{Typekit.load();}catch(e){}</script>
         <script type="text/javascript">
@@ -49,7 +48,7 @@
         </script>
          -->
         <nav class="main-nav">
-          <img class="logo" src="assets/png/building-logo.png">
+          <img class="logo" src="assets/png/logo.png">
           <h1 class="go-first">            
             Am I Rent Stabilized?
           </h1>
@@ -85,8 +84,8 @@
                 <div class="centered"> 
                     <img class="triple-s" src="assets/png/triple-sss.png">              
                     <img class="building intro" src="assets/png/building_.png">
-                    <h1>Half of all apartments in</h1>
-                    <h1> NYC are rent stabilized.</h1> 
+                    <h1 class="landing">Half of all apartments in</h1>
+                    <h1 class="landing"> NYC are rent stabilized.</h1> 
                     <h2 class="sub-head">Find out if yours is one of them.</h2>
                     <p>If you've already received your rent history go <a class="go-step4" href="#">here</a>.</p>
                 </div>
@@ -99,7 +98,7 @@
             <div class="slide" id="slide-2">
                 <div class="centered">
                     <h4 class="step">Step 1 of 5</h4>
-                    <h1>First, let's have your</h1>
+                    <h1 class="step">First, let's have your</h1>
                     <h1>building address and borough.</h1>
                     <p>We keep this information completely private.</p>
 
@@ -115,18 +114,18 @@
                                 <li>*Please enter your building's number and street name </li>
                             </ul>    
                         </div>                        
-                        <div class="user-data borough-select">
+                        <div class="user-data borough-select" tabindex="1">
                             <!-- <label class="address-form" for="borough">Borough:*</label> -->
                             <ul id="error-boro" class="validation-error hidden">
                                 <li>*Please select your borough</li>
                             </ul>
-                            <span>Select A Borough</span>
-                            <ul class="drop-down" id="boroughs">                              
-                              <li>Bronx</li>
-                              <li>Brooklyn</li>                
-                              <li>Manhattan</li>
-                              <li>Queens</li>
-                              <li>Staten Island</li>
+                            <span id="select-boro">Select Borough</span>
+                            <ul class="drop-down" id="boroughs" tabindex="1">
+                              <li><a href="#">Bronx</a></li>
+                              <li><a href="#">Brooklyn</a></li>
+                              <li><a href="#">Manhattan</a></li>
+                              <li><a href="#">Queens</a></li>
+                              <li><a href="#">Staten Island</a></li>
                             </ul>
                         </div>                
                         <p class="button search" type="submit"><a href="#">Search</a></p>
@@ -136,7 +135,7 @@
 
             <div class="slide" id="slide-3">
                 <div class="centered">
-                    <h1>Hold on, we're checking...</h1>
+                    <h1 class="step">Hold on, we're checking...</h1>
                     <div class="centered spinner"></div>
                 </div>
             </div>
