@@ -88,8 +88,14 @@ h4 {
 }
 
 p {
+  max-width: 85%;
+  margin: 0 auto;
   font-size: 2.8em;
   color: $green;
+  
+  &.map-messsage {
+    margin-top: 30px;
+  }
 }
 
 a {
@@ -106,6 +112,7 @@ a {
 
 img {
   display: block;
+  position: relative;
   margin: 0 auto;
   max-width: 400px;
   &.triple-s {
@@ -116,10 +123,14 @@ img {
     margin-top: 20px;
     margin-bottom: 20px;
   }
+  &.checking {
+    left: -10px;
+    width: 175px;
+    margin-top: 50px;
+  }
   &.mascot {
     width: 125px;
-    &.monster {
-      position: relative;
+    &.monster {      
       left: 11px;
     }
     &.intro {
@@ -362,6 +373,7 @@ nav.margin-circles {
     background-image: url('../assets/png/address-enter-line.png');
     background-repeat: no-repeat;
     background-position: center bottom;
+    padding-left: 10px;
     text-transform: capitalize;
     font-weight: 300;
     color: $medgray;
@@ -387,8 +399,7 @@ nav.margin-circles {
       position: relative;
       width: 400px;
       padding: 10px;      
-      margin-left: 100px;
-      text-transform: capitalize;
+      margin-left: 100px;      
       cursor: pointer;
       border: 3px solid $medgray;
 
@@ -539,13 +550,39 @@ ul.validation-error {
 }
 
 #map {
+  position: relative;
+  left: 0;
   margin: 0 auto;
   margin-top: 30px;
-  width: 450px;
-  height: 350px;
+  width: 550px;
+  height: 300px;
   border: 1px solid #999;
   &:hover {
     cursor: default;
+  }
+}
+
+.dhcr-choice {
+  position: relative;  
+  max-width: 1000px;
+  height: 220px;
+  margin: 0 auto;
+  margin-top: 30px;
+  
+  -webkit-columns: 200px 3;
+     -moz-columns: 200px 3;
+          columns: 200px 3;
+
+  -webkit-column-gap: 0;  
+  -moz-column-gap: 0;
+          column-gap: 0;
+
+  -webkit-column-rule: 1px solid $lightgray;
+  -moz-column-rule: 1px solid $lightgray;
+          column-rule: 1px solid $lightgray;          
+  p {
+    max-width: 200px;
+    height: 200px;    
   }
 }
 

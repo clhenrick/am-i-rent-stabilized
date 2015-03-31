@@ -59,8 +59,12 @@ h4 {
     font-weight: 300; }
 
 p {
+  max-width: 85%;
+  margin: 0 auto;
   font-size: 2.8em;
   color: #417505; }
+  p.map-messsage {
+    margin-top: 30px; }
 
 a {
   text-decoration: none;
@@ -73,6 +77,7 @@ a {
 
 img {
   display: block;
+  position: relative;
   margin: 0 auto;
   max-width: 400px; }
   img.triple-s {
@@ -81,10 +86,13 @@ img {
   img.building.intro {
     margin-top: 20px;
     margin-bottom: 20px; }
+  img.checking {
+    left: -10px;
+    width: 175px;
+    margin-top: 50px; }
   img.mascot {
     width: 125px; }
     img.mascot.monster {
-      position: relative;
       left: 11px; }
     img.mascot.intro {
       width: 130px; }
@@ -279,6 +287,7 @@ nav.margin-circles {
     background-image: url('../assets/png/address-enter-line.png');
     background-repeat: no-repeat;
     background-position: center bottom;
+    padding-left: 10px;
     text-transform: capitalize;
     font-weight: 300;
     color: #9B9B9B; }
@@ -296,7 +305,6 @@ nav.margin-circles {
       width: 400px;
       padding: 10px;
       margin-left: 100px;
-      text-transform: capitalize;
       cursor: pointer;
       border: 3px solid #9B9B9B;
       /* triangle */ }
@@ -414,13 +422,34 @@ ul.validation-error.not-found {
   margin-top: 30px; }
 
 #map {
+  position: relative;
+  left: 0;
   margin: 0 auto;
   margin-top: 30px;
-  width: 450px;
-  height: 350px;
+  width: 550px;
+  height: 300px;
   border: 1px solid #999; }
   #map:hover {
     cursor: default; }
+
+.dhcr-choice {
+  position: relative;
+  max-width: 1000px;
+  height: 220px;
+  margin: 0 auto;
+  margin-top: 30px;
+  -webkit-columns: 200px 3;
+  -moz-columns: 200px 3;
+  columns: 200px 3;
+  -webkit-column-gap: 0;
+  -moz-column-gap: 0;
+  column-gap: 0;
+  -webkit-column-rule: 1px solid #ABABAB;
+  -moz-column-rule: 1px solid #ABABAB;
+  column-rule: 1px solid #ABABAB; }
+  .dhcr-choice p {
+    max-width: 200px;
+    height: 200px; }
 
 .slide .share-box-end {
   display: block;
