@@ -100,6 +100,7 @@ p {
   &.share-it {
     color: $medgray;  
   }
+
 }
 
 a {
@@ -297,10 +298,33 @@ nav.margin-circles {
     margin: 0 auto;
     position: relative;
     left: 30px;
+    
     h1, h2, h3, h4 {
       text-align: center;
     }
+
+    p {
+      text-align: center;
+      margin-top: 20px;
+    
+      em {
+        font-weight: 600;
+        font-style: italic;
+      }
+
+      &.be-sure {
+        margin-top: 65px;
+      }
+    }
+    
+    .title {
+      font-style: italic;
+      font-weight: 300;
+    }    
   }
+}
+
+.slide .centered {
 }
 
 /* Navigation Arrow */
@@ -338,30 +362,7 @@ nav.margin-circles {
   h2:hover, .arrow:hover {
     color: green;
   }
-}
-
-.slide .centered {
-  p {
-    text-align: center;
-    margin-top: 20px;
-    /*font-size: 4em;*/
-    em {
-      font-weight: 600;
-      font-style: italic;
-    }
-  }
-  .spinner {
-    position: relative;
-    width: 400px;
-    height: 400px;
-    padding: 0;
-    margin: 30px auto 0 auto;
-  }
-  .title {
-    font-style: italic;
-    font-weight: 300;
-  }
-}
+} 
 
 /* User address entry form */ 
 
@@ -570,9 +571,9 @@ ul.validation-error {
 .dhcr-choice {
   position: relative;  
   max-width: 1000px;
-  height: 220px;
+  max-height: 120px;
   margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 50px;
   
   -webkit-columns: 200px 3;
      -moz-columns: 200px 3;
@@ -587,7 +588,7 @@ ul.validation-error {
           column-rule: 1px solid $lightgray;          
   p {
     max-width: 200px;
-    height: 200px;    
+    height: 110px;    
   }
 }
 

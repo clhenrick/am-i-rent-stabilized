@@ -229,6 +229,17 @@ nav.margin-circles {
     left: 30px; }
     .slide .centered h1, .slide .centered h2, .slide .centered h3, .slide .centered h4 {
       text-align: center; }
+    .slide .centered p {
+      text-align: center;
+      margin-top: 20px; }
+      .slide .centered p em {
+        font-weight: 600;
+        font-style: italic; }
+      .slide .centered p.be-sure {
+        margin-top: 65px; }
+    .slide .centered .title {
+      font-style: italic;
+      font-weight: 300; }
 
 /* Navigation Arrow */
 .go-prev, .go-next, .go-first, .button.search {
@@ -258,23 +269,6 @@ nav.margin-circles {
   background-repeat: no-repeat; }
 .go-next h2:hover, .go-next .arrow:hover {
   color: green; }
-
-.slide .centered p {
-  text-align: center;
-  margin-top: 20px;
-  /*font-size: 4em;*/ }
-  .slide .centered p em {
-    font-weight: 600;
-    font-style: italic; }
-.slide .centered .spinner {
-  position: relative;
-  width: 400px;
-  height: 400px;
-  padding: 0;
-  margin: 30px auto 0 auto; }
-.slide .centered .title {
-  font-style: italic;
-  font-weight: 300; }
 
 /* User address entry form */
 #address-form {
@@ -438,9 +432,9 @@ ul.validation-error.not-found {
 .dhcr-choice {
   position: relative;
   max-width: 1000px;
-  height: 220px;
+  max-height: 120px;
   margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 50px;
   -webkit-columns: 200px 3;
   -moz-columns: 200px 3;
   columns: 200px 3;
@@ -452,7 +446,7 @@ ul.validation-error.not-found {
   column-rule: 1px solid #ABABAB; }
   .dhcr-choice p {
     max-width: 200px;
-    height: 200px; }
+    height: 110px; }
 
 #slide-9 .action-choice {
   position: relative;
