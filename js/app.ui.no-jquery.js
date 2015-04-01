@@ -256,11 +256,12 @@ app.ui = (function(w,d){
     // reset everything to defaults
     if (el.currentSlide) {
       el.addressInput.value = '';
-      el.selectBoro.value = 'select';
       resetSearchResultMsg();      
       hideFormValidationErrors();
       resetBoroValue();
       app.map.resetMap();
+      addClass(el.yes, 'hidden');
+      removeClass(el.no, 'hidden');
       goToSlide(el.slides[0]);
     }
   }
@@ -425,8 +426,8 @@ app.ui = (function(w,d){
   // reset the yes / no message above map on slide 4
   function resetSearchResultMsg() {
     if (el.yesNoState === true) {
-      toggleClass(el.yes, 'hidden');
-      toggleClass(el.no, 'hidden');
+      toggleClass(el.yes, '.vis-hidden');
+      toggleClass(el.no, '.vis-hidden');
       el.yesNoState = false;
     }
   }
@@ -435,8 +436,8 @@ app.ui = (function(w,d){
   function hideFormValidationErrors() {
     var i=0, len=el.valErrors.length;
     for (i; i<len; i++) {
-      if (hasClass(el.valErrors[i], 'hidden')===false){
-        addClass(el.valErrors[i], 'hidden');
+      if (hasClass(el.valErrors[i], '.vis-hidden')===false){
+        addClass(el.valErrors[i], '.vis-hidden');
       }   
     }    
   }

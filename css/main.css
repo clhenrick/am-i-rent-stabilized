@@ -214,7 +214,6 @@ nav.margin-circles {
   height: 100%;
   overflow: hidden;
   z-index: 10;
-  /*background-color: rgb(247, 249, 254);*/
   background-color: #FFFFFF; }
 
 .slide {
@@ -236,6 +235,11 @@ nav.margin-circles {
         font-weight: 600;
         font-style: italic; }
       .slide .centered p.be-sure {
+        margin-top: 65px; }
+      .slide .centered p.check-it {
+        margin-top: 70px;
+        width: 50%; }
+      .slide .centered p.view-sample {
         margin-top: 65px; }
     .slide .centered .title {
       font-style: italic;
@@ -479,16 +483,13 @@ ul.validation-error.not-found {
 .slide .share-box-end {
   display: block;
   position: relative;
+  margin-top: 20px;
   text-align: center; }
   .slide .share-box-end p {
-    display: inline-block;
-    margin-right: 10px; }
-.slide .twitter-like.social, .slide .fb-share-button.social {
-  display: inline-block;
-  margin-right: 5px; }
+    display: inline; }
 .slide .addthis_sharing_toolbox {
   margin: 0 auto;
-  margin-top: 20px; }
+  margin-top: 10px; }
 
 input[placeholder] {
   color: #9B9B9B !important;

@@ -284,7 +284,6 @@ nav.margin-circles {
   height: 100%;
   overflow: hidden;
   z-index: 10;
-  /*background-color: rgb(247, 249, 254);*/
   background-color: #FFFFFF;
 }
 
@@ -315,6 +314,15 @@ nav.margin-circles {
       &.be-sure {
         margin-top: 65px;
       }
+
+      &.check-it {
+        margin-top: 70px;
+        width: 50%;
+      }
+
+      &.view-sample {
+        margin-top: 65px;
+      }      
     }
     
     .title {
@@ -630,19 +638,19 @@ ul.validation-error {
   .share-box-end {
     display: block;
     position: relative;
+    margin-top: 20px;
     text-align: center;
     p {
-      display: inline-block;
-      margin-right: 10px;
+      display: inline;      
     }
   }
-  .twitter-like.social, .fb-share-button.social {
-    display: inline-block;
-    margin-right: 5px;
-  }
+  // .twitter-like.social, .fb-share-button.social {
+  //   display: inline-block;
+  //   margin-right: 5px;
+  // }
   .addthis_sharing_toolbox {
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 10px;
   }
 }
 
