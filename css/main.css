@@ -65,6 +65,8 @@ p {
   color: #417505; }
   p.map-messsage {
     margin-top: 30px; }
+  p.share-it {
+    color: #9B9B9B; }
 
 a {
   text-decoration: none;
@@ -91,7 +93,8 @@ img {
     width: 175px;
     margin-top: 50px; }
   img.mascot {
-    width: 125px; }
+    width: 260px;
+    margin-top: 20px; }
     img.mascot.monster {
       left: 11px; }
     img.mascot.intro {
@@ -412,9 +415,9 @@ ul.validation-error.not-found {
     margin-top: 50px;
     left: 15px; }
   .slide .centered .button.start-over {
-    width: 150px; }
+    width: 230px; }
   .slide .centered .button.learn-more {
-    width: 162px;
+    width: 240px;
     margin-left: 50px; }
 .slide .centered .button-holder {
   width: 100%;
@@ -451,6 +454,33 @@ ul.validation-error.not-found {
     max-width: 200px;
     height: 200px; }
 
+#slide-9 .action-choice {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-top: 30px;
+  -webkit-columns: 350px 2;
+  -moz-columns: 350px 2;
+  columns: 350px 2;
+  -webkit-column-gap: 10px;
+  -moz-column-gap: 10px;
+  column-gap: 10px;
+  -webkit-column-rule: 1px solid #ABABAB;
+  -moz-column-rule: 1px solid #ABABAB;
+  column-rule: 1px solid #ABABAB; }
+  #slide-9 .action-choice p {
+    max-width: 350px;
+    height: 250px;
+    margin-top: 20px;
+    padding: 2px; }
+  #slide-9 .action-choice h4 {
+    margin-top: 0;
+    font-family: "museo-sans-rounded", "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+    font-size: 3.2em;
+    font-weight: 700;
+    text-align: center;
+    color: #417505; }
+
 .slide .share-box-end {
   display: block;
   position: relative;
@@ -461,6 +491,9 @@ ul.validation-error.not-found {
 .slide .twitter-like.social, .slide .fb-share-button.social {
   display: inline-block;
   margin-right: 5px; }
+.slide .addthis_sharing_toolbox {
+  margin: 0 auto;
+  margin-top: 20px; }
 
 input[placeholder] {
   color: #9B9B9B !important;

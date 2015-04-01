@@ -96,6 +96,10 @@ p {
   &.map-messsage {
     margin-top: 30px;
   }
+
+  &.share-it {
+    color: $medgray;  
+  }
 }
 
 a {
@@ -129,7 +133,8 @@ img {
     margin-top: 50px;
   }
   &.mascot {
-    width: 125px;
+    width: 260px;
+    margin-top: 20px;
     &.monster {      
       left: 11px;
     }
@@ -535,10 +540,10 @@ ul.validation-error {
       left: 15px;
     }
     &.start-over {
-      width: 150px;
+      width: 230px;
     }
     &.learn-more {
-      width: 162px;
+      width: 240px;
       margin-left: 50px;
     }
   }
@@ -586,6 +591,39 @@ ul.validation-error {
   }
 }
 
+#slide-9 .action-choice {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-top: 30px;
+
+  -webkit-columns: 350px 2;
+     -moz-columns: 350px 2;
+          columns: 350px 2;
+
+  -webkit-column-gap: 10px;  
+  -moz-column-gap: 10px;
+          column-gap: 10px;
+
+  -webkit-column-rule: 1px solid $lightgray;
+  -moz-column-rule: 1px solid $lightgray;
+          column-rule: 1px solid $lightgray;
+  p {
+    max-width: 350px;
+    height: 250px;
+    margin-top: 20px;
+    padding: 2px;
+  }
+  h4 {
+    margin-top: 0;
+    font-family: $header-font;
+    font-size: 3.2em;
+    font-weight: 700;
+    text-align: center;
+    color: $green;
+  }
+}
+
 .slide {
   .share-box-end {
     display: block;
@@ -599,6 +637,10 @@ ul.validation-error {
   .twitter-like.social, .fb-share-button.social {
     display: inline-block;
     margin-right: 5px;
+  }
+  .addthis_sharing_toolbox {
+    margin: 0 auto;
+    margin-top: 20px;
   }
 }
 
