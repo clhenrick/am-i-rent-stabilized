@@ -298,6 +298,7 @@ nav.margin-circles {
       opacity: 1;
       pointer-events: auto; }
     #address-form div.user-data.borough-select {
+      z-index: 100;
       position: relative;
       width: 400px;
       padding: 10px;

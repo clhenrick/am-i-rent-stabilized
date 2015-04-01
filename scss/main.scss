@@ -402,6 +402,7 @@ nav.margin-circles {
     }
 
     &.borough-select {
+      z-index: 100;
       position: relative;
       width: 400px;
       padding: 10px;      
@@ -427,7 +428,7 @@ nav.margin-circles {
         background-position: center center;
         background-size: contain;
       }
-      ul.drop-down {
+      ul.drop-down {        
         position: absolute;
         top: 100%;
         left: 0;
@@ -436,7 +437,7 @@ nav.margin-circles {
         background: $white;
         pointer-events: none;       
       }
-      li {
+      li {        
         list-style: none;
         display: block;        
       }

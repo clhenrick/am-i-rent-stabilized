@@ -15,6 +15,7 @@ app.ui = (function(w,d){
     addressInput : d.querySelector('.address-input'),
     boroSelect : d.querySelector('.user-data.borough-select'),
     boroDropDown : d.getElementById('boroughs'),
+    boroDropDownItems : d.querySelectorAll('#boroughs li a'),
     selectBoro : d.getElementsByName('borough'),
     search : d.querySelector('.search'),
     valErrors : d.querySelectorAll('.validation-error'),
@@ -46,46 +47,6 @@ app.ui = (function(w,d){
     UP : 38,
     DOWN : 40
   };
-
-  // spinner (loading gif) presets
-  var spinnerColor = '#000',  
-        spinOptsLarge = {
-          lines: 11, 
-          length: 70, 
-          width: 30, 
-          radius: 70, 
-          corners: 0.5, 
-          rotate: 0, 
-          direction: 1, 
-          color: spinnerColor, 
-          speed: 0.7, 
-          trail: 60, 
-          shadow: false, 
-          hwaccel: false, 
-          className: 'large', 
-          zIndex: 2e9
-        },
-        spinOptsMed = {
-            lines: 11, 
-            length: 40, 
-            width: 20, 
-            radius: 50, 
-            corners: 0.5, 
-            rotate: 0, 
-            direction: 1, 
-            color: spinnerColor, 
-            speed: 0.7, 
-            trail: 60, 
-            shadow: false, 
-            hwaccel: false, 
-            className: 'large', 
-            zIndex: 2e9
-          },
-          spinner = new Spinner(spinOptsLarge).spin(el.spinnerTarget);
-      
-  if (w.width <= 600) {
-    spinner.spin(spinOptsMed, spinnerColor);
-  }
 
   /*
   * Event listeners
@@ -206,18 +167,15 @@ app.ui = (function(w,d){
 
   // hide address error message if it's displayed and user enters text
   el.addressInput.addEventListener("blur", function(e){
-    if (el.addressInput.value !== "" && hasClass(el.valErrorAddress, 'hidden') !== true) {
-      addClass(el.valErrorAddress, 'hidden');
+    if (el.addressInput.value !== "" && hasClass(el.valErrorAddress, 'vis-hidden') !== true) {
+      addClass(el.valErrorAddress, 'vis-hidden');
     }
-    if (el.addressInput.value !== "" && hasClass(el.valErrorNF, 'hidden') !== true) {
-      addClass(el.valErrorNF, 'hidden');
-    }    
   });
 
   // hide boro error message if it's displayed and user clicks a button
-  addEventListenerList(el.selectBoro, 'click', function(e) {
-    if (hasClass(el.valErrorBoro, 'hidden') !== true) {
-      addClass(el.valErrorBoro, 'hidden');
+  addEventListenerList(el.boroDropDownItems, 'click', function(e){
+    if (hasClass(el.valErrorBoro, 'vis-hidden') !== true && dd.getValue !== undefined) {
+      addClass(el.valErrorBoro, 'vis-hidden');
     }
   });
 
@@ -406,8 +364,8 @@ app.ui = (function(w,d){
    // form validation for when user enters address and selects boro
   function checkAddressInput(address, borough) {    
     // check to make sure user filled out form correctly
-    // console.log('checkAddress: ', address, borough);
-    if (address !== '' && borough !== undefined) {
+    console.log('checkAddress: ', address, '---', borough);
+    if (address !== "" && borough !== undefined) {
       goToNextSlide();
       var parsed_address = parseAddressInput(address);      
       // delay API calls so user sees loading gif
@@ -415,23 +373,22 @@ app.ui = (function(w,d){
         app.map.geoclient(parsed_address[0], parsed_address[1], borough); 
       }, 1000);              
 
-    } else if (address === '' && borough === undefined) {
-      // alert('Please enter your address and select your borough.');
-      if (hasClass(el.valErrorAddress, 'hidden')===true && hasClass(el.valErrorBoro, 'hidden')===true){
-        toggleClass(el.valErrorAddress, 'hidden');
-        toggleClass(el.valErrorBoro, 'hidden');
+    } else if (address === "" && borough === undefined) {      
+      if (hasClass(el.valErrorAddress, 'vis-hidden')===true && hasClass(el.valErrorBoro, 'vis-hidden')===true){
+        toggleClass(el.valErrorAddress, 'vis-hidden');
+        toggleClass(el.valErrorBoro, 'vis-hidden');
       }
 
     } else if (borough === undefined) {
       // alert('Please select your borough.');
-      if (hasClass(el.valErrorBoro, 'hidden')===true) {
-        toggleClass(el.valErrorBoro, 'hidden');
+      if (hasClass(el.valErrorBoro, 'vis-hidden')===true) {
+        toggleClass(el.valErrorBoro, 'vis-hidden');
       }
 
     } else if (address === '') {
       // alert('Please enter your house number and street.');
-      if (hasClass(el.valErrorAddress, 'hidden')===true) {
-        toggleClass(el.valErrorAddress, 'hidden');
+      if (hasClass(el.valErrorAddress, 'vis-hidden')===true) {
+        toggleClass(el.valErrorAddress, 'vis-hidden');
       }
 
     } else {
@@ -496,11 +453,15 @@ app.ui = (function(w,d){
   }
 
   // reset the radio buttons for select boro
+  // function resetBoroValue() {
+  //   var i=0, len=el.selectBoro.length;
+  //   for (i; i<len; i++){
+  //     el.selectBoro[i].checked=false;
+  //   }
+  // }
   function resetBoroValue() {
-    var i=0, len=el.selectBoro.length;
-    for (i; i<len; i++){
-      el.selectBoro[i].checked=false;
-    }
+    dd.val = undefined;
+    dd.placeholder.text('Select a Borough');
   }
 
   // get the whole damn thing going

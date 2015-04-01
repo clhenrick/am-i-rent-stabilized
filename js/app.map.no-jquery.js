@@ -61,14 +61,14 @@ app.map = (function(d,w,a){
     } else {      
       app.ui.el.addressInput.value='';
       app.ui.f.resetBoroValue();      
-      if (app.ui.f.hasClass(app.ui.el.valErrorNF, 'hidden')===true) {
-        app.ui.f.toggleClass(app.ui.el.valErrorNF, 'hidden');
+      if (app.ui.f.hasClass(app.ui.el.valErrorNF, 'vis-hidden')===true) {
+        app.ui.f.toggleClass(app.ui.el.valErrorNF, 'vis-hidden');
       }
-      if (app.ui.f.hasClass(app.ui.el.valErrorBoro, 'hidden')===false) {
-        app.ui.f.addClass(app.ui.el.valErrorBoro, 'hidden');
+      if (app.ui.f.hasClass(app.ui.el.valErrorBoro, 'vis-hidden')===false) {
+        app.ui.f.addClass(app.ui.el.valErrorBoro, 'vis-hidden');
       }
-      if (app.ui.f.hasClass(app.ui.el.valErrorAddress, 'hidden')===false) {
-        app.ui.f.addClass(app.ui.el.valErrorAddress, 'hidden');
+      if (app.ui.f.hasClass(app.ui.el.valErrorAddress, 'vis-hidden')===false) {
+        app.ui.f.addClass(app.ui.el.valErrorAddress, 'vis-hidden');
       }      
       app.ui.f.goToPrevSlide();
     }     

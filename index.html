@@ -101,8 +101,8 @@
                     <p>We keep this information completely private.</p>
 
                     <form id="address-form" class="centered">
-                        <ul id="error-not-found" class="validation-error not-found vis-hidden">
-                            <li>Sorry, we don't recognize that NYC address, please try again! <br>
+                        <ul class="validation-error not-found">
+                            <li id="error-not-found"  class="vis-hidden">Sorry, we don't recognize that NYC address, please try again! <br>
                                   Make sure you enter only your building number and street name.</li>
                         </ul>                      
                         <div class="user-data street-address">
@@ -122,9 +122,9 @@
                               <li><a href="#">Staten Island</a></li>
                             </ul>                            
                         </div>
-                        <ul class="validation-error vis-hidden">                            
-                            <li class="error-address">^Please enter your building's number and street name </li>
-                            <li class="error-boro">^Please select your borough</li>
+                        <ul class="validation-error">                            
+                            <li id="error-address" class="vis-hidden">^Please enter your building's number and street name </li>
+                            <li id="error-boro" class="vis-hidden">^Please select your borough</li>
                         </ul>                                                
                     </form>   
                     <p class="button search" type="submit"><a href="#">Search</a></p>
