@@ -25,10 +25,10 @@ app.ui = (function(w,d){
     yes : d.querySelectorAll('.yes'),
     no : d.querySelectorAll('.no'),
     yesNoState : false,
-    spinnerTarget : d.querySelector('.spinner'),
     map : d.getElementById('map'),
     mapMessage : d.querySelector('.map-message'),
     mailTo : d.getElementById('mail-to'),
+    lightBox : d.getElementById('rent-history'),
     fbShare : d.querySelector('.fb-share-button'),    
     learnMore : d.querySelector('.button.learn-more')
   };
@@ -177,6 +177,12 @@ app.ui = (function(w,d){
     if (hasClass(el.valErrorBoro, 'vis-hidden') !== true && dd.getValue !== undefined) {
       addClass(el.valErrorBoro, 'vis-hidden');
     }
+  });
+
+  el.lightBox.addEventListener('click', function(e) {
+    e.preventDefault();    
+    goToSlide(el.slides[6]);
+    w.location.hash = '';
   });
 
 

@@ -15,12 +15,16 @@ body {
   letter-spacing: 0.0625em;
   /*font-size: 62.5%;*/
   /* so that 1em = 10px */
-  background-color: #4a4a4a; }
+  background-color: #FFFFFF; }
 
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  -webkit-margin-after: 0;
+  -webkit-margin-before: 0;
+  -webkit-padding-start: 0;
+  -webkit-padding-end: 0; }
 
 h1, h2, h3, h4 {
   width: 100%;
@@ -99,6 +103,31 @@ img {
       left: 11px; }
     img.mascot.intro {
       width: 130px; }
+  img.rent-history {
+    width: 150px;
+    border: 1px solid #ABABAB;
+    margin-top: 30px; }
+
+/* Lightbox */
+a.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8); }
+  a.lightbox img {
+    position: relative;
+    left: 30px;
+    max-height: 680px;
+    max-width: 530px;
+    margin-top: 80px; }
+  a.lightbox:target {
+    outline: none;
+    display: block; }
 
 span.orange {
   font-weight: 600;
@@ -118,15 +147,20 @@ nav.main-nav {
     padding: 5px;
     float: left; }
   nav.main-nav h1 {
-    display: inline-block;
+    display: inline;
     width: auto;
     float: left;
-    display: inline-block;
-    margin-top: 15px;
-    margin-left: 10px;
-    color: #fff;
-    font-size: 2.8em;
-    letter-spacing: .05em; }
+    font-size: 1em;
+    margin-top: 28px;
+    margin-left: 10px; }
+    nav.main-nav h1 a.go-first {
+      display: inline-block;
+      color: #fff;
+      font-size: 2.8em;
+      letter-spacing: .05em; }
+    nav.main-nav h1 a.go-first:hover {
+      border-bottom: none;
+      color: #FFC462; }
   nav.main-nav ul {
     float: right;
     list-style: none;
@@ -159,12 +193,12 @@ nav.main-nav {
       background-color: #69C773;
       color: #FFFFFF; }
     nav.main-nav a:hover {
-      color: #ffc462;
+      color: #FFC462;
       border-bottom-width: 2px;
       border-bottom-style: solid; }
 
 #lang-toggle {
-  position: absolute;
+  position: fixed;
   top: 90px;
   left: 30px;
   z-index: 100; }
@@ -240,7 +274,7 @@ nav.margin-circles {
         margin-top: 70px;
         width: 50%; }
       .slide .centered p.view-sample {
-        margin-top: 65px; }
+        margin-top: 20px; }
     .slide .centered .title {
       font-style: italic;
       font-weight: 300; }
