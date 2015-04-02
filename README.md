@@ -1,11 +1,11 @@
 Am I Rent Stabilized 
 ============================
 
-A web site that informs NYC residents about Rent Stabilization, how to find out if they may be rent stabilized and paying too much rent, and what to do about it.  
+A web site that informs NYC residents about Rent Stabilization, how to find out if their apartment may be rent stabilized and paying too much rent, and what to do about it.  
 
 See it in action at [amirentstabilized.com](http://amirentstabilized.com/).
 
-## Version 2) Runs on
+## (Version 2) Runs on
 - [Greensock's GSAP Animation Library](http://greensock.com/gsap)
 - [CartoDB JS](http://docs.cartodb.com/cartodb-platform/cartodb-js.html)
 - [CartoDB SQL API](http://docs.cartodb.com/cartodb-platform/sql-api.html)
@@ -35,6 +35,8 @@ The processed data is [publicly available for download on CartoDB](http://chenri
 
 ## Credits
 - Big thanks to [Caroline Woolard](http://carolinewoolard.com/) for suggesting the idea to me.
+
+- [Jue Yang](https://github.com/jueyang) designed the awesome building graphics which informed the overall redesign of version 2 of the site, as well as helped with translating the content to Chinese.
 
 - Thanks to [BetaNYC](http://betanyc.us/) for providing motivational support.
 
