@@ -413,7 +413,7 @@ ul.validation-error li {
   font-style: italic;
   letter-spacing: 1px;
   list-style: none;
-  background-color: #FF0000; }
+  background-color: #D98C8C; }
   ul.validation-error li:last-child {
     margin-left: 100px;
     top: -34px;
@@ -487,7 +487,7 @@ ul.validation-error.not-found {
     max-width: 200px;
     height: 110px; }
 
-#slide-9 .action-choice {
+#slide-8 .action-choice {
   position: relative;
   max-width: 900px;
   margin: 0 auto;
@@ -501,12 +501,12 @@ ul.validation-error.not-found {
   -webkit-column-rule: 1px solid #ABABAB;
   -moz-column-rule: 1px solid #ABABAB;
   column-rule: 1px solid #ABABAB; }
-  #slide-9 .action-choice p {
+  #slide-8 .action-choice p {
     max-width: 350px;
     height: 250px;
     margin-top: 20px;
     padding: 2px; }
-  #slide-9 .action-choice h4 {
+  #slide-8 .action-choice h4 {
     margin-top: 0;
     font-family: "museo-sans-rounded", "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
     font-size: 3.2em;

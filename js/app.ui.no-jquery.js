@@ -8,6 +8,7 @@ app.ui = (function(w,d){
     navGoNext : d.querySelectorAll('.go-next'),
     navGoFirst : d.querySelectorAll('.go-first'),
     navGoFour : d.querySelectorAll('.go-step4'),
+    progressCircles : d.querySelectorAll('.margin-circles li'),
     slidesContainer : d.querySelector('.slides-container'),
     slides : d.querySelectorAll('.slide'),
     slide4 : d.querySelector('#slide-8'),
@@ -73,7 +74,7 @@ app.ui = (function(w,d){
   // go to step four
   addEventListenerList(el.navGoFour, 'click', function(e){
     e.preventDefault();
-    goToSlide(el.slide4);
+    goToSlide(el.slides[6]);
   });
 
   // drop down for borough
@@ -128,16 +129,12 @@ app.ui = (function(w,d){
 
   var dd = new DropDown( $('.user-data.borough-select') );
 
-  $(document).click(function() {
-    // all dropdowns
-      $('.user-data.borough-select').removeClass('active');
+  // if dropdown is visible & user clicks outside of it collapse it
+  el.slidesContainer.addEventListener('click', function(e){
+    if (hasClass(el.boroSelect, 'active')) {
+      removeClass(el.boroSelect, 'active');
+    }    
   });
-
-  // el.slidesContainer.addEventListener('click', function(e){
-  //   if (hasClass(el.boroSelect, 'active')) {
-  //     removeClass(el.boroSelect, 'active');
-  //   }    
-  // });
 
   // search button for address
   el.search.addEventListener('click', function(e){
@@ -232,15 +229,17 @@ app.ui = (function(w,d){
   function goToSlide(slide){
     if (!isAnimating && slide) {
       isAnimating = true;
-      el.currentSlide = slide;
+      el.currentSlide = slide;      
+      console.log('current slide: ', el.currentSlide);
       var index = getSlideIndex(slide);
       TweenLite.to(el.slidesContainer, 1, {scrollTo: {y: pageHeight * index}, onComplete: onSlideChangeEnd});
     }
   }
 
   function goToPrevSlide(callback){
-    if (el.currentSlide.previousElementSibling) {      
-      goToSlide(el.currentSlide.previousElementSibling);      
+    var previous = el.currentSlide.previousElementSibling;
+    if (previous) {      
+      goToSlide(previous);       
       if (callback && typeof callback === "function") { 
         callback();
         console.log('goToPrevSlide callback called.');
@@ -249,8 +248,9 @@ app.ui = (function(w,d){
   }
 
   function goToNextSlide(callback) {
-    if (el.currentSlide.nextElementSibling) {      
-      goToSlide(el.currentSlide.nextElementSibling);
+    var next = el.currentSlide.nextElementSibling;
+    if (next) {      
+      goToSlide(next);
       if (callback && typeof callback === "function") { 
         callback(); 
         console.log('goToNextSlide callback called.');
@@ -268,12 +268,32 @@ app.ui = (function(w,d){
       app.map.resetMap();
       addClass(el.yes, 'hidden');
       removeClass(el.no, 'hidden');
-      goToSlide(el.slides[0]);
+      goToSlide(el.slides[0]);      
     }
   }
 
   function onSlideChangeEnd(){
     isAnimating = false;
+    updateProgCircles(el.currentSlide);
+  }
+
+  function updateProgCircles(slide) {
+    var s = getSlideIndex(slide),
+          i = 0,
+          l = app.ui.el.progressCircles.length;
+    
+    for (i; i<l; i++) {
+      var circle = el.progressCircles[i];
+      if (s===i) {
+        circle.style.backgroundImage = 'url(assets/png/oval_25_filled.png)';
+        circle.style.backgroundSize = '25px';
+        circle.style.backgroundRepeat = 'no-repeat';        
+      } else {
+        circle.style.background = 'url(assets/png/oval_25_blank.png)';
+        circle.style.backgroundSize = '25px';
+        circle.style.backgroundRepeat = 'no-repeat';               
+      }
+    }
   }
 
   /*
@@ -300,7 +320,7 @@ app.ui = (function(w,d){
     if (list && list.length) {
       var i=0, len=list.length;
       for (i; i<len; i++) {
-        return fn(list[i]);
+        return fn(list[i], i);
       }
     }
     if (list && !list.length) {
@@ -403,6 +423,7 @@ app.ui = (function(w,d){
     } 
   }
 
+  // separate the building number and street name from the address input
   function parseAddressInput(input) {
     var input_split = input.split(' '),
           len = input_split.length,
@@ -432,8 +453,8 @@ app.ui = (function(w,d){
   // reset the yes / no message above map on slide 4
   function resetSearchResultMsg() {
     if (el.yesNoState === true) {
-      toggleClass(el.yes, '.vis-hidden');
-      toggleClass(el.no, '.vis-hidden');
+      toggleClass(el.yes, 'hidden');
+      toggleClass(el.no, 'hidden');
       el.yesNoState = false;
     }
   }
@@ -442,22 +463,22 @@ app.ui = (function(w,d){
   function hideFormValidationErrors() {
     var i=0, len=el.valErrors.length;
     for (i; i<len; i++) {
-      if (hasClass(el.valErrors[i], '.vis-hidden')===false){
-        addClass(el.valErrors[i], '.vis-hidden');
+      if (hasClass(el.valErrors[i], 'vis-hidden')===false){
+        addClass(el.valErrors[i], 'vis-hidden');
       }   
     }    
   }
 
   // get the value of the radio button that is checked
-  function getBoroValue(radio_group) {
-    for (var i = 0; i < radio_group.length; i++) {
-        var button = radio_group[i];
-        if (button.checked) {
-            return button.value;
-        }           
-    }
-    return undefined;    
-  }
+  // function getBoroValue(radio_group) {
+  //   for (var i = 0; i < radio_group.length; i++) {
+  //       var button = radio_group[i];
+  //       if (button.checked) {
+  //           return button.value;
+  //       }           
+  //   }
+  //   return undefined;    
+  // }
 
   // reset the radio buttons for select boro
   // function resetBoroValue() {
