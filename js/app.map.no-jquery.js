@@ -69,8 +69,9 @@ app.map = (function(d,w,a){
       }
       if (app.ui.f.hasClass(app.ui.el.valErrorAddress, 'vis-hidden')===false) {
         app.ui.f.addClass(app.ui.el.valErrorAddress, 'vis-hidden');
-      }      
-      app.ui.f.goToPrevSlide();
+      }
+      app.ui.state.formFilled = false;
+      app.ui.f.goToPrevSlide(); 
     }     
   };
 

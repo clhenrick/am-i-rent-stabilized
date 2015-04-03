@@ -13,8 +13,6 @@ body {
   font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-weight: 400;
   letter-spacing: 0.0625em;
-  /*font-size: 62.5%;*/
-  /* so that 1em = 10px */
   background-color: #FFFFFF; }
 
 *, *:before, *:after {
@@ -108,7 +106,7 @@ img {
     border: 1px solid #ABABAB;
     margin-top: 30px; }
 
-/* Lightbox */
+/* Lightbox for sample rent history */
 a.lightbox {
   display: none;
   position: fixed;
@@ -128,10 +126,6 @@ a.lightbox {
   a.lightbox:target {
     outline: none;
     display: block; }
-
-span.orange {
-  font-weight: 600;
-  color: #FFC462; }
 
 nav.main-nav {
   position: fixed;

@@ -487,8 +487,9 @@ app.map = (function(d,w,a){
       }
       if (app.ui.f.hasClass(app.ui.el.valErrorAddress, 'vis-hidden')===false) {
         app.ui.f.addClass(app.ui.el.valErrorAddress, 'vis-hidden');
-      }      
-      app.ui.f.goToPrevSlide();
+      }
+      app.ui.state.formFilled = false;
+      app.ui.f.goToPrevSlide(); 
     }     
   };
 
@@ -633,6 +634,13 @@ app.ui = (function(w,d){
     learnMore : d.querySelector('.button.learn-more')
   };
 
+  // variables for storing the app's current state
+  var state = {
+    formFilled : false, // has the user filled out the address form?    
+    currentSlide : null,
+    curSlideIndex : 0
+  };
+
   // store user address 
   var parsedStreetAddress = {};
 
@@ -647,6 +655,9 @@ app.ui = (function(w,d){
     UP : 38,
     DOWN : 40
   };
+
+  // to store drop down menu for selecting borough
+  var dd = null; 
 
   /*
   * Event listeners
@@ -670,9 +681,10 @@ app.ui = (function(w,d){
   // go forward
   addEventListenerList(el.navGoNext, 'click', goToNextSlide);
 
-  // go to step four
+  // go to inspect rent-history
   addEventListenerList(el.navGoFour, 'click', function(e){
     e.preventDefault();
+    state.formFilled = true;
     goToSlide(el.slides[6]);
   });
 
@@ -726,7 +738,7 @@ app.ui = (function(w,d){
     }
   };
 
-  var dd = new DropDown( $('.user-data.borough-select') );
+  dd = new DropDown( $('.user-data.borough-select') );
 
   // if dropdown is visible & user clicks outside of it collapse it
   el.slidesContainer.addEventListener('click', function(e){
@@ -739,9 +751,8 @@ app.ui = (function(w,d){
   el.search.addEventListener('click', function(e){
     e.preventDefault();
     var streetAddress = el.addressInput.value,
-          boro = dd.val;
-    console.log('streetAddress: ', streetAddress, ' boro: ', boro);    
-    // _gaq.push(['_trackEvent', 'Address Entered', 'Search', streetAddress + ', ' + boro ]);
+          boro = dd.val;    
+    _gaq.push(['_trackEvent', 'Address Entered', 'Search', streetAddress + ', ' + boro ]);
     checkAddressInput(streetAddress, boro);
   });
 
@@ -828,14 +839,13 @@ app.ui = (function(w,d){
   function goToSlide(slide){
     if (!isAnimating && slide) {
       isAnimating = true;
-      el.currentSlide = slide;      
-      console.log('current slide: ', el.currentSlide);
-      var index = getSlideIndex(slide);
+      el.currentSlide = slide;            
+      var index = getSlideIndex(slide);                  
       TweenLite.to(el.slidesContainer, 1, {scrollTo: {y: pageHeight * index}, onComplete: onSlideChangeEnd});
     }
   }
 
-  function goToPrevSlide(callback){
+  function goToPrevSlide(callback){    
     var previous = el.currentSlide.previousElementSibling;
     if (previous) {      
       goToSlide(previous);       
@@ -847,8 +857,10 @@ app.ui = (function(w,d){
   }
 
   function goToNextSlide(callback) {
+    var index = getSlideIndex(el.currentSlide);
     var next = el.currentSlide.nextElementSibling;
-    if (next) {      
+    console.log('formFilled: ', state.formFilled, ' index: ', index);
+    if (next && ( index === 0 || (index >= 1 && state.formFilled === true ) ) ) {      
       goToSlide(next);
       if (callback && typeof callback === "function") { 
         callback(); 
@@ -864,10 +876,11 @@ app.ui = (function(w,d){
       resetSearchResultMsg();      
       hideFormValidationErrors();
       resetBoroValue();
+      state.formFilled = false;
       app.map.resetMap();
       addClass(el.yes, 'hidden');
-      removeClass(el.no, 'hidden');
-      goToSlide(el.slides[0]);      
+      removeClass(el.no, 'hidden');      
+      goToSlide(el.slides[0]);
     }
   }
 
@@ -988,10 +1001,9 @@ app.ui = (function(w,d){
    */
 
    // form validation for when user enters address and selects boro
-  function checkAddressInput(address, borough) {    
-    // check to make sure user filled out form correctly
-    console.log('checkAddress: ', address, '---', borough);
-    if (address !== "" && borough !== undefined) {
+  function checkAddressInput(address, borough) {        
+    if (address !== "" && borough !== undefined) {  
+      state.formFilled = true;    
       goToNextSlide();
       var parsed_address = parseAddressInput(address);      
       // delay API calls so user sees loading gif
@@ -1068,24 +1080,6 @@ app.ui = (function(w,d){
     }    
   }
 
-  // get the value of the radio button that is checked
-  // function getBoroValue(radio_group) {
-  //   for (var i = 0; i < radio_group.length; i++) {
-  //       var button = radio_group[i];
-  //       if (button.checked) {
-  //           return button.value;
-  //       }           
-  //   }
-  //   return undefined;    
-  // }
-
-  // reset the radio buttons for select boro
-  // function resetBoroValue() {
-  //   var i=0, len=el.selectBoro.length;
-  //   for (i; i<len; i++){
-  //     el.selectBoro[i].checked=false;
-  //   }
-  // }
   function resetBoroValue() {
     dd.val = undefined;
     dd.placeholder.text('Select a Borough');
@@ -1110,7 +1104,8 @@ app.ui = (function(w,d){
       hasClass : hasClass,
       addClass : addClass,
       resetBoroValue : resetBoroValue
-    }
+    },
+    state : state
   };
 
 })(window, document);

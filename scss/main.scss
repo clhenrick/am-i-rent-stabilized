@@ -31,8 +31,6 @@ body {
   font-family: $body-font;
   font-weight: 400;
   letter-spacing: 0.0625em;
-  /*font-size: 62.5%;*/
-  /* so that 1em = 10px */
   background-color: $white;
 }
 
@@ -154,7 +152,7 @@ img {
   }
 }
 
-/* Lightbox */ 
+/* Lightbox for sample rent history */ 
 a.lightbox {
   display: none;
   position: fixed;
@@ -178,11 +176,6 @@ a.lightbox {
     outline: none;
     display: block;
   }
-}
-
-span.orange {
-  font-weight: 600;
-  color: $orange;
 }
 
 nav.main-nav {
