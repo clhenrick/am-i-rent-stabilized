@@ -109,7 +109,7 @@ app.ui = (function(w,d){
     initEvents : function() {
       var obj = this;
 
-      console.log('initEvents this: ', this);
+      // console.log('initEvents this: ', this);
 
       obj.dd.on('click', function(e){
         e.preventDefault();
@@ -125,7 +125,7 @@ app.ui = (function(w,d){
         // obj.data = opt.children('span').text();
         obj.index = opt.index();
         obj.placeholder.text('Borough: ' + obj.val);        
-        console.log('obj: ', obj);  
+        // console.log('obj: ', obj);  
       });
     },
 
@@ -251,7 +251,7 @@ app.ui = (function(w,d){
       goToSlide(previous);       
       if (callback && typeof callback === "function") { 
         callback();
-        console.log('goToPrevSlide callback called.');
+        // console.log('goToPrevSlide callback called.');
       }
     }    
   }
@@ -259,12 +259,12 @@ app.ui = (function(w,d){
   function goToNextSlide(callback) {
     var index = getSlideIndex(el.currentSlide);
     var next = el.currentSlide.nextElementSibling;
-    console.log('formFilled: ', state.formFilled, ' index: ', index);
+    // console.log('formFilled: ', state.formFilled, ' index: ', index);
     if (next && ( index === 0 || (index >= 1 && state.formFilled === true ) ) ) {      
       goToSlide(next);
       if (callback && typeof callback === "function") { 
         callback(); 
-        console.log('goToNextSlide callback called.');
+        // console.log('goToNextSlide callback called.');
       }  
     }      
   }
@@ -445,13 +445,13 @@ app.ui = (function(w,d){
   }
 
   // create the mailto content for requesting rent history from dhcr
-  function createMailTo(address) {
+  function createMailTo() {
     var email = "rentinfo@nyshcr.org",
           subject = "request for rent history",
           body = "Hello, \n\n" +
                       "I, <YOUR NAME HERE>, am currently renting " + 
                       "<YOUR ADDRESS, APARTMENT NUMBER, BOROUGH, ZIPCODE>" +
-                      " and would like the rent history for the apartment I am renting." +
+                      " and would like to request the rent history for this apartment." +
                       " Any information you can provide me would be greatly appreciated. \n\n" +
                       "thank you,\n\n" +
                       "- <YOUR NAME HERE>",
@@ -490,7 +490,8 @@ app.ui = (function(w,d){
     el.currentSlide = el.slides[0];
     goToSlide(el.currentSlide);
     addClass(el.yes, 'hidden');
-    app.map.init();
+    createMailTo();
+    app.map.init();    
   }
   
   return {

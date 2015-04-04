@@ -105,7 +105,7 @@ app.map = (function(d,w,a){
                           data.address.firstStreetNameNormalized + '<br>' +
                           data.address.uspsPreferredCityName + ', NY ' +
                           data.address.zipCode;
-    console.log('x: ', x, ' y: ', y, ' latlng: ', latlng);
+    // console.log('x: ', x, ' y: ', y, ' latlng: ', latlng);
     // remove geocoded marker if one already exists
     if (addressMarker) { 
       el.map.removeLayer(addressMarker);
