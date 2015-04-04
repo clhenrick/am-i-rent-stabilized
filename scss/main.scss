@@ -386,8 +386,9 @@ nav.margin-circles {
     bottom: 100px;
   }
   h3 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+    font-family: $body-font;
+    color: $medgray;
+    font-weight: 700;
     font-size: 3.5em;
     text-transform: uppercase;
     text-align: center;

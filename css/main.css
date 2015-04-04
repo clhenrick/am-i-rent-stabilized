@@ -285,8 +285,9 @@ nav.margin-circles {
   left: 50%;
   bottom: 100px; }
 .go-next h3 {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
+  font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  color: #9B9B9B;
+  font-weight: 700;
   font-size: 3.5em;
   text-transform: uppercase;
   text-align: center;
