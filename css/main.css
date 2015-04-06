@@ -1,3 +1,54 @@
+#sprite {
+  position: relative;
+  left: -15px;
+  width: 192px;
+  /*128px;*/
+  height: 424px;
+  /*288px;*/
+  margin: 0 auto;
+  margin-top: 75px;
+  background: url('../assets/png/checking-sprite.png') left center;
+  -webkit-animation: play .8s steps(10) infinite;
+  -moz-animation: play .8s steps(10) infinite;
+  -ms-animation: play .8s steps(10) infinite;
+  -o-animation: play .8s steps(10) infinite;
+  animation: play .8s steps(10) infinite; }
+
+@-webkit-keyframes play {
+  from {
+    background-position: 0px; }
+
+  to {
+    background-position: -1920px; } }
+
+@-moz-keyframes play {
+  from {
+    background-position: 0px; }
+
+  to {
+    background-position: -1920px; } }
+
+@-ms-keyframes play {
+  from {
+    background-position: 0px; }
+
+  to {
+    background-position: -1920px; } }
+
+@-o-keyframes play {
+  from {
+    background-position: 0px; }
+
+  to {
+    background-position: -1920px; } }
+
+@keyframes play {
+  from {
+    background-position: 0px; }
+
+  to {
+    background-position: -1920px; } }
+
 html {
   font-size: 10px;
   margin: 0;
@@ -286,7 +337,7 @@ nav.margin-circles {
   bottom: 100px; }
 .go-next h3 {
   font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif;
-  color: #9B9B9B;
+  color: #CE912D;
   font-weight: 700;
   font-size: 3.5em;
   text-transform: uppercase;
@@ -300,8 +351,8 @@ nav.margin-circles {
   margin: 0 auto;
   background-image: url('../assets/png/chevron.png');
   background-repeat: no-repeat; }
-.go-next h2:hover, .go-next .arrow:hover {
-  color: green; }
+.go-next h3:hover, .go-next .arrow:hover {
+  color: #FFC462; }
 
 /* User address entry form */
 #address-form {
@@ -431,11 +482,11 @@ ul.validation-error.not-found {
   font-size: 3em;
   text-align: center;
   text-transform: uppercase;
-  background-color: #FFC462;
+  background-color: #CE912D;
   padding: 10px 20px;
   border-radius: 35px; }
   .slide .centered .button:hover {
-    background-color: #CE912D; }
+    background-color: #FFC462; }
   .slide .centered .button a {
     color: #FFFFFF; }
   .slide .centered .button.search {

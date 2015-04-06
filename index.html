@@ -13,7 +13,10 @@
         <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
         <link rel="stylesheet" type="text/css" href="bower_components/cartodb.js/themes/css/cartodb.css">
         <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700,300' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" type="text/css" href="css/main.css">                
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="./assets/favicon/ms-icon-144x144.png">
+        <!-- <meta name="theme-color" content="#ffffff">    -->     
         <script src="http://use.typekit.net/emf7xrp.js"></script>
         <script>try{Typekit.load();}catch(e){}</script>
         <script type="text/javascript">
@@ -122,8 +125,8 @@
                             </ul>                            
                         </div>
                         <ul class="validation-error">                            
-                            <li id="error-address" class="vis-hidden">^Please enter your building's number and street name </li>
-                            <li id="error-boro" class="vis-hidden">^Please select your borough</li>
+                            <li id="error-address" class="vis-hidden">^ Please enter your building's number and street name </li>
+                            <li id="error-boro" class="vis-hidden">^ Please select your borough</li>
                         </ul>                                                
                     </form>   
                     <p class="button search" type="submit"><a href="#">Search</a></p>
@@ -134,7 +137,7 @@
                 <div class="centered">
                     <h1 class="step">Checking...</h1>
                     <p>This will only take a moment.</p>
-                    <img class="checking" src="assets/png/mascot.png">
+                    <div id="sprite"></div>
                 </div>
             </div>
 

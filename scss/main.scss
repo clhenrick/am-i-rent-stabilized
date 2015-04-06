@@ -14,6 +14,8 @@ $white: #FFFFFF;
 $header-font: "museo-sans-rounded", "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
 $body-font: "Oxygen", Arial,"Helvetica Neue", Helvetica, sans-serif;
 
+@import "checking-sprite";
+
 html {
   font-size: 10px;
   margin: 0;
@@ -387,7 +389,7 @@ nav.margin-circles {
   }
   h3 {
     font-family: $body-font;
-    color: $medgray;
+    color: $darkorange;
     font-weight: 700;
     font-size: 3.5em;
     text-transform: uppercase;
@@ -403,8 +405,8 @@ nav.margin-circles {
     background-image: url('../assets/png/chevron.png');
     background-repeat: no-repeat;
   }
-  h2:hover, .arrow:hover {
-    color: green;
+  h3:hover, .arrow:hover {
+    color: $orange;
   }
 } 
 
@@ -571,11 +573,11 @@ ul.validation-error {
     font-size: 3em;
     text-align: center;
     text-transform: uppercase;
-    background-color: $orange;
+    background-color: $darkorange;
     padding: 10px 20px;
     border-radius: 35px;
     &:hover {
-      background-color: $darkorange;
+      background-color: $orange;
     }
     a {
       color: $white;

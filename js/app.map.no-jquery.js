@@ -128,7 +128,8 @@ app.map = (function(d,w,a){
       touchZoom : false,
       doubleClickZoom : false,
       scrollWheelZoom : false,
-      zoomControl : false
+      zoomControl : false,
+      keyboard : false
     });
 
     var basemap = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',{
