@@ -1,0 +1,37 @@
+/* Navigation Arrow */
+
+.go-prev, .go-next, .go-first, .button.search {
+  cursor: pointer;
+}
+
+.go-next {
+  &.bottom-arrow {
+    position: absolute;
+    width: 125px;
+    margin: 0 auto;
+    margin-left: -34.5px;
+    left: 50%;
+    bottom: 100px;
+  }
+  h3 {
+    font-family: $body-font;
+    color: $darkorange;
+    font-weight: 700;
+    font-size: 3.5em;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .arrow {
+    position: relative;
+    top: 10px;
+    height: 28px;
+    width: 76px;
+    margin: 0 auto;    
+    background-image: url('../assets/png/chevron.png');
+    background-repeat: no-repeat;
+  }
+  h3:hover, .arrow:hover {
+    color: $orange;
+  }
+} 

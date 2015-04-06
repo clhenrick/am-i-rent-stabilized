@@ -1,0 +1,85 @@
+.dhcr-choice {
+  position: relative;  
+  max-width: 1000px;
+  max-height: 120px;
+  margin: 0 auto;
+  margin-top: 50px;
+  
+  -webkit-columns: 200px 3;
+     -moz-columns: 200px 3;
+          columns: 200px 3;
+
+  -webkit-column-gap: 0;  
+  -moz-column-gap: 0;
+          column-gap: 0;
+
+  -webkit-column-rule: 1px solid $lightgray;
+  -moz-column-rule: 1px solid $lightgray;
+          column-rule: 1px solid $lightgray;          
+  p {
+    max-width: 200px;
+    height: 110px;    
+  }
+}
+
+#slide-8 .action-choice {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-top: 30px;
+
+  -webkit-columns: 350px 2;
+     -moz-columns: 350px 2;
+          columns: 350px 2;
+
+  -webkit-column-gap: 10px;  
+  -moz-column-gap: 10px;
+          column-gap: 10px;
+
+  -webkit-column-rule: 1px solid $lightgray;
+  -moz-column-rule: 1px solid $lightgray;
+          column-rule: 1px solid $lightgray;
+  p {
+    max-width: 350px;
+    height: 250px;
+    margin-top: 20px;
+    padding: 2px;
+  }
+  h4 {
+    margin-top: 0;
+    font-family: $header-font;
+    font-size: 3.2em;
+    font-weight: 700;
+    text-align: center;
+    color: $green;
+  }
+}
+
+input[placeholder] {
+  color: $medgray !important;
+  font-family: $body-font !important;
+  font-weight: 300 !important;
+}
+input::-webkit-input-placeholder {
+   color: $medgray !important;
+   font-family: $body-font !important;
+   font-weight: 300 !important;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+   color: $medgray !important;
+   font-family: $body-font !important;
+   font-weight: 300  !important;
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+   color: $medgray !important;
+   font-family: $body-font !important;
+   font-weight: 300  !important;
+}
+
+input:-ms-input-placeholder {  
+   color: $medgray !important;
+   font-family: $body-font !important;
+   font-weight: 300  !important;
+}

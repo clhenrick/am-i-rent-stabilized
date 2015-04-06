@@ -1,0 +1,12 @@
+#map {
+  position: relative;
+  left: 0;
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 550px;
+  height: 300px;
+  border: 1px solid #999;
+  &:hover {
+    cursor: default;
+  }
+}

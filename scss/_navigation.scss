@@ -1,0 +1,124 @@
+nav.main-nav {
+  position: fixed;
+  background-color: $gray;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 100;
+  .logo {
+    height: 65px;
+    display: inline;
+    margin: 0 0 0 20px;
+    padding: 5px;
+    float: left;
+  }
+  h1 {
+    display: inline;
+    width: auto;
+    float: left;
+    font-size: 1em;
+    margin-top: 28px;
+    margin-left: 10px;
+    a.go-first {
+      display: inline-block;
+      color: #fff;
+      font-size: 2.8em;
+      letter-spacing: .05em;    
+    }
+    a.go-first:hover {
+      border-bottom: none;
+      color: $orange;
+    }
+  }
+  ul {
+    float: right;
+    list-style: none;    
+    margin-top: 15px;
+    li {
+      display: inline-block;
+      margin-right: 55px;
+      &:last-child {
+        margin-right: 30px;
+      }
+      &.social {
+        margin-right: 8px;
+        &:last-child {
+          margin-right: 20px;
+        }
+      }
+      a {
+        text-align: center;
+        font-family: $header-font;
+        font-weight: 500;
+      }
+    }
+  }
+  a {
+    position: relative;
+    top: 0;
+    margin: 0;
+    padding-bottom: 3px;
+    font-weight: normal;
+    font-size: 2.4em;
+    text-align: center;
+    background-color: #4a4a4a;
+    color: #fff;
+    &.active {
+      top: -4px;
+      background-color: #69C773;
+      color: $white;
+    }
+    &:hover {
+      color: $orange;
+      border-bottom-width: 2px;
+      border-bottom-style: solid;
+    }
+  }
+}
+
+#lang-toggle {
+  position: fixed;
+  top: 90px;
+  left: 30px;
+  z-index: 100;
+  li {
+    list-style: none;
+    display: inline-block;
+  }
+  li:last-child {
+    list-style: disc;
+    list-style-position: inside;
+    // margin-left: 10px;
+  }
+  a, p {
+    text-decoration: none;
+    font-family: $body-font;
+    font-weight: 300;
+    font-size: 1.8em;
+    color: $lightgray;
+  }
+  a:hover {
+    color: $gray;
+  }
+}
+
+nav.margin-circles {
+  position: fixed;
+  z-index: 100;
+  top: 215px;
+  left: 30px;
+  ul {
+    list-style-type: none;
+  }
+  li {
+    width: 25px;
+    height: 25px;
+    margin-top: 25px;
+    background-image: url('../assets/png/oval_25_blank.png');
+    background-size: 25px;
+    background-repeat: no-repeat;    
+  }
+  li:first-child {
+    background-image: url('../assets/png/oval_25_filled.png');
+  }
+}

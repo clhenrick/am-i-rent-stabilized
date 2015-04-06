@@ -1,0 +1,145 @@
+html {
+  font-size: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+body, div, p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 1366px;
+  color: #4a4a4a;
+  font-family: $body-font;
+  font-weight: 400;
+  letter-spacing: 0.0625em;
+  background-color: $white;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-margin-after: 0;
+    -webkit-margin-before: 0;
+    -webkit-padding-start: 0;
+    -webkit-padding-end: 0;    
+}
+
+h1, h2, h3, h4 {
+  width: 100%;
+  margin: 0 auto; 
+  margin-bottom: 0;
+  font-family: $header-font;
+  font-weight: 700;
+  line-height: 1em;
+  color: $gray;
+}
+
+h1 {
+  font-size: 5.4em;
+  color: $gray;
+  max-width: 70%;
+  margin-top: 30px;
+  &.landing {
+    margin-top: 0px;
+  }  
+  #slide-2 .centered & {
+    max-width: 70%;
+  }
+}
+
+h2 {
+  font-size: 4.8em;
+  color: $lightgray;
+  &.sub-head {
+    margin-top: 50px;
+  }
+}
+
+h3 {
+  font-size: 4em;
+}
+
+h4 {
+  font-size: 2.4em;
+  color: $orange;
+  &.step {
+    margin-top: 20px;
+    font-family: $body-font;
+    font-weight: 300;
+  }
+}
+
+p {
+  max-width: 85%;
+  margin: 0 auto;
+  font-size: 2.8em;
+  color: $green;
+  
+  &.map-messsage {
+    margin-top: 30px;
+  }
+
+  &.share-it {
+    color: $medgray;  
+  }
+
+}
+
+a {
+  text-decoration: none;
+  font-weight: 600;
+  color: $darkteal;
+  &.internal {
+    color: $orange;
+  }
+  &:hover {
+    color: $lightblue;
+  }
+}
+
+img {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  max-width: 400px;
+  &.triple-s {
+    width: 40px;
+    margin-top: 30px;
+  }
+  &.building.intro {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  &.checking {
+    left: -10px;
+    width: 175px;
+    margin-top: 50px;
+  }
+  &.mascot {
+    width: 260px;
+    margin-top: 20px;
+    &.monster {      
+      left: 11px;
+    }
+    &.intro {
+      width: 130px;
+    }
+  }
+  &.rent-history {
+    width: 150px;
+    border: 1px solid $lightgray;
+    margin-top: 30px;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.vis-hidden {
+  visibility: hidden;
+}

@@ -1,54 +1,3 @@
-#sprite {
-  position: relative;
-  left: -15px;
-  width: 192px;
-  /*128px;*/
-  height: 424px;
-  /*288px;*/
-  margin: 0 auto;
-  margin-top: 75px;
-  background: url('../assets/png/checking-sprite.png') left center;
-  -webkit-animation: play .8s steps(10) infinite;
-  -moz-animation: play .8s steps(10) infinite;
-  -ms-animation: play .8s steps(10) infinite;
-  -o-animation: play .8s steps(10) infinite;
-  animation: play .8s steps(10) infinite; }
-
-@-webkit-keyframes play {
-  from {
-    background-position: 0px; }
-
-  to {
-    background-position: -1920px; } }
-
-@-moz-keyframes play {
-  from {
-    background-position: 0px; }
-
-  to {
-    background-position: -1920px; } }
-
-@-ms-keyframes play {
-  from {
-    background-position: 0px; }
-
-  to {
-    background-position: -1920px; } }
-
-@-o-keyframes play {
-  from {
-    background-position: 0px; }
-
-  to {
-    background-position: -1920px; } }
-
-@keyframes play {
-  from {
-    background-position: 0px; }
-
-  to {
-    background-position: -1920px; } }
-
 html {
   font-size: 10px;
   margin: 0;
@@ -157,26 +106,11 @@ img {
     border: 1px solid #ABABAB;
     margin-top: 30px; }
 
-/* Lightbox for sample rent history */
-a.lightbox {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  height: 100%;
-  width: 100%;
-  text-align: center;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.8); }
-  a.lightbox img {
-    position: relative;
-    left: 30px;
-    max-height: 680px;
-    max-width: 530px;
-    margin-top: 80px; }
-  a.lightbox:target {
-    outline: none;
-    display: block; }
+.hidden {
+  display: none; }
+
+.vis-hidden {
+  visibility: hidden; }
 
 nav.main-nav {
   position: fixed;
@@ -279,11 +213,35 @@ nav.margin-circles {
   nav.margin-circles li:first-child {
     background-image: url('../assets/png/oval_25_filled.png'); }
 
-.hidden {
-  display: none; }
+/* Navigation Arrow */
+.go-prev, .go-next, .go-first, .button.search {
+  cursor: pointer; }
 
-.vis-hidden {
-  visibility: hidden; }
+.go-next.bottom-arrow {
+  position: absolute;
+  width: 125px;
+  margin: 0 auto;
+  margin-left: -34.5px;
+  left: 50%;
+  bottom: 100px; }
+.go-next h3 {
+  font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  color: #CE912D;
+  font-weight: 700;
+  font-size: 3.5em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 20px; }
+.go-next .arrow {
+  position: relative;
+  top: 10px;
+  height: 28px;
+  width: 76px;
+  margin: 0 auto;
+  background-image: url('../assets/png/chevron.png');
+  background-repeat: no-repeat; }
+.go-next h3:hover, .go-next .arrow:hover {
+  color: #FFC462; }
 
 .slides-container {
   position: absolute;
@@ -323,36 +281,37 @@ nav.margin-circles {
     .slide .centered .title {
       font-style: italic;
       font-weight: 300; }
+    .slide .centered .share-box-end {
+      display: block;
+      position: relative;
+      margin-top: 20px;
+      text-align: center; }
+      .slide .centered .share-box-end p {
+        display: inline; }
+      .slide .centered .share-box-end .addthis_sharing_toolbox {
+        margin: 0 auto;
+        margin-top: 10px; }
 
-/* Navigation Arrow */
-.go-prev, .go-next, .go-first, .button.search {
-  cursor: pointer; }
-
-.go-next.bottom-arrow {
-  position: absolute;
-  width: 125px;
-  margin: 0 auto;
-  margin-left: -34.5px;
-  left: 50%;
-  bottom: 100px; }
-.go-next h3 {
-  font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif;
-  color: #CE912D;
-  font-weight: 700;
-  font-size: 3.5em;
-  text-transform: uppercase;
+/* Lightbox for sample rent history */
+a.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  height: 100%;
+  width: 100%;
   text-align: center;
-  margin-top: 20px; }
-.go-next .arrow {
-  position: relative;
-  top: 10px;
-  height: 28px;
-  width: 76px;
-  margin: 0 auto;
-  background-image: url('../assets/png/chevron.png');
-  background-repeat: no-repeat; }
-.go-next h3:hover, .go-next .arrow:hover {
-  color: #FFC462; }
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8); }
+  a.lightbox img {
+    position: relative;
+    left: 30px;
+    max-height: 680px;
+    max-width: 530px;
+    margin-top: 80px; }
+  a.lightbox:target {
+    outline: none;
+    display: block; }
 
 /* User address entry form */
 #address-form {
@@ -503,16 +462,56 @@ ul.validation-error.not-found {
   text-align: center;
   margin-top: 30px; }
 
-#map {
+#sprite {
   position: relative;
-  left: 0;
+  left: -15px;
+  width: 192px;
+  /*128px;*/
+  height: 424px;
+  /*288px;*/
   margin: 0 auto;
-  margin-top: 30px;
-  width: 550px;
-  height: 300px;
-  border: 1px solid #999; }
-  #map:hover {
-    cursor: default; }
+  margin-top: 75px;
+  background: url('../assets/png/checking-sprite.png') left center;
+  -webkit-animation: play .8s steps(10) infinite;
+  -moz-animation: play .8s steps(10) infinite;
+  -ms-animation: play .8s steps(10) infinite;
+  -o-animation: play .8s steps(10) infinite;
+  animation: play .8s steps(10) infinite; }
+
+@-webkit-keyframes play {
+  from {
+    background-position: 0px; }
+
+  to {
+    background-position: -1920px; } }
+
+@-moz-keyframes play {
+  from {
+    background-position: 0px; }
+
+  to {
+    background-position: -1920px; } }
+
+@-ms-keyframes play {
+  from {
+    background-position: 0px; }
+
+  to {
+    background-position: -1920px; } }
+
+@-o-keyframes play {
+  from {
+    background-position: 0px; }
+
+  to {
+    background-position: -1920px; } }
+
+@keyframes play {
+  from {
+    background-position: 0px; }
+
+  to {
+    background-position: -1920px; } }
 
 .dhcr-choice {
   position: relative;
@@ -560,17 +559,6 @@ ul.validation-error.not-found {
     text-align: center;
     color: #417505; }
 
-.slide .share-box-end {
-  display: block;
-  position: relative;
-  margin-top: 20px;
-  text-align: center; }
-  .slide .share-box-end p {
-    display: inline; }
-.slide .addthis_sharing_toolbox {
-  margin: 0 auto;
-  margin-top: 10px; }
-
 input[placeholder] {
   color: #9B9B9B !important;
   font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif !important;
@@ -597,3 +585,14 @@ input:-ms-input-placeholder {
   color: #9B9B9B !important;
   font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif !important;
   font-weight: 300  !important; }
+
+#map {
+  position: relative;
+  left: 0;
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 550px;
+  height: 300px;
+  border: 1px solid #999; }
+  #map:hover {
+    cursor: default; }
