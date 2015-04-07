@@ -30,6 +30,8 @@ app.ui = (function(w,d){
     mapMessage : d.querySelector('.map-message'),
     mailTo : d.getElementById('mail-to'),
     lightBox : d.getElementById('rent-history'),
+    addToCalendar : d.getElementById('atc_text_link'),
+    addToCalendarLink : d.querySelector('#atc_text_link_link.atcb-link'),
     fbShare : d.querySelector('.fb-share-button'),    
     learnMore : d.querySelector('.button.learn-more')
   };
@@ -485,12 +487,44 @@ app.ui = (function(w,d){
     dd.placeholder.text('Select a Borough');
   }
 
+  function addToCalendar() {
+    var curDate = new Date(),
+          startDate,
+          endDate;
+    startDate = new Date(curDate);
+    startDate.setDate(startDate.getDate() + 7);
+    endDate = new Date(curDate);
+    endDate.setDate(startDate.getDate() + 1);
+    el.addToCalendar.innerHTML = 
+        '<var class="atc_event">' +
+            '<var class="atc_date_start">' + startDate + '</var>' +
+            '<var class="atc_date_end">' + endDate + '</var>' +
+            '<var class="atc_timezone">America/New_York</var>' +
+            '<var class="atc_title">Check mail for my rent history</var>' +
+            '<var class="atc_description">See if your rent history arrived in the mail, then go back to http://amirentstabilzed.com!</var>' +
+            '<var class="atc_location">my house</var>'+
+        '</var>';   
+    // init the add to calendar library
+    w.addtocalendar.load();
+    // change the text of the link to be more descriptive
+    d.querySelector('#atc_text_link_link.atcb-link').innerText = "Add a reminder to your calendar.";
+  }
+
+  function changeATCText() {
+    // work around to alter add to calender inner text
+    setTimeout(function(){
+      d.querySelector('#atc_text_link_link.atcb-link').innerText = "Add a reminder to your calendar.";
+    }, 2000);
+  }
+
   // get the whole damn thing going
   function init(){
     el.currentSlide = el.slides[0];
     goToSlide(el.currentSlide);
     addClass(el.yes, 'hidden');
     createMailTo();
+    addToCalendar();
+    // changeATCText();
     app.map.init();    
   }
   
@@ -504,7 +538,8 @@ app.ui = (function(w,d){
       toggleClass : toggleClass,
       hasClass : hasClass,
       addClass : addClass,
-      resetBoroValue : resetBoroValue
+      resetBoroValue : resetBoroValue,
+      changeATCText : changeATCText
     },
     state : state
   };
@@ -512,5 +547,6 @@ app.ui = (function(w,d){
 })(window, document);
 
 window.addEventListener('DOMContentLoaded', function(){
-  app.ui.init();  
+  app.ui.init();
+  // app.ui.f.changeATCText();
 });
