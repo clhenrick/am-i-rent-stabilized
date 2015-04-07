@@ -507,14 +507,9 @@ app.ui = (function(w,d){
     // init the add to calendar library
     w.addtocalendar.load();
     // change the text of the link to be more descriptive
-    d.querySelector('#atc_text_link_link.atcb-link').innerText = "Add a reminder to your calendar.";
-  }
-
-  function changeATCText() {
-    // work around to alter add to calender inner text
-    setTimeout(function(){
-      d.querySelector('#atc_text_link_link.atcb-link').innerText = "Add a reminder to your calendar.";
-    }, 2000);
+    var atcLink = d.querySelector('#atc_text_link_link.atcb-link');
+    atcLink.innerText = "Add a reminder to your calendar.";
+    atcLink.tabindex = "-1";
   }
 
   // get the whole damn thing going
@@ -524,7 +519,6 @@ app.ui = (function(w,d){
     addClass(el.yes, 'hidden');
     createMailTo();
     addToCalendar();
-    // changeATCText();
     app.map.init();    
   }
   
@@ -538,8 +532,7 @@ app.ui = (function(w,d){
       toggleClass : toggleClass,
       hasClass : hasClass,
       addClass : addClass,
-      resetBoroValue : resetBoroValue,
-      changeATCText : changeATCText
+      resetBoroValue : resetBoroValue
     },
     state : state
   };
@@ -548,5 +541,4 @@ app.ui = (function(w,d){
 
 window.addEventListener('DOMContentLoaded', function(){
   app.ui.init();
-  // app.ui.f.changeATCText();
 });
