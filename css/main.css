@@ -695,12 +695,14 @@ input:-ms-input-placeholder {
     font-size: 2.2em;
     width: 90%;
     margin-top: 20px; }
+  #main a {
+    text-decoration: none; }
   #main a[name] {
     position: relative;
     display: block;
     top: -35px;
     visibility: hidden; }
-  #main a[name="videos"], #main a[name="why"] {
+  #main a[name="videos"], #main a[name="why"], #main a[name="how"] {
     top: -80px; }
   #main .video {
     max-width: 600px;
