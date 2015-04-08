@@ -1054,12 +1054,12 @@ app.ui = (function(w,d){
     var email = "rentinfo@nyshcr.org",
           subject = "request for rent history",
           body = "Hello, \n\n" +
-                      "I, <YOUR NAME HERE>, am currently renting " + 
-                      "<YOUR ADDRESS, APARTMENT NUMBER, BOROUGH, ZIPCODE>" +
+                      "I, YOUR NAME HERE, am currently renting " + 
+                      "YOUR ADDRESS, APARTMENT NUMBER, BOROUGH, ZIPCODE" +
                       " and would like to request the rent history for this apartment." +
                       " Any information you can provide me would be greatly appreciated. \n\n" +
                       "thank you,\n\n" +
-                      "- <YOUR NAME HERE>",
+                      "- YOUR NAME HERE",
           msg = 'mailto:' + encodeURIComponent(email) +
                      '?subject=' + encodeURIComponent(subject) +
                      '&body=' + encodeURIComponent(body); 
