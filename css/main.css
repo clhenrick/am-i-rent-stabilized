@@ -59,7 +59,6 @@ body, div, p {
   padding: 0; }
 
 body {
-  width: 1366px;
   color: #4a4a4a;
   font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-weight: 400;
@@ -187,7 +186,8 @@ nav.main-nav {
       display: inline-block;
       color: #fff;
       font-size: 2.8em;
-      letter-spacing: .05em; }
+      letter-spacing: .05em;
+      font-weight: 500; }
     nav.main-nav h1 a.go-first:hover {
       border-bottom: none;
       color: #FFC462; }
@@ -207,7 +207,7 @@ nav.main-nav {
       nav.main-nav ul li a {
         text-align: center;
         font-family: "museo-sans-rounded", "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
-        font-weight: 500; }
+        font-weight: 300; }
   nav.main-nav a {
     position: relative;
     top: 0;
@@ -663,16 +663,28 @@ input:-ms-input-placeholder {
   left: 30px;
   margin-top: 50px;
   font-size: 1.5em; }
+  #side-nav h3 {
+    font-size: 1.2em;
+    display: inline;
+    padding-bottom: 3px;
+    border-bottom: 2px solid #ABABAB; }
   #side-nav li {
     list-style: none;
-    margin-top: 10px; }
+    margin-top: 10px;
+    font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif; }
+    #side-nav li:first-child {
+      margin-top: 15px; }
     #side-nav li ul {
       margin-left: 10px; }
     #side-nav li li {
       margin-top: 5px; }
+      #side-nav li li:first-child {
+        margin-top: 10px; }
 
 #main {
   width: 800px;
+  position: relative;
+  left: 100px;
   margin: 0 auto;
   margin-top: 80px;
   margin-bottom: 100px; }
