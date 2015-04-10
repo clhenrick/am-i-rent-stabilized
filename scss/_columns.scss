@@ -1,4 +1,4 @@
-.dhcr-choice {
+.centered .dhcr-choice {
   position: relative;  
   max-width: 1000px;
   max-height: 120px;
@@ -19,6 +19,7 @@
   p {
     max-width: 200px;
     height: 110px;    
+    margin-top: 0;
   }
 }
 

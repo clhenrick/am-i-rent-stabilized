@@ -232,6 +232,8 @@ nav.main-nav {
   top: 90px;
   left: 30px;
   z-index: 100; }
+  #lang-toggle ul {
+    padding: 0; }
   #lang-toggle li {
     list-style: none;
     display: inline-block; }
@@ -326,7 +328,7 @@ nav.margin-circles {
         margin-top: 65px; }
       .slide .centered p.check-it {
         margin-top: 70px;
-        width: 50%; }
+        width: 55%; }
       .slide .centered p.view-sample {
         margin-top: 20px; }
     .slide .centered .title {
@@ -456,33 +458,36 @@ p#boroughs {
   padding: 0;
   line-height: normal; }
 
-ul.validation-error li {
-  display: inline-block;
-  position: relative;
-  max-width: 465px;
-  padding: 10px;
-  border: 3px solid #FFFFFF;
-  margin-top: 5px;
-  color: #FFFFFF;
-  font-size: 0.7em;
-  font-weight: 300;
-  font-style: italic;
-  letter-spacing: 1px;
-  list-style: none;
-  background-color: #D98C8C; }
-  ul.validation-error li:last-child {
-    margin-left: 100px;
-    top: -34px;
-    padding-right: 58px; }
-ul.validation-error.not-found {
-  max-width: 900px;
-  margin: 0 auto; }
-  ul.validation-error.not-found li {
-    top: 0;
-    text-align: center;
-    margin-left: 78px;
-    max-width: 900px;
-    padding: 10px; }
+ul.validation-error {
+  padding: 0;
+  margin-top: 5px; }
+  ul.validation-error li {
+    display: inline-block;
+    position: relative;
+    max-width: 465px;
+    padding: 10px;
+    color: #FFFFFF;
+    font-size: 0.7em;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 1px;
+    list-style: none;
+    background-color: #D98C8C; }
+    ul.validation-error li#error-not-found {
+      max-width: 90%;
+      top: 0;
+      margin: 0 auto;
+      padding: 10px;
+      text-align: center; }
+    ul.validation-error li:last-child {
+      margin-left: 100px;
+      top: -30px;
+      padding-right: 58px; }
+  ul.validation-error.not-found {
+    position: relative;
+    left: -30px;
+    margin: 0 auto;
+    text-align: center; }
 
 .slide .centered .button {
   display: inline-block;
@@ -564,7 +569,7 @@ ul.validation-error.not-found {
   to {
     background-position: -1920px; } }
 
-.dhcr-choice {
+.centered .dhcr-choice {
   position: relative;
   max-width: 1000px;
   max-height: 120px;
@@ -579,9 +584,10 @@ ul.validation-error.not-found {
   -webkit-column-rule: 1px solid #ABABAB;
   -moz-column-rule: 1px solid #ABABAB;
   column-rule: 1px solid #ABABAB; }
-  .dhcr-choice p {
+  .centered .dhcr-choice p {
     max-width: 200px;
-    height: 110px; }
+    height: 110px;
+    margin-top: 0; }
 
 #slide-8 .action-choice {
   position: relative;
@@ -661,13 +667,15 @@ input:-ms-input-placeholder {
   position: fixed;
   width: 200px;
   left: 30px;
-  margin-top: 50px;
+  top: 140px;
   font-size: 1.5em; }
   #side-nav h3 {
     font-size: 1.2em;
     display: inline;
     padding-bottom: 3px;
     border-bottom: 2px solid #ABABAB; }
+  #side-nav ul {
+    padding: 0; }
   #side-nav li {
     list-style: none;
     margin-top: 10px;
@@ -705,12 +713,13 @@ input:-ms-input-placeholder {
     padding-right: 25px;
     font-size: 2.2em; }
   #main ul {
-    margin-left: 50px; }
+    margin-left: 25px; }
   #main li {
     color: #417505;
     font-size: 2.2em;
     width: 90%;
-    margin-top: 20px; }
+    margin-top: 20px;
+    list-style-position: outside; }
     #main li p {
       margin-top: 5px;
       font-size: 1em; }

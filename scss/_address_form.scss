@@ -116,13 +116,15 @@ p#boroughs {
 }
 
 ul.validation-error {
+  padding: 0;
+  margin-top: 5px;
+
   li {
     display: inline-block;
     position: relative;
     max-width: 465px;
     padding: 10px;
-    border: 3px solid $white;
-    margin-top: 5px;
+    // border: 3px solid $white;
     color: $white;
     font-size: 0.7em;
     font-weight: 300;
@@ -131,23 +133,26 @@ ul.validation-error {
     list-style: none;
     background-color: $valError;
 
+    &#error-not-found {
+      max-width: 90%;
+      top: 0;
+      margin: 0 auto;
+      padding: 10px;
+      text-align: center;      
+    }
+
     &:last-child {
       margin-left: 100px;
-      top: -34px;
+      top: -30px;
       padding-right: 58px;
     }
   }
   
-  &.not-found {
-    max-width: 900px;
+  &.not-found {    
+    position: relative;
+    left: -30px;
     margin: 0 auto;
+    text-align: center;
 
-    li {
-      top: 0;
-      text-align: center;
-      margin-left: 78px;
-      max-width: 900px;
-      padding: 10px;
-    }
   }  
 } 
