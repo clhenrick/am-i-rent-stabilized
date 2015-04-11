@@ -753,13 +753,21 @@ input:-ms-input-placeholder {
   left: 0; }
   .slide .centered h1 {
     max-width: 90%;
-    margin-top: 2%; }
+    margin-top: 6%;
+    font-size: 4.8em; }
     .slide .centered h1.landing {
       margin-top: 0px; }
-  .slide .centered h2.sub-head {
-    margin-top: 2%; }
-  .slide .centered p.check-it {
-    width: 70%; }
+    .slide .centered h1.news, .slide .centered h1.end {
+      margin-top: 2%; }
+  .slide .centered h2 {
+    font-size: 4.2em; }
+    .slide .centered h2.sub-head {
+      margin-top: 2%; }
+  .slide .centered p {
+    font-size: 2.5em;
+    margin-top: 1%; }
+    .slide .centered p.check-it {
+      width: 70%; }
   .slide .centered img.triple-s {
     margin-top: 1%;
     margin-bottom: 0; }
@@ -824,4 +832,8 @@ nav.margin-circles {
   height: 275px; }
 #map-container .map-message {
   font-size: 2.2em;
+  margin-top: 1%; }
+
+#slide-8 .action-choice p {
+  height: auto;
   margin-top: 1%; }

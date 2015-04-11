@@ -20,20 +20,30 @@
 
 	h1 {
 	  max-width: 90%;
-	  margin-top: 2%;
+	  margin-top: 6%;
+	  font-size: 4.8em;
 
 	  &.landing {
 	  	margin-top: 0px;
 	  }
+
+	  &.news, &.end {
+	  	margin-top: 2%;
+	  }
 	}
 
 	h2 {
+		font-size: 4.2em;
+
 		&.sub-head {
 			margin-top: 2%;
 		}
 	}
 
 	p {
+		font-size: 2.5em;
+		margin-top: 1%;
+
 		&.check-it {
 			width: 70%;
 		}
@@ -157,6 +167,13 @@ nav.margin-circles {
 
 	.map-message {
 		font-size: 2.2em;
+		margin-top: 1%;
+	}
+}
+
+#slide-8 .action-choice {
+	p {
+		height: auto;
 		margin-top: 1%;
 	}
 }
