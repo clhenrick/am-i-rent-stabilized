@@ -194,7 +194,7 @@ nav.main-nav {
   nav.main-nav ul {
     float: right;
     list-style: none;
-    margin-top: 15px; }
+    margin-top: 20px; }
     nav.main-nav ul li {
       display: inline-block;
       margin-right: 55px; }
@@ -737,3 +737,60 @@ input:-ms-input-placeholder {
     margin-top: 50px; }
     #main .video iframe {
       margin-top: 25px; }
+
+/* 
+	 viewport width: > 1070px 
+	 viewport height: > 620px
+
+	 thoughts: use jquery to set height of slides?
+*/
+.slides-container {
+  height: auto; }
+  .slides-container .slide {
+    height: 590px;
+    border: 1px solid #ABABAB; }
+
+.slide .centered {
+  border: 1px solid #4a4a4a;
+  left: 0; }
+  .slide .centered h1 {
+    max-width: 80%;
+    margin-top: 3%; }
+    .slide .centered h1.landing {
+      margin-top: 0px; }
+  .slide .centered h2.sub-head {
+    margin-top: 2%; }
+  .slide .centered img.triple-s {
+    margin-top: 1%;
+    margin-bottom: 0; }
+  .slide .centered img.building.intro {
+    margin-top: 1%;
+    margin-bottom: 1%; }
+  .slide .centered .button.search {
+    margin-top: 0; }
+
+nav.margin-circles {
+  top: 22%; }
+
+.go-next.bottom-arrow {
+  bottom: 5%; }
+
+#address-form {
+  width: 100%;
+  height: 250px; }
+  #address-form input.address-input {
+    width: 400px; }
+  #address-form div.user-data {
+    font-size: .9em; }
+    #address-form div.user-data.borough-select {
+      margin-left: 3%; }
+  #address-form ul.validation-error.not-found {
+    left: 0; }
+  #address-form ul.validation-error li {
+    max-width: 400px; }
+    #address-form ul.validation-error li#error-not-found {
+      max-width: 90%;
+      display: block; }
+    #address-form ul.validation-error li#error-boro {
+      margin-left: 3%;
+      width: 400px; }
