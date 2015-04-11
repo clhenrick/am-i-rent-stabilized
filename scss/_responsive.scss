@@ -1,0 +1,51 @@
+/* 
+	 viewport width: > 1050px 
+	 viewport height: > 620px
+
+	 thoughts: use jquery to set height of slides?
+*/
+
+.slides-container {
+	height: auto;
+
+	.slide {
+		height: 590px;
+	}
+}
+
+.slide .centered {
+	h1 {
+	  max-width: 80%;
+
+	  &.landing {
+	  	margin-top: 0px;
+	  }
+	}
+
+	h2 {
+		&.sub-head {
+			margin-top: 2%;
+		}
+	}
+
+	img {
+		&.triple-s {
+			margin-top: 1%;
+			margin-bottom: 0;
+		}
+		&.building-intro {
+			margin-top: 1%;
+			margin-bottom: 1%;
+		}
+	}
+}
+
+nav.margin-circles {
+	top: 22%;
+}
+
+.go-next {
+	&.bottom-arrow {
+		bottom: 3%;
+	}
+}
