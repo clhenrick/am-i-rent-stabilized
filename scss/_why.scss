@@ -1,0 +1,118 @@
+#side-nav {
+  position: fixed;
+  width: 200px;
+  left: 30px;
+  // margin-top: 50px;
+  top: 140px;
+  font-size: 1.5em;
+
+  h3 {
+    font-size: 1.2em;
+    display: inline;
+    padding-bottom: 3px;
+    border-bottom: 2px solid $lightgray;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+    margin-top: 10px;
+    font-family: $body-font;
+
+    &:first-child {
+      margin-top: 15px;
+    }
+    
+    ul {
+      margin-left: 10px;
+    }
+    
+    li {
+      margin-top: 5px;
+      &:first-child {
+        margin-top: 10px;
+      }
+    }
+  } 
+}
+
+#main {
+  width: 800px;
+  position: relative;
+  left: 100px;
+  margin: 0 auto;
+  margin-top: 80px;
+  margin-bottom: 100px;
+
+  h1, h3 {
+    text-align: left;
+    max-width: 100%;
+  }
+
+  h1 {
+    margin-top: 50px;
+    color: $orange;
+    
+    &:first-child {
+      margin-top: 25px;
+    }    
+  }
+  
+  h3 {
+    margin-top: 25px;
+    font-size: 3em;
+  }
+  
+  p {
+    max-width: 100%;
+    margin-top: 25px;
+    padding-right: 25px;
+    font-size: 2.2em;
+  }
+
+  ul {
+    margin-left: 25px;
+  }
+
+  li {
+    color: $green;
+    font-size: 2.2em;
+    width: 90%;
+    margin-top: 20px;
+    list-style-position: outside;
+  
+    p {
+      margin-top: 5px;
+      font-size: 1em;
+    }
+
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a[name] {
+    position: relative;
+    display: block;
+    top: -40px;
+    visibility: hidden;
+  }
+
+  a[name="videos"], a[name="why"], 
+  a[name="how"], a[name="non-gov"] {
+    top: -80px;
+  }
+
+  .video {
+    max-width: 600px;
+    margin-top: 50px;
+
+    iframe {
+      margin-top: 25px;
+    }    
+  }
+}
