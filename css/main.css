@@ -755,9 +755,12 @@ input:-ms-input-placeholder {
   left: 0; }
   .slide .centered h1 {
     max-width: 80%;
-    margin-top: 3%; }
+    margin-top: 2%; }
     .slide .centered h1.landing {
       margin-top: 0px; }
+    #slide-2 .slide .centered h1 {
+      margin-top: 3%;
+      width: 90%; }
   .slide .centered h2.sub-head {
     margin-top: 2%; }
   .slide .centered img.triple-s {
@@ -768,22 +771,32 @@ input:-ms-input-placeholder {
     margin-bottom: 1%; }
   .slide .centered .button.search {
     margin-top: 0; }
+  .slide .centered.yes p, .slide .centered.no p {
+    width: 90%;
+    font-size: 2.2em;
+    margin-top: 1%; }
+  .slide .centered.yes {
+    display: none; }
 
 nav.margin-circles {
   top: 22%; }
 
 .go-next.bottom-arrow {
-  bottom: 5%; }
+  bottom: 3%;
+  margin-left: -62.5px; }
 
 #address-form {
   width: 100%;
   height: 250px; }
   #address-form input.address-input {
-    width: 400px; }
+    width: 400px;
+    height: 60px; }
   #address-form div.user-data {
-    font-size: .9em; }
+    font-size: .9em;
+    height: 60px; }
     #address-form div.user-data.borough-select {
-      margin-left: 3%; }
+      margin-left: 3%;
+      float: right; }
   #address-form ul.validation-error.not-found {
     left: 0; }
   #address-form ul.validation-error li {
@@ -794,3 +807,15 @@ nav.margin-circles {
     #address-form ul.validation-error li#error-boro {
       margin-left: 3%;
       width: 400px; }
+
+#sprite {
+  background: url('../assets/png/checking-sprite-sm.png');
+  width: 128px;
+  height: 288px; }
+
+#map-container #map {
+  margin-top: 0;
+  height: 275px; }
+#map-container .map-message {
+  font-size: 2.2em;
+  margin-top: 1%; }

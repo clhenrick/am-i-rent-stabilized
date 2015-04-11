@@ -20,10 +20,15 @@
 
 	h1 {
 	  max-width: 80%;
-	  margin-top: 3%;
+	  margin-top: 2%;
 
 	  &.landing {
 	  	margin-top: 0px;
+	  }
+
+	  #slide-2 & {
+	  	margin-top: 3%;
+	  	width: 90%;
 	  }
 	}
 
@@ -31,6 +36,10 @@
 		&.sub-head {
 			margin-top: 2%;
 		}
+	}
+
+	p {
+		max-width: 
 	}
 
 	img {
@@ -49,6 +58,18 @@
 			margin-top: 0;
 		}
 	}
+
+	&.yes, &.no {
+		p {
+			width: 90%;
+			font-size: 2.2em;
+			margin-top: 1%;
+		}
+	}
+
+	&.yes {
+		display: none;
+	}
 }
 
 nav.margin-circles {
@@ -57,7 +78,8 @@ nav.margin-circles {
 
 .go-next {
 	&.bottom-arrow {
-		bottom: 5%;
+		bottom: 3%;
+		margin-left: -62.5px;
 	}
 }
 
@@ -68,15 +90,18 @@ nav.margin-circles {
 
 	input {	
 		&.address-input {
-			width: 400px;			
+			width: 400px;	
+			height: 60px;		
 		}
 	}
 
 	div.user-data {
 		font-size: .9em;
+		height: 60px;
 
 		&.borough-select {
 			margin-left: 3%;
+			float: right;
 		}
 	}
 
@@ -102,4 +127,23 @@ nav.margin-circles {
 
 	}
 
+}
+
+#sprite {
+	background: url('../assets/png/checking-sprite-sm.png');
+	width: 128px;
+	height: 288px;
+}
+
+#map-container {
+	
+	#map {
+		margin-top: 0;
+		height: 275px;
+	}	
+
+	.map-message {
+		font-size: 2.2em;
+		margin-top: 1%;
+	}
 }
