@@ -745,11 +745,9 @@ input:-ms-input-placeholder {
 .slides-container {
   height: auto; }
   .slides-container .slide {
-    height: 590px;
-    border: 1px solid #ABABAB; }
+    height: 590px; }
 
 .slide .centered {
-  border: 1px solid #4a4a4a;
   left: 0; }
   .slide .centered h1 {
     max-width: 90%;
