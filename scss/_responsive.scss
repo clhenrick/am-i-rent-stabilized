@@ -19,16 +19,11 @@
 	left: 0;
 
 	h1 {
-	  max-width: 80%;
+	  max-width: 90%;
 	  margin-top: 2%;
 
 	  &.landing {
 	  	margin-top: 0px;
-	  }
-
-	  #slide-2 & {
-	  	margin-top: 3%;
-	  	width: 90%;
 	  }
 	}
 
@@ -39,7 +34,9 @@
 	}
 
 	p {
-		max-width: 
+		&.check-it {
+			width: 70%;
+		}
 	}
 
 	img {
@@ -47,15 +44,31 @@
 			margin-top: 1%;
 			margin-bottom: 0;
 		}
+
 		&.building.intro {
 			margin-top: 1%;
 			margin-bottom: 1%;
 		}
+
+		&.mascot {
+			width: 200px;
+		}
 	}
 
 	.button {
+		font-size: 2.5em;
+		padding: 8px 10px;
+
 		&.search {
 			margin-top: 0;
+		}
+
+		&.start-over {
+			width: 200px;
+		}
+
+		&.learn-more {
+			width: 205px;
 		}
 	}
 

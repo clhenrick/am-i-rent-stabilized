@@ -90,8 +90,6 @@ h1 {
   margin-top: 30px; }
   h1.landing {
     margin-top: 0px; }
-  #slide-2 .centered h1 {
-    max-width: 70%; }
 
 h2 {
   font-size: 4.8em;
@@ -754,23 +752,31 @@ input:-ms-input-placeholder {
   border: 1px solid #4a4a4a;
   left: 0; }
   .slide .centered h1 {
-    max-width: 80%;
+    max-width: 90%;
     margin-top: 2%; }
     .slide .centered h1.landing {
       margin-top: 0px; }
-    #slide-2 .slide .centered h1 {
-      margin-top: 3%;
-      width: 90%; }
   .slide .centered h2.sub-head {
     margin-top: 2%; }
+  .slide .centered p.check-it {
+    width: 70%; }
   .slide .centered img.triple-s {
     margin-top: 1%;
     margin-bottom: 0; }
   .slide .centered img.building.intro {
     margin-top: 1%;
     margin-bottom: 1%; }
-  .slide .centered .button.search {
-    margin-top: 0; }
+  .slide .centered img.mascot {
+    width: 200px; }
+  .slide .centered .button {
+    font-size: 2.5em;
+    padding: 8px 10px; }
+    .slide .centered .button.search {
+      margin-top: 0; }
+    .slide .centered .button.start-over {
+      width: 200px; }
+    .slide .centered .button.learn-more {
+      width: 205px; }
   .slide .centered.yes p, .slide .centered.no p {
     width: 90%;
     font-size: 2.2em;
