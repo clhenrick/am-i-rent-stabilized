@@ -13,27 +13,27 @@
             animation: play .8s steps(10) infinite;
 }
 
-  @-webkit-keyframes play {
-     from { background-position:    0px; }
-       to { background-position: -1920px; }
-  }
+@-webkit-keyframes play {
+   from { background-position:    0px; }
+     to { background-position: -1920px; }
+}
 
-  @-moz-keyframes play {
-     from { background-position:    0px; }
-       to { background-position: -1920px; }
-  }
+@-moz-keyframes play {
+   from { background-position:    0px; }
+     to { background-position: -1920px; }
+}
 
-  @-ms-keyframes play {
-     from { background-position:    0px; }
-       to { background-position: -1920px; }
-  }
+@-ms-keyframes play {
+   from { background-position:    0px; }
+     to { background-position: -1920px; }
+}
 
-  @-o-keyframes play {
-     from { background-position:    0px; }
-       to { background-position: -1920px; }
-  }
+@-o-keyframes play {
+   from { background-position:    0px; }
+     to { background-position: -1920px; }
+}
 
-  @keyframes play {
-     from { background-position:    0px; }
-       to { background-position: -1920px; }
-  }
+@keyframes play {
+   from { background-position:    0px; }
+     to { background-position: -1920px; }
+}
