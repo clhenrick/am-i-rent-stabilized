@@ -72,6 +72,19 @@
 			&.landing {
 				margin-top: 10%;
 			}
+
+			&.check-it {
+				width: 60%;
+				margin-top: 10%;
+
+				.addtocalendar {
+					margin-top: 15%;
+				}
+			}
+			
+			.yes &, .no &, &.map-message {
+				font-size: 1.5em;
+			}			
 		}
 
 		img {
@@ -83,11 +96,48 @@
 			&.building.intro {
 				width: 55px;
 			}
+
+			&.mascot {
+				width: 118px;
+			}
 		}
 
 		.button {
-			font-size: 1.5em;
+			display: block;
+			margin: 0 auto;
 			width: 110px;
+			font-size: 1.5em;			
+
+			&.start-over {
+				width: 120px;
+			}
+
+			&.learn-more {
+				width: 125px;
+				margin: 0 auto;
+				margin-top: 10px;
+			}
+		}	
+
+		.dhcr-choice {
+			max-width: auto;
+			p {
+				height: auto;
+				margin-top: 5%;
+			}
+		}
+
+		.action-choice {
+			max-width: auto;
+
+			h4 {
+				font-size: 1.5em;
+				margin-top: 10%;
+			}
+
+			p {
+				width: 70%;
+			}
 		}
 
 	}
@@ -170,5 +220,30 @@
 
 	#sprite {
 		left: 0;
+	}
+	
+	.centered {
+
+		&#map-container {
+			#map {
+				width: 90%;
+				height: 200px;
+				margin-top: 5%;
+			}
+
+			.map-message {
+				font-size: 1.3em;
+				width: 70%;
+				margin-top: 4%;
+			}
+		}
+		
+		&.yes, &.no {
+			p {
+				font-size: 1.3em;
+				max-width: 95%;
+				margin-top: 3%;
+			}
+		}		
 	}
 }

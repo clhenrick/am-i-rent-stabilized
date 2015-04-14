@@ -29,8 +29,8 @@ gulp.task('lint', function() {
 // Compile Our Sass
 gulp.task('sass', function() {
     return gulp.src('scss/*.scss')        
-        .pipe(sass())
         .pipe(plumber())
+        .pipe(sass())        
         .pipe(gulp.dest('css'))
         .pipe(rename('main.css'))
         .pipe(gulp.dest('css'));

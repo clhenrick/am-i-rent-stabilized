@@ -1,10 +1,3 @@
-/* 
-	 viewport width: > 1070px 
-	 viewport height: > 620px
-
-	 thoughts: use jquery to set height of slides?
-*/
-
 @media screen and (max-height: 700px), screen and (max-width: 1100px) {
 	.slides-container {
 		// height: auto;
@@ -89,14 +82,6 @@
 
 			&.learn-more {
 				width: 205px;
-			}
-		}
-
-		&.yes, &.no {
-			p {
-				width: 90%;
-				font-size: 2.2em;
-				margin-top: 1%;
 			}
 		}
 	}
@@ -201,7 +186,7 @@
 		}
 	}
 
-	#slide-8 .action-choice {
+	.centered .action-choice {
 		p {
 			height: auto;
 			margin-top: 1%;

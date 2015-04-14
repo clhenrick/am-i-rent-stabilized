@@ -592,7 +592,7 @@ ul.validation-error {
     height: 110px;
     margin-top: 0; }
 
-#slide-8 .action-choice {
+.centered .action-choice {
   position: relative;
   max-width: 900px;
   margin: 0 auto;
@@ -606,12 +606,12 @@ ul.validation-error {
   -webkit-column-rule: 1px solid #ABABAB;
   -moz-column-rule: 1px solid #ABABAB;
   column-rule: 1px solid #ABABAB; }
-  #slide-8 .action-choice p {
+  .centered .action-choice p {
     max-width: 350px;
     height: 250px;
     margin-top: 20px;
     padding: 2px; }
-  #slide-8 .action-choice h4 {
+  .centered .action-choice h4 {
     margin-top: 0;
     font-family: "museo-sans-rounded", "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
     font-size: 3.2em;
@@ -739,14 +739,10 @@ input:-ms-input-placeholder {
     max-width: 600px;
     margin-top: 50px; }
     #main .video iframe {
-      margin-top: 25px; }
+      margin-top: 25px;
+      width: 100%;
+      height: 372px; }
 
-/* 
-	 viewport width: > 1070px 
-	 viewport height: > 620px
-
-	 thoughts: use jquery to set height of slides?
-*/
 @media screen and (max-height: 700px), screen and (max-width: 1100px) {
   .slides-container {
     width: 960px;
@@ -794,10 +790,6 @@ input:-ms-input-placeholder {
         width: 200px; }
       .slide .centered .button.learn-more {
         width: 205px; }
-    .slide .centered.yes p, .slide .centered.no p {
-      width: 90%;
-      font-size: 2.2em;
-      margin-top: 1%; }
   nav.margin-circles {
     top: 22%; }
   .go-next.bottom-arrow {
@@ -869,7 +861,7 @@ input:-ms-input-placeholder {
   #map-container .map-message {
     font-size: 2.2em;
     margin-top: 1%; }
-  #slide-8 .action-choice p {
+  .centered .action-choice p {
     height: auto;
     margin-top: 1%; } }
 
@@ -989,14 +981,43 @@ input:-ms-input-placeholder {
       font-size: 1.3em; }
       .slide .centered p.landing {
         margin-top: 10%; }
+      .slide .centered p.check-it {
+        width: 60%;
+        margin-top: 10%; }
+        .slide .centered p.check-it .addtocalendar {
+          margin-top: 15%; }
+      .yes .slide .centered p, .no .slide .centered p, .slide .centered p.map-message {
+        font-size: 1.5em; }
     .slide .centered img.triple-s {
       width: 25px;
       margin-top: 30px; }
     .slide .centered img.building.intro {
       width: 55px; }
+    .slide .centered img.mascot {
+      width: 118px; }
     .slide .centered .button {
-      font-size: 1.5em;
-      width: 110px; }
+      display: block;
+      margin: 0 auto;
+      width: 110px;
+      font-size: 1.5em; }
+      .slide .centered .button.start-over {
+        width: 120px; }
+      .slide .centered .button.learn-more {
+        width: 125px;
+        margin: 0 auto;
+        margin-top: 10px; }
+    .slide .centered .dhcr-choice {
+      max-width: auto; }
+      .slide .centered .dhcr-choice p {
+        height: auto;
+        margin-top: 5%; }
+    .slide .centered .action-choice {
+      max-width: auto; }
+      .slide .centered .action-choice h4 {
+        font-size: 1.5em;
+        margin-top: 10%; }
+      .slide .centered .action-choice p {
+        width: 70%; }
   .go-next.bottom-arrow {
     bottom: 15%; }
     .go-next.bottom-arrow h3 {
@@ -1044,8 +1065,44 @@ input:-ms-input-placeholder {
       text-align: left;
       font-size: 0.5em; }
   #sprite {
-    left: 0; } }
+    left: 0; }
+  .centered#map-container #map {
+    width: 90%;
+    height: 200px;
+    margin-top: 5%; }
+  .centered#map-container .map-message {
+    font-size: 1.3em;
+    width: 70%;
+    margin-top: 4%; }
+  .centered.yes p, .centered.no p {
+    font-size: 1.3em;
+    max-width: 95%;
+    margin-top: 3%; } }
 
 @media screen and (max-height: 480px) {
   .slide .centered img.triple-s {
     margin-top: 20px; } }
+
+@media screen and (max-width: 420px) {
+  #side-nav {
+    display: none; }
+  #main {
+    width: 90%;
+    left: 0; }
+    #main h1 {
+      margin-top: 25px;
+      font-size: 2em; }
+    #main h3 {
+      margin-top: 15px;
+      font-size: 1.8em; }
+    #main p, #main li {
+      margin-top: 10px;
+      font-size: 1.5em; }
+    #main p {
+      padding-right: 10px; }
+    #main .video {
+      margin-top: 25px; }
+      #main .video iframe {
+        margin-top: 10px;
+        width: 100%;
+        height: 250px; } }
