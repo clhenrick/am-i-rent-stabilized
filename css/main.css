@@ -742,7 +742,7 @@ input:-ms-input-placeholder {
 
 	 thoughts: use jquery to set height of slides?
 */
-@media screen and (max-width: 1365px), screen and (max-height: 700px) {
+@media screen and (max-width: 1000px), screen and (max-height: 700px) {
   .slides-container {
     width: 960px;
     margin: 0 auto;
@@ -868,38 +868,54 @@ input:-ms-input-placeholder {
     height: auto;
     margin-top: 1%; } }
 
-@media screen and (min-width: 320px) {
+@media screen and (max-width: 420px) {
   nav.main-nav img.logo {
     margin-left: 10px; }
   nav.main-nav h1 {
-    font-size: 1.8em; }
+    display: inline-block;
+    font-size: 1.8em;
+    margin-top: 22px;
+    text-align: center;
+    float: none; }
     nav.main-nav h1 a.go-first {
       font-size: 1em; }
-  nav.main-nav ul {
+  nav.main-nav li a {
     display: none; }
+  nav.main-nav .burger {
+    display: inline-block;
+    position: absolute;
+    background-image: url('../assets/png/hamburger-sm.png');
+    width: 30px;
+    height: 18px;
+    margin-top: 22px;
+    right: 4%; }
   nav.margin-circles {
     display: none; }
   #lang-toggle {
     display: none; }
   .slides-container {
-    width: 320px;
+    width: 100%;
     left: 0;
-    margin: 0; }
+    margin: 0 auto; }
   .slide .centered {
-    width: 95%; }
+    width: 100%; }
     .slide .centered h1, .slide .centered h2, .slide .centered h3, .slide .centered h4 {
-      max-width: 100%; }
+      max-width: 100%;
+      padding: 0 1%; }
     .slide .centered h1, .slide .centered h1.landing {
       font-size: 2.6em;
       line-height: 1.2em;
       max-width: 100%;
-      margin-top: 0; }
+      margin-top: 3%; }
     .slide .centered h2 {
       font-size: 2em; }
     .slide .centered p {
       font-size: 1.8em; }
+      .slide .centered p.landing {
+        margin-top: 10%; }
     .slide .centered img.triple-s {
-      width: 35px; }
+      width: 25px;
+      margin-top: 50px; }
     .slide .centered img.building.intro {
       width: 55px; }
   .go-next.bottom-arrow {

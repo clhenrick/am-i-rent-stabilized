@@ -1,4 +1,4 @@
-@media screen and (min-width: 320px) {
+@media screen and (max-width: 420px) {
 
 	nav.main-nav {
 		img.logo {
@@ -6,14 +6,28 @@
 		}
 
 		h1 {
-			font-size: 1.8em;
+			display: inline-block;
+			font-size: 1.8em;			
+			margin-top: 22px;
+			text-align: center;
+			float: none;
 			
 			a.go-first {
 				font-size: 1em;
 			}
 		}
-		ul {
+		li a {
 			display: none;
+		}
+
+		.burger {
+			display: inline-block;
+			position: absolute;
+			background-image: url('../assets/png/hamburger-sm.png');
+			width: 30px;
+			height: 18px;
+			margin-top: 22px;
+			right: 4%;
 		}
 	}
 
@@ -26,9 +40,9 @@
 	}
 	
 	.slides-container {
-		width: 320px;
+		width: 100%;
 		left: 0;
-		margin: 0;
+		margin: 0 auto;
 
 		.slide {
 
@@ -36,16 +50,18 @@
 	}
 
 	.slide .centered {
-		width: 95%;
+		width: 100%;
 
 		h1, h2, h3, h4 {
-			max-width: 100%
+			max-width: 100%;
+			padding: 0 1%;
 		}
+
 		h1, h1.landing {
 			font-size: 2.6em;
 			line-height: 1.2em;
 			max-width: 100%;
-			margin-top: 0;
+			margin-top: 3%;
 		}
 
 		h2 {
@@ -54,11 +70,16 @@
 
 		p {
 			font-size: 1.8em;
+			
+			&.landing {
+				margin-top: 10%;
+			}
 		}
 
 		img {
 			&.triple-s {
-				width: 35px;
+				width: 25px;
+				margin-top: 50px;
 			}
 
 			&.building.intro {
@@ -71,7 +92,7 @@
 	.go-next {
 		&.bottom-arrow {
 			bottom: 15%;
-			
+
 			h3 {
 				font-size: 1.6em;
 			}
