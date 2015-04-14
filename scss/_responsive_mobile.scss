@@ -1,7 +1,36 @@
 @media screen and (max-width: 420px) {
+	nav.main-nav {
+	  
+	  .logo {
+	    margin-left: 10px;  
+	  }
+
+	  h1 {
+	    font-size: 1.8em;
+	  }
+
+	  ul.responsive {
+	    right: -9.3%;
+	  }
+	}
 
 	nav.margin-circles {
 		display: none;
+		// position: absolute;
+		// display: block;
+		// width: 300px;
+		// margin-left: -150px;
+		// left: 50%;
+		// top: 10%;
+		
+		&:first-child {
+			margin-left: 0;
+		}
+
+		li {
+			display: inline-block;
+			margin-left: 5px;
+		}
 	}
 
 	#lang-toggle {
@@ -29,7 +58,7 @@
 		h1, h1.landing {
 			font-size: 2.6em;
 			line-height: 1.2em;
-			max-width: 100%;
+			max-width: 95%;
 			margin-top: 3%;
 		}
 
@@ -48,7 +77,7 @@
 		img {
 			&.triple-s {
 				width: 25px;
-				margin-top: 50px;
+				margin-top: 30px;
 			}
 
 			&.building.intro {

@@ -417,11 +417,14 @@ a.lightbox {
         background-size: contain; }
       #address-form div.user-data.borough-select ul.drop-down {
         position: absolute;
+        width: 400px;
         top: 100%;
-        left: 0;
+        left: -3px;
         right: 0;
         opacity: 0;
         background: #FFFFFF;
+        border: 3px solid #9B9B9B;
+        border-top: none;
         pointer-events: none; }
       #address-form div.user-data.borough-select li {
         list-style: none;
@@ -869,7 +872,7 @@ input:-ms-input-placeholder {
     height: auto;
     margin-top: 1%; } }
 
-@media screen and (max-width: 970px) {
+@media screen and (max-width: 980px) {
   nav.main-nav h1 {
     display: inline-block;
     font-size: 2.8em;
@@ -889,11 +892,41 @@ input:-ms-input-placeholder {
     height: 18px;
     margin-top: 22px;
     right: 4%;
-    cursor: pointer; } }
-
-@media screen and (max-width: 420px) {
-  nav.main-nav h1 {
-    font-size: 1.8em; } }
+    cursor: pointer; }
+  .slide .centered h1 {
+    margin-top: 3%;
+    width: 70%; }
+  #address-form {
+    width: 100%;
+    height: 250px; }
+    #address-form input.address-input {
+      width: 400px;
+      height: 60px; }
+    #address-form div.user-data {
+      font-size: .9em;
+      height: 60px;
+      width: 400px;
+      margin: 0 auto;
+      display: block;
+      top: -75px; }
+      #address-form div.user-data.borough-select {
+        margin: 0 auto;
+        margin-top: 20px; }
+    #address-form ul.validation-error.not-found {
+      left: 0; }
+    #address-form ul.validation-error li {
+      max-width: 400px; }
+      #address-form ul.validation-error li#error-not-found {
+        top: 160px; }
+      #address-form ul.validation-error li#error-boro {
+        width: 140px;
+        margin-left: 415px;
+        padding: 10px;
+        top: -225px; }
+      #address-form ul.validation-error li#error-address {
+        width: 145px;
+        top: -225px;
+        margin-left: 75px; } }
 
 .main-nav div.burger.open {
   position: relative;
@@ -919,8 +952,19 @@ input:-ms-input-placeholder {
       text-align: left; }
 
 @media screen and (max-width: 420px) {
+  nav.main-nav .logo {
+    margin-left: 10px; }
+  nav.main-nav h1 {
+    font-size: 1.8em; }
+  nav.main-nav ul.responsive {
+    right: -9.3%; }
   nav.margin-circles {
     display: none; }
+    nav.margin-circles:first-child {
+      margin-left: 0; }
+    nav.margin-circles li {
+      display: inline-block;
+      margin-left: 5px; }
   #lang-toggle {
     display: none; }
   .slides-container {
@@ -935,7 +979,7 @@ input:-ms-input-placeholder {
     .slide .centered h1, .slide .centered h1.landing {
       font-size: 2.6em;
       line-height: 1.2em;
-      max-width: 100%;
+      max-width: 95%;
       margin-top: 3%; }
     .slide .centered h2 {
       font-size: 2em; }
@@ -945,7 +989,7 @@ input:-ms-input-placeholder {
         margin-top: 10%; }
     .slide .centered img.triple-s {
       width: 25px;
-      margin-top: 50px; }
+      margin-top: 30px; }
     .slide .centered img.building.intro {
       width: 55px; }
   .go-next.bottom-arrow {
@@ -956,3 +1000,7 @@ input:-ms-input-placeholder {
       width: 32px;
       height: 11px;
       background-image: url('../assets/png/chevron-sm.png'); } }
+
+@media screen and (max-height: 480px) {
+  .slide .centered img.triple-s {
+    margin-top: 20px; } }
