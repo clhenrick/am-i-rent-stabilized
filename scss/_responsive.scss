@@ -5,200 +5,206 @@
 	 thoughts: use jquery to set height of slides?
 */
 
-.slides-container {
-	height: auto;	
+@media screen and (max-width: 1365px), screen and (max-height: 700px) {
+	.slides-container {
+		// height: auto;
+		width: 960px;
+		margin: 0 auto;
+		position: absolute;		
+		left: 53.776041666667%;
+		margin-left: -516.25px;		
+		// left: 36.25px; // half of left margin when container is centered horizontally
 
-	.slide {
-		height: 590px;
-		//border: 1px solid $lightgray;
-	}
-}
-
-.slide .centered {
-	//border: 1px solid $gray;
-	left: 0;
-
-	h1 {
-	  max-width: 90%;
-	  margin-top: 6%;
-	  font-size: 4.8em;
-
-	  &.landing {
-	  	margin-top: 0px;
-	  }
-
-	  &.news, &.end {
-	  	margin-top: 2%;
-	  }
-	}
-
-	h2 {
-		font-size: 4.2em;
-
-		&.sub-head {
-			margin-top: 2%;
+		.slide {
+			// height: 590px;			
+			margin: 0 auto;
+			// border-top: 1px solid $lightgray;
 		}
 	}
 
-	p {
-		font-size: 2.5em;
-		margin-top: 1%;
+	.slide .centered {
+		//border: 1px solid $gray;
+		left: 0;
+		width: 90%;
 
-		&.check-it {
-			width: 70%;
-		}
-	}
+		h1 {
+		  max-width: 90%;
+		  margin-top: 6%;
+		  font-size: 4.8em;
 
-	img {
-		&.triple-s {
-			margin-top: 1%;
-			margin-bottom: 0;
-		}
+		  &.landing {
+		  	margin-top: 0px;
+		  }
 
-		&.building.intro {
-			margin-top: 1%;
-			margin-bottom: 1%;
-		}
-
-		&.mascot {
-			width: 200px;
-		}
-	}
-
-	.button {
-		font-size: 2.5em;
-		padding: 8px 10px;
-
-		&.search {
-			margin-top: 0;
+		  &.news, &.end {
+		  	margin-top: 2%;
+		  }
 		}
 
-		&.start-over {
-			width: 200px;
+		h2 {
+			font-size: 4.2em;
+
+			&.sub-head {
+				margin-top: 2%;
+			}
 		}
 
-		&.learn-more {
-			width: 205px;
-		}
-	}
-
-	&.yes, &.no {
 		p {
-			width: 90%;
+			font-size: 2.5em;
+			margin-top: 1%;
+
+			&.check-it {
+				width: 70%;
+			}
+		}
+
+		img {
+			&.triple-s {
+				margin-top: 1%;
+				margin-bottom: 0;
+			}
+
+			&.building.intro {
+				margin-top: 1%;
+				margin-bottom: 1%;
+			}
+
+			&.mascot {
+				width: 200px;
+			}
+		}
+
+		.button {
+			font-size: 2.5em;
+			padding: 8px 10px;
+
+			&.search {
+				margin-top: 0;
+				left: 0;
+			}
+
+			&.start-over {
+				width: 200px;
+			}
+
+			&.learn-more {
+				width: 205px;
+			}
+		}
+
+		&.yes, &.no {
+			p {
+				width: 90%;
+				font-size: 2.2em;
+				margin-top: 1%;
+			}
+		}
+	}
+
+	nav.margin-circles {
+		top: 22%;
+	}
+
+	.go-next {
+		&.bottom-arrow {
+			bottom: 12%;
+			margin-left: -62.5px;
+		}
+	}
+
+
+	#address-form {
+		width: 100%;
+		height: 250px;
+
+		input {	
+			&.address-input {
+				width: 400px;	
+				height: 60px;		
+			}
+		}
+
+		div.user-data {
+			font-size: .9em;
+			height: 60px;
+
+			&.borough-select {
+				margin-left: 55px;				
+			}
+		}
+
+		ul.validation-error {
+			&.not-found {
+				left:0;
+			}
+
+			li {
+				max-width: 400px;			
+
+				&#error-not-found {
+					max-width: 80%;
+					display: block;
+				}
+
+				&#error-boro {
+					margin-left: 55px;
+					width: 400px;
+				}			
+
+			}
+
+		}
+
+	}
+
+	#sprite {
+		background: url('../assets/png/checking-sprite-sm.png');
+		width: 128px;
+		height: 288px;
+	}
+
+	@-webkit-keyframes play {
+	   from { background-position:    0px; }
+	     to { background-position: -1280px; }
+	}
+
+	@-moz-keyframes play {
+	   from { background-position:    0px; }
+	     to { background-position: -1280px; }
+	}
+
+	@-ms-keyframes play {
+	   from { background-position:    0px; }
+	     to { background-position: -1280px; }
+	}
+
+	@-o-keyframes play {
+	   from { background-position:    0px; }
+	     to { background-position: -1280px; }
+	}
+
+	@keyframes play {
+	   from { background-position:    0px; }
+	     to { background-position: -1280px; }
+	}
+
+	#map-container {
+		
+		#map {
+			margin-top: 2%;
+			height: 275px;
+		}	
+
+		.map-message {
 			font-size: 2.2em;
 			margin-top: 1%;
 		}
 	}
 
-	&.yes {
-		display: none;
-	}
-}
-
-nav.margin-circles {
-	top: 22%;
-}
-
-.go-next {
-	&.bottom-arrow {
-		bottom: 3%;
-		margin-left: -62.5px;
-	}
-}
-
-
-#address-form {
-	width: 100%;
-	height: 250px;
-
-	input {	
-		&.address-input {
-			width: 400px;	
-			height: 60px;		
+	#slide-8 .action-choice {
+		p {
+			height: auto;
+			margin-top: 1%;
 		}
-	}
-
-	div.user-data {
-		font-size: .9em;
-		height: 60px;
-
-		&.borough-select {
-			margin-left: 3%;
-			float: right;
-		}
-	}
-
-	ul.validation-error {
-		&.not-found {
-			left:0;
-		}
-
-		li {
-			max-width: 400px;			
-
-			&#error-not-found {
-				max-width: 90%;
-				display: block;
-			}
-
-			&#error-boro {
-				margin-left: 3%;
-				width: 400px;
-			}			
-
-		}
-
-	}
-
-}
-
-#sprite {
-	background: url('../assets/png/checking-sprite-sm.png');
-	width: 128px;
-	height: 288px;
-}
-
-@-webkit-keyframes play {
-   from { background-position:    0px; }
-     to { background-position: -1280px; }
-}
-
-@-moz-keyframes play {
-   from { background-position:    0px; }
-     to { background-position: -1280px; }
-}
-
-@-ms-keyframes play {
-   from { background-position:    0px; }
-     to { background-position: -1280px; }
-}
-
-@-o-keyframes play {
-   from { background-position:    0px; }
-     to { background-position: -1280px; }
-}
-
-@keyframes play {
-   from { background-position:    0px; }
-     to { background-position: -1280px; }
-}
-
-#map-container {
-	
-	#map {
-		margin-top: 0;
-		height: 275px;
-	}	
-
-	.map-message {
-		font-size: 2.2em;
-		margin-top: 1%;
-	}
-}
-
-#slide-8 .action-choice {
-	p {
-		height: auto;
-		margin-top: 1%;
-	}
-}
+	} 
+} // end media query

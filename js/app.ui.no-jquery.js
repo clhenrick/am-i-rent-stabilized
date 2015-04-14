@@ -87,6 +87,7 @@ app.ui = (function(w,d){
   addEventListenerList(el.navGoFour, 'click', function(e){
     e.preventDefault();
     state.formFilled = true;
+    hideFormValidationErrors();
     goToSlide(el.slides[6]);
   });
 
