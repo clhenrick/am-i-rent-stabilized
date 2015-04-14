@@ -867,3 +867,46 @@ input:-ms-input-placeholder {
   #slide-8 .action-choice p {
     height: auto;
     margin-top: 1%; } }
+
+@media screen and (min-width: 320px) {
+  nav.main-nav img.logo {
+    margin-left: 10px; }
+  nav.main-nav h1 {
+    font-size: 1.8em; }
+    nav.main-nav h1 a.go-first {
+      font-size: 1em; }
+  nav.main-nav ul {
+    display: none; }
+  nav.margin-circles {
+    display: none; }
+  #lang-toggle {
+    display: none; }
+  .slides-container {
+    width: 320px;
+    left: 0;
+    margin: 0; }
+  .slide .centered {
+    width: 95%; }
+    .slide .centered h1, .slide .centered h2, .slide .centered h3, .slide .centered h4 {
+      max-width: 100%; }
+    .slide .centered h1, .slide .centered h1.landing {
+      font-size: 2.6em;
+      line-height: 1.2em;
+      max-width: 100%;
+      margin-top: 0; }
+    .slide .centered h2 {
+      font-size: 2em; }
+    .slide .centered p {
+      font-size: 1.8em; }
+    .slide .centered img.triple-s {
+      width: 35px; }
+    .slide .centered img.building.intro {
+      width: 55px; }
+  .go-next.bottom-arrow {
+    bottom: 15%; }
+    .go-next.bottom-arrow h3 {
+      font-size: 1.6em; }
+    .go-next.bottom-arrow .arrow {
+      width: 32px;
+      height: 11px;
+      background-image: url('../assets/png/chevron-sm.png'); } }
