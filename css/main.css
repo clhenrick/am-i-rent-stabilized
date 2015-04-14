@@ -177,13 +177,14 @@ nav.main-nav {
     display: inline;
     width: auto;
     float: left;
-    font-size: 1em;
-    margin-top: 28px;
+    font-size: 2.8em;
+    margin-top: 21px;
     margin-left: 10px; }
     nav.main-nav h1 a.go-first {
       display: inline-block;
+      padding: 0;
       color: #fff;
-      font-size: 2.8em;
+      font-size: 1em;
       letter-spacing: .05em;
       font-weight: 500; }
     nav.main-nav h1 a.go-first:hover {
@@ -250,7 +251,7 @@ nav.main-nav {
 nav.margin-circles {
   position: fixed;
   z-index: 100;
-  top: 215px;
+  top: 22%;
   left: 30px; }
   nav.margin-circles ul {
     list-style-type: none; }
@@ -742,7 +743,7 @@ input:-ms-input-placeholder {
 
 	 thoughts: use jquery to set height of slides?
 */
-@media screen and (max-height: 700px) {
+@media screen and (max-height: 700px), screen and (max-width: 1100px) {
   .slides-container {
     width: 960px;
     margin: 0 auto;
@@ -869,19 +870,17 @@ input:-ms-input-placeholder {
     margin-top: 1%; } }
 
 @media screen and (max-width: 970px) {
-  nav.main-nav img.logo {
-    margin-left: 10px; }
   nav.main-nav h1 {
     display: inline-block;
     font-size: 2.8em;
-    margin-top: 22px;
-    text-align: center;
+    margin-left: 10px;
     float: none; }
     nav.main-nav h1 a.go-first {
-      font-size: 1em; }
+      font-size: 1em;
+      padding-bottom: 3px; }
   nav.main-nav li a {
     display: none; }
-  nav.main-nav .burger {
+  nav.main-nav div.burger {
     display: inline-block;
     position: relative;
     float: right;
@@ -895,6 +894,29 @@ input:-ms-input-placeholder {
 @media screen and (max-width: 420px) {
   nav.main-nav h1 {
     font-size: 1.8em; } }
+
+.main-nav div.burger.open {
+  position: relative;
+  background-image: url('../assets/png/x.png');
+  background-position: center;
+  width: 19px;
+  height: 18px;
+  right: 4.5%; }
+.main-nav ul.responsive {
+  display: block;
+  position: absolute;
+  margin-top: 8px;
+  float: none;
+  right: -3.2%; }
+  .main-nav ul.responsive li {
+    width: 200px;
+    display: block;
+    margin: 0; }
+    .main-nav ul.responsive li a {
+      display: block;
+      padding: 10px 10px 10px 20px;
+      border-bottom: none;
+      text-align: left; }
 
 @media screen and (max-width: 420px) {
   nav.margin-circles {

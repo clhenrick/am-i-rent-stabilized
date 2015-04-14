@@ -611,6 +611,9 @@ app.ui = (function(w,d){
     navGoNext : d.querySelectorAll('.go-next'),
     navGoFirst : d.querySelectorAll('.go-first'),
     navGoFour : d.querySelectorAll('.go-step4'),
+    burgerIcon : d.querySelector('.burger'),
+    navBar : d.querySelector('.main-nav'),
+    mainNavList : d.querySelector('.main-nav ul'),
     progressCircles : d.querySelectorAll('.margin-circles li'),
     slidesContainer : d.querySelector('.slides-container'),
     slides : d.querySelectorAll('.slide'),
@@ -692,6 +695,13 @@ app.ui = (function(w,d){
     state.formFilled = true;
     hideFormValidationErrors();
     goToSlide(el.slides[6]);
+  });
+
+  // hamburger icon
+  el.burgerIcon.addEventListener('click', function(e) {
+    e.preventDefault();
+    toggleClass(el.burgerIcon, 'open');
+    toggleClass(el.mainNavList, 'responsive');
   });
 
   // drop down for borough

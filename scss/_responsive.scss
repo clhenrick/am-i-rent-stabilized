@@ -5,7 +5,7 @@
 	 thoughts: use jquery to set height of slides?
 */
 
-@media screen and (max-height: 700px) {
+@media screen and (max-height: 700px), screen and (max-width: 1100px) {
 	.slides-container {
 		// height: auto;
 		width: 960px;

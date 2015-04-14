@@ -1,18 +1,19 @@
 @media screen and (max-width: 970px) {
   nav.main-nav {
     img.logo {
-      margin-left: 10px;
+      // margin-left: 10px;
     }
 
     h1 {
       display: inline-block;
-      font-size: 2.8em;      
-      margin-top: 22px;
-      text-align: center;
+      font-size: 2.8em;            
+      margin-left: 10px;
+      // text-align: center;
       float: none;
       
       a.go-first {
         font-size: 1em;
+        padding-bottom: 3px;
       }
     }
     
@@ -20,7 +21,7 @@
       display: none;
     }
 
-    .burger {
+    div.burger {
       display: inline-block;
       position: relative;
       float: right;

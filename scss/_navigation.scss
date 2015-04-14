@@ -5,6 +5,7 @@ nav.main-nav {
   width: 100%;
   height: 60px;
   z-index: 100;
+
   .logo {
     height: 65px;
     display: inline;
@@ -12,41 +13,51 @@ nav.main-nav {
     padding: 5px;
     float: left;
   }
+
   h1 {
     display: inline;
     width: auto;
     float: left;
-    font-size: 1em;
-    margin-top: 28px;
+    font-size: 2.8em;
+    margin-top: 21px;
     margin-left: 10px;    
+
     a.go-first {
       display: inline-block;
+      padding: 0;
       color: #fff;
-      font-size: 2.8em;
+      font-size: 1em;
       letter-spacing: .05em;
       font-weight: 500;
     }
+
     a.go-first:hover {
       border-bottom: none;
       color: $orange;
     }
   }
+
   ul {
     float: right;
     list-style: none;    
     margin-top: 20px;
+
     li {
       display: inline-block;
       margin-right: 55px;
+
       &:last-child {
         margin-right: 30px;
       }
+
       &.social {
         margin-right: 8px;
+
         &:last-child {
           margin-right: 20px;
         }
       }
+
       a {
         text-align: center;
         font-family: $header-font;
@@ -54,6 +65,7 @@ nav.main-nav {
       }
     }
   }
+
   a {
     position: relative;
     top: 0;
@@ -114,7 +126,7 @@ nav.main-nav {
 nav.margin-circles {
   position: fixed;
   z-index: 100;
-  top: 215px;
+  top: 22%;
   left: 30px;
   ul {
     list-style-type: none;
