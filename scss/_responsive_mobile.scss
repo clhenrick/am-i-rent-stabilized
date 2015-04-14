@@ -10,7 +10,13 @@
 	  }
 
 	  ul.responsive {
+	    width: 160px;
 	    right: -9.3%;
+	
+		  li a {
+		  	font-size: 1.5em;
+		  	padding: 5px 5px 5px 15px;
+		  }	    
 	  }
 	}
 
@@ -100,7 +106,15 @@
 			&.mascot {
 				width: 118px;
 			}
+
 		}
+
+		a.lightbox img {
+			max-width: 300px;
+			left: 0;
+			margin: 0 auto;
+			margin-top: 70px;
+		}		
 
 		.button {
 			display: block;

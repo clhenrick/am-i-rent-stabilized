@@ -951,7 +951,11 @@ input:-ms-input-placeholder {
   nav.main-nav h1 {
     font-size: 1.8em; }
   nav.main-nav ul.responsive {
+    width: 160px;
     right: -9.3%; }
+    nav.main-nav ul.responsive li a {
+      font-size: 1.5em;
+      padding: 5px 5px 5px 15px; }
   nav.margin-circles {
     display: none; }
     nav.margin-circles:first-child {
@@ -995,6 +999,11 @@ input:-ms-input-placeholder {
       width: 55px; }
     .slide .centered img.mascot {
       width: 118px; }
+    .slide .centered a.lightbox img {
+      max-width: 300px;
+      left: 0;
+      margin: 0 auto;
+      margin-top: 70px; }
     .slide .centered .button {
       display: block;
       margin: 0 auto;
