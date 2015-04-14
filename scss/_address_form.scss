@@ -15,7 +15,7 @@
     background-repeat: no-repeat;
     background-position: center bottom;
     padding-left: 10px;
-    text-transform: capitalize;
+    // text-transform: capitalize;
     font-weight: 300;
     color: $medgray;
   }
@@ -144,11 +144,12 @@ ul.validation-error {
     background-color: $valError;
 
     &#error-not-found {
-      max-width: 90%;
+      max-width: 70%;
+      display: block;
       top: 0;
       margin: 0 auto;
       padding: 10px;
-      text-align: center;      
+      text-align: center;
     }
 
     &:last-child {

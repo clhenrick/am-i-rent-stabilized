@@ -56,18 +56,18 @@
 		}
 
 		h1, h1.landing {
-			font-size: 2.6em;
+			font-size: 2em;
 			line-height: 1.2em;
-			max-width: 95%;
+			width: 97%;
 			margin-top: 3%;
 		}
 
 		h2 {
-			font-size: 2em;
+			font-size: 1.6em;
 		}
 
 		p {
-			font-size: 1.8em;
+			font-size: 1.3em;
 			
 			&.landing {
 				margin-top: 10%;
@@ -83,6 +83,11 @@
 			&.building.intro {
 				width: 55px;
 			}
+		}
+
+		.button {
+			font-size: 1.5em;
+			width: 110px;
 		}
 
 	}
@@ -101,5 +106,69 @@
 				background-image: url('../assets/png/chevron-sm.png');
 			}
 		}
+	}
+
+	#address-form {
+		height: 244px;
+		margin-top: 15%;
+
+		div.user-data {
+			width: 240px;
+			top: -125px;
+			font-size: 0.6em;
+
+			&.borough-select {
+				width: 240px;
+				height: 50px;
+				margin-top: 5px;
+
+				ul.drop-down {
+					width: 240px;
+				}
+
+				&:after {
+					width: 17px;
+					height: 10px;
+					right: 5px;
+					top: 20px;
+					background-image: url('../assets/png/drop-down-triangle-sm.png');
+				}
+			}
+		}
+
+		input.address-input {
+			width: 240px;
+			height: 50px;
+			margin-top: 3px;
+		}
+
+		ul.validation-error {
+			li {					
+				&#error-address, &#error-boro {
+					width: 98%;
+					top: -125px;
+					padding: 5px;
+					margin: 0 auto;
+					// margin-top: 5px;
+					display: block;
+					font-size: 0.5em;					
+				}
+
+				&#error-not-found {
+					top: 158px;
+					max-width: 98%;
+					margin: 0 auto;					
+					padding: 5px;					
+					display: block;
+					text-align: left;
+					font-size: 0.5em;
+				}
+
+			}
+		}		
+	}
+
+	#sprite {
+		left: 0;
 	}
 }

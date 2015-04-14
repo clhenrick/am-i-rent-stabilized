@@ -380,7 +380,6 @@ a.lightbox {
     background-repeat: no-repeat;
     background-position: center bottom;
     padding-left: 10px;
-    text-transform: capitalize;
     font-weight: 300;
     color: #9B9B9B; }
   #address-form div.user-data {
@@ -477,7 +476,8 @@ ul.validation-error {
     list-style: none;
     background-color: #D98C8C; }
     ul.validation-error li#error-not-found {
-      max-width: 90%;
+      max-width: 70%;
+      display: block;
       top: 0;
       margin: 0 auto;
       padding: 10px;
@@ -979,14 +979,14 @@ input:-ms-input-placeholder {
       max-width: 100%;
       padding: 0 1%; }
     .slide .centered h1, .slide .centered h1.landing {
-      font-size: 2.6em;
+      font-size: 2em;
       line-height: 1.2em;
-      max-width: 95%;
+      width: 97%;
       margin-top: 3%; }
     .slide .centered h2 {
-      font-size: 2em; }
+      font-size: 1.6em; }
     .slide .centered p {
-      font-size: 1.8em; }
+      font-size: 1.3em; }
       .slide .centered p.landing {
         margin-top: 10%; }
     .slide .centered img.triple-s {
@@ -994,6 +994,9 @@ input:-ms-input-placeholder {
       margin-top: 30px; }
     .slide .centered img.building.intro {
       width: 55px; }
+    .slide .centered .button {
+      font-size: 1.5em;
+      width: 110px; }
   .go-next.bottom-arrow {
     bottom: 15%; }
     .go-next.bottom-arrow h3 {
@@ -1001,7 +1004,47 @@ input:-ms-input-placeholder {
     .go-next.bottom-arrow .arrow {
       width: 32px;
       height: 11px;
-      background-image: url('../assets/png/chevron-sm.png'); } }
+      background-image: url('../assets/png/chevron-sm.png'); }
+  #address-form {
+    height: 244px;
+    margin-top: 15%; }
+    #address-form div.user-data {
+      width: 240px;
+      top: -125px;
+      font-size: 0.6em; }
+      #address-form div.user-data.borough-select {
+        width: 240px;
+        height: 50px;
+        margin-top: 5px; }
+        #address-form div.user-data.borough-select ul.drop-down {
+          width: 240px; }
+        #address-form div.user-data.borough-select:after {
+          width: 17px;
+          height: 10px;
+          right: 5px;
+          top: 20px;
+          background-image: url('../assets/png/drop-down-triangle-sm.png'); }
+    #address-form input.address-input {
+      width: 240px;
+      height: 50px;
+      margin-top: 3px; }
+    #address-form ul.validation-error li#error-address, #address-form ul.validation-error li#error-boro {
+      width: 98%;
+      top: -125px;
+      padding: 5px;
+      margin: 0 auto;
+      display: block;
+      font-size: 0.5em; }
+    #address-form ul.validation-error li#error-not-found {
+      top: 158px;
+      max-width: 98%;
+      margin: 0 auto;
+      padding: 5px;
+      display: block;
+      text-align: left;
+      font-size: 0.5em; }
+  #sprite {
+    left: 0; } }
 
 @media screen and (max-height: 480px) {
   .slide .centered img.triple-s {
