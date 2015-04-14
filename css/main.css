@@ -742,7 +742,7 @@ input:-ms-input-placeholder {
 
 	 thoughts: use jquery to set height of slides?
 */
-@media screen and (max-width: 1000px), screen and (max-height: 700px) {
+@media screen and (max-height: 700px) {
   .slides-container {
     width: 960px;
     margin: 0 auto;
@@ -868,12 +868,12 @@ input:-ms-input-placeholder {
     height: auto;
     margin-top: 1%; } }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 970px) {
   nav.main-nav img.logo {
     margin-left: 10px; }
   nav.main-nav h1 {
     display: inline-block;
-    font-size: 1.8em;
+    font-size: 2.8em;
     margin-top: 22px;
     text-align: center;
     float: none; }
@@ -883,12 +883,20 @@ input:-ms-input-placeholder {
     display: none; }
   nav.main-nav .burger {
     display: inline-block;
-    position: absolute;
+    position: relative;
+    float: right;
     background-image: url('../assets/png/hamburger-sm.png');
     width: 30px;
     height: 18px;
     margin-top: 22px;
-    right: 4%; }
+    right: 4%;
+    cursor: pointer; } }
+
+@media screen and (max-width: 420px) {
+  nav.main-nav h1 {
+    font-size: 1.8em; } }
+
+@media screen and (max-width: 420px) {
   nav.margin-circles {
     display: none; }
   #lang-toggle {

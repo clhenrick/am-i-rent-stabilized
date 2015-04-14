@@ -1,0 +1,43 @@
+@media screen and (max-width: 970px) {
+  nav.main-nav {
+    img.logo {
+      margin-left: 10px;
+    }
+
+    h1 {
+      display: inline-block;
+      font-size: 2.8em;      
+      margin-top: 22px;
+      text-align: center;
+      float: none;
+      
+      a.go-first {
+        font-size: 1em;
+      }
+    }
+    
+    li a {
+      display: none;
+    }
+
+    .burger {
+      display: inline-block;
+      position: relative;
+      float: right;
+      background-image: url('../assets/png/hamburger-sm.png');
+      width: 30px;
+      height: 18px;
+      margin-top: 22px;
+      right: 4%;
+      cursor: pointer;
+    }
+  }  
+}
+
+@media screen and (max-width: 420px) {
+  nav.main-nav {
+    h1 {
+      font-size: 1.8em;
+    }
+  }
+}
