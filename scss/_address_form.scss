@@ -6,6 +6,7 @@
   width: 1000px;
   font-family: $body-font;
   font-size: 3em;
+ 
   input.address-input {
     width: 465px;
     height: 70px;
@@ -18,6 +19,7 @@
     font-weight: 300;
     color: $medgray;
   }
+  
   div.user-data {
     position: relative;
     display: inline-block;
@@ -62,6 +64,7 @@
         background-position: center center;
         background-size: contain;
       }
+      
       ul.drop-down {        
         position: absolute;
         width: 400px;
@@ -74,16 +77,20 @@
         border-top: none;
         pointer-events: none;       
       }
+      
       li {        
         list-style: none;
         display: block;        
       }
+      
       li a {        
         text-decoration: none;
         font-weight: 300;
+        font-size: .9em;
         color: $medgray;
-        padding: 5px 10px;
+        padding: 3px 8px;
         display: block;
+
         span.value {
           display: none;
         }

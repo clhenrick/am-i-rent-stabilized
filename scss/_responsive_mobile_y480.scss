@@ -1,0 +1,9 @@
+@media screen and (max-height: 480px) {
+  .slide .centered {
+    img {
+      &.triple-s {
+        margin-top: 20px;
+      }
+    }
+  }
+}
