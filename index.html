@@ -276,6 +276,11 @@
         <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.6/plugins/ScrollToPlugin.min.js"></script>
         <script type="text/javascript" src="dist/all.js"></script>
         <script type="text/javascript">
+          window.addEventListener('DOMContentLoaded', function(){
+            app.ui.init();
+          });
+        </script>
+        <script type="text/javascript">
           // window.onload = setTimeout(function(){
           //   document.querySelector('#atc_text_link_link.atcb-link').innerText = "Add a reminder to your calendar.";
           // }, 1000);
