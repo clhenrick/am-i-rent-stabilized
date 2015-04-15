@@ -5,7 +5,7 @@ app.a = (function(w,d) {
   ** User address related functions
    */
 
-   var el = app.el;
+   var el = app.el.el;
    var f = app.f;
    var state = app.s;
 
@@ -13,9 +13,12 @@ app.a = (function(w,d) {
      // form validation for when user enters address and selects boro
     checkAddressInput : function(address, borough) {        
       if (address !== "" && borough !== undefined) {  
-        state.formFilled = true;    
+        app.events.publish('state-change', {
+          formFilled : true
+        });
+        
         f.goToNextSlide();
-        var parsed_address = parseAddressInput(address);      
+        var parsed_address = app.a.parseAddressInput(address);      
         // delay API calls so user sees loading gif
         setTimeout(function(){        
           app.map.geoclient(parsed_address[0], parsed_address[1], borough); 
@@ -71,4 +74,5 @@ app.a = (function(w,d) {
       el.mailTo.setAttribute('href', msg);
     }   
   };
+
 })(window, document);

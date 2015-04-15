@@ -4,9 +4,14 @@ var app = app || {};
 app.map = (function(d,w,a){
    var el = {}, // to store DOM element references from app.ui
       f = {},  // to store DOM manipulation and UI functions from app.ui
+      state = app.s,
       addressMarker, // leaflet marker to locate user's address on map
       sqlURL = "https://chenrick.cartodb.com/api/v2/sql?q=", //cartodb SQL API reference
       geoclientResult = {}; // to store properties from NYC Geoclient API result
+
+  app.events.subscribe('state-updated', function(updatedState){
+    state = updatedState;
+  });
 
   function getJSON(url, type, callback) {
     a().url(url)
@@ -58,20 +63,23 @@ app.map = (function(d,w,a){
       _gaq.push(['_trackEvent', 'Geoclient Success', 'Result', gcr_stringify]);
       getCDBdata(bbl);
       showMarker(data);
+
     } else {      
-      app.ui.el.addressInput.value='';
-      app.ui.f.resetBoroValue();      
-      if (app.ui.f.hasClass(app.ui.el.valErrorNF, 'vis-hidden')===true) {
-        app.ui.f.toggleClass(app.ui.el.valErrorNF, 'vis-hidden');
+
+      el.addressInput.value='';
+      f.resetBoroValue();      
+      if (f.hasClass(el.valErrorNF, 'vis-hidden')===true) {
+        f.toggleClass(el.valErrorNF, 'vis-hidden');
       }
-      if (app.ui.f.hasClass(app.ui.el.valErrorBoro, 'vis-hidden')===false) {
-        app.ui.f.addClass(app.ui.el.valErrorBoro, 'vis-hidden');
+      if (f.hasClass(el.valErrorBoro, 'vis-hidden')===false) {
+        f.addClass(el.valErrorBoro, 'vis-hidden');
       }
-      if (app.ui.f.hasClass(app.ui.el.valErrorAddress, 'vis-hidden')===false) {
-        app.ui.f.addClass(app.ui.el.valErrorAddress, 'vis-hidden');
+      if (f.hasClass(el.valErrorAddress, 'vis-hidden')===false) {
+        f.addClass(el.valErrorAddress, 'vis-hidden');
       }
-      app.ui.state.formFilled = false;
-      app.ui.f.goToPrevSlide(); 
+      
+      app.events.publish('state-change', { formFilled : false });
+      app.f.goToPrevSlide(); 
     }     
   };
 
@@ -84,13 +92,15 @@ app.map = (function(d,w,a){
   };
 
   // if the results of the CDB SQL query have a row then show yes else display no
-  var checkData = function(data) {    
-    if (data.rows.length > 0 && el.yesNoState === false) {
+  var checkData = function(data) {   
+    console.log('cdb data: ', data); 
+    if (data.rows.length > 0 && state.yesNoState === false) {
+      console.log('bbl match!');
       var bbl_match = JSON.stringify(data.rows[0].bbl);
       _gaq.push(['_trackEvent', 'CDB', 'Match', bbl_match]);
-      f.toggleClass(el.yes, 'hidden');
-      f.toggleClass(el.no, 'hidden');
-      el.yesNoState = true;
+      app.f.toggleClass(el.yes, 'hidden');
+      app.f.toggleClass(el.no, 'hidden');
+      app.events.publish('state-change', { yesNoState : true });
     } 
     f.goToNextSlide();
     // console.log('checkData goToNextSlide called');
@@ -169,8 +179,9 @@ app.map = (function(d,w,a){
   };
 
   function init() {
-    el = app.ui.el;
-    f = app.ui.f;
+    el = app.el.el;
+    f = app.f;
+    state = app.s;
     initMap();
   }
 

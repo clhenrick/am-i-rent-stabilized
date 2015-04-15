@@ -2,14 +2,18 @@ var app = app || {};
 
 app.f = (function(w,d) {
   
-  var el = app.el;
+  var el = app.el.el;
   var state = app.s;
 
+  app.events.subscribe('state-updated', function(updatedState){
+    state = updatedState;
+  });
+
   // slide animation flag - is app animating?
-  state.isAnimating = false;
+  // state.isAnimating = false;
 
   // height of window
-  var pageHeight = w.innerHeight;
+  // var pageHeight = w.innerHeight;
 
   // key codes for up / down arrows for navigation
   var keyCodes = {
@@ -59,17 +63,22 @@ app.f = (function(w,d) {
 
     goToSlide : function(slide){
       if (!state.isAnimating && slide) {
-        state.isAnimating = true;
-        el.currentSlide = slide;            
+
+        app.events.publish('state-change', {
+          isAnimating : true,
+          currentSlide : slide
+        });
+
         var index = app.f.getSlideIndex(slide);                  
-        TweenLite.to(el.slidesContainer, 1, {scrollTo: {y: pageHeight * index}, onComplete: app.f.onSlideChangeEnd});
+        TweenLite.to(el.slidesContainer, 1, {scrollTo: {y: state.pageHeight * index}, onComplete: app.f.onSlideChangeEnd});
       }
     },
 
-    goToPrevSlide : function(callback){    
-      var previous = el.currentSlide.previousElementSibling;
-      if (previous) {      
-        app.f.goToSlide(previous);       
+    goToPrevSlide : function(callback){          
+      var previous = app.f.getSlideIndex(state.currentSlide) -1;
+      console.log('go previous slide', previous);
+      if (previous >=0) {      
+        app.f.goToSlide(el.slides[previous]);       
         if (callback && typeof callback === "function") { 
           callback();
           // console.log('goToPrevSlide callback called.');
@@ -78,8 +87,10 @@ app.f = (function(w,d) {
     },
 
     goToNextSlide: function(callback) {
-      var index = app.f.getSlideIndex(el.currentSlide);
-      var next = el.currentSlide.nextElementSibling;
+      // console.log('local slide state: ', state);
+      var index = app.f.getSlideIndex(state.currentSlide);
+      var next = el.slides[index + 1];
+      // console.log('go to next slide', state);
       // console.log('formFilled: ', state.formFilled, ' index: ', index);
       if (next && ( index === 0 || (index >= 1 && state.formFilled === true ) ) ) {      
         app.f.goToSlide(next);
@@ -92,28 +103,32 @@ app.f = (function(w,d) {
 
     goToFirstSlide : function() {
       // reset everything to defaults
-      if (el.currentSlide) {
+      if (state.currentSlide) {
         el.addressInput.value = '';
         app.f.resetSearchResultMsg();      
         app.f.hideFormValidationErrors();
         app.f.resetBoroValue();
-        state.formFilled = false;
         app.map.resetMap();
         app.f.addClass(el.yes, 'hidden');
         app.f.removeClass(el.no, 'hidden');      
         app.f.goToSlide(el.slides[0]);
+        app.events.publish('state-change', {
+          formFilled : false
+        });
       }
     },
 
     onSlideChangeEnd : function(){
-      state.isAnimating = false;
-      app.f.updateProgCircles(el.currentSlide);
+      app.events.publish('state-change', {
+        isAnimating : false
+      });      
+      app.f.updateProgCircles(state.currentSlide);
     },
 
     updateProgCircles : function (slide) {
       var s = app.f.getSlideIndex(slide),
             i = 0,
-            l = app.ui.el.progressCircles.length;
+            l = el.progressCircles.length;
       
       for (i; i<l; i++) {
         var circle = el.progressCircles[i];
@@ -137,14 +152,14 @@ app.f = (function(w,d) {
     onResize : function() {
       // console.log('onResize called');
       var newPageHeight = w.innerHeight;
-      var slide = el.currentSlide;
+      var slide = state.currentSlide;
       var index = app.f.getSlideIndex(slide);
-      if (pageHeight !== newPageHeight) {
-        pageHeight = newPageHeight;
+      if (state.pageHeight !== newPageHeight) {
+        app.events.publish('state-change', { pageHeight : newPageHeight });
         //This can be done via CSS only, but fails into some old browsers, so I prefer to set height via JS
-        TweenLite.set([el.slidesContainer, el.slides], {height: pageHeight + "px"});
+        TweenLite.set([el.slidesContainer, el.slides], {height: state.pageHeight + "px"});
         //The current slide should be always on the top
-        TweenLite.set(el.slidesContainer, {scrollTo: {y: pageHeight * index}});
+        TweenLite.set(el.slidesContainer, {scrollTo: {y: state.pageHeight * index}});
       }
     },
 
@@ -237,8 +252,8 @@ app.f = (function(w,d) {
     },
 
     resetBoroValue : function() {
-      dd.val = undefined;
-      dd.placeholder.text('Select a Borough');
+      el.dd.val = undefined;
+      el.dd.placeholder.text('Select a Borough');
     },
 
     addToCalendar : function() {

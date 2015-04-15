@@ -1,8 +1,8 @@
 var app = app || {};
 
-app.el = (function(w,d) {
+app.el = (function(w,d,$) {
   // references to DOM elements
-  return  {
+  var el =  {
       navGoNext : d.querySelectorAll('.go-next'),
       navGoFirst : d.querySelectorAll('.go-first'),
       navGoFour : d.querySelectorAll('.go-step4'),
@@ -37,4 +37,55 @@ app.el = (function(w,d) {
       learnMore : d.querySelector('.button.learn-more')
   };
 
-})(window, document);
+  // drop down class
+  //  code reference: http://tympanus.net/codrops/2012/10/04/custom-drop-down-list-styling/
+  function DropDown(el) {
+    this.dd = el;
+    this.placeholder = this.dd.children('span');
+    this.opts = this.dd.find('ul.drop-down > li');
+    this.val = undefined;    
+    this.index = -1;
+    this.initEvents();
+  }  
+
+  // dropdown
+  DropDown.prototype = {
+    initEvents : function() {
+      var obj = this;
+
+      // console.log('initEvents this: ', this);
+
+      obj.dd.on('click', function(e){
+        e.preventDefault();
+        // $(this).toggleClass('active');
+        app.f.toggleClass(this, 'active');
+        return false;
+      });
+
+      obj.opts.on('click',function(e){
+        e.preventDefault();
+        var opt = $(this);
+        obj.val = opt.text();
+        // obj.data = opt.children('span').text();
+        obj.index = opt.index();
+        obj.placeholder.text('Borough: ' + obj.val);        
+        // console.log('obj: ', obj);  
+      });
+    },
+
+    getValue : function() {
+      return this.val;
+    },
+
+    getIndex : function() {
+      return this.index;
+    }
+  };
+
+  el.dd = new DropDown( $('.user-data.borough-select') );  
+
+  return {
+    el : el
+  };
+
+})(window, document, jQuery);
