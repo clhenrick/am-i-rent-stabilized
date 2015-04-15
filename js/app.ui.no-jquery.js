@@ -1,15 +1,16 @@
 //ui no jQuery
 var app = app || {};
 
-app.ui = (function(w,d){
+app.ui = (function(w,d, el){
   // References to DOM elements
-  var el = app.el;
-
+  // var el = app.el.el;
+  
   // variables for storing the app's current state
   var state = {
     formFilled : false, // has the user filled out the address form?    
     currentSlide : null,
-    curSlideIndex : 0
+    curSlideIndex : 0,
+    pageHeight : null,
   };
 
   // store user address 
@@ -514,4 +515,4 @@ app.ui = (function(w,d){
     state : state
   };
 
-})(window, document);
+})(window, document, app.el.el);
