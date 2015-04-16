@@ -347,11 +347,11 @@ app.f = (function(w,d) {
         var circle = el.progressCircles[i];
         if (s===i) {
           circle.style.backgroundImage = 'url(assets/png/oval_25_filled.png)';
-          circle.style.backgroundSize = '25px';
+          // circle.style.backgroundSize = '25px';
           circle.style.backgroundRepeat = 'no-repeat';        
         } else {
           circle.style.background = 'url(assets/png/oval_25_blank.png)';
-          circle.style.backgroundSize = '25px';
+          // circle.style.backgroundSize = '25px';
           circle.style.backgroundRepeat = 'no-repeat';               
         }
       }

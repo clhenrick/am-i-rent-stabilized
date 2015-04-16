@@ -37,6 +37,17 @@ nav.main-nav {
     }
   }
 
+  div.burger {
+    display: none;
+    &.open {
+      position: relative;      
+      background-image: url('../assets/png/x.png');
+      width: 19px;
+      height: 18px;
+      right: 4.5%;      
+    }
+  }
+
   ul {
     float: right;
     list-style: none;    

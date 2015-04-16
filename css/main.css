@@ -190,6 +190,14 @@ nav.main-nav {
     nav.main-nav h1 a.go-first:hover {
       border-bottom: none;
       color: #FFC462; }
+  nav.main-nav div.burger {
+    display: none; }
+    nav.main-nav div.burger.open {
+      position: relative;
+      background-image: url('../assets/png/x.png');
+      width: 19px;
+      height: 18px;
+      right: 4.5%; }
   nav.main-nav ul {
     float: right;
     list-style: none;
@@ -791,9 +799,16 @@ input:-ms-input-placeholder {
       .slide .centered .button.learn-more {
         width: 205px; }
   nav.margin-circles {
-    top: 22%; }
+    top: 25%; }
+    nav.margin-circles li {
+      width: 20px;
+      height: 20px;
+      background-size: 20px;
+      margin-top: 20px; }
+      nav.margin-circles li:first-child {
+        margin-top: 0; }
   .go-next.bottom-arrow {
-    bottom: 12%;
+    bottom: 15%;
     margin-left: -62.5px; }
   #address-form {
     width: 100%;
@@ -924,6 +939,7 @@ input:-ms-input-placeholder {
 
 .main-nav div.burger.open {
   position: relative;
+  display: inline-block;
   background-image: url('../assets/png/x.png');
   background-position: center;
   width: 19px;

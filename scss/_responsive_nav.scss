@@ -3,8 +3,9 @@
   div.burger {
     &.open {
       position: relative;
+      display: inline-block;
       background-image: url('../assets/png/x.png'); 
-      background-position: center;
+      background-position: center;      
       width: 19px;
       height: 18px;
       right: 4.5%;

@@ -87,12 +87,23 @@
 	}
 
 	nav.margin-circles {
-		top: 22%;
+		top: 25%;
+
+		li {
+			width: 20px;
+			height: 20px;
+			background-size: 20px;
+			margin-top: 20px;
+
+			&:first-child {
+				margin-top: 0;
+			}
+		}
 	}
 
 	.go-next {
 		&.bottom-arrow {
-			bottom: 12%;
+			bottom: 15%;
 			margin-left: -62.5px;
 		}
 	}
