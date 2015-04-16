@@ -50,7 +50,6 @@
   outline: none; }
 
 html {
-  font-size: 10px;
   margin: 0;
   padding: 0; }
 
@@ -60,6 +59,7 @@ body, div, p {
 
 body {
   color: #4a4a4a;
+  font-size: 62.5%;
   font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-weight: 400;
   letter-spacing: 0.0625em;
@@ -194,7 +194,9 @@ nav.main-nav {
     display: none; }
     nav.main-nav div.burger.open {
       position: relative;
+      display: inline-block;
       background-image: url('../assets/png/x.png');
+      background-position: center;
       width: 19px;
       height: 18px;
       right: 4.5%; }
@@ -207,14 +209,25 @@ nav.main-nav {
       margin-right: 55px; }
       nav.main-nav ul li:last-child {
         margin-right: 30px; }
-      nav.main-nav ul li.social {
-        margin-right: 8px; }
-        nav.main-nav ul li.social:last-child {
-          margin-right: 20px; }
       nav.main-nav ul li a {
         text-align: center;
         font-family: "museo-sans-rounded", "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
         font-weight: 300; }
+    nav.main-nav ul.responsive {
+      display: block;
+      position: absolute;
+      margin-top: 8px;
+      float: none;
+      right: 0%; }
+      nav.main-nav ul.responsive li {
+        width: 200px;
+        display: block;
+        margin: 0; }
+        nav.main-nav ul.responsive li a {
+          display: block;
+          padding: 10px 10px 10px 20px;
+          border-bottom: none;
+          text-align: left; }
   nav.main-nav a {
     position: relative;
     top: 0;
@@ -674,8 +687,22 @@ input:-ms-input-placeholder {
   #atc_text_link.addtocalendar li.atcb-item:last-child {
     border-bottom: none; }
 
-#side-nav {
+body {
+  width: 100%;
+  height: 100%; }
+
+#left {
+  width: 18.75em;
   position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: 0; }
+  #left #lang-toggle {
+    position: relative; }
+
+#side-nav {
+  position: relative;
   width: 200px;
   left: 30px;
   top: 140px;
@@ -701,25 +728,27 @@ input:-ms-input-placeholder {
         margin-top: 10px; }
 
 #main {
-  width: 800px;
+  width: 75%;
   position: relative;
-  left: 100px;
-  margin: 0 auto;
   margin-top: 80px;
-  margin-bottom: 100px; }
-  #main h1, #main h3 {
+  margin-bottom: 100px;
+  margin-left: 25em; }
+  #main h1, #main h3, #main p {
     text-align: left;
-    max-width: 100%; }
+    max-width: 100%;
+    margin-left: 0; }
   #main h1 {
     margin-top: 50px;
     color: #FFC462; }
     #main h1:first-child {
       margin-top: 25px; }
   #main h3 {
+    width: 80%;
     margin-top: 25px;
+    margin-left: 0;
     font-size: 3em; }
   #main p {
-    max-width: 100%;
+    width: 80%;
     margin-top: 25px;
     padding-right: 25px;
     font-size: 2.2em; }
@@ -728,7 +757,7 @@ input:-ms-input-placeholder {
   #main li {
     color: #417505;
     font-size: 2.2em;
-    width: 90%;
+    width: 80%;
     margin-top: 20px;
     list-style-position: outside; }
     #main li p {
@@ -751,7 +780,7 @@ input:-ms-input-placeholder {
       width: 100%;
       height: 372px; }
 
-@media screen and (max-height: 700px), screen and (max-width: 1100px) {
+@media screen and (max-height: 700px) {
   .slides-container {
     width: 960px;
     margin: 0 auto;
@@ -764,9 +793,9 @@ input:-ms-input-placeholder {
     left: 0;
     width: 90%; }
     .slide .centered h1 {
-      max-width: 90%;
+      max-width: 85%;
       margin-top: 6%;
-      font-size: 4.8em; }
+      font-size: 4.2em; }
       .slide .centered h1.landing {
         margin-top: 0px; }
       .slide .centered h1.news, .slide .centered h1.end {
@@ -779,7 +808,10 @@ input:-ms-input-placeholder {
       font-size: 2.5em;
       margin-top: 1%; }
       .slide .centered p.check-it {
+        margin-top: 25px;
         width: 70%; }
+      .centered.no .slide .centered p {
+        margin-top: 30px; }
     .slide .centered img.triple-s {
       margin-top: 1%;
       margin-bottom: 0; }
@@ -808,7 +840,7 @@ input:-ms-input-placeholder {
       nav.margin-circles li:first-child {
         margin-top: 0; }
   .go-next.bottom-arrow {
-    bottom: 15%;
+    bottom: 12%;
     margin-left: -62.5px; }
   #address-form {
     width: 100%;
@@ -878,88 +910,12 @@ input:-ms-input-placeholder {
     margin-top: 1%; }
   .centered .action-choice p {
     height: auto;
-    margin-top: 1%; } }
-
-@media screen and (max-width: 980px) {
-  nav.main-nav h1 {
-    display: inline-block;
-    font-size: 2.8em;
-    margin-left: 10px;
-    float: none; }
-    nav.main-nav h1 a.go-first {
-      font-size: 1em;
-      padding-bottom: 3px; }
-  nav.main-nav li a {
-    display: none; }
-  nav.main-nav div.burger {
-    display: inline-block;
-    position: relative;
-    float: right;
-    background-image: url('../assets/png/hamburger-sm.png');
-    width: 30px;
-    height: 18px;
-    margin-top: 22px;
-    right: 4%;
-    cursor: pointer; }
-  .slide .centered h1 {
-    margin-top: 3%;
-    width: 70%; }
-  .slide .centered a.lightbox img {
-    max-width: 420px; }
-  #address-form {
-    margin-top: 40px; }
-    #address-form input.address-input {
-      width: 400px;
-      height: 60px; }
-    #address-form div.user-data {
-      font-size: .9em;
-      height: 60px;
-      width: 400px;
-      margin: 0 auto;
-      display: block;
-      top: -75px; }
-      #address-form div.user-data.borough-select {
-        margin: 0 auto;
-        margin-top: 20px; }
-    #address-form ul.validation-error.not-found {
-      left: 0; }
-    #address-form ul.validation-error li {
-      max-width: 400px; }
-      #address-form ul.validation-error li#error-not-found {
-        top: 160px; }
-      #address-form ul.validation-error li#error-boro {
-        width: 140px;
-        margin-left: 415px;
-        padding: 10px;
-        top: -225px; }
-      #address-form ul.validation-error li#error-address {
-        width: 145px;
-        top: -225px;
-        margin-left: 75px; } }
-
-.main-nav div.burger.open {
-  position: relative;
-  display: inline-block;
-  background-image: url('../assets/png/x.png');
-  background-position: center;
-  width: 19px;
-  height: 18px;
-  right: 4.5%; }
-.main-nav ul.responsive {
-  display: block;
-  position: absolute;
-  margin-top: 8px;
-  float: none;
-  right: -3.2%; }
-  .main-nav ul.responsive li {
-    width: 200px;
-    display: block;
-    margin: 0; }
-    .main-nav ul.responsive li a {
-      display: block;
-      padding: 10px 10px 10px 20px;
-      border-bottom: none;
-      text-align: left; }
+    margin-top: 1%; }
+  /* why, how, resources pages */
+  #main h1 {
+    font-size: 4.2em;
+    max-width: 85%;
+    margin-left: 0; } }
 
 @media screen and (max-width: 420px) {
   nav.main-nav .logo {
@@ -1131,3 +1087,62 @@ input:-ms-input-placeholder {
         margin-top: 10px;
         width: 100%;
         height: 250px; } }
+
+@media screen and (max-width: 980px) {
+  nav.main-nav h1 {
+    display: inline-block;
+    font-size: 2.8em;
+    margin-left: 10px;
+    float: none; }
+    nav.main-nav h1 a.go-first {
+      font-size: 1em;
+      padding-bottom: 3px; }
+  nav.main-nav li a {
+    display: none; }
+  nav.main-nav div.burger {
+    display: inline-block;
+    position: relative;
+    float: right;
+    background-image: url('../assets/png/hamburger-sm.png');
+    width: 30px;
+    height: 18px;
+    margin-top: 22px;
+    right: 4%;
+    cursor: pointer; }
+  .slide .centered h1 {
+    margin-top: 3%;
+    width: 70%; }
+  .slide .centered a.lightbox img {
+    max-width: 420px; }
+  #address-form {
+    margin-top: 40px; }
+    #address-form input.address-input {
+      width: 400px;
+      height: 60px; }
+    #address-form div.user-data {
+      font-size: .9em;
+      height: 60px;
+      width: 400px;
+      margin: 0 auto;
+      display: block;
+      top: -75px; }
+      #address-form div.user-data.borough-select {
+        margin: 0 auto;
+        margin-top: 20px; }
+    #address-form ul.validation-error.not-found {
+      left: 0; }
+    #address-form ul.validation-error li {
+      max-width: 400px; }
+      #address-form ul.validation-error li#error-not-found {
+        top: 160px; }
+      #address-form ul.validation-error li#error-boro {
+        width: 140px;
+        margin-left: 415px;
+        padding: 10px;
+        top: -225px; }
+      #address-form ul.validation-error li#error-address {
+        width: 145px;
+        top: -225px;
+        margin-left: 75px; }
+  #main h1 {
+    font-size: 3.2em; } }

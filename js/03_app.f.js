@@ -122,17 +122,24 @@ app.f = (function(w,d) {
     updateProgCircles : function (slide) {
       var s = app.f.getSlideIndex(slide),
             i = 0,
-            l = el.progressCircles.length;
+            l = el.progressCircles.length,
+            backgroundSize;
+
+      if (w.innerHeight <= 700 || w.innerWidth <= 1100) {
+        backgroundSize = '20px';
+      } else {
+        backgroundSize = '25px';
+      }
       
       for (i; i<l; i++) {
         var circle = el.progressCircles[i];
         if (s===i) {
           circle.style.backgroundImage = 'url(assets/png/oval_25_filled.png)';
-          // circle.style.backgroundSize = '25px';
+          circle.style.backgroundSize = backgroundSize;
           circle.style.backgroundRepeat = 'no-repeat';        
         } else {
           circle.style.background = 'url(assets/png/oval_25_blank.png)';
-          // circle.style.backgroundSize = '25px';
+          circle.style.backgroundSize = backgroundSize; 
           circle.style.backgroundRepeat = 'no-repeat';               
         }
       }

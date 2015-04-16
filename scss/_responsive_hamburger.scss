@@ -1,4 +1,4 @@
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 980px){
   nav.main-nav {
     img.logo {
       // margin-left: 10px;
@@ -95,6 +95,17 @@
         }
 
       }
+    }
+  }
+
+  #side-nav {
+
+  }
+
+  #main {    
+
+    h1 {
+      font-size: 3.2em;
     }
   }
 }

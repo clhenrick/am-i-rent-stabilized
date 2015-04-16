@@ -40,11 +40,13 @@ nav.main-nav {
   div.burger {
     display: none;
     &.open {
-      position: relative;      
-      background-image: url('../assets/png/x.png');
+      position: relative;
+      display: inline-block;
+      background-image: url('../assets/png/x.png'); 
+      background-position: center;      
       width: 19px;
       height: 18px;
-      right: 4.5%;      
+      right: 4.5%;
     }
   }
 
@@ -61,20 +63,33 @@ nav.main-nav {
         margin-right: 30px;
       }
 
-      &.social {
-        margin-right: 8px;
-
-        &:last-child {
-          margin-right: 20px;
-        }
-      }
-
       a {
         text-align: center;
         font-family: $header-font;
         font-weight: 300;
       }
     }
+
+    &.responsive {
+      display: block;
+      position: absolute;
+      margin-top: 8px;
+      float: none;
+      right: 0%;
+    
+      li {
+        width: 200px;
+        display: block;
+        margin: 0;
+
+        a {
+          display: block;
+          padding: 10px 10px 10px 20px;      
+          border-bottom: none;
+          text-align: left;
+        }
+      } 
+    }      
   }
 
   a {
@@ -87,19 +102,18 @@ nav.main-nav {
     text-align: center;
     background-color: #4a4a4a;
     color: #fff;
+
     &.active {
       top: -4px;
       background-color: #69C773;
       color: $white;
     }
+
     &:hover {
       color: $orange;
       border-bottom-width: 2px;
       border-bottom-style: solid;
     }
-    // &:last-child {
-    //   display: none;
-    // }
   }
 }
 
