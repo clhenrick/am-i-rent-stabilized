@@ -131,7 +131,7 @@ img {
   display: block;
   position: relative;
   margin: 0 auto;
-  max-width: 400px; }
+  max-width: 100%; }
   img.triple-s {
     width: 40px;
     margin-top: 30px; }
@@ -779,7 +779,7 @@ input:-ms-input-placeholder {
       margin-top: 1%;
       margin-bottom: 1%; }
     .slide .centered img.mascot {
-      width: 200px; }
+      max-width: 20%; }
     .slide .centered .button {
       font-size: 2.5em;
       padding: 8px 10px; }

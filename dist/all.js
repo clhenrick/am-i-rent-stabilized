@@ -228,12 +228,6 @@ app.f = (function(w,d) {
     state = updatedState;
   });
 
-  // slide animation flag - is app animating?
-  // state.isAnimating = false;
-
-  // height of window
-  // var pageHeight = w.innerHeight;
-
   // key codes for up / down arrows for navigation
   var keyCodes = {
     UP : 38,
@@ -866,13 +860,6 @@ app.map = (function(d,w,a){
   };
 
 })(document, window, aja);
-var app = app || {};
-
-app.nav_icon = (function(w,d){
-
-
-  
-})(window, document);
 var app = app || {};
 
 app.init = (function(w,d){

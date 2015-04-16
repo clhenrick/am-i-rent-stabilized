@@ -68,14 +68,8 @@ app.ui = (function(w,d, el){
     toggleClass(el.mainNavList, 'responsive');
   });
 
-  // drop down for borough
-  // addEventListenerList(el.boroSelect, 'click', function(e){
-  //   e.preventDefault();    
-  //   addClass(el.boroDropDown, 'active');
-  // });
-
   // drop down class
-  //  code reference: http://tympanus.net/codrops/2012/10/04/custom-drop-down-list-styling/
+  // code reference: http://tympanus.net/codrops/2012/10/04/custom-drop-down-list-styling/
   function DropDown(el) {
     this.dd = el;
     this.placeholder = this.dd.children('span');
@@ -138,19 +132,6 @@ app.ui = (function(w,d, el){
 
   // start over
   addEventListenerList(el.navGoFirst, 'click', goToFirstSlide);
-
-  // add data to facebook button
-  // addEventListenerList(el.fbShare, 'click', function(e) {
-  //   e.preventDefault();
-  //   FB.ui({
-  //     method : 'feed',
-  //     name : 'Am I Rent Stabilized?',
-  //     link : 'http://amirentstabilized.com',
-  //     picture: 'assets/png/no1.png',
-  //     description: 'Find out if your land lord might owe you money!',
-  //     message : ''
-  //   });
-  // });
 
   // hide address error message if it's displayed and user enters text
   el.addressInput.addEventListener("blur", function(e){

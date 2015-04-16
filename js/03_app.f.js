@@ -9,12 +9,6 @@ app.f = (function(w,d) {
     state = updatedState;
   });
 
-  // slide animation flag - is app animating?
-  // state.isAnimating = false;
-
-  // height of window
-  // var pageHeight = w.innerHeight;
-
   // key codes for up / down arrows for navigation
   var keyCodes = {
     UP : 38,
