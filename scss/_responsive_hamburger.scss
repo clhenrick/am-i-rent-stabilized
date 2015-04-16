@@ -98,11 +98,46 @@
     }
   }
 
+  #left {
+    position: relative;
+    width: 100%;
+    height: auto;    
+  }
+
+  #lang-toggle {
+    display: inline-block;
+    width: auto;
+  }
+
   #side-nav {
+    width: 70%;
+    left: 0;
+    top: 54px;
+    margin-left: 30%;
+
+    ul {
+      display: inline;
+      margin-left: 1em;
+    }
+
+    li {
+      display: inline-block;
+      margin-right: 1em;
+    }
 
   }
 
   #main {    
+    position: relative;
+    display: block;
+    width: 90%;
+    margin-top: 85px;
+    margin-left: 10%;    
+
+    h1, h3, p {
+      max-width: 100%;
+      width: 100%;
+    }
 
     h1 {
       font-size: 3.2em;

@@ -698,8 +698,9 @@ body {
   top: 0;
   bottom: 0;
   margin: 0; }
-  #left #lang-toggle {
-    position: relative; }
+
+#lang-toggle {
+  position: relative; }
 
 #side-nav {
   position: relative;
@@ -1144,5 +1145,32 @@ body {
         width: 145px;
         top: -225px;
         margin-left: 75px; }
-  #main h1 {
-    font-size: 3.2em; } }
+  #left {
+    position: relative;
+    width: 100%;
+    height: auto; }
+  #lang-toggle {
+    display: inline-block;
+    width: auto; }
+  #side-nav {
+    width: 70%;
+    left: 0;
+    top: 54px;
+    margin-left: 30%; }
+    #side-nav ul {
+      display: inline;
+      margin-left: 1em; }
+    #side-nav li {
+      display: inline-block;
+      margin-right: 1em; }
+  #main {
+    position: relative;
+    display: block;
+    width: 90%;
+    margin-top: 85px;
+    margin-left: 10%; }
+    #main h1, #main h3, #main p {
+      max-width: 100%;
+      width: 100%; }
+    #main h1 {
+      font-size: 3.2em; } }
