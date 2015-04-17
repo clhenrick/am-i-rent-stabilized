@@ -40,8 +40,8 @@ gulp.task('scripts', function() {
     return gulp.src([ 'js/vendor/*.js', 'js/*.js' ])
         .pipe(concat('all.js'))
         .pipe(gulp.dest('dist'))
+        .pipe(uglify())        
         .pipe(rename('all.min.js'))
-        .pipe(uglify())
         .pipe(gulp.dest('dist'));
 });
 

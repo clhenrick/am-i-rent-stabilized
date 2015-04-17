@@ -3,7 +3,7 @@ $medgray: #9B9B9B;
 $lightgray: #ABABAB;
 $green: #417505;
 $orange: #FFC462;
-$darkorange: #CE912D;
+$darkorange: darken($orange, 20%); //#CE912D;
 $darkteal: #277159;
 $purple: #7a5de8;
 $lightblue: #9cddf0;

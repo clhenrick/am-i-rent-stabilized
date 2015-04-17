@@ -4,18 +4,9 @@
   max-height: 120px;
   margin: 0 auto;
   margin-top: 50px;
-  
-  -webkit-columns: 200px 3;
-     -moz-columns: 200px 3;
-          columns: 200px 3;
 
-  -webkit-column-gap: 0;  
-  -moz-column-gap: 0;
-          column-gap: 0;
+  @include columns($width: 200px, $number: 3);
 
-  -webkit-column-rule: 1px solid $lightgray;
-  -moz-column-rule: 1px solid $lightgray;
-          column-rule: 1px solid $lightgray;          
   p {
     max-width: 200px;
     height: 110px;    
@@ -29,17 +20,8 @@
   margin: 0 auto;
   margin-top: 30px;
 
-  -webkit-columns: 350px 2;
-     -moz-columns: 350px 2;
-          columns: 350px 2;
+  @include columns($width: 350px);
 
-  -webkit-column-gap: 10px;  
-  -moz-column-gap: 10px;
-          column-gap: 10px;
-
-  -webkit-column-rule: 1px solid $lightgray;
-  -moz-column-rule: 1px solid $lightgray;
-          column-rule: 1px solid $lightgray;
   p {
     max-width: 350px;
     height: 250px;

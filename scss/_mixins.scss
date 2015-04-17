@@ -1,0 +1,14 @@
+// mixins
+@mixin columns($width, $number:2, $gap:0) {
+  -webkit-columns: $width $number;
+     -moz-columns: $width $number;
+          columns: $width $number;
+
+  -webkit-column-gap: $gap;  
+  -moz-column-gap: $gap;
+          column-gap: $gap;
+
+  -webkit-column-rule: 1px solid $lightgray;
+  -moz-column-rule: 1px solid $lightgray;
+          column-rule: 1px solid $lightgray;  	
+}
