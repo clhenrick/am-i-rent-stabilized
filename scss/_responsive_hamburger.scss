@@ -115,14 +115,37 @@
     top: 54px;
     margin-left: 30%;
 
+    h3 {
+      display: block;
+      width: 150px;
+      margin-left: 0;
+    }
+
     ul {
-      display: inline;
-      margin-left: 1em;
+      display: inline;      
     }
 
     li {
       display: inline-block;
       margin-right: 1em;
+      margin-left: 0;
+      margin-top: 5px;
+
+      &.responsive {
+        margin-right: 0;
+      }
+
+      & a.responsive-turn-off {
+        display: none;
+      }
+
+      & a.responsive-turn-off + ul {
+        margin-left: 0;        
+      }
+      
+      &:first-child {
+        margin-top: 0;        
+      }
     }
 
   }
