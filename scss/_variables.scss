@@ -1,3 +1,4 @@
+// pallette
 $gray: #4a4a4a;
 $medgray: #9B9B9B;
 $lightgray: #ABABAB;
@@ -11,5 +12,15 @@ $blue: #45acff;
 $valError: #D98C8C;
 $white: #FFFFFF;
 
+// fonts
 $header-font: "museo-sans-rounded", "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
 $body-font: "Oxygen", Arial,"Helvetica Neue", Helvetica, sans-serif;
+
+// media query breakpoints
+$width-sm: 420px;
+$width-md: 980px;
+$width-lg: 1100px; // not-used
+
+$height-sm: 480px;
+$height-md: 700px;
+$height-lg: 900px; // not-used

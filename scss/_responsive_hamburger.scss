@@ -1,4 +1,4 @@
-@media screen and (max-width: 980px){
+@media screen and (max-width: $width-md){
   nav.main-nav {
     img.logo {
       // margin-left: 10px;
@@ -34,7 +34,7 @@
     }
   }  
 
-  .slide .centered {
+  .slide .centered {    
     h1 {
       margin-top: 3%;
       width: 70%;

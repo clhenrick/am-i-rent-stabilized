@@ -1,4 +1,4 @@
-@media screen and (max-height: 480px) {
+@media screen and (max-height: $height-sm) {
   .slide .centered {
     img {
       &.triple-s {
