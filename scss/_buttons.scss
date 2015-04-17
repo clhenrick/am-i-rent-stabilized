@@ -1,34 +1,31 @@
 .slide .centered {
   .button {
-    display: inline-block;
-    position: relative;
-    width: 170px;
-    margin: 0 auto;
-    font-size: 3em;
-    text-align: center;
-    text-transform: uppercase;
-    background-color: $darkorange;
-    padding: 10px 20px;
-    border-radius: 35px;
+    @include button;
+
     &:hover {
       background-color: $orange;
     }
+    
     a {
       color: $white;
     }
+
     &.search {
       display: block;
       margin-top: 50px;
       left: 15px;
     }
+
     &.start-over {
       width: 230px;
     }
+
     &.learn-more {
       width: 240px;
       margin-left: 50px;
     }
   }
+
   .button-holder {
     width: 100%;
     text-align: center;

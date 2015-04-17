@@ -11,11 +11,12 @@
     width: 465px;
     height: 70px;
     border: none;
-    background-image: url('../assets/png/address-enter-line.png');
-    background-repeat: no-repeat;
-    background-position: center bottom;
+    background: {
+      image: url('../assets/png/address-enter-line.png');
+      repeat: no-repeat;
+      position:center bottom;
+    }
     padding-left: 10px;
-    // text-transform: capitalize;
     font-weight: 300;
     color: $medgray;
   }
