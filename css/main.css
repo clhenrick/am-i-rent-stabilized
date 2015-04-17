@@ -166,7 +166,7 @@ nav.main-nav {
   top: 0;
   width: 100%;
   height: 60px;
-  z-index: 100; }
+  z-index: 500; }
   nav.main-nav .logo {
     height: 65px;
     display: inline;
@@ -918,6 +918,96 @@ body {
     max-width: 85%;
     margin-left: 0; } }
 
+@media screen and (max-width: 980px) {
+  nav.main-nav h1 {
+    display: inline-block;
+    font-size: 2.8em;
+    margin-left: 10px;
+    float: none; }
+    nav.main-nav h1 a.go-first {
+      font-size: 1em;
+      padding-bottom: 3px; }
+  nav.main-nav li a {
+    display: none; }
+  nav.main-nav div.burger {
+    display: inline-block;
+    position: relative;
+    float: right;
+    background-image: url('../assets/png/hamburger-sm.png');
+    width: 30px;
+    height: 18px;
+    margin-top: 22px;
+    right: 4%;
+    cursor: pointer; }
+  .slide .centered h1 {
+    margin-top: 3%;
+    width: 70%; }
+  .slide .centered a.lightbox img {
+    max-width: 420px; }
+  #address-form {
+    margin-top: 40px; }
+    #address-form input.address-input {
+      width: 400px;
+      height: 60px; }
+    #address-form div.user-data {
+      font-size: .9em;
+      height: 60px;
+      width: 400px;
+      margin: 0 auto;
+      display: block;
+      top: -75px; }
+      #address-form div.user-data.borough-select {
+        margin: 0 auto;
+        margin-top: 20px; }
+    #address-form ul.validation-error.not-found {
+      left: 0; }
+    #address-form ul.validation-error li {
+      max-width: 400px; }
+      #address-form ul.validation-error li#error-not-found {
+        top: 160px; }
+      #address-form ul.validation-error li#error-boro {
+        width: 140px;
+        margin-left: 415px;
+        padding: 10px;
+        top: -225px; }
+      #address-form ul.validation-error li#error-address {
+        width: 145px;
+        top: -225px;
+        margin-left: 75px; }
+  #left {
+    position: relative;
+    width: 100%;
+    height: auto; }
+  #lang-toggle {
+    display: inline-block;
+    width: auto; }
+  #side-nav {
+    width: 70%;
+    left: 0;
+    top: 54px;
+    margin-left: 30%; }
+    #side-nav ul {
+      display: inline;
+      margin-left: 1em; }
+    #side-nav li {
+      display: inline-block;
+      margin-right: 1em; }
+  #main {
+    position: relative;
+    display: block;
+    width: 90%;
+    margin-top: 85px;
+    margin-left: 10%; }
+    #main h1, #main h3, #main p {
+      max-width: 100%;
+      width: 100%; }
+    #main h1 {
+      font-size: 3.2em; }
+    #main h3 {
+      font-size: 2.6em; }
+    #main p {
+      font-size: 2em; } }
+
 @media screen and (max-width: 420px) {
   nav.main-nav .logo {
     margin-left: 10px; }
@@ -1088,89 +1178,3 @@ body {
         margin-top: 10px;
         width: 100%;
         height: 250px; } }
-
-@media screen and (max-width: 980px) {
-  nav.main-nav h1 {
-    display: inline-block;
-    font-size: 2.8em;
-    margin-left: 10px;
-    float: none; }
-    nav.main-nav h1 a.go-first {
-      font-size: 1em;
-      padding-bottom: 3px; }
-  nav.main-nav li a {
-    display: none; }
-  nav.main-nav div.burger {
-    display: inline-block;
-    position: relative;
-    float: right;
-    background-image: url('../assets/png/hamburger-sm.png');
-    width: 30px;
-    height: 18px;
-    margin-top: 22px;
-    right: 4%;
-    cursor: pointer; }
-  .slide .centered h1 {
-    margin-top: 3%;
-    width: 70%; }
-  .slide .centered a.lightbox img {
-    max-width: 420px; }
-  #address-form {
-    margin-top: 40px; }
-    #address-form input.address-input {
-      width: 400px;
-      height: 60px; }
-    #address-form div.user-data {
-      font-size: .9em;
-      height: 60px;
-      width: 400px;
-      margin: 0 auto;
-      display: block;
-      top: -75px; }
-      #address-form div.user-data.borough-select {
-        margin: 0 auto;
-        margin-top: 20px; }
-    #address-form ul.validation-error.not-found {
-      left: 0; }
-    #address-form ul.validation-error li {
-      max-width: 400px; }
-      #address-form ul.validation-error li#error-not-found {
-        top: 160px; }
-      #address-form ul.validation-error li#error-boro {
-        width: 140px;
-        margin-left: 415px;
-        padding: 10px;
-        top: -225px; }
-      #address-form ul.validation-error li#error-address {
-        width: 145px;
-        top: -225px;
-        margin-left: 75px; }
-  #left {
-    position: relative;
-    width: 100%;
-    height: auto; }
-  #lang-toggle {
-    display: inline-block;
-    width: auto; }
-  #side-nav {
-    width: 70%;
-    left: 0;
-    top: 54px;
-    margin-left: 30%; }
-    #side-nav ul {
-      display: inline;
-      margin-left: 1em; }
-    #side-nav li {
-      display: inline-block;
-      margin-right: 1em; }
-  #main {
-    position: relative;
-    display: block;
-    width: 90%;
-    margin-top: 85px;
-    margin-left: 10%; }
-    #main h1, #main h3, #main p {
-      max-width: 100%;
-      width: 100%; }
-    #main h1 {
-      font-size: 3.2em; } }
