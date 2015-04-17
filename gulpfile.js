@@ -1,16 +1,13 @@
-// Include gulp
 var gulp = require('gulp'); 
-
-// Include Our Plugins
-var jshint = require('gulp-jshint');
-var sass = require('gulp-sass');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
-var server = require('gulp-webserver');
-var plumber = require('gulp-plumber');
-// var browserify = require('browserify');
-var transform = require('vinyl-transform');
+    jshint = require('gulp-jshint'),
+    sass = require('gulp-sass'),
+    concat = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
+    rename = require('gulp-rename'),
+    server = require('gulp-webserver'),
+    plumber = require('gulp-plumber'),
+    transform = require('vinyl-transform'),
+    minifyCSS = require('gulp-minify-css');
 
 // config settings for local server
 var server_config = {
@@ -33,6 +30,8 @@ gulp.task('sass', function() {
         .pipe(sass())        
         .pipe(gulp.dest('css'))
         .pipe(rename('main.css'))
+        .pipe(minifyCSS())
+        .pipe(rename('main.min.css'))
         .pipe(gulp.dest('css'));
 });
 
@@ -46,24 +45,7 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest('dist'));
 });
 
-// gulp.task('browserify', function () {
-//   var browserified = transform(function(filename) {
-//     var b = browserify(filename, {
-//       debug: true,
-//       extensions : ['.js']
-//     });
-//     return b.bundle();
-//   });
-  
-//   return gulp.src([ './js/*.js' ])
-//     .pipe(browserified)
-//     .pipe(rename('all.js'))
-//     .pipe(gulp.dest('./dist'))        
-//     .pipe(uglify())
-//     .pipe(rename('all.min.js'))
-//     .pipe(gulp.dest('./dist'));
-// });
-
+// run local server
 gulp.task('webserver', function() {
   gulp.src('.')
     .pipe(server({
