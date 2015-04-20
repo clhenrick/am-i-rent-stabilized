@@ -937,7 +937,8 @@ ul.validation-error {
 
 .centered .action-choice {
   position: relative;
-  max-width: 900px;
+  max-width: 725px;
+  height: 250px;
   margin: 0 auto;
   margin-top: 30px;
   -webkit-columns: 350px 2;
@@ -952,15 +953,21 @@ ul.validation-error {
   .centered .action-choice p {
     max-width: 350px;
     height: 250px;
+    margin: 0;
     margin-top: 20px;
-    padding: 2px; }
+    text-align: left; }
+    .centered .action-choice p:last-child {
+      margin-left: 20px; }
   .centered .action-choice h4 {
+    position: relative;
     margin-top: 0;
     font-family: "museo-sans-rounded", "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
     font-size: 3.2em;
     font-weight: 700;
     text-align: center;
     color: #417505; }
+    .centered .action-choice h4:last-child {
+      top: -3px; }
 
 input[placeholder] {
   color: #9B9B9B !important;
@@ -1431,7 +1438,8 @@ body {
         font-size: 1.5em;
         margin-top: 10%; }
       .slide .centered .action-choice p {
-        width: 70%; }
+        width: 70%;
+        font-size: 2.2em; }
   .go-next.bottom-arrow {
     bottom: 15%; }
     .go-next.bottom-arrow h3 {
