@@ -1,4 +1,5 @@
 // mixins
+// columns
 @mixin columns($width, $number:2, $gap:0) {
   -webkit-columns: $width $number;
      -moz-columns: $width $number;
@@ -13,6 +14,7 @@
           column-rule: 1px solid $lightgray;  	
 }
 
+// button
 @mixin button {
   display: inline-block;
   position: relative;
@@ -26,6 +28,14 @@
   border-radius: 35px;	
 }
 
+// background size for images
+@mixin background-size($width, $height) {
+ -webkit-background-size: $width $height;
+    -moz-background-size: $width $height;
+         background-size: $width $height;
+}
+
+// animations
 @mixin animation($name, $interval:0.8s, $steps:10, $length:infinite){
   -webkit-animation: $name $interval steps($steps) $length;
      -moz-animation: $name $interval steps($steps) $length;
@@ -58,5 +68,39 @@
 	@keyframes $name {
 	   from { background-position: $from; }
 	     to { background-position:   $to; }
+	}
+}
+
+// media queries
+@mixin responsive($width) {
+	@if $width == wide-screens {
+	 @media only screen and (max-width: $width-lg) {
+	   @content;
+	 }
+	}
+	@else if $width == medium-screens {
+	 @media only screen and (max-width: $width-md) { 
+	 	@content; 
+	 }
+	}
+  @else if $width == small-screens {
+   @media only screen and (max-width: $width-sm) {
+			@content;
+		} 
+	}
+}
+
+// set 2x resolution images for retina displays 
+// note: files should be named like image.png and image-2x.png
+@mixin retinize($file, $type, $width, $height) {	
+	background-image: url('../img/' + $file + '.' + $type);
+	// is the device a high dpi screen?
+	@media #{$is-hidpi} {
+	
+	& {
+			background-image: url('../img/' + $file + '-2x.' + $type);
+			// use vendor prefixes for background size
+			@include background-size($width, $height);
+		} 
 	}
 }
