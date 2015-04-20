@@ -1005,9 +1005,16 @@ input:-ms-input-placeholder {
   border: 3px solid #9B9B9B; }
 #atc_text_link.addtocalendar li.atcb-item {
   padding: 5px;
-  border-bottom: 1px solid #9B9B9B; }
+  border-bottom: 1px solid #9B9B9B;
+  background: #4a4a4a; }
   #atc_text_link.addtocalendar li.atcb-item:last-child {
     border-bottom: none; }
+  #atc_text_link.addtocalendar li.atcb-item .atcb-item-link {
+    color: #FFFFFF;
+    font-weight: 300;
+    padding-left: 2%; }
+    #atc_text_link.addtocalendar li.atcb-item .atcb-item-link:hover {
+      color: #9cddf0; }
 
 body {
   width: 100%;

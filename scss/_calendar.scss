@@ -2,15 +2,26 @@
   
   ul.atcb-list {
     width: 275px;
-    border: 3px solid $medgray;
+    border: 3px solid $medgray;    
   }
   
   li.atcb-item {
     padding: 5px;
     border-bottom: 1px solid $medgray;
+    background: $gray;
     
     &:last-child {
       border-bottom: none;
+    }
+
+    .atcb-item-link {
+      color: $white;
+      font-weight: 300;
+      padding-left: 2%;
+
+      &:hover {
+        color: $lightblue;
+      }
     }
   }
 }
