@@ -7,7 +7,7 @@ app.map = (function(d,w,a){
       state = app.s,
       addressMarker, // leaflet marker to locate user's address on map
       sqlURL = "https://chenrick.cartodb.com/api/v2/sql?q=", //cartodb SQL API reference
-      geoclientResult = {}; // to store properties from NYC Geoclient API result
+      g = {}; // to store properties from NYC Geoclient API result
 
   app.events.subscribe('state-updated', function(updatedState){
     state = updatedState;
@@ -46,7 +46,7 @@ app.map = (function(d,w,a){
   var checkResult = function(data) {
     if (typeof data === "object" && data.address.bbl !== undefined ) {
       var d = data.address;    
-      geoclientResult =  {
+      g =  {
         bbl : d.bbl,
         lon : d.longitudeInternalLabel,
         lat : d.latitudeInternalLabel,
@@ -59,7 +59,7 @@ app.map = (function(d,w,a){
         bin : d.giBuildingIdentificationNumber1
       };      
       var bbl = d.bbl;
-      var gcr_stringify = JSON.stringify(geoclientResult);
+      var gcr_stringify = JSON.stringify(g);
       _gaq.push(['_trackEvent', 'Geoclient Success', 'Result', gcr_stringify]);
       getCDBdata(bbl);
       showMarker(data);
@@ -83,13 +83,62 @@ app.map = (function(d,w,a){
     }     
   };
 
- // check the bbl number against the cartodb data
+  function trQuery(lat, lon) {
+    // construct the tenants rights group query
+    var query = "SELECT * FROM nyc_tenants_rights_service_areas " +
+                "WHERE " +
+                "ST_Contains(" +
+                  "nyc_tenants_rights_service_areas.the_geom," +
+                  "ST_GeomFromText(" +
+                   "'Point(" + lon + " " + lat + ")', 4326" +
+                  ")" +      
+                ");";  
+    return query;
+  }  
+
+  // check the bbl number against the cartodb data
   var getCDBdata = function(bbl) {
     // sql to pass cartodb's sql api
-    var sql = "SELECT bbl FROM all_nyc_likely_rent_stabl_merged " +
-                  "WHERE bbl = " + bbl;
-    getJSON(sqlURL + sql, 'json', checkData);
+    var sql1 = "SELECT bbl FROM all_nyc_likely_rent_stabl_merged " +
+                  "WHERE bbl = " + bbl;    
+    var sql2 = trQuery(g.lat, g.lon);                  
+
+    getJSON(sqlURL + sql1, 'json', checkRS);
+    getJSON(sqlURL + sql2, 'json', checkTR);
   };
+
+  function checkRS(data) {
+    if (data.rows.length > 0 && state.yesNoState === false) {      
+      var bbl_match = JSON.stringify(data.rows[0].bbl);
+      _gaq.push(['_trackEvent', 'CDB', 'Match', bbl_match]);
+      app.f.toggleClass(el.yes, 'hidden');
+      app.f.toggleClass(el.no, 'hidden');
+      app.events.publish('state-change', { yesNoState : true });            
+    } 
+
+    f.goToNextSlide();
+  }
+
+  function checkTR(data) {
+    var noTR = d.querySelector('.no-local-tr');
+    var yesTR = d.querySelector('.yes-local-tr');
+    var ul = d.createElement('ul');
+    ul.className = 'org-list';    
+
+    if (data.rows.length > 0) {
+      noTR.style.display = 'none';
+      yesTR.style.display = 'block';
+      yesTR.appendChild(ul);
+      
+      var i = 0, l = data.rows.length;
+      for (i; i<l; i++) {
+        var x = data.rows[i];
+        var li = d.createElement('li');
+        li.innerHTML = '<p>' + x.name + '</p>'
+        ul.appendChild(li);
+      }
+    } 
+  }  
 
   // if the results of the CDB SQL query have a row then show yes else display no
   var checkData = function(data) {   

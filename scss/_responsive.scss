@@ -182,9 +182,14 @@
 	}
 
 	.centered .action-choice {
-		p {
-			height: auto;
+		height: 305px;
+		@include columns($width:200px);
+
+		p {			
 			margin-top: 1%;
+			height: 265px;
+			padding: 20px;
+			font-size: 2.2em;
 		}
 	} 
 

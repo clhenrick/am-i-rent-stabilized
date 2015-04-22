@@ -17,7 +17,7 @@
 .centered .action-choice {
   position: relative;
   max-width: 725px;
-  height: 250px;
+  height: 300px;
   margin: 0 auto;
   margin-top: 30px;
 
@@ -31,7 +31,29 @@
     text-align: left;
     
     &:last-child {
-      margin-left: 20px;  
+      margin-left: 30px;  
+    }
+
+    &.yes-local-tr {
+      display: none;
+    }
+
+    ul.org-list {
+      margin-top: 20px;
+      // list-style-type: none;
+      font-size: .4em;
+      padding-left: 20px;
+
+      p {
+        height: auto;
+        padding: 0;
+        margin-left: 0;
+      }
+
+    }
+
+    li {
+
     }
   }
 

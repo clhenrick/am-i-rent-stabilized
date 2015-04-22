@@ -938,7 +938,7 @@ ul.validation-error {
 .centered .action-choice {
   position: relative;
   max-width: 725px;
-  height: 250px;
+  height: 300px;
   margin: 0 auto;
   margin-top: 30px;
   -webkit-columns: 350px 2;
@@ -957,7 +957,17 @@ ul.validation-error {
     margin-top: 20px;
     text-align: left; }
     .centered .action-choice p:last-child {
-      margin-left: 20px; }
+      margin-left: 30px; }
+    .centered .action-choice p.yes-local-tr {
+      display: none; }
+    .centered .action-choice p ul.org-list {
+      margin-top: 20px;
+      font-size: .4em;
+      padding-left: 20px; }
+      .centered .action-choice p ul.org-list p {
+        height: auto;
+        padding: 0;
+        margin-left: 0; }
   .centered .action-choice h4 {
     position: relative;
     margin-top: 0;
@@ -1245,9 +1255,22 @@ body {
   #map-container .map-message {
     font-size: 2.2em;
     margin-top: 1%; }
-  .centered .action-choice p {
-    height: auto;
-    margin-top: 1%; }
+  .centered .action-choice {
+    height: 305px;
+    -webkit-columns: 200px 2;
+    -moz-columns: 200px 2;
+    columns: 200px 2;
+    -webkit-column-gap: 0;
+    -moz-column-gap: 0;
+    column-gap: 0;
+    -webkit-column-rule: 1px solid #ABABAB;
+    -moz-column-rule: 1px solid #ABABAB;
+    column-rule: 1px solid #ABABAB; }
+    .centered .action-choice p {
+      margin-top: 1%;
+      height: 265px;
+      padding: 20px;
+      font-size: 2.2em; }
   /* why, how, resources pages */
   #main h1 {
     font-size: 4.2em;
