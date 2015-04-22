@@ -9,7 +9,7 @@ app.init = (function(w,d){
     var state = app.s;
 
     app.events.publish('state-change', {
-      pageHeight : w.innerHeight,
+      pageHeight : w.innerHeight - 60,
       currentSlide : el.slides[0]
     });
 

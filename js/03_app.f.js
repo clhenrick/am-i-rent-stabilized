@@ -152,7 +152,7 @@ app.f = (function(w,d) {
      // resize window
     onResize : function() {
       // console.log('onResize called');
-      var newPageHeight = w.innerHeight;
+      var newPageHeight = w.innerHeight - 60;
       var slide = state.currentSlide;
       var index = app.f.getSlideIndex(slide);
       if (state.pageHeight !== newPageHeight) {
