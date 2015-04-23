@@ -71,7 +71,7 @@
 	}
 }
 
-// media queries
+// media queries for screen width
 @mixin responsive($width) {
 	@if $width == wide-screens {
 	 @media only screen and (max-width: $width-lg) {
@@ -87,6 +87,25 @@
    @media only screen and (max-width: $width-sm) {
 			@content;
 		} 
+	}
+}
+
+// media queries for screen height
+@mixin responsive_height($height) {
+	@if $height == tall-screens {
+		@media only screen and (max-height: $height-lg) {
+			@content;
+		}
+	}
+	@else if $height == medium-screens {
+		@media only screen and (max-height: $height-md) {
+			@content;
+		}
+	}
+	@else if $height == short screens {
+		@media only screen and (max-height: $height-sm) {
+			@content;
+		}
 	}
 }
 
