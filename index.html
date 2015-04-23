@@ -118,7 +118,7 @@
                         <div class="user-data borough-select">
                             <span id="select-boro">Select a Borough</span>
                             <ul class="drop-down" id="boroughs" tabindex="2">
-                              <li><a href="#">Bronx</a></li>
+                              <li><a href="#" tabindex="2">Bronx</a></li>
                               <li><a href="#">Brooklyn</a></li>
                               <li><a href="#">Manhattan</a></li>
                               <li><a href="#">Queens</a></li>
@@ -144,7 +144,7 @@
 
             <div class="slide" id="slide-4">
                 <div class="centered yes hidden">
-                    <h1 class="news">Good News!</h1>
+                    <!-- <h1 class="news">Good News!</h1> -->
                     <p>Your apartment <em>might be</em> rent stabilized!<br>
                     But, there's only one way to know for sure, so keep reading.</p>
                 </div>
@@ -154,10 +154,8 @@
                 </div>
                 <div class="centered" id="map-container">
                     <div id="map" class="centered"></div>
-                    <p class="map-message">Orange means a property likely has rent stabilized apartments.
+                    <p class="map-message">Orange means a property likely has rent stabilized apartments. <a href="http://cdb.io/1CvSBy7" target="_blank">View this map in a separate window.</a>
                     </p>
-                    <p class="map-message">
-                    <a href="http://cdb.io/1CvSBy7" target="_blank">View a map of all NYC properties that likely have rent stabilized apartments</a>.</p>
                 </div>
                 <div class="go-next bottom-arrow">
                   <h3>Next</h3>
@@ -230,7 +228,7 @@
                       <p class="no-local-tr">
                          <a href="html/resources.html">Contact a tenants rights group for advice.</a> These groups can provide useful information and help you take the best course of action.
                       </p>
-                      
+
                       <p class="yes-local-tr">
                         Contact a tenants rights group for advice. Here are groups that help people your neighborhood.
                       </p>
@@ -275,7 +273,7 @@
         <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.6/TweenLite.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.6/plugins/CSSPlugin.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.6/plugins/ScrollToPlugin.min.js"></script>
-        <script type="text/javascript" src="dist/all.min.js"></script>
+        <script type="text/javascript" src="dist/all.js"></script>
         <script type="text/javascript">    
           window.addEventListener('DOMContentLoaded', function(){
             app.init.init();

@@ -36,6 +36,7 @@ h1, h2, h3, h4 {
   font-family: $header-font;
   font-weight: 700;
   line-height: 1em;
+  text-align: center;
   color: $gray;
 }
 
@@ -85,6 +86,30 @@ p {
     color: $medgray;  
   }
 
+}
+
+p {
+
+  text-align: center;
+  margin-top: 20px;
+
+  em {
+    font-weight: 600;
+    font-style: italic;
+  }
+
+  &.be-sure {
+    margin-top: 65px;
+  }
+
+  &.check-it {
+    margin-top: 70px;
+    width: 55%;
+  }
+
+  &.view-sample {
+    margin-top: 20px;
+  }      
 }
 
 a {

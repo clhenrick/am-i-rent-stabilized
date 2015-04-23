@@ -63,7 +63,8 @@ app.f = (function(w,d) {
           currentSlide : slide
         });
 
-        var index = app.f.getSlideIndex(slide);                  
+        var index = app.f.getSlideIndex(slide); 
+        console.log('index: ', index, ' slide: ', slide);                 
         TweenLite.to(el.slidesContainer, 1, {scrollTo: {y: state.pageHeight * index}, onComplete: app.f.onSlideChangeEnd});
       }
     },
@@ -85,7 +86,7 @@ app.f = (function(w,d) {
       var index = app.f.getSlideIndex(state.currentSlide);
       var next = el.slides[index + 1];
       // console.log('go to next slide', state);
-      // console.log('formFilled: ', state.formFilled, ' index: ', index);
+      console.log('formFilled: ', state.formFilled, ' index: ', index);
       if (next && ( index === 0 || (index >= 1 && state.formFilled === true ) ) ) {      
         app.f.goToSlide(next);
         if (callback && typeof callback === "function") { 

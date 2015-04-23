@@ -1,52 +1,32 @@
 .slides-container {
   position: absolute;
-  left: 0;
+  // left: 0;
   top: 60px;
-  width: 100%;
+  width: 960px;
+  margin: 0 auto;
+  left: 53.776041666667%;
+  margin-left: -516.25px;   
   height: 100%;
-  overflow: hidden;
+  // overflow: hidden;
   z-index: 10;
   background-color: #FFFFFF;
+
+  @mixin responsive($width-sm) {
+
+  }
 }
 
 .slide {
   position: relative;
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  height: calc(100% - 60px);
+  // overflow: hidden;
   
   .centered {
     width: 80%;
     margin: 0 auto;
     position: relative;
-    left: 30px;
-    
-    h1, h2, h3, h4 {
-      text-align: center;
-    }
-
-    p {
-      text-align: center;
-      margin-top: 20px;
-    
-      em {
-        font-weight: 600;
-        font-style: italic;
-      }
-
-      &.be-sure {
-        margin-top: 65px;
-      }
-
-      &.check-it {
-        margin-top: 70px;
-        width: 55%;
-      }
-
-      &.view-sample {
-        margin-top: 20px;
-      }      
-    }
+    // left: 30px;    
     
     .title {
       font-style: italic;

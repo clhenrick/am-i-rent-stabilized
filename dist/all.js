@@ -107,7 +107,7 @@ app.s = (function(w,d) {
   };
 
   app.events.subscribe('state-change', function(updates){
-    // console.log('state change detected! ', updates);
+    console.log('state change detected! ', updates);
     
     if (updates.isAnimating !== undefined) state.isAnimating = updates.isAnimating;
     if (updates.formFilled !== undefined) state.formFilled = updates.formFilled;    
@@ -115,7 +115,7 @@ app.s = (function(w,d) {
     if (updates.pageHeight !== undefined) state.pageHeight = updates.pageHeight; 
     if (updates.yesNoState !== undefined) state.yesNoState = updates.yesNoState;
     
-    // console.log('state: ', state);
+    console.log('state: ', state);
 
     app.events.publish('state-updated', state);
   });
@@ -282,7 +282,8 @@ app.f = (function(w,d) {
           currentSlide : slide
         });
 
-        var index = app.f.getSlideIndex(slide);                  
+        var index = app.f.getSlideIndex(slide); 
+        console.log('index: ', index, ' slide: ', slide);                 
         TweenLite.to(el.slidesContainer, 1, {scrollTo: {y: state.pageHeight * index}, onComplete: app.f.onSlideChangeEnd});
       }
     },
@@ -304,7 +305,7 @@ app.f = (function(w,d) {
       var index = app.f.getSlideIndex(state.currentSlide);
       var next = el.slides[index + 1];
       // console.log('go to next slide', state);
-      // console.log('formFilled: ', state.formFilled, ' index: ', index);
+      console.log('formFilled: ', state.formFilled, ' index: ', index);
       if (next && ( index === 0 || (index >= 1 && state.formFilled === true ) ) ) {      
         app.f.goToSlide(next);
         if (callback && typeof callback === "function") { 
@@ -371,7 +372,7 @@ app.f = (function(w,d) {
      // resize window
     onResize : function() {
       // console.log('onResize called');
-      var newPageHeight = w.innerHeight;
+      var newPageHeight = w.innerHeight - 60;
       var slide = state.currentSlide;
       var index = app.f.getSlideIndex(slide);
       if (state.pageHeight !== newPageHeight) {
@@ -809,7 +810,7 @@ app.map = (function(d,w,a){
       for (i; i<l; i++) {
         var x = data.rows[i];
         var li = d.createElement('li');
-        li.innerHTML = '<p>' + x.name + '</p>'
+        li.innerHTML = '<p>' + x.name + '</p>';
         ul.appendChild(li);
       }
     } 
@@ -858,40 +859,57 @@ app.map = (function(d,w,a){
     el.map = new L.Map('map', {
       center : [40.7127, -74.0059],
       zoom : 12,
-      dragging : false,
-      touchZoom : false,
-      doubleClickZoom : false,
-      scrollWheelZoom : false,
-      zoomControl : false,
-      keyboard : false
+      // dragging : false,
+      // touchZoom : false,
+      // doubleClickZoom : false,
+      // scrollWheelZoom : false,
+      // zoomControl : false,
+      // keyboard : false
     });
 
     var basemap = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',{
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
     });
 
+    var cdbURL = 'https://chenrick.cartodb.com/api/v2/viz/3680af8e-7816-11e4-ab90-0e4fddd5de28/viz.json';
+
+    var cartocss = "#all_map_pluto_rent_stabl_reg_2014v1 {" +
+                      "polygon-fill: #FF6600;" +
+                      "polygon-opacity: 0.6;" +
+                      "line-color: #000;" +
+                      "line-width: 0.7;" +
+                      "line-opacity: 0.3;" +
+                    "}";
+    var sql = 'SELECT the_geom, the_geom_webmercator, cartodb_id, address, borough, ownername, unitsres ' + 
+              'FROM all_nyc_likely_rent_stabl_merged';
+
+    var taxLots;
+
     el.map.addLayer(basemap);
 
-    cartodb.createLayer(el.map, {
-      user_name : 'chenrick',
-      legends: false,
-      cartodb_logo: false,
-      type: 'cartodb',
-      sublayers: [{
-        sql : 'SELECT the_geom, the_geom_webmercator, cartodb_id FROM all_nyc_likely_rent_stabl_merged',
-        cartocss : "#all_map_pluto_rent_stabl_reg_2014v1 {" +
-                          "polygon-fill: #FF6600;" +
-                          "polygon-opacity: 0.6;" +
-                          "line-color: #000;" +
-                          "line-width: 0.7;" +
-                          "line-opacity: 0.5;" +
-                        "}"
-      }]
+    cartodb.createLayer(el.map, cdbURL, {
+        cartodb_logo: false, 
+        legends: false,
+        https: true,
+        fullscreen : true     
+    },
+    function(layer) {
+      taxLots = layer.getSubLayer(0);
+      taxLots.setCartoCSS(cartocss);
+      // taxLots.setSQL(sql);
+      // taxLots.setInteraction(true);
+      // taxLots.setInteractivity('address, borough, unitsres, ownername');
+      // taxLots.on('click', function(e, pos, latlng, data){
+      //   console.log('data: ', data);
+      // });
+      
+      el.map.addLayer(layer, false);
+      basemap.bringToBack();
     })
-    .addTo(el.map)
+    // .addTo(el.map)
     .done(function(layer){
       // console.log(layer);
-      basemap.bringToBack();
+      // basemap.bringToBack();
     });    
   }; // end initMap()
 
@@ -927,7 +945,7 @@ app.init = (function(w,d){
     var state = app.s;
 
     app.events.publish('state-change', {
-      pageHeight : w.innerHeight,
+      pageHeight : w.innerHeight - 60,
       currentSlide : el.slides[0]
     });
 

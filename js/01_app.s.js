@@ -12,7 +12,7 @@ app.s = (function(w,d) {
   };
 
   app.events.subscribe('state-change', function(updates){
-    // console.log('state change detected! ', updates);
+    console.log('state change detected! ', updates);
     
     if (updates.isAnimating !== undefined) state.isAnimating = updates.isAnimating;
     if (updates.formFilled !== undefined) state.formFilled = updates.formFilled;    
@@ -20,7 +20,7 @@ app.s = (function(w,d) {
     if (updates.pageHeight !== undefined) state.pageHeight = updates.pageHeight; 
     if (updates.yesNoState !== undefined) state.yesNoState = updates.yesNoState;
     
-    // console.log('state: ', state);
+    console.log('state: ', state);
 
     app.events.publish('state-updated', state);
   });

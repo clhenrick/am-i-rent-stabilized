@@ -403,6 +403,7 @@ h1, h2, h3, h4 {
   font-family: "museo-sans-rounded", "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
   font-weight: 700;
   line-height: 1em;
+  text-align: center;
   color: #4a4a4a; }
 
 h1 {
@@ -439,6 +440,20 @@ p {
     margin-top: 30px; }
   p.share-it {
     color: #9B9B9B; }
+
+p {
+  text-align: center;
+  margin-top: 20px; }
+  p em {
+    font-weight: 600;
+    font-style: italic; }
+  p.be-sure {
+    margin-top: 65px; }
+  p.check-it {
+    margin-top: 70px;
+    width: 55%; }
+  p.view-sample {
+    margin-top: 20px; }
 
 a {
   text-decoration: none;
@@ -616,9 +631,9 @@ nav.margin-circles {
   position: absolute;
   width: 125px;
   margin: 0 auto;
-  margin-left: -34.5px;
+  margin-left: -62.5px;
   left: 50%;
-  bottom: 100px; }
+  bottom: 3%; }
 .go-next h3 {
   font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif;
   color: #fb9d00;
@@ -640,39 +655,23 @@ nav.margin-circles {
 
 .slides-container {
   position: absolute;
-  left: 0;
   top: 60px;
-  width: 100%;
+  width: 960px;
+  margin: 0 auto;
+  left: 53.77604%;
+  margin-left: -516.25px;
   height: 100%;
-  overflow: hidden;
   z-index: 10;
   background-color: #FFFFFF; }
 
 .slide {
   position: relative;
   width: 100%;
-  height: 100%;
-  overflow: hidden; }
+  height: calc(100% - 60px); }
   .slide .centered {
     width: 80%;
     margin: 0 auto;
-    position: relative;
-    left: 30px; }
-    .slide .centered h1, .slide .centered h2, .slide .centered h3, .slide .centered h4 {
-      text-align: center; }
-    .slide .centered p {
-      text-align: center;
-      margin-top: 20px; }
-      .slide .centered p em {
-        font-weight: 600;
-        font-style: italic; }
-      .slide .centered p.be-sure {
-        margin-top: 65px; }
-      .slide .centered p.check-it {
-        margin-top: 70px;
-        width: 55%; }
-      .slide .centered p.view-sample {
-        margin-top: 20px; }
+    position: relative; }
     .slide .centered .title {
       font-style: italic;
       font-weight: 300; }
@@ -1014,8 +1013,6 @@ input:-ms-input-placeholder {
   width: 550px;
   height: 300px;
   border: 1px solid #999; }
-  #map:hover {
-    cursor: default; }
 
 #atc_text_link.addtocalendar ul.atcb-list {
   width: 275px;
@@ -1131,11 +1128,20 @@ body {
   .slides-container {
     width: 960px;
     margin: 0 auto;
-    position: absolute;
     left: 53.77604%;
     margin-left: -516.25px; }
     .slides-container .slide {
       margin: 0 auto; }
+  p {
+    font-size: 2.5em;
+    margin-top: 1%; }
+    p.check-it {
+      margin-top: 25px;
+      width: 70%; }
+    p.be-sure {
+      margin-top: 25px; }
+    .centered.no p {
+      margin-top: 30px; }
   .slide .centered {
     left: 0;
     width: 90%; }
@@ -1151,14 +1157,6 @@ body {
       font-size: 4.2em; }
       .slide .centered h2.sub-head {
         margin-top: 2%; }
-    .slide .centered p {
-      font-size: 2.5em;
-      margin-top: 1%; }
-      .slide .centered p.check-it {
-        margin-top: 25px;
-        width: 70%; }
-      .centered.no .slide .centered p {
-        margin-top: 30px; }
     .slide .centered img.triple-s {
       margin-top: 1%;
       margin-bottom: 0; }
@@ -1187,7 +1185,7 @@ body {
       nav.margin-circles li:first-child {
         margin-top: 0; }
   .go-next.bottom-arrow {
-    bottom: 12%;
+    bottom: 3%;
     margin-left: -62.5px; }
   #address-form {
     width: 100%;
@@ -1488,8 +1486,7 @@ body {
           width: 17px;
           height: 10px;
           right: 5px;
-          top: 20px;
-          background-image: url('../assets/png/drop-down-triangle-sm.png'); }
+          top: 20px; }
     #address-form input.address-input {
       width: 240px;
       height: 50px;
