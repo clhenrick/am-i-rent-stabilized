@@ -9,10 +9,11 @@ app.init = (function(w,d){
     var state = app.s;
 
     app.events.publish('state-change', {
-      pageHeight : w.innerHeight - 60,
+      // pageHeight : w.innerHeight,
       currentSlide : el.slides[0]
     });
 
+    f.onResize();
     f.goToSlide(el.currentSlide);
     a.createMailTo();
     f.addToCalendar();
