@@ -128,14 +128,12 @@ app.map = (function(d,w,a){
     if (data.rows.length > 0) {
       noTR.style.display = 'none';
       yesTR.style.display = 'block';
-      yesTR.appendChild(ul);
+      // yesTR.appendChild(ul);
       
       var i = 0, l = data.rows.length;
       for (i; i<l; i++) {
         var x = data.rows[i];
-        var li = d.createElement('li');
-        li.innerHTML = '<p>' + x.name + '</p>';
-        ul.appendChild(li);
+        g.tr_groups.push(x);
       }
     } 
   }  
@@ -182,7 +180,7 @@ app.map = (function(d,w,a){
   var initMap = function() {
     el.map = new L.Map('map', {
       center : [40.7127, -74.0059],
-      zoom : 12,
+      zoom : 12
       // dragging : false,
       // touchZoom : false,
       // doubleClickZoom : false,
@@ -204,6 +202,7 @@ app.map = (function(d,w,a){
                       "line-width: 0.7;" +
                       "line-opacity: 0.3;" +
                     "}";
+                    
     var sql = 'SELECT the_geom, the_geom_webmercator, cartodb_id, address, borough, ownername, unitsres ' + 
               'FROM all_nyc_likely_rent_stabl_merged';
 
