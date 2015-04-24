@@ -34,5 +34,10 @@ nav.margin-circles {
         margin-top: 0;
       }
     }    
-  }  
+  }
+
+  @include responsive(small-screens) {
+    display: none;
+  }
+
 }

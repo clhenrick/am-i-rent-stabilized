@@ -122,14 +122,70 @@
         margin-left: 55px;        
       }
     }    
+  }
+
+  @include responsive(medium-screens) {
+    margin-top: 40px;
+
+    input { 
+      &.address-input {
+        width: 400px; 
+        height: 60px;   
+      }
+    }
+
+    div.user-data {
+      font-size: .9em;
+      height: 60px;
+      width: 400px;
+      margin: 0 auto;
+      display: block;
+      top: -75px;
+
+      &.borough-select {
+        margin: 0 auto;
+        margin-top: 20px;       
+      }
+    }    
+  }
+
+  @include responsive(small-screens) {
+    height: 216px;
+    margin-top: 15%;
+    
+    input {
+      &.address-input {
+        width: 240px;
+        height: 50px;
+        margin-top: 3px;
+      } 
+    }    
+
+    div.user-data {
+      width: 240px;
+      top: -125px;
+      font-size: 0.6em;
+
+      &.borough-select {
+        width: 240px;
+        height: 50px;
+        margin-top: 5px;
+
+        ul.drop-down {
+          width: 240px;
+        }
+
+        &:after {
+          width: 17px;
+          height: 10px;
+          right: 5px;
+          top: 20px;
+          // background-image: url('../assets/png/drop-down-triangle-sm.png');
+        }
+      }
+    }   
   }  
 } // end address form
-
-// label.address-form {
-//   margin-top: 20px;
-//   font-size: 2.5em;
-//   font-weight: 600;
-// }
 
 p#boroughs {
   color: #4a4a4a;
@@ -147,6 +203,8 @@ p#boroughs {
   line-height: normal;
 }
 
+
+// Validation Errors
 ul.validation-error {
   padding: 0;
   margin-top: 5px;
@@ -209,4 +267,64 @@ ul.validation-error {
     }    
   }
 
+  @include responsive(medium-screens) {
+    ul.validation-error {
+      &.not-found {
+        left:0;
+      }
+
+      li {
+        max-width: 400px;     
+
+        &#error-not-found {
+          top: 160px;
+        }
+
+        &#error-boro {
+          width: 140px;
+          margin-left: 415px;
+          padding: 10px;
+          top: -225px;
+        }
+
+        &#error-address {
+          width: 145px;
+          top: -225px;
+          margin-left: 75px;
+        }
+
+      }
+    }    
+  }
+
+  @include responsive(small-screens) {
+    width: 95%;
+    max-width: 95%;
+    margin: 0 auto;
+    padding: 2px;
+
+    li {
+      &#error-address, &#error-boro {
+        width: inherit;
+        top: -125px;
+        padding: inherit;
+        margin: 0 auto;
+        // margin-top: 5px;
+        display: block;
+        font-size: 0.5em;         
+      }
+
+      &#error-not-found {
+        top: 130px;
+        max-width: inherit;
+        width: inherit;
+        margin: 0 auto;         
+        padding: inherit;         
+        display: block;
+        text-align: left;
+        font-size: 0.5em;
+      }
+
+    }
+  }     
 } 

@@ -5,14 +5,6 @@
 }
 
 .go-next {
-
-  @include responsive_height(medium-screens) {
-    &.bottom-arrow {
-      bottom: 3%;
-      margin-left: -62.5px;
-    }
-  }
-
   &.bottom-arrow {
     position: absolute;
     width: 125px;
@@ -21,6 +13,7 @@
     left: 50%;
     bottom: 3%
   }
+  
   h3 {
     font-family: $body-font;
     color: $darkorange;
@@ -30,6 +23,7 @@
     text-align: center;
     margin-top: 20px;
   }
+  
   .arrow {
     position: relative;
     top: 10px;
@@ -39,7 +33,31 @@
     background-image: url('../assets/png/chevron.png');
     background-repeat: no-repeat;
   }
+  
   h3:hover, .arrow:hover {
     color: $orange;
+  }
+
+  @include responsive_height(medium-screens) {
+    &.bottom-arrow {
+      bottom: 3%;
+      margin-left: -62.5px;
+    }
+  }  
+
+  @include responsive(small-screens) {
+    &.bottom-arrow {
+      bottom: 5%;
+
+      h3 {
+        font-size: 1.6em;
+      }
+
+      .arrow {
+        width: 32px;
+        height: 11px;
+        background-image: url('../assets/png/chevron-sm.png');
+      }
+    }    
   }
 } 

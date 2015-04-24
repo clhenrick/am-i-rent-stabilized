@@ -1,4 +1,4 @@
-.centered .dhcr-choice {
+.dhcr-choice {
   position: relative;  
   max-width: 1000px;
   max-height: 120px;
@@ -12,9 +12,17 @@
     height: 110px;    
     margin-top: 0;
   }
+
+  @include responsive(small-screens) {
+    max-width: auto;
+    p {
+      height: auto;
+      margin-top: 5%;
+    }    
+  }
 }
 
-.centered .action-choice {
+.action-choice {
   position: relative;
   max-width: 725px;
   height: 300px;
@@ -83,6 +91,19 @@
     }
   }
 
+  @include responsive(small-screens) {
+    max-width: auto;
+
+    h4 {
+      font-size: 1.5em;
+      margin-top: 10%;
+    }
+
+    p {
+      width: 70%;
+      font-size: 2.2em;
+    }
+  }    
 } // end .action-choice
 
 input[placeholder] {

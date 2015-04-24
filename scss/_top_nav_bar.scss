@@ -149,4 +149,24 @@ nav.main-nav {
       cursor: pointer;
     }  	
   } // end media query
+
+  @include responsive(small-screens) {
+    .logo {
+      margin-left: 10px;  
+    }
+
+    h1 {
+      font-size: 1.8em;
+    }
+
+    ul.responsive {
+      width: 160px;
+      right: -9.3%;
+  
+      li a {
+        font-size: 1.5em;
+        padding: 5px 5px 5px 15px;
+      }     
+    }    
+  }
 }

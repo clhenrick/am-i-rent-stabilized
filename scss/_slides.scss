@@ -10,8 +10,10 @@
   z-index: 10;
   background-color: #FFFFFF;
 
-  @mixin responsive($width-sm) {
-
+  @include responsive(small-screens) {
+    width: 100%;
+    left: 0;
+    margin: 0;
   }
 }
 
@@ -56,6 +58,10 @@
       a.lightbox img {
         max-width: 420px;
       }         
+    }
+
+    @include responsive(small-screens) {
+      width: 100%;
     }      
   }
 }

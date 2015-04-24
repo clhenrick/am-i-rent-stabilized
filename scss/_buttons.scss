@@ -44,6 +44,23 @@
       }   
     }
 
+    @include responsive(small-screens) {
+      display: block;
+      margin: 0 auto;
+      width: 110px;
+      font-size: 1.5em;     
+
+      &.start-over {
+        width: 120px;
+      }
+
+      &.learn-more {
+        width: 125px;
+        margin: 0 auto;
+        margin-top: 10px;
+      }      
+    }
+
   }
 
   .button-holder {

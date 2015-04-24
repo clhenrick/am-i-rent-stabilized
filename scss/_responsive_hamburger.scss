@@ -46,67 +46,67 @@
   }
 
   #address-form {
-    margin-top: 40px;
+    // margin-top: 40px;
 
-    input { 
-      &.address-input {
-        width: 400px; 
-        height: 60px;   
-      }
-    }
+    // input { 
+    //   &.address-input {
+    //     width: 400px; 
+    //     height: 60px;   
+    //   }
+    // }
 
-    div.user-data {
-      font-size: .9em;
-      height: 60px;
-      width: 400px;
-      margin: 0 auto;
-      display: block;
-      top: -75px;
+    // div.user-data {
+    //   font-size: .9em;
+    //   height: 60px;
+    //   width: 400px;
+    //   margin: 0 auto;
+    //   display: block;
+    //   top: -75px;
 
-      &.borough-select {
-        margin: 0 auto;
-        margin-top: 20px;       
-      }
-    }
+    //   &.borough-select {
+    //     margin: 0 auto;
+    //     margin-top: 20px;       
+    //   }
+    // }
 
     ul.validation-error {
-      &.not-found {
-        left:0;
-      }
+      // &.not-found {
+      //   left:0;
+      // }
 
-      li {
-        max-width: 400px;     
+      // li {
+      //   max-width: 400px;     
 
-        &#error-not-found {
-          top: 160px;
-        }
+      //   &#error-not-found {
+      //     top: 160px;
+      //   }
 
-        &#error-boro {
-          width: 140px;
-          margin-left: 415px;
-          padding: 10px;
-          top: -225px;
-        }
+      //   &#error-boro {
+      //     width: 140px;
+      //     margin-left: 415px;
+      //     padding: 10px;
+      //     top: -225px;
+      //   }
 
-        &#error-address {
-          width: 145px;
-          top: -225px;
-          margin-left: 75px;
-        }
+      //   &#error-address {
+      //     width: 145px;
+      //     top: -225px;
+      //     margin-left: 75px;
+      //   }
 
-      }
+      // }
     }
   }
 
-  #left {
-    position: relative;
-    width: 100%;
-    height: auto;    
-  }
+  // #left {
+  //   position: relative;
+  //   width: 100%;
+  //   height: auto;    
+  // }
 
   #lang-toggle {
-    display: inline-block;
-    width: auto;
+    // display: inline-block;
+    // width: auto;
   }
 
   #side-nav {

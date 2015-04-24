@@ -38,6 +38,11 @@ h1, h2, h3, h4 {
   line-height: 1em;
   text-align: center;
   color: $gray;
+
+  @include responsive(small-screens) {
+    max-width: 100%;
+    padding: 0 1%;    
+  }
 }
 
 h1 {
@@ -63,6 +68,13 @@ h1 {
       margin-top: 2%;
     }
   }
+
+  @include responsive(small-screens) {
+      font-size: 2em;
+      line-height: 1.2em;
+      width: 97%;
+      margin-top: 3%;    
+  }
 }
 
 h2 {
@@ -79,6 +91,10 @@ h2 {
     &.sub-head {
       margin-top: 2%;
     }    
+  }
+
+  @include responsive(small-screens) {
+    font-size: 1.6em;
   }  
 }
 
@@ -103,26 +119,7 @@ p {
   font-size: 2.8em;
   color: $green;
   text-align: center;
-  margin-top: 20px;  
-
-  @include responsive_height(medium-screens){
-      max-width: 90%;
-      font-size: 2.2em;
-      margin-top: 1%;
-
-      &.check-it {
-        margin-top: 25px;
-        width: 70%;
-      }
-
-      &.be-sure {
-        margin-top: 25px;
-      }
-
-      .centered.no & {
-        margin-top: 30px;
-      }      
-  }   
+  margin-top: 20px;    
 
   em {
     font-weight: 600;
@@ -148,7 +145,49 @@ p {
 
   &.view-sample {
     margin-top: 20px;
+  }   
+
+  @include responsive_height(medium-screens){
+      max-width: 90%;
+      font-size: 2.2em;
+      margin-top: 1%;
+
+      &.check-it {
+        margin-top: 25px;
+        width: 70%;
+      }
+
+      &.be-sure {
+        margin-top: 25px;
+      }
+
+      .centered.no & {
+        margin-top: 30px;
+      }      
   }     
+
+  @include responsive(small-screens) {
+    font-size: 1.3em;
+
+    &.landing {
+      margin-top: 10%;
+      width: 48%;
+    }
+
+    &.check-it {
+      width: 60%;
+      margin-top: 10%;
+
+      .addtocalendar {
+        margin-top: 15%;
+      }
+    }
+    
+    .yes &, .no &, &.map-message {
+      font-size: 1.5em;
+    }       
+  }
+
 }
 
 a {
@@ -216,7 +255,29 @@ img {
     &.mascot {
       max-width: 20%;
     }
-  }    
+  }  
+
+  @include responsive(small-screens) {
+    &.triple-s {
+      width: 25px;
+      margin-top: 30px;
+    }
+
+    &.building.intro {
+      width: 55px;
+    }
+
+    &.mascot {
+      width: 118px;
+    }
+
+    a.lightbox & {
+      max-width: 300px;
+      left: 0;
+      margin: 0 auto;
+      margin-top: 70px;      
+    }        
+  }  
 }
 
 
