@@ -413,12 +413,26 @@ h1 {
   margin-top: 30px; }
   h1.landing {
     margin-top: 0px; }
+  @media only screen and (max-height: 700px) {
+    h1 {
+      max-width: 85%;
+      margin-top: 6%;
+      font-size: 4.2em; }
+      h1.landing {
+        margin-top: 0px; }
+      h1.news, h1.end {
+        margin-top: 2%; } }
 
 h2 {
   font-size: 4.8em;
   color: #ABABAB; }
   h2.sub-head {
     margin-top: 50px; }
+  @media only screen and (max-height: 700px) {
+    h2 {
+      font-size: 4.2em; }
+      h2.sub-head {
+        margin-top: 2%; } }
 
 h3 {
   font-size: 4em; }
@@ -435,18 +449,28 @@ p {
   max-width: 85%;
   margin: 0 auto;
   font-size: 2.8em;
-  color: #417505; }
+  color: #417505;
+  text-align: center;
+  margin-top: 20px; }
+  @media only screen and (max-height: 700px) {
+    p {
+      max-width: 90%;
+      font-size: 2.2em;
+      margin-top: 1%; }
+      p.check-it {
+        margin-top: 25px;
+        width: 70%; }
+      p.be-sure {
+        margin-top: 25px; }
+      .centered.no p {
+        margin-top: 30px; } }
+  p em {
+    font-weight: 600;
+    font-style: italic; }
   p.map-messsage {
     margin-top: 30px; }
   p.share-it {
     color: #9B9B9B; }
-
-p {
-  text-align: center;
-  margin-top: 20px; }
-  p em {
-    font-weight: 600;
-    font-style: italic; }
   p.be-sure {
     margin-top: 65px; }
   p.check-it {
@@ -490,6 +514,15 @@ img {
     width: 150px;
     border: 1px solid #ABABAB;
     margin-top: 30px; }
+  @media only screen and (max-height: 700px) {
+    img.triple-s {
+      margin-top: 1%;
+      margin-bottom: 0; }
+    img.building.intro {
+      margin-top: 1%;
+      margin-bottom: 1%; }
+    img.mascot {
+      max-width: 20%; } }
 
 .hidden {
   display: none; }
@@ -524,9 +557,6 @@ nav.main-nav {
       font-size: 1em;
       letter-spacing: .05em;
       font-weight: 500; }
-    nav.main-nav h1 a.go-first:hover {
-      border-bottom: none;
-      color: #FFC462; }
   nav.main-nav div.burger {
     display: none; }
     nav.main-nav div.burger.open {
@@ -583,6 +613,27 @@ nav.main-nav {
       color: #FFC462;
       border-bottom-width: 2px;
       border-bottom-style: solid; }
+  @media only screen and (max-width: 980px) {
+    nav.main-nav h1 {
+      display: inline-block;
+      font-size: 2.8em;
+      margin-left: 10px;
+      float: none; }
+      nav.main-nav h1 a.go-first {
+        font-size: 1em;
+        padding-bottom: 3px; }
+    nav.main-nav li a {
+      display: none; }
+    nav.main-nav div.burger {
+      display: inline-block;
+      position: relative;
+      float: right;
+      background-image: url('../assets/png/hamburger-sm.png');
+      width: 30px;
+      height: 18px;
+      margin-top: 22px;
+      right: 4%;
+      cursor: pointer; } }
 
 #lang-toggle {
   position: fixed;
@@ -622,11 +673,25 @@ nav.margin-circles {
     background-repeat: no-repeat; }
   nav.margin-circles li:first-child {
     background-image: url('../assets/png/oval_25_filled.png'); }
+  @media only screen and (max-height: 700px) {
+    nav.margin-circles {
+      top: 25%; }
+      nav.margin-circles li {
+        width: 20px;
+        height: 20px;
+        background-size: 20px;
+        margin-top: 20px; }
+        nav.margin-circles li:first-child {
+          margin-top: 0; } }
 
 /* Navigation Arrow */
 .go-prev, .go-next, .go-first, .button.search {
   cursor: pointer; }
 
+@media only screen and (max-height: 700px) {
+  .go-next.bottom-arrow {
+    bottom: 3%;
+    margin-left: -62.5px; } }
 .go-next.bottom-arrow {
   position: absolute;
   width: 125px;
@@ -661,20 +726,19 @@ nav.margin-circles {
   left: 53.77604%;
   margin-left: -516.25px;
   height: 100%;
+  overflow: hidden;
   z-index: 10;
   background-color: #FFFFFF; }
 
 .slide {
   position: relative;
   width: 100%;
-  height: calc(100% - 60px); }
+  height: calc(100% - 60px);
+  overflow: hidden; }
   .slide .centered {
     width: 80%;
     margin: 0 auto;
     position: relative; }
-    .slide .centered .title {
-      font-style: italic;
-      font-weight: 300; }
     .slide .centered .share-box-end {
       display: block;
       position: relative;
@@ -685,6 +749,15 @@ nav.margin-circles {
       .slide .centered .share-box-end .addthis_sharing_toolbox {
         margin: 0 auto;
         margin-top: 10px; }
+    @media only screen and (max-height: 700px) {
+      .slide .centered {
+        width: 90%; } }
+    @media only screen and (max-width: 980px) {
+      .slide .centered h1 {
+        margin-top: 3%;
+        width: 70%; }
+      .slide .centered a.lightbox img {
+        max-width: 420px; } }
 
 /* Lightbox for sample rent history */
 a.lightbox {
@@ -730,63 +803,70 @@ a.lightbox {
     max-width: 500px;
     margin-top: 10px;
     color: #9B9B9B; }
-    #address-form div.user-data.borough-select.active ul.drop-down {
-      opacity: 1;
-      pointer-events: auto; }
-    #address-form div.user-data.borough-select {
-      z-index: 100;
-      position: relative;
+  #address-form .borough-select.active ul.drop-down {
+    opacity: 1;
+    pointer-events: auto; }
+  #address-form .borough-select {
+    z-index: 100;
+    position: relative;
+    width: 400px;
+    padding: 10px;
+    margin-left: 100px;
+    cursor: pointer;
+    border: 3px solid #9B9B9B;
+    /* triangle */ }
+    #address-form .borough-select span {
+      font-weight: 300; }
+    #address-form .borough-select:after {
+      content: "";
+      width: 35px;
+      height: 20px;
+      position: absolute;
+      right: 20px;
+      top: 45%;
+      margin-top: -1px;
+      background-image: url('../assets/png/drop-down-triangle.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain; }
+    #address-form .borough-select ul.drop-down {
+      position: absolute;
       width: 400px;
-      padding: 10px;
-      margin-left: 100px;
-      cursor: pointer;
+      top: 100%;
+      left: -3px;
+      right: 0;
+      opacity: 0;
+      background: #FFFFFF;
       border: 3px solid #9B9B9B;
-      /* triangle */ }
-      #address-form div.user-data.borough-select span {
-        font-weight: 300; }
-      #address-form div.user-data.borough-select:after {
-        content: "";
-        width: 35px;
-        height: 20px;
-        position: absolute;
-        right: 20px;
-        top: 45%;
-        margin-top: -1px;
-        background-image: url('../assets/png/drop-down-triangle.png');
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: contain; }
-      #address-form div.user-data.borough-select ul.drop-down {
-        position: absolute;
+      border-top: none;
+      pointer-events: none; }
+    #address-form .borough-select li {
+      list-style: none;
+      display: block; }
+    #address-form .borough-select li a {
+      text-decoration: none;
+      font-weight: 300;
+      font-size: .9em;
+      color: #9B9B9B;
+      padding: 3px 8px;
+      display: block; }
+      #address-form .borough-select li a span.value {
+        display: none; }
+    #address-form .borough-select li a:hover {
+      background: #4a4a4a;
+      color: #FFFFFF; }
+  @media only screen and (max-height: 700px) {
+    #address-form {
+      width: 100%;
+      height: 250px; }
+      #address-form input.address-input {
         width: 400px;
-        top: 100%;
-        left: -3px;
-        right: 0;
-        opacity: 0;
-        background: #FFFFFF;
-        border: 3px solid #9B9B9B;
-        border-top: none;
-        pointer-events: none; }
-      #address-form div.user-data.borough-select li {
-        list-style: none;
-        display: block; }
-      #address-form div.user-data.borough-select li a {
-        text-decoration: none;
-        font-weight: 300;
+        height: 60px; }
+      #address-form div.user-data {
         font-size: .9em;
-        color: #9B9B9B;
-        padding: 3px 8px;
-        display: block; }
-        #address-form div.user-data.borough-select li a span.value {
-          display: none; }
-      #address-form div.user-data.borough-select li a:hover {
-        background: #4a4a4a;
-        color: #FFFFFF; }
-
-label.address-form {
-  margin-top: 20px;
-  font-size: 2.5em;
-  font-weight: 600; }
+        height: 60px; }
+        #address-form div.user-data.borough-select {
+          margin-left: 55px; } }
 
 p#boroughs {
   color: #4a4a4a;
@@ -833,6 +913,17 @@ ul.validation-error {
     left: -30px;
     margin: 0 auto;
     text-align: center; }
+  @media only screen and (max-height: 700px) {
+    ul.validation-error.not-found {
+      left: 0; }
+    ul.validation-error li {
+      max-width: 400px; }
+      ul.validation-error li#error-not-found {
+        max-width: 80%;
+        display: block; }
+      ul.validation-error li#error-boro {
+        margin-left: 55px;
+        width: 400px; } }
 
 .slide .centered .button {
   display: inline-block;
@@ -858,6 +949,17 @@ ul.validation-error {
   .slide .centered .button.learn-more {
     width: 240px;
     margin-left: 50px; }
+  @media only screen and (max-height: 700px) {
+    .slide .centered .button {
+      font-size: 2.5em;
+      padding: 8px 10px; }
+      .slide .centered .button.search {
+        margin-top: 0;
+        left: 0; }
+      .slide .centered .button.start-over {
+        width: 200px; }
+      .slide .centered .button.learn-more {
+        width: 205px; } }
 .slide .centered .button-holder {
   width: 100%;
   text-align: center;
@@ -913,6 +1015,50 @@ ul.validation-error {
     to {
       background-position: -1920px; } }
  }
+  @media only screen and (max-height: 700px) {
+    #sprite {
+      margin-top: 5%;
+      background: url('../assets/png/checking-sprite-sm.png');
+      width: 128px;
+      height: 288px;
+      left: 0; } }
+
+@media only screen and (max-height: 700px) {
+  @-webkit-keyframes play {
+    from {
+      background-position: 0; }
+
+    to {
+      background-position: -1280px; } }
+
+  @-moz-keyframes play {
+    from {
+      background-position: 0; }
+
+    to {
+      background-position: -1280px; } }
+
+  @-ms-keyframes play {
+    from {
+      background-position: 0; }
+
+    to {
+      background-position: -1280px; } }
+
+  @-o-keyframes play {
+    from {
+      background-position: 0; }
+
+    to {
+      background-position: -1280px; } }
+
+  @keyframes play {
+    from {
+      background-position: 0; }
+
+    to {
+      background-position: -1280px; } }
+ }
 
 .centered .dhcr-choice {
   position: relative;
@@ -949,12 +1095,30 @@ ul.validation-error {
   -webkit-column-rule: 1px solid #ABABAB;
   -moz-column-rule: 1px solid #ABABAB;
   column-rule: 1px solid #ABABAB; }
+  @media only screen and (max-height: 700px) {
+    .centered .action-choice {
+      height: 305px;
+      -webkit-columns: 200px 2;
+      -moz-columns: 200px 2;
+      columns: 200px 2;
+      -webkit-column-gap: 0;
+      -moz-column-gap: 0;
+      column-gap: 0;
+      -webkit-column-rule: 1px solid #ABABAB;
+      -moz-column-rule: 1px solid #ABABAB;
+      column-rule: 1px solid #ABABAB; } }
   .centered .action-choice p {
     max-width: 350px;
     height: 250px;
     margin: 0;
     margin-top: 20px;
     text-align: left; }
+    @media only screen and (max-height: 700px) {
+      .centered .action-choice p {
+        margin-top: 1%;
+        height: 265px;
+        padding: 20px;
+        font-size: 2.2em; } }
     .centered .action-choice p:last-child {
       margin-left: 30px; }
     .centered .action-choice p.yes-local-tr {
@@ -1013,6 +1177,13 @@ input:-ms-input-placeholder {
   width: 550px;
   height: 300px;
   border: 1px solid #999; }
+  @media only screen and (max-height: 700px) {
+    #map {
+      margin-top: 2%;
+      height: 275px; }
+      #map .map-message {
+        font-size: 2.2em;
+        margin-top: 1%; } }
 
 #atc_text_link.addtocalendar ul.atcb-list {
   width: 275px;
@@ -1086,6 +1257,11 @@ body {
     color: #FFC462; }
     #main h1:first-child {
       margin-top: 25px; }
+    @media only screen and (max-height: 700px) {
+      #main h1 {
+        font-size: 4.2em;
+        max-width: 85%;
+        margin-left: 0; } }
   #main h3 {
     width: 80%;
     margin-top: 25px;
@@ -1124,183 +1300,7 @@ body {
       width: 100%;
       height: 372px; }
 
-@media screen and (max-height: 700px) {
-  .slides-container {
-    width: 960px;
-    margin: 0 auto;
-    left: 53.77604%;
-    margin-left: -516.25px; }
-    .slides-container .slide {
-      margin: 0 auto; }
-  p {
-    font-size: 2.5em;
-    margin-top: 1%; }
-    p.check-it {
-      margin-top: 25px;
-      width: 70%; }
-    p.be-sure {
-      margin-top: 25px; }
-    .centered.no p {
-      margin-top: 30px; }
-  .slide .centered {
-    left: 0;
-    width: 90%; }
-    .slide .centered h1 {
-      max-width: 85%;
-      margin-top: 6%;
-      font-size: 4.2em; }
-      .slide .centered h1.landing {
-        margin-top: 0px; }
-      .slide .centered h1.news, .slide .centered h1.end {
-        margin-top: 2%; }
-    .slide .centered h2 {
-      font-size: 4.2em; }
-      .slide .centered h2.sub-head {
-        margin-top: 2%; }
-    .slide .centered img.triple-s {
-      margin-top: 1%;
-      margin-bottom: 0; }
-    .slide .centered img.building.intro {
-      margin-top: 1%;
-      margin-bottom: 1%; }
-    .slide .centered img.mascot {
-      max-width: 20%; }
-    .slide .centered .button {
-      font-size: 2.5em;
-      padding: 8px 10px; }
-      .slide .centered .button.search {
-        margin-top: 0;
-        left: 0; }
-      .slide .centered .button.start-over {
-        width: 200px; }
-      .slide .centered .button.learn-more {
-        width: 205px; }
-  nav.margin-circles {
-    top: 25%; }
-    nav.margin-circles li {
-      width: 20px;
-      height: 20px;
-      background-size: 20px;
-      margin-top: 20px; }
-      nav.margin-circles li:first-child {
-        margin-top: 0; }
-  .go-next.bottom-arrow {
-    bottom: 3%;
-    margin-left: -62.5px; }
-  #address-form {
-    width: 100%;
-    height: 250px; }
-    #address-form input.address-input {
-      width: 400px;
-      height: 60px; }
-    #address-form div.user-data {
-      font-size: .9em;
-      height: 60px; }
-      #address-form div.user-data.borough-select {
-        margin-left: 55px; }
-    #address-form ul.validation-error.not-found {
-      left: 0; }
-    #address-form ul.validation-error li {
-      max-width: 400px; }
-      #address-form ul.validation-error li#error-not-found {
-        max-width: 80%;
-        display: block; }
-      #address-form ul.validation-error li#error-boro {
-        margin-left: 55px;
-        width: 400px; }
-  #sprite {
-    background: url('../assets/png/checking-sprite-sm.png');
-    width: 128px;
-    height: 288px; }
-  @-webkit-keyframes play {
-    from {
-      background-position: 0; }
-
-    to {
-      background-position: -1280px; } }
-
-  @-moz-keyframes play {
-    from {
-      background-position: 0; }
-
-    to {
-      background-position: -1280px; } }
-
-  @-ms-keyframes play {
-    from {
-      background-position: 0; }
-
-    to {
-      background-position: -1280px; } }
-
-  @-o-keyframes play {
-    from {
-      background-position: 0; }
-
-    to {
-      background-position: -1280px; } }
-
-  @keyframes play {
-    from {
-      background-position: 0; }
-
-    to {
-      background-position: -1280px; } }
-
-  #map-container #map {
-    margin-top: 2%;
-    height: 275px; }
-  #map-container .map-message {
-    font-size: 2.2em;
-    margin-top: 1%; }
-  .centered .action-choice {
-    height: 305px;
-    -webkit-columns: 200px 2;
-    -moz-columns: 200px 2;
-    columns: 200px 2;
-    -webkit-column-gap: 0;
-    -moz-column-gap: 0;
-    column-gap: 0;
-    -webkit-column-rule: 1px solid #ABABAB;
-    -moz-column-rule: 1px solid #ABABAB;
-    column-rule: 1px solid #ABABAB; }
-    .centered .action-choice p {
-      margin-top: 1%;
-      height: 265px;
-      padding: 20px;
-      font-size: 2.2em; }
-  /* why, how, resources pages */
-  #main h1 {
-    font-size: 4.2em;
-    max-width: 85%;
-    margin-left: 0; } }
-
 @media screen and (max-width: 980px) {
-  nav.main-nav h1 {
-    display: inline-block;
-    font-size: 2.8em;
-    margin-left: 10px;
-    float: none; }
-    nav.main-nav h1 a.go-first {
-      font-size: 1em;
-      padding-bottom: 3px; }
-  nav.main-nav li a {
-    display: none; }
-  nav.main-nav div.burger {
-    display: inline-block;
-    position: relative;
-    float: right;
-    background-image: url('../assets/png/hamburger-sm.png');
-    width: 30px;
-    height: 18px;
-    margin-top: 22px;
-    right: 4%;
-    cursor: pointer; }
-  .slide .centered h1 {
-    margin-top: 3%;
-    width: 70%; }
-  .slide .centered a.lightbox img {
-    max-width: 420px; }
   #address-form {
     margin-top: 40px; }
     #address-form input.address-input {

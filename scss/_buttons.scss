@@ -24,6 +24,26 @@
       width: 240px;
       margin-left: 50px;
     }
+
+    @include responsive_height(medium-screens) {
+      
+      font-size: 2.5em;
+      padding: 8px 10px;
+
+      &.search {
+        margin-top: 0;
+        left: 0;
+      }
+
+      &.start-over {
+        width: 200px;
+      }
+
+      &.learn-more {
+        width: 205px;
+      }   
+    }
+
   }
 
   .button-holder {

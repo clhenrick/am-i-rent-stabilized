@@ -3,37 +3,37 @@
 	
 	.slides-container {
 		// height: auto;
-		width: 960px;
-		margin: 0 auto;
+		// width: 960px;
+		// margin: 0 auto;
 		// position: absolute;		
-		left: 53.776041666667%;
-		margin-left: -516.25px;		
+		// left: 53.776041666667%;
+		// margin-left: -516.25px;		
 		// left: 36.25px; // half of left margin when container is centered horizontally
 
 		.slide {
 			// height: 590px;			
-			margin: 0 auto;
+			// margin: 0 auto;
 			// border-top: 1px solid $lightgray;
 		}
 	}
 
-	p {
-		font-size: 2.5em;
-		margin-top: 1%;
+	// p {
+	// 	font-size: 2.5em;
+	// 	margin-top: 1%;
 
-		&.check-it {
-			margin-top: 25px;
-			width: 70%;
-		}
+	// 	&.check-it {
+	// 		margin-top: 25px;
+	// 		width: 70%;
+	// 	}
 
-		&.be-sure {
-			margin-top: 25px;
-		}
+	// 	&.be-sure {
+	// 		margin-top: 25px;
+	// 	}
 
-		.centered.no & {
-			margin-top: 30px;
-		}
-	}
+	// 	.centered.no & {
+	// 		margin-top: 30px;
+	// 	}
+	// }
 
 	.slide .centered {
 		//border: 1px solid $gray;
@@ -162,27 +162,6 @@
 
 		}
 
-	}
-
-	#sprite {
-		background: url('../assets/png/checking-sprite-sm.png');
-		width: 128px;
-		height: 288px;
-	}
-
-	@include keyframes($name:play, $to:-1280px);
-
-	#map-container {
-		
-		#map {
-			margin-top: 2%;
-			height: 275px;
-		}	
-
-		.map-message {
-			font-size: 2.2em;
-			margin-top: 1%;
-		}
 	}
 
 	.centered .action-choice {

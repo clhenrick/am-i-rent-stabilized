@@ -1,48 +1,48 @@
 @media screen and (max-width: $width-md){
   nav.main-nav {
-    img.logo {
-      // margin-left: 10px;
-    }
+    // img.logo {
+    //   // margin-left: 10px;
+    // }
 
-    h1 {
-      display: inline-block;
-      font-size: 2.8em;            
-      margin-left: 10px;
-      // text-align: center;
-      float: none;
+    // h1 {
+    //   display: inline-block;
+    //   font-size: 2.8em;            
+    //   margin-left: 10px;
+    //   // text-align: center;
+    //   float: none;
       
-      a.go-first {
-        font-size: 1em;
-        padding-bottom: 3px;
-      }
-    }
+    //   a.go-first {
+    //     font-size: 1em;
+    //     padding-bottom: 3px;
+    //   }
+    // }
     
-    li a {
-      display: none;
-    }
+    // li a {
+    //   display: none;
+    // }
 
-    div.burger {
-      display: inline-block;
-      position: relative;
-      float: right;
-      background-image: url('../assets/png/hamburger-sm.png');
-      width: 30px;
-      height: 18px;
-      margin-top: 22px;
-      right: 4%;
-      cursor: pointer;
-    }
+    // div.burger {
+    //   display: inline-block;
+    //   position: relative;
+    //   float: right;
+    //   background-image: url('../assets/png/hamburger-sm.png');
+    //   width: 30px;
+    //   height: 18px;
+    //   margin-top: 22px;
+    //   right: 4%;
+    //   cursor: pointer;
+    // }
   }  
 
   .slide .centered {    
-    h1 {
-      margin-top: 3%;
-      width: 70%;
-    }
+    // h1 {
+    //   margin-top: 3%;
+    //   width: 70%;
+    // }
 
-    a.lightbox img {
-      max-width: 420px;
-    }      
+    // a.lightbox img {
+    //   max-width: 420px;
+    // }      
   }
 
   #address-form {

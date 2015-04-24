@@ -45,17 +45,41 @@ h1 {
   color: $gray;
   max-width: 70%;
   margin-top: 30px;
+  
   &.landing {
     margin-top: 0px;
-  }  
+  } 
+
+  @include responsive_height(medium-screens){
+    max-width: 85%;
+    margin-top: 6%;
+    font-size: 4.2em;
+
+    &.landing {
+      margin-top: 0px;
+    }
+
+    &.news, &.end {
+      margin-top: 2%;
+    }
+  }
 }
 
 h2 {
   font-size: 4.8em;
   color: $lightgray;
+  
   &.sub-head {
     margin-top: 50px;
   }
+
+  @include responsive_height(medium-screens) {
+    font-size: 4.2em;
+
+    &.sub-head {
+      margin-top: 2%;
+    }    
+  }  
 }
 
 h3 {
@@ -65,6 +89,7 @@ h3 {
 h4 {
   font-size: 2.4em;
   color: $orange;
+  
   &.step {
     margin-top: 20px;
     font-family: $body-font;
@@ -77,6 +102,32 @@ p {
   margin: 0 auto;
   font-size: 2.8em;
   color: $green;
+  text-align: center;
+  margin-top: 20px;  
+
+  @include responsive_height(medium-screens){
+      max-width: 90%;
+      font-size: 2.2em;
+      margin-top: 1%;
+
+      &.check-it {
+        margin-top: 25px;
+        width: 70%;
+      }
+
+      &.be-sure {
+        margin-top: 25px;
+      }
+
+      .centered.no & {
+        margin-top: 30px;
+      }      
+  }   
+
+  em {
+    font-weight: 600;
+    font-style: italic;
+  }  
   
   &.map-messsage {
     margin-top: 30px;
@@ -84,18 +135,6 @@ p {
 
   &.share-it {
     color: $medgray;  
-  }
-
-}
-
-p {
-
-  text-align: center;
-  margin-top: 20px;
-
-  em {
-    font-weight: 600;
-    font-style: italic;
   }
 
   &.be-sure {
@@ -109,7 +148,7 @@ p {
 
   &.view-sample {
     margin-top: 20px;
-  }      
+  }     
 }
 
 a {
@@ -129,19 +168,23 @@ img {
   position: relative;
   margin: 0 auto;
   max-width: 100%;
+
   &.triple-s {
     width: 40px;
     margin-top: 30px;
   }
+
   &.building.intro {
     margin-top: 20px;
     margin-bottom: 20px;
   }
+
   &.checking {
     left: -10px;
     width: 175px;
     margin-top: 50px;
   }
+
   &.mascot {
     width: 260px;
     margin-top: 20px;
@@ -152,12 +195,30 @@ img {
       width: 130px;
     }
   }
+
   &.rent-history {
     width: 150px;
     border: 1px solid $lightgray;
     margin-top: 30px;
   }
+
+  @include responsive_height(medium-screens) {
+    &.triple-s {
+      margin-top: 1%;
+      margin-bottom: 0;
+    }
+
+    &.building.intro {
+      margin-top: 1%;
+      margin-bottom: 1%;
+    }
+
+    &.mascot {
+      max-width: 20%;
+    }
+  }    
 }
+
 
 .hidden {
   display: none;

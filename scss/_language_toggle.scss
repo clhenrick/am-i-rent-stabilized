@@ -1,0 +1,30 @@
+#lang-toggle {
+  position: fixed;
+  top: 90px;
+  left: 30px;
+  z-index: 100;
+  
+  ul {
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+    display: inline-block;
+  }
+  li:last-child {
+    list-style: disc;
+    list-style-position: inside;
+    // margin-left: 10px;
+  }
+  a, p {
+    text-decoration: none;
+    font-family: $body-font;
+    font-weight: 300;
+    font-size: 1.8em;
+    color: $lightgray;
+  }
+  a:hover {
+    color: $gray;
+  }
+}

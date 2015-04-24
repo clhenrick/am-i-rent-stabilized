@@ -77,6 +77,13 @@ body {
     &:first-child {
       margin-top: 25px;
     }    
+
+    @include responsive_height(medium-screens) {
+      font-size: 4.2em;
+      max-width: 85%;
+      margin-left: 0;
+    }
+
   }
   
   h3 {

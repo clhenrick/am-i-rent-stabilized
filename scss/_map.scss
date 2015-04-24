@@ -9,4 +9,15 @@
   // &:hover {
   //   cursor: default;
   // }
+
+  @include responsive_height(medium-screens) {
+    margin-top: 2%;
+    height: 275px;
+
+    .map-message {
+      font-size: 2.2em;
+      margin-top: 1%;
+    }            
+  }
+
 }

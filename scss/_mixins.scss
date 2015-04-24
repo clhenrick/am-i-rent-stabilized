@@ -102,7 +102,7 @@
 			@content;
 		}
 	}
-	@else if $height == short screens {
+	@else if $height == short-screens {
 		@media only screen and (max-height: $height-sm) {
 			@content;
 		}

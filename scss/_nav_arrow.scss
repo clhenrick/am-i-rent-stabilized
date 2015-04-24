@@ -5,6 +5,14 @@
 }
 
 .go-next {
+
+  @include responsive_height(medium-screens) {
+    &.bottom-arrow {
+      bottom: 3%;
+      margin-left: -62.5px;
+    }
+  }
+
   &.bottom-arrow {
     position: absolute;
     width: 125px;
