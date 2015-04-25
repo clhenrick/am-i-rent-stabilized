@@ -10,6 +10,12 @@
   z-index: 10;
   background-color: #FFFFFF;
 
+  @include responsive(medium-screens) {
+    width: 100%;
+    left: 0;
+    margin: 0;
+  }
+
   @include responsive(small-screens) {
     width: 100%;
     left: 0;
@@ -22,46 +28,57 @@
   width: 100%;
   height: calc(100% - 60px);
   overflow: hidden;
+}
   
-  .centered {
-    width: 80%;
-    margin: 0 auto;
-    position: relative;   
+.centered {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  top: 40%;
+  transform: translateY(-50%);    
+
+  .share-box-end {
+    display: block;
+    position: relative;
+    margin-top: 20px;
+    text-align: center;
   
-    .share-box-end {
-      display: block;
-      position: relative;
-      margin-top: 20px;
-      text-align: center;
-    
-      p {
-        display: inline;      
-      }  
-    
-      .addthis_sharing_toolbox {
-        margin: 0 auto;
-        margin-top: 10px;
-      }      
-    } 
+    p {
+      display: inline;      
+    }  
+  
+    .addthis_sharing_toolbox {
+      margin: 0 auto;
+      margin-top: 10px;
+    }      
+  } 
 
-    @include responsive_height(medium-screens) {
-      width: 90%;
-      // font-size: 1em !important;
-    }   
+  @include responsive_height(medium-screens) {
+    width: 100%;
+    // font-size: 1em !important;
+  }   
 
-    @include responsive(medium-screens){
-      h1 {
-        margin-top: 3%;
-        width: 70%;
-      }
-
-      a.lightbox img {
-        max-width: 420px;
-      }         
+  @include responsive(medium-screens){
+    width: 100%;
+    h1 {
+      margin-top: 3%;
+      width: 70%;
     }
 
-    @include responsive(small-screens) {
-      width: 100%;
-    }      
+    a.lightbox img {
+      max-width: 420px;
+    }         
   }
+
+  @include responsive(small-screens) {
+    width: 100%;
+
+    .yes, .no {
+      p {
+        font-size: 1.3em;
+        max-width: 95%;
+        margin-top: 3%;
+      }
+    }
+  }      
 }

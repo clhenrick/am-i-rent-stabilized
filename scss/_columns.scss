@@ -24,10 +24,10 @@
 
 .action-choice {
   position: relative;
-  max-width: 725px;
-  height: 300px;
+  max-width: 750px;
+  height: 315px;
   margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 60px;
 
   @include columns($width: 350px);
   
@@ -36,11 +36,18 @@
     @include columns($width:200px);    
   }  
 
+  h4:last-child{
+    margin-left: 25px;
+    top: -3px;
+  }
+
   p {
-    max-width: 350px;
+    // max-width: 350px;
+    width: 325px;
     height: 250px;
     margin: 0;
     margin-top: 20px;    
+    font-size: 2.5em;
     text-align: left;
 
     @include responsive_height(medium-screens) {
@@ -51,7 +58,7 @@
     }    
     
     &:last-child {
-      margin-left: 30px;  
+      margin-left: 60px;  
     }
 
     &.yes-local-tr {

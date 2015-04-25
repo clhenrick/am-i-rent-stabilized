@@ -20,4 +20,16 @@
     }            
   }
 
+  @include responsive(small-screens) {
+        width: 90%;
+        height: 200px;
+        margin-top: 5%;   
+
+      .map-message {
+        font-size: 1.3em;
+        width: 70%;
+        margin-top: 4%;
+      }         
+  }
+
 }

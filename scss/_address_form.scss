@@ -3,13 +3,24 @@
 #address-form {
   position: relative;
   margin-top: 10px;
-  width: 1000px;
-  font-family: $body-font;
-  font-size: 3em;
+  width: 100%;
+  font-size: 2.5em;
+
+  div.user-data {
+    position: relative;
+    display: inline-block;
+    max-width: 500px;   
+    margin-top: 10px; 
+    color: $medgray;
+  } 
+
+  .street-address {
+    margin-left: 75px;
+  }  
  
   input.address-input {
-    width: 465px;
-    height: 70px;
+    width: 370px;
+    height: 50px;
     border: none;
     background: {
       image: url('../assets/png/address-enter-line.png');
@@ -19,14 +30,7 @@
     padding-left: 10px;
     font-weight: 300;
     color: $medgray;
-  }
-  
-  div.user-data {
-    position: relative;
-    display: inline-block;
-    max-width: 500px;   
-    margin-top: 10px; 
-    color: $medgray;
+    // font-size: .8em;
   }
 
   .borough-select.active {
@@ -42,13 +46,13 @@
   .borough-select {
     z-index: 100;
     position: relative;
-    width: 400px;
+    width: 340px;
     padding: 10px;      
-    margin-left: 100px;      
+    margin-left: 125px;      
     cursor: pointer;
     border: 3px solid $medgray;
 
-    span {
+    span {      
       font-weight: 300;
     }
 
@@ -69,7 +73,7 @@
     
     ul.drop-down {        
       position: absolute;
-      width: 400px;
+      width: 340px;
       top: 100%;
       left: -3px;
       right: 0;
@@ -117,9 +121,14 @@
     div.user-data {
       font-size: .9em;
       height: 60px;
+      width: 400px;
+      margin: 0 auto;
+      display: block;
+      top: -75px;      
 
       &.borough-select {
-        margin-left: 55px;        
+        margin: 0 auto;
+        margin-top: 20px;  
       }
     }    
   }
@@ -223,21 +232,30 @@ ul.validation-error {
     list-style: none;
     background-color: $valError;
 
-    &#error-not-found {
+    &:last-child {
+      margin-left: 105px;
+      top: -20px;
+      padding-right: 80px;
+    }
+  }
+
+  #error-address {
+    width: 370px;
+    margin-left: 75px;
+  }
+
+  #error-boro {
+    margin-left: 125px;
+  }
+
+  #error-not-found {
       max-width: 70%;
       display: block;
       top: 0;
       margin: 0 auto;
       padding: 10px;
       text-align: center;
-    }
-
-    &:last-child {
-      margin-left: 100px;
-      top: -30px;
-      padding-right: 58px;
-    }
-  }
+    }  
   
   &.not-found {    
     position: relative;

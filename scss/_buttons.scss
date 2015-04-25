@@ -11,23 +11,24 @@
     }
 
     &.search {
+      width: 150px;
       display: block;
       margin-top: 50px;
-      left: 15px;
+      // left: 15px;
     }
 
     &.start-over {
-      width: 230px;
+      // width: 190px;
     }
 
     &.learn-more {
-      width: 240px;
+      // width: 200px;
       margin-left: 50px;
     }
 
     @include responsive_height(medium-screens) {
       
-      font-size: 2.5em;
+      // font-size: 2.5em;
       padding: 8px 10px;
 
       &.search {
@@ -36,11 +37,11 @@
       }
 
       &.start-over {
-        width: 200px;
+        // width: 200px;
       }
 
       &.learn-more {
-        width: 205px;
+        // width: 205px;
       }   
     }
 
