@@ -89,7 +89,7 @@
             <div class="slide" id="slide-1">
                 <div class="centered"> 
                     <img class="triple-s" src="assets/png/triple-sss.png">              
-                    <img class="building intro" src="assets/png/building_.png">
+                    <img class="building intro" src="assets/png/building.png">
                     <h1 class="landing">Half of all apartments in NYC are rent stabilized.</h1> 
                     <h2 class="sub-head">Find out if yours is one of them.</h2>
                     <p class="landing">Or jump ahead to <a class="go-step4" href="#">"When you receive your rent history"</a></p>
@@ -101,12 +101,12 @@
             </div>
 
             <div class="slide" id="slide-2">
-                <div class="centered">
+                <div class="centered v-centered">
                     <!-- <h4 class="step">Step 1 of 5</h4> -->
                     <h1 class="step">First, let's have your building address and borough.</h1>
                     <p>We won't share this information or use it commericially.</p>
 
-                    <form id="address-form" class="centered">
+                    <form id="address-form">
                         <ul class="validation-error">
                             <li id="error-not-found"  class="vis-hidden">* Sorry, we don't recognize that NYC address, please try again! <br>
                                   Make sure you enter only your building number and street name.</li>
@@ -143,20 +143,26 @@
             </div>
 
             <div class="slide" id="slide-4">
-                <div class="centered yes hidden">
-                    <!-- <h1 class="news">Good News!</h1> -->
-                    <p>Your apartment <em>might be</em> rent stabilized!<br>
-                    But, there's only one way to know for sure, so keep reading.</p>
+                <div class="centered v-centered">
+                  <div class="yes hidden">
+                      <!-- <h1 class="news">Good News!</h1> -->
+                      <h1>Your apartment <em>might be</em> rent stabilized!</h1>
+                      <p>But, there's only one way to know for sure, so keep reading.</p>
+                  </div>
+
+                  <div class="no">
+                      <!-- <h1 class="news">Sorry!</h1> -->
+                      <p>Although your address wasn't found in our database</p> 
+                      <p>we can’t be 100&#37; sure you aren’t rent stabilized, so keep reading!</p>
+                  </div>
+
+                  <div id="map-container">
+                      <div id="map"></div>
+                      <p class="map-message">Orange means a property likely has rent stabilized apartments.</p>
+                      <p><a href="http://cdb.io/1CvSBy7" target="_blank">View this map in a separate window.</a></p>
+                  </div>                                    
                 </div>
-                <div class="centered no">
-                    <!-- <h1 class="news">Sorry!</h1> -->
-                    <p>Although your address wasn't found in our database we can’t be 100&#37; sure you aren’t rent stabilized, so keep reading!</p>
-                </div>
-                <div class="centered" id="map-container">
-                    <div id="map" class="centered"></div>
-                    <p class="map-message">Orange means a property likely has rent stabilized apartments.</p>
-                    <p><a href="http://cdb.io/1CvSBy7" target="_blank">View this map in a separate window.</a></p>
-                </div>
+
                 <div class="go-next bottom-arrow">
                   <h3>Next</h3>
                   <div class="arrow"></div>
@@ -170,9 +176,11 @@
                     <div class="dhcr-choice">
                       <p><a id="mail-to" href="#">Request it by email</a></p>
                       <p>Call them at <br><a href="tel:1-718-739-6400">718 739-6400</a></p>
-                      <p>You can also visit a <a href="http://www.nyshcr.org/AboutUs/contact.htm#rent-admin" target="_blank">HCR office</a></p>                      
+                      <p>You can also visit a<br><a href="http://www.nyshcr.org/AboutUs/contact.htm#rent-admin" target="_blank">HCR office</a></p>                      
                     </div>
-                    <p class="be-sure">Be sure to tell them your name, address,  apartment number and that you'd like to  request your rent history. It will get mailed to your apartment.</p>  
+                    <p class="be-sure">Be sure to tell them your name, address,  apartment number,</p>
+                    <p>and that you'd like to  request your rent history.</p>
+                    <p>It will get mailed to your apartment.</p>
                 </div>                
                 <div class="go-next bottom-arrow">
                   <h3>Next</h3>
@@ -203,15 +211,15 @@
             <div class="slide" id="slide-7">                
                 <div class="centered">                    
                     <!-- <h4 class="step">Step 4 of 5</h4> -->
-                    <h1>Once you receive it look at what previous tenants paid and if their rent was stabilized.</h1>
+                    <h1>Once you receive it, look at what previous tenants paid and if their rent was stabilized.</h1>
                     <a href="#rent-history">
                       <img class="rent-history" src="assets/png/sample-rent-history-thumb.png">
                     </a>
                     <p class="view-sample"><a href="#rent-history">View a sample rent history.</a></p>
-                    <a href="#_" class="lightbox" id="rent-history">
-                      <img src="assets/png/sample-rent-history.png">
-                    </a>
                 </div>
+                <a href="#_" class="lightbox" id="rent-history">
+                  <img src="assets/png/sample-rent-history.png">
+                </a>                
                 <div class="go-next bottom-arrow">
                   <h3>Next</h3>
                   <div class="arrow"></div>
