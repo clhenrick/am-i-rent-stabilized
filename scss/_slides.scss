@@ -37,12 +37,15 @@
 .centered {
   width: 100%;
   margin: 0 auto;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);    
+  position: relative; 
+
+  &.v-centered {
+    top: 50%;
+    transform: translateY(-50%);        
+  }
 
   #slide-1 & {
-    top: 38%;
+    // top: 38%;
   }
 
   .share-box-end {
@@ -76,7 +79,15 @@
 
   @include responsive(tablet-screens) {
     #slide-1 & {
-      top: 45%;
+      // top: 45%;
+    }
+
+    .no {
+      margin-top: 10%;
+      
+      p:last-child {
+        margin-top: 0;
+      }
     }
   }
 
@@ -84,7 +95,7 @@
     width: 100%;
 
     #slide-1 & {
-      top: 36%;
+      // top: 36%;
     }    
 
     .yes, .no {

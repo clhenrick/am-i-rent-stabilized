@@ -1,72 +1,52 @@
-.slide .centered {
-  .button {
-    @include button;
+.button {
+  @include button;
 
-    &:hover {
-      background-color: $orange;
-    }
-    
-    a {
-      color: $white;
-    }
+  &:hover {
+    background-color: $orange;
+  }
+  
+  a {
+    color: $white;
+  }
 
+  &.search {
+    width: 150px;
+    display: block;
+    margin-top: 50px;
+  }
+
+  &.learn-more {
+    margin-left: 50px;
+  }
+
+  @include responsive_height(medium-screens) {
     &.search {
-      width: 150px;
-      display: block;
-      margin-top: 50px;
-      // left: 15px;
+      margin-top: 0;
+      left: 0;
     }
+  }
+
+  @include responsive(small-screens) {
+    display: block;
+    margin: 0 auto;
+    width: 110px;
+    font-size: 1.5em;     
 
     &.start-over {
-      // width: 190px;
+      width: 120px;
     }
 
     &.learn-more {
-      // width: 200px;
-      margin-left: 50px;
-    }
-
-    @include responsive_height(medium-screens) {
-      
-      // font-size: 2.5em;
-      padding: 8px 10px;
-
-      &.search {
-        margin-top: 0;
-        left: 0;
-      }
-
-      &.start-over {
-        // width: 200px;
-      }
-
-      &.learn-more {
-        // width: 205px;
-      }   
-    }
-
-    @include responsive(small-screens) {
-      display: block;
+      width: 125px;
       margin: 0 auto;
-      width: 110px;
-      font-size: 1.5em;     
-
-      &.start-over {
-        width: 120px;
-      }
-
-      &.learn-more {
-        width: 125px;
-        margin: 0 auto;
-        margin-top: 10px;
-      }      
-    }
-
+      margin-top: 10px;
+    }      
   }
 
-  .button-holder {
-    width: 100%;
-    text-align: center;
-    margin-top: 30px;
-  }
+}
+
+.button-holder {
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
 }

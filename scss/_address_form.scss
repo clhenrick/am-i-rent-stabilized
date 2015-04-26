@@ -109,7 +109,8 @@
 
   @include responsive_height(medium-screens) {
     width: 100%;
-    height: 250px;
+    height: 230px;
+    margin-top: 40px;
 
     input { 
       &.address-input {
@@ -159,7 +160,7 @@
   }
 
   @include responsive(small-screens) {
-    height: 216px;
+    height: 204px;
     margin-top: 15%;
     
     input {
@@ -181,7 +182,7 @@
         margin-top: 5px;
 
         ul.drop-down {
-          width: 240px;
+          width: 210px;
         }
 
         &:after {
@@ -196,21 +197,21 @@
   }  
 } // end address form
 
-p#boroughs {
-  color: #4a4a4a;
-  text-align: left;
-  margin-bottom: 20px;
-  margin-top: 0;
-}
+// p#boroughs {
+//   color: #4a4a4a;
+//   text-align: left;
+//   margin-bottom: 20px;
+//   margin-top: 0;
+// }
 
-#boroughs input[type="radio"] {
-  display: inline-block;
-  position: relative;
-  top: 7px;
-  margin: 0;
-  padding: 0;
-  line-height: normal;
-}
+// #boroughs input[type="radio"] {
+//   display: inline-block;
+//   position: relative;
+//   top: 7px;
+//   margin: 0;
+//   padding: 0;
+//   line-height: normal;
+// }
 
 
 // Validation Errors
@@ -264,83 +265,76 @@ ul.validation-error {
     text-align: center;
   }  
 
-  // @include responsive_height(medium-screens) {
-  //   &.not-found {
-  //     left:0;
-  //   }
-
-  //   li {
-  //     max-width: 400px; 
-  //   }    
-
-  //   #error-not-found {
-  //     max-width: 80%;
-  //     display: block;
-  //   }
-
-  //   #error-boro {
-  //     width: 140px;
-  //     margin-left: 415px;
-  //     padding: 10px;
-  //     top: -225px;
-  //   }
-
-  //   #error-address {
-  //     width: 145px;
-  //     top: -225px;
-  //     margin-left: 75px;
-  //   }     
-  // }
-
-  // @include responsive(medium-screens) {
-  //   ul.validation-error {
-  //     &.not-found {
-  //       left:0;
-  //     }
-
-  //     li {
-  //       max-width: 400px;     
-
-  //       &#error-not-found {
-  //         top: 160px;
-  //       }
-
-  //       &#error-boro {
-  //         width: 140px;
-  //         margin-left: 415px;
-  //         padding: 10px;
-  //         top: -225px;
-  //       }
-
-  //       &#error-address {
-  //         width: 145px;
-  //         top: -225px;
-  //         margin-left: 75px;
-  //       }
-
-  //     }
-  //   }    
-  // }
-
-  // @include responsive(tablet-screens) {
-  //   #error-not-found {
-  //     max-width: 80%;
-  //     display: block;
-  //   }
-
-  //   #error-boro {
-  //     // margin-left: 55px;
-  //     // width: 400px;
-  //   }
-
-  //   #error-address {
-  //     width: 145px;
-  //     top: -208px;
-  //     margin-left: 110px;
-  //   }        
-  // }  
-
   @include responsive(medium-screens) {
+    #error-not-found {
+      max-width: 65%;
+      display: block;
+      top: 145px;
+    }
+
+    #error-boro, #error-address {
+      width: inherit;
+      display: block;
+      top: 0;
+      margin: 0 auto;
+      margin-top: 25px;
+      font-size: 0.8em;
+      text-align: center;
+      padding: 10px;
+    }     
+  }
+
+  @include responsive_height(medium-screens) {
+      li {
+        display: block;
+        font-size: 0.8em;
+        text-align: center;
+        padding: 10px;
+      }
+
+      #error-not-found {
+        margin-top: -25px;
+        top: 145px;
+        font-size: 0.7em;
+      }
+
+     #error-boro {
+        float: right;
+        width: 175px;
+        top: 0;
+        margin-right: 75px;        
+        margin-top: -152px;
+        padding: 10px;
+     }
+
+     #error-address {
+        float: left;
+        width: 175px;
+        margin-top: -203px;
+        margin-left: 75px;
+     }
+  }  
+
+  @include responsive(tablet-screens) {
+    #error-not-found {
+      max-width: 80%;
+      display: block;
+      top: 145px;
+    }
+
+    #error-boro, #error-address {
+      width: inherit;
+      display: block;
+      top: 0;
+      margin: 0 auto;
+      margin-top: 25px;
+      font-size: 0.8em;
+      text-align: center;
+      padding: 10px;
+   }     
+  }  
+
+  @include responsive(small-screens) {
     width: 95%;
     max-width: 95%;
     margin: 0 auto;
@@ -352,7 +346,8 @@ ul.validation-error {
         top: -125px;
         padding: inherit;
         margin: 0 auto;
-        // margin-top: 5px;
+        margin-top: 5px;
+        text-align: center;
         display: block;
         font-size: 0.5em;         
       }
@@ -364,10 +359,9 @@ ul.validation-error {
         margin: 0 auto;         
         padding: inherit;         
         display: block;
-        text-align: left;
+        text-align: center;
         font-size: 0.5em;
       }
-
     }
   }     
 } 

@@ -22,4 +22,11 @@ a.lightbox {
     outline: none;
     display: block;
   }
+  
+  @include responsive(tablet-screens) {
+    img {
+      left: 0;
+      margin-top: 20%;      
+    }
+  }
 }

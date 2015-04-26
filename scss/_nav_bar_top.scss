@@ -30,6 +30,10 @@ nav.main-nav {
       font-size: 1em;
       letter-spacing: .05em;
       font-weight: 500;
+
+      &:hover {
+        border: none;
+      }
     }
 
     // a.go-first:hover {

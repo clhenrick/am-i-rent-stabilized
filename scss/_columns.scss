@@ -13,6 +13,17 @@
     margin-top: 0;
   }
 
+  @include responsive(tablet-screens) {
+    height: 120px;
+    width: 630px;
+    
+    p {
+      height: 95px;
+      width: 80%;
+      font-size: 2.5em;
+    }
+  }
+
   @include responsive(small-screens) {
     max-width: auto;
     p {
@@ -29,12 +40,19 @@
   margin: 0 auto;
   margin-top: 60px;
 
-  @include columns($width: 350px);
+  @include columns($width:325px, $number:2, $gap:80px);
   
   @include responsive_height(medium-screens) {
     height: 305px;
     @include columns($width:200px);    
   }  
+
+  @include responsive(tablet-screens) {
+    width: 600px;
+    margin-top: 15%;
+    @include columns($width:255px, $number:2, $gap:80px);
+  }
+
 
   h4:last-child{
     margin-left: 25px;
@@ -50,37 +68,28 @@
     font-size: 2.5em;
     text-align: left;
 
+    &.yes-local-tr {
+      display: none;
+    }
+
+    &:first-child {
+      // margin-left: 30px;
+    }
+
+    &:last-child {
+      // margin-left: 60px;  
+    }
+
     @include responsive_height(medium-screens) {
       margin-top: 1%;
       height: 265px;
       padding: 20px;
       font-size: 2.2em;      
-    }    
+    }
     
-    &:last-child {
-      margin-left: 60px;  
-    }
-
-    &.yes-local-tr {
-      display: none;
-    }
-
-    ul.org-list {
-      margin-top: 20px;
-      // list-style-type: none;
-      font-size: .4em;
-      padding-left: 20px;
-
-      p {
-        height: auto;
-        padding: 0;
-        margin-left: 0;
-      }
-
-    }
-
-    li {
-
+    @include responsive(tablet-screens) {
+      width: 255px;
+      height: 250px;      
     }
   }
 

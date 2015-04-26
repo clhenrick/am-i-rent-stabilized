@@ -49,10 +49,18 @@ h1 {
   font-size: 5.4em;
   color: $gray;
   max-width: 95%;
-  margin-top: 30px;
+  margin-top: 75px;
   
   &.landing {
     margin-top: 0px;
+  } 
+
+  &.checking {
+    margin-top: 0;
+  }
+
+  &.end {
+    margin-top: 0;
   } 
 
   @include responsive_height(medium-screens){
@@ -65,9 +73,14 @@ h1 {
       max-width: 75%;
     }
 
-    &.news, &.end {
+    &.news {
       margin-top: 2%;
     }
+  }
+
+  @include responsive(tablet-screens) {
+    margin-top: 10%;
+    width: 80%;
   }
 
   @include responsive(small-screens) {
@@ -133,7 +146,7 @@ h4 {
 
 /* Paragraphs*/
 p {
-  max-width: 100%;
+  width: 80%;
   margin: 0 auto;
   font-size: 2.8em;
   color: $green;
@@ -143,7 +156,16 @@ p {
   em {
     font-weight: 600;
     font-style: italic;
-  }  
+  }
+
+  &.landing{
+    margin-top: 25px;
+  }
+
+  .no & {
+    margin-top: 75px;
+    width: 85%;
+  }
   
   &.map-messsage {
     margin-top: 30px;
@@ -186,9 +208,18 @@ p {
   }     
 
   @include responsive(tablet-screens) {
+    
+    width: 55%;
+    margin-top: 5%;
+
     &.landing {
       margin-top: 5%;
       width: 40%;      
+    }
+
+    &.be-sure {
+      margin-top: 3%;
+      width: 65%;
     }
   }
 
@@ -252,7 +283,7 @@ img {
 
   &.triple-s {
     width: 40px;
-    // margin-top: 30px;
+    margin-top: 10px;
   }
 
   &.building.intro {
@@ -301,6 +332,12 @@ img {
       max-width: 20%;
     }
   }  
+
+  @include responsive(tablet-screens) {
+    &.rent-history {
+      width: 175px;
+    }
+  }
 
   @include responsive(small-screens) {
     &.triple-s {
