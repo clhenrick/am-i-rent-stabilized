@@ -114,6 +114,12 @@
 	}
 }
 
+@mixin responsive_mobile_landscape() {
+  @media only screen and (max-height:420px) and (min-width: 320px) {
+    @content;
+  }
+}
+
 // set 2x resolution images for retina displays 
 // note: files should be named like image.png and image-2x.png
 @mixin retinize($file, $type, $width, $height) {	

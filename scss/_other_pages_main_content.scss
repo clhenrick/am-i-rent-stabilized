@@ -177,4 +177,19 @@ body {
       font-size: 2em;
     }  
   }
+
+  @include responsive_mobile_landscape() {
+    margin: 3%;
+    width: 95%;
+
+    .video {
+      width: 100%;
+      
+      iframe {
+        max-width: 80%;
+        height: auto;
+        height: 100%;        
+      }
+    }
+  }
 }

@@ -75,6 +75,10 @@ h1 {
       line-height: 1.2em;
       width: 97%;
       margin-top: 3%;    
+
+      &.landing {
+        max-width: 80%;
+      }
   }
 }
 
@@ -94,8 +98,21 @@ h2 {
     }    
   }
 
+  @include responsive(tablet-screens) {
+   
+    &.sub-head {
+      width: 53%;
+    }
+
+  }  
+
   @include responsive(small-screens) {
     font-size: 1.6em;
+    
+    &.sub-head {
+      width: 85%;
+      margin-top: 5%;
+    }
   }  
 }
 
@@ -114,6 +131,7 @@ h4 {
   }
 }
 
+/* Paragraphs*/
 p {
   max-width: 100%;
   margin: 0 auto;
@@ -167,6 +185,13 @@ p {
       }      
   }     
 
+  @include responsive(tablet-screens) {
+    &.landing {
+      margin-top: 5%;
+      width: 40%;      
+    }
+  }
+
   @include responsive(small-screens) {
     font-size: 1.3em;
 
@@ -174,6 +199,10 @@ p {
       margin-top: 10%;
       width: 48%;
     }
+
+    &.go-step4 {
+      width: 40%;
+    }    
 
     &.check-it {
       width: 60%;
@@ -191,18 +220,30 @@ p {
 
 }
 
+/* Links */
+
 a {
   text-decoration: none;
   font-weight: 600;
   color: $bluegreen;
+  
   &.internal {
     color: $orange;
   }
+  
   &:hover {
     color: $lightblue;
   }
+  
+  @include responsive(small-screens) {
+    &.go-step4 {
+      width: 40%;
+    }
+  }
+
 }
 
+/* Images */
 img {
   display: block;
   position: relative;

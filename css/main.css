@@ -432,7 +432,9 @@ h1 {
       font-size: 2em;
       line-height: 1.2em;
       width: 97%;
-      margin-top: 3%; } }
+      margin-top: 3%; }
+      h1.landing {
+        max-width: 80%; } }
 
 h2 {
   font-size: 4.8em;
@@ -444,9 +446,15 @@ h2 {
       font-size: 4.2em; }
       h2.sub-head {
         margin-top: 2%; } }
+  @media only screen and (max-width: 768px) {
+    h2.sub-head {
+      width: 53%; } }
   @media only screen and (max-width: 420px) {
     h2 {
-      font-size: 1.6em; } }
+      font-size: 1.6em; }
+      h2.sub-head {
+        width: 85%;
+        margin-top: 5%; } }
 
 h3 {
   font-size: 4em; }
@@ -459,6 +467,7 @@ h4 {
     font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif;
     font-weight: 300; }
 
+/* Paragraphs*/
 p {
   max-width: 100%;
   margin: 0 auto;
@@ -491,12 +500,18 @@ p {
         margin-top: 25px; }
       .centered.no p {
         margin-top: 30px; } }
+  @media only screen and (max-width: 768px) {
+    p.landing {
+      margin-top: 5%;
+      width: 40%; } }
   @media only screen and (max-width: 420px) {
     p {
       font-size: 1.3em; }
       p.landing {
         margin-top: 10%;
         width: 48%; }
+      p.go-step4 {
+        width: 40%; }
       p.check-it {
         width: 60%;
         margin-top: 10%; }
@@ -505,6 +520,7 @@ p {
       .yes p, .no p, p.map-message {
         font-size: 1.5em; } }
 
+/* Links */
 a {
   text-decoration: none;
   font-weight: 600;
@@ -513,7 +529,11 @@ a {
     color: #FFC462; }
   a:hover {
     color: #9cddf0; }
+  @media only screen and (max-width: 420px) {
+    a.go-step4 {
+      width: 40%; } }
 
+/* Images */
 img {
   display: block;
   position: relative;
@@ -814,6 +834,9 @@ nav.margin-circles {
       width: 100%;
       left: 0;
       margin: 0; } }
+  @media only screen and (max-height: 420px) and (min-width: 320px) {
+    .slides-container {
+      display: none; } }
 
 .slide {
   position: relative;
@@ -825,8 +848,10 @@ nav.margin-circles {
   width: 100%;
   margin: 0 auto;
   position: relative;
-  top: 40%;
+  top: 50%;
   transform: translateY(-50%); }
+  #slide-1 .centered {
+    top: 38%; }
   .centered .share-box-end {
     display: block;
     position: relative;
@@ -843,14 +868,16 @@ nav.margin-circles {
   @media only screen and (max-width: 980px) {
     .centered {
       width: 100%; }
-      .centered h1 {
-        margin-top: 3%;
-        width: 70%; }
       .centered a.lightbox img {
         max-width: 420px; } }
+  @media only screen and (max-width: 768px) {
+    #slide-1 .centered {
+      top: 45%; } }
   @media only screen and (max-width: 420px) {
     .centered {
       width: 100%; }
+      #slide-1 .centered {
+        top: 36%; }
       .centered .yes p, .centered .no p {
         font-size: 1.3em;
         max-width: 95%;
@@ -999,8 +1026,8 @@ a.lightbox {
         top: -125px;
         font-size: 0.6em; }
         #address-form div.user-data.borough-select {
-          width: 240px;
-          height: 50px;
+          width: 210px;
+          height: 45px;
           margin-top: 5px; }
           #address-form div.user-data.borough-select ul.drop-down {
             width: 240px; }
@@ -1060,34 +1087,7 @@ ul.validation-error {
     left: -30px;
     margin: 0 auto;
     text-align: center; }
-  @media only screen and (max-height: 770px) {
-    ul.validation-error.not-found {
-      left: 0; }
-    ul.validation-error li {
-      max-width: 400px; }
-      ul.validation-error li#error-not-found {
-        max-width: 80%;
-        display: block; }
-      ul.validation-error li#error-boro {
-        margin-left: 55px;
-        width: 400px; } }
   @media only screen and (max-width: 980px) {
-    ul.validation-error ul.validation-error.not-found {
-      left: 0; }
-    ul.validation-error ul.validation-error li {
-      max-width: 400px; }
-      ul.validation-error ul.validation-error li#error-not-found {
-        top: 160px; }
-      ul.validation-error ul.validation-error li#error-boro {
-        width: 140px;
-        margin-left: 415px;
-        padding: 10px;
-        top: -225px; }
-      ul.validation-error ul.validation-error li#error-address {
-        width: 145px;
-        top: -225px;
-        margin-left: 75px; } }
-  @media only screen and (max-width: 420px) {
     ul.validation-error {
       width: 95%;
       max-width: 95%;
@@ -1431,9 +1431,21 @@ input:-ms-input-placeholder {
   @media only screen and (max-width: 420px) {
     #left {
       display: none; } }
+  @media only screen and (max-height: 420px) and (min-width: 320px) {
+    #left {
+      width: 100%;
+      height: auto;
+      position: relative;
+      display: block;
+      margin-left: 3%;
+      margin-top: 70px; } }
 
 #lang-toggle {
   position: relative; }
+  @media only screen and (max-height: 420px) and (min-width: 320px) {
+    #lang-toggle {
+      top: 0;
+      left: 0; } }
 
 #side-nav {
   position: relative;
@@ -1486,6 +1498,9 @@ input:-ms-input-placeholder {
         #side-nav li:first-child {
           margin-top: 0; } }
   @media only screen and (max-width: 420px) {
+    #side-nav {
+      display: none; } }
+  @media only screen and (max-height: 420px) and (min-width: 320px) {
     #side-nav {
       display: none; } }
 
@@ -1605,3 +1620,35 @@ body {
         font-size: 2.6em; }
       #main p {
         font-size: 2em; } }
+  @media only screen and (max-height: 420px) and (min-width: 320px) {
+    #main {
+      margin: 3%;
+      width: 95%; }
+      #main .video {
+        width: 100%; }
+        #main .video iframe {
+          max-width: 80%;
+          height: auto;
+          height: 100%; } }
+
+#mobile-message {
+  display: none; }
+  @media only screen and (max-height: 420px) and (min-width: 320px) {
+    #mobile-message {
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0; }
+      #mobile-message img {
+        position: relative;
+        margin-top: 4%; }
+      #mobile-message h1 {
+        height: 40px;
+        position: inherit;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0; } }

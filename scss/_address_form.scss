@@ -176,8 +176,8 @@
       font-size: 0.6em;
 
       &.borough-select {
-        width: 240px;
-        height: 50px;
+        width: 210px;
+        height: 45px;
         margin-top: 5px;
 
         ul.drop-down {
@@ -264,58 +264,83 @@ ul.validation-error {
     text-align: center;
   }  
 
-  @include responsive_height(medium-screens) {
-    &.not-found {
-      left:0;
-    }
+  // @include responsive_height(medium-screens) {
+  //   &.not-found {
+  //     left:0;
+  //   }
 
-    li {
-      max-width: 400px;     
+  //   li {
+  //     max-width: 400px; 
+  //   }    
 
-      &#error-not-found {
-        max-width: 80%;
-        display: block;
-      }
+  //   #error-not-found {
+  //     max-width: 80%;
+  //     display: block;
+  //   }
 
-      &#error-boro {
-        margin-left: 55px;
-        width: 400px;
-      }     
+  //   #error-boro {
+  //     width: 140px;
+  //     margin-left: 415px;
+  //     padding: 10px;
+  //     top: -225px;
+  //   }
 
-    }    
-  }
+  //   #error-address {
+  //     width: 145px;
+  //     top: -225px;
+  //     margin-left: 75px;
+  //   }     
+  // }
+
+  // @include responsive(medium-screens) {
+  //   ul.validation-error {
+  //     &.not-found {
+  //       left:0;
+  //     }
+
+  //     li {
+  //       max-width: 400px;     
+
+  //       &#error-not-found {
+  //         top: 160px;
+  //       }
+
+  //       &#error-boro {
+  //         width: 140px;
+  //         margin-left: 415px;
+  //         padding: 10px;
+  //         top: -225px;
+  //       }
+
+  //       &#error-address {
+  //         width: 145px;
+  //         top: -225px;
+  //         margin-left: 75px;
+  //       }
+
+  //     }
+  //   }    
+  // }
+
+  // @include responsive(tablet-screens) {
+  //   #error-not-found {
+  //     max-width: 80%;
+  //     display: block;
+  //   }
+
+  //   #error-boro {
+  //     // margin-left: 55px;
+  //     // width: 400px;
+  //   }
+
+  //   #error-address {
+  //     width: 145px;
+  //     top: -208px;
+  //     margin-left: 110px;
+  //   }        
+  // }  
 
   @include responsive(medium-screens) {
-    ul.validation-error {
-      &.not-found {
-        left:0;
-      }
-
-      li {
-        max-width: 400px;     
-
-        &#error-not-found {
-          top: 160px;
-        }
-
-        &#error-boro {
-          width: 140px;
-          margin-left: 415px;
-          padding: 10px;
-          top: -225px;
-        }
-
-        &#error-address {
-          width: 145px;
-          top: -225px;
-          margin-left: 75px;
-        }
-
-      }
-    }    
-  }
-
-  @include responsive(small-screens) {
     width: 95%;
     max-width: 95%;
     margin: 0 auto;

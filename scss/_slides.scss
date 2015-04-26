@@ -21,6 +21,10 @@
     left: 0;
     margin: 0;
   }
+
+  @include responsive_mobile_landscape() {
+    display: none;
+  }
 }
 
 .slide {
@@ -34,8 +38,12 @@
   width: 100%;
   margin: 0 auto;
   position: relative;
-  top: 40%;
+  top: 50%;
   transform: translateY(-50%);    
+
+  #slide-1 & {
+    top: 38%;
+  }
 
   .share-box-end {
     display: block;
@@ -60,18 +68,24 @@
 
   @include responsive(medium-screens){
     width: 100%;
-    h1 {
-      margin-top: 3%;
-      width: 70%;
-    }
 
     a.lightbox img {
       max-width: 420px;
     }         
   }
 
+  @include responsive(tablet-screens) {
+    #slide-1 & {
+      top: 45%;
+    }
+  }
+
   @include responsive(small-screens) {
     width: 100%;
+
+    #slide-1 & {
+      top: 36%;
+    }    
 
     .yes, .no {
       p {

@@ -31,7 +31,7 @@
 
   @include responsive_height(medium-screens) {
     display: inline-block;
-    width: auto;
+    width: auto;    
   }
 
   @include responsive(small-screens) {
