@@ -31,25 +31,6 @@
         </script>        
     </head>
     <body>
-        <!-- 
-        <script>
-          window.fbAsyncInit = function() {
-            FB.init({
-              appId      : '438063859681904',
-              xfbml      : true,
-              status      : true,
-              version    : 'v2.2'
-            });
-          };
-          (function(d, s, id){
-             var js, fjs = d.getElementsByTagName(s)[0];
-             if (d.getElementById(id)) {return;}
-             js = d.createElement(s); js.id = id;
-             js.src = "//connect.facebook.net/en_US/sdk.js";
-             fjs.parentNode.insertBefore(js, fjs);
-           }(document, 'script', 'facebook-jssdk'));
-        </script>
-         -->
         <nav class="main-nav">
           <img class="logo" src="assets/png/logo.png">
           <h1>            
@@ -62,6 +43,11 @@
             <li class="nav"><a href="html/resources.html">Resources</a></li>            
           </ul>
         </nav>
+
+        <div id="mobile-message">
+          <img src="assets/png/rotate.png">
+          <h1>Please rotate your device.</h1>          
+        </div>
 
         <div id="lang-toggle">
             <ul>
@@ -92,7 +78,8 @@
                     <img class="building intro" src="assets/png/building.png">
                     <h1 class="landing">Half of all apartments in NYC are rent stabilized.</h1> 
                     <h2 class="sub-head">Find out if yours is one of them.</h2>
-                    <p class="landing">Or jump ahead to <a class="go-step4" href="#">"When you receive your rent history"</a></p>
+                    <p class="landing">Or jump ahead to</p>
+                    <p class="go-step4"><a class="go-step4" href="#">"When you receive your rent history"</a></p>
                 </div>
                 <div class="go-next bottom-arrow">
                   <h3>Begin</h3>
@@ -112,7 +99,6 @@
                                   Make sure you enter only your building number and street name.</li>
                         </ul>                      
                         <div class="user-data street-address">
-                            <!-- <label class="address-form" for="address-input">Street Address:*</label> -->
                             <input class="address-input" name="address-input" type="text" placeholder="Building No. &amp; Street Name" tabindex="1">
                         </div>                        
                         <div class="user-data borough-select">
