@@ -857,12 +857,12 @@ app.map = (function(d,w,a){
     el.map = new L.Map('map', {
       center : [40.7127, -74.0059],
       zoom : 12
-      // dragging : false,
-      // touchZoom : false,
-      // doubleClickZoom : false,
-      // scrollWheelZoom : false,
-      // zoomControl : false,
-      // keyboard : false
+      dragging : false,
+      touchZoom : false,
+      doubleClickZoom : false,
+      scrollWheelZoom : false,
+      zoomControl : false,
+      keyboard : false
     });
 
     var basemap = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',{
