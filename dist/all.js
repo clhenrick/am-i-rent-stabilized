@@ -856,7 +856,7 @@ app.map = (function(d,w,a){
   var initMap = function() {
     el.map = new L.Map('map', {
       center : [40.7127, -74.0059],
-      zoom : 12
+      zoom : 12,
       dragging : false,
       touchZoom : false,
       doubleClickZoom : false,
