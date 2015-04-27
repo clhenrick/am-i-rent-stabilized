@@ -16,13 +16,15 @@
 
 // button
 @mixin button {
+  max-width: 100%;
+  width: 170px;
   display: inline-block;
   position: relative;
-  width: 170px;
   margin: 0 auto;
   font-size: 2.2em;
   text-align: center;
   text-transform: uppercase;
+  color: $white;
   background-color: $darkorange;
   padding: 5px 10px;
   border-radius: 35px;	
@@ -114,8 +116,9 @@
 	}
 }
 
+// for displaying message to user to tilt phone
 @mixin responsive_mobile_landscape() {
-  @media only screen and (max-height:420px) and (min-width: 320px) {
+  @media only screen and (max-height: 420px) and (min-width: 320px) {
     @content;
   }
 }

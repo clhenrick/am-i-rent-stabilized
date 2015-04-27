@@ -25,17 +25,25 @@
   }
 
   @include responsive(small-screens) {
-    max-width: auto;
+    width: 100%;
+    height: 80px;
+    margin-top: 25px;
+    margin-bottom: 10%;
+
+    @include columns($width: 100px, $number: 3, $gap: 10px);
+
     p {
-      height: auto;
+      width: 90%;
+      height: 70px;
       margin-top: 5%;
+      font-size: 1.5em;
     }    
   }
 }
 
 .action-choice {
   position: relative;
-  max-width: 750px;
+  max-width: 730px;
   height: 315px;
   margin: 0 auto;
   margin-top: 60px;
@@ -43,8 +51,10 @@
   @include columns($width:325px, $number:2, $gap:80px);
   
   @include responsive_height(medium-screens) {
-    height: 305px;
-    @include columns($width:200px);    
+    width: 640px;
+    margin-top: 30px;
+    height: 275px;
+    @include columns($width:300px, $number:2, $gap:20px);    
   }  
 
   @include responsive(tablet-screens) {
@@ -53,14 +63,14 @@
     @include columns($width:255px, $number:2, $gap:80px);
   }
 
-
-  h4:last-child{
-    margin-left: 25px;
-    top: -3px;
+  @include responsive(small-screens) {
+    width: 100%;
+    height: 200px;
+    @include columns($width:125px, $number:2, $gap: 10px);    
   }
 
   p {
-    // max-width: 350px;
+    max-width: 100%;
     width: 325px;
     height: 250px;
     margin: 0;
@@ -72,24 +82,26 @@
       display: none;
     }
 
-    &:first-child {
-      // margin-left: 30px;
-    }
-
-    &:last-child {
-      // margin-left: 60px;  
-    }
-
     @include responsive_height(medium-screens) {
       margin-top: 1%;
-      height: 265px;
+      max-width: 100%;
+      width: 300px;
+      height: 210px;
       padding: 20px;
-      font-size: 2.2em;      
+      font-size: 2em;      
     }
     
     @include responsive(tablet-screens) {
       width: 255px;
       height: 250px;      
+    }
+
+    @include responsive(small-screens) {
+      max-width: 100%;
+      width: 95%;
+      height: 175px;
+      font-size: 1.2em;
+      padding: 10px;
     }
   }
 
@@ -105,21 +117,11 @@
     &:last-child {
       top: -3px;
     }
+
+    @include responsive(small-screens) {
+      font-size: 1.5em;      
+    }        
   }
-
-  @include responsive(small-screens) {
-    max-width: auto;
-
-    h4 {
-      font-size: 1.5em;
-      margin-top: 10%;
-    }
-
-    p {
-      width: 70%;
-      font-size: 2.2em;
-    }
-  }    
 } // end .action-choice
 
 input[placeholder] {

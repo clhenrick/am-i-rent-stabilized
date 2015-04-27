@@ -6,30 +6,31 @@
   width: 550px;
   height: 300px;
   border: 3px solid $medgray;
+
   // &:hover {
   //   cursor: default;
   // }
 
   @include responsive_height(medium-screens) {
     margin-top: 2%;
-    height: 275px;
-
-    .map-message {
-      font-size: 2.2em;
-      margin-top: 1%;
-    }            
+    height: 275px;      
   }
 
   @include responsive(small-screens) {
         width: 90%;
         height: 200px;
         margin-top: 5%;   
+  }
+}
 
-      .map-message {
+p.map-message {
+  @include responsive_height(medium-screens){
         font-size: 1.3em;
-        width: 70%;
-        margin-top: 4%;
-      }         
+        width: 85%;
+        margin-top: 1%;    
   }
 
+  @include responsive(small-screens) {
+      margin-top: 2%;
+  }
 }

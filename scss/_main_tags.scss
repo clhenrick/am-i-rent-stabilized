@@ -65,8 +65,8 @@ h1 {
 
   @include responsive_height(medium-screens){
     max-width: 85%;
-    margin-top: 6%;
-    font-size: 4.2em;
+    margin-top: 8%;
+    font-size: 3.8em;
 
     &.landing {
       margin-top: 0px;
@@ -74,8 +74,21 @@ h1 {
     }
 
     &.news {
-      margin-top: 2%;
+      margin-top: 7%;
     }
+  }
+
+  @include responsive(medium-screens) {
+    font-size: 3.8em;
+    margin-top: 8%;
+
+    &.landing {
+      margin-top: 0;
+      max-width: 75%;
+    }
+    &.news {
+      margin-top: 7%;
+    }    
   }
 
   @include responsive(tablet-screens) {
@@ -86,7 +99,8 @@ h1 {
   @include responsive(small-screens) {
       font-size: 2em;
       line-height: 1.2em;
-      width: 97%;
+      width: 100%;
+      max-width: 95%;
       margin-top: 3%;    
 
       &.landing {
@@ -104,15 +118,18 @@ h2 {
   }
 
   @include responsive_height(medium-screens) {
-    font-size: 4.2em;
+    font-size: 3.2em;
 
     &.sub-head {
       margin-top: 2%;
     }    
   }
 
-  @include responsive(tablet-screens) {
-   
+  @include responsive(medium-screens) {
+    font-size: 3.2em;
+  }
+
+  @include responsive(tablet-screens) {   
     &.sub-head {
       width: 53%;
     }
@@ -165,10 +182,6 @@ p {
   .no & {
     margin-top: 75px;
     width: 85%;
-  }
-  
-  &.map-messsage {
-    margin-top: 30px;
   }
 
   &.share-it {
@@ -233,18 +246,23 @@ p {
 
     &.go-step4 {
       width: 40%;
-    }    
+    } 
+
+    &.be-sure {
+      width: 80%;
+      margin-top: 5%;
+    }
 
     &.check-it {
       width: 60%;
-      margin-top: 10%;
+      // margin-top: 10%;
 
       .addtocalendar {
         margin-top: 15%;
       }
     }
     
-    .yes &, .no &, &.map-message {
+    .yes &, .no & {
       font-size: 1.5em;
     }       
   }
@@ -350,14 +368,14 @@ img {
     }
 
     &.mascot {
-      width: 118px;
+      max-width: 30%;
     }
 
-    a.lightbox & {
-      max-width: 300px;
+    &.rent-history {
+      width: 125px;
       left: 0;
       margin: 0 auto;
-      margin-top: 70px;      
+      margin-top: 5%;      
     }        
   }  
 }

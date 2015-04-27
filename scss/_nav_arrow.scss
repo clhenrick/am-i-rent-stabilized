@@ -21,7 +21,7 @@
     font-size: 3.5em;
     text-transform: uppercase;
     text-align: center;
-    margin-top: 20px;
+    // margin-top: 20px;
   }
   
   .arrow {
@@ -42,6 +42,10 @@
     &.bottom-arrow {
       bottom: 3%;
       margin-left: -62.5px;
+    }
+
+    h3 {
+      font-size: 2.5em;
     }
   }  
 

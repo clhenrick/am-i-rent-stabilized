@@ -21,12 +21,19 @@ a.lightbox {
   &:target {
     outline: none;
     display: block;
+    z-index: 20;
   }
   
   @include responsive(tablet-screens) {
     img {
       left: 0;
       margin-top: 20%;      
+    }
+  }
+
+  @include responsive(small-screens) {
+    img {
+      width: 90%;
     }
   }
 }
