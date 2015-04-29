@@ -793,7 +793,7 @@ app.map = (function(d,w,a){
   // check the bbl number against the cartodb data
   var getCDBdata = function(bbl) {
     // sql to pass cartodb's sql api
-    var sql1 = "SELECT bbl FROM all_nyc_likely_rent_stabl_merged " +
+    var sql1 = "SELECT bbl FROM map_pluto_likely_rs " +
                   "WHERE bbl = " + bbl;    
     var sql2 = trQuery(g.lat, g.lon);                  
 
@@ -885,7 +885,7 @@ app.map = (function(d,w,a){
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
     });
 
-    var cdbURL = 'https://chenrick.cartodb.com/api/v2/viz/3680af8e-7816-11e4-ab90-0e4fddd5de28/viz.json';
+    var cdbURL = 'https://chenrick.cartodb.com/api/v2/viz/20b7c6ac-ee12-11e4-b74e-0e853d047bba/viz.json';
 
     var cartocss = "#all_map_pluto_rent_stabl_reg_2014v1 {" +
                       "polygon-fill: #FF6600;" +

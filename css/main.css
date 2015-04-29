@@ -417,7 +417,9 @@ h1 {
   margin-top: 75px; }
   h1.landing {
     margin-top: 0px;
-    text-transform: uppercase; }
+    text-transform: capitalize;
+    letter-spacing: 0.05em;
+    font-style: italic; }
   h1.checking {
     margin-top: 0; }
   h1.end {
@@ -1246,12 +1248,22 @@ ul.validation-error {
     margin-top: 50px; }
   .button.learn-more {
     margin-left: 50px; }
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-height: 770px) {
     .button {
-      font-size: 2.5em;
-      width: 200px; }
+      width: 160px;
+      font-size: 1.8em;
+      padding: 8px 12px; }
+      .button.search {
+        width: 125px; }
       .button.learn-more {
-        width: 210px; } }
+        width: 175px; } }
+  @media only screen and (max-width: 980px) {
+    .button {
+      width: 160px;
+      font-size: 1.8em;
+      padding: 8px 12px; }
+      .button.search {
+        width: 125px; } }
   @media only screen and (max-width: 460px) {
     .button {
       width: 110px;
@@ -1287,49 +1299,84 @@ ul.validation-error {
   -moz-animation: play 0.8s steps(10) infinite;
   -ms-animation: play 0.8s steps(10) infinite;
   -o-animation: play 0.8s steps(10) infinite;
-  animation: play 0.8s steps(10) infinite; }
+  animation: play 0.8s steps(10) infinite;
+  @-webkit-keyframes play {
+    from {
+      background-position: 0; }
+
+    to {
+      background-position: -1920px; } }
+
+  @-moz-keyframes play {
+    from {
+      background-position: 0; }
+
+    to {
+      background-position: -1920px; } }
+
+  @-ms-keyframes play {
+    from {
+      background-position: 0; }
+
+    to {
+      background-position: -1920px; } }
+
+  @-o-keyframes play {
+    from {
+      background-position: 0; }
+
+    to {
+      background-position: -1920px; } }
+
+  @keyframes play {
+    from {
+      background-position: 0; }
+
+    to {
+      background-position: -1920px; } }
+ }
   @media only screen and (max-height: 770px) {
     #sprite {
       margin-top: 5%;
       background: url('../assets/png/checking-sprite-sm.png');
       width: 128px;
       height: 288px;
-      left: 0; } }
+      left: 0;
+      @-webkit-keyframes play {
+        from {
+          background-position: 0; }
 
-@-webkit-keyframes play {
-  from {
-    background-position: 0; }
+        to {
+          background-position: -1280px; } }
 
-  to {
-    background-position: -1920px; } }
+      @-moz-keyframes play {
+        from {
+          background-position: 0; }
 
-@-moz-keyframes play {
-  from {
-    background-position: 0; }
+        to {
+          background-position: -1280px; } }
 
-  to {
-    background-position: -1920px; } }
+      @-ms-keyframes play {
+        from {
+          background-position: 0; }
 
-@-ms-keyframes play {
-  from {
-    background-position: 0; }
+        to {
+          background-position: -1280px; } }
 
-  to {
-    background-position: -1920px; } }
+      @-o-keyframes play {
+        from {
+          background-position: 0; }
 
-@-o-keyframes play {
-  from {
-    background-position: 0; }
+        to {
+          background-position: -1280px; } }
 
-  to {
-    background-position: -1920px; } }
+      @keyframes play {
+        from {
+          background-position: 0; }
 
-@keyframes play {
-  from {
-    background-position: 0; }
-
-  to {
-    background-position: -1920px; } }
+        to {
+          background-position: -1280px; } }
+ } }
 
 @media only screen and (max-height: 770px) {
   @-webkit-keyframes play {
