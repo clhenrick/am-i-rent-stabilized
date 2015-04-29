@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">      
+        <title>Am I Rent Stabilized?</title>
+        <meta name="description" content="Find out if your NYC apartment is rent stabilized!">      
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">    
+        <link rel="stylesheet" type="text/css" href="../bower_components/normalize.css/normalize.css">
+        <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <script src="http://use.typekit.net/emf7xrp.js"></script>
+        <script>try{Typekit.load();}catch(e){}</script>
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-57236362-1']);
+          _gaq.push(['_trackPageview']);
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>        
+    </head>
+    <body>
+        <nav class="main-nav">
+          <img class="logo" src="../assets/png/logo.png">
+          <h1>            
+            <a class="go-first" href="../index.html">Am I Rent Stabilized?</a>
+          </h1>
+          <div class="burger" alt="-"></div>
+          <ul>
+            <li class="nav"><a href="why.html">Why it Matters</a></li>
+            <li class="nav"><a href="how.html">How it Works</a></li>
+            <li class="nav"><a href="resources.html">Resources</a></li>
+          </ul>
+        </nav>
+
+        <div id="left">
+          <div id="lang-toggle">
+              <ul>
+                  <li><a href="#">en español</a></li>
+                  <li><p>•</p></li>
+                  <li><a href="#">中文</a></li>
+              </ul>
+          </div>
+
+          <div id="side-nav">
+            <h3>Jump to a topic:</h3>
+            <ul>
+              <li><a href="#how">How it Works</a></li>
+              <li><a href="#code-data">Code &amp; Data</a></li>
+              <li><a href="#credits">Credits</a></li>
+            </ul>          
+          </div>
+        </div>
+                
+        <div id="main">
+          <a name="how"></a>
+          <h1>How This Site Works</h1>
+          <p>This site checks your building's address and sees if it matches a list of properties that are <strong>likely to have rent stabilized apartments</strong>. However, it is not 100% accurate so the best course of action is always to request your rent history and then seek the advice of a tenants rights group or housing lawyer. This may be helpful if your rent history is unclear, if you are being intimidated by your landlord, worried about aggravating your landlord, or if you may be owed a large sum of money.</p>
+
+          <p>This site does not keep any personal identifiable information from you. It does keep track of addresses searched for internal analysis only. <strong>This info is kept private and not shared.</strong></p>
+
+          <h3>Disclaimer!</h3>
+          <p>This site is for informational purposes ony and <strong>has absolutely no legal bearing!</strong> It will not tell you if your apartment is definitely rent stabilized as the apartment numbers are not in the database. To find out for sure, you must request request your rent history from the DHCR and potentially seek advice from a tenants rights group.</p>
+
+          <h3>Estimating NYC buildings that are likely to have rent stabilized apartments</h3>
+          <p>Landlords are required to report their rent stabilized apartments to the <a target="_blank" href="http://www.nyshcr.org/">DHCR</a> every year. This process is essentially voluntary as landlords are not held accountable for choosing not to register their rent stabilized apartments. This makes it difficult to track how many rent stabilized apartments exist and where they are located.</p>
+          <p>Each year the DHCR releases a list containing the addresses of buildings with rent stabilized apartments that have been registered.</p>
+          <p>In general, it is likely that a building has rent stabilized apartments if it was built before 1974, has 6 or more apartments, and is not a co-op or condo. When comparing this query on NYC's <a target="_blank" href="http://www.nyc.gov/html/dcp/html/bytes/dwn_pluto_mappluto.shtml">tax lot data (NYC PLUTO)</a> to properties on the DHCR list it is evident that there are properties that <a target="_blank" href="http://cdb.io/1CxBFB4">likely have rent stabilized apartments which are not registered with the DHCR.</a></p>
+
+          <p>The database used by this site combines the properties on the DHCR list with those that are likely to have rent stabilized units and are not currently on the DHCR list in order to get an estimate of the locations of all rent stabilized apartments in NYC.</p>
+          
+          <a name="code-data"></a>
+          <h1>Code and Data</h1>
+          <p>You may inspect and download the code for this site, download the data it uses, and download Excel and CSV files of the DHCR rent stabilized building list from the links below.</p>
+          <ul>
+            <li><a target="_blank" href="https://github.com/clhenrick/am-i-rent-stabilized">Github Repo (code)</a></li>
+            <li><a target="_blank" href="http://chenrick.cartodb.com/tables/all_nyc_likely_rent_stabl_merged/public">Get the Data</a></li>
+            <li><a target="_blank" href="https://github.com/clhenrick/dhcr-rent-stabilized-data">DHCR's Rent Stabilzed Building List</a></li>
+          </ul>
+          
+          <a name="credits"></a>
+          <h1>Credits</h1>
+          <p>The following people and organizations helped tremendously to make this project happen.</p>
+          <ul>
+            <li><a target="_blank" href="http://carolinewoolard.com/">Caroline Woolard</a> originally gave me the idea to build the site.</li>
+            <li><a target="_blank" href="http://radishlab.com/">Radish Lab</a> provided extremely helpful design assistance for version 2 of the site.</li>
+            <li><a target="_blank" href="http://goodlemons.com/">Jue Yang</a> contributed kick-ass art work and translated content to Chinese.</li>            
+            <li><a target="_blank" href="http://betanyc.us">BetaNYC</a> and its members provided much needed technical &amp; motivational support.</li>
+            <li><a target="_blank" href="http://cartodb.com">CartoDB</a> hosts the data as well as provides the technology necessary for querying the data and rendering it on a map.</li>
+          </ul>
+
+          <h3>And most of all thanks to you for visiting this site and checking your rent history!</h3>
+          <p>We'd love to hear about your story, especially if this site helped you in any way, so feel free to <a href="mailto:amirentstabilized@gmail.com">get in touch.</a></p> 
+          
+          <p>Let's work together to keep NYC affordable so that it can stay the culturally rich and socio-economically diverse place it's so well-  known for being.</p>
+        </div>
+        
+    </body>
+    <script type="text/javascript">
+      function init(){
+
+        var burgerIcon = document.querySelector('.burger'),
+            mainNavList = document.querySelector('.main-nav ul');
+
+        function iterateNodeList(list, fn) {
+          if (list && list.length) {
+            var i=0, len=list.length;
+            for (i; i<len; i++) {
+              return fn(list[i], i);
+            }
+          }
+          if (list && !list.length) {
+            return fn(list);
+          }   
+        } 
+        
+        function toggleClass(el, className) {
+          iterateNodeList(el, function(el){
+            if (el.classList) {
+              el.classList.toggle(className);
+            } else {
+              var classes = el.className.split(' ');
+              var existingIndex = classes.indexOf(className);
+              if (existingIndex >=0) {
+                classes.splice(existingIndex, 1);
+              } else {
+                classes.push(className);
+                el.className = classes.join(' ');
+              }
+            }
+          });   
+        }
+
+        // hamburger icon
+        burgerIcon.addEventListener('click', function(e) {
+          e.preventDefault();
+          toggleClass(burgerIcon, 'open');
+          toggleClass(mainNavList, 'responsive');
+        });
+        
+      };
+      
+    function ready(fn) {
+      if (document.readyState != 'loading'){
+        fn();
+      } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', fn);
+      } else {
+        document.attachEvent('onreadystatechange', function() {
+          if (document.readyState != 'loading')
+            fn();
+        });
+      }
+    }
+
+    ready(init);      
+  </script>
+</html>
