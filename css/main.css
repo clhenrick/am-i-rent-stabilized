@@ -1585,7 +1585,8 @@ body {
   #main h1, #main h3, #main p {
     text-align: left;
     max-width: 100%;
-    margin-left: 0; }
+    margin-left: 0;
+    padding: 0; }
   #main h1 {
     margin-top: 50px;
     color: #FFC462; }
@@ -1600,7 +1601,9 @@ body {
     width: 80%;
     margin-top: 25px;
     margin-left: 0;
+    font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif;
     font-size: 2.8em;
+    font-weight: bold;
     line-height: 1.2em; }
   #main p {
     width: 80%;
@@ -1635,6 +1638,8 @@ body {
       margin-top: 25px;
       width: 100%;
       height: 372px; }
+  #main .italic {
+    font-style: italic; }
   @media only screen and (max-width: 980px) {
     #main {
       position: relative;
@@ -1656,17 +1661,31 @@ body {
       position: relative;
       display: block;
       width: 90%;
-      margin-top: 100px;
-      margin-left: 10%; }
+      margin: 70px auto 50px auto; }
       #main h1, #main h3, #main p {
         max-width: 100%;
         width: 100%; }
       #main h1 {
-        font-size: 3.2em; }
+        font-size: 2.3em;
+        margin-top: 20px; }
       #main h3 {
-        font-size: 2.6em; }
+        font-size: 1.8em;
+        margin-top: 10px; }
+      #main p, #main li {
+        font-size: 1.5em;
+        line-height: 1.4em; }
       #main p {
-        font-size: 2em; } }
+        max-width: 100%;
+        width: 100%;
+        margin-top: 10px; }
+      #main li {
+        width: 90%;
+        margin-top: 10px; }
+      #main .video {
+        margin-top: 25px; }
+        #main .video iframe {
+          margin-top: 10px;
+          height: auto; } }
   @media only screen and (max-height: 420px) and (min-width: 320px) {
     #main {
       margin: 3%;
