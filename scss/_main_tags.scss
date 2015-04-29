@@ -33,7 +33,6 @@ h1, h2, h3, h4 {
   width: 100%;
   margin: 0 auto; 
   margin-bottom: 0;
-  font-family: $header-font;
   font-weight: 700;
   line-height: 1em;
   text-align: center;
@@ -46,6 +45,7 @@ h1, h2, h3, h4 {
 }
 
 h1 {
+  font-family: $header-font;
   font-size: 5.4em;
   color: $gray;
   max-width: 95%;
@@ -53,6 +53,7 @@ h1 {
   
   &.landing {
     margin-top: 0px;
+    text-transform: uppercase;
   } 
 
   &.checking {
@@ -64,13 +65,18 @@ h1 {
   } 
 
   @include responsive_height(medium-screens){
-    max-width: 85%;
-    margin-top: 8%;
+    width: 65%;
+    margin-top: 3%;
     font-size: 3.8em;
 
     &.landing {
       margin-top: 0px;
-      max-width: 75%;
+      width: 65%;
+    }
+
+    .yes & {
+      width: 55%;
+      margin-top: 3%;
     }
 
     &.news {
@@ -79,8 +85,9 @@ h1 {
   }
 
   @include responsive(medium-screens) {
+    width: 65%;
     font-size: 3.8em;
-    margin-top: 8%;
+    margin-top: 3%;
 
     &.landing {
       margin-top: 0;
@@ -92,7 +99,7 @@ h1 {
   }
 
   @include responsive(tablet-screens) {
-    margin-top: 10%;
+    margin-top: 15%;
     width: 80%;
   }
 
@@ -110,28 +117,34 @@ h1 {
 }
 
 h2 {
-  font-size: 4.8em;
   color: $lightgray;
+  font {
+    family: $body-font;
+    size: 4.8em;
+    style: italic;
+    weight: bold;
+  }
   
   &.sub-head {
     margin-top: 50px;
   }
 
   @include responsive_height(medium-screens) {
-    font-size: 3.2em;
+    font-size: 2.2em;    
 
     &.sub-head {
       margin-top: 2%;
+      font-style: italic;
     }    
   }
 
   @include responsive(medium-screens) {
-    font-size: 3.2em;
+    font-size: 2.2em;
   }
 
   @include responsive(tablet-screens) {   
     &.sub-head {
-      width: 53%;
+      width: 75%;
     }
 
   }  
@@ -203,16 +216,21 @@ p {
 
   @include responsive_height(medium-screens){
       max-width: 90%;
-      font-size: 2.2em;
+      font-size: 1.8em;
       margin-top: 1%;
+
+      &.go-step4 {
+        width: 20%;
+      }
 
       &.check-it {
         margin-top: 25px;
-        width: 70%;
+        width: 30%;
       }
 
       &.be-sure {
         margin-top: 25px;
+        width: 55%;
       }
 
       .centered.no & {
@@ -230,9 +248,18 @@ p {
       width: 40%;      
     }
 
+    &.go-step4 {
+      width: 40%;
+      margin-top: 0;
+    }
+
+    .no & {
+      width: 70%;
+    }
+
     &.be-sure {
       margin-top: 3%;
-      width: 65%;
+      width: 55%;
     }
   }
 

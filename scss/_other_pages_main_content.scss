@@ -36,14 +36,16 @@ body {
     width: 80%;
     margin-top: 25px;
     margin-left: 0;
-    font-size: 3em;
+    font-size: 2.8em;
+    line-height: 1.2em;
   }
   
   p {
     width: 80%;
     margin-top: 25px;
     padding-right: 25px;
-    font-size: 2.2em;
+    font-size: 1.8em;
+    line-height: 1.6em;
   }
 
   ul {
@@ -52,7 +54,7 @@ body {
 
   li {
     color: $green;
-    font-size: 2.2em;
+    font-size: 1.8em;
     width: 80%;
     margin-top: 20px;
     list-style-position: outside;

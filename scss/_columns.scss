@@ -13,6 +13,14 @@
     margin-top: 0;
   }
 
+  @include responsive_height(medium-screens) {
+    width: 600px;
+    p {
+      margin-top: 30px;
+      width: 175px;
+    }
+  }
+
   @include responsive(tablet-screens) {
     height: 120px;
     width: 630px;

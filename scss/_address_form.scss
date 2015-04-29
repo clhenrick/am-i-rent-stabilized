@@ -110,7 +110,7 @@
   @include responsive_height(medium-screens) {
     width: 100%;
     height: 230px;
-    margin-top: 40px;
+    margin-top: 50px;
 
     input { 
       &.address-input {
@@ -128,6 +128,8 @@
       top: -75px;      
 
       &.borough-select {
+        width: 340px;
+        left: -32px;
         margin: 0 auto;
         margin-top: 20px;  
       }
