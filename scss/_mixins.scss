@@ -73,13 +73,13 @@
 
 // media queries for screen width
 @mixin responsive($width) {
-	@if $width == wide-screens {
-	 @media only screen and (max-width: $width-lg) {
+	@if $width == medium-screens {
+	 @media only screen and (max-width: $width-md) {
 	   @content;
 	 }
 	}
-	@else if $width == medium-screens {
-	 @media only screen and (max-width: $width-md) { 
+	@else if $width == tablet-screens {
+	 @media only screen and (max-width: $width-sm2) { 
 	 	@content; 
 	 }
 	}
@@ -102,7 +102,7 @@
 			@content;
 		}
 	}
-	@else if $height == short-	screens {
+	@else if $height == short-screens {
 		@media only screen and (max-height: $height-sm) {
 			@content;
 		}
