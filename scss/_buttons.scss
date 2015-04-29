@@ -28,6 +28,12 @@
 
   @include responsive(tablet-screens) {
     // width: auto;
+    font-size: 2.5em;
+    width: 200px;
+
+    &.learn-more {
+      width: 210px;
+    }
   }
 
   @include responsive(small-screens) {

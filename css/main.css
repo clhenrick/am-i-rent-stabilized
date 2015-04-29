@@ -1246,6 +1246,12 @@ ul.validation-error {
     margin-top: 50px; }
   .button.learn-more {
     margin-left: 50px; }
+  @media only screen and (max-width: 768px) {
+    .button {
+      font-size: 2.5em;
+      width: 200px; }
+      .button.learn-more {
+        width: 210px; } }
   @media only screen and (max-width: 460px) {
     .button {
       width: 110px;
