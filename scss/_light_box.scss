@@ -34,6 +34,7 @@ a.lightbox {
   @include responsive(small-screens) {
     img {
       width: 90%;
+      left: 0;
     }
   }
 }

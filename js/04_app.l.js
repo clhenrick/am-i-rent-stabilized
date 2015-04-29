@@ -1,6 +1,6 @@
 var app = app || {};
 
-app.l = (function(w,d) {
+app.l = (function(w,d,$) {
   /*
   * Event listeners
   */
@@ -8,6 +8,24 @@ app.l = (function(w,d) {
   var f = app.f;
   var state = app.s; // create state object
   var a = app.a; // create address searching object
+  var self = this;
+
+    // swipe interaction for mobile
+  // $(document).touchwipe({
+  //   wipeUp              : function()
+  //   {
+  //       self.goToNextSlide();
+  //   },
+
+  //   wipeDown            : function()
+  //   {
+  //       self.goToPrevSlide();
+  //   },
+
+  //   min_move_x          : 50,
+  //   min_move_y          : 15,
+  //   preventDefaultEvents: true    
+  // });
 
   app.events.subscribe('state-updated', function(updatedState){
     state = updatedState;
@@ -89,4 +107,4 @@ app.l = (function(w,d) {
     w.location.hash = '';
   });  
 
-})(window, document);
+})(window, document, jQuery);

@@ -506,7 +506,7 @@ app.f = (function(w,d) {
 })(window, document);
 var app = app || {};
 
-app.l = (function(w,d) {
+app.l = (function(w,d,$) {
   /*
   * Event listeners
   */
@@ -514,6 +514,24 @@ app.l = (function(w,d) {
   var f = app.f;
   var state = app.s; // create state object
   var a = app.a; // create address searching object
+  var self = this;
+
+    // swipe interaction for mobile
+  // $(document).touchwipe({
+  //   wipeUp              : function()
+  //   {
+  //       self.goToNextSlide();
+  //   },
+
+  //   wipeDown            : function()
+  //   {
+  //       self.goToPrevSlide();
+  //   },
+
+  //   min_move_x          : 50,
+  //   min_move_y          : 15,
+  //   preventDefaultEvents: true    
+  // });
 
   app.events.subscribe('state-updated', function(updatedState){
     state = updatedState;
@@ -595,7 +613,7 @@ app.l = (function(w,d) {
     w.location.hash = '';
   });  
 
-})(window, document);
+})(window, document, jQuery);
 var app = app || {};
 
 app.a = (function(w,d) {
@@ -838,7 +856,6 @@ app.map = (function(d,w,a){
                           data.address.firstStreetNameNormalized + '<br>' +
                           data.address.uspsPreferredCityName + ', NY ' +
                           data.address.zipCode;
-    // console.log('x: ', x, ' y: ', y, ' latlng: ', latlng);
     // remove geocoded marker if one already exists
     if (addressMarker) { 
       el.map.removeLayer(addressMarker);
@@ -846,23 +863,22 @@ app.map = (function(d,w,a){
     // add a marker and pan and zoom the el.map to it
     addressMarker = new L.marker(latlng).addTo(el.map);
     addressMarker.on('popupopen', function(e){
-      // console.log('marker pop up open: ', e);
-      el.map.setView(latlng, 17);  
+      el.map.setView(latlng, 16);  
     }); 
-    addressMarker.bindPopup("<b>" + address + "</b>" ).openPopup();   
+    addressMarker.bindPopup("<b>" + address + "</b>").openPopup();   
   };
 
   // set up the leaflet / cartodb map
   var initMap = function() {
     el.map = new L.Map('map', {
       center : [40.7127, -74.0059],
-      zoom : 12
-      // dragging : false,
-      // touchZoom : false,
-      // doubleClickZoom : false,
-      // scrollWheelZoom : false,
-      // zoomControl : false,
-      // keyboard : false
+      zoom : 12,
+      dragging : false,
+      touchZoom : false,
+      doubleClickZoom : false,
+      scrollWheelZoom : false,
+      zoomControl : false,
+      keyboard : false
     });
 
     var basemap = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',{

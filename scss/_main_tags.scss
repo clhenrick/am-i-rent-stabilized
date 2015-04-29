@@ -104,14 +104,28 @@ h1 {
   }
 
   @include responsive(small-screens) {
-      font-size: 2em;
+      font-size: 1.8em;
       line-height: 1.2em;
       width: 100%;
       max-width: 95%;
       margin-top: 3%;    
 
       &.landing {
-        max-width: 80%;
+        margin-top: 10px;
+        max-width: 95%;
+        width: 95%;
+      }
+
+      .yes & {
+        width: 95%;
+      }
+
+      &.check-it {
+        width: 80%;
+      }
+
+      &.end {
+        font-size: 2.5em;
       }
   }
 }
@@ -267,7 +281,7 @@ p {
     font-size: 1.3em;
 
     &.landing {
-      margin-top: 10%;
+      margin-top: 5%;
       width: 48%;
     }
 
@@ -387,7 +401,7 @@ img {
   @include responsive(small-screens) {
     &.triple-s {
       width: 25px;
-      margin-top: 30px;
+      margin-top: 5px;
     }
 
     &.building.intro {
@@ -395,7 +409,8 @@ img {
     }
 
     &.mascot {
-      max-width: 30%;
+      max-width: 35%;
+      margin-top: 10px;
     }
 
     &.rent-history {

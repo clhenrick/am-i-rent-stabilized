@@ -162,7 +162,6 @@ app.map = (function(d,w,a){
                           data.address.firstStreetNameNormalized + '<br>' +
                           data.address.uspsPreferredCityName + ', NY ' +
                           data.address.zipCode;
-    // console.log('x: ', x, ' y: ', y, ' latlng: ', latlng);
     // remove geocoded marker if one already exists
     if (addressMarker) { 
       el.map.removeLayer(addressMarker);
@@ -170,23 +169,22 @@ app.map = (function(d,w,a){
     // add a marker and pan and zoom the el.map to it
     addressMarker = new L.marker(latlng).addTo(el.map);
     addressMarker.on('popupopen', function(e){
-      // console.log('marker pop up open: ', e);
-      el.map.setView(latlng, 17);  
+      el.map.setView(latlng, 16);  
     }); 
-    addressMarker.bindPopup("<b>" + address + "</b>" ).openPopup();   
+    addressMarker.bindPopup("<b>" + address + "</b>").openPopup();   
   };
 
   // set up the leaflet / cartodb map
   var initMap = function() {
     el.map = new L.Map('map', {
       center : [40.7127, -74.0059],
-      zoom : 12
-      // dragging : false,
-      // touchZoom : false,
-      // doubleClickZoom : false,
-      // scrollWheelZoom : false,
-      // zoomControl : false,
-      // keyboard : false
+      zoom : 12,
+      dragging : false,
+      touchZoom : false,
+      doubleClickZoom : false,
+      scrollWheelZoom : false,
+      zoomControl : false,
+      keyboard : false
     });
 
     var basemap = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',{

@@ -32,6 +32,7 @@
     "viewport-units-buggyfill": "~0.4.1",
     "proj4": "~2.3.3",
     "parsleyjs": "~2.0.7",
-    "addtocalendar": "~1.5.0"
+    "addtocalendar": "~1.5.0",
+    "jquery-touchswipe": "~1.6.8"
   }
 }

@@ -28,7 +28,8 @@
             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
           })();
-        </script>        
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     </head>
     <body>
         <nav class="main-nav">
@@ -95,15 +96,17 @@
 
                     <form id="address-form">
                         <ul class="validation-error">
-                            <li id="error-not-found"  class="vis-hidden">* Sorry, we don't recognize that NYC address, please try again! <br>
-                                  Make sure you enter only your building number and street name.</li>
+                            <li id="error-not-found"  class="vis-hidden">
+                              * Sorry, we don't recognize that NYC address, please try again! <br>
+                              Make sure you enter only your building number and street name.
+                            </li>
                         </ul>                      
                         <div class="user-data street-address">
                             <input class="address-input" name="address-input" type="text" placeholder="Building No. &amp; Street Name" tabindex="1">
                         </div>                        
                         <div class="user-data borough-select">
                             <span id="select-boro">Select a Borough</span>
-                            <ul class="drop-down" id="boroughs" tabindex="2">
+                            <ul class="drop-down" id="boroughs">
                               <li><a href="#" tabindex="2">Bronx</a></li>
                               <li><a href="#">Brooklyn</a></li>
                               <li><a href="#">Manhattan</a></li>
@@ -176,7 +179,7 @@
             <div class="slide" id="slide-6">
                 <div class="centered">
                     <!-- <h4 class="step">Step 3 of 5</h4> -->
-                    <h1>After requesting your rent history, add a reminder to your calendar.</h1>
+                    <h1 class="check-it">After requesting your rent history, add a reminder to your calendar.</h1>
                     <p class="check-it">
                       <span class="addtocalendar atc-style-menu-wb" id="atc_text_link">
                         <a class="atcb-link" id="atc_text_link_link" href="#" tabindex="-1"></a><br> 
