@@ -1,7 +1,7 @@
 var app = app || {};
 
 app.s = (function(w,d) {
-  // storing the app's state
+  // this is for storing the app's current state
 
   var state = {
     formFilled : false, // has the user filled out the address form?    
@@ -13,7 +13,6 @@ app.s = (function(w,d) {
   };
 
   app.events.subscribe('state-change', function(updates){
-    console.log('state change detected! ', updates);
     
     if (updates.isAnimating !== undefined) state.isAnimating = updates.isAnimating;
     if (updates.formFilled !== undefined) state.formFilled = updates.formFilled;    
