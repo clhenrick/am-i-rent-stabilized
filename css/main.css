@@ -662,7 +662,7 @@ nav.main-nav {
   top: 0;
   width: 100%;
   height: 60px;
-  z-index: 500; }
+  z-index: 100; }
   nav.main-nav .logo {
     height: 65px;
     display: inline;
@@ -779,7 +779,7 @@ nav.main-nav {
   display: inline-block;
   top: 90px;
   left: 30px;
-  z-index: 100; }
+  z-index: 10; }
   #lang-toggle ul {
     padding: 0; }
   #lang-toggle li {
@@ -1532,8 +1532,6 @@ ul.validation-error {
     margin-top: 20px;
     font-size: 2.5em;
     text-align: left; }
-    .action-choice p.yes-local-tr {
-      display: none; }
     @media only screen and (max-height: 770px) {
       .action-choice p {
         margin-top: 1%;
@@ -1870,3 +1868,89 @@ body {
         bottom: 0;
         left: 0;
         right: 0; } }
+
+#open-modal.tr-modal {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none; }
+  #open-modal.tr-modal:target {
+    opacity: 1;
+    pointer-events: auto;
+    outline: none;
+    display: block;
+    z-index: 21; }
+
+.org-container {
+  width: 85%;
+  height: 85%;
+  top: 60px;
+  position: relative;
+  margin: 0 auto 0 auto;
+  padding: 10px 20px 13px 20px;
+  border-radius: 10px;
+  background: #fff;
+  -webkit-columns: 300px 2;
+  -moz-columns: 300px 2;
+  columns: 300px 2;
+  -webkit-column-gap: 40px;
+  -moz-column-gap: 40px;
+  column-gap: 40px;
+  -webkit-column-rule: 1px solid #ABABAB;
+  -moz-column-rule: 1px solid #ABABAB;
+  column-rule: 1px solid #ABABAB; }
+  .org-container:first-child {
+    margin-top: 10px; }
+  .org-container h1, .org-container h3, .org-container p {
+    text-align: left;
+    margin: 0;
+    max-width: 100%;
+    width: 95%; }
+  .org-container h1 {
+    max-width: 80%;
+    margin-bottom: 10px;
+    font-size: 1.5em; }
+  .org-container h3 {
+    margin-top: 25px;
+    font-size: 1.2em; }
+  .org-container p {
+    font-size: 1.2em;
+    min-width: 150px;
+    max-width: 300px;
+    padding-right: 10px;
+    margin-top: 3px; }
+    .org-container p span {
+      font-weight: bold; }
+
+.close {
+  background: #fb9d00;
+  color: #FFFFFF;
+  line-height: 25px;
+  position: absolute;
+  right: -12px;
+  text-align: center;
+  top: -10px;
+  width: 24px;
+  text-decoration: none;
+  font-weight: bold;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  -moz-box-shadow: 1px 1px 3px #000;
+  -webkit-box-shadow: 1px 1px 3px #000;
+  box-shadow: 1px 1px 3px #000; }
+
+.close:hover {
+  background: #FFC462; }
+
+.tr-org-info {
+  width: 350px;
+  margin-top: 15px; }

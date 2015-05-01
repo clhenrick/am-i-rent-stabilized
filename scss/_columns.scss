@@ -86,10 +86,6 @@
     font-size: 2.5em;
     text-align: left;
 
-    &.yes-local-tr {
-      display: none;
-    }
-
     @include responsive_height(medium-screens) {
       margin-top: 1%;
       max-width: 100%;
