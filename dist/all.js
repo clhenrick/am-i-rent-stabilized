@@ -103,7 +103,8 @@ app.s = (function(w,d) {
     currentSlide : null,
     isAnimating : false,
     pageHeight : null,
-    yesNoState : false
+    yesNoState : false,
+    propertyData : null
   };
 
   app.events.subscribe('state-change', function(updates){
@@ -114,8 +115,9 @@ app.s = (function(w,d) {
     if (updates.currentSlide !== undefined) state.currentSlide = updates.currentSlide;
     if (updates.pageHeight !== undefined) state.pageHeight = updates.pageHeight; 
     if (updates.yesNoState !== undefined) state.yesNoState = updates.yesNoState;
+    if (updates.propertyData !== undefined) state.propertyData = updates.propertyData;
     
-    console.log('state: ', state);
+    // console.log('state: ', state);
 
     app.events.publish('state-updated', state);
   });
@@ -161,9 +163,12 @@ app.el = (function(w,d,$) {
       lightBox : d.getElementById('rent-history'),
       addToCalendar : d.getElementById('atc_text_link'),
       addToCalendarLink : d.querySelector('#atc_text_link_link.atcb-link'),
-      fbShare : d.querySelector('.fb-share-button'),    
+      noTR : d.querySelector('.no-local-tr'),
+      yesTR : d.querySelector('.yes-local-tr'),
+      trModal : d.getElementsByClassName('tr-modal')[0],           
       learnMore : d.querySelector('.button.learn-more')
   };
+   // trModalClose : d.querySelector('.org-container .close'),      
 
   // drop down class
   //  code reference: http://tympanus.net/codrops/2012/10/04/custom-drop-down-list-styling/
@@ -324,7 +329,10 @@ app.f = (function(w,d) {
         app.f.resetBoroValue();
         app.map.resetMap();
         app.f.addClass(el.yes, 'hidden');
-        app.f.removeClass(el.no, 'hidden');      
+        app.f.removeClass(el.no, 'hidden');
+        app.f.addClass(el.yesTR, 'hidden');
+        app.f.removeClass(el.noTR, 'hidden');
+        d.querySelector('.tr-modal').innerHTML = '';
         app.f.goToSlide(el.slides[0]);
         app.events.publish('state-change', {
           formFilled : false
@@ -613,6 +621,12 @@ app.l = (function(w,d,$) {
     w.location.hash = '';
   });  
 
+  el.trModal.addEventListener('click', function(e) {
+    e.preventDefault();
+    f.goToSlide(el.slides[7]);
+    w.location.hash = '';
+  });
+
 })(window, document, jQuery);
 var app = app || {};
 
@@ -761,7 +775,7 @@ app.map = (function(d,w,a,H,$){
   // see if the geolient result has a bbl
   var checkResult = function(data) {
     if (typeof data === "object" && data.address.bbl !== undefined ) {
-      var d = data.address;    
+      var d = data.address;
       g =  {
         bbl : d.bbl,
         lon : d.longitudeInternalLabel,
@@ -848,7 +862,8 @@ app.map = (function(d,w,a,H,$){
         hbData.orgs.push(handlebarsMake(x));
       }
       var html = template(hbData);
-      trmodal.innerHTML = html;      
+      trmodal.innerHTML = html;
+      g.tr_groups.length = 0;     
     } 
   }
 

@@ -105,7 +105,10 @@ app.f = (function(w,d) {
         app.f.resetBoroValue();
         app.map.resetMap();
         app.f.addClass(el.yes, 'hidden');
-        app.f.removeClass(el.no, 'hidden');      
+        app.f.removeClass(el.no, 'hidden');
+        app.f.addClass(el.yesTR, 'hidden');
+        app.f.removeClass(el.noTR, 'hidden');
+        d.querySelector('.tr-modal').innerHTML = '';
         app.f.goToSlide(el.slides[0]);
         app.events.publish('state-change', {
           formFilled : false

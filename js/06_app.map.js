@@ -67,7 +67,7 @@ app.map = (function(d,w,a,H,$){
   // see if the geolient result has a bbl
   var checkResult = function(data) {
     if (typeof data === "object" && data.address.bbl !== undefined ) {
-      var d = data.address;    
+      var d = data.address;
       g =  {
         bbl : d.bbl,
         lon : d.longitudeInternalLabel,
@@ -154,7 +154,8 @@ app.map = (function(d,w,a,H,$){
         hbData.orgs.push(handlebarsMake(x));
       }
       var html = template(hbData);
-      trmodal.innerHTML = html;      
+      trmodal.innerHTML = html;
+      g.tr_groups.length = 0;     
     } 
   }
 

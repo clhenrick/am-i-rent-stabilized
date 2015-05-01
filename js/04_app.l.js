@@ -107,4 +107,10 @@ app.l = (function(w,d,$) {
     w.location.hash = '';
   });  
 
+  el.trModal.addEventListener('click', function(e) {
+    e.preventDefault();
+    f.goToSlide(el.slides[7]);
+    w.location.hash = '';
+  });
+
 })(window, document, jQuery);

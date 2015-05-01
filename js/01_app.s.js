@@ -8,7 +8,8 @@ app.s = (function(w,d) {
     currentSlide : null,
     isAnimating : false,
     pageHeight : null,
-    yesNoState : false
+    yesNoState : false,
+    propertyData : null
   };
 
   app.events.subscribe('state-change', function(updates){
@@ -19,8 +20,9 @@ app.s = (function(w,d) {
     if (updates.currentSlide !== undefined) state.currentSlide = updates.currentSlide;
     if (updates.pageHeight !== undefined) state.pageHeight = updates.pageHeight; 
     if (updates.yesNoState !== undefined) state.yesNoState = updates.yesNoState;
+    if (updates.propertyData !== undefined) state.propertyData = updates.propertyData;
     
-    console.log('state: ', state);
+    // console.log('state: ', state);
 
     app.events.publish('state-updated', state);
   });

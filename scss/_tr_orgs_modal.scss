@@ -1,4 +1,4 @@
-#open-modal.tr-modal {
+.tr-modal {
 	position: fixed;
 	z-index: 50;
 	top: 0;
@@ -51,6 +51,7 @@
 	}
 
 	h3 { 
+		width: 85%;
 		margin-top: 25px;
 		font-size: 1.2em;
 	}

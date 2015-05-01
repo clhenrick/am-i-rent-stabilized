@@ -417,7 +417,6 @@ h1 {
   margin-top: 75px; }
   h1.landing {
     margin-top: 0px;
-    text-transform: capitalize;
     letter-spacing: 0.05em;
     font-style: italic; }
   h1.checking {
@@ -908,6 +907,7 @@ nav.margin-circles {
 .slide {
   position: relative;
   width: 100%;
+  height: calc(100% - 60px);
   overflow: hidden; }
 
 .centered {
@@ -950,15 +950,18 @@ nav.margin-circles {
 
 /* Lightbox for sample rent history */
 a.lightbox {
-  display: none;
   position: fixed;
-  z-index: 9999;
-  height: 100%;
-  width: 100%;
-  text-align: center;
+  z-index: 49;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.8); }
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none; }
   a.lightbox img {
     position: relative;
     left: 30px;
@@ -966,6 +969,8 @@ a.lightbox {
     max-width: 530px;
     margin-top: 80px; }
   a.lightbox:target {
+    opacity: 1;
+    pointer-events: auto;
     outline: none;
     display: block;
     z-index: 20; }
@@ -1869,7 +1874,7 @@ body {
         left: 0;
         right: 0; } }
 
-#open-modal.tr-modal {
+.tr-modal {
   position: fixed;
   z-index: 50;
   top: 0;
@@ -1882,7 +1887,7 @@ body {
   -moz-transition: opacity 400ms ease-in;
   transition: opacity 400ms ease-in;
   pointer-events: none; }
-  #open-modal.tr-modal:target {
+  .tr-modal:target {
     opacity: 1;
     pointer-events: auto;
     outline: none;
@@ -1919,6 +1924,7 @@ body {
     margin-bottom: 10px;
     font-size: 1.5em; }
   .org-container h3 {
+    width: 85%;
     margin-top: 25px;
     font-size: 1.2em; }
   .org-container p {
