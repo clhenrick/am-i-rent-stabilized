@@ -9,9 +9,9 @@
         <title>Am I Rent Stabilized?</title>
         <meta name="description" content="Find out if your NYC apartment is rent stabilized!">      
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">    
-        <link rel="stylesheet" type="text/css" href="../bower_components/normalize.css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="../../bower_components/normalize.css/normalize.css">
         <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700,300' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <link rel="stylesheet" type="text/css" href="../../css/main.css">
         <script src="http://use.typekit.net/emf7xrp.js"></script>
         <script>try{Typekit.load();}catch(e){}</script>
         <script type="text/javascript">
@@ -27,15 +27,15 @@
     </head>
     <body>
         <nav class="main-nav">
-          <img class="logo" src="../assets/png/logo.png">
+          <img class="logo" src="../../assets/png/logo.png">
           <h1>            
-            <a class="go-first" href="../index.html">Am I Rent Stabilized?</a>
+            <a class="go-first" href="#">Am I Rent Stabilized?</a>
           </h1>
           <div class="burger" alt="-"></div>
-          <ul>
-            <li class="nav"><a href="why.html">Why it Matters</a></li>
-            <li class="nav"><a href="how.html">How it Works</a></li>
-            <li class="nav"><a href="resources.html">Resources</a></li>
+          <ul class="zh">
+            <li class="nav"><a class="zh" href="html/why.html">为什么了租金稳定与否很重要?</a></li>
+            <li class="nav"><a class="zh" href="html/how.html">租金稳定是怎么一回事？</a></li>
+            <li class="nav"><a class="zh" href="html/resources.html">相关资料</a></li>
           </ul>
         </nav>
 
@@ -44,61 +44,61 @@
               <ul>
                   <li><a href="#">en español</a></li>
                   <li><p>•</p></li>
-                  <li><a href="#">中文</a></li>
+                  <li><a href="#">english</a></li>
               </ul>
           </div>
 
           <div id="side-nav">
-            <h3>Jump to a topic:</h3>
+            <h3>跳到相关话题</h3>
             <ul>
-              <li><a href="#how">How it Works</a></li>
-              <li><a href="#code-data">Code &amp; Data</a></li>
-              <li><a href="#credits">Credits</a></li>
+              <li><a href="#how">本站如何运作</a></li>
+              <li><a href="#code-data">程序 &amp; 数据</a></li>
+              <li><a href="#credits">感谢</a></li>
             </ul>          
           </div>
         </div>
                 
         <div id="main">
           <a name="how"></a>
-          <h1>How This Site Works</h1>
-          <p>This site checks your building's address and sees if it matches a list of properties that are <strong>likely to have rent stabilized apartments</strong>. However, it is not 100% accurate so the best course of action is always to request your rent history and then seek the advice of a tenants rights group or housing lawyer. This may be helpful if your rent history is unclear, if you are being intimidated by your landlord, worried about aggravating your landlord, or if you may be owed a large sum of money.</p>
+          <h1>本站如何运作</h1>
+          <p>在你输入你的地址之后，本站将其与数据库中极有可能租金稳定的公寓比较。即使你的地址显示为“极有可能租金稳定”，你还是应该向HCR要求书面的租金历史来百分百地确认你的租金稳定性。然后向你的住客组织或者专业的物业律师寻求建议。这样，当你的租金历史不清晰，你的房东威胁骚扰你，或者你觉得你可能多付了一大笔租金的时候，你便可以行动起来。</p>
 
-          <p>This site does not keep any personal identifiable information from you. It does keep track of addresses searched for internal analysis only. <strong>This info is kept private and not shared.</strong></p>
+          <p>本站不保留任何你的个人资料，也不识别任何身份。所有的信息都是私人的，不被共享。本站只保留地址信息用于内部分析。</p>
 
-          <h3>Disclaimer!</h3>
-          <p>This site is for informational purposes ony and <strong>has absolutely no legal bearing!</strong> It will not tell you if your apartment is definitely rent stabilized as the apartment numbers are not in the database. To find out for sure, you must request request your rent history from the DHCR and potentially seek advice from a tenants rights group.</p>
+          <h3>申明</h3>
+          <p>本站用途只作参考，并不提供法律效应。本站无法确认你的公寓是绝对租金稳定的。你必须向HCR申请你的书面租金历史来确认你的公寓是否租金稳定，然后向你的住客组织索取建议。</p>
 
-          <h3>Estimating NYC buildings that are likely to have rent stabilized apartments</h3>
-          <p>Landlords are required to report their rent stabilized apartments to the <a target="_blank" href="http://www.nyshcr.org/">DHCR</a> every year. This process is essentially voluntary as landlords are not held accountable for choosing not to register their rent stabilized apartments. This makes it difficult to track how many rent stabilized apartments exist and where they are located.</p>
-          <p>Each year the DHCR releases a list containing the addresses of buildings with rent stabilized apartments that have been registered.</p>
-          <p>In general, it is likely that a building has rent stabilized apartments if it was built before 1974, has 6 or more apartments, and is not a co-op or condo. When comparing this query on NYC's <a target="_blank" href="http://www.nyc.gov/html/dcp/html/bytes/dwn_pluto_mappluto.shtml">tax lot data (NYC PLUTO)</a> to properties on the DHCR list it is evident that there are properties that <a target="_blank" href="http://cdb.io/1CxBFB4">likely have rent stabilized apartments which are not registered with the DHCR.</a></p>
+          <h3>本站是如何来估计那些租金稳定的住房呢？</h3>
+          <p>房东必须向<a target="_blank" href="http://www.nyshcr.org/">HCR</a>登记哪些公寓是租金稳定。 但是这个过程是自愿的 —— 如果房东没有登记，也没有人追查。这样的“自愿性”使得人们很难保持租金稳定的记录，或者获取租金稳定住房的地点。</p>
+          <p>HCR每年都会公布一张清单，内容是那些登记过有租金稳定公寓的楼房的地址。</p>
+          <p>总体来讲，如果一栋楼建立于1974年之前，有超过6户人家，并且不是一栋合作社（co－op）或新建公寓（condo），那么这栋楼很有可能有租金稳定的住户。我们将这些楼房地址输入纽约地产税数据 <a target="_blank" href="http://www.nyc.gov/html/dcp/html/bytes/dwn_pluto_mappluto.shtml">（NYC PLUTO）</a>，然后和HCR的清单比较，来辨析出哪些楼房很有可能有租金稳定的公寓，但是没有被登记在<a target="_blank" href="http://cdb.io/1CxBFB4">HCR</a>的清单里。</p>
 
-          <p>The database used by this site combines the properties on the DHCR list with those that are likely to have rent stabilized units and are not currently on the DHCR list in order to get an estimate of the locations of all rent stabilized apartments in NYC.</p>
+          <p>本站的数据库包含DHR的租金稳定地址的清单以及我们认为极有可能租金稳定的，但是没有登记在案的楼房。我们用这个数据库来估计你纽约城所有的地址是否可能租金稳定。</p>
           
           <a name="code-data"></a>
-          <h1>Code and Data</h1>
-          <p>You may inspect and download the code for this site, download the data it uses, and download Excel and CSV files of the DHCR rent stabilized building list from the links below.</p>
+          <h1>程序 &amp; 数据</h1>
+          <p>你可以通过以下链接来观察及下载本站的程序和数据，以及下载HCR的清单。</p>
           <ul>
-            <li><a target="_blank" href="https://github.com/clhenrick/am-i-rent-stabilized">Github Repo (code)</a></li>
-            <li><a target="_blank" href="http://chenrick.cartodb.com/tables/all_nyc_likely_rent_stabl_merged/public">Get the Data</a></li>
-            <li><a target="_blank" href="https://github.com/clhenrick/dhcr-rent-stabilized-data">DHCR's Rent Stabilzed Building List</a></li>
+            <li><a target="_blank" href="https://github.com/clhenrick/am-i-rent-stabilized">Github</a></li>
+            <li><a target="_blank" href="http://chenrick.cartodb.com/tables/all_nyc_likely_rent_stabl_merged/public">数据</a></li>
+            <li><a target="_blank" href="https://github.com/clhenrick/dhcr-rent-stabilized-data">DHCR 租金稳定的清单</a></li>
           </ul>
           
           <a name="credits"></a>
-          <h1>Credits</h1>
-          <p>The following people and organizations helped tremendously to make this project happen.</p>
+          <h1>感谢</h1>
+          <p>以下是对本站作出贡献的个人以及组织。</p>
           <ul>
-            <li><a target="_blank" href="http://carolinewoolard.com/">Caroline Woolard</a> originally gave me the idea to build the site.</li>
-            <li><a target="_blank" href="http://radishlab.com/">Radish Lab</a> provided extremely helpful design assistance for version 2 of the site.</li>
-            <li><a target="_blank" href="http://goodlemons.com/">Jue Yang</a> contributed kick-ass art work and translated content to Chinese.</li>            
-            <li><a target="_blank" href="http://betanyc.us">BetaNYC</a> and its members provided much needed technical &amp; motivational support.</li>
-            <li><a target="_blank" href="http://cartodb.com">CartoDB</a> hosts the data as well as provides the technology necessary for querying the data and rendering it on a map.</li>
+            <li><a target="_blank" href="http://carolinewoolard.com/">Caroline Woolard</a> 启发了本站的初级阶段。</li>
+            <li><a target="_blank" href="http://radishlab.com/">Radish Lab</a> 公司帮助本站第二版的设计。</li>
+            <li><a target="_blank" href="http://goodlemons.com/">Jue Yang</a> 为本站作了插图。</li>            
+            <li><a target="_blank" href="http://betanyc.us">BetaNYC</a> 组织及其会员为本站提供了技术以及精神支持。</li>
+            <li><a target="_blank" href="http://cartodb.com">CartoDB</a> 公司支持本站的数据，并提供在线地图数据的技术支持。</li>
           </ul>
 
-          <h3>And most of all thanks to you for visiting this site and checking your rent history!</h3>
-          <p>We'd love to hear about your story, especially if this site helped you in any way, so feel free to <a href="mailto:amirentstabilized@gmail.com">get in touch.</a></p> 
+          <h3>但是最要感谢的还是你的参与！</h3>
+          <p>如果本站在任何程度上帮助了你，我们很希望听到你的故事。<a href="mailto:amirentstabilized@gmail.com">请保持联系。</a></p> 
           
-          <p>Let's work together to keep NYC affordable so that it can stay the culturally rich and socio-economically diverse place it's so well-  known for being.</p>
+          <p>让我们共同来建筑一个房价合理的纽约。</p>
         </div>
         
     </body>
