@@ -37,10 +37,10 @@
             <a class="go-first" href="#">Am I Rent Stabilized?</a>
           </h1>
           <div class="burger" alt="-"></div>
-          <ul>
-            <li class="nav"><a href="html/why.html">为什么了租金稳定与否很重要?</a></li>
-            <li class="nav"><a href="html/how.html">租金稳定是怎么一回事？</a></li>
-            <li class="nav"><a href="html/resources.html">相关资料</a></li>            
+          <ul class="zh">
+            <li class="nav"><a class="zh" href="html/why.html">为什么了租金稳定与否很重要?</a></li>
+            <li class="nav"><a class="zh" href="html/how.html">租金稳定是怎么一回事？</a></li>
+            <li class="nav"><a class="zh" href="html/resources.html">相关资料</a></li>            
           </ul>
         </nav>
 
@@ -201,10 +201,7 @@
                       <img class="rent-history" src="../assets/png/sample-rent-history-thumb.png">
                     </a>
                     <p class="view-sample"><a href="#rent-history">点击查看样板租金历史。</a></p>
-                </div>
-                <a href="#_" class="lightbox" id="rent-history">
-                  <img src="../assets/png/sample-rent-history.png">
-                </a>                
+                </div>       
                 <div class="go-next bottom-arrow">
                   <h3>下一页</h3>
                   <div class="arrow"></div>
@@ -252,6 +249,39 @@
                 </div>
             </div>                        
         </div> <!-- end slides container -->
+        <div id="open-modal" class="tr-modal"></div>
+        <a href="#_" class="lightbox" id="rent-history">          
+          <img src="../assets/png/sample-rent-history.png">
+        </a>        
+        <script id="org-template" type="text/x-handlebars-template">
+          <div class="org-container">
+            <a href="#close" title="Close" class="close">X</a>
+            <h1>
+              Here are some groups that help people with housing 
+              issues in your neighborhood:
+            </h1>      
+            {{#each orgs}}
+              <div class="tr-org-info">          
+                <h3>{{name}}</h3>
+                {{#if website}}
+                <p class="website-url"><span>Website: </span>{{website}}</p>
+                {{/if}}
+                {{#if phone}}
+                <p class="phone-no"><span>Phone: </span>{{phone}}</p>
+                {{/if}}
+                {{#if address}}
+                <p class="address"><span>Address: </span>{{address}}</p>
+                {{/if}}
+                {{#if email}}
+                <p class="email"><span>Email: </span>{{email}}</p>
+                {{/if}}
+                <p class="description"><span>Description: </span><br>
+                  {{description}}
+                </p>
+              </div>
+            {{/each}}
+          </div>
+        </script>        
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
