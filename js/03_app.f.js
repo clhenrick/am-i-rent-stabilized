@@ -277,8 +277,8 @@ app.f = (function(w,d) {
       // init the add to calendar library
       w.addtocalendar.load();
       // change the text of the link to be more descriptive
-      var atcLink = d.querySelector('#atc_text_link_link.atcb-link');
-      // atcLink.innerHTML = "Create a calendar reminder.";
+      var atcLink = d.querySelector('.atcb-link');
+      atcLink.innerHTML = "Create a calendar reminder.";
       atcLink.tabindex = "-1";
     }
   };

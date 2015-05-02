@@ -32,7 +32,7 @@ app.el = (function(w,d,$) {
       mailTo : d.getElementById('mail-to'),
       lightBox : d.getElementById('rent-history'),
       addToCalendar : d.getElementById('atc_text_link'),
-      addToCalendarLink : d.querySelector('#atc_text_link_link.atcb-link'),
+      addToCalendarLink : d.querySelector('.atcb-link'),
       noTR : d.querySelector('.no-local-tr'),
       yesTR : d.querySelector('.yes-local-tr'),
       trModal : d.getElementsByClassName('tr-modal')[0],           

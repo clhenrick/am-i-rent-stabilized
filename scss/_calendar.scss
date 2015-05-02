@@ -1,4 +1,4 @@
-#atc_text_link.addtocalendar {
+.addtocalendar {
   
   ul.atcb-list {
     width: 275px;
@@ -22,6 +22,18 @@
       &:hover {
         color: $lightblue;
       }
+    }
+  }
+
+  @include responsive_height(medium-screens) {
+    ul.atcb-list {
+      width: 225px;
+    }
+  }
+
+  @include responsive(medium-screens) {
+    ul.atcb-list {
+      width: 225px;
     }
   }
 }

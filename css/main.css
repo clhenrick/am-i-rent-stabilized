@@ -1602,21 +1602,27 @@ ul.validation-error {
     font-size: 1.3em;
     margin-top: 1%; } }
 
-#atc_text_link.addtocalendar ul.atcb-list {
+.addtocalendar ul.atcb-list {
   width: 275px;
   border: 3px solid #9B9B9B; }
-#atc_text_link.addtocalendar li.atcb-item {
+.addtocalendar li.atcb-item {
   padding: 5px;
   border-bottom: 1px solid #9B9B9B;
   background: #4a4a4a; }
-  #atc_text_link.addtocalendar li.atcb-item:last-child {
+  .addtocalendar li.atcb-item:last-child {
     border-bottom: none; }
-  #atc_text_link.addtocalendar li.atcb-item .atcb-item-link {
+  .addtocalendar li.atcb-item .atcb-item-link {
     color: #FFFFFF;
     font-weight: 300;
     padding-left: 2%; }
-    #atc_text_link.addtocalendar li.atcb-item .atcb-item-link:hover {
+    .addtocalendar li.atcb-item .atcb-item-link:hover {
       color: #9cddf0; }
+@media only screen and (max-height: 770px) {
+  .addtocalendar ul.atcb-list {
+    width: 225px; } }
+@media only screen and (max-width: 980px) {
+  .addtocalendar ul.atcb-list {
+    width: 225px; } }
 
 #left {
   width: 18.75em;
