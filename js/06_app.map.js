@@ -1,13 +1,35 @@
 // map & cartodb stuff
 var app = app || {};
 
-app.map = (function(d,w,a){
-   var el = {}, // to store DOM element references from app.ui
+app.map = (function(d,w,a,H,$){
+  var el = {}, // to store DOM element references from app.ui
       f = {},  // to store DOM manipulation and UI functions from app.ui
       state = app.s,
       addressMarker, // leaflet marker to locate user's address on map
       sqlURL = "https://chenrick.cartodb.com/api/v2/sql?q=", //cartodb SQL API reference
-      g = {}; // to store properties from NYC Geoclient API result
+      g = {}, // to store properties from NYC Geoclient API result
+      trmodal = d.getElementsByClassName('tr-modal')[0],
+      source = $("#org-template").html(),
+      template = H.compile(source),
+      noTR = d.querySelector('.no-local-tr'),
+      yesTR = d.querySelector('.yes-local-tr'),
+      hbData = {orgs: []};
+
+  Handlebars.registerHelper('each', function(context, options) {
+    var ret = "";
+    for(var i=0, j=context.length; i<j; i++) {
+      ret = ret + options.fn(context[i]);
+    }
+    return ret;
+  });
+
+  Handlebars.registerHelper('if', function(conditional, options) {
+    if (conditional) {
+      return options.fn(this);
+    } else {
+      return options.inverse(this);
+    }
+  });   
 
   app.events.subscribe('state-updated', function(updatedState){
     state = updatedState;
@@ -45,7 +67,7 @@ app.map = (function(d,w,a){
   // see if the geolient result has a bbl
   var checkResult = function(data) {
     if (typeof data === "object" && data.address.bbl !== undefined ) {
-      var d = data.address;    
+      var d = data.address;
       g =  {
         bbl : d.bbl,
         lon : d.longitudeInternalLabel,
@@ -56,7 +78,8 @@ app.map = (function(d,w,a){
         bUSPS : d.uspsPreferredCityName,
         zip : d.zipCode,
         cd: d.communityDistrict,
-        bin : d.giBuildingIdentificationNumber1
+        bin : d.giBuildingIdentificationNumber1,
+        tr_groups : []
       };      
       var bbl = d.bbl;
       var gcr_stringify = JSON.stringify(g);
@@ -99,7 +122,7 @@ app.map = (function(d,w,a){
   // check the bbl number against the cartodb data
   var getCDBdata = function(bbl) {
     // sql to pass cartodb's sql api
-    var sql1 = "SELECT bbl FROM all_nyc_likely_rent_stabl_merged " +
+    var sql1 = "SELECT bbl FROM map_pluto_likely_rs " +
                   "WHERE bbl = " + bbl;    
     var sql2 = trQuery(g.lat, g.lon);                  
 
@@ -120,22 +143,33 @@ app.map = (function(d,w,a){
   }
 
   function checkTR(data) {
-    var noTR = d.querySelector('.no-local-tr');
-    var yesTR = d.querySelector('.yes-local-tr');
-    var ul = d.createElement('ul');
-    ul.className = 'org-list';    
-
     if (data.rows.length > 0) {
-      noTR.style.display = 'none';
-      yesTR.style.display = 'block';
-      // yesTR.appendChild(ul);
+      f.addClass(noTR, 'hidden');
+      f.removeClass(yesTR, 'hidden');
       
       var i = 0, l = data.rows.length;
       for (i; i<l; i++) {
         var x = data.rows[i];
         g.tr_groups.push(x);
+        hbData.orgs.push(handlebarsMake(x));
       }
+      var html = template(hbData);
+      trmodal.innerHTML = html;
+      g.tr_groups.length = 0;     
     } 
+  }
+
+  function handlebarsMake(data) {
+    var context = {
+      name: data.name,
+      website: data.website_url,
+      phone: data.phone,
+      email: data.email,
+      address: data.address,
+      description: data.description
+    };
+    // var html = template(context);
+    return context;
   }  
 
   // if the results of the CDB SQL query have a row then show yes else display no
@@ -162,7 +196,6 @@ app.map = (function(d,w,a){
                           data.address.firstStreetNameNormalized + '<br>' +
                           data.address.uspsPreferredCityName + ', NY ' +
                           data.address.zipCode;
-    // console.log('x: ', x, ' y: ', y, ' latlng: ', latlng);
     // remove geocoded marker if one already exists
     if (addressMarker) { 
       el.map.removeLayer(addressMarker);
@@ -170,30 +203,29 @@ app.map = (function(d,w,a){
     // add a marker and pan and zoom the el.map to it
     addressMarker = new L.marker(latlng).addTo(el.map);
     addressMarker.on('popupopen', function(e){
-      // console.log('marker pop up open: ', e);
-      el.map.setView(latlng, 17);  
+      el.map.setView(latlng, 16);  
     }); 
-    addressMarker.bindPopup("<b>" + address + "</b>" ).openPopup();   
+    addressMarker.bindPopup("<b>" + address + "</b>").openPopup();   
   };
 
   // set up the leaflet / cartodb map
   var initMap = function() {
     el.map = new L.Map('map', {
       center : [40.7127, -74.0059],
-      zoom : 12
-      // dragging : false,
-      // touchZoom : false,
-      // doubleClickZoom : false,
-      // scrollWheelZoom : false,
-      // zoomControl : false,
-      // keyboard : false
+      zoom : 12,
+      dragging : false,
+      touchZoom : false,
+      doubleClickZoom : false,
+      scrollWheelZoom : false,
+      zoomControl : false,
+      keyboard : false
     });
 
     var basemap = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',{
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
     });
 
-    var cdbURL = 'https://chenrick.cartodb.com/api/v2/viz/3680af8e-7816-11e4-ab90-0e4fddd5de28/viz.json';
+    var cdbURL = 'https://chenrick.cartodb.com/api/v2/viz/20b7c6ac-ee12-11e4-b74e-0e853d047bba/viz.json';
 
     var cartocss = "#all_map_pluto_rent_stabl_reg_2014v1 {" +
                       "polygon-fill: #FF6600;" +
@@ -256,4 +288,4 @@ app.map = (function(d,w,a){
     resetMap : resetMap
   };
 
-})(document, window, aja);
+})(document, window, aja, Handlebars, jQuery);

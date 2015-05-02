@@ -16,17 +16,15 @@
 
 // button
 @mixin button {
-  max-width: 100%;
-  width: 170px;
   display: inline-block;
   position: relative;
+  width: 170px;
   margin: 0 auto;
-  font-size: 2.2em;
+  font-size: 3em;
   text-align: center;
   text-transform: uppercase;
-  color: $white;
   background-color: $darkorange;
-  padding: 5px 10px;
+  padding: 10px 20px;
   border-radius: 35px;	
 }
 
@@ -83,18 +81,13 @@
 	@else if $width == tablet-screens {
 	 @media only screen and (max-width: $width-sm2) { 
 	 	@content; 
-	   }
+	 }
 	}
-      @else if $width == small-screens {
-       @media only screen and (max-width: $width-sm) {
-		@content;
-	   } 
+  @else if $width == small-screens {
+   @media only screen and (max-width: $width-sm) {
+			@content;
+		} 
 	}
-      @else if $width == small-and-tablet-screens {
-         @media only screen and (max-width: $width-sm2), screen and (max-width: $width-sm) {
-            @content;
-         }
-      }
 }
 
 // media queries for screen height
@@ -116,11 +109,10 @@
 	}
 }
 
-// for displaying message to user to tilt phone
 @mixin responsive_mobile_landscape() {
   @media only screen and (max-height: 420px) and (min-width: 320px) {
     @content;
-  }
+  }	
 }
 
 // set 2x resolution images for retina displays 

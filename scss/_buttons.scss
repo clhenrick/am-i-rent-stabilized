@@ -20,23 +20,39 @@
   }
 
   @include responsive_height(medium-screens) {
+    width: 160px;
+    font-size: 1.8em;
+    padding: 8px 12px;
+
     &.search {
-      // margin-top: 0;
-      // left: 0;
+      width: 125px;
+    }
+
+    &.learn-more {
+      width: 175px;
     }
   }
 
-  @include responsive(tablet-screens) {
-    // width: auto;
+  @include responsive(medium-screens) {        
+    width: 160px;
+    font-size: 1.8em;
+    padding: 8px 12px;
+
+    &.search {
+      width: 125px;
+    }
   }
 
   @include responsive(small-screens) {
-    margin: 0 auto;
+    // margin: 0 auto;
     width: 110px;
-    font-size: 1.5em;     
+    font-size: 1.3em;
+    padding: 8px 12px;
 
     &.search {
       width: 110px;
+      margin: 0 auto;
+      // width: 110px;
     }
 
     &.start-over {
@@ -44,9 +60,9 @@
     }
 
     &.learn-more {
-      width: 125px;
-      margin: 0 auto;
+      width: 125px;       
       margin-top: 10px;
+      margin-left: 10px;
     }      
   }
 
@@ -56,4 +72,8 @@
   width: 100%;
   text-align: center;
   margin-top: 30px;
+
+  @include responsive(small-screens) {
+    margin-top: 10px;
+  }
 }

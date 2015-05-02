@@ -33,9 +33,12 @@ app.el = (function(w,d,$) {
       lightBox : d.getElementById('rent-history'),
       addToCalendar : d.getElementById('atc_text_link'),
       addToCalendarLink : d.querySelector('#atc_text_link_link.atcb-link'),
-      fbShare : d.querySelector('.fb-share-button'),    
+      noTR : d.querySelector('.no-local-tr'),
+      yesTR : d.querySelector('.yes-local-tr'),
+      trModal : d.getElementsByClassName('tr-modal')[0],           
       learnMore : d.querySelector('.button.learn-more')
   };
+   // trModalClose : d.querySelector('.org-container .close'),      
 
   // drop down class
   //  code reference: http://tympanus.net/codrops/2012/10/04/custom-drop-down-list-styling/

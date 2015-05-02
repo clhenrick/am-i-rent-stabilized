@@ -163,7 +163,7 @@
 
   @include responsive(small-screens) {
     height: 204px;
-    margin-top: 15%;
+    margin-top: 17%;
     
     input {
       &.address-input {
@@ -182,6 +182,7 @@
         width: 210px;
         height: 45px;
         margin-top: 5px;
+        left: 0;
 
         ul.drop-down {
           width: 210px;
@@ -344,20 +345,21 @@ ul.validation-error {
 
     li {
       &#error-address, &#error-boro {
-        width: inherit;
+        width: 200px;
         top: -125px;
         padding: inherit;
         margin: 0 auto;
         margin-top: 5px;
         text-align: center;
         display: block;
-        font-size: 0.5em;         
+        font-size: 0.5em;
+        float: none;
       }
 
       &#error-not-found {
         top: 130px;
         max-width: inherit;
-        width: inherit;
+        width: 250px;
         margin: 0 auto;         
         padding: inherit;         
         display: block;

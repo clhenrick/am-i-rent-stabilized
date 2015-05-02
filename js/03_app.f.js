@@ -76,7 +76,6 @@ app.f = (function(w,d) {
         app.f.goToSlide(el.slides[previous]);       
         if (callback && typeof callback === "function") { 
           callback();
-          // console.log('goToPrevSlide callback called.');
         }
       }    
     },
@@ -85,13 +84,10 @@ app.f = (function(w,d) {
       // console.log('local slide state: ', state);
       var index = app.f.getSlideIndex(state.currentSlide);
       var next = el.slides[index + 1];
-      // console.log('go to next slide', state);
-      console.log('formFilled: ', state.formFilled, ' index: ', index);
       if (next && ( index === 0 || (index >= 1 && state.formFilled === true ) ) ) {      
         app.f.goToSlide(next);
         if (callback && typeof callback === "function") { 
           callback(); 
-          // console.log('goToNextSlide callback called.');
         }  
       }      
     },
@@ -105,7 +101,10 @@ app.f = (function(w,d) {
         app.f.resetBoroValue();
         app.map.resetMap();
         app.f.addClass(el.yes, 'hidden');
-        app.f.removeClass(el.no, 'hidden');      
+        app.f.removeClass(el.no, 'hidden');
+        app.f.addClass(el.yesTR, 'hidden');
+        app.f.removeClass(el.noTR, 'hidden');
+        d.querySelector('.tr-modal').innerHTML = '';
         app.f.goToSlide(el.slides[0]);
         app.events.publish('state-change', {
           formFilled : false

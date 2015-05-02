@@ -11,9 +11,9 @@
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">    
 <!--         <link rel="stylesheet" type="text/css" href="bower_components/normalize.css/normalize.css"> -->
 <!--         <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" /> -->
-        <link rel="stylesheet" type="text/css" href="bower_components/cartodb.js/themes/css/cartodb.css">
         <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700,300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="bower_components/cartodb.js/themes/css/cartodb.css">        
         <link rel="shortcut icon" href="assets/favicon/favicon-96x96.png" />
         <!-- <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="./assets/favicon/ms-icon-144x144.png">     -->
@@ -28,7 +28,8 @@
             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
           })();
-        </script>        
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     </head>
     <body>
         <nav class="main-nav">
@@ -76,7 +77,7 @@
                 <div class="centered"> 
                     <img class="triple-s" src="assets/png/triple-sss.png">              
                     <img class="building intro" src="assets/png/building.png">
-                    <h1 class="landing">Half of all apartments in NYC are rent stabilized.</h1> 
+                    <h1 class="landing">Half of All Apartments in NYC Are Rent Stabilized.</h1> 
                     <h2 class="sub-head">Find out if yours is one of them.</h2>
                     <p class="landing">Or jump ahead to</p>
                     <p class="go-step4"><a class="go-step4" href="#">"When you receive your rent history"</a></p>
@@ -95,15 +96,17 @@
 
                     <form id="address-form">
                         <ul class="validation-error">
-                            <li id="error-not-found"  class="vis-hidden">* Sorry, we don't recognize that NYC address, please try again! <br>
-                                  Make sure you enter only your building number and street name.</li>
+                            <li id="error-not-found"  class="vis-hidden">
+                              * Sorry, we don't recognize that NYC address, please try again! <br>
+                              Make sure you enter only your building number and street name.
+                            </li>
                         </ul>                      
                         <div class="user-data street-address">
                             <input class="address-input" name="address-input" type="text" placeholder="Building No. &amp; Street Name" tabindex="1">
                         </div>                        
                         <div class="user-data borough-select">
                             <span id="select-boro">Select a Borough</span>
-                            <ul class="drop-down" id="boroughs" tabindex="2">
+                            <ul class="drop-down" id="boroughs">
                               <li><a href="#" tabindex="2">Bronx</a></li>
                               <li><a href="#">Brooklyn</a></li>
                               <li><a href="#">Manhattan</a></li>
@@ -176,7 +179,7 @@
             <div class="slide" id="slide-6">
                 <div class="centered">
                     <!-- <h4 class="step">Step 3 of 5</h4> -->
-                    <h1>After requesting your rent history, add a reminder to your calendar.</h1>
+                    <h1 class="check-it">After requesting your rent history, add a reminder to your calendar.</h1>
                     <p class="check-it">
                       <span class="addtocalendar atc-style-menu-wb" id="atc_text_link">
                         <a class="atcb-link" id="atc_text_link_link" href="#" tabindex="-1"></a><br> 
@@ -202,9 +205,6 @@
                     </a>
                     <p class="view-sample"><a href="#rent-history">View a sample rent history.</a></p>
                 </div>
-                <a href="#_" class="lightbox" id="rent-history">
-                  <img src="assets/png/sample-rent-history.png">
-                </a>                
                 <div class="go-next bottom-arrow">
                   <h3>Next</h3>
                   <div class="arrow"></div>
@@ -222,14 +222,14 @@
                          <a href="html/resources.html">Contact a tenants rights group for advice.</a> These groups can provide useful information and help you take the best course of action.
                       </p>
 
-                      <p class="yes-local-tr">
-                        Contact a tenants rights group for advice. Here are groups that help people your neighborhood.
+                      <p class="yes-local-tr hidden">
+                        Contact a tenants rights group for advice. These groups can provide useful information and help you take the best course of action. <a href="#open-modal">Here are groups that help people your neighborhood.</a>
                       </p>
 
                       <h4>Option 2:</h4>
                       <p>File a complaint with the HCR by filling out and mailing a <a href="http://www.nyshcr.org/Forms/Rent/ra89.pdf" target="_blank"> rent overcharge form</a>. But be aware that your landlord will be notified when you file a complaint.</p>
                     </div>                    
-                </div>
+                </div>                
                 <div class="go-next bottom-arrow">
                   <h3>Next</h3>
                   <div class="arrow"></div>
@@ -252,6 +252,39 @@
                 </div>
             </div>                        
         </div> <!-- end slides container -->
+        <div id="open-modal" class="tr-modal"></div>
+        <a href="#_" class="lightbox" id="rent-history">          
+          <img src="assets/png/sample-rent-history.png">
+        </a>        
+        <script id="org-template" type="text/x-handlebars-template">
+          <div class="org-container">
+            <a href="#close" title="Close" class="close">X</a>
+            <h1>
+              Here are some groups that help people with housing 
+              issues in your neighborhood:
+            </h1>      
+            {{#each orgs}}
+              <div class="tr-org-info">          
+                <h3>{{name}}</h3>
+                {{#if website}}
+                <p class="website-url"><span>Website: </span>{{website}}</p>
+                {{/if}}
+                {{#if phone}}
+                <p class="phone-no"><span>Phone: </span>{{phone}}</p>
+                {{/if}}
+                {{#if address}}
+                <p class="address"><span>Address: </span>{{address}}</p>
+                {{/if}}
+                {{#if email}}
+                <p class="email"><span>Email: </span>{{email}}</p>
+                {{/if}}
+                <p class="description"><span>Description: </span><br>
+                  {{description}}
+                </p>
+              </div>
+            {{/each}}
+          </div>
+        </script>        
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -261,9 +294,9 @@
           ga('send', 'pageview');
         </script>
         <!-- Javascripts -->        
-        <script src="bower_components/cartodb.js/dist/cartodb.js"></script>
-        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-551311020cabbff0" async="async"></script>                    
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.6/TweenLite.min.js"></script>
+        <script src="bower_components/cartodb.js/dist/cartodb.js"></script>     
+        <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-551311020cabbff0" async="async"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.6/TweenLite.min.js"></script>        
         <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.6/plugins/CSSPlugin.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.6/plugins/ScrollToPlugin.min.js"></script>
         <script type="text/javascript" src="dist/all.js"></script>
