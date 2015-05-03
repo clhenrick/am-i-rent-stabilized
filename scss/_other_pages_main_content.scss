@@ -24,13 +24,6 @@ body {
     &:first-child {
       margin-top: 25px;
     }    
-
-    @include responsive_height(medium-screens) {
-      font-size: 4.2em;
-      max-width: 85%;
-      margin-left: 0;
-    }
-
   }
   
   h3 {
@@ -100,28 +93,47 @@ body {
     font-style: italic;
   }
 
+  @include responsive_height(medium-screens) {
+    width: 70%;
+    margin-left: 22%;
+
+    h1 {
+      font-size: 3em;
+      max-width: 85%;
+      margin-left: 0;      
+    }
+
+    h3 {
+      font-size: 1.7em;
+    }
+
+    p, li {
+      font-size: 1.7em;
+    }       
+  }  
+
   @include responsive(medium-screens) {
     position: relative;
     display: block;
-    width: 90%;
+    width: 75%;
     margin-top: 85px;
     margin-left: 10%;    
 
-    h1, h3, p {
+    h1, h3, p, li {
       max-width: 100%;
       width: 100%;
     }
 
     h1 {
-      font-size: 3.2em;
+      font-size: 3em;
     }
 
     h3 {
-      font-size: 2.6em;
+      font-size: 1.7em;
     }
 
-    p {
-      font-size: 2em;
+    p, li {
+      font-size: 1.7em;
     }   
   }
 
@@ -137,7 +149,7 @@ body {
     h3 {
       width: 90%;
       margin-top: 15px;
-      font-size: 1.8em;
+      font-size: 1.5em;
     }
 
     p, li {

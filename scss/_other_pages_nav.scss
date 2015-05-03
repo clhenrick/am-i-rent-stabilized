@@ -29,6 +29,16 @@
 #lang-toggle {
   position: relative;
 
+  @include responsive(medium-screens) {
+    li {
+      display: block;
+
+      &:nth-child(2) {
+        display: none;
+      }
+    }
+  }
+
   @include responsive_mobile_landscape() {
     top: 0;
     left: 0;
@@ -75,10 +85,10 @@
   } 
 
   @include responsive(medium-screens) {
-    width: 70%;
+    width: 60%;
     left: 0;
-    top: 54px;
-    margin-left: 30%;
+    top: 46px;
+    margin-left: 28%;
 
     h3 {
       display: block;
@@ -92,6 +102,7 @@
 
     li {
       display: inline-block;
+      list-style-type: disc;
       margin-right: 1em;
       margin-left: 0;
       margin-top: 5px;

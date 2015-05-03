@@ -1650,6 +1650,11 @@ ul.validation-error {
 
 #lang-toggle {
   position: relative; }
+  @media only screen and (max-width: 980px) {
+    #lang-toggle li {
+      display: block; }
+      #lang-toggle li:nth-child(2) {
+        display: none; } }
   @media only screen and (max-height: 420px) and (min-width: 320px) {
     #lang-toggle {
       top: 0;
@@ -1682,10 +1687,10 @@ ul.validation-error {
         margin-top: 10px; }
   @media only screen and (max-width: 980px) {
     #side-nav {
-      width: 70%;
+      width: 60%;
       left: 0;
-      top: 54px;
-      margin-left: 30%; }
+      top: 46px;
+      margin-left: 28%; }
       #side-nav h3 {
         display: block;
         width: 150px;
@@ -1694,6 +1699,7 @@ ul.validation-error {
         display: inline; }
       #side-nav li {
         display: inline-block;
+        list-style-type: disc;
         margin-right: 1em;
         margin-left: 0;
         margin-top: 5px; }
@@ -1732,11 +1738,6 @@ body {
     color: #FFC462; }
     #main h1:first-child {
       margin-top: 25px; }
-    @media only screen and (max-height: 770px) {
-      #main h1 {
-        font-size: 4.2em;
-        max-width: 85%;
-        margin-left: 0; } }
   #main h3 {
     width: 80%;
     margin-top: 25px;
@@ -1780,22 +1781,34 @@ body {
       height: 372px; }
   #main .italic {
     font-style: italic; }
+  @media only screen and (max-height: 770px) {
+    #main {
+      width: 70%;
+      margin-left: 22%; }
+      #main h1 {
+        font-size: 3em;
+        max-width: 85%;
+        margin-left: 0; }
+      #main h3 {
+        font-size: 1.7em; }
+      #main p, #main li {
+        font-size: 1.7em; } }
   @media only screen and (max-width: 980px) {
     #main {
       position: relative;
       display: block;
-      width: 90%;
+      width: 75%;
       margin-top: 85px;
       margin-left: 10%; }
-      #main h1, #main h3, #main p {
+      #main h1, #main h3, #main p, #main li {
         max-width: 100%;
         width: 100%; }
       #main h1 {
-        font-size: 3.2em; }
+        font-size: 3em; }
       #main h3 {
-        font-size: 2.6em; }
-      #main p {
-        font-size: 2em; } }
+        font-size: 1.7em; }
+      #main p, #main li {
+        font-size: 1.7em; } }
   @media only screen and (max-width: 768px) {
     #main {
       width: 80%;
@@ -1806,7 +1819,7 @@ body {
       #main h3 {
         width: 90%;
         margin-top: 15px;
-        font-size: 1.8em; }
+        font-size: 1.5em; }
       #main p, #main li {
         margin-top: 10px;
         font-size: 1.5em; }
