@@ -11,10 +11,10 @@
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">    
 <!--         <link rel="stylesheet" type="text/css" href="bower_components/normalize.css/normalize.css"> -->
 <!--         <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" /> -->
-        <link rel="stylesheet" type="text/css" href="bower_components/cartodb.js/themes/css/cartodb.css">
+        <link rel="stylesheet" type="text/css" href="../bower_components/cartodb.js/themes/css/cartodb.css">
         <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700,300' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" type="text/css" href="css/main.css">
-        <link rel="shortcut icon" href="assets/favicon/favicon-96x96.png" />
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <link rel="shortcut icon" href="../assets/favicon/favicon-96x96.png" />
         <!-- <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="./assets/favicon/ms-icon-144x144.png">     -->
         <script src="http://use.typekit.net/emf7xrp.js"></script>
@@ -32,28 +32,28 @@
     </head>
     <body>
         <nav class="main-nav">
-          <img class="logo" src="assets/png/logo.png">
+          <img class="logo" src="../assets/png/logo.png">
           <h1>            
             <a class="go-first" href="#">Am I Rent Stabilized?</a>
           </h1>
           <div class="burger" alt="-"></div>
           <ul>
-            <li class="nav"><a href="html/why.html">Why it Matters</a></li>
-            <li class="nav"><a href="html/how.html">How it Works</a></li>
-            <li class="nav"><a href="html/resources.html">Resources</a></li>            
+            <li class="nav"><a href="html/why.html">Porqué es importante</a></li>
+            <li class="nav"><a href="html/how.html">Como funciona</a></li>
+            <li class="nav"><a href="html/resources.html">Recursos</a></li>            
           </ul>
         </nav>
 
         <div id="mobile-message">
-          <img src="assets/png/rotate.png">
+          <img src="../assets/png/rotate.png">
           <h1>Please rotate your device.</h1>          
         </div>
 
         <div id="lang-toggle">
             <ul>
-                <li><a href="#">en español</a></li>
+                <li><a href="../index.html">english</a></li>
                 <li><p>•</p></li>
-                <li><a href="#">中文</a></li>
+                <li><a href="../zh/index.html">中文</a></li>
             </ul>
         </div>
 
@@ -74,15 +74,15 @@
         <div class="slides-container">
             <div class="slide" id="slide-1">
                 <div class="centered"> 
-                    <img class="triple-s" src="assets/png/triple-sss.png">              
-                    <img class="building intro" src="assets/png/building.png">
-                    <h1 class="landing">Half of all apartments in NYC are rent stabilized.</h1> 
-                    <h2 class="sub-head">Find out if yours is one of them.</h2>
-                    <p class="landing">Or jump ahead to</p>
-                    <p class="go-step4"><a class="go-step4" href="#">"When you receive your rent history"</a></p>
+                    <img class="triple-s" src="../assets/png/triple-sss.png">              
+                    <img class="building intro" src="../assets/png/building.png">
+                    <h1 class="landing es">La mitad de todos los apartamentos en la ciudad de Nueva York tienen renta estabilizada.</h1> 
+                    <h2 class="sub-head">Descubra si el suyo es uno de ellos.</h2>
+                    <p class="landing">O brinque este paso hasta</p>
+                    <p class="go-step4 es"><a class="go-step4" href="#">"Cuando usted recibe su historial de renta"</a></p>
                 </div>
                 <div class="go-next bottom-arrow">
-                  <h3>Begin</h3>
+                  <h3>Inicio</h3>
                   <div class="arrow"></div>
                 </div>  
             </div>
@@ -198,12 +198,12 @@
                     <!-- <h4 class="step">Step 4 of 5</h4> -->
                     <h1>Once you receive it, look at what previous tenants paid and if their rent was stabilized.</h1>
                     <a href="#rent-history">
-                      <img class="rent-history" src="assets/png/sample-rent-history-thumb.png">
+                      <img class="rent-history" src="../assets/png/sample-rent-history-thumb.png">
                     </a>
                     <p class="view-sample"><a href="#rent-history">View a sample rent history.</a></p>
                 </div>
                 <a href="#_" class="lightbox" id="rent-history">
-                  <img src="assets/png/sample-rent-history.png">
+                  <img src="../assets/png/sample-rent-history.png">
                 </a>                
                 <div class="go-next bottom-arrow">
                   <h3>Next</h3>
@@ -215,7 +215,7 @@
                 <div class="centered">
                     <!-- <h4 class="step">Step 5 of 5</h4> -->
                     <h1>If they were paying a lot less than you are, here's how to take action:</h1>
-                    <!-- <img class="mascot monster" src="assets/png/no1.png"> -->
+                    <!-- <img class="mascot monster" src="../assets/png/no1.png"> -->
                     <div class="action-choice">                      
                       <h4>Option 1:</h4>
                       <p class="no-local-tr">
@@ -239,7 +239,7 @@
             <div class="slide" id="slide-9">
                 <div class="centered v-centered">
                     <h1 class="end">Nice Work!</h1>
-                    <img class="mascot" src="assets/png/yes.png">
+                    <img class="mascot" src="../assets/png/yes.png">
                     <!-- <p><span class="go-first">Start Over</span></p> -->
                     <div class="button-holder">
                       <p class="button start-over go-first" type="submit"><a href="#">Start Over</a></p>
@@ -252,6 +252,39 @@
                 </div>
             </div>                        
         </div> <!-- end slides container -->
+        <div id="open-modal" class="tr-modal"></div>
+        <a href="#_" class="lightbox" id="rent-history">          
+          <img src="../assets/png/sample-rent-history.png">
+        </a>        
+        <script id="org-template" type="text/x-handlebars-template">
+          <div class="org-container">
+            <a href="#close" title="Close" class="close">X</a>
+            <h1>
+              Here are some groups that help people with housing 
+              issues in your neighborhood:
+            </h1>      
+            {{#each orgs}}
+              <div class="tr-org-info">          
+                <h3>{{name}}</h3>
+                {{#if website}}
+                <p class="website-url"><span>Website: </span>{{website}}</p>
+                {{/if}}
+                {{#if phone}}
+                <p class="phone-no"><span>Phone: </span>{{phone}}</p>
+                {{/if}}
+                {{#if address}}
+                <p class="address"><span>Address: </span>{{address}}</p>
+                {{/if}}
+                {{#if email}}
+                <p class="email"><span>Email: </span>{{email}}</p>
+                {{/if}}
+                <p class="description"><span>Description: </span><br>
+                  {{description}}
+                </p>
+              </div>
+            {{/each}}
+          </div>
+        </script>        
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -261,12 +294,12 @@
           ga('send', 'pageview');
         </script>
         <!-- Javascripts -->        
-        <script src="bower_components/cartodb.js/dist/cartodb.js"></script>
+        <script src="../bower_components/cartodb.js/dist/cartodb.js"></script>
         <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-551311020cabbff0" async="async"></script>                    
         <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.6/TweenLite.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.6/plugins/CSSPlugin.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.6/plugins/ScrollToPlugin.min.js"></script>
-        <script type="text/javascript" src="dist/all.js"></script>
+        <script type="text/javascript" src="../dist/all.js"></script>
         <script type="text/javascript">    
           window.addEventListener('DOMContentLoaded', function(){
             app.init.init();

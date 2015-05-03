@@ -431,6 +431,8 @@ h1 {
       h1.landing {
         margin-top: 0px;
         width: 65%; }
+        h1.landing.es {
+          width: 75%; }
       .yes h1 {
         width: 55%;
         margin-top: 3%; }
@@ -538,6 +540,8 @@ p {
       margin-top: 1%; }
       p.go-step4 {
         width: 20%; }
+        p.go-step4.es {
+          width: 30%; }
       p.check-it {
         margin-top: 25px;
         width: 30%; }
@@ -1792,7 +1796,8 @@ body {
       #main h3 {
         font-size: 1.7em; }
       #main p, #main li {
-        font-size: 1.7em; } }
+        font-size: 1.7em;
+        margin-top: 1.2em; } }
   @media only screen and (max-width: 980px) {
     #main {
       position: relative;

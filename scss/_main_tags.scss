@@ -73,6 +73,9 @@ h1 {
     &.landing {
       margin-top: 0px;
       width: 65%;
+      &.es {
+        width: 75%;
+      }
     }
 
     .yes & {
@@ -236,6 +239,9 @@ p {
 
       &.go-step4 {
         width: 20%;
+        &.es {
+          width: 30%;
+        }
       }
 
       &.check-it {
