@@ -51,7 +51,7 @@
 
         <div id="lang-toggle">
             <ul>
-                <li><a href="#">en español</a></li>
+                <li><a href="../es/index.html">en español</a></li>
                 <li><p>•</p></li>
                 <li><a href="../index.html">english</a></li>
             </ul>
@@ -102,17 +102,17 @@
                             <input class="address-input" name="address-input" type="text" placeholder="楼号 &amp; 街道名称" tabindex="1">
                         </div>                        
                         <div class="user-data borough-select">
-                            <span id="select-boro">选择你所在的镇区</span>
-                            <ul class="drop-down" id="boroughs" tabindex="2">
-                              <li><a href="#" tabindex="2">布朗克斯</a></li>
-                              <li><a href="#">布鲁克林</a></li>
-                              <li><a href="#">曼哈顿</a></li>
-                              <li><a href="#">皇后区</a></li>
-                              <li><a href="#">斯塔滕岛</a></li>
-                            </ul>                            
+                          <span id="select-boro">选择你所在的镇区</span>
+                          <ul class="drop-down" id="boroughs">
+                            <li><a data-boro="BX" href="#">布朗克斯</a></li>
+                            <li><a data-boro="BK" href="#">布鲁克林</a></li>
+                            <li><a data-boro="MN" href="#">曼哈顿</a></li>
+                            <li><a data-boro="QN" href="#">皇后区</a></li>
+                            <li><a data-boro="SI" href="#">斯塔滕岛</a></li>
+                          </ul>                            
                         </div>
                         <ul class="validation-error">                            
-                            <li id="error-address" class="vis-hidden">* 请输入输入你的楼号&街道名称。</li>
+                            <li id="error-address" class="vis-hidden">* 请输入输入你的楼号&amp;街道名称。</li>
                             <li id="error-boro" class="vis-hidden">* 请选择你的镇区。</li>
                         </ul>                                                
                     </form>   
@@ -144,7 +144,7 @@
                   <div id="map-container">
                       <div id="map"></div>
                       <p class="map-message">橙色代表一处房产很有可能是租金稳定的。  </p>
-                      <p class="map-message"><a href="http://cdb.io/1CvSBy7" target="_blank">在新窗口中打开地图。</a></p>
+                      <p class="map-message"><a href="http://cdb.io/1bfz09d" target="_blank">在新窗口中打开地图。</a></p>
                   </div>                                    
                 </div>
 

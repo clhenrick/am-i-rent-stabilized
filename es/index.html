@@ -38,9 +38,9 @@
           </h1>
           <div class="burger" alt="-"></div>
           <ul>
-            <li class="nav"><a href="html/why.html">Porqué es importante</a></li>
-            <li class="nav"><a href="html/how.html">Como funciona</a></li>
-            <li class="nav"><a href="html/resources.html">Recursos</a></li>            
+            <li class="nav"><a class="es" href="html/why.html">Porqué es importante</a></li>
+            <li class="nav"><a class="es" href="html/how.html">Como funciona</a></li>
+            <li class="nav"><a class="es" href="html/resources.html">Recursos</a></li>            
           </ul>
         </nav>
 
@@ -76,7 +76,7 @@
                 <div class="centered"> 
                     <img class="triple-s" src="../assets/png/triple-sss.png">              
                     <img class="building intro" src="../assets/png/building.png">
-                    <h1 class="landing es">La mitad de todos los apartamentos en la ciudad de Nueva York tienen renta estabilizada.</h1> 
+                    <h1 class="landing es">La Mitad de Todos Los Apartamentos en la Ciudad de Nueva York Tienen Renta Estabilizada.</h1> 
                     <h2 class="sub-head">Descubra si el suyo es uno de ellos.</h2>
                     <p class="landing">O brinque este paso hasta</p>
                     <p class="go-step4 es"><a class="go-step4" href="#">"Cuando usted recibe su historial de renta"</a></p>
@@ -90,40 +90,42 @@
             <div class="slide" id="slide-2">
                 <div class="centered">
                     <!-- <h4 class="step">Step 1 of 5</h4> -->
-                    <h1 class="step">First, let's have your building address and borough.</h1>
-                    <p>We won't share this information or use it commericially.</p>
+                    <h1 class="step">Primero, escriba el número de su edificio y el distrito donde vive.</h1>
+                    <p>No compartiremos su información, tampoco será usada con propósitos comerciales.</p>
 
                     <form id="address-form">
                         <ul class="validation-error">
-                            <li id="error-not-found"  class="vis-hidden">* Sorry, we don't recognize that NYC address, please try again! <br>
-                                  Make sure you enter only your building number and street name.</li>
+                            <li id="error-not-found"  class="vis-hidden es">
+                              * Lo sentimos, no reconocemos ésta dirección, por favor trate de nuevo. <br>
+                              Asegúrese de solo escribir el número del edificio y el nombre/número de la calle.
+                            </li>
                         </ul>                      
                         <div class="user-data street-address">
-                            <input class="address-input" name="address-input" type="text" placeholder="Building No. &amp; Street Name" tabindex="1">
+                            <input class="address-input es" name="address-input" type="text" placeholder="Número del edificio y el nombre de la calle." tabindex="-1">
                         </div>                        
                         <div class="user-data borough-select">
-                            <span id="select-boro">Select a Borough</span>
-                            <ul class="drop-down" id="boroughs" tabindex="2">
-                              <li><a href="#" tabindex="2">Bronx</a></li>
-                              <li><a href="#">Brooklyn</a></li>
-                              <li><a href="#">Manhattan</a></li>
-                              <li><a href="#">Queens</a></li>
-                              <li><a href="#">Staten Island</a></li>
+                            <span id="select-boro">Seleccione su Distrito</span>
+                            <ul class="drop-down" id="boroughs">
+                              <li><a data-boro="BX" href="#">Bronx</a></li>
+                              <li><a data-boro="BK" href="#">Brooklyn</a></li>
+                              <li><a data-boro="MN" href="#">Manhattan</a></li>
+                              <li><a data-boro="QN" href="#">Queens</a></li>
+                              <li><a data-boro="SI" href="#">Staten Island</a></li>
                             </ul>                            
                         </div>
                         <ul class="validation-error">                            
-                            <li id="error-address" class="vis-hidden">* Please enter your building's number &amp; street name </li>
-                            <li id="error-boro" class="vis-hidden">* Please select your borough</li>
+                            <li id="error-address" class="vis-hidden es">* Por Favor entre el número de su edificio y el nombre/número de la calle</li>
+                            <li id="error-boro" class="vis-hidden es">* Por favor seleccione su distrito</li>
                         </ul>                                                
                     </form>   
-                    <p class="button search" type="submit"><a href="#">Search</a></p>
+                    <p class="button search" type="submit"><a href="#">Búsqueda</a></p>
                 </div>
             </div>  
 
             <div class="slide" id="slide-3">
                 <div class="centered v-centered">
-                    <h1 class="checking">Checking...</h1>
-                    <p>This will only take a moment.</p>
+                    <h1 class="checking">Verificando...</h1>
+                    <p>Esto tomará solo un momento.</p>
                     <div id="sprite"></div>
                 </div>
             </div>
@@ -131,26 +133,23 @@
             <div class="slide" id="slide-4">
                 <div class="centered">
                   <div class="yes hidden">
-                      <!-- <h1 class="news">Good News!</h1> -->
-                      <h1>Your apartment <em>might be</em> rent stabilized!</h1>
-                      <p>But, there's only one way to know for sure, so keep reading.</p>
+                      <h1>Su apartamento <em>podría</em> tener renta estabilizada.</h1>
+                      <p>Pero, hay solo una manera de estar seguros, siga leyendo.</p>
                   </div>
 
                   <div class="no">
-                      <!-- <h1 class="news">Sorry!</h1> -->
-                      <p>Although your address wasn't found in our database
-                      we can’t be 100&#37; sure you aren’t rent stabilized, so keep reading!</p>
+                      <p>Aunque no encontremos su dirección en nuestra base de datos, no podemos estar  100&#37; seguros que su renta no es estabilizada. Continúe leyendo. </p>
                   </div>
 
                   <div id="map-container">
                       <div id="map"></div>
-                      <p class="map-message">Orange means a property likely has rent stabilized apartments.</p>
-                      <p class="map-message"><a href="http://cdb.io/1CvSBy7" target="_blank">View this map in a separate window.</a></p>
+                      <p class="map-message">Anaranjado significa que la propiedad podría tener apartamentos con renta estabilizada.</p>
+                      <p class="map-message"><a href="http://cdb.io/1bfz09d" target="_blank">Abra una nueva ventana para ver este mapa.</a></p>
                   </div>                                    
                 </div>
 
                 <div class="go-next bottom-arrow">
-                  <h3>Next</h3>
+                  <h3>Siguiente</h3>
                   <div class="arrow"></div>
                 </div>
             </div>        
@@ -158,17 +157,17 @@
             <div class="slide" id="slide-5">
                 <div class="centered">
                     <!-- <h4 class="step">Step 2 of 5</h4> -->
-                    <h1>Request your rent history from the NY Department of Homes and Community Renewal.</h1>
+                    <h1 class="es">Solicite el historial de renta de su apartamento al Departamento de Viviendas y Renovación de Comunidades de Nueva York.</h1>
                     <div class="dhcr-choice">
-                      <p><a id="mail-to" href="#">Request it by email</a></p>
-                      <p>Call them at <br><a href="tel:1-718-739-6400">718 739-6400</a></p>
-                      <p>You can also visit a<br><a href="http://www.nyshcr.org/AboutUs/contact.htm#rent-admin" target="_blank">DHCR office</a></p>                      
+                      <p><a id="mail-to" href="#">Puede solicitarla vía email.</a></p>
+                      <p>Puede llamar a las oficinas al <br><a href="tel:1-718-739-6400">718 739-6400</a></p>
+                      <p>También Puede visitar<br><a href="http://www.nyshcr.org/AboutUs/contact.htm#rent-admin" target="_blank">sus oficinas.</a></p>                      
                     </div>
-                    <p class="be-sure">Be sure to tell them your name, address,  apartment number, and that you'd like to  request your rent history.</p>
-                    <p class="be-sure">It will be mailed to your apartment.</p>
+                    <p class="be-sure">Asegúrese de decirle su nombre, dirección, número de apartamento y que le gustaría solicitar el historial de renta de su apartamento.</p>
+                    <p class="be-sure">Se le enviará por correo.</p>
                 </div>                
                 <div class="go-next bottom-arrow">
-                  <h3>Next</h3>
+                  <h3>Siguiente</h3>
                   <div class="arrow"></div>
                 </div>
             </div>
@@ -176,19 +175,17 @@
             <div class="slide" id="slide-6">
                 <div class="centered">
                     <!-- <h4 class="step">Step 3 of 5</h4> -->
-                    <h1>After requesting your rent history, add a reminder to your calendar.</h1>
+                    <h1 class="es">Después de solicitar su historial de renta añada un recordatorio a su calendario.</h1>
                     <p class="check-it">
                       <span class="addtocalendar atc-style-menu-wb" id="atc_text_link">
                         <a class="atcb-link" id="atc_text_link_link" href="#" tabindex="-1"></a><br> 
                       </span>
                     </p>
-                    <p class="check-it">
-                       It shouldn't take more than a week to arrive in the mail.
-                    </p>
-                    <p class="check-it">Meanwhile, have your friends and neighbors check their apartments too!</p>
+                    <p class="check-it">Debe llegar en menos de una semana. </p>
+                    <p class="check-it">Mientras tanto, haga que sus amigos y vecinos soliciten uno también.</p>
                 </div>
                 <div class="go-next bottom-arrow">
-                  <h3>Next</h3>
+                  <h3>Siguiente</h3>
                   <div class="arrow"></div>
                 </div>
             </div>
@@ -196,17 +193,14 @@
             <div class="slide" id="slide-7">                
                 <div class="centered">                    
                     <!-- <h4 class="step">Step 4 of 5</h4> -->
-                    <h1>Once you receive it, look at what previous tenants paid and if their rent was stabilized.</h1>
+                    <h1 class="es">Una vez reciba el historial mire lo que inquilinos anteriores pagaban y suyo su renta estaba estabilizada.</h1>
                     <a href="#rent-history">
                       <img class="rent-history" src="../assets/png/sample-rent-history-thumb.png">
                     </a>
-                    <p class="view-sample"><a href="#rent-history">View a sample rent history.</a></p>
-                </div>
-                <a href="#_" class="lightbox" id="rent-history">
-                  <img src="../assets/png/sample-rent-history.png">
-                </a>                
+                    <p class="view-sample"><a href="#rent-history">Mire un ejemplo de historial de renta.</a></p>
+                </div>              
                 <div class="go-next bottom-arrow">
-                  <h3>Next</h3>
+                  <h3>Siguiente</h3>
                   <div class="arrow"></div>
                 </div>
             </div>   
@@ -214,40 +208,41 @@
             <div class="slide" id="slide-8">
                 <div class="centered">
                     <!-- <h4 class="step">Step 5 of 5</h4> -->
-                    <h1>If they were paying a lot less than you are, here's how to take action:</h1>
+                    <h1 class="es">Si pagaban mucho menos de lo quiere usted paga ahora, siga estos pasos:</h1>
                     <!-- <img class="mascot monster" src="../assets/png/no1.png"> -->
                     <div class="action-choice">                      
-                      <h4>Option 1:</h4>
-                      <p class="no-local-tr">
-                         <a href="html/resources.html">Contact a tenants rights group for advice.</a> These groups can provide useful information and help you take the best course of action.
+                      <h4>Opción 1:</h4>
+                      <p class="no-local-tr es">
+                         <a href="html/resources.html">Contacte un grupo de derechos para inquilinos para que le aconseje.</a> Estos grupos pueden ofrecerle información útil y ayudarle a tomar el mejor curso de acción.
                       </p>
 
-                      <p class="yes-local-tr">
-                        Contact a tenants rights group for advice. Here are groups that help people your neighborhood.
+                      <p class="yes-local-tr es hidden">
+                        Contacte un grupo de derechos para inquilinos para que le aconseje.
+                        <a href="#open-modal">Encuentre aquí una lista de grupos de derechos para inquilinos en su comunidad.</a>
                       </p>
 
-                      <h4>Option 2:</h4>
-                      <p>File a complaint with the HCR by filling out and mailing a <a href="http://www.nyshcr.org/Forms/Rent/ra89.pdf" target="_blank"> rent overcharge form</a>. But be aware that your landlord will be notified when you file a complaint.</p>
+                      <h4>Opción 2:</h4>
+                      <p class="es">Presente una denuncia al DHCR llenando y enviando por correo <a href="http://www.nyshcr.org/Forms/Rent/ra89.pdf" target="_blank">la forma de cobro de más de renta (rent overcharge form).</a> Entienda que el dueño de su apartamento será notificado que usted tomó dicha acción.</p>
                     </div>                    
                 </div>
                 <div class="go-next bottom-arrow">
-                  <h3>Next</h3>
+                  <h3>Siguiente</h3>
                   <div class="arrow"></div>
                 </div>
             </div>    
 
             <div class="slide" id="slide-9">
                 <div class="centered v-centered">
-                    <h1 class="end">Nice Work!</h1>
+                    <h1 class="end">¡Buen Trabajo!</h1>
                     <img class="mascot" src="../assets/png/yes.png">
                     <!-- <p><span class="go-first">Start Over</span></p> -->
                     <div class="button-holder">
-                      <p class="button start-over go-first" type="submit"><a href="#">Start Over</a></p>
-                      <p class="button learn-more" type="submit"><a href="html/why.html">Learn More</a></p>
+                      <p class="button start-over go-first es" type="submit"><a href="#">Empezar de nuevo</a></p>
+                      <p class="button learn-more" type="submit"><a href="html/why.html">Aprenda más</a></p>
                     </div>
                     <div class="share-box-end">
-                        <p class="share-it">Share it!</p>
-                        <div class="addthis_sharing_toolbox"></div>                                     
+                        <p class="share-it">¡Compartalo!</p>
+                        <div class="addthis_sharing_toolbox"></div>
                     </div>                                    
                 </div>
             </div>                        

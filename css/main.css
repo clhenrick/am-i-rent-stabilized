@@ -432,12 +432,14 @@ h1 {
         margin-top: 0px;
         width: 65%; }
         h1.landing.es {
-          width: 75%; }
+          font-size: 3.2em; }
       .yes h1 {
         width: 55%;
         margin-top: 3%; }
       h1.news {
-        margin-top: 7%; } }
+        margin-top: 7%; }
+      h1.es {
+        font-size: 3.2em; } }
   @media only screen and (max-width: 980px) {
     h1 {
       width: 65%;
@@ -446,6 +448,9 @@ h1 {
       h1.landing {
         margin-top: 0;
         max-width: 75%; }
+        h1.landing.es {
+          font-size: 3.2em;
+          width: 65%; }
       h1.news {
         margin-top: 7%; } }
   @media only screen and (max-width: 768px) {
@@ -713,6 +718,8 @@ nav.main-nav {
         font-weight: 300; }
         nav.main-nav ul li a.zh {
           font-size: 1.5em; }
+        nav.main-nav ul li a.es {
+          font-size: 1.8em; }
     nav.main-nav ul.responsive {
       display: block;
       position: absolute;
@@ -1037,8 +1044,7 @@ a.lightbox {
       margin-top: -1px;
       background-image: url('../assets/png/drop-down-triangle.png');
       background-repeat: no-repeat;
-      background-position: center center;
-      background-size: contain; }
+      background-position: center center; }
     #address-form .borough-select ul.drop-down {
       position: absolute;
       width: 340px;
@@ -1073,6 +1079,8 @@ a.lightbox {
       #address-form input.address-input {
         width: 400px;
         height: 60px; }
+        #address-form input.address-input.es {
+          font-size: 0.85em; }
       #address-form div.user-data {
         font-size: .9em;
         height: 60px;
@@ -1124,7 +1132,8 @@ a.lightbox {
             width: 17px;
             height: 10px;
             right: 5px;
-            top: 20px; } }
+            top: 20px;
+            background-image: url('../assets/png/drop-down-triangle-sm.png'); } }
 
 ul.validation-error {
   padding: 0;
@@ -1186,6 +1195,8 @@ ul.validation-error {
       margin-top: -25px;
       top: 145px;
       font-size: 0.7em; }
+      ul.validation-error #error-not-found.es {
+        font-size: 0.6em; }
     ul.validation-error #error-boro {
       float: right;
       width: 175px;
@@ -1193,11 +1204,15 @@ ul.validation-error {
       margin-right: 75px;
       margin-top: -152px;
       padding: 10px; }
+      ul.validation-error #error-boro.es {
+        font-size: 0.6em; }
     ul.validation-error #error-address {
       float: left;
       width: 175px;
       margin-top: -203px;
-      margin-left: 75px; } }
+      margin-left: 75px; }
+      ul.validation-error #error-address.es {
+        font-size: 0.6em; } }
   @media only screen and (max-width: 768px) {
     ul.validation-error #error-not-found {
       max-width: 80%;
@@ -1266,6 +1281,8 @@ ul.validation-error {
       padding: 8px 12px; }
       .button.search {
         width: 125px; }
+      .button.start-over.es {
+        width: 215px; }
       .button.learn-more {
         width: 175px; } }
   @media only screen and (max-width: 980px) {
@@ -1550,7 +1567,12 @@ ul.validation-error {
         width: 300px;
         height: 210px;
         padding: 20px;
-        font-size: 2em; } }
+        font-size: 2em; }
+        .action-choice p.es {
+          font-size: 1.8em; } }
+    @media only screen and (max-width: 980px) {
+      .action-choice p.es {
+        font-size: 1.8em; } }
     @media only screen and (max-width: 768px) {
       .action-choice p {
         width: 255px;
@@ -1576,6 +1598,33 @@ ul.validation-error {
     @media only screen and (max-width: 460px) {
       .action-choice h4 {
         font-size: 1.5em; } }
+
+input[placeholder] {
+  color: #9B9B9B !important;
+  font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif !important;
+  font-weight: 300 !important; }
+
+input::-webkit-input-placeholder {
+  color: #9B9B9B !important;
+  font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif !important;
+  font-weight: 300 !important; }
+
+input:-moz-placeholder {
+  /* Firefox 18- */
+  color: #9B9B9B !important;
+  font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif !important;
+  font-weight: 300  !important; }
+
+input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #9B9B9B !important;
+  font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif !important;
+  font-weight: 300  !important; }
+
+input:-ms-input-placeholder {
+  color: #9B9B9B !important;
+  font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif !important;
+  font-weight: 300  !important; }
 
 #map {
   position: relative;

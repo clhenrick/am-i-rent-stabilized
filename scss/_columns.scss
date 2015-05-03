@@ -62,7 +62,7 @@
     width: 640px;
     margin-top: 30px;
     height: 275px;
-    @include columns($width:300px, $number:2, $gap:20px);    
+    @include columns($width:300px, $number:2, $gap:20px);  
   }  
 
   @include responsive(tablet-screens) {
@@ -92,7 +92,13 @@
       width: 300px;
       height: 210px;
       padding: 20px;
-      font-size: 2em;      
+      font-size: 2em;   
+
+      &.es { font-size: 1.8em; }
+    }
+
+    @include responsive(medium-screens) {
+      &.es { font-size: 1.8em; }
     }
     
     @include responsive(tablet-screens) {
@@ -129,31 +135,31 @@
   }
 } // end .action-choice
 
-// input[placeholder] {
-//   color: $medgray !important;
-//   font-family: $body-font !important;
-//   font-weight: 300 !important;
-// }
-// input::-webkit-input-placeholder {
-//    color: $medgray !important;
-//    font-family: $body-font !important;
-//    font-weight: 300 !important;
-// }
+input[placeholder] {
+  color: $medgray !important;
+  font-family: $body-font !important;
+  font-weight: 300 !important;
+}
+input::-webkit-input-placeholder {
+   color: $medgray !important;
+   font-family: $body-font !important;
+   font-weight: 300 !important;
+}
 
-// input:-moz-placeholder { /* Firefox 18- */
-//    color: $medgray !important;
-//    font-family: $body-font !important;
-//    font-weight: 300  !important;
-// }
+input:-moz-placeholder { /* Firefox 18- */
+   color: $medgray !important;
+   font-family: $body-font !important;
+   font-weight: 300  !important;
+}
 
-// input::-moz-placeholder {  /* Firefox 19+ */
-//    color: $medgray !important;
-//    font-family: $body-font !important;
-//    font-weight: 300  !important;
-// }
+input::-moz-placeholder {  /* Firefox 19+ */
+   color: $medgray !important;
+   font-family: $body-font !important;
+   font-weight: 300  !important;
+}
 
-// input:-ms-input-placeholder {  
-//    color: $medgray !important;
-//    font-family: $body-font !important;
-//    font-weight: 300  !important;
-// }
+input:-ms-input-placeholder {  
+   color: $medgray !important;
+   font-family: $body-font !important;
+   font-weight: 300  !important;
+}
