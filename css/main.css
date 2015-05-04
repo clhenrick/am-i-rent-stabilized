@@ -476,12 +476,11 @@ h1 {
         font-size: 2.5em; } }
 
 h2 {
-  color: #ABABAB; }
-  h2 font {
-    family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif;
-    size: 4.8em;
-    style: italic;
-    weight: bold; }
+  color: #ABABAB;
+  font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 2.8em;
+  font-style: italic;
+  font-weight: bold; }
   h2.sub-head {
     margin-top: 50px; }
   @media only screen and (max-height: 770px) {
@@ -860,6 +859,9 @@ nav.margin-circles {
   margin-left: -62.5px;
   left: 50%;
   bottom: 3%; }
+  .go-next.bottom-arrow.es {
+    width: 170px;
+    margin-left: -85px; }
 .go-next h3 {
   font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif;
   color: #fb9d00;
@@ -867,6 +869,8 @@ nav.margin-circles {
   font-size: 3.5em;
   text-transform: uppercase;
   text-align: center; }
+  .es .go-next h3 {
+    font-size: 2.5em; }
 .go-next .arrow {
   position: relative;
   top: 10px;
@@ -1020,6 +1024,8 @@ a.lightbox {
     padding-left: 10px;
     font-weight: 300;
     color: #9B9B9B; }
+    #address-form input.address-input.es {
+      font-size: 0.75em; }
   #address-form .borough-select.active ul.drop-down {
     opacity: 1;
     pointer-events: auto; }
@@ -1263,7 +1269,8 @@ ul.validation-error {
   text-transform: uppercase;
   background-color: #fb9d00;
   padding: 10px 20px;
-  border-radius: 35px; }
+  border-radius: 35px;
+  font-size: 2em; }
   .button:hover {
     background-color: #FFC462; }
   .button a {
@@ -1272,7 +1279,10 @@ ul.validation-error {
     display: block;
     width: 150px;
     margin-top: 50px; }
+    .button.search.es {
+      width: 170px; }
   .button.learn-more {
+    width: 180px;
     margin-left: 50px; }
   @media only screen and (max-height: 770px) {
     .button {
@@ -1327,42 +1337,7 @@ ul.validation-error {
   -moz-animation: play 0.8s steps(10) infinite;
   -ms-animation: play 0.8s steps(10) infinite;
   -o-animation: play 0.8s steps(10) infinite;
-  animation: play 0.8s steps(10) infinite;
-  @-webkit-keyframes play {
-    from {
-      background-position: 0; }
-
-    to {
-      background-position: -1920px; } }
-
-  @-moz-keyframes play {
-    from {
-      background-position: 0; }
-
-    to {
-      background-position: -1920px; } }
-
-  @-ms-keyframes play {
-    from {
-      background-position: 0; }
-
-    to {
-      background-position: -1920px; } }
-
-  @-o-keyframes play {
-    from {
-      background-position: 0; }
-
-    to {
-      background-position: -1920px; } }
-
-  @keyframes play {
-    from {
-      background-position: 0; }
-
-    to {
-      background-position: -1920px; } }
- }
+  animation: play 0.8s steps(10) infinite; }
   @media only screen and (max-height: 770px) {
     #sprite {
       margin-top: 5%;
@@ -1405,6 +1380,41 @@ ul.validation-error {
         to {
           background-position: -1280px; } }
  } }
+
+@-webkit-keyframes play {
+  from {
+    background-position: 0; }
+
+  to {
+    background-position: -1920px; } }
+
+@-moz-keyframes play {
+  from {
+    background-position: 0; }
+
+  to {
+    background-position: -1920px; } }
+
+@-ms-keyframes play {
+  from {
+    background-position: 0; }
+
+  to {
+    background-position: -1920px; } }
+
+@-o-keyframes play {
+  from {
+    background-position: 0; }
+
+  to {
+    background-position: -1920px; } }
+
+@keyframes play {
+  from {
+    background-position: 0; }
+
+  to {
+    background-position: -1920px; } }
 
 @media only screen and (max-height: 770px) {
   @-webkit-keyframes play {

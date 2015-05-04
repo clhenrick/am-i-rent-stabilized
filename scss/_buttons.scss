@@ -1,5 +1,6 @@
 .button {
   @include button;
+  font-size: 2em; 
 
   &:hover {
     background-color: $orange;
@@ -13,9 +14,14 @@
     display: block;
     width: 150px;
     margin-top: 50px;
+
+    &.es {       
+      width: 170px;
+    }
   }
 
   &.learn-more {
+    width: 180px;
     margin-left: 50px;
   }
 

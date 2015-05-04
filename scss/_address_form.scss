@@ -30,7 +30,10 @@
     padding-left: 10px;
     font-weight: 300;
     color: $medgray;
-    // font-size: .8em;
+    
+    &.es {
+      font-size: 0.75em;
+    }
   }
 
   .borough-select.active {
