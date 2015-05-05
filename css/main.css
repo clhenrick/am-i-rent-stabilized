@@ -1217,7 +1217,7 @@ ul.validation-error {
       display: block;
       top: 145px; }
     ul.validation-error #error-boro, ul.validation-error #error-address {
-      width: inherit;
+      width: 400px;
       display: block;
       top: 0;
       margin: 0 auto;
