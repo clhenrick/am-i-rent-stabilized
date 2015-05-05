@@ -1285,8 +1285,7 @@ ul.validation-error {
     width: 150px;
     left: 50%;
     bottom: 5%;
-    margin-left: 75px;
-    margin-top: 50px; }
+    margin-left: -75px; }
     .button.search.es {
       width: 170px; }
   .button.learn-more {
