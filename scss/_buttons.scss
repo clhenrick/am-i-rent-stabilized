@@ -11,8 +11,12 @@
   }
 
   &.search {
+    position: absolute;
     display: block;
     width: 150px;
+    left: 50%;
+    bottom: 5%;
+    margin-left: 75px;
     margin-top: 50px;
 
     &.es {       
@@ -32,6 +36,7 @@
 
     &.search {
       width: 125px;
+      margin-left: -62.5px;
     }
 
     &.start-over.es {
@@ -50,6 +55,7 @@
 
     &.search {
       width: 125px;
+      margin-left: -62.5px;
     }
   }
 
@@ -61,7 +67,7 @@
 
     &.search {
       width: 110px;
-      margin: 0 auto;
+      margin-left: -55px;
       // width: 110px;
     }
 

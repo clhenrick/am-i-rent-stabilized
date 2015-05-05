@@ -1280,8 +1280,12 @@ ul.validation-error {
   .button a {
     color: #FFFFFF; }
   .button.search {
+    position: absolute;
     display: block;
     width: 150px;
+    left: 50%;
+    bottom: 5%;
+    margin-left: 75px;
     margin-top: 50px; }
     .button.search.es {
       width: 170px; }
@@ -1294,7 +1298,8 @@ ul.validation-error {
       font-size: 1.8em;
       padding: 8px 12px; }
       .button.search {
-        width: 125px; }
+        width: 125px;
+        margin-left: -62.5px; }
       .button.start-over.es {
         width: 215px; }
       .button.learn-more {
@@ -1305,7 +1310,8 @@ ul.validation-error {
       font-size: 1.8em;
       padding: 8px 12px; }
       .button.search {
-        width: 125px; } }
+        width: 125px;
+        margin-left: -62.5px; } }
   @media only screen and (max-width: 460px) {
     .button {
       width: 110px;
@@ -1313,7 +1319,7 @@ ul.validation-error {
       padding: 8px 12px; }
       .button.search {
         width: 110px;
-        margin: 0 auto; }
+        margin-left: -55px; }
       .button.start-over {
         width: 120px; }
       .button.learn-more {
