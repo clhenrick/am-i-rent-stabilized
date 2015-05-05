@@ -24,6 +24,8 @@
 }
 
 p.map-message {
+  margin-top: 25px;
+  
   @include responsive_height(medium-screens){
         font-size: 1.5em;
         width: 85%;

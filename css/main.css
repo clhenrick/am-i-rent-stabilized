@@ -414,13 +414,18 @@ h1 {
   font-size: 5.4em;
   color: #4a4a4a;
   max-width: 95%;
+  width: 75%;
   margin-top: 75px; }
   h1.landing {
     margin-top: 0px;
     letter-spacing: 0.05em;
     font-style: italic; }
+  h1.step {
+    width: 80%; }
   h1.checking {
     margin-top: 0; }
+  .yes h1 {
+    margin-top: 50px; }
   h1.end {
     margin-top: 0; }
   @media only screen and (max-height: 770px) {
@@ -433,6 +438,8 @@ h1 {
         width: 65%; }
         h1.landing.es {
           font-size: 3.2em; }
+      h1.step {
+        width: 65%; }
       .yes h1 {
         width: 55%;
         margin-top: 3%; }
@@ -456,7 +463,7 @@ h1 {
   @media only screen and (max-width: 768px) {
     h1 {
       margin-top: 15%;
-      width: 80%; } }
+      width: 75%; } }
   @media only screen and (max-width: 460px) {
     h1 {
       font-size: 1.8em;
@@ -517,7 +524,7 @@ h4 {
 p {
   width: 80%;
   margin: 0 auto;
-  font-size: 2.8em;
+  font-size: 2.2em;
   color: #417505;
   text-align: center; }
   p em {
@@ -525,16 +532,19 @@ p {
     font-style: italic; }
   p.landing {
     margin-top: 25px; }
+  p.step {
+    margin-top: 25px; }
   .no p {
     margin-top: 75px;
     width: 85%; }
   p.share-it {
     color: #9B9B9B; }
   p.be-sure {
-    margin-top: 65px; }
+    margin-top: 65px;
+    width: 70%; }
   p.check-it {
     margin-top: 70px;
-    width: 55%; }
+    width: 35%; }
   p.view-sample {
     margin-top: 20px; }
   @media only screen and (max-height: 770px) {
@@ -549,6 +559,9 @@ p {
       p.check-it {
         margin-top: 25px;
         width: 30%; }
+      .no p {
+        margin-top: 25px;
+        width: 60%; }
       p.be-sure {
         margin-top: 25px;
         width: 55%; }
@@ -1100,7 +1113,6 @@ a.lightbox {
         top: -75px; }
         #address-form div.user-data.borough-select {
           width: 340px;
-          left: -32px;
           margin: 0 auto;
           margin-top: 20px; } }
   @media only screen and (max-width: 980px) {
@@ -1651,16 +1663,18 @@ input:-ms-input-placeholder {
       height: 200px;
       margin-top: 3%; } }
 
-@media only screen and (max-height: 770px) {
-  p.map-message {
-    font-size: 1.5em;
-    width: 85%;
-    margin-top: 6px; } }
-@media only screen and (max-width: 460px) {
-  p.map-message {
-    width: 90%;
-    font-size: 1.3em;
-    margin-top: 1%; } }
+p.map-message {
+  margin-top: 25px; }
+  @media only screen and (max-height: 770px) {
+    p.map-message {
+      font-size: 1.5em;
+      width: 85%;
+      margin-top: 6px; } }
+  @media only screen and (max-width: 460px) {
+    p.map-message {
+      width: 90%;
+      font-size: 1.3em;
+      margin-top: 1%; } }
 
 .addtocalendar ul.atcb-list {
   width: 275px;
