@@ -1151,7 +1151,6 @@ ul.validation-error {
   ul.validation-error li {
     display: inline-block;
     position: relative;
-    max-width: 465px;
     padding: 10px;
     color: #FFFFFF;
     font-size: 0.7em;
@@ -1181,46 +1180,35 @@ ul.validation-error {
     left: -30px;
     margin: 0 auto;
     text-align: center; }
-  @media only screen and (max-width: 980px) {
-    ul.validation-error #error-not-found {
-      max-width: 65%;
-      display: block;
-      top: 145px; }
-    ul.validation-error #error-boro, ul.validation-error #error-address {
-      width: inherit;
-      display: block;
-      top: 0;
-      margin: 0 auto;
-      margin-top: 25px;
-      font-size: 0.8em;
-      text-align: center;
-      padding: 10px; } }
   @media only screen and (max-height: 770px) {
     ul.validation-error li {
       display: block;
-      font-size: 0.8em;
+      font-size: 0.7em;
       text-align: center;
       padding: 10px; }
     ul.validation-error #error-not-found {
+      margin: 0 auto;
       margin-top: -25px;
-      top: 145px;
+      top: 135px;
       font-size: 0.7em; }
       ul.validation-error #error-not-found.es {
         font-size: 0.6em; }
     ul.validation-error #error-boro {
-      float: right;
-      width: 175px;
+      width: 325px;
+      text-align: left;
+      font-size: 0.7em;
+      margin: 0 auto;
+      margin-top: 10px;
       top: 0;
-      margin-right: 75px;
-      margin-top: -152px;
       padding: 10px; }
       ul.validation-error #error-boro.es {
         font-size: 0.6em; }
     ul.validation-error #error-address {
-      float: left;
-      width: 175px;
-      margin-top: -203px;
-      margin-left: 75px; }
+      font-size: 0.7em;
+      width: 475px;
+      margin: 0 auto;
+      margin-top: 10px;
+      text-align: left; }
       ul.validation-error #error-address.es {
         font-size: 0.6em; } }
   @media only screen and (max-width: 768px) {
