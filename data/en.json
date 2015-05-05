@@ -1,0 +1,48 @@
+{
+  "nav-main" : {
+    "why" : "Why it Matters",
+    "how" : "How it Works",
+    "resources" : "Resources"
+  },
+  "nav-bottom-arrow" : {
+    "begin" : "Begin",
+    "next" : "Next"
+  },
+  "mobile_msg" : "Please rotate your device or make your browser window taller.",
+  "slide01" : {
+    "h1" : "Half of All Apartments in NYC Are Rent Stabilized.",
+    "h2" : "Find out if yours is one of them.",
+    "p_landing" : "Or jump ahead to",
+    "p_go_step_4" : "When you receive your rent history"
+  } ,
+  "slide02" : {
+      "h1" : "First, let's have your building address and borough.",
+      "p_privacy" : "We won't share this information or use it commericially.",
+      "form" : {
+        "user_data" : {
+            "address" : "Building No. &amp; Street Name",          
+            "boro_select" : "Select a Borough",
+            "boroughs" : {
+                "bx" : "Bronx",
+                "bk" : "Brooklyn",
+                "mn" : "Manhattan",
+                "qn" : "Queens",
+                "si" : "Staten Island"
+            }
+          },
+        "val_errors" : {
+          "not_found_err" : "* Sorry, we don't recognize that NYC address, please try again!<br>Make sure you enter only your building number and street name.",
+          "boro_err" : "* Please enter your building's number &amp; street name",
+          "address_err" : "* Please select your borough"
+        }
+      },
+      "search" : "Search"
+    },
+  "slide03" : {},
+  "slide04" : {},
+  "slide05" : {},
+  "slide06" : {},
+  "slide07" : {},
+  "slide08" : {},
+  "slide09" : {}
+}
