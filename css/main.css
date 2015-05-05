@@ -933,6 +933,10 @@ nav.margin-circles {
   position: relative; }
   .centered.v-centered {
     top: 50%;
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
     transform: translateY(-50%); }
   .centered .share-box-end {
     display: block;
@@ -1552,7 +1556,7 @@ ul.validation-error {
   @media only screen and (max-width: 460px) {
     .action-choice {
       width: 100%;
-      height: 200px;
+      height: 215px;
       -webkit-columns: 125px 2;
       -moz-columns: 125px 2;
       columns: 125px 2;
@@ -1591,7 +1595,7 @@ ul.validation-error {
       .action-choice p {
         max-width: 100%;
         width: 80%;
-        height: 175px;
+        height: 200px;
         font-size: 1.2em;
         padding: 5px;
         margin-left: 20px; } }
@@ -1980,7 +1984,7 @@ body {
     z-index: 21; }
 
 .org-container {
-  width: 85%;
+  width: 350px;
   height: 85%;
   top: 60px;
   position: relative;
@@ -1988,20 +1992,16 @@ body {
   padding: 10px 20px 13px 20px;
   border-radius: 10px;
   background: #fff;
-  -webkit-columns: 300px 2;
-  -moz-columns: 300px 2;
-  columns: 300px 2;
-  -webkit-column-gap: 40px;
-  -moz-column-gap: 40px;
-  column-gap: 40px;
-  -webkit-column-rule: 1px solid #ABABAB;
-  -moz-column-rule: 1px solid #ABABAB;
-  column-rule: 1px solid #ABABAB; }
+  overflow-y: auto; }
+  @media only screen and (max-width: 460px) {
+    .org-container {
+      width: 300px; } }
   .org-container:first-child {
     margin-top: 10px; }
   .org-container h1, .org-container h3, .org-container p {
     text-align: left;
     margin: 0;
+    padding: 0;
     max-width: 100%;
     width: 95%; }
   .org-container h1 {
@@ -2026,9 +2026,9 @@ body {
   color: #FFFFFF;
   line-height: 25px;
   position: absolute;
-  right: -12px;
+  right: 12px;
   text-align: center;
-  top: -10px;
+  top: 12px;
   width: 24px;
   text-decoration: none;
   font-weight: bold;
@@ -2044,4 +2044,5 @@ body {
 
 .tr-org-info {
   width: 350px;
-  margin-top: 15px; }
+  margin-top: 15px;
+  overflow: hidden; }

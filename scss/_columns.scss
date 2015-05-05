@@ -73,7 +73,7 @@
 
   @include responsive(small-screens) {
     width: 100%;
-    height: 200px;
+    height: 215px;
     @include columns($width:125px, $number:2, $gap: 10px);    
   }
 
@@ -109,7 +109,7 @@
     @include responsive(small-screens) {
       max-width: 100%;
       width: 80%;
-      height: 175px;
+      height: 200px;
       font-size: 1.2em;
       padding: 5px;
       margin-left: 20px;

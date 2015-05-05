@@ -41,7 +41,8 @@
 
   &.v-centered {
     top: 50%;
-    transform: translateY(-50%);        
+    // transform: translateY(-50%);        
+    @include translateY($value:-50%);
   }
 
   #slide-1 & {
