@@ -8,6 +8,7 @@ app.a = (function(w,d) {
    var el = app.el;
    var f = app.fns;
    var state = app.s;
+   var parsed_address;
 
    function address() {
      return {
@@ -19,11 +20,12 @@ app.a = (function(w,d) {
           });
           
           app.f.goToNextSlide();
-          var parsed_address = app.a.parseAddressInput(address);      
+          parsed_address = app.a.parseAddressInput(address);      
+          
           // delay API calls so user sees loading gif
           setTimeout(function(){    
             console.log('form filled, parsed address: ', parsed_address);
-            app.map.geoclient(parsed_address[0], parsed_address[1], borough); 
+            app.map.fns.geoclient(parsed_address[0], parsed_address[1], borough); 
           }, 1000);              
 
         } else if (address === "" && borough === undefined) {      
