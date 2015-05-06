@@ -7,7 +7,10 @@ var gulp = require('gulp');
     server = require('gulp-webserver'),
     plumber = require('gulp-plumber'),
     transform = require('vinyl-transform'),
-    minifyCSS = require('gulp-minify-css');
+    minifyCSS = require('gulp-minify-css'),
+    handlebars = require('gulp-handlebars'),
+    wrap = require('gulp-wrap'),
+    declare = require('gulp-declare');
 
 // config settings for local server
 var server_config = {
@@ -17,7 +20,7 @@ var server_config = {
 
 // Lint Task
 gulp.task('lint', function() {
-    return gulp.src('js/*.js')
+    return gulp.src('js/app/*.js')
         .pipe(plumber())
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
@@ -35,24 +38,42 @@ gulp.task('sass', function() {
         .pipe(gulp.dest('css'));
 });
 
-// Concatenate & Minify JS
-gulp.task('vendor', function() {
-    return gulp.src('js/vendor/*.js')
-        .pipe(concat('vendor.js'))
-        .pipe(gulp.dest('dist'))
-        .pipe(uglify())        
-        .pipe(rename('vendor.min.js'))
-        .pipe(gulp.dest('dist'));
+// precompile handlebars templates
+gulp.task('templates', function () {
+    gulp.src('templates/*.hbs')
+      .pipe(handlebars())
+      .pipe(wrap('Handlebars.template(<%= contents %>)'))
+      .pipe(declare({
+          namespace: 'app.templates',
+          noRedeclare: true, // Avoid duplicate declarations
+      }))
+      .pipe(concat('templates.js'))
+      .pipe(gulp.dest('js/dist'));
 });
 
-gulp.task('app', function() {
-    return gulp.src('js/*.js')
-        .pipe(concat('app.js'))
-        .pipe(gulp.dest('dist'))
+// Concatenate & Minify vendor libraries
+gulp.task('scripts', function() {
+    return gulp.src([  
+            'js/vendor/*.js',
+            'js/dist/templates.js',
+            'js/app/*.js'
+        ])
+        .pipe(concat('bundle.js'))
+        .pipe(gulp.dest('js/dist'))
         .pipe(uglify())        
-        .pipe(rename('app.min.js'))
-        .pipe(gulp.dest('dist'));
+        .pipe(rename('bundle.min.js'))
+        .pipe(gulp.dest('js/dist'));
 });
+
+// Concatenate & Minify app
+// gulp.task('app', function() {
+//     return gulp.src('js/app/*.js')
+//         .pipe(concat('app.js'))
+//         .pipe(gulp.dest('dist'))
+//         .pipe(uglify())        
+//         .pipe(rename('app.min.js'))
+//         .pipe(gulp.dest('dist'));
+// });
 
 // run local server
 gulp.task('webserver', function() {
@@ -67,9 +88,10 @@ gulp.task('webserver', function() {
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-    gulp.watch('js/*.js', ['lint', 'vendor', 'app']);
+    gulp.watch('templates/*.hbs');
+    gulp.watch('js/app/*.js', ['lint', 'scripts']);
     gulp.watch('scss/*.scss', ['sass']);
 });
 
 // Default Task
-gulp.task('default', ['lint', 'sass', 'webserver', 'vendor', 'app', 'watch']);
+gulp.task('default', ['lint', 'sass', 'webserver', 'templates', 'scripts', 'watch']);
