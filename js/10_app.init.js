@@ -3,20 +3,20 @@ var app = app || {};
 app.init = (function(w,d){
   
   function init(){
-    var el = app.el.el;
-    var f = app.f;
-    var a = app.a;
-    var state = app.s;
+    app.el = app.el.refDOM();
+    app.a = app.address;
+    var state = app.s;    
+    app.fns = app.helpers.registerfns();
+
 
     app.events.publish('state-change', {
-      // pageHeight : w.innerHeight,
-      currentSlide : el.slides[0]
+      currentSlide : app.el.slides[0]
     });
 
-    f.onResize();
-    f.goToSlide(el.currentSlide);
-    a.createMailTo();
-    f.addToCalendar();
+    app.fns.onResize();
+    app.fns.goToSlide(el.currentSlide);
+    app.a.createMailTo();
+    app.fns.addToCalendar();
     app.map.init();
   }
   

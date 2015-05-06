@@ -276,8 +276,8 @@ app.map = (function(d,w,a,H,$){
   };
 
   function init() {
-    el = app.el.el;
-    f = app.f;
+    el = app.elem;
+    f = app.fns;
     state = app.s;
     initMap();
   }

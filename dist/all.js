@@ -99,7 +99,7 @@ d._setup(c),!c.partial&&a.useData&&(f=j(b,f));var g=void 0,h=a.useBlockParams?[]
 })(window,document);
 var app = app || {};
 
-app.events = (function(w, d, $) {
+app.events = (function(w, d, $) {    
 
     var publish = function (name, o) {
        
@@ -159,6 +159,16 @@ app.s = (function(w,d) {
 var app = app || {};
 
 app.el = (function(w,d,$) {
+
+  var template = Handlebars.templates.main;
+  var html;
+
+  $.getJSON('../data/en.json', function(data){
+    console.log('data: ', data);
+    html = template(data.languages[0].en);
+    document.querySelector('#wrapper').innerHTML = html;
+  });  
+  
   // references to DOM elements
   var el =  {
       navGoNext : d.querySelectorAll('.go-next'),

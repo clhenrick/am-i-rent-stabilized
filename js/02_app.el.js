@@ -1,45 +1,7 @@
 var app = app || {};
 
-app.el = (function(w,d,$) {
-  // references to DOM elements
-  var el =  {
-      navGoNext : d.querySelectorAll('.go-next'),
-      navGoFirst : d.querySelectorAll('.go-first'),
-      navGoFour : d.querySelectorAll('.go-step4'),
-      burgerIcon : d.querySelector('.burger'),
-      navBar : d.querySelector('.main-nav'),
-      mainNavList : d.querySelector('.main-nav ul'),
-      progressCircles : d.querySelectorAll('.margin-circles li'),
-      slidesContainer : d.querySelector('.slides-container'),
-      slides : d.querySelectorAll('.slide'),
-      slide4 : d.querySelector('#slide-8'),
-      dd : null,
-      addressInput : d.querySelector('.address-input'),
-      boroSelect : d.querySelector('.user-data.borough-select'),
-      boroDropDown : d.getElementById('boroughs'),
-      boroDropDownItems : d.querySelectorAll('#boroughs li a'),
-      selectBoro : d.getElementsByName('borough'),
-      search : d.querySelector('.search'),
-      valErrors : d.querySelectorAll('.validation-error'),
-      valErrorAddress : d.getElementById('error-address'),
-      valErrorBoro : d.getElementById('error-boro'),
-      valErrorNF : d.getElementById('error-not-found'),
-      yes : d.querySelectorAll('.yes'),
-      no : d.querySelectorAll('.no'),
-      yesNoState : false,
-      map : d.getElementById('map'),
-      mapMessage : d.querySelector('.map-message'),
-      mailTo : d.getElementById('mail-to'),
-      lightBox : d.getElementById('rent-history'),
-      addToCalendar : d.getElementById('atc_text_link'),
-      addToCalendarLink : d.querySelector('.atcb-link'),
-      noTR : d.querySelector('.no-local-tr'),
-      yesTR : d.querySelector('.yes-local-tr'),
-      trModal : d.getElementsByClassName('tr-modal')[0],           
-      learnMore : d.querySelector('.button.learn-more')
-  };
-   // trModalClose : d.querySelector('.org-container .close'),      
-
+app.el = (function(w,d,$) { 
+  var el;
   // drop down class
   //  code reference: http://tympanus.net/codrops/2012/10/04/custom-drop-down-list-styling/
   function DropDown(el) {
@@ -83,12 +45,54 @@ app.el = (function(w,d,$) {
     getIndex : function() {
       return this.index;
     }
-  };
+  };  
 
-  el.dd = new DropDown( $('.user-data.borough-select') );  
+  // references to DOM elements
+  function refDOM(){
+    el =  {
+      navGoNext : d.querySelectorAll('.go-next'),
+      navGoFirst : d.querySelectorAll('.go-first'),
+      navGoFour : d.querySelectorAll('.go-step4'),
+      burgerIcon : d.querySelector('.burger'),
+      navBar : d.querySelector('.main-nav'),
+      mainNavList : d.querySelector('.main-nav ul'),
+      progressCircles : d.querySelectorAll('.margin-circles li'),
+      slidesContainer : d.querySelector('.slides-container'),
+      slides : d.querySelectorAll('.slide'),
+      slide4 : d.querySelector('#slide-8'),
+      dd : new DropDown( $('.user-data.borough-select')),
+      addressInput : d.querySelector('.address-input'),
+      boroSelect : d.querySelector('.user-data.borough-select'),
+      boroDropDown : d.getElementById('boroughs'),
+      boroDropDownItems : d.querySelectorAll('#boroughs li a'),
+      selectBoro : d.getElementsByName('borough'),
+      search : d.querySelector('.search'),
+      valErrors : d.querySelectorAll('.validation-error'),
+      valErrorAddress : d.getElementById('error-address'),
+      valErrorBoro : d.getElementById('error-boro'),
+      valErrorNF : d.getElementById('error-not-found'),
+      yes : d.querySelectorAll('.yes'),
+      no : d.querySelectorAll('.no'),
+      yesNoState : false,
+      map : d.getElementById('map'),
+      mapMessage : d.querySelector('.map-message'),
+      mailTo : d.getElementById('mail-to'),
+      lightBox : d.getElementById('rent-history'),
+      addToCalendar : d.getElementById('atc_text_link'),
+      addToCalendarLink : d.querySelector('.atcb-link'),
+      noTR : d.querySelector('.no-local-tr'),
+      yesTR : d.querySelector('.yes-local-tr'),
+      trModal : d.getElementsByClassName('tr-modal')[0],           
+      learnMore : d.querySelector('.button.learn-more')
+    };
+
+    return el;
+  }
+  
+   // trModalClose : d.querySelector('.org-container .close'),      
 
   return {
-    el : el
+    refDOM : refDOM
   };
 
 })(window, document, jQuery);
