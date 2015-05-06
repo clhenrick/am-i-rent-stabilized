@@ -50,9 +50,9 @@ templates['main'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(d
     + " </h1>\n                    <p> "
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide03 : depth0)) != null ? stack1.p : stack1), depth0))
     + " </p>\n                    <div id=\"sprite\"></div>\n                </div>\n            </div>\n\n            <div class=\"slide\" id=\"slide-4\">\n                <div class=\"centered\">\n                  <div class=\"yes hidden\">\n                      <!-- <h1 class=\"news\">Good News!</h1> -->\n                      <h1> "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.slide04 : depth0)) != null ? stack1.yes : stack1)) != null ? stack1.h1 : stack1), depth0))
+    + ((stack1 = alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.slide04 : depth0)) != null ? stack1.yes : stack1)) != null ? stack1.h1 : stack1), depth0)) != null ? stack1 : "")
     + " </h1>\n                      <p> "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.slide04 : depth0)) != null ? stack1.yes : stack1)) != null ? stack1.p : stack1), depth0))
+    + ((stack1 = alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.slide04 : depth0)) != null ? stack1.yes : stack1)) != null ? stack1.p : stack1), depth0)) != null ? stack1 : "")
     + " </p>\n                  </div>\n\n                  <div class=\"no\">\n                      <!-- <h1 class=\"news\">Sorry!</h1> -->\n                      <p> "
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.slide04 : depth0)) != null ? stack1.no : stack1)) != null ? stack1.p : stack1), depth0))
     + " </p>\n                  </div>\n\n                  <div id=\"map-container\">\n                      <div id=\"map\"></div>\n                      <p class=\"map-message\"> "
