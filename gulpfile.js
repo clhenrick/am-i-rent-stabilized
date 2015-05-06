@@ -65,16 +65,6 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest('js/dist'));
 });
 
-// Concatenate & Minify app
-// gulp.task('app', function() {
-//     return gulp.src('js/app/*.js')
-//         .pipe(concat('app.js'))
-//         .pipe(gulp.dest('dist'))
-//         .pipe(uglify())        
-//         .pipe(rename('app.min.js'))
-//         .pipe(gulp.dest('dist'));
-// });
-
 // run local server
 gulp.task('webserver', function() {
   gulp.src('.')
