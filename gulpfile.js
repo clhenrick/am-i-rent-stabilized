@@ -36,12 +36,21 @@ gulp.task('sass', function() {
 });
 
 // Concatenate & Minify JS
-gulp.task('scripts', function() {
-    return gulp.src([ 'js/vendor/*.js', 'js/*.js' ])
-        .pipe(concat('all.js'))
+gulp.task('vendor', function() {
+    return gulp.src('js/vendor/*.js')
+        .pipe(concat('vendor.js'))
         .pipe(gulp.dest('dist'))
         .pipe(uglify())        
-        .pipe(rename('all.min.js'))
+        .pipe(rename('vendor.min.js'))
+        .pipe(gulp.dest('dist'));
+});
+
+gulp.task('app', function() {
+    return gulp.src('js/*.js')
+        .pipe(concat('app.js'))
+        .pipe(gulp.dest('dist'))
+        .pipe(uglify())        
+        .pipe(rename('app.min.js'))
         .pipe(gulp.dest('dist'));
 });
 
@@ -58,9 +67,9 @@ gulp.task('webserver', function() {
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-    gulp.watch('js/*.js', ['lint', 'scripts']);
+    gulp.watch('js/*.js', ['lint', 'vendor', 'app']);
     gulp.watch('scss/*.scss', ['sass']);
 });
 
 // Default Task
-gulp.task('default', ['lint', 'sass', 'webserver', 'scripts', 'watch']);
+gulp.task('default', ['lint', 'sass', 'webserver', 'vendor', 'app', 'watch']);
