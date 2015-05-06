@@ -27,7 +27,9 @@ this["app"]["templates"]["main"] = Handlebars.template({"compiler":[6,">= 2.0.0-
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide02 : depth0)) != null ? stack1.privacy : stack1), depth0))
     + "</p>\n\n            <form id=\"address-form\">\n                <ul class=\"validation-error\">\n                    <li id=\"error-not-found\"  class=\"vis-hidden\">\n                      "
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.slide02 : depth0)) != null ? stack1.form : stack1)) != null ? stack1.val_errors : stack1)) != null ? stack1.not_found : stack1), depth0))
-    + "\n                    </li>\n                </ul>                      \n                <div class=\"user-data street-address\">\n                    <input class=\"address-input\" name=\"address-input\" type=\"text\" placeholder=\"Building No. &amp; Street Name\" tabindex=\"1\">\n                </div>                        \n                <div class=\"user-data borough-select\">\n                    <span id=\"select-boro\"> "
+    + "\n                    </li>\n                </ul>                      \n                <div class=\"user-data street-address\">\n                    <input class=\"address-input\" name=\"address-input\" type=\"text\" placeholder=\""
+    + ((stack1 = alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.slide02 : depth0)) != null ? stack1.form : stack1)) != null ? stack1.address : stack1), depth0)) != null ? stack1 : "")
+    + "\" tabindex=\"1\">\n                </div>                        \n                <div class=\"user-data borough-select\">\n                    <span id=\"select-boro\"> "
     + ((stack1 = alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.slide02 : depth0)) != null ? stack1.form : stack1)) != null ? stack1.boro_select : stack1), depth0)) != null ? stack1 : "")
     + " </span>\n                    <ul class=\"drop-down\" id=\"boroughs\">\n                      <li><a data-boro=\"BX\" href=\"#\"> "
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.slide02 : depth0)) != null ? stack1.form : stack1)) != null ? stack1.boroughs : stack1)) != null ? stack1.bx : stack1), depth0))
@@ -54,7 +56,7 @@ this["app"]["templates"]["main"] = Handlebars.template({"compiler":[6,">= 2.0.0-
     + " </h1>\n              <p> "
     + ((stack1 = alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.slide04 : depth0)) != null ? stack1.yes : stack1)) != null ? stack1.p : stack1), depth0)) != null ? stack1 : "")
     + " </p>\n          </div>\n\n          <div class=\"no\">\n              <!-- <h1 class=\"news\">Sorry!</h1> -->\n              <p> "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.slide04 : depth0)) != null ? stack1.no : stack1)) != null ? stack1.p : stack1), depth0))
+    + ((stack1 = alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.slide04 : depth0)) != null ? stack1.no : stack1)) != null ? stack1.p : stack1), depth0)) != null ? stack1 : "")
     + " </p>\n          </div>\n\n          <div id=\"map-container\">\n              <div id=\"map\"></div>\n              <p class=\"map-message\"> "
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.slide04 : depth0)) != null ? stack1.map : stack1)) != null ? stack1.caption : stack1), depth0))
     + " </p>\n              <p class=\"map-message\"><a href=\"http://cdb.io/1CvSBy7\" target=\"_blank\">"

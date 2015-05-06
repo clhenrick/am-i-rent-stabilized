@@ -5,7 +5,7 @@ app.init = (function(w,d){
   function init(){
     var template = app.templates.main;
 
-    $.getJSON('../data/content.json', function(data){
+    $.getJSON('../data/main-content.json', function(data){
       html = template(data.languages[0].en);
       document.querySelector('#wrapper').innerHTML = html;
     })
