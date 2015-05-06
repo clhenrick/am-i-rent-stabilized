@@ -1,8 +1,8 @@
 var app = app || {};
 
-app.helpers = (function(w,d) {
+app.helpers = (function(w,d,el) {
   
-  var el = app.el.refDOM();
+  // var el = app.el.refDOM();
   var state = app.s;
   app.f = {};
 
@@ -49,8 +49,8 @@ app.helpers = (function(w,d) {
 
       getSlideIndex : function(slide){
           var index;
-          for (var i=0; i < el.slides.length; i++) { 
-            if (el.slides[i] === slide) { 
+          for (var i=0; i < app.el.slides.length; i++) { 
+            if (app.el.slides[i] === slide) { 
               index = i; 
             }        
           }
@@ -66,8 +66,8 @@ app.helpers = (function(w,d) {
           });
 
           var index = app.f.getSlideIndex(slide); 
-          console.log('index: ', index, ' slide: ', slide);                 
-          TweenLite.to(el.slidesContainer, 1, {scrollTo: {y: state.pageHeight * index}, onComplete: app.f.onSlideChangeEnd});
+          // console.log('index: ', index, ' slide: ', slide);                 
+          TweenLite.to(app.el.slidesContainer, 1, {scrollTo: {y: state.pageHeight * index}, onComplete: app.f.onSlideChangeEnd});
         }
       },
 
@@ -75,7 +75,7 @@ app.helpers = (function(w,d) {
         var previous = app.f.getSlideIndex(state.currentSlide) -1;
         console.log('go previous slide', previous);
         if (previous >=0) {      
-          app.f.goToSlide(el.slides[previous]);       
+          app.f.goToSlide(app.el.slides[previous]);       
           if (callback && typeof callback === "function") { 
             callback();
           }
@@ -85,7 +85,7 @@ app.helpers = (function(w,d) {
       goToNextSlide: function(callback) {
         // console.log('local slide state: ', state);
         var index = app.f.getSlideIndex(state.currentSlide);
-        var next = el.slides[index + 1];
+        var next = app.el.slides[index + 1];
         if (next && ( index === 0 || (index >= 1 && state.formFilled === true ) ) ) {      
           app.f.goToSlide(next);
           if (callback && typeof callback === "function") { 
@@ -97,7 +97,7 @@ app.helpers = (function(w,d) {
       goToFirstSlide : function() {
         // reset everything to defaults
         if (state.currentSlide) {
-          el.addressInput.value = '';
+          app.el.addressInput.value = '';
           app.f.resetSearchResultMsg();      
           app.f.hideFormValidationErrors();
           app.f.resetBoroValue();
@@ -107,7 +107,7 @@ app.helpers = (function(w,d) {
           app.f.addClass(el.yesTR, 'hidden');
           app.f.removeClass(el.noTR, 'hidden');
           d.querySelector('.tr-modal').innerHTML = '';
-          app.f.goToSlide(el.slides[0]);
+          app.f.goToSlide(app.el.slides[0]);
           app.events.publish('state-change', {
             formFilled : false
           });
@@ -124,7 +124,7 @@ app.helpers = (function(w,d) {
       updateProgCircles : function (slide) {
         var s = app.f.getSlideIndex(slide),
               i = 0,
-              l = el.progressCircles.length,
+              l = app.el.progressCircles.length,
               backgroundSize;
 
         if (w.innerHeight <= 700 || w.innerWidth <= 1100) {
@@ -134,13 +134,13 @@ app.helpers = (function(w,d) {
         }
         
         for (i; i<l; i++) {
-          var circle = el.progressCircles[i];
+          var circle = app.el.progressCircles[i];
           if (s===i) {
-            circle.style.backgroundImage = 'url(assets/png/oval_25_filled.png)';
+            circle.style.backgroundImage = 'url(../assets/png/oval_25_filled.png)';
             circle.style.backgroundSize = backgroundSize;
             circle.style.backgroundRepeat = 'no-repeat';        
           } else {
-            circle.style.background = 'url(assets/png/oval_25_blank.png)';
+            circle.style.background = 'url(../assets/png/oval_25_blank.png)';
             circle.style.backgroundSize = backgroundSize; 
             circle.style.backgroundRepeat = 'no-repeat';               
           }
@@ -160,9 +160,9 @@ app.helpers = (function(w,d) {
         if (state.pageHeight !== newPageHeight) {
           app.events.publish('state-change', { pageHeight : newPageHeight });
           //This can be done via CSS only, but fails into some old browsers, so I prefer to set height via JS
-          TweenLite.set([el.slidesContainer, el.slides], {height: state.pageHeight + "px"});
+          TweenLite.set([app.el.slidesContainer, app.el.slides], {height: state.pageHeight + "px"});
           //The current slide should be always on the top
-          TweenLite.set(el.slidesContainer, {scrollTo: {y: state.pageHeight * index}});
+          TweenLite.set(app.el.slidesContainer, {scrollTo: {y: state.pageHeight * index}});
         }
       },
 
@@ -237,26 +237,26 @@ app.helpers = (function(w,d) {
 
       // reset the yes / no message above map on slide 4
       resetSearchResultMsg : function() {
-        if (el.yesNoState === true) {
+        if (app.el.yesNoState === true) {
           app.f.toggleClass(el.yes, 'hidden');
           app.f.toggleClass(el.no, 'hidden');
-          el.yesNoState = false;
+          app.el.yesNoState = false;
         }
       },
 
       // hide all validation errors
       hideFormValidationErrors : function() {
-        var i=0, len=el.valErrors.length;
+        var i=0, len=app.el.valErrors.length;
         for (i; i<len; i++) {
-          if (app.f.hasClass(el.valErrors[i], 'vis-hidden')===false){
-            app.f.addClass(el.valErrors[i], 'vis-hidden');
+          if (app.f.hasClass(app.el.valErrors[i], 'vis-hidden')===false){
+            app.f.addClass(app.el.valErrors[i], 'vis-hidden');
           }   
         }    
       },
 
       resetBoroValue : function() {
-        el.dd.val = undefined;
-        el.dd.placeholder.text('Select a Borough');
+        app.el.dd.val = undefined;
+        app.el.dd.placeholder.text('Select a Borough');
       },
 
       addToCalendar : function() {
@@ -267,7 +267,7 @@ app.helpers = (function(w,d) {
         startDate.setDate(startDate.getDate() + 7);
         endDate = new Date(curDate);
         endDate.setDate(startDate.getDate() + 1);
-        el.addToCalendar.innerHTML = 
+        app.el.addToCalendar.innerHTML = 
             '<var class="atc_event">' +
                 '<var class="atc_date_start">' + startDate + '</var>' +
                 '<var class="atc_date_end">' + endDate + '</var>' +
@@ -291,4 +291,4 @@ app.helpers = (function(w,d) {
     registerfns : registerfns
   };
 
-})(window, document);
+})(window, document, app.el);

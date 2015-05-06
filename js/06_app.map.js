@@ -40,6 +40,7 @@ app.map = (function(d,w,a,H,$){
         .type(type)
         .on('success', function(data){
           callback(data);
+          console.log('getJSON data: ', data);
         })
         .on('error', function(err){
           callback('error');
@@ -61,12 +62,13 @@ app.map = (function(d,w,a,H,$){
           url = 'https://api.cityofnewyork.us/geoclient/v1/address.json?',
           urlConcat = url + stNum + stName + borough + appID + appKey;
 
-      getJSON(urlConcat, 'jsonp', checkResult);      
+    console.log('getting json...');
+    getJSON(urlConcat, 'jsonp', checkResult);      
   };
 
   // see if the geolient result has a bbl
   var checkResult = function(data) {
-    if (typeof data === "object" && data.address.bbl !== undefined ) {
+    if (typeof data === "object" && data.address.bbl !== undefined ) {      
       var d = data.address;
       g =  {
         bbl : d.bbl,
@@ -84,21 +86,24 @@ app.map = (function(d,w,a,H,$){
       var bbl = d.bbl;
       var gcr_stringify = JSON.stringify(g);
       _gaq.push(['_trackEvent', 'Geoclient Success', 'Result', gcr_stringify]);
+
+      console.log('geoclient success, data: ', g);
+      
       getCDBdata(bbl);
       showMarker(data);
 
     } else {      
 
-      el.addressInput.value='';
-      f.resetBoroValue();      
-      if (f.hasClass(el.valErrorNF, 'vis-hidden')===true) {
-        f.toggleClass(el.valErrorNF, 'vis-hidden');
+      app.el.addressInput.value='';
+      app.f.resetBoroValue();      
+      if (app.f.hasClass(app.el.valErrorNF, 'vis-hidden')===true) {
+        app.f.toggleClass(app.el.valErrorNF, 'vis-hidden');
       }
-      if (f.hasClass(el.valErrorBoro, 'vis-hidden')===false) {
-        f.addClass(el.valErrorBoro, 'vis-hidden');
+      if (app.f.hasClass(app.el.valErrorBoro, 'vis-hidden')===false) {
+        app.f.addClass(app.el.valErrorBoro, 'vis-hidden');
       }
-      if (f.hasClass(el.valErrorAddress, 'vis-hidden')===false) {
-        f.addClass(el.valErrorAddress, 'vis-hidden');
+      if (app.f.hasClass(app.el.valErrorAddress, 'vis-hidden')===false) {
+        app.f.addClass(app.el.valErrorAddress, 'vis-hidden');
       }
       
       app.events.publish('state-change', { formFilled : false });
@@ -134,18 +139,18 @@ app.map = (function(d,w,a,H,$){
     if (data.rows.length > 0 && state.yesNoState === false) {      
       var bbl_match = JSON.stringify(data.rows[0].bbl);
       _gaq.push(['_trackEvent', 'CDB', 'Match', bbl_match]);
-      app.f.toggleClass(el.yes, 'hidden');
-      app.f.toggleClass(el.no, 'hidden');
+      app.f.toggleClass(app.el.yes, 'hidden');
+      app.f.toggleClass(app.el.no, 'hidden');
       app.events.publish('state-change', { yesNoState : true });            
     } 
 
-    f.goToNextSlide();
+    app.f.goToNextSlide();
   }
 
   function checkTR(data) {
     if (data.rows.length > 0) {
-      f.addClass(noTR, 'hidden');
-      f.removeClass(yesTR, 'hidden');
+      app.f.addClass(noTR, 'hidden');
+      app.f.removeClass(yesTR, 'hidden');
       
       var i = 0, l = data.rows.length;
       for (i; i<l; i++) {
@@ -183,7 +188,7 @@ app.map = (function(d,w,a,H,$){
       app.f.toggleClass(el.no, 'hidden');
       app.events.publish('state-change', { yesNoState : true });
     } 
-    f.goToNextSlide();
+    app.f.goToNextSlide();
     // console.log('checkData goToNextSlide called');
   };
 
@@ -198,19 +203,19 @@ app.map = (function(d,w,a,H,$){
                           data.address.zipCode;
     // remove geocoded marker if one already exists
     if (addressMarker) { 
-      el.map.removeLayer(addressMarker);
+      app.el.map.removeLayer(addressMarker);
     }
     // add a marker and pan and zoom the el.map to it
     addressMarker = new L.marker(latlng).addTo(el.map);
     addressMarker.on('popupopen', function(e){
-      el.map.setView(latlng, 16);  
+      app.el.map.setView(latlng, 16);  
     }); 
     addressMarker.bindPopup("<b>" + address + "</b>").openPopup();   
   };
 
   // set up the leaflet / cartodb map
   var initMap = function() {
-    el.map = new L.Map('map', {
+    app.el.map = new L.Map('map', {
       center : [40.7127, -74.0059],
       zoom : 12,
       dragging : false,
@@ -240,7 +245,7 @@ app.map = (function(d,w,a,H,$){
 
     var taxLots;
 
-    el.map.addLayer(basemap);
+    app.el.map.addLayer(basemap);
 
     cartodb.createLayer(el.map, cdbURL, {
         cartodb_logo: false, 
@@ -258,7 +263,7 @@ app.map = (function(d,w,a,H,$){
       //   console.log('data: ', data);
       // });
       
-      el.map.addLayer(layer, false);
+      app.el.map.addLayer(layer, false);
       basemap.bringToBack();
     })
     // .addTo(el.map)
@@ -270,14 +275,14 @@ app.map = (function(d,w,a,H,$){
 
   var resetMap = function() {
     if (addressMarker) {
-      el.map.removeLayer(addressMarker);
+      app.el.map.removeLayer(addressMarker);
     }
-    el.map.setView([40.7127, -74.0059], 12);
+    app.el.map.setView([40.7127, -74.0059], 12);
   };
 
   function init() {
-    el = app.elem;
-    f = app.fns;
+    el = app.el;
+    f = app.f;
     state = app.s;
     initMap();
   }

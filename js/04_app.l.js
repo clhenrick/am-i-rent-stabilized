@@ -1,11 +1,12 @@
 var app = app || {};
 
-app.l = (function(w,d,$) {
+app.l = (function(w,d,$,el,f) {
   /*
   * Event listeners
   */
-  var el = app.elem;
-  var f = app.fns;
+
+  // var el = app.elem;
+  // var f = app.fns;
   var state = app.s; // create state object
   var a = app.a; // create address searching object
   var self = this;
@@ -33,78 +34,78 @@ app.l = (function(w,d,$) {
     });
 
     // resize window height
-    w.onresize = f.onResize;
+    w.onresize = app.f.onResize;
 
     // use mouse wheel to scroll
     addWheelListener( w, function(e) { 
-      f.onMouseWheel(e.deltaY); 
+      app.f.onMouseWheel(e.deltaY); 
       e.preventDefault(); 
     });
 
     // up / down key navigation
-    w.onkeydown = f.onKeyDown;
+    w.onkeydown = app.f.onKeyDown;
 
     // go back
     // addEventListenerList(el.navGoPrev, 'click', goToPrevSlide);
 
     // go forward
-    f.addEventListenerList(el.navGoNext, 'click', f.goToNextSlide);
+    app.f.addEventListenerList(app.el.navGoNext, 'click', app.f.goToNextSlide);
 
     // go to inspect rent-history
-    f.addEventListenerList(el.navGoFour, 'click', function(e){
+    app.f.addEventListenerList(app.el.navGoFour, 'click', function(e){
       e.preventDefault();
       
       app.events.publish('state-change', {
         formFilled : true
       });
       
-      f.hideFormValidationErrors();
-      f.goToSlide(el.slides[6]);
+      app.f.hideFormValidationErrors();
+      app.f.goToSlide(app.el.slides[6]);
     });
 
     // hamburger icon
-    el.burgerIcon.addEventListener('click', function(e) {
+    app.el.burgerIcon.addEventListener('click', function(e) {
       e.preventDefault();
-      f.toggleClass(el.burgerIcon, 'open');
-      f.toggleClass(el.mainNavList, 'responsive');
+      app.f.toggleClass(app.el.burgerIcon, 'open');
+      app.f.toggleClass(app.el.mainNavList, 'responsive');
     });
 
     // if dropdown is visible & user clicks outside of it collapse it
-    el.slidesContainer.addEventListener('click', function(e){
-      if (f.hasClass(el.boroSelect, 'active')) {
-        f.removeClass(el.boroSelect, 'active');
+    app.el.slidesContainer.addEventListener('click', function(e){
+      if (app.f.hasClass(app.el.boroSelect, 'active')) {
+        app.f.removeClass(app.el.boroSelect, 'active');
       }    
     });
 
     // search button for address
-    el.search.addEventListener('click', function(e){
+    app.el.search.addEventListener('click', function(e){
       e.preventDefault();
-      var streetAddress = el.addressInput.value,
-            boro = el.dd.val;    
+      var streetAddress = app.el.addressInput.value,
+            boro = app.el.dd.getValue();    
       _gaq.push(['_trackEvent', 'Address Entered', 'Search', streetAddress + ', ' + boro ]);
       app.a.checkAddressInput(streetAddress, boro);
     });
 
     // start over
-    f.addEventListenerList(el.navGoFirst, 'click', f.goToFirstSlide);
+    app.f.addEventListenerList(app.el.navGoFirst, 'click', app.f.goToFirstSlide);
 
     // hide address error message if it's displayed and user enters text
-    el.addressInput.addEventListener("blur", function(e){
-      if (el.addressInput.value !== "" && f.hasClass(el.valErrorAddress, 'vis-hidden') !== true) {
-        f.addClass(el.valErrorAddress, 'vis-hidden');
+    app.el.addressInput.addEventListener("blur", function(e){
+      if (app.el.addressInput.value !== "" && app.f.hasClass(el.valErrorAddress, 'vis-hidden') !== true) {
+        app.f.addClass(app.el.valErrorAddress, 'vis-hidden');
       }
     });
 
     // hide boro error message if it's displayed and user clicks a button
-    f.addEventListenerList(el.boroDropDownItems, 'click', function(e){
-      if (f.hasClass(el.valErrorBoro, 'vis-hidden') !== true && el.dd.getValue !== undefined) {
-        f.addClass(el.valErrorBoro, 'vis-hidden');
+    app.f.addEventListenerList(app.el.boroDropDownItems, 'click', function(e){
+      if (app.f.hasClass(app.el.valErrorBoro, 'vis-hidden') !== true && app.el.dd.getValue !== undefined) {
+        app.f.addClass(app.el.valErrorBoro, 'vis-hidden');
       }
     });
 
-    el.lightBox.addEventListener('click', function(e) {
+    app.el.lightBox.addEventListener('click', function(e) {
       e.preventDefault();    
-      f.goToSlide(el.slides[6]);
+      app.f.goToSlide(app.el.slides[6]);
       w.location.hash = '';
     });  
 
@@ -115,4 +116,8 @@ app.l = (function(w,d,$) {
     // });
   }
 
-})(window, document, jQuery);
+  return {
+    listen : listen
+  };
+
+})(window, document, jQuery, app.el, app.f);

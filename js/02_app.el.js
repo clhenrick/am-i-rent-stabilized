@@ -7,8 +7,9 @@ app.el = (function(w,d,$) {
   function DropDown(el) {
     this.dd = el;
     this.placeholder = this.dd.children('span');
-    this.opts = this.dd.find('ul.drop-down > li');
+    this.opts = this.dd.find('ul.drop-down > li > a');
     this.val = undefined;    
+    this.name = undefined;
     this.index = -1;
     this.initEvents();
   }  
@@ -30,10 +31,11 @@ app.el = (function(w,d,$) {
       obj.opts.on('click',function(e){
         e.preventDefault();
         var opt = $(this);
-        obj.val = opt.text();
+        obj.val = opt.data("boro");
+        obj.name = opt.text();
         // obj.data = opt.children('span').text();
         obj.index = opt.index();
-        obj.placeholder.text('Borough: ' + obj.val);        
+        obj.placeholder.text('Borough: ' + obj.name);        
         // console.log('obj: ', obj);  
       });
     },

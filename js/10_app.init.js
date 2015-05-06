@@ -3,21 +3,28 @@ var app = app || {};
 app.init = (function(w,d){
   
   function init(){
-    app.el = app.el.refDOM();
-    app.a = app.address;
-    var state = app.s;    
-    app.fns = app.helpers.registerfns();
+    var template = Handlebars.templates.main;
 
+    $.getJSON('../data/content.json', function(data){
+      html = template(data.languages[0].en);
+      document.querySelector('#wrapper').innerHTML = html;
+    })
+      .done(function(){
+      app.el = app.el.refDOM();
+      app.a = app.a.address();
+      app.f = app.helpers.registerfns();
+      app.l.listen();
 
-    app.events.publish('state-change', {
-      currentSlide : app.el.slides[0]
+      app.events.publish('state-change', {
+        currentSlide : app.el.slides[0]
+      });
+
+      app.f.onResize();
+      app.f.goToSlide(app.el.currentSlide);
+      app.a.createMailTo();
+      app.f.addToCalendar();
+      app.map.init();
     });
-
-    app.fns.onResize();
-    app.fns.goToSlide(el.currentSlide);
-    app.a.createMailTo();
-    app.fns.addToCalendar();
-    app.map.init();
   }
   
   return {

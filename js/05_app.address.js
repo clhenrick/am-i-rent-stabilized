@@ -5,7 +5,7 @@ app.a = (function(w,d) {
   ** User address related functions
    */
 
-   var el = app.elem;
+   var el = app.el;
    var f = app.fns;
    var state = app.s;
 
@@ -18,33 +18,34 @@ app.a = (function(w,d) {
             formFilled : true
           });
           
-          f.goToNextSlide();
+          app.f.goToNextSlide();
           var parsed_address = app.a.parseAddressInput(address);      
           // delay API calls so user sees loading gif
-          setTimeout(function(){        
+          setTimeout(function(){    
+            console.log('form filled, parsed address: ', parsed_address);
             app.map.geoclient(parsed_address[0], parsed_address[1], borough); 
           }, 1000);              
 
         } else if (address === "" && borough === undefined) {      
-          if (f.hasClass(el.valErrorAddress, 'vis-hidden')===true && f.hasClass(el.valErrorBoro, 'vis-hidden')===true){
-            f.toggleClass(el.valErrorAddress, 'vis-hidden');
-            f.toggleClass(el.valErrorBoro, 'vis-hidden');
+          if (app.f.hasClass(app.el.valErrorAddress, 'vis-hidden')===true && app.f.hasClass(app.el.valErrorBoro, 'vis-hidden')===true){
+            app.f.toggleClass(app.el.valErrorAddress, 'vis-hidden');
+            app.f.toggleClass(app.el.valErrorBoro, 'vis-hidden');
           }
 
         } else if (borough === undefined) {
           // alert('Please select your borough.');
-          if (f.hasClass(el.valErrorBoro, 'vis-hidden')===true) {
-            f.toggleClass(el.valErrorBoro, 'vis-hidden');
+          if (app.f.hasClass(app.el.valErrorBoro, 'vis-hidden')===true) {
+            app.f.toggleClass(app.el.valErrorBoro, 'vis-hidden');
           }
 
         } else if (address === '') {
           // alert('Please enter your house number and street.');
-          if (f.hasClass(el.valErrorAddress, 'vis-hidden')===true) {
-            f.toggleClass(el.valErrorAddress, 'vis-hidden');
+          if (app.f.hasClass(app.el.valErrorAddress, 'vis-hidden')===true) {
+            app.f.toggleClass(app.el.valErrorAddress, 'vis-hidden');
           }
 
         } else {
-          f.goToPrevSlide();
+          app.f.goToPrevSlide();
         } 
       },
 
@@ -72,7 +73,7 @@ app.a = (function(w,d) {
               msg = 'mailto:' + encodeURIComponent(email) +
                          '?subject=' + encodeURIComponent(subject) +
                          '&body=' + encodeURIComponent(body); 
-        el.mailTo.setAttribute('href', msg);
+        app.el.mailTo.setAttribute('href', msg);
       }   
     };
    }
