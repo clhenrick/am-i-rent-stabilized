@@ -1,0 +1,66 @@
+{
+	"languages" : [
+		{
+			"en" : {
+				"nav_main" : {
+					"why" : "Why it Matters",
+					"how" : "How it Works",
+					"resources" : "Resources"
+				},
+				"nav_bottom_arrow" : {
+					"begin" : "Begin",
+					"next" : "Next"
+				},
+				"nav_side" : {
+					"h3" : "Jump to a topic:",
+					"why" : "Why is it important?",
+					"what" : "Why else should I care?",
+					"under" : "Under Attack",
+					"messed" : "This is Messed Up!",
+					"videos" : "Videos",
+					"involved" : "Get Involved",
+					"not" : "If You're Not Rent Stabilized"
+				},
+				"why" : {
+					"h1" : "Why is Rent Stabilization so Good For NYC?",
+					"h3" : "Simply put, rent stabilization is the most important rent law that keeps NYC affordable for many of its residents",
+					"facts" : "Here are some quick facts:",
+					"one" : "About 1 million apartments are rent-stabilized in NYC, that's roughly half of all apartments in the city!",
+					"two" : "Rent Stabilization giver renters the right to stay in their apartment with modest rent increases each year, typically between 2 - 6%",
+					"three" : "It protects renters from being evicted without good cause.",
+					"four" : "It strengthens the rights of renters to have good services and repairs made to their apartments while penalizing negligent landlords."
+
+				},
+				"what" : {
+					"h1" : "Why else should I care?",
+					"h3" : "",
+					"p1" : "",
+					"a" : ""
+				},
+				"under" : {
+					"h1" : "",
+					"h3" : "",
+					"p" : "",
+					"methods" : "",
+					"one" : "",
+					"two" : "",
+					"three" : ""
+				},
+				"messed" : {
+
+				}
+
+			}
+		},
+		{
+			"es" : {
+
+			}
+		},
+		{
+			"zh" : {
+				
+			}
+		}
+	]
+}
