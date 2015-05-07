@@ -110,7 +110,7 @@ this["app"]["templates"]["main"] = Handlebars.template({"compiler":[6,">= 2.0.0-
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.resources : stack1), depth0))
     + "</a></li>            \n  </ul>\n</nav>\n\n<div id=\"mobile-message\">\n  <img src=\"../assets/png/rotate.png\">\n  <h1>"
     + alias2(((helper = (helper = helpers.mobile_msg || (depth0 != null ? depth0.mobile_msg : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"mobile_msg","hash":{},"data":data}) : helper)))
-    + "</h1>          \n</div>\n\n<div id=\"lang-toggle\">\n    <ul>\n        <li><a href=\"#\">en español</a></li>\n        <li><p>•</p></li>\n        <li><a href=\"#\">中文</a></li>\n<!--         <li><p>•</p></li>\n        <li><p><a href=\"#\">english</a></p></li> -->\n    </ul>\n</div>\n\n<nav class=\"margin-circles\">\n    <ul>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n    </ul>\n</nav>\n\n<div class=\"slides-container\">\n    <div class=\"slide\" id=\"slide-1\">\n        <div class=\"centered\"> \n            <img class=\"triple-s\" src=\"../assets/png/triple-sss.png\">              \n            <img class=\"building intro\" src=\"../assets/png/building.png\">\n            <h1 class=\"landing\">"
+    + "</h1>          \n</div>\n\n<div id=\"lang-toggle\">\n    <ul>\n        <li><a class=\"toggle-es\" href=\"#\"></a></li>\n        <li><p>•</p></li>\n        <li><a class=\"toggle-zh\" href=\"#\"></a></li>\n    </ul>\n</div>\n\n<nav class=\"margin-circles\">\n    <ul>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n    </ul>\n</nav>\n\n<div class=\"slides-container\">\n    <div class=\"slide\" id=\"slide-1\">\n        <div class=\"centered\"> \n            <img class=\"triple-s\" src=\"../assets/png/triple-sss.png\">              \n            <img class=\"building intro\" src=\"../assets/png/building.png\">\n            <h1 class=\"landing\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide01 : depth0)) != null ? stack1.h1 : stack1), depth0))
     + "</h1> \n            <h2 class=\"sub-head\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide01 : depth0)) != null ? stack1.h2 : stack1), depth0))
@@ -224,9 +224,50 @@ this["app"]["templates"]["main"] = Handlebars.template({"compiler":[6,">= 2.0.0-
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide09 : depth0)) != null ? stack1.share : stack1), depth0))
     + "</p>\n                <div class=\"addthis_sharing_toolbox\"></div> \n            </div>                                    \n        </div>\n    </div>                        \n</div> <!-- end slides container -->";
 },"useData":true});
+this["app"]["templates"]["why"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1, alias1=this.lambda, alias2=this.escapeExpression;
+
+  return "        <nav class=\"main-nav\">\n          <img class=\"logo\" src=\"../assets/png/logo.png\">\n          <h1>            \n            <a class=\"go-first\" href=\"../index.html\">Am I Rent Stabilized?</a>\n          </h1>\n          <div class=\"burger\" alt=\"-\"></div>\n          <ul>\n            <li class=\"nav\"><a href=\"why.html\">"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.why : stack1), depth0))
+    + "</a></li>\n            <li class=\"nav\"><a href=\"how.html\">"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.how : stack1), depth0))
+    + "</a></li>\n            <li class=\"nav\"><a href=\"resources.html\">"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.resources : stack1), depth0))
+    + "</a></li>\n          </ul>\n        </nav>\n\n        <div id=\"left\">\n          <div id=\"lang-toggle\">\n              <ul>\n                  <li><a href=\"../es/html/why.html\">en español</a></li>\n                  <li><p>•</p></li>\n                  <li><a href=\"../zh/html/why.html\">中文</a></li>\n              </ul>\n          </div>\n\n          <div id=\"side-nav\">\n            <h3>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_side : depth0)) != null ? stack1.h3 : stack1), depth0))
+    + "</h3>\n            <ul>\n              <li><a href=\"#why\">"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_side : depth0)) != null ? stack1.why : stack1), depth0))
+    + "</a></li>\n              <li><a href=\"#what\">"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_side : depth0)) != null ? stack1.what : stack1), depth0))
+    + "</a></li>\n              <li><a href=\"#under-attack\">"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_side : depth0)) != null ? stack1.under : stack1), depth0))
+    + "</a></li>\n              <li><a href=\"#messed-up\">"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_side : depth0)) != null ? stack1.messed : stack1), depth0))
+    + "</a></li>\n              <li><a href=\"#videos\">"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_side : depth0)) != null ? stack1.videos : stack1), depth0))
+    + "</a></li>\n              <li><a href=\"#get-involved\">"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_side : depth0)) != null ? stack1.involved : stack1), depth0))
+    + "</a></li>\n              <li><a href=\"#not-rs\">"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_side : depth0)) != null ? stack1.not : stack1), depth0))
+    + "</a></li>\n            </ul>\n          </div>\n        </div>\n\n        <div id=\"main\">\n          <a name=\"why\"></a>\n          <h1>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.h1 : stack1), depth0))
+    + "</h1>\n          \n          <h3>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.h3 : stack1), depth0))
+    + "</h3>\n          \n          <h3 class=\"italic\">"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.facts : stack1), depth0))
+    + "</h3>\n          \n          <ul>\n            <li>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.one : stack1), depth0))
+    + "</li>\n            <li>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.two : stack1), depth0))
+    + "</li>\n            <li>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.three : stack1), depth0))
+    + "</li>\n            <li>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.four : stack1), depth0))
+    + "</li>\n          </ul>\n          \n          <a name=\"what\"></a>\n          <h1>Why else should I care?</h1>\n          \n          <h3>If your landlord is lying to you about your apartment being rent-stabilized, you could be owed back rent! </h3>\n          \n          <p>If the DHCR finds a tenant's complaint to be valid, they will require the landlord to reimburse them for back rent they are legally owed. In one recent case <a href=\"http://www.dnainfo.com/new-york/20150302/hamilton-heights/landlord-owes-tenant-112000-after-overcharging-him-for-years\" target=\"_blank\">an NYC tenant was awarded $112,000 in back rent for being overcharged!</a></p>\n          \n          <a name=\"under-attack\"></a>\n          <h1>Rent Stabilization is under attack.</h1>\n          \n          <h3>The real estate industry sees a huge profit to made by eliminating all NYC rent-stabilized apartments.</h3>\n          \n          <p>With the current rent laws, destabilization (also called vacancy decontrol) may happen when a rent-stabilized apartment’s monthly rent exceeds $2,500 while the apartment is vacant. For example, if a tenant who is rent-stabilized and whose rent is at $2,500 or more moves out, the landlord may then take the apartment out of stabilization. A landlord may then charge market rate to the next tenant and increase rents as they see fit.</p>\n          \n          <h3>Methods landlords use to destabilize apartments:</h3>\n\n          <ul>\n            <li>Lying to new tenants by illegally overcharging them and hoping they won’t notice.</li>\n            <li>Gutting apartments after a tenant moves out and using the expenses towards increasing the legal rent they may charge to the next tenant. Often this may involve lying about the amount of the expenses of the renovation.</li>\n            <li>Illegally harassing tenants to coerce them into moving out so they can gut the apartment and charge market rate rents.</li>\n          </ul>\n          \n          <a name=\"messed-up\"></a>\n          <h1>This is messed up!</h1>\n          \n          <h3>But it gets worse. Currently rent stabilization and rent control have to be renewed periodically, and each time they are renewed the real estate industry attempts to weaken them.</h3>\n          \n          <p>The real estate industry has succeeded at this since the 1990’s when destabilization was first introduced, and since then <strong>the city has lost an estimated 300,000 rent-stabilized apartments!</strong><p/>\n\n          <a name=\"videos\"></a>\n          <p>The following short videos from the <a href=\"http://projects.studio20nyu.org/ny-tenants/\" target=\"_blank\">NY Tenants Project</a> explain some of the history about rent regulation in NYC and how it was weakened by the real estate industry, as well as what's currently happening in three NYC neighborhoods.</p>\n\n          <div class=\"video\">\n            <h3>How did we get here?</h3>\n            <iframe src=\"https://www.youtube.com/embed/uvZWZy9uZqA\" frameborder=\"0\" allowfullscreen></iframe>\n          </div>\n\n          <div class=\"video\">\n            <h3>What's Vacancy Decontrol?</h3>\n            <iframe src=\"https://www.youtube.com/embed/9MB-BhoUXg4\" frameborder=\"0\" allowfullscreen></iframe>\n          </div>\n\n          <div class=\"video\">\n            <h3>What's Happening in The Bronx</h3>\n            <iframe src=\"https://www.youtube.com/embed/Yn8tj-8-TeE\" frameborder=\"0\" allowfullscreen></iframe>\n          </div>\n\n          <div class=\"video\">\n            <h3>What's Happening in Bushwick</h3>\n            <iframe src=\"https://www.youtube.com/embed/6oSbEpdL968\" frameborder=\"0\" allowfullscreen></iframe>\n          </div>\n\n          <div class=\"video\">\n            <h3>What's Happening in Chinatown</h3>\n            <iframe src=\"https://www.youtube.com/embed/TtZmANXveXg\" frameborder=\"0\" allowfullscreen></iframe>\n          </div>\n          \n          <a name=\"get-involved\"></a>\n          <h1>So what can I do?</h1>\n          \n          <h3>You can get involved in several ways:</h3>\n          \n          <ul>\n            <li>First, learn about your rights. Go to a tenants rights workshop and read up. See the links in the <a href=\"./resources.html\">resources page</a>.</li>\n            <li>Start a tenants association in your building and then join a tenants union such as The Crown Heights Tenants Union. This is the best course of action in protecting the rent stabilization status of yourself and your neighbors.</li>\n            <li>Make your voice heard! Contact your local representatives, go to a community board meeting, and tell the mayor that there needs to be an emphasis on preserving affordable housing.</li>\n          </ul>\n          \n          <a name=\"not-rs\"></a>\n          <h1>What if I’m not rent-stabilized?</h1>\n          \n          <h3>Unfortunately there’s not much you can do to prevent your landlord from raising your rent astronomically.</h3>\n          \n          <p>However, <a href=\"http://thebillfold.com/2012/08/how-to-negotiate-a-lease-renewal/\">you can attempt to negotiate with your landlord if they are raising your rent.</a> Often it is less of a hassle for them to not increase your rent by as much as they would like, than it is for them to find a new tenant.</p> \n          \n          <p><strong>You should not be afraid to stand up to an abusive or negligent landord. </strong>Definitely <a href=\"http://www1.nyc.gov/311/index.page\">Contact 311</a> to file any housing related complaints anonymously. Be sure to check out the <a href=\"./resources.html\">resources page</a> on this site for where to get help.</p>\n        </div>     ";
+},"useData":true});
 var app = app || {};
 
-app.a = (function(w,d) {
+app.address = (function(w,d) {
   /*
   ** User address related functions
    */
@@ -313,7 +354,7 @@ app.a = (function(w,d) {
 })(window, document);
 var app = app || {};
 
-app.el = (function(w,d,$) { 
+app.elems = (function(w,d,$) { 
   var el;
   // drop down class
   //  code reference: http://tympanus.net/codrops/2012/10/04/custom-drop-down-list-styling/
@@ -540,10 +581,10 @@ app.helpers = (function(w,d,el) {
           app.f.hideFormValidationErrors();
           app.f.resetBoroValue();
           app.map.resetMap();
-          app.f.addClass(el.yes, 'hidden');
-          app.f.removeClass(el.no, 'hidden');
-          app.f.addClass(el.yesTR, 'hidden');
-          app.f.removeClass(el.noTR, 'hidden');
+          app.f.addClass(app.el.yes, 'hidden');
+          app.f.removeClass(app.el.no, 'hidden');
+          app.f.addClass(app.el.yesTR, 'hidden');
+          app.f.removeClass(app.el.noTR, 'hidden');
           d.querySelector('.tr-modal').innerHTML = '';
           app.f.goToSlide(app.el.slides[0]);
           app.events.publish('state-change', {
@@ -734,29 +775,24 @@ var app = app || {};
 
 app.init = (function(w,d){
   
+  // gets the whole thing going
+  // called after langToggle loads JSON data for content
   function init(){
-    var template = app.templates.main;
+      app.el = app.elems.refDOM();
+      app.a = app.address.address();
+      app.f = app.helpers.registerfns();
+      app.l.listen();
+      app.language.initLangButtons();
 
-    $.getJSON('../data/main-content.json', function(data){
-      html = template(data.languages[0].en);
-      document.querySelector('#wrapper').innerHTML = html;
-    })
-      .done(function(){
-        app.el = app.el.refDOM();
-        app.a = app.a.address();
-        app.f = app.helpers.registerfns();
-        app.l.listen();
+      app.events.publish('state-change', {
+        currentSlide : app.el.slides[0]
+      });
 
-        app.events.publish('state-change', {
-          currentSlide : app.el.slides[0]
-        });
-
-        app.f.onResize();
-        app.f.goToSlide(app.el.currentSlide);
-        app.a.createMailTo();
-        app.f.addToCalendar();
-        app.map.init();
-    });
+      app.f.onResize();
+      app.f.goToSlide(app.el.currentSlide);
+      app.a.createMailTo();
+      app.f.addToCalendar();
+      app.map.init();      
   }
   
   return {
@@ -857,7 +893,7 @@ app.l = (function(w,d,$,el,f) {
 
     // hide address error message if it's displayed and user enters text
     app.el.addressInput.addEventListener("blur", function(e){
-      if (app.el.addressInput.value !== "" && app.f.hasClass(el.valErrorAddress, 'vis-hidden') !== true) {
+      if (app.el.addressInput.value !== "" && app.f.hasClass(app.el.valErrorAddress, 'vis-hidden') !== true) {
         app.f.addClass(app.el.valErrorAddress, 'vis-hidden');
       }
     });
@@ -887,6 +923,91 @@ app.l = (function(w,d,$,el,f) {
   };
 
 })(window, document, jQuery, app.el, app.f);
+var app = app || {};
+
+app.language = (function(w,d,$) {
+
+    var $es,
+          $zh,
+          $en;
+
+  function loadTemplateData(lang, callback){
+    var template = app.templates.main,
+          html;
+    
+    $.getJSON('../data/main-content.json', function(data) {      
+      if (lang === 'es') {
+        html = template(data.languages.es);
+      } else if (lang === 'zh') {
+        html = template(data.languages.zh);
+      } else  {
+        html = template(data.languages.en);
+      }      
+      d.querySelector('#wrapper').innerHTML = html;
+    })
+    .done(function(){
+      if (callback && typeof callback === "function") { 
+        callback();
+      }
+      app.init.init();
+      $es = $('#lang-toggle .toggle-es');
+      $zh = $('#lang-toggle .toggle-zh');
+      $en = $('#lang-toggle .toggle-en');
+      changeLangButtons(lang);
+    });
+  }
+  
+  function langToggle(lang) {
+      var curLang;
+
+      if (typeof lang === 'undefined') {
+        curLang = d.URL.substring(d.URL.lastIndexOf('=') + 1, d.URL.length);
+      } else {
+        curLang = lang;
+      }
+
+      loadTemplateData(curLang);
+  }
+
+  function changeLangButtons(lang) {
+    console.log('changeLangButtons: ', lang);
+    if (lang === "es") {  
+      $es.html('in english');
+      $es.removeClass('toggle-es').addClass('toggle-en');
+      $zh.html('中文');
+      $('body').addClass('es');
+    } else if (lang === "zh") {
+      $es.html('en español');
+      $zh.html('in english');
+      $zh.removeClass('toggle-zh').addClass('toggle-en');
+      $('body').addClass('zh');
+    } else {
+      $es.html('en español');
+      $zh.html('中文');
+      $('body').addClass('en');
+    }
+  }
+
+  function initLangButtons() {
+    $('#lang-toggle').find('a').on('click', function(e) {
+      e.preventDefault();
+      var val = $(this).html();
+      if (val === "en español") {
+        langToggle('es');
+      } else if (val === "中文") {
+        langToggle('zh');
+      } else {
+        langToggle('en');
+      }
+    });
+  }
+
+  return {
+    langToggle : langToggle,
+    initLangButtons : initLangButtons
+  };
+
+})(window, document, jQuery);
 // map & cartodb stuff
 var app = app || {};
 

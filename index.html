@@ -3,20 +3,15 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">      
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <title>Am I Rent Stabilized?</title>
         <meta name="description" content="Find out if your NYC apartment is rent stabilized!">      
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">    
-<!--         <link rel="stylesheet" type="text/css" href="bower_components/normalize.css/normalize.css"> -->
-<!--         <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" /> -->
         <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700,300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="../bower_components/cartodb.js/themes/css/cartodb.css">
         <link rel="stylesheet" type="text/css" href="../css/main.css">
         <link rel="shortcut icon" href="assets/favicon/favicon-96x96.png" />
-        <!-- <meta name="msapplication-TileColor" content="#ffffff">
-        <meta name="msapplication-TileImage" content="./assets/favicon/ms-icon-144x144.png">     -->
         <script src="http://use.typekit.net/emf7xrp.js"></script>
         <script>try{Typekit.load();}catch(e){}</script>
         <script type="text/javascript">
@@ -32,11 +27,18 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     </head>
     <body>
+      <!-- handlebars templates appended to "#wrapper" -->
       <div id="wrapper"></div>
+      
+      <!-- modal for listing local tenants rights groups -->
       <div id="open-modal" class="tr-modal"></div>
+
+      <!-- lightbox / modal for sample rent-history -->
       <a href="#_" class="lightbox" id="rent-history">          
         <img src="../assets/png/sample-rent-history.png">
       </a>        
+      
+      <!-- handlebars template for local tenants rights group list -->
       <script id="org-template" type="text/x-handlebars-template">
         <div class="org-container">
           <a href="#close" title="Close" class="close">X</a>
@@ -65,7 +67,7 @@
             </div>
           {{/each}}
         </div>
-      </script>        
+      </script>
       <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -83,7 +85,7 @@
       <script type="text/javascript" src="../js/dist/bundle.js"></script>
       <script type="text/javascript">
         window.addEventListener('DOMContentLoaded', function(){
-            app.init.init();
+            app.language.langToggle('en');
         });
       </script>
     </body>

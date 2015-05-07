@@ -102,10 +102,10 @@ app.helpers = (function(w,d,el) {
           app.f.hideFormValidationErrors();
           app.f.resetBoroValue();
           app.map.resetMap();
-          app.f.addClass(el.yes, 'hidden');
-          app.f.removeClass(el.no, 'hidden');
-          app.f.addClass(el.yesTR, 'hidden');
-          app.f.removeClass(el.noTR, 'hidden');
+          app.f.addClass(app.el.yes, 'hidden');
+          app.f.removeClass(app.el.no, 'hidden');
+          app.f.addClass(app.el.yesTR, 'hidden');
+          app.f.removeClass(app.el.noTR, 'hidden');
           d.querySelector('.tr-modal').innerHTML = '';
           app.f.goToSlide(app.el.slides[0]);
           app.events.publish('state-change', {
