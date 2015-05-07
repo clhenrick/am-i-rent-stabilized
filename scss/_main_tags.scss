@@ -17,6 +17,14 @@ body {
   }
   letter-spacing: 0.0625em;
   background-color: $white;
+
+  &.es {
+    font-size: 50%;
+  }
+
+  &.zh {
+    font-size: 50%;
+  }
 }
 
 *, *:before, *:after {
