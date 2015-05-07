@@ -10,13 +10,17 @@ body, div, p {
 
 body {
   color: #4a4a4a;
-  font: {
-    size: 62.5%;
+  font: {    
     family: $body-font;
     weight: 400;
+    size: 62.5%;
   }
   letter-spacing: 0.0625em;
   background-color: $white;
+
+  &.en {
+    font-size: 62.5%;
+  }
 
   &.es {
     font-size: 50%;

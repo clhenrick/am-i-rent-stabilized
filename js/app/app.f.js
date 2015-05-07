@@ -127,7 +127,7 @@ app.helpers = (function(w,d,el) {
               l = app.el.progressCircles.length,
               backgroundSize;
 
-        if (w.innerHeight <= 700 || w.innerWidth <= 1100) {
+        if (w.innerHeight <= 770 || w.innerWidth <= 1100) {
           backgroundSize = '20px';
         } else {
           backgroundSize = '25px';
