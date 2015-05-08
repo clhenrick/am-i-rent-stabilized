@@ -238,16 +238,16 @@
 				"h1" : "如果我的租金不稳定，我该怎么办？",
 				"h3" : "如果你的租金不稳定，想让你房东不涨房价是很难的。",
 				"p1" : {
-					"one" : "However, ",
-					"a" : "you can attempt to negotiate with your landlord if they are raising your rent.",
-					"two" : "Often it is less of a hassle for them to not increase your rent by as much as they would like, than it is for them to find a new tenant."
+					"one" : "",
+					"a" : "如果你的房东涨你的房价，你可以试着协商。",
+					"two" : "对房东来讲，找一个新的住客比涨天价烦得多。"
 					},
 				"p2" : {
-					"s" : "You should not be afraid to stand up to an abusive or negligent landord. ",
-					"a1" : "Contact 311",
-					"two" : " to file any housing related complaints anonymously. Be sure to check out the ",
-					"a2" : "resources page",
-					"three" : "on this site for where to get help."
+					"s" : "当你的房东滥用所谓的权利，或者懈怠责任，不要害怕冲突。",
+					"a1" : "你可以通过311匿名举报和住房相关的内容。",
+					"two" : "",
+					"a2" : "阅读资料页上的链接来获取帮助。",
+					"three" : ""
 				}
 			}			
 		}
