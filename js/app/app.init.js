@@ -2,29 +2,24 @@ var app = app || {};
 
 app.init = (function(w,d){
   
+  // gets the whole thing going
+  // called after langToggle loads JSON data for content
   function init(){
-    var template = app.templates.main;
+      app.el = app.elems.refDOM();
+      app.a = app.address.address();
+      app.f = app.helpers.registerfns();
+      app.l.listen();
+      app.language.initLangButtons();
 
-    $.getJSON('../data/main-content.json', function(data){
-      html = template(data.languages[0].en);
-      document.querySelector('#wrapper').innerHTML = html;
-    })
-      .done(function(){
-        app.el = app.el.refDOM();
-        app.a = app.a.address();
-        app.f = app.helpers.registerfns();
-        app.l.listen();
+      app.events.publish('state-change', {
+        currentSlide : app.el.slides[0]
+      });
 
-        app.events.publish('state-change', {
-          currentSlide : app.el.slides[0]
-        });
-
-        app.f.onResize();
-        app.f.goToSlide(app.el.currentSlide);
-        app.a.createMailTo();
-        app.f.addToCalendar();
-        app.map.init();
-    });
+      app.f.onResize();
+      app.f.goToSlide(app.el.currentSlide);
+      app.a.createMailTo();
+      app.f.addToCalendar();
+      app.map.init();      
   }
   
   return {

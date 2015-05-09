@@ -1,6 +1,6 @@
 var app = app || {};
 
-app.el = (function(w,d,$) { 
+app.elems = (function(w,d,$) { 
   var el;
   // drop down class
   //  code reference: http://tympanus.net/codrops/2012/10/04/custom-drop-down-list-styling/

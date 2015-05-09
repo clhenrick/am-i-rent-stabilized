@@ -91,7 +91,7 @@ app.l = (function(w,d,$,el,f) {
 
     // hide address error message if it's displayed and user enters text
     app.el.addressInput.addEventListener("blur", function(e){
-      if (app.el.addressInput.value !== "" && app.f.hasClass(el.valErrorAddress, 'vis-hidden') !== true) {
+      if (app.el.addressInput.value !== "" && app.f.hasClass(app.el.valErrorAddress, 'vis-hidden') !== true) {
         app.f.addClass(app.el.valErrorAddress, 'vis-hidden');
       }
     });

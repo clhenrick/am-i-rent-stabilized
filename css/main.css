@@ -381,11 +381,17 @@ body, div, p {
 
 body {
   color: #4a4a4a;
-  font-size: 62.5%;
   font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-weight: 400;
+  font-size: 62.5%;
   letter-spacing: 0.0625em;
   background-color: #FFFFFF; }
+  body.en {
+    font-size: 62.5%; }
+  body.es {
+    font-size: 50%; }
+  body.zh {
+    font-size: 50%; }
 
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
@@ -1293,7 +1299,7 @@ ul.validation-error {
     margin-left: 50px; }
   @media only screen and (max-height: 770px) {
     .button {
-      width: 160px;
+      width: 180px;
       font-size: 1.8em;
       padding: 8px 12px; }
       .button.search {
@@ -1584,7 +1590,7 @@ ul.validation-error {
         margin-top: 1%;
         max-width: 100%;
         width: 300px;
-        height: 210px;
+        height: 225px;
         padding: 20px;
         font-size: 2em; }
         .action-choice p.es {

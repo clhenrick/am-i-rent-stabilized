@@ -1,6 +1,6 @@
 var app = app || {};
 
-app.a = (function(w,d) {
+app.address = (function(w,d) {
   /*
   ** User address related functions
    */
