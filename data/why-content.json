@@ -128,39 +128,39 @@
 				"h3" : "Esto se pone peor. Actualmente las leyes de estabilización de renta y el control de renta tiene que ser renovadas periódicamente. Cada vez que son renovadas, la industria de bienes raíces  intenta debilitar las. ",
 				"p1" : "La industria de bienes raíces ha tenido éxito. Desde 1990 ",
 				"p1_s" : "la ciudad ha perdido un estimado de 300,000 apartamentos con renta estabilizada.",
-				"p2" : "The following short videos from the ",
+				"p2" : "Los siguientes videos creados ",
 				"a" : "NY Tenants Project",
-				"p3" : " explain some of the history about rent regulation in NYC and how it was weakened by the real estate industry, as well as what's currently happening in three NYC neighborhoods."
+				"p3" : "explican parte de la historia acerca de la regulación de renta en la ciudad de Nueva York, y como la industria de bienes raíces la ha debilitado.  También hablan de lo que está actualmente sucediendo en tres vecindarios de la ciudad de Nueva York."
 			},
 			"videos" : {
-				"how" : "How did we get here?",
-				"what" : "What is Vacancy Decontrol?",
-				"bronx" : "What's Happening in The Bronx",
-				"bushwick" : "What's Happening in Bushwick",
-				"chinatown" : "What's Happening in Chinatown"
+				"how" : "Cómo llegamos hasta aquí?",
+				"what" : "Qué es desocupación desregulada?",
+				"bronx" : "Qué está pasando en el Bronx?",
+				"bushwick" : "Qué está pasando en Bushwick?",
+				"chinatown" : "Qué está pasando en Chinatown"
 			},
 			"get_involved" : {
-				"h1" : "So what can I do?",
+				"h1" : "Qué puedo hacer?",
 				"h3" : "You can get involved in several ways:",
-				"first" : "First, learn about your rights. Go to a tenants rights workshop and read up. See the links in the ",
-				"a" : "resources page.",
-				"second" : "Start a tenants association in your building and then join a tenants union such as The Crown Heights Tenants Union. This is the best course of action in protecting the rent stabilization status of yourself and your neighbors.",
-				"third" : "Make your voice heard! Contact your local representatives, go to a community board meeting, and tell the mayor that there needs to be an emphasis on preserving affordable housing."
+				"first" : "Primero aprende acerca de tus derechos. Asiste a un seminario de derecho de inquilinos. Vaya a los enlaces en ",
+				"a" : "la páginas de Recursos.",
+				"second" : "Cree una asociación de inquilinos en su edificio y luego haga su asociación parte de otra ya establecida. Esta es la mejor manera de proteger su renta estabilizada y la de sus vecinos. ",
+				"third" : "Haga que su voz sea escuchada. Contacte sus representantes locales, vaya a reuniones de las junta de su comunidad, y dígale al alcalde que debe haber un énfasis en preservar viviendas económicamente accesibles."
 			},
 			"not_rs" : {
-				"h1" : "What if I’m not rent-stabilized?",
-				"h3" : "Unfortunately there’s not much you can do to prevent your landlord from raising your rent astronomically.",
+				"h1" : "Qué hacer si mi renta no está estabilizada?",
+				"h3" : "Desafortunadamente no hay mucho que pueda hacer para prevenir que su renta suba exageradamente.",
 				"p1" : {
-					"one" : "However, ",
-					"a" : "you can attempt to negotiate with your landlord if they are raising your rent.",
-					"two" : "Often it is less of a hassle for them to not increase your rent by as much as they would like, than it is for them to find a new tenant."
+					"one" : "Independientemente ",
+					"a" : "podría tratar de negociar con el propietario de su apartamento para que no suba su renta. ",
+					"two" : "A menudo es menos trabajo para ellos no aumentar su renta a tener que buscar un nuevo inquilino."
 					},
 				"p2" : {
-					"s" : "You should not be afraid to stand up to an abusive or negligent landord. ",
-					"a1" : "Contact 311",
-					"two" : " to file any housing related complaints anonymously. Be sure to check out the ",
-					"a2" : "resources page",
-					"three" : "on this site for where to get help."
+					"s" : "Usted no debe tener miedo de alzarse en defensa de un propietario negligente o abusivo. ",
+					"a1" : "Contacte al 311",
+					"two" : " para presentar  cualquier queja relacionada con su vivienda de manera anónima. Asegúrese de ver ",
+					"a2" : "la página de Recursos",
+					"three" : "en ésta página web para encontrar dónde  buscar ayuda."
 				}
 			}
 		},
