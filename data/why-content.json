@@ -85,54 +85,49 @@
 
 		"es" : {
 			"nav_main" : {
-				"why" : "Why it Matters",
-				"how" : "How it Works",
-				"resources" : "Resources"
-			},
-			"nav_bottom_arrow" : {
-				"begin" : "Begin",
-				"next" : "Next"
+				"why" : "Porqué es importante",
+				"how" : "Como funciona",
+				"resources" : "Recursos"
 			},
 			"nav_side" : {
-				"h3" : "Jump to a topic:",
-				"why" : "Why is it important?",
-				"what" : "Why else should I care?",
-				"under" : "Under Attack",
-				"messed" : "This is Messed Up!",
+				"h3" : "Ir a un tópico",
+				"why" : "Por qué es importante?",
+				"what" : "Por qué más debe importarme?",
+				"under" : "Bajo Ataque",
+				"messed" : "Esto es un desastre!",
 				"videos" : "Videos",
-				"involved" : "Get Involved",
-				"not" : "If You're Not Rent Stabilized"
+				"involved" : "Involucre se",
+				"not" : "Si no tienen renta estabilizada"
 			},
 			"why" : {
-				"h1" : "Why is Rent Stabilization so Good For NYC?",
-				"h3" : "Simply put, rent stabilization is the most important rent law that keeps NYC affordable for many of its residents",
-				"facts" : "Here are some quick facts:",
-				"one" : "About 1 million apartments are rent-stabilized in NYC, that's roughly half of all apartments in the city!",
-				"two" : "Rent Stabilization giver renters the right to stay in their apartment with modest rent increases each year, typically between 2 - 6%",
-				"three" : "It protects renters from being evicted without good cause.",
-				"four" : "It strengthens the rights of renters to have good services and repairs made to their apartments while penalizing negligent landlords."
-
+				"h1" : "Por qué la renta estabilizada es buena para la ciudad de Nueva York?",
+				"h3" : "Simplemente sepa que la estabilización de renta es la ley de renta más importante que mantiene a la ciudad de Nueva York.asequible a sus residentes.",
+				"facts" : "Aquí algunos datos:",
+				"one" : "Cerca de 1 millón de apartamentos en la ciudad de Nueva York tienen la renta estabilizada. Eso es casi la mitad de todos los apartamentos en Nueva York.",
+				"two" : "La estabilización de renta brinda a los arrendatarios el derecho de quedarse en su apartamento con un modesto incremento en la renta al año, usualmente entre 2-6%",
+				"three" : "Protege al arrendador de ser desalojado son una causa justa.",
+				"four" : "Fortalece los derechos del arrendador a obtener servicios de primera y reparaciones en sus apartamentos mientras penaliza a dueños negligentes."
 			},
 			"what" : {
-				"h1" : "Why else should I care?",
-				"h3" : "If your landlord is lying to you about your apartment being rent-stabilized, you could be owed back rent!",
-				"p1" : "If the DHCR finds a tenant's complaint to be valid, they will require the landlord to reimburse them for back rent they are legally owed. In one recent case ",
-				"a" : "an NYC tenant was awarded $112,000 in back rent for being overcharged!"
+				"h1" : "Por qué más debe importarme?",
+				"h3" : "Si su apartamento tiene renta estabilizada y el propietario le miente acerca de ésto, usted podría recibir su dinero de vuelta.",
+				"p1" : "Si el DHCR encuentra su denuncia válida, ellos le van a requerir a el propietario que le reembolse el dinero que legalmente se le debe. ",
+				"a" : "En un caso reciente un inquilino recibió de vuelta $112,000 que se le habían cobrado de más!"
 			},
 			"under" : {
-				"h1" : "Rent Stabilization is under attack.",
-				"h3" : "The real estate industry sees a huge profit to made by eliminating all NYC rent-stabilized apartments.",
-				"p" : "With the current rent laws, destabilization (also called vacancy decontrol) may happen when a rent-stabilized apartment’s monthly rent exceeds $2,500 while the apartment is vacant. For example, if a tenant who is rent-stabilized and whose rent is at $2,500 or more moves out, the landlord may then take the apartment out of stabilization. A landlord may then charge market rate to the next tenant and increase rents as they see fit.",
-				"methods" : "Methods landlords use to destabilize apartments:",
-				"one" : "Lying to new tenants by illegally overcharging them and hoping they won’t notice.",
-				"two" : "Gutting apartments after a tenant moves out and using the expenses towards increasing the legal rent they may charge to the next tenant. Often this may involve lying about the amount of the expenses of the renovation.",
-				"three" : "Illegally harassing tenants to coerce them into moving out so they can gut the apartment and charge market rate rents."
+				"h1" : "La renta estabilizada está bajo ataque.",
+				"h3" : "La industria de bienes raíces quiere eliminar las rentas estabilizadas ya que ésto les brindaría un gran margen de ganancias.",
+				"p" : "Con las leyes actuales de renta, la  desestabilización puede ocurrir cuando un apartamento con renta estabilizada que pague $2,500 queda vacante. Por ejemplo, cuando un inquilino con renta estabilizada que pague $2,500 o más se muda, el propietario podría retirar el apartamento fuera de la estabilización. Entonces, el propietario podría facturar la renta del apartamento a precio del mercado y hasta  aumentar la renta cuanto crea necesario.",
+				"methods" : "Métodos que los propietarios usan para desestabilizar apartamentos:",
+				"one" : "Mintiendo a nuevos inquilinos acerca del precio del apartamento e ilegalmente facturando la renta por encima del costo real.",
+				"two" : "Renovando los apartamentos después que sus inquilinos se mudaron y usando los gastos como excusa para subir el precio de la renta a futuros arrendadores.",
+				"three" : "Atormentando a los inquilinos forzando que se muden para hacerle mejoras al apartamento y subir el precio de la renta."
 			},
 			"messed" : {
-				"h1" : "This is messed up!",
-				"h3" : "But it gets worse. Currently rent stabilization and rent control have to be renewed periodically, and each time they are renewed the real estate industry attempts to weaken them.",
-				"p1" : "The real estate industry has succeeded at this since the 1990’s when destabilization was first introduced, and since then ",
-				"p1_s" : "the city has lost an estimated 300,000 rent-stabilized apartments!",
+				"h1" : "Esto es un desastre!",
+				"h3" : "Esto se pone peor. Actualmente las leyes de estabilización de renta y el control de renta tiene que ser renovadas periódicamente. Cada vez que son renovadas, la industria de bienes raíces  intenta debilitar las. ",
+				"p1" : "La industria de bienes raíces ha tenido éxito. Desde 1990 ",
+				"p1_s" : "la ciudad ha perdido un estimado de 300,000 apartamentos con renta estabilizada.",
 				"p2" : "The following short videos from the ",
 				"a" : "NY Tenants Project",
 				"p3" : " explain some of the history about rent regulation in NYC and how it was weakened by the real estate industry, as well as what's currently happening in three NYC neighborhoods."
