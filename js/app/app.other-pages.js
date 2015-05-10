@@ -47,5 +47,5 @@ app.pages = (function(w,d,$){
 
 	return {
 		init : init
-	}
+	};
 })(window, document, jQuery);
