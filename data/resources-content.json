@@ -69,7 +69,33 @@
 					]
 				},
 				"boro" : {
-					"h3" : "",
+					"h3" : "By Borough",
+					"p" : "These organizations operate within a particular borough.",
+					"ul" : [
+						{
+							"org" : "",
+							"desc" : ""
+						},
+						{
+							"org" : "",
+							"desc" : ""
+						},
+						{
+							"org" : "",
+							"desc" : ""
+						},
+						{
+							"org" : "",
+							"desc" : ""
+						},
+						{
+							"org" : "",
+							"desc" : ""
+						}
+					]
+				},
+				"hood" : {
+					"h3" : "By Neighborhood",
 					"p" : "",
 					"ul" : [
 						{
@@ -83,11 +109,85 @@
 						{
 							"org" : "",
 							"desc" : ""
-						}													
+						},
+						{
+							"org" : "",
+							"desc" : ""
+						},
+						{
+							"org" : "",
+							"desc" : ""
+						},
+						{
+							"org" : "",
+							"desc" : ""
+						},
+						{
+							"org" : "",
+							"desc" : ""
+						},
+						{
+							"org" : "",
+							"desc" : ""
+						},
+						{
+							"org" : "",
+							"desc" : ""
+						},
+						{
+							"org" : "",
+							"desc" : ""
+						},
+						{
+							"org" : "",
+							"desc" : ""
+						},
+						{
+							"org" : "",
+							"desc" : ""
+						}
 					]
 				}
-			}
+			},
+			"gov" : {
+				"h3" : "",
+				"p" : "",
+				"ul" : [
+					{
+						"org" : "",
+						"desc" : ""
+					},
+					{
+						"org" : "",
+						"desc" : ""
+					},
+					{
+						"org" : "",
+						"desc" : ""
+					},
+					{
+						"org" : "",
+						"desc" : ""
+					},
+					{
+						"org" : "",
+						"desc" : ""
+					},
+					{
+						"org" : "",
+						"desc" : ""
+					},
+					{
+						"org" : "",
+						"desc" : ""
+					},
+					{
+						"org" : "",
+						"desc" : ""
+					}
+				]
 
+			}
 		},
 
 		"es" : {
