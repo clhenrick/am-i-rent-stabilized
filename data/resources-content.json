@@ -2,7 +2,92 @@
 	"languages" : {
 		
 		"en" : {
-			
+			"nav_main" : {
+				"why" : "Why it Matters",
+				"how" : "How it Works",
+				"resources" : "Resources"
+				},
+			"nav_side" : {
+				"h3" : "Jump to an area:",
+				"nongov" : "Tenants Rights Orgs",
+				"citywide" : "Citywide",
+				"boro" : "By Borough",
+				"hood" : "By Neighborhood",
+				"gov" : "Government Resources"
+			},
+			"nongov" : {
+				"h1" : "Tenants Rights Resources",
+				"h3" : "These are governmental and non-government organizations who work to protect tenants and promote affordable housing in NYC. This is by no means an exhaustive list as there are hundreds of such organizations in NYC.",				
+				"citywide" : {					
+					"h3" : "City Wide",
+					"p01" : "These organizations operate on a city-wide level.",
+					"ul" : [
+						{
+							"org" : "Asian Americans For Equality",
+							"desc" : "AFE is committed to preserving affordable housing throughout New York and to providing new opportunities for the city’s diverse immigrant communities."
+						},
+						{
+							"org" : "Association for Neighborhood and Housing Development",
+							"desc" : "Affordable Housing and Community Development organization. Runs trainings on tenants rights."
+						},
+						{
+							"org" : "Churches United For Fair Housing",
+							"desc" : "Brooklyn based organization that organizes towards preserving and creating vibrant communities that are not exclusive and are really affordable to working families in New York City."
+						},
+						{
+							"org" : "Eviction Intervention Services",
+							"desc" : "Performs homelessness prevention by keeping residents in their communities, preserving existing affordable housing, and promoting and supporting the construction of affordable housing for low, moderate and middle-income households in NYC."
+						},
+						{
+							"org" : "Make The Road New York",
+							"desc" : "Works with Latino and working class communities to achieve dignity and justice through organizing, policy innovation, transformative education, and survival services."
+						},
+						{
+							"org" : "Metropolitan Council on Housing",
+							"desc" : "Operates a number of tenant-assistance programs including a tenants' rights telephone hotline and a walk-in clinic, which serve thousands per year and are free and open to any New York City tenant."
+						},
+						{
+							"org" : "MFY Legal Services Inc.",
+							"desc" : "Provides free legal assistance to residents of New York City on a wide range of civil legal issues, prioritizing services to vulnerable and under-served populations."
+						},
+						{
+							"org" : "Picture the Homeless",
+							"desc" : "Works to advocate for affordable housing and performs outreach for homeless NYC residents."
+						},
+						{
+							"org" : "Right To The City Alliance",
+							"desc" : "Works to prevent the displacement of low-income people, people of color, and LGBTQ persons. Operates nationally."
+						},
+						{
+							"org" : "Tenants and Neighbors",
+							"desc" : "Helps tenants organize at the building and community level to preserve at-risk affordable housing."
+						},
+						{
+							"org" : "Urban Homesteading Assistance Board",
+							"desc" : "Helps low to moderate income residents to take control of their housing and enhance their communities by creating strong tenant associations and lasting affordable co-ops."
+						}
+					]
+				},
+				"boro" : {
+					"h3" : "",
+					"p" : "",
+					"ul" : [
+						{
+							"org" : "",
+							"desc" : ""
+						},
+						{
+							"org" : "",
+							"desc" : ""
+						},
+						{
+							"org" : "",
+							"desc" : ""
+						}													
+					]
+				}
+			}
+
 		},
 
 		"es" : {
