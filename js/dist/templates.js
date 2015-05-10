@@ -1,5 +1,106 @@
 this["app"] = this["app"] || {};
 this["app"]["templates"] = this["app"]["templates"] || {};
+this["app"]["templates"]["how"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1, alias1=this.lambda, alias2=this.escapeExpression;
+
+  return "<nav class=\"main-nav\">\n  <img class=\"logo\" src=\"../assets/png/logo.png\">\n  <h1>            \n    <a class=\"go-first\" href=\"../index.html\">Am I Rent Stabilized?</a>\n  </h1>\n  <div class=\"burger\" alt=\"-\"></div>\n  <ul>\n    <li class=\"nav\"><a href=\"why.html\">"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.why : stack1), depth0))
+    + "</a></li>\n    <li class=\"nav\"><a href=\"how.html\">"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.how : stack1), depth0))
+    + "</a></li>\n    <li class=\"nav\"><a href=\"resources.html\">"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.resources : stack1), depth0))
+    + "</a></li>\n  </ul>\n</nav>\n\n<div id=\"left\">\n  <div id=\"lang-toggle\">\n      <ul>\n          <li><a href=\"../es/html/how.html\">en español</a></li>\n          <li><p>•</p></li>\n          <li><a href=\"../zh/html/how.html\">中文</a></li>\n      </ul>\n  </div>\n\n  <div id=\"side-nav\">\n    <h3>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_side : depth0)) != null ? stack1.h3 : stack1), depth0))
+    + "</h3>\n    <ul>\n      <li><a href=\"#how\">"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_side : depth0)) != null ? stack1.how : stack1), depth0))
+    + "</a></li>\n      <li><a href=\"#code-data\">"
+    + ((stack1 = alias1(((stack1 = (depth0 != null ? depth0.nav_side : depth0)) != null ? stack1.code : stack1), depth0)) != null ? stack1 : "")
+    + "</a></li>\n      <li><a href=\"#credits\">"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_side : depth0)) != null ? stack1.credits : stack1), depth0))
+    + "</a></li>\n    </ul>          \n  </div>\n</div>\n\n<div id=\"main\">\n  <a name=\"how\"></a>\n  <h1> "
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.h1 : stack1), depth0))
+    + " </h1>\n  <p>\n    "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p01 : stack1)) != null ? stack1['0'] : stack1), depth0))
+    + "\n    <strong> "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p01 : stack1)) != null ? stack1['1'] : stack1), depth0))
+    + " </strong>\n    "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p01 : stack1)) != null ? stack1['2'] : stack1), depth0))
+    + "\n  </p>\n\n  <p>\n    "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p02 : stack1)) != null ? stack1['0'] : stack1), depth0))
+    + "\n    <strong> "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p02 : stack1)) != null ? stack1['1'] : stack1), depth0))
+    + " </strong></p>\n\n  <h3>"
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.h3 : stack1)) != null ? stack1['0'] : stack1), depth0))
+    + "</h3>\n  <p>\n    "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p03 : stack1)) != null ? stack1['0'] : stack1), depth0))
+    + "\n    <strong>"
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p03 : stack1)) != null ? stack1['1'] : stack1), depth0))
+    + "</strong>\n    "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p03 : stack1)) != null ? stack1['2'] : stack1), depth0))
+    + "\n  </p>\n\n  <h3>"
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.h3 : stack1)) != null ? stack1['1'] : stack1), depth0))
+    + "</h3>\n  <p>\n    "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p04 : stack1)) != null ? stack1['0'] : stack1), depth0))
+    + "\n    <a target=\"_blank\" href=\"http://www.nyshcr.org/\">\n      "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p04 : stack1)) != null ? stack1['1'] : stack1), depth0))
+    + "\n    </a>\n    "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p04 : stack1)) != null ? stack1['2'] : stack1), depth0))
+    + "\n  </p>\n  <p>\n    "
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p05 : stack1), depth0))
+    + "\n  </p>\n  <p>\n    "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p06 : stack1)) != null ? stack1['0'] : stack1), depth0))
+    + "\n    <a target=\"_blank\" href=\"http://www.nyc.gov/html/dcp/html/bytes/dwn_pluto_mappluto.shtml\">\n      "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p06 : stack1)) != null ? stack1['1'] : stack1), depth0))
+    + "\n    </a>\n      "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p06 : stack1)) != null ? stack1['2'] : stack1), depth0))
+    + "\n    <a target=\"_blank\" href=\"http://cdb.io/1CxBFB4\">\n      "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p06 : stack1)) != null ? stack1['3'] : stack1), depth0))
+    + "\n    </a>\n  </p>\n\n  <p>\n    "
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p07 : stack1), depth0))
+    + "\n  </p>\n  \n  <a name=\"code-data\"></a>\n  <h1>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.code : depth0)) != null ? stack1.h1 : stack1), depth0))
+    + "</h1>\n  <p>\n    "
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.code : depth0)) != null ? stack1.p : stack1), depth0))
+    + "\n  </p>\n  <ul>\n    <li><a target=\"_blank\" href=\"https://github.com/clhenrick/am-i-rent-stabilized\">\n      "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.code : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['0'] : stack1), depth0))
+    + "\n    </a></li>\n    <li><a target=\"_blank\" href=\"http://chenrick.cartodb.com/tables/all_nyc_likely_rent_stabl_merged/public\">\n      "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.code : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['1'] : stack1), depth0))
+    + "\n    </a></li>\n    <li><a target=\"_blank\" href=\"https://github.com/clhenrick/dhcr-rent-stabilized-data\">\n      "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.code : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['2'] : stack1), depth0))
+    + "\n    </a></li>\n  </ul>\n  \n  <a name=\"credits\"></a>\n  <h1>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.h1 : stack1), depth0))
+    + "</h1>\n  <p>\n    "
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.p01 : stack1), depth0))
+    + "\n  </p>\n  <ul>\n    <li>\n      <a target=\"_blank\" href=\"http://carolinewoolard.com/\">\n        "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['0'] : stack1), depth0))
+    + "\n      </a>\n      "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['1'] : stack1), depth0))
+    + "\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://radishlab.com/\">\n        "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['2'] : stack1), depth0))
+    + "\n      </a>\n      "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['3'] : stack1), depth0))
+    + "\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://goodlemons.com/\">\n        "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['4'] : stack1), depth0))
+    + "\n      </a>\n      "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['5'] : stack1), depth0))
+    + "\n    </li>            \n    <li>\n      <a target=\"_blank\" href=\"http://betanyc.us\">\n        "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['6'] : stack1), depth0))
+    + "\n      </a>\n      "
+    + ((stack1 = alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['7'] : stack1), depth0)) != null ? stack1 : "")
+    + "\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://cartodb.com\">\n        "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['8'] : stack1), depth0))
+    + "\n      </a>\n      "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['9'] : stack1), depth0))
+    + "\n   </li>\n  </ul>\n\n  <h3>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.h3 : stack1), depth0))
+    + "</h3>\n  <p>\n    "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.p02 : stack1)) != null ? stack1['0'] : stack1), depth0))
+    + "\n    <a href=\"mailto:amirentstabilized@gmail.com\">\n      "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.p02 : stack1)) != null ? stack1['1'] : stack1), depth0))
+    + "\n    </a>\n  </p> \n  <p>\n    "
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.p03 : stack1), depth0))
+    + "\n  </p>\n</div>";
+},"useData":true});
 this["app"]["templates"]["main"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=this.lambda, alias2=this.escapeExpression;
 
@@ -159,10 +260,88 @@ this["app"]["templates"]["why"] = Handlebars.template({"compiler":[6,">= 2.0.0-b
     + "</h3>\n          \n          <ul>\n            <li>"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.one : stack1), depth0))
     + "</li>\n            <li>"
-    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.two : stack1), depth0))
+    + ((stack1 = alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.two : stack1), depth0)) != null ? stack1 : "")
     + "</li>\n            <li>"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.three : stack1), depth0))
     + "</li>\n            <li>"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.four : stack1), depth0))
-    + "</li>\n          </ul>\n          \n          <a name=\"what\"></a>\n          <h1>Why else should I care?</h1>\n          \n          <h3>If your landlord is lying to you about your apartment being rent-stabilized, you could be owed back rent! </h3>\n          \n          <p>If the DHCR finds a tenant's complaint to be valid, they will require the landlord to reimburse them for back rent they are legally owed. In one recent case <a href=\"http://www.dnainfo.com/new-york/20150302/hamilton-heights/landlord-owes-tenant-112000-after-overcharging-him-for-years\" target=\"_blank\">an NYC tenant was awarded $112,000 in back rent for being overcharged!</a></p>\n          \n          <a name=\"under-attack\"></a>\n          <h1>Rent Stabilization is under attack.</h1>\n          \n          <h3>The real estate industry sees a huge profit to made by eliminating all NYC rent-stabilized apartments.</h3>\n          \n          <p>With the current rent laws, destabilization (also called vacancy decontrol) may happen when a rent-stabilized apartment’s monthly rent exceeds $2,500 while the apartment is vacant. For example, if a tenant who is rent-stabilized and whose rent is at $2,500 or more moves out, the landlord may then take the apartment out of stabilization. A landlord may then charge market rate to the next tenant and increase rents as they see fit.</p>\n          \n          <h3>Methods landlords use to destabilize apartments:</h3>\n\n          <ul>\n            <li>Lying to new tenants by illegally overcharging them and hoping they won’t notice.</li>\n            <li>Gutting apartments after a tenant moves out and using the expenses towards increasing the legal rent they may charge to the next tenant. Often this may involve lying about the amount of the expenses of the renovation.</li>\n            <li>Illegally harassing tenants to coerce them into moving out so they can gut the apartment and charge market rate rents.</li>\n          </ul>\n          \n          <a name=\"messed-up\"></a>\n          <h1>This is messed up!</h1>\n          \n          <h3>But it gets worse. Currently rent stabilization and rent control have to be renewed periodically, and each time they are renewed the real estate industry attempts to weaken them.</h3>\n          \n          <p>The real estate industry has succeeded at this since the 1990’s when destabilization was first introduced, and since then <strong>the city has lost an estimated 300,000 rent-stabilized apartments!</strong><p/>\n\n          <a name=\"videos\"></a>\n          <p>The following short videos from the <a href=\"http://projects.studio20nyu.org/ny-tenants/\" target=\"_blank\">NY Tenants Project</a> explain some of the history about rent regulation in NYC and how it was weakened by the real estate industry, as well as what's currently happening in three NYC neighborhoods.</p>\n\n          <div class=\"video\">\n            <h3>How did we get here?</h3>\n            <iframe src=\"https://www.youtube.com/embed/uvZWZy9uZqA\" frameborder=\"0\" allowfullscreen></iframe>\n          </div>\n\n          <div class=\"video\">\n            <h3>What's Vacancy Decontrol?</h3>\n            <iframe src=\"https://www.youtube.com/embed/9MB-BhoUXg4\" frameborder=\"0\" allowfullscreen></iframe>\n          </div>\n\n          <div class=\"video\">\n            <h3>What's Happening in The Bronx</h3>\n            <iframe src=\"https://www.youtube.com/embed/Yn8tj-8-TeE\" frameborder=\"0\" allowfullscreen></iframe>\n          </div>\n\n          <div class=\"video\">\n            <h3>What's Happening in Bushwick</h3>\n            <iframe src=\"https://www.youtube.com/embed/6oSbEpdL968\" frameborder=\"0\" allowfullscreen></iframe>\n          </div>\n\n          <div class=\"video\">\n            <h3>What's Happening in Chinatown</h3>\n            <iframe src=\"https://www.youtube.com/embed/TtZmANXveXg\" frameborder=\"0\" allowfullscreen></iframe>\n          </div>\n          \n          <a name=\"get-involved\"></a>\n          <h1>So what can I do?</h1>\n          \n          <h3>You can get involved in several ways:</h3>\n          \n          <ul>\n            <li>First, learn about your rights. Go to a tenants rights workshop and read up. See the links in the <a href=\"./resources.html\">resources page</a>.</li>\n            <li>Start a tenants association in your building and then join a tenants union such as The Crown Heights Tenants Union. This is the best course of action in protecting the rent stabilization status of yourself and your neighbors.</li>\n            <li>Make your voice heard! Contact your local representatives, go to a community board meeting, and tell the mayor that there needs to be an emphasis on preserving affordable housing.</li>\n          </ul>\n          \n          <a name=\"not-rs\"></a>\n          <h1>What if I’m not rent-stabilized?</h1>\n          \n          <h3>Unfortunately there’s not much you can do to prevent your landlord from raising your rent astronomically.</h3>\n          \n          <p>However, <a href=\"http://thebillfold.com/2012/08/how-to-negotiate-a-lease-renewal/\">you can attempt to negotiate with your landlord if they are raising your rent.</a> Often it is less of a hassle for them to not increase your rent by as much as they would like, than it is for them to find a new tenant.</p> \n          \n          <p><strong>You should not be afraid to stand up to an abusive or negligent landord. </strong>Definitely <a href=\"http://www1.nyc.gov/311/index.page\">Contact 311</a> to file any housing related complaints anonymously. Be sure to check out the <a href=\"./resources.html\">resources page</a> on this site for where to get help.</p>\n        </div>     ";
+    + "</li>\n          </ul>\n          \n          <a name=\"what\"></a>\n          <h1>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.what : depth0)) != null ? stack1.h1 : stack1), depth0))
+    + "</h1>\n          \n          <h3>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.what : depth0)) != null ? stack1.h3 : stack1), depth0))
+    + "</h3>\n          \n          <p>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.what : depth0)) != null ? stack1.p1 : stack1), depth0))
+    + "\n            <a href=\"http://www.dnainfo.com/new-york/20150302/hamilton-heights/landlord-owes-tenant-112000-after-overcharging-him-for-years\" target=\"_blank\">\n              "
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.what : depth0)) != null ? stack1.a : stack1), depth0))
+    + "\n            </a>\n          </p>\n          \n          <a name=\"under-attack\"></a>\n          <h1>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.under : depth0)) != null ? stack1.h1 : stack1), depth0))
+    + "</h1>\n          \n          <h3>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.under : depth0)) != null ? stack1.h3 : stack1), depth0))
+    + "</h3>\n          \n          <p>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.under : depth0)) != null ? stack1.p : stack1), depth0))
+    + "</p>\n          \n          <h3>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.under : depth0)) != null ? stack1.methods : stack1), depth0))
+    + "</h3>\n\n          <ul>\n            <li>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.under : depth0)) != null ? stack1.one : stack1), depth0))
+    + "</li>\n            <li>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.under : depth0)) != null ? stack1.two : stack1), depth0))
+    + "</li>\n            <li>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.under : depth0)) != null ? stack1.three : stack1), depth0))
+    + "</li>\n          </ul>\n          \n          <a name=\"messed-up\"></a>\n          <h1>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.messed : depth0)) != null ? stack1.h1 : stack1), depth0))
+    + "</h1>\n          \n          <h3>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.messed : depth0)) != null ? stack1.h3 : stack1), depth0))
+    + "</h3>\n          \n          <p>\n            "
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.messed : depth0)) != null ? stack1.p1 : stack1), depth0))
+    + "\n            <strong>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.messed : depth0)) != null ? stack1.p1_s : stack1), depth0))
+    + "</strong>\n          <p/>\n\n          <a name=\"videos\"></a>\n          <p>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.messed : depth0)) != null ? stack1.p2 : stack1), depth0))
+    + "\n            <a href=\"http://projects.studio20nyu.org/ny-tenants/\" target=\"_blank\">\n              "
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.messed : depth0)) != null ? stack1.a : stack1), depth0))
+    + "\n            </a>\n            "
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.messed : depth0)) != null ? stack1.p3 : stack1), depth0))
+    + "\n          </p>\n\n          <div class=\"video\">\n            <h3>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.videos : depth0)) != null ? stack1.how : stack1), depth0))
+    + "</h3>\n            <iframe src=\"https://www.youtube.com/embed/uvZWZy9uZqA\" frameborder=\"0\" allowfullscreen></iframe>\n          </div>\n\n          <div class=\"video\">\n            <h3>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.videos : depth0)) != null ? stack1.what : stack1), depth0))
+    + "</h3>\n            <iframe src=\"https://www.youtube.com/embed/9MB-BhoUXg4\" frameborder=\"0\" allowfullscreen></iframe>\n          </div>\n\n          <div class=\"video\">\n            <h3>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.videos : depth0)) != null ? stack1.bronx : stack1), depth0))
+    + "</h3>\n            <iframe src=\"https://www.youtube.com/embed/Yn8tj-8-TeE\" frameborder=\"0\" allowfullscreen></iframe>\n          </div>\n\n          <div class=\"video\">\n            <h3>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.videos : depth0)) != null ? stack1.bushwick : stack1), depth0))
+    + "</h3>\n            <iframe src=\"https://www.youtube.com/embed/6oSbEpdL968\" frameborder=\"0\" allowfullscreen></iframe>\n          </div>\n\n          <div class=\"video\">\n            <h3>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.videos : depth0)) != null ? stack1.chinatown : stack1), depth0))
+    + "</h3>\n            <iframe src=\"https://www.youtube.com/embed/TtZmANXveXg\" frameborder=\"0\" allowfullscreen></iframe>\n          </div>\n          \n          <a name=\"get-involved\"></a>\n          <h1>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.get_involved : depth0)) != null ? stack1.h1 : stack1), depth0))
+    + "</h1>\n          \n          <h3>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.get_involved : depth0)) != null ? stack1.h3 : stack1), depth0))
+    + "</h3>\n          \n          <ul>\n            <li>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.get_involved : depth0)) != null ? stack1.first : stack1), depth0))
+    + "\n              <a href=\"./resources.html\">"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.get_involved : depth0)) != null ? stack1.a : stack1), depth0))
+    + "</a>\n            </li>\n            <li>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.get_involved : depth0)) != null ? stack1.second : stack1), depth0))
+    + "</li>\n            <li>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.get_involved : depth0)) != null ? stack1.third : stack1), depth0))
+    + "</li>\n          </ul>\n          \n          <a name=\"not-rs\"></a>\n          <h1>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.not_rs : depth0)) != null ? stack1.h1 : stack1), depth0))
+    + "</h1>\n          \n          <h3>"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.not_rs : depth0)) != null ? stack1.h3 : stack1), depth0))
+    + "</h3>\n          \n          <p>\n            "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.not_rs : depth0)) != null ? stack1.p1 : stack1)) != null ? stack1.one : stack1), depth0))
+    + "\n            <a href=\"http://thebillfold.com/2012/08/how-to-negotiate-a-lease-renewal/\">"
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.not_rs : depth0)) != null ? stack1.p1 : stack1)) != null ? stack1.a : stack1), depth0))
+    + "</a>\n            "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.not_rs : depth0)) != null ? stack1.p1 : stack1)) != null ? stack1.two : stack1), depth0))
+    + "\n          </p> \n          \n          <p>\n            <strong>"
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.not_rs : depth0)) != null ? stack1.p2 : stack1)) != null ? stack1.s : stack1), depth0))
+    + "</strong>\n            <a href=\"http://www1.nyc.gov/311/index.page\">"
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.not_rs : depth0)) != null ? stack1.p2 : stack1)) != null ? stack1.a1 : stack1), depth0))
+    + "</a>\n            "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.not_rs : depth0)) != null ? stack1.p2 : stack1)) != null ? stack1.two : stack1), depth0))
+    + "\n            <a href=\"./resources.html\">"
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.not_rs : depth0)) != null ? stack1.p2 : stack1)) != null ? stack1.a2 : stack1), depth0))
+    + "</a>\n            "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.not_rs : depth0)) != null ? stack1.p2 : stack1)) != null ? stack1.three : stack1), depth0))
+    + "\n          </p>\n        </div>     ";
 },"useData":true});
