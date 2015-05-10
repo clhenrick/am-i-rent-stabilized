@@ -1306,24 +1306,28 @@ var app = app || {};
 app.language = (function(w,d,$) {
 
     var $es,
-          $zh,
-          $en;
+        $zh,
+        $en;
 
   function loadTemplateData(lang, currentPage, callback){
-    var template = app.templates.main,
-          html,
-          filePath = '../data/';
+    var template,
+        html,
+        filePath = '../data/';
 
     // load the correct JSON file based on the app's page...
     if (currentPage === 'index') {
       filePath += 'main-content.json';
+      template = app.templates.main;
     } else if (currentPage === 'why') {
       filePath += 'why-content.json';
+      template = app.templates.why;
     } else if (currentPage === 'how') {
       filePath += 'how-content.json';
+      template = app.templates.how;
     } else if (currentPage === 'resources') {
       filePath += 'resources-content.json';
-    }
+      template = app.templates.resources;
+    }    
     
     $.getJSON(filePath, function(data) {      
       if (lang === 'es') {
@@ -1349,7 +1353,7 @@ app.language = (function(w,d,$) {
     });
   }
   
-  function langToggle(lang) {
+  function langToggle(lang, callback) {
       var curLang;
       var currentPage = document.URL.substring(document.URL.lastIndexOf('/') + 1, document.URL.lastIndexOf('.'));
 
@@ -1359,7 +1363,7 @@ app.language = (function(w,d,$) {
         curLang = lang;
       }
 
-      loadTemplateData(curLang, currentPage);
+      loadTemplateData(curLang, currentPage, callback);
   }
 
   function changeLangButtons(lang) {
@@ -1713,6 +1717,57 @@ app.map = (function(d,w,a,H,$){
   };
 
 })(document, window, aja, Handlebars, jQuery);
+var app = app || {};
+
+app.pages = (function(w,d,$){
+	function init() {
+    function toggleBurger(){
+      // hamburger icon
+      var burgerIcon = document.querySelector('.burger'),
+          mainNavList = document.querySelector('.main-nav ul');          
+      burgerIcon.addEventListener('click', function(e) {
+        e.preventDefault();            
+        toggleClass(burgerIcon, 'open');
+        toggleClass(mainNavList, 'responsive');
+      });              
+    }           
+
+    function iterateNodeList(list, fn) {
+      if (list && list.length) {
+        var i=0, len=list.length;
+        for (i; i<len; i++) {
+          return fn(list[i], i);
+        }
+      }
+      if (list && !list.length) {
+        return fn(list);
+      }   
+    } 
+    
+    function toggleClass(el, className) {
+      iterateNodeList(el, function(el){
+        if (el.classList) {
+          el.classList.toggle(className);
+        } else {
+          var classes = el.className.split(' ');
+          var existingIndex = classes.indexOf(className);
+          if (existingIndex >=0) {
+            classes.splice(existingIndex, 1);
+          } else {
+            classes.push(className);
+            el.className = classes.join(' ');
+          }
+        }
+      });   
+    }
+
+    app.language.langToggle('en', toggleBurger);  		
+	}
+
+	return {
+		init : init
+	}
+})(window, document, jQuery);
 var app = app || {};
 
 app.s = (function(w,d) {

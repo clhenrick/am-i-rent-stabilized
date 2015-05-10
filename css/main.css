@@ -732,7 +732,7 @@ nav.main-nav {
         margin-right: 30px; }
       nav.main-nav ul li a {
         text-align: center;
-        font-family: "museo-sans-rounded", "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+        font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif;
         font-weight: 300; }
         nav.main-nav ul li a.zh {
           font-size: 1.5em; }

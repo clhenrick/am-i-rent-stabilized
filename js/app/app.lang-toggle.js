@@ -3,24 +3,28 @@ var app = app || {};
 app.language = (function(w,d,$) {
 
     var $es,
-          $zh,
-          $en;
+        $zh,
+        $en;
 
   function loadTemplateData(lang, currentPage, callback){
-    var template = app.templates.main,
-          html,
-          filePath = '../data/';
+    var template,
+        html,
+        filePath = '../data/';
 
     // load the correct JSON file based on the app's page...
     if (currentPage === 'index') {
       filePath += 'main-content.json';
+      template = app.templates.main;
     } else if (currentPage === 'why') {
       filePath += 'why-content.json';
+      template = app.templates.why;
     } else if (currentPage === 'how') {
       filePath += 'how-content.json';
+      template = app.templates.how;
     } else if (currentPage === 'resources') {
       filePath += 'resources-content.json';
-    }
+      template = app.templates.resources;
+    }    
     
     $.getJSON(filePath, function(data) {      
       if (lang === 'es') {
@@ -46,7 +50,7 @@ app.language = (function(w,d,$) {
     });
   }
   
-  function langToggle(lang) {
+  function langToggle(lang, callback) {
       var curLang;
       var currentPage = document.URL.substring(document.URL.lastIndexOf('/') + 1, document.URL.lastIndexOf('.'));
 
@@ -56,7 +60,7 @@ app.language = (function(w,d,$) {
         curLang = lang;
       }
 
-      loadTemplateData(curLang, currentPage);
+      loadTemplateData(curLang, currentPage, callback);
   }
 
   function changeLangButtons(lang) {

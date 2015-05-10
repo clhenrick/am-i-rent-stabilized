@@ -28,62 +28,11 @@
   <body>
     <div id="wrapper"></div>   
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script type="text/javascript" src="../js/vendor/handlebars.min.js"></script>
-    <script type="text/javascript" src="../js/dist/templates.js"></script>            
+    <script type="text/javascript" src="../js/vendor/handlebars.runtime.min.js"></script>
+    <script type="text/javascript" src="../js/dist/templates.js"></script>
+    <script type="text/javascript" src="../js/app/app.lang-toggle.js"></script>
+    <script type="text/javascript" src="../js/app/app.other-pages.js"></script>
     <script type="text/javascript">
-      function init(){
-        
-        var template = app.templates.why,
-            html;
-
-        console.log('template: ', template);
-
-        $.getJSON('../data/why-content.json', function(data){
-          // console.log('data: ', data);
-          html = template(data.languages.en);
-          // console.log('html: ', html);
-          document.querySelector('#wrapper').innerHTML = html;
-        }).done(function(){
-          // hamburger icon
-          var burgerIcon = document.querySelector('.burger'),
-              mainNavList = document.querySelector('.main-nav ul');          
-          burgerIcon.addEventListener('click', function(e) {
-            e.preventDefault();            
-            toggleClass(burgerIcon, 'open');
-            toggleClass(mainNavList, 'responsive');
-          });          
-        });            
-
-        function iterateNodeList(list, fn) {
-          if (list && list.length) {
-            var i=0, len=list.length;
-            for (i; i<len; i++) {
-              return fn(list[i], i);
-            }
-          }
-          if (list && !list.length) {
-            return fn(list);
-          }   
-        } 
-        
-        function toggleClass(el, className) {
-          iterateNodeList(el, function(el){
-            if (el.classList) {
-              el.classList.toggle(className);
-            } else {
-              var classes = el.className.split(' ');
-              var existingIndex = classes.indexOf(className);
-              if (existingIndex >=0) {
-                classes.splice(existingIndex, 1);
-              } else {
-                classes.push(className);
-                el.className = classes.join(' ');
-              }
-            }
-          });   
-        }
-      };
-      
       function ready(fn) {
         if (document.readyState != 'loading'){
           fn();
@@ -96,8 +45,7 @@
           });
         }
       }
-
-      ready(init);      
-  </script>
+      ready(app.pages.init);      
+    </script>
   </body>
 </html>
