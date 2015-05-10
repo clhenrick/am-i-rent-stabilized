@@ -73,120 +73,129 @@
 					"p" : "These organizations operate within a particular borough.",
 					"ul" : [
 						{
-							"org" : "",
-							"desc" : ""
+							"org" : "Brooklyn Housing And Family Services, Inc.",
+							"desc" : "Works to provide Brooklyn residents with safe and affordable housing through outreach and counseling services."
 						},
 						{
-							"org" : "",
-							"desc" : ""
+							"org" : "Bronx Shepherds Restoration Corporation",
+							"desc" : "Provides affordable housing, community programs and many other service to residents of the Bronx community."
 						},
 						{
-							"org" : "",
-							"desc" : ""
+							"org" : "Brooklyn Legal Services Corporation A",
+							"desc" : "Provides high-quality legal assistance to low-income individuals and community groups in Brooklyn."
 						},
 						{
-							"org" : "",
-							"desc" : ""
+							"org" : "Queens Community House, Inc.",
+							"desc" : "Helps all Queens residents with affordable housing and community development."
 						},
 						{
-							"org" : "",
-							"desc" : ""
+							"org" : "Neighborhood Housing Services of Staten Island",
+							"desc" : "Promotes affordable housing and safety of residents in Staten Island / Richmond County."
 						}
 					]
 				},
 				"hood" : {
 					"h3" : "By Neighborhood",
-					"p" : "",
+					"p" : "These organizations operate with a specific neighborhood or catchment area.",
 					"ul" : [
 						{
-							"org" : "",
-							"desc" : ""
+							"org" : "Carroll Gardens Association",
+							"desc" : "Develops affordable/workforce housing and provides economic development, workforce training, youth services, tenant services and benefits assistance to the residents of Southwest Brooklyn."
 						},
 						{
-							"org" : "",
-							"desc" : ""
+							"org" : "Cooper Square Committee",
+							"desc" : "Helps organize tenants in the Cooper Square neighborhood of the East Village."
 						},
 						{
-							"org" : "",
-							"desc" : ""
+							"org" : "Crown Heights Tenants Union",
+							"desc" : "A union of Tenant Associations, that began meeting in October 2013 in response to rampant gentrification, displacement, and illegal rental overcharges in Crown Heights, Brooklyn."
 						},
 						{
-							"org" : "",
-							"desc" : ""
+							"org" : "East New York Urban Youth Corps",
+							"desc" : "Neighborhood-based, non-profit community development organization serving East New York, Brooklyn."
 						},
 						{
-							"org" : "",
-							"desc" : ""
+							"org" : "El Barrio's Operation Fight Back",
+							"desc" : "Renovates, manages and provides affordable housing, supportive services, education, advocacy and economic development opportunities for low-income families in East Harlem."
 						},
 						{
-							"org" : "",
-							"desc" : ""
+							"org" : "Fifth Avenue Committee, Inc.",
+							"desc" : "Helps tenants and promotes community development in south Brooklyn and lower Park Slope."
 						},
 						{
-							"org" : "",
-							"desc" : ""
+							"org" : "Flatbush Development Corp.",
+							"desc" : "Performs community development and affordable housing in Flatbush, Brooklyn."
 						},
 						{
-							"org" : "",
-							"desc" : ""
+							"org" : "Manhattan Valley Development Corporation",
+							"desc" : "Provides safe, decent housing that low income families and individuals can afford in Manhattan Valley and throughout Upper Manhattan."
 						},
 						{
-							"org" : "",
-							"desc" : ""
+							"org" : "Neighborhood Housing Services of NYC, Inc.",
+							"desc" : "Community-based organization with targeted impact in the following Neighborhoods: Bedford-Stuyvesant, East Flatbush, North Bronx, Northern Queens, and South Bronx."
 						},
 						{
-							"org" : "",
-							"desc" : ""
+							"org" : "North West Bushwick Community Group",
+							"desc" : "Helps tenants in the Bushwick neighborhood of Brooklyn fight illegal evictions and promotes the preservation and development of truly affordable housing."
 						},
 						{
-							"org" : "",
-							"desc" : ""
+							"org" : "Pratt Area Community Council",
+							"desc" : "Promotes affordable housing and small business development in central Brooklyn."
 						},
 						{
-							"org" : "",
-							"desc" : ""
-						}
+							"org" : "St. Nicholas Neighborhood Preservation Corporation",
+							"desc" : "Helps to preserve and rebuild the Williamsburg-Greenpoint neighborhood to the benefit of its low- and moderate-income residents."
+						},
+						{
+							"org" : "University Neighborhood Housing Program",
+							"desc" : "A nonprofit organization working to create, preserve, and finance affordable housing in the Northwest Bronx."
+						},
+						{
+							"org" : "Women’s Housing and Economic Development Corporation",
+							"desc" : "Community development organization that builds affordable housing and promotes community development in the south Bronx."
+						}						
 					]
 				}
 			},
 			"gov" : {
-				"h3" : "",
-				"p" : "",
+				"h3" : "Government Resources",
+				"p" : "These are links to websites of departments operating within the state and city levels of government that relate to housing and property ownership in NYC.",
 				"ul" : [
 					{
-						"org" : "",
-						"desc" : ""
+						"org" : "New York Department of Homes and Community Renewal",
+						"desc" : "Where you may file a complaint for a rent over charge and ask for advice on housing related issues. You may also speak with them in person at a local",
+						"a" : "HCR Office."
 					},
 					{
-						"org" : "",
-						"desc" : ""
+						"org" : "NYC Automated City Register Information System",
+						"desc" : "Look up property transaction information such as when a property was bought and sold by whom."
 					},
 					{
-						"org" : "",
-						"desc" : ""
+						"org" : "NYC Department of Buildings",
+						"desc" : "Look up building permits and violations."
 					},
 					{
-						"org" : "",
-						"desc" : ""
+						"org" : "NYC DRIE",
+						"desc" : "Tenants that qualify for the NYC Rent Freeze Program for Tenants with Disabilities (DRIE) can have their rent frozen and be exempt from future rent increases."
 					},
 					{
-						"org" : "",
-						"desc" : ""
+						"org" : "NYC Housing Connect",
+						"desc" : "Search for and be notified of new affordable housing in NYC. Many new buildings in NYC are required by law to have a portion of their units rented below market rate. To qualify to rent these units you must meet certain income criteria."
 					},
 					{
-						"org" : "",
-						"desc" : ""
+						"org" : "NYC Housing Preservation and Development",
+						"desc" : "The NYC agency that oversees preserving the stability and affordability of our existing housing stock. You may also ",
+						"a" : "find housing violations by building address here."
 					},
 					{
-						"org" : "",
-						"desc" : ""
+						"org" : "NYC Rent Guidelines Board",
+						"desc" : "Important info for renters in NYC."
 					},
 					{
-						"org" : "",
-						"desc" : ""
+						"org" : "NYC SCRIE",
+						"desc" : "Tenants who qualify for the NYC Rent Freeze Program for Seniors (SCRIE) can have their rent frozen and be exempt from future rent increases."
 					}
 				]
-
 			}
 		},
 
