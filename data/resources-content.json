@@ -201,197 +201,197 @@
 
 		"es" : {
 			"nav_main" : {
-				"why" : "Why it Matters",
-				"how" : "How it Works",
-				"resources" : "Resources"
+				"why" : "Porqué es importante",
+				"how" : "Como funciona",
+				"resources" : "Recursos"
 				},
 			"nav_side" : {
-				"h3" : "Jump to an area:",
-				"nongov" : "Tenants Rights Orgs",
-				"citywide" : "Citywide",
-				"boro" : "By Borough",
-				"hood" : "By Neighborhood",
-				"gov" : "Government Resources"
+				"h3" : "Ir a",
+				"nongov" : "Organizaciones de Derechos para Inquilinos",
+				"citywide" : "Por toda la Ciudad",
+				"boro" : "Por Distrito",
+				"hood" : "Por Vecindario",
+				"gov" : "Recursos Gubernamentales"
 			},
 			"nongov" : {
-				"h1" : "Tenants Rights Resources",
-				"h3" : "These are governmental and non-government organizations who work to protect tenants and promote affordable housing in NYC. This is by no means an exhaustive list as there are hundreds of such organizations in NYC.",				
+				"h1" : "Recursos de Derechos para Inquilinos",
+				"h3" : "Estos son organizaciones gubernamentales y no gubernamentales que protegen los derechos de inquilinos y promueven viviendas económicas en la ciudad de Nueva York. Hay cientos de éstas organizaciones en la ciudad de Nueva York.",				
 				"citywide" : {					
-					"h3" : "City Wide",
-					"p01" : "These organizations operate on a city-wide level.",
+					"h3" : "Por toda la Ciudad",
+					"p01" : "Estas organizaciones operan por toda la ciudad.",
 					"ul" : [
 						{
 							"org" : "Asian Americans For Equality",
-							"desc" : "AFE is committed to preserving affordable housing throughout New York and to providing new opportunities for the city’s diverse immigrant communities."
+							"desc" : "La AFE está comprometida en preservar viviendas asequibles por todo Nueva York y de proveer nuevas oportunidades a las diversas comunidades de inmigrantes. Asociación para el desarrollo de viviendas y comunidades."
 						},
 						{
 							"org" : "Association for Neighborhood and Housing Development",
-							"desc" : "Affordable Housing and Community Development organization. Runs trainings on tenants rights."
+							"desc" : "Opera programas de entrenamiento en derechos de inquilinos."
 						},
 						{
 							"org" : "Churches United For Fair Housing",
-							"desc" : "Brooklyn based organization that organizes towards preserving and creating vibrant communities that are not exclusive and are really affordable to working families in New York City."
+							"desc" : "Organización radicada en Brooklyn que organiza la creación y preservación de comunidades dinámicas accesibles a familias trabajadoras en la ciudad de Nueva York."
 						},
 						{
 							"org" : "Eviction Intervention Services",
-							"desc" : "Performs homelessness prevention by keeping residents in their communities, preserving existing affordable housing, and promoting and supporting the construction of affordable housing for low, moderate and middle-income households in NYC."
+							"desc" : "Lleva a cabo la prevención de personas sin hogar al mantener a residentes en sus comunidades, preservando viviendas económicas, y promoviendo y sustentando la construcción de viviendas económicas para dueños de viviendas con con bajo a moderado ingreso."
 						},
 						{
 							"org" : "Make The Road New York",
-							"desc" : "Works with Latino and working class communities to achieve dignity and justice through organizing, policy innovation, transformative education, and survival services."
+							"desc" : "Trabajan con el propósito de alcanzar dignidad y justicia para las comunidades latinas y la clase trabajadora mediante la organización, la innovación de leyes, la  educación, y servicios de sobrevivencia."
 						},
 						{
 							"org" : "Metropolitan Council on Housing",
-							"desc" : "Operates a number of tenant-assistance programs including a tenants' rights telephone hotline and a walk-in clinic, which serve thousands per year and are free and open to any New York City tenant."
+							"desc" : "Operan varios programas de asistencia a inquilinos incluyendo una línea telefónica dedicada a los derechos de inquilinos y una clínica de atención médica sin turno previo, la cual atiende a miles de personas al año, es gratis y abierta para cualquier inquilino de Nueva York."
 						},
 						{
 							"org" : "MFY Legal Services Inc.",
-							"desc" : "Provides free legal assistance to residents of New York City on a wide range of civil legal issues, prioritizing services to vulnerable and under-served populations."
+							"desc" : "Promueven asistencia legal gratis a los residentes de Nueva York en una amplia gama de problemas legales civiles, dándole prioridad a los servicios necesitados por poblaciones vulnerables que no tienen acceso a estos servicios."
 						},
 						{
 							"org" : "Picture the Homeless",
-							"desc" : "Works to advocate for affordable housing and performs outreach for homeless NYC residents."
+							"desc" : "Trabajan defendiendo viviendas económicamente accesibles y ayudan a personas sin hogares en la ciudad de Nueva York."
 						},
 						{
 							"org" : "Right To The City Alliance",
-							"desc" : "Works to prevent the displacement of low-income people, people of color, and LGBTQ persons. Operates nationally."
+							"desc" : "Su trabajo se enfoca en la prevención del desplazamiento de personas con bajos ingresos, de color, y de lesbianas, homosexuales, y transexuales. Operan en todo el país."
 						},
 						{
 							"org" : "Tenants and Neighbors",
-							"desc" : "Helps tenants organize at the building and community level to preserve at-risk affordable housing."
+							"desc" : "Ayudan a los inquilinos, por edificios o comunidades, a preservar viviendas económicamente accesibles en riesgo."
 						},
 						{
 							"org" : "Urban Homesteading Assistance Board",
-							"desc" : "Helps low to moderate income residents to take control of their housing and enhance their communities by creating strong tenant associations and lasting affordable co-ops."
+							"desc" : "Ayudan a residentes de bajo y moderado ingreso a tomar control de sus viviendas y mejorar sus comunidades mediante la creación de asociaciones de inquilinos con base sólida y la creación de cooperativas."
 						}
 					]
 				},
 				"boro" : {
-					"h3" : "By Borough",
-					"p" : "These organizations operate within a particular borough.",
+					"h3" : "Por Distrito",
+					"p" : "Estas organizaciones operan dentro de los diferentes distritos de Nueva York.",
 					"ul" : [
 						{
 							"org" : "Brooklyn Housing And Family Services, Inc.",
-							"desc" : "Works to provide Brooklyn residents with safe and affordable housing through outreach and counseling services."
+							"desc" : "Proveen viviendas económicamente accesible y seguras a los residentes de Bretón Brooklyn atreves de servicios de consejería y un serio compromiso con la comunidad."
 						},
 						{
 							"org" : "Bronx Shepherds Restoration Corporation",
-							"desc" : "Provides affordable housing, community programs and many other service to residents of the Bronx community."
+							"desc" : "Proveen viviendas económicamente accesibles, programas comunitarios y muchos otros servicios a residentes del Bronx."
 						},
 						{
 							"org" : "Brooklyn Legal Services Corporation A",
-							"desc" : "Provides high-quality legal assistance to low-income individuals and community groups in Brooklyn."
+							"desc" : "Proveen asistencia legal de primera a individuos con bajos ingresos y a grupos comunitarios en Brooklyn."
 						},
 						{
 							"org" : "Queens Community House, Inc.",
-							"desc" : "Helps all Queens residents with affordable housing and community development."
+							"desc" : "Ayudan a todos los residentes de Queens a encontrar viviendas económicamente accesibles y al desarrollo de comunidades."
 						},
 						{
 							"org" : "Neighborhood Housing Services of Staten Island",
-							"desc" : "Promotes affordable housing and safety of residents in Staten Island / Richmond County."
+							"desc" : "Promueve viviendas económicamente accesibles y seguras a los residentes en Staten Island y Richmond."
 						}
 					]
 				},
 				"hood" : {
 					"h3" : "By Neighborhood",
-					"p" : "These organizations operate with a specific neighborhood or catchment area.",
+					"p" : "Estas organizaciones operan en vecindarios específicos.",
 					"ul" : [
 						{
 							"org" : "Carroll Gardens Association",
-							"desc" : "Develops affordable/workforce housing and provides economic development, workforce training, youth services, tenant services and benefits assistance to the residents of Southwest Brooklyn."
+							"desc" : "Desarrollan viviendas económicamente accesibles proveen el desarrollo económico, entrenamientos de empleos, servicios a menores, servicios a inquilinos y asisten a los residentes del suroeste de Brooklyn."
 						},
 						{
 							"org" : "Cooper Square Committee",
-							"desc" : "Helps organize tenants in the Cooper Square neighborhood of the East Village."
+							"desc" : "Ayuda a organizar a los inquilinos en la vecindad del East Village."
 						},
 						{
 							"org" : "Crown Heights Tenants Union",
-							"desc" : "A union of Tenant Associations, that began meeting in October 2013 in response to rampant gentrification, displacement, and illegal rental overcharges in Crown Heights, Brooklyn."
+							"desc" : "Una unión de asociaciones de inquilinos que empezó a reunirse en octubre del 2013 en respuesta a: el rampante aburguesamiento, a el desplazamiento y al sobrecargo de rentas en Crown Heights, Brooklyn."
 						},
 						{
 							"org" : "East New York Urban Youth Corps",
-							"desc" : "Neighborhood-based, non-profit community development organization serving East New York, Brooklyn."
+							"desc" : "Organización sin fines de lucro dedicada a desarrollar comunidades en el este de Brooklyn."
 						},
 						{
 							"org" : "El Barrio's Operation Fight Back",
-							"desc" : "Renovates, manages and provides affordable housing, supportive services, education, advocacy and economic development opportunities for low-income families in East Harlem."
+							"desc" : "Renueva, maneja y promueve viviendas económicamente accesibles, brinda servicios de apoyo, educación,  y ofrece oportunidades de desarrollo económico a familias de bajo ingreso en East Harlem."
 						},
 						{
 							"org" : "Fifth Avenue Committee, Inc.",
-							"desc" : "Helps tenants and promotes community development in south Brooklyn and lower Park Slope."
+							"desc" : "Ayuda a inquilinos y promueve el desarrollo de la comunidad en el sur de Brooklyn y el bajo Park Slope."
 						},
 						{
 							"org" : "Flatbush Development Corp.",
-							"desc" : "Performs community development and affordable housing in Flatbush, Brooklyn."
+							"desc" : "Provee viviendas seguras y decentes a familias de bajo ingreso e individuos en Manhattan Valley y a través del Alto Manhattan."
 						},
 						{
 							"org" : "Manhattan Valley Development Corporation",
-							"desc" : "Provides safe, decent housing that low income families and individuals can afford in Manhattan Valley and throughout Upper Manhattan."
+							"desc" : "Organización de base comunitaria con el propósito de impactar en las siguientes comunidades: Bedford-Stuyvesant, East Flatbush, el norte de Bronx, el norte de  Queens y el sur del Bronx."
 						},
 						{
 							"org" : "Neighborhood Housing Services of NYC, Inc.",
-							"desc" : "Community-based organization with targeted impact in the following Neighborhoods: Bedford-Stuyvesant, East Flatbush, North Bronx, Northern Queens, and South Bronx."
+							"desc" : "Ayuda a inquilinos de Bushwick a evitar desalojos ilegales y promueven la preservación y el desarrollo de viviendas económicamente accesibles."
 						},
 						{
 							"org" : "North West Bushwick Community Group",
-							"desc" : "Helps tenants in the Bushwick neighborhood of Brooklyn fight illegal evictions and promotes the preservation and development of truly affordable housing."
+							"desc" : "Promueve viviendas económicamente accesibles y el desarrollo de pequeños negocios en el centro de Brooklyn."
 						},
 						{
 							"org" : "Pratt Area Community Council",
-							"desc" : "Promotes affordable housing and small business development in central Brooklyn."
+							"desc" : "Promueve viviendas económicamente accesibles y el desarrollo de pequeños negocios en el centro de Brooklyn."
 						},
 						{
 							"org" : "St. Nicholas Neighborhood Preservation Corporation",
-							"desc" : "Helps to preserve and rebuild the Williamsburg-Greenpoint neighborhood to the benefit of its low- and moderate-income residents."
+							"desc" : "Ayuda a preservar y reconstruir los vecindarios de Williamsburg - Greenpoint para el beneficio de los residentes de bajo y moderado ingresos."
 						},
 						{
 							"org" : "University Neighborhood Housing Program",
-							"desc" : "A nonprofit organization working to create, preserve, and finance affordable housing in the Northwest Bronx."
+							"desc" : "Una organización sin fines de lucro que se dedica a crear, preservar y financiar viviendas económicamente accesibles en el noreste del Bronx."
 						},
 						{
 							"org" : "Women’s Housing and Economic Development Corporation",
-							"desc" : "Community development organization that builds affordable housing and promotes community development in the south Bronx."
+							"desc" : "Organización de desarrollo comunitario que construye viviendas económicamente accesibles y promueve el desarrollo comunitario en el sur del Bronx."
 						}						
 					]
 				}
 			},
 			"gov" : {
-				"h3" : "Government Resources",
-				"p" : "These are links to websites of departments operating within the state and city levels of government that relate to housing and property ownership in NYC.",
+				"h3" : "Recursos Gubernamentales",
+				"p" : "Estos son enlaces a páginas web de departamentos que operan dentro del estado a nivel de ciudad que se relacionan con viviendas y propiedades en la ciudad de Nueva York.",
 				"ul" : [
 					{
 						"org" : "New York Department of Homes and Community Renewal",
-						"desc" : "Where you may file a complaint for a rent over charge and ask for advice on housing related issues. You may also speak with them in person at a local",
-						"a" : "HCR Office."
+						"desc" : "Aquí puedes entablar una denuncia por sobrecargo en su renta y recibir asesoría en problemas relacionados con viviendas. ",
+						"a" : "Las Oficinas de HCR."
 					},
 					{
 						"org" : "NYC Automated City Register Information System",
-						"desc" : "Look up property transaction information such as when a property was bought and sold by whom."
+						"desc" : "Aquí puedes buscar información específica de la compra y venta de propiedades."
 					},
 					{
 						"org" : "NYC Department of Buildings",
-						"desc" : "Look up building permits and violations."
+						"desc" : "Aquí puedes buscar permisos y violaciones de edificios."
 					},
 					{
 						"org" : "NYC DRIE",
-						"desc" : "Tenants that qualify for the NYC Rent Freeze Program for Tenants with Disabilities (DRIE) can have their rent frozen and be exempt from future rent increases."
+						"desc" : "Inquilinos que cumplan con los requisitos se pueden beneficiar del \"NYC Freeze Program\", un programa que congela la renta de inquilinos incapacitados y los exonera de futuras alzas en la renta."
 					},
 					{
 						"org" : "NYC Housing Connect",
-						"desc" : "Search for and be notified of new affordable housing in NYC. Many new buildings in NYC are required by law to have a portion of their units rented below market rate. To qualify to rent these units you must meet certain income criteria."
+						"desc" : "Aquí puedes buscar y ser notificado de nuevas viviendas económicamente accesibles en la ciudad de Nueva York. Muchos ser los nuevos edificios en la ciudad se le es requerido por ley que unas porción de sus unidades se renten por debajo del precio en el mercado. Para calificar se debe cumplir con ciertos criterios de ingreso."
 					},
 					{
 						"org" : "NYC Housing Preservation and Development",
-						"desc" : "The NYC agency that oversees preserving the stability and affordability of our existing housing stock. You may also ",
+						"desc" : "La agencia que monitorea y supervisa las preservación de estabilidad y asequibilidad de las viviendas existentes en el mercado. You may also ",
 						"a" : "find housing violations by building address here."
 					},
 					{
 						"org" : "NYC Rent Guidelines Board",
-						"desc" : "Important info for renters in NYC."
+						"desc" : "Información importante para los inquilinos de Nueva York."
 					},
 					{
 						"org" : "NYC SCRIE",
-						"desc" : "Tenants who qualify for the NYC Rent Freeze Program for Seniors (SCRIE) can have their rent frozen and be exempt from future rent increases."
+						"desc" : "Programa que beneficia a personas de la tercera edad congelando sus renta y los exonera de futuras alzas en su renta."
 					}
 				]
 			}
