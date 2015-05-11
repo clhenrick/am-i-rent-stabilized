@@ -81,11 +81,161 @@
 		},
 
 		"es" : {
-
+			"nav_main" : {
+				"why" : "Porqué es Importante",
+				"how" : "Como Funciona",
+				"resources" : "Recursos"
+				},
+			"nav_side" : {
+				"h3" : "Ir a un tema:",
+				"how" : "Como funciona",
+				"code" : "Código e Información",
+				"credits" : "Créditos"
+				},
+			"how" : {
+				"h1" : "Cómo funciona ésta página web",
+				"p01" : [
+					"Ésta página web verifica su dirección residencial y le indica si coincide con la lista de propiedades que ",
+					"probablemente tienen apartamentos con renta estabilizada. ",
+					"Aunque éste procedimiento no es 100% preciso, se le recomienda que la mejor acción a seguir es solicitar el historial de renta de su apartamento y buscar asesoramiento de algún grupo de derechos para inquilinos o algún abogado de vivienda. Ésto podría ser útil si: el  historial de renta de su apartamento es confuso; si está siendo intimidado por el propietario de su apartamento, o si posiblemente se le debe una gran suma de dinero."
+					],
+				"p02" : [
+					"Ésta página web no guarda ninguna de su información personal. Pero si guarda las direcciones suministradas con el único propósito de análisis internos por los creadores de éstas página. ",
+					"La información se mantiene privada y no se comparte."
+					],
+				"h3" : [
+					"Descargo de responsabilidad!",
+					"Estimando los edificios de la ciudad de Nueva York que tienen más posibilidades de tener renta estabilizada."
+					],
+				"p03" : [
+						"Ésta página web fue creada con el único propósito de brindar información y ",
+						"absolutamente no tiene ningún interés legal. ",
+						"No le va a indicar con precisión si su apartamento tiene renta estilizada debido a que los números de apartamentos no están incluidos en la base de datos. Para  averiguar con precisión si su renta es estabilizada debe solicitar el historial de renta de su apartamento al DHCR y buscar consejo de algún grupo de derechos de inquilinos."
+					],
+				"p04" : [
+					"A los propietarios de edificios con renta estabilizada le es sugerido reportar dichos apartamentos al ",
+					"DHCR. ",
+					"Éste proceso es esencialmente voluntario, ya que no se penaliza a los propietarios que decidan no registrar sus apartamentos con renta estabilizada. Esto hace difícil monitorear cuantos apartamentos con renta estabilizada existen y donde están localizados."
+				],
+				"p05" : "Cada año el DHCR distribuye la lista que contiene las direcciones de los edificios con apartamentos con renta estabilizada que han sido registrados.",
+				"p06" : [
+					"En general, los edificios que contienen apartamentos con renta estabilizada son aquellos que: fueron construidos antes del 1974, tienen 6 o más apartamentos, y no son co-op o condominios. Cuando comparamos estas características entre ",
+					"la oficina de impuestos y lotes de Nueva York (NYC PLUTO",
+					" con la lista del DHCR es evidente que hay propiedades que ",
+					"contienen apartamentos con renta estabilizada que no han sido registrados."
+				],
+				"p07" : "La base de datos que utiliza esta página web combina las propiedades en la lista del DHCR con aquellas que tienen altas probabilidades de tener unidades con renta estabilizada que no están en la lista con el propósito de tener un estimado de la ubicación de todos los apartamentos con renta estabilizada en la ciudad de Nueva York."
+			},
+			"code" : {
+				"h1" : "Código y Data",
+				"p" : "Usted puede inspeccionar y descargar el código de ésta página web. Puede descargar Excel y los archivos CSV del DHCR con la lista de los edificios con renta estabilizada. Enlaces a continuación.",
+				"ul" : [
+					"Github Repo (código)",
+					"Obtenga la Data",
+					"Lista de edificios con renta estabilizada"
+					]
+				},
+			"credits" : {
+				"h1" : "Créditos",
+				"h3" : "Gracias a usted por visitar nuestra página web y verificar su historial de renta.",
+				"p01" : "Las siguientes personas y organizaciones hicieron este proyecto posible.",
+				"ul" : [
+					"Caroline Woolard",
+					" inspiró la idea de ésta página web.",
+					"Radish Lab",
+					" proveyó valiosa ayuda con el diseño para la versión 2 de ésta página web.",
+					"Jue Yang",
+					" contribuyó con arte.",
+					"BetaNYC",
+					"  y sus socios proveyeron ayuda técnica y de motivación.",
+					"CartoDB",
+					" es el servidor de Data y también proveyó la tecnología necesaria para la búsqueda de data y la representación en el mapa."
+				],
+				"p02" : [					
+					"Nos encantaría escuchar su historia, especialmente si ésta página web le ayudó en alguna manera.",
+					"Siéntase en la libertad de contactarnos."
+					],
+				"p03" : "Trabajemos juntos para mantener a la ciudad de Nueva York económicamente accesible para que se pueda mantener como el lugar culturalmente rico y socialmente diverso que es hoy día."
+			}	
 		},
 
 		"zh" : {
-
+			"nav_main" : {
+				"why" : "Why it Matters",
+				"how" : "How it Works",
+				"resources" : "Resources"
+				},
+			"nav_side" : {
+				"h3" : "Jump to a topic:",
+				"how" : "How it Works",
+				"code" : "Code &amp; Data",
+				"credits" : "Credits"
+				},
+			"how" : {
+				"h1" : "How This Site Works",
+				"p01" : [
+					"This site checks your building's address and sees if it matches a list of properties that are ",
+					"likely to have rent stabilized apartments. ",
+					" However, it is not 100% accurate so the best course of action is always to request your rent history and then seek the advice of a tenants rights group or housing lawyer. This may be helpful if your rent history is unclear, if you are being intimidated by your landlord, worried about aggravating your landlord, or if you may be owed a large sum of money."
+					],
+				"p02" : [
+					"This site does not keep any personal identifiable information from you. It does keep track of addresses searched for internal analysis only. ",
+					"This info is kept private and not shared."
+					],
+				"h3" : [
+					"Disclaimer!",
+					"Estimating NYC buildings that are likely to have rent stabilized apartments"
+					],
+				"p03" : [
+						"This site is for informational purposes ony and ",
+						"has absolutely no legal bearing! ",
+						"It will not tell you if your apartment is definitely rent stabilized as the apartment numbers are not in the database. To find out for sure, you must request request your rent history from the DHCR and potentially seek advice from a tenants rights group."
+					],
+				"p04" : [
+					"Landlords are required to report their rent stabilized apartments to the ",
+					"DHCR",
+					" every year. This process is essentially voluntary as landlords are not held accountable for choosing not to register their rent stabilized apartments. This makes it difficult to track how many rent stabilized apartments exist and where they are located."
+				],
+				"p05" : "Each year the DHCR releases a list containing the addresses of buildings with rent stabilized apartments that have been registered.",
+				"p06" : [
+					"In general, it is likely that a building has rent stabilized apartments if it was built before 1974, has 6 or more apartments, and is not a co-op or condo. When comparing this query on NYC's ",
+					"tax lot data (NYC PLUTO)",
+					" to properties on the DHCR list it is evident that there are properties that ",
+					"likely have rent stabilized apartments which are not registered with the DHCR."
+				],
+				"p07" : "The database used by this site combines the properties on the DHCR list with those that are likely to have rent stabilized units and are not currently on the DHCR list in order to get an estimate of the locations of all rent stabilized apartments in NYC."			
+			},
+			"code" : {
+				"h1" : "Code and Data",
+				"p" : "You may inspect and download the code for this site, download the data it uses, and download Excel and CSV files of the DHCR rent stabilized building list from the links below.",
+				"ul" : [
+					"Github Repo (code)",
+					"Get the Data",
+					"DHCR's Rent Stabilzed Building List"
+					]
+				},
+			"credits" : {
+				"h1" : "Credits",
+				"h3" : "And most of all thanks to you for visiting this site and checking your rent history!",
+				"p01" : "The following people and organizations helped tremendously to make this project happen.",
+				"ul" : [
+					"Caroline Woolard",
+					"originally gave me the idea to build the site.",
+					"Radish Lab",
+					" provided extremely helpful design assistance for version 2 of this website.",
+					"Jue Yang",
+					" contributed kick-ass art work.",
+					"BetaNYC",
+					" and its members provided much needed technical &amp; motivational support.",
+					"CartoDB",
+					"hosts the data as well as provides the technology necessary for querying the data and rendering it on a map."
+				],
+				"p02" : [					
+					"We'd love to hear about your story, especially if this site helped you in any way, so feel free to ",
+					"get in touch."
+					],
+				"p03" : "Let's work together to keep NYC affordable so that it can stay the culturally rich and socio-economically diverse place it's so well-  known for being."
+			}	
 		}
 	}
 }
