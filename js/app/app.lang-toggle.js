@@ -13,7 +13,7 @@ app.language = (function(w,d,$) {
         filePath,
         contentFolder = 'data/';
     if (langs.indexOf(lang) === -1) { lang = 'en'; }
-    w.location.hash = '?lang=' + lang;
+    // w.location.hash = '?lang=' + lang;
 
     // load the correct JSON file based on the app's page...
     if (currentPage === 'index') {      
@@ -66,7 +66,8 @@ app.language = (function(w,d,$) {
       }
 
       if (typeof lang === 'undefined') {
-        curLang = d.URL.substring(d.URL.lastIndexOf('=') + 1, d.URL.length);        
+        curLang = d.URL.substring(d.URL.lastIndexOf('=') + 1, d.URL.length);
+        console.log('curLang: ', curLang);        
 
       } else {
         curLang = lang;
