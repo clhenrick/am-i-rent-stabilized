@@ -203,15 +203,15 @@ this["app"]["templates"]["how"] = Handlebars.template({"compiler":[6,">= 2.0.0-b
 this["app"]["templates"]["main"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=this.lambda, alias2=this.escapeExpression;
 
-  return "<nav class=\"main-nav\">\n  <img class=\"logo\" src=\"../assets/png/logo.png\">\n  <h1>            \n    <a class=\"go-first\" href=\"#\">Am I Rent Stabilized?</a>\n  </h1>\n  <div class=\"burger\" alt=\"-\"></div>\n  <ul>\n    <li class=\"nav\"><a href=\"html/why.html\">"
+  return "<nav class=\"main-nav\">\n  <img class=\"logo\" src=\"assets/png/logo.png\">\n  <h1>            \n    <a class=\"go-first\" href=\"#\">Am I Rent Stabilized?</a>\n  </h1>\n  <div class=\"burger\" alt=\"-\"></div>\n  <ul>\n    <li class=\"nav\"><a href=\"html/why.html\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.why : stack1), depth0))
     + "</a></li>\n    <li class=\"nav\"><a href=\"html/how.html\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.how : stack1), depth0))
     + "</a></li>\n    <li class=\"nav\"><a href=\"html/resources.html\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.resources : stack1), depth0))
-    + "</a></li>            \n  </ul>\n</nav>\n\n<div id=\"mobile-message\">\n  <img src=\"../assets/png/rotate.png\">\n  <h1>"
+    + "</a></li>            \n  </ul>\n</nav>\n\n<div id=\"mobile-message\">\n  <img src=\"assets/png/rotate.png\">\n  <h1>"
     + alias2(((helper = (helper = helpers.mobile_msg || (depth0 != null ? depth0.mobile_msg : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"mobile_msg","hash":{},"data":data}) : helper)))
-    + "</h1>          \n</div>\n\n<div id=\"lang-toggle\">\n    <ul>\n        <li><a class=\"toggle-es\" href=\"#\"></a></li>\n        <li><p>•</p></li>\n        <li><a class=\"toggle-zh\" href=\"#\"></a></li>\n    </ul>\n</div>\n\n<nav class=\"margin-circles\">\n    <ul>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n    </ul>\n</nav>\n\n<div class=\"slides-container\">\n    <div class=\"slide\" id=\"slide-1\">\n        <div class=\"centered\"> \n            <img class=\"triple-s\" src=\"../assets/png/triple-sss.png\">              \n            <img class=\"building intro\" src=\"../assets/png/building.png\">\n            <h1 class=\"landing\">"
+    + "</h1>          \n</div>\n\n<div id=\"lang-toggle\">\n    <ul>\n        <li><a class=\"toggle-es\" href=\"#\"></a></li>\n        <li><p>•</p></li>\n        <li><a class=\"toggle-zh\" href=\"#\"></a></li>\n    </ul>\n</div>\n\n<nav class=\"margin-circles\">\n    <ul>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n    </ul>\n</nav>\n\n<div class=\"slides-container\">\n    <div class=\"slide\" id=\"slide-1\">\n        <div class=\"centered\"> \n            <img class=\"triple-s\" src=\"assets/png/triple-sss.png\">              \n            <img class=\"building intro\" src=\"assets/png/building.png\">\n            <h1 class=\"landing\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide01 : depth0)) != null ? stack1.h1 : stack1), depth0))
     + "</h1> \n            <h2 class=\"sub-head\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide01 : depth0)) != null ? stack1.h2 : stack1), depth0))
@@ -289,13 +289,13 @@ this["app"]["templates"]["main"] = Handlebars.template({"compiler":[6,">= 2.0.0-
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_bottom_arrow : depth0)) != null ? stack1.next : stack1), depth0))
     + "</h3>\n          <div class=\"arrow\"></div>\n        </div>\n    </div>\n\n    <div class=\"slide\" id=\"slide-7\">                \n        <div class=\"centered\">                    \n            <!-- <h4 class=\"step\">Step 4 of 5</h4> -->\n            <h1>"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide07 : depth0)) != null ? stack1.h1 : stack1), depth0))
-    + "</h1>\n            <a href=\"#rent-history\">\n              <img class=\"rent-history\" src=\"../assets/png/sample-rent-history-thumb.png\">\n            </a>\n            <p class=\"view-sample\"><a href=\"#rent-history\">\n              "
+    + "</h1>\n            <a href=\"#rent-history\">\n              <img class=\"rent-history\" src=\"assets/png/sample-rent-history-thumb.png\">\n            </a>\n            <p class=\"view-sample\"><a href=\"#rent-history\">\n              "
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide07 : depth0)) != null ? stack1.p : stack1), depth0))
     + "\n            </a></p>\n        </div>\n        <div class=\"go-next bottom-arrow\">\n          <h3>"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_bottom_arrow : depth0)) != null ? stack1.next : stack1), depth0))
     + "</h3>\n          <div class=\"arrow\"></div>\n        </div>\n    </div>   \n\n    <div class=\"slide\" id=\"slide-8\">\n        <div class=\"centered\">\n            <!-- <h4 class=\"step\">Step 5 of 5</h4> -->\n            <h1>"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide08 : depth0)) != null ? stack1.h1 : stack1), depth0))
-    + "</h1>\n            <!-- <img class=\"mascot monster\" src=\"../assets/png/no1.png\"> -->\n            <div class=\"action-choice\">                      \n              <h4>"
+    + "</h1>\n            <!-- <img class=\"mascot monster\" src=\"assets/png/no1.png\"> -->\n            <div class=\"action-choice\">                      \n              <h4>"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide08 : depth0)) != null ? stack1.option01 : stack1), depth0))
     + "</h4>\n              <p class=\"no-local-tr\">\n                 <a href=\"html/resources.html\">"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.slide08 : depth0)) != null ? stack1.no_local_tr : stack1)) != null ? stack1.a : stack1), depth0))
@@ -317,7 +317,7 @@ this["app"]["templates"]["main"] = Handlebars.template({"compiler":[6,">= 2.0.0-
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_bottom_arrow : depth0)) != null ? stack1.next : stack1), depth0))
     + "</h3>\n          <div class=\"arrow\"></div>\n        </div>\n    </div>    \n\n    <div class=\"slide\" id=\"slide-9\">\n        <div class=\"centered v-centered\">\n            <h1 class=\"end\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide09 : depth0)) != null ? stack1.h1 : stack1), depth0))
-    + "</h1>\n            <img class=\"mascot\" src=\"../assets/png/yes.png\">\n            <!-- <p><span class=\"go-first\">Start Over</span></p> -->\n            <div class=\"button-holder\">\n              <p class=\"button start-over go-first\" type=\"submit\"><a href=\"#\">\n                "
+    + "</h1>\n            <img class=\"mascot\" src=\"assets/png/yes.png\">\n            <!-- <p><span class=\"go-first\">Start Over</span></p> -->\n            <div class=\"button-holder\">\n              <p class=\"button start-over go-first\" type=\"submit\"><a href=\"#\">\n                "
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide09 : depth0)) != null ? stack1.start : stack1), depth0))
     + "</a></p>\n              <p class=\"button learn-more\" type=\"submit\"><a href=\"html/why.html\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide09 : depth0)) != null ? stack1.learn : stack1), depth0))
