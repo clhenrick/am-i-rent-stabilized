@@ -4,37 +4,42 @@ app.language = (function(w,d,$) {
 
     var $es,
         $zh,
-        $en;
+        $en,
+        langs = ['en','es', 'zh'];
 
   function loadTemplateData(lang, currentPage, callback){
     var template,
         html,
-        filePath = '../data/';
+        filePath,
+        contentFolder = 'data/';
+    if (langs.indexOf(lang) === -1) { lang = 'en'; }
+    w.location.hash = '?lang=' + lang;
 
     // load the correct JSON file based on the app's page...
-    if (currentPage === 'index') {
-      filePath += 'main-content.json';
+    if (currentPage === 'index') {      
+      filePath = contentFolder + 'main-content.json';
       template = app.templates.main;
     } else if (currentPage === 'why') {
-      filePath += 'why-content.json';
+      filePath = '../' + contentFolder + 'why-content.json';
       template = app.templates.why;
     } else if (currentPage === 'how') {
-      filePath += 'how-content.json';
+      filePath = '../' + contentFolder + 'how-content.json';
       template = app.templates.how;
     } else if (currentPage === 'resources') {
-      filePath += 'resources-content.json';
+      filePath = '../' + contentFolder + 'resources-content.json';
       template = app.templates.resources;
     }    
     
     $.getJSON(filePath, function(data) {      
       if (lang === 'es') {
-        html = template(data.languages.es);
+        html = template(data.languages.es);        
       } else if (lang === 'zh') {
         html = template(data.languages.zh);
       } else  {
         html = template(data.languages.en);
       }      
       d.querySelector('#wrapper').innerHTML = html;
+      initLangButtons();      
     })
     .done(function(){
       if (callback && typeof callback === "function") { 
@@ -42,7 +47,9 @@ app.language = (function(w,d,$) {
       }      
       if (currentPage === 'index') {
         app.init.init();
-      }
+      } else {
+        app.pages.toggleBurger();
+      }  
       $es = $('#lang-toggle .toggle-es');
       $zh = $('#lang-toggle .toggle-zh');
       $en = $('#lang-toggle .toggle-en');
@@ -53,9 +60,14 @@ app.language = (function(w,d,$) {
   function langToggle(lang, callback) {
       var curLang;
       var currentPage = document.URL.substring(document.URL.lastIndexOf('/') + 1, document.URL.lastIndexOf('.'));
+      
+      if (['index', 'why', 'how', 'resources'].indexOf(currentPage) === -1) {
+        currentPage = 'index';
+      }
 
       if (typeof lang === 'undefined') {
-        curLang = d.URL.substring(d.URL.lastIndexOf('=') + 1, d.URL.length);
+        curLang = d.URL.substring(d.URL.lastIndexOf('=') + 1, d.URL.length);        
+
       } else {
         curLang = lang;
       }
@@ -98,9 +110,7 @@ app.language = (function(w,d,$) {
         langToggle('zh');
       } else {
         langToggle('en');
-      }
-      addthis.layers.refresh(); // add the sharing tools 
-      app.f.onResize(); // resize the slides to fit the browser
+      }            
     });
   }
 

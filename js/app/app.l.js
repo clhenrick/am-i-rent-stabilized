@@ -45,6 +45,12 @@ app.l = (function(w,d,$,el,f) {
     // up / down key navigation
     w.onkeydown = app.f.onKeyDown;
 
+    // listen to window hash change
+    w.onhashchange = function() {
+      // console.log('window.location.hash: ', w.location.hash);
+      console.log(d.URL.substring(d.URL.lastIndexOf('=') + 1, d.URL.length));
+    };
+
     // go back
     // addEventListenerList(el.navGoPrev, 'click', goToPrevSlide);
 

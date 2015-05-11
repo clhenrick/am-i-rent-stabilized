@@ -18,7 +18,7 @@ app.init = (function(w,d){
       app.f.onResize();
       app.f.goToSlide(app.el.currentSlide);
       app.a.createMailTo();
-      app.f.addToCalendar();
+      app.f.addToCalendar();      
       app.map.init();      
   }
   

@@ -12,7 +12,7 @@ app.map = (function(d,w,a,H,$){
       template = H.compile(source),
       hbData = {orgs: []};
 
-  Handlebars.registerHelper('each', function(context, options) {
+  H.registerHelper('each', function(context, options) {
     var ret = "";
     for(var i=0, j=context.length; i<j; i++) {
       ret = ret + options.fn(context[i]);
@@ -20,7 +20,7 @@ app.map = (function(d,w,a,H,$){
     return ret;
   });
 
-  Handlebars.registerHelper('if', function(conditional, options) {
+  H.registerHelper('if', function(conditional, options) {
     if (conditional) {
       return options.fn(this);
     } else {

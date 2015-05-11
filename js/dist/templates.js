@@ -9,7 +9,7 @@ this["app"]["templates"]["how"] = Handlebars.template({"compiler":[6,">= 2.0.0-b
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.how : stack1), depth0))
     + "</a></li>\n    <li class=\"nav\"><a href=\"resources.html\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.resources : stack1), depth0))
-    + "</a></li>\n  </ul>\n</nav>\n\n<div id=\"left\">\n  <div id=\"lang-toggle\">\n      <ul>\n          <li><a href=\"#\">en español</a></li>\n          <li><p>•</p></li>\n          <li><a href=\"#\">中文</a></li>\n      </ul>\n  </div>\n\n  <div id=\"side-nav\">\n    <h3>"
+    + "</a></li>\n  </ul>\n</nav>\n\n<div id=\"left\">\n  <div id=\"lang-toggle\">\n      <ul>\n          <li><a class=\"toggle-es\" href=\"#\">en español</a></li>\n          <li><p>•</p></li>\n          <li><a class=\"toggle-zh\" href=\"#\">中文</a></li>\n      </ul>\n  </div>\n\n  <div id=\"side-nav\">\n    <h3>"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_side : depth0)) != null ? stack1.h3 : stack1), depth0))
     + "</h3>\n    <ul>\n      <li><a href=\"#how\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_side : depth0)) != null ? stack1.how : stack1), depth0))
@@ -235,7 +235,7 @@ this["app"]["templates"]["resources"] = Handlebars.template({"compiler":[6,">= 2
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.how : stack1), depth0))
     + "</a></li>\n    <li class=\"nav\"><a href=\"resources.html\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.resources : stack1), depth0))
-    + "</a></li>\n  </ul>\n</nav>\n\n<div id=\"left\">\n  <div id=\"lang-toggle\">\n      <ul>\n          <li><a href=\"#\">en español</a></li>\n          <li><p>•</p></li>\n          <li><a href=\"#\">中文</a></li>\n      </ul>\n  </div>\n\n  <div id=\"side-nav\">\n    <h3>"
+    + "</a></li>\n  </ul>\n</nav>\n\n<div id=\"left\">\n  <div id=\"lang-toggle\">\n      <ul>\n          <li><a class=\"toggle-es\" href=\"#\">en español</a></li>\n          <li><p>•</p></li>\n          <li><a class=\"toggle-zh\" href=\"#\">中文</a></li>\n      </ul>\n  </div>\n\n  <div id=\"side-nav\">\n    <h3>"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_side : depth0)) != null ? stack1.h3 : stack1), depth0))
     + "</h3>\n    <ul>\n      <li>\n        <a class=\"responsive-turn-off\" href=\"#non-gov\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_side : depth0)) != null ? stack1.nongov : stack1), depth0))
@@ -434,7 +434,7 @@ this["app"]["templates"]["why"] = Handlebars.template({"compiler":[6,">= 2.0.0-b
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.how : stack1), depth0))
     + "</a></li>\n            <li class=\"nav\"><a href=\"resources.html\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.resources : stack1), depth0))
-    + "</a></li>\n          </ul>\n        </nav>\n\n        <div id=\"left\">\n          <div id=\"lang-toggle\">\n              <ul>\n                  <li><a href=\"#\">en español</a></li>\n                  <li><p>•</p></li>\n                  <li><a href=\"#\">中文</a></li>\n              </ul>\n          </div>\n\n          <div id=\"side-nav\">\n            <h3>"
+    + "</a></li>\n          </ul>\n        </nav>\n\n        <div id=\"left\">\n          <div id=\"lang-toggle\">\n              <ul>\n                  <li><a class=\"toggle-es\" href=\"#\">en español</a></li>\n                  <li><p>•</p></li>\n                  <li><a class=\"toggle-zh\" href=\"#\">中文</a></li>\n              </ul>\n          </div>\n\n          <div id=\"side-nav\">\n            <h3>"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_side : depth0)) != null ? stack1.h3 : stack1), depth0))
     + "</h3>\n            <ul>\n              <li><a href=\"#why\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_side : depth0)) != null ? stack1.why : stack1), depth0))
