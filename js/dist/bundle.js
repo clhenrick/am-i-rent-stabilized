@@ -993,11 +993,11 @@ app.helpers = (function(w,d,el) {
         for (i; i<l; i++) {
           var circle = app.el.progressCircles[i];
           if (s===i) {
-            circle.style.backgroundImage = 'url(../assets/png/oval_25_filled.png)';
+            circle.style.backgroundImage = 'url(assets/png/oval_25_filled.png)';
             circle.style.backgroundSize = backgroundSize;
             circle.style.backgroundRepeat = 'no-repeat';        
           } else {
-            circle.style.background = 'url(../assets/png/oval_25_blank.png)';
+            circle.style.background = 'url(assets/png/oval_25_blank.png)';
             circle.style.backgroundSize = backgroundSize; 
             circle.style.backgroundRepeat = 'no-repeat';               
           }
