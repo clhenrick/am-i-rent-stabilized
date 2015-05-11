@@ -1,5 +1,6 @@
 .button {
   @include button;
+  font-size: 2em; 
 
   &:hover {
     background-color: $orange;
@@ -10,22 +11,35 @@
   }
 
   &.search {
+    position: absolute;
     display: block;
     width: 150px;
-    margin-top: 50px;
+    left: 50%;
+    bottom: 5%;
+    margin-left: -75px;
+
+    &.es {       
+      width: 170px;
+    }
   }
 
   &.learn-more {
+    width: 180px;
     margin-left: 50px;
   }
 
   @include responsive_height(medium-screens) {
-    width: 160px;
+    width: 180px;
     font-size: 1.8em;
     padding: 8px 12px;
 
     &.search {
       width: 125px;
+      margin-left: -62.5px;
+    }
+
+    &.start-over.es {
+      width: 215px;
     }
 
     &.learn-more {
@@ -40,6 +54,7 @@
 
     &.search {
       width: 125px;
+      margin-left: -62.5px;
     }
   }
 
@@ -51,7 +66,7 @@
 
     &.search {
       width: 110px;
-      margin: 0 auto;
+      margin-left: -55px;
       // width: 110px;
     }
 

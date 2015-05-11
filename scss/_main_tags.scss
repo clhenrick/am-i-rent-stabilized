@@ -10,13 +10,25 @@ body, div, p {
 
 body {
   color: #4a4a4a;
-  font: {
-    size: 62.5%;
+  font: {    
     family: $body-font;
     weight: 400;
+    size: 62.5%;
   }
   letter-spacing: 0.0625em;
   background-color: $white;
+
+  &.en {
+    font-size: 62.5%;
+  }
+
+  &.es {
+    font-size: 50%;
+  }
+
+  &.zh {
+    font-size: 50%;
+  }
 }
 
 *, *:before, *:after {
@@ -49,6 +61,7 @@ h1 {
   font-size: 5.4em;
   color: $gray;
   max-width: 95%;
+  width: 75%;
   margin-top: 75px;
   
   &.landing {
@@ -57,8 +70,16 @@ h1 {
     font-style: italic;
   } 
 
+  &.step {
+    width: 80%;
+  }  
+
   &.checking {
     margin-top: 0;
+  }
+
+  .yes & {
+    margin-top: 50px;
   }
 
   &.end {
@@ -73,7 +94,12 @@ h1 {
     &.landing {
       margin-top: 0px;
       width: 65%;
+      &.es {
+        font-size: 3.2em;        
+      }
     }
+
+    &.step { width: 65%; }
 
     .yes & {
       width: 55%;
@@ -82,6 +108,10 @@ h1 {
 
     &.news {
       margin-top: 7%;
+    }
+
+    &.es {
+      font-size: 3.2em;
     }
   }
 
@@ -93,6 +123,11 @@ h1 {
     &.landing {
       margin-top: 0;
       max-width: 75%;
+      
+      &.es {
+        font-size: 3.2em;
+        width: 65%;
+      }
     }
     &.news {
       margin-top: 7%;
@@ -101,7 +136,7 @@ h1 {
 
   @include responsive(tablet-screens) {
     margin-top: 15%;
-    width: 80%;
+    width: 75%;
   }
 
   @include responsive(small-screens) {
@@ -133,9 +168,9 @@ h1 {
 
 h2 {
   color: $lightgray;
-  font {
+  font: {
     family: $body-font;
-    size: 4.8em;
+    size: 2.8em;
     style: italic;
     weight: bold;
   }
@@ -193,7 +228,7 @@ h4 {
 p {
   width: 80%;
   margin: 0 auto;
-  font-size: 2.8em;
+  font-size: 2.2em;
   color: $green;
   text-align: center;
   // margin-top: 20px;    
@@ -204,6 +239,10 @@ p {
   }
 
   &.landing{
+    margin-top: 25px;
+  }
+
+  &.step {
     margin-top: 25px;
   }
 
@@ -218,11 +257,12 @@ p {
 
   &.be-sure {
     margin-top: 65px;
+    width: 70%;
   }
 
   &.check-it {
     margin-top: 70px;
-    width: 55%;
+    width: 35%;
   }
 
   &.view-sample {
@@ -236,11 +276,19 @@ p {
 
       &.go-step4 {
         width: 20%;
+        &.es {
+          width: 30%;
+        }
       }
 
       &.check-it {
         margin-top: 25px;
         width: 30%;
+      }
+
+      .no & { 
+        margin-top: 25px;
+        width: 60%; 
       }
 
       &.be-sure {

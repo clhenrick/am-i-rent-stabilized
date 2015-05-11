@@ -22,7 +22,7 @@
 }
 
 .org-container {
-	width: 85%;
+	width: 350px;
 	height: 85%;
 	top: 60px;
 	position: relative;
@@ -30,8 +30,13 @@
 	padding: 10px 20px 13px 20px;
 	border-radius: 10px;
 	background: #fff;
+	overflow-y: auto;
 
-	@include columns($width: 300px, $number: 2, $gap: 40px);
+	// @include columns($width: 300px, $number: 2, $gap: 40px);
+
+	@include responsive(small-screens) {
+		width: 300px;
+	}
 
 	&:first-child {
 		margin-top: 10px;
@@ -40,6 +45,7 @@
 	h1, h3, p {
 		text-align:left;
 		margin: 0;
+		padding: 0;
 		max-width: 100%;
 		width: 95%;
 	}
@@ -75,9 +81,9 @@
 	color: #FFFFFF;
 	line-height: 25px;
 	position: absolute;
-	right: -12px;
+	right: 12px;
 	text-align: center;
-	top: -10px;
+	top: 12px;
 	width: 24px;
 	text-decoration: none;
 	font-weight: bold;
@@ -94,4 +100,5 @@
 .tr-org-info {
 	width: 350px;
 	margin-top: 15px;
+	overflow: hidden;
 }

@@ -35,11 +35,6 @@ nav.main-nav {
         border: none;
       }
     }
-
-    // a.go-first:hover {
-    //   border-bottom: none;
-    //   color: $orange;
-    // }
   }
 
   // hide hamburger icon for larger screen widths
@@ -63,7 +58,7 @@ nav.main-nav {
 
     li {
       display: inline-block;
-      margin-right: 55px;
+      margin-right: 55px;      
 
       &:last-child {
         margin-right: 30px;
@@ -71,8 +66,11 @@ nav.main-nav {
 
       a {
         text-align: center;
-        font-family: $header-font;
+        font-family: $body-font;
         font-weight: 300;
+
+        &.zh { font-size: 1.5em; }
+        &.es { font-size: 1.8em; }
       }
     }
 

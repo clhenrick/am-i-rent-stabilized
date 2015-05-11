@@ -1,6 +1,6 @@
 var app = app || {};
 
-app.events = (function(w, d, $) {
+app.events = (function(w, d, $) {    
 
     var publish = function (name, o) {
        

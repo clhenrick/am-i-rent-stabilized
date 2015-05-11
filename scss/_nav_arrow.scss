@@ -11,7 +11,12 @@
     margin: 0 auto;
     margin-left: -62.5px;
     left: 50%;
-    bottom: 3%
+    bottom: 3%;
+
+    &.es {
+      width: 170px;
+      margin-left: -85px;
+    }
   }
   
   h3 {
@@ -21,7 +26,10 @@
     font-size: 3.5em;
     text-transform: uppercase;
     text-align: center;
-    // margin-top: 20px;
+    
+    .es & {
+      font-size: 2.5em;
+    }
   }
   
   .arrow {

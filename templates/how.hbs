@@ -1,0 +1,144 @@
+<nav class="main-nav">
+  <img class="logo" src="../assets/png/logo.png">
+  <h1>            
+    <a class="go-first" href="../index.html">Am I Rent Stabilized?</a>
+  </h1>
+  <div class="burger" alt="-"></div>
+  <ul>
+    <li class="nav"><a href="why.html">{{nav_main.why}}</a></li>
+    <li class="nav"><a href="how.html">{{nav_main.how}}</a></li>
+    <li class="nav"><a href="resources.html">{{nav_main.resources}}</a></li>
+  </ul>
+</nav>
+
+<div id="left">
+  <div id="lang-toggle">
+      <ul>
+          <li><a class="toggle-es" href="#">en español</a></li>
+          <li><p>•</p></li>
+          <li><a class="toggle-zh" href="#">中文</a></li>
+      </ul>
+  </div>
+
+  <div id="side-nav">
+    <h3>{{nav_side.h3}}</h3>
+    <ul>
+      <li><a href="#how">{{nav_side.how}}</a></li>
+      <li><a href="#code-data">{{{nav_side.code}}}</a></li>
+      <li><a href="#credits">{{nav_side.credits}}</a></li>
+    </ul>          
+  </div>
+</div>
+
+<div id="main">
+  <a name="how"></a>
+  <h1> {{how.h1}} </h1>
+  <p>
+    {{how.p01.[0]}}
+    <strong> {{how.p01.[1]}} </strong>
+    {{how.p01.[2]}}
+  </p>
+
+  <p>
+    {{how.p02.[0]}}
+    <strong> {{how.p02.[1]}} </strong></p>
+
+  <h3>{{how.h3.[0]}}</h3>
+  <p>
+    {{how.p03.[0]}}
+    <strong>{{how.p03.[1]}}</strong>
+    {{how.p03.[2]}}
+  </p>
+
+  <h3>{{how.h3.[1]}}</h3>
+  <p>
+    {{how.p04.[0]}}
+    <a target="_blank" href="http://www.nyshcr.org/">
+      {{how.p04.[1]}}
+    </a>
+    {{how.p04.[2]}}
+  </p>
+  <p>
+    {{how.p05}}
+  </p>
+  <p>
+    {{how.p06.[0]}}
+    <a target="_blank" href="http://www.nyc.gov/html/dcp/html/bytes/dwn_pluto_mappluto.shtml">
+      {{how.p06.[1]}}
+    </a>
+      {{how.p06.[2]}}
+    <a target="_blank" href="http://cdb.io/1CxBFB4">
+      {{how.p06.[3]}}
+    </a>
+  </p>
+
+  <p>
+    {{how.p07}}
+  </p>
+  
+  <a name="code-data"></a>
+  <h1>{{code.h1}}</h1>
+  <p>
+    {{code.p}}
+  </p>
+  <ul>
+    <li><a target="_blank" href="https://github.com/clhenrick/am-i-rent-stabilized">
+      {{code.ul.[0]}}
+    </a></li>
+    <li><a target="_blank" href="http://chenrick.cartodb.com/tables/all_nyc_likely_rent_stabl_merged/public">
+      {{code.ul.[1]}}
+    </a></li>
+    <li><a target="_blank" href="https://github.com/clhenrick/dhcr-rent-stabilized-data">
+      {{code.ul.[2]}}
+    </a></li>
+  </ul>
+  
+  <a name="credits"></a>
+  <h1>{{credits.h1}}</h1>
+  <p>
+    {{credits.p01}}
+  </p>
+  <ul>
+    <li>
+      <a target="_blank" href="http://carolinewoolard.com/">
+        {{credits.ul.[0]}}
+      </a>
+      {{credits.ul.[1]}}
+    </li>
+    <li>
+      <a target="_blank" href="http://radishlab.com/">
+        {{credits.ul.[2]}}
+      </a>
+      {{credits.ul.[3]}}
+    </li>
+    <li>
+      <a target="_blank" href="http://goodlemons.com/">
+        {{credits.ul.[4]}}
+      </a>
+      {{credits.ul.[5]}}
+    </li>            
+    <li>
+      <a target="_blank" href="http://betanyc.us">
+        {{credits.ul.[6]}}
+      </a>
+      {{{credits.ul.[7]}}}
+    </li>
+    <li>
+      <a target="_blank" href="http://cartodb.com">
+        {{credits.ul.[8]}}
+      </a>
+      {{credits.ul.[9]}}
+   </li>
+  </ul>
+
+  <h3>{{credits.h3}}</h3>
+  <p>
+    {{credits.p02.[0]}}
+    <a href="mailto:amirentstabilized@gmail.com">
+      {{credits.p02.[1]}}
+    </a>
+  </p> 
+  <p>
+    {{credits.p03}}
+  </p>
+</div>

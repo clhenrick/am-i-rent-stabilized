@@ -30,7 +30,10 @@
     padding-left: 10px;
     font-weight: 300;
     color: $medgray;
-    // font-size: .8em;
+    
+    &.es {
+      font-size: 0.75em;
+    }
   }
 
   .borough-select.active {
@@ -68,7 +71,7 @@
       background-image: url('../assets/png/drop-down-triangle.png');
       background-repeat: no-repeat;
       background-position: center center;
-      background-size: contain;
+      // background-size: contain;
     }
     
     ul.drop-down {        
@@ -115,7 +118,11 @@
     input { 
       &.address-input {
         width: 400px; 
-        height: 60px;   
+        height: 60px;
+
+        &.es {
+          font-size: 0.85em;
+        }
       }
     }
 
@@ -129,7 +136,7 @@
 
       &.borough-select {
         width: 340px;
-        left: -32px;
+        // left: -32px;
         margin: 0 auto;
         margin-top: 20px;  
       }
@@ -193,28 +200,12 @@
           height: 10px;
           right: 5px;
           top: 20px;
-          // background-image: url('../assets/png/drop-down-triangle-sm.png');
+          background-image: url('../assets/png/drop-down-triangle-sm.png');
         }
       }
     }   
   }  
 } // end address form
-
-// p#boroughs {
-//   color: #4a4a4a;
-//   text-align: left;
-//   margin-bottom: 20px;
-//   margin-top: 0;
-// }
-
-// #boroughs input[type="radio"] {
-//   display: inline-block;
-//   position: relative;
-//   top: 7px;
-//   margin: 0;
-//   padding: 0;
-//   line-height: normal;
-// }
 
 
 // Validation Errors
@@ -224,8 +215,7 @@ ul.validation-error {
 
   li {
     display: inline-block;
-    position: relative;
-    max-width: 465px;
+    position: relative;    
     padding: 10px;
     // border: 3px solid $white;
     color: $white;
@@ -268,53 +258,62 @@ ul.validation-error {
     text-align: center;
   }  
 
-  @include responsive(medium-screens) {
-    #error-not-found {
-      max-width: 65%;
-      display: block;
-      top: 145px;
-    }
+  // @include responsive(medium-screens) {
+  //   #error-not-found {
+  //     max-width: 65%;
+  //     display: block;
+  //     top: 145px;
+  //   }
 
-    #error-boro, #error-address {
-      width: inherit;
-      display: block;
-      top: 0;
-      margin: 0 auto;
-      margin-top: 25px;
-      font-size: 0.8em;
-      text-align: center;
-      padding: 10px;
-    }     
-  }
+  //   #error-boro, #error-address {
+  //     width: inherit;
+  //     display: block;
+  //     top: 0;
+  //     margin: 0 auto;
+  //     margin-top: 25px;
+  //     font-size: 0.8em;
+  //     text-align: center;
+  //     padding: 10px;
+  //   }     
+  // }
 
   @include responsive_height(medium-screens) {
       li {
         display: block;
-        font-size: 0.8em;
+        font-size: 0.7em;
         text-align: center;
-        padding: 10px;
+        padding: 10px;        
       }
 
       #error-not-found {
+        margin: 0 auto;
         margin-top: -25px;
-        top: 145px;
+        top: 135px;
         font-size: 0.7em;
+
+        &.es { font-size: 0.6em; }
       }
 
-     #error-boro {
-        float: right;
-        width: 175px;
+     #error-boro {        
+        width: 325px;
+        text-align: left;
+        font-size: 0.7em;
+        margin: 0 auto;
+        margin-top: 10px;
         top: 0;
-        margin-right: 75px;        
-        margin-top: -152px;
         padding: 10px;
+
+        &.es { font-size: 0.6em; }
      }
 
      #error-address {
-        float: left;
-        width: 175px;
-        margin-top: -203px;
-        margin-left: 75px;
+        font-size: 0.7em;
+        width: 475px;
+        margin: 0 auto;
+        margin-top: 10px;
+        text-align: left;        
+
+        &.es { font-size: 0.6em; }
      }
   }  
 
@@ -326,7 +325,7 @@ ul.validation-error {
     }
 
     #error-boro, #error-address {
-      width: inherit;
+      width: 400px;
       display: block;
       top: 0;
       margin: 0 auto;
