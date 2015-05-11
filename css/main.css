@@ -1748,6 +1748,7 @@ p.map-message {
   font-size: 1.5em; }
   #side-nav h3 {
     font-size: 1.2em;
+    text-align: left;
     display: inline;
     padding-bottom: 3px;
     border-bottom: 2px solid #ABABAB; }
@@ -1867,7 +1868,7 @@ body {
       margin-left: 22%; }
       #main h1 {
         font-size: 3em;
-        max-width: 85%;
+        width: 100%;
         margin-left: 0; }
       #main h3 {
         font-size: 1.7em; }
