@@ -69,7 +69,7 @@ app.elems = (function(w,d,$) {
       boroDropDownItems : d.querySelectorAll('#boroughs li a'),
       selectBoro : d.getElementsByName('borough'),
       search : d.querySelector('.search'),
-      valErrors : d.querySelectorAll('.validation-error'),
+      valErrors : d.querySelectorAll('.val-err'),
       valErrorAddress : d.getElementById('error-address'),
       valErrorBoro : d.getElementById('error-boro'),
       valErrorNF : d.getElementById('error-not-found'),

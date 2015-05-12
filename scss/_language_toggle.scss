@@ -35,6 +35,20 @@
   }
 
   @include responsive(small-screens) {
-    display: none;
+    #slide-1 & {
+      position: absolute;
+      top: 20px;
+      left: 20px;    
+      font-size: 0.8em;
+      line-height: 2.5em;
+
+      li {
+        display: block;
+
+        &:nth-child(2) {
+          display: none;
+        }
+      }
+    }
   }
 }

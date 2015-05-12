@@ -112,41 +112,41 @@ this["app"]["templates"]["main"] = Handlebars.template({"compiler":[6,">= 2.0.0-
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.resources : stack1), depth0))
     + "</a></li>            \n  </ul>\n</nav>\n\n<div id=\"mobile-message\">\n  <img src=\"assets/png/rotate.png\">\n  <h1>"
     + alias2(((helper = (helper = helpers.mobile_msg || (depth0 != null ? depth0.mobile_msg : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"mobile_msg","hash":{},"data":data}) : helper)))
-    + "</h1>          \n</div>\n\n<div id=\"lang-toggle\">\n    <ul>\n        <li><a class=\"toggle-es\" href=\"#\"></a></li>\n        <li><p>•</p></li>\n        <li><a class=\"toggle-zh\" href=\"#\"></a></li>\n    </ul>\n</div>\n\n<nav class=\"margin-circles\">\n    <ul>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n    </ul>\n</nav>\n\n<div class=\"slides-container\">\n    <div class=\"slide\" id=\"slide-1\">\n        <div class=\"centered\"> \n            <img class=\"triple-s\" src=\"assets/png/triple-sss.png\">              \n            <img class=\"building intro\" src=\"assets/png/building.png\">\n            <h1 class=\"landing\">"
+    + "</h1>          \n</div>\n\n<nav class=\"margin-circles\">\n    <ul>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n    </ul>\n</nav>\n\n<div class=\"slides-container\">\n    <div class=\"slide\" id=\"slide-1\">\n      <div id=\"lang-toggle\">\n          <ul>\n              <li><a class=\"toggle-es\" href=\"#\"></a></li>\n              <li><p>•</p></li>\n              <li><a class=\"toggle-zh\" href=\"#\"></a></li>\n          </ul>\n      </div>      \n      <div class=\"centered\"> \n          <img class=\"triple-s\" src=\"assets/png/triple-sss.png\">              \n          <img class=\"building intro\" src=\"assets/png/building.png\">\n          <h1 class=\"landing\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide01 : depth0)) != null ? stack1.h1 : stack1), depth0))
-    + "</h1> \n            <h2 class=\"sub-head\">"
+    + "</h1> \n          <h2 class=\"sub-head\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide01 : depth0)) != null ? stack1.h2 : stack1), depth0))
-    + "</h2>\n            <p class=\"landing\">"
+    + "</h2>\n          <p class=\"landing\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide01 : depth0)) != null ? stack1.landing : stack1), depth0))
-    + "</p>\n            <p class=\"go-step4\"><a class=\"go-step4\" href=\"#\">\n              "
+    + "</p>\n          <p class=\"go-step4\"><a class=\"go-step4\" href=\"#\">\n            "
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide01 : depth0)) != null ? stack1.go_step_4 : stack1), depth0))
-    + "\n            </a></p>\n        </div>\n        <div class=\"go-next bottom-arrow\">\n          <h3>"
+    + "\n          </a></p>\n      </div>\n      <div class=\"go-next bottom-arrow\">\n        <h3>"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_bottom_arrow : depth0)) != null ? stack1.begin : stack1), depth0))
-    + "</h3>\n          <div class=\"arrow\"></div>\n        </div>  \n    </div>\n\n    <div class=\"slide\" id=\"slide-2\">\n        <div class=\"centered\">\n            <!-- <h4 class=\"step\">Step 1 of 5</h4> -->\n            <h1 class=\"step\">"
+    + "</h3>\n        <div class=\"arrow\"></div>\n      </div>  \n    </div>\n\n    <div class=\"slide\" id=\"slide-2\">\n      <div class=\"centered\">\n        <!-- <h4 class=\"step\">Step 1 of 5</h4> -->\n        <h1 class=\"step\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide02 : depth0)) != null ? stack1.h1 : stack1), depth0))
-    + "</h1>\n            <p class=\"step\">"
+    + "</h1>\n        <p class=\"step\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide02 : depth0)) != null ? stack1.privacy : stack1), depth0))
-    + "</p>\n\n            <form id=\"address-form\">\n                <ul class=\"validation-error\">\n                </ul>                      \n                <div class=\"user-data street-address\">\n                    <input class=\"address-input\" name=\"address-input\" type=\"text\" placeholder=\""
+    + "</p>\n\n        <form id=\"address-form\">                    \n          <div class=\"user-data street-address\">\n              <input class=\"address-input\" name=\"address-input\" type=\"text\" placeholder=\""
     + ((stack1 = alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.slide02 : depth0)) != null ? stack1.form : stack1)) != null ? stack1.address : stack1), depth0)) != null ? stack1 : "")
-    + "\" tabindex=\"1\">\n                </div>                        \n                <div class=\"user-data borough-select\">\n                    <span id=\"select-boro\"> "
+    + "\" tabindex=\"1\">\n          </div>                        \n          <div class=\"user-data borough-select\">\n              <span id=\"select-boro\"> "
     + ((stack1 = alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.slide02 : depth0)) != null ? stack1.form : stack1)) != null ? stack1.boro_select : stack1), depth0)) != null ? stack1 : "")
-    + " </span>\n                    <ul class=\"drop-down\" id=\"boroughs\">\n                      <li><a data-boro=\"BX\" href=\"#\"> "
+    + " </span>\n              <ul class=\"drop-down\" id=\"boroughs\">\n                <li><a data-boro=\"BX\" href=\"#\"> "
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.slide02 : depth0)) != null ? stack1.form : stack1)) != null ? stack1.boroughs : stack1)) != null ? stack1.bx : stack1), depth0))
-    + " </a></li>\n                      <li><a data-boro=\"BK\" href=\"#\"> "
+    + " </a></li>\n                <li><a data-boro=\"BK\" href=\"#\"> "
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.slide02 : depth0)) != null ? stack1.form : stack1)) != null ? stack1.boroughs : stack1)) != null ? stack1.bk : stack1), depth0))
-    + " </a></li>\n                      <li><a data-boro=\"MN\" href=\"#\"> "
+    + " </a></li>\n                <li><a data-boro=\"MN\" href=\"#\"> "
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.slide02 : depth0)) != null ? stack1.form : stack1)) != null ? stack1.boroughs : stack1)) != null ? stack1.mn : stack1), depth0))
-    + " </a></li>\n                      <li><a data-boro=\"QN\" href=\"#\"> "
+    + " </a></li>\n                <li><a data-boro=\"QN\" href=\"#\"> "
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.slide02 : depth0)) != null ? stack1.form : stack1)) != null ? stack1.boroughs : stack1)) != null ? stack1.qn : stack1), depth0))
-    + "  </a></li>\n                      <li><a data-boro=\"SI\" href=\"#\"> "
+    + "  </a></li>\n                <li><a data-boro=\"SI\" href=\"#\"> "
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.slide02 : depth0)) != null ? stack1.form : stack1)) != null ? stack1.boroughs : stack1)) != null ? stack1.si : stack1), depth0))
-    + "  </a></li>\n                    </ul>\n                </div>\n                <ul class=\"validation-error\">\n                  <li id=\"error-not-found\"  class=\"vis-hidden\">\n                      "
+    + "  </a></li>\n              </ul>\n          </div>\n          <ul class=\"validation-error\">\n            <li id=\"error-not-found\"  class=\"val-err vis-hidden\">"
     + ((stack1 = alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.slide02 : depth0)) != null ? stack1.form : stack1)) != null ? stack1.val_errors : stack1)) != null ? stack1.not_found : stack1), depth0)) != null ? stack1 : "")
-    + "</li>                            \n                  <li id=\"error-address\" class=\"vis-hidden\"> "
+    + "</li>\n            <li id=\"error-address\" class=\"val-err vis-hidden\"> "
     + ((stack1 = alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.slide02 : depth0)) != null ? stack1.form : stack1)) != null ? stack1.val_errors : stack1)) != null ? stack1.address : stack1), depth0)) != null ? stack1 : "")
-    + " </li>\n                  <li id=\"error-boro\" class=\"vis-hidden\"> "
+    + " </li>\n            <li id=\"error-boro\" class=\"val-err vis-hidden\"> "
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.slide02 : depth0)) != null ? stack1.form : stack1)) != null ? stack1.val_errors : stack1)) != null ? stack1.boro : stack1), depth0))
-    + " </li>\n                </ul>                                                \n            </form>                       \n        </div>\n        <p class=\"button search\" type=\"submit\"><a href=\"#\"> "
+    + " </li>\n          </ul>                                                \n        </form>                       \n      </div>\n      <p class=\"button search\" type=\"submit\"><a href=\"#\"> "
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide02 : depth0)) != null ? stack1.search : stack1), depth0))
     + " </a></p>\n    </div>  \n\n    <div class=\"slide\" id=\"slide-3\">\n        <div class=\"centered v-centered\">\n            <h1 class=\"checking\"> "
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide03 : depth0)) != null ? stack1.checking : stack1), depth0))

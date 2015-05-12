@@ -16,14 +16,6 @@
   <h1>{{mobile_msg}}</h1>          
 </div>
 
-<div id="lang-toggle">
-    <ul>
-        <li><a class="toggle-es" href="#"></a></li>
-        <li><p>•</p></li>
-        <li><a class="toggle-zh" href="#"></a></li>
-    </ul>
-</div>
-
 <nav class="margin-circles">
     <ul>
         <li></li>
@@ -40,20 +32,27 @@
 
 <div class="slides-container">
     <div class="slide" id="slide-1">
-        <div class="centered"> 
-            <img class="triple-s" src="assets/png/triple-sss.png">              
-            <img class="building intro" src="assets/png/building.png">
-            <h1 class="landing">{{ slide01.h1 }}</h1> 
-            <h2 class="sub-head">{{ slide01.h2 }}</h2>
-            <p class="landing">{{ slide01.landing }}</p>
-            <p class="go-step4"><a class="go-step4" href="#">
-              {{ slide01.go_step_4 }}
-            </a></p>
-        </div>
-        <div class="go-next bottom-arrow">
-          <h3>{{nav_bottom_arrow.begin}}</h3>
-          <div class="arrow"></div>
-        </div>  
+      <div id="lang-toggle">
+          <ul>
+              <li><a class="toggle-es" href="#"></a></li>
+              <li><p>•</p></li>
+              <li><a class="toggle-zh" href="#"></a></li>
+          </ul>
+      </div>      
+      <div class="centered"> 
+          <img class="triple-s" src="assets/png/triple-sss.png">              
+          <img class="building intro" src="assets/png/building.png">
+          <h1 class="landing">{{ slide01.h1 }}</h1> 
+          <h2 class="sub-head">{{ slide01.h2 }}</h2>
+          <p class="landing">{{ slide01.landing }}</p>
+          <p class="go-step4"><a class="go-step4" href="#">
+            {{ slide01.go_step_4 }}
+          </a></p>
+      </div>
+      <div class="go-next bottom-arrow">
+        <h3>{{nav_bottom_arrow.begin}}</h3>
+        <div class="arrow"></div>
+      </div>  
     </div>
 
     <div class="slide" id="slide-2">
@@ -77,9 +76,9 @@
               </ul>
           </div>
           <ul class="validation-error">
-            <li id="error-not-found"  class="vis-hidden">{{{ slide02.form.val_errors.not_found }}}</li>
-            <li id="error-address" class="vis-hidden"> {{{slide02.form.val_errors.address}}} </li>
-            <li id="error-boro" class="vis-hidden"> {{slide02.form.val_errors.boro}} </li>
+            <li id="error-not-found"  class="val-err vis-hidden">{{{ slide02.form.val_errors.not_found }}}</li>
+            <li id="error-address" class="val-err vis-hidden"> {{{slide02.form.val_errors.address}}} </li>
+            <li id="error-boro" class="val-err vis-hidden"> {{slide02.form.val_errors.boro}} </li>
           </ul>                                                
         </form>                       
       </div>
