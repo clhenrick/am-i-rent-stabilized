@@ -162,7 +162,7 @@
       width: 400px;
       margin: 0 auto;
       display: block;
-      top: -75px;
+      top: 0;
 
       &.borough-select {
         margin: 0 auto;
@@ -220,6 +220,7 @@ ul.validation-error {
     display: inline-block;
     position: relative;    
     padding: 10px;
+    margin-top: 10px;
     // border: 3px solid $white;
     color: $white;
     font-size: 0.7em;
@@ -305,7 +306,7 @@ ul.validation-error {
     #error-not-found {
       max-width: 80%;
       display: block;
-      top: 145px;
+      top: 0;
     }
 
     #error-boro, #error-address {

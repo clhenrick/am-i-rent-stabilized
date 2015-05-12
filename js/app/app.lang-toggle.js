@@ -51,9 +51,9 @@ app.language = (function(w,d,$) {
       } else {
         app.pages.toggleBurger();
       }  
-      $es = $('#lang-toggle .toggle-es');
-      $zh = $('#lang-toggle .toggle-zh');
-      $en = $('#lang-toggle .toggle-en');
+      $es = $('.lang-toggle .toggle-es');
+      $zh = $('.lang-toggle .toggle-zh');
+      $en = $('.lang-toggle .toggle-en');
       changeLangButtons(lang);      
     });
   }
@@ -109,7 +109,7 @@ app.language = (function(w,d,$) {
   }
 
   function initLangButtons() {
-    $('#lang-toggle').find('a').on('click', function(e) {
+    $('.lang-toggle').find('a').on('click', function(e) {
       e.preventDefault();      
       var val = $(this).html();
       if (val === "en español") {

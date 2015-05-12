@@ -17,14 +17,14 @@
     left: 50%;
     bottom: 5%;
     margin-left: -75px;
+  }
 
-    &.es {       
-      width: 170px;
-    }
+  &.start-over {
+    width: 200px;
   }
 
   &.learn-more {
-    width: 180px;
+    width: 200px;
     margin-left: 50px;
   }
 
@@ -38,12 +38,12 @@
       margin-left: -62.5px;
     }
 
-    &.start-over.es {
-      width: 215px;
+    &.start-over {
+      // width: 200px;
     }
 
     &.learn-more {
-      width: 175px;
+      // width: 200px;
     }
   }
 

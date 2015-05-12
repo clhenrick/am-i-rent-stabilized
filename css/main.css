@@ -810,43 +810,71 @@ nav.main-nav {
         font-size: 1.5em;
         padding: 5px 5px 5px 15px; } }
 
-#lang-toggle {
+.lang-toggle {
   position: fixed;
   display: inline-block;
   top: 90px;
   left: 30px;
   z-index: 11; }
-  #lang-toggle ul {
+  .lang-toggle.mobile {
+    display: none; }
+  .lang-toggle ul {
     padding: 0; }
-  #lang-toggle li {
+  .lang-toggle li {
     list-style: none;
     display: inline-block; }
-  #lang-toggle li:last-child {
+  .lang-toggle li:last-child {
     list-style: disc;
     list-style-position: inside; }
-  #lang-toggle a, #lang-toggle p {
+  .lang-toggle a, .lang-toggle p {
     text-decoration: none;
     font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif;
     font-weight: 300;
     font-size: 1.8em;
     color: #ABABAB; }
-  #lang-toggle a:hover {
+  .lang-toggle a:hover {
     color: #4a4a4a; }
-  @media only screen and (max-height: 770px) {
-    #lang-toggle {
-      display: inline-block;
-      width: auto; } }
+  #left .lang-toggle {
+    top: 80px;
+    left: 30px; }
+  @media only screen and (max-width: 980px) {
+    .lang-toggle li {
+      display: block; }
+      .lang-toggle li:nth-child(2) {
+        display: none; }
+    .lang-toggle li {
+      display: inline-block; }
+      .lang-toggle li:nth-child(2) {
+        display: inline-block; }
+    #left .lang-toggle {
+      position: relative;
+      top: 45px;
+      left: 20px; } }
   @media only screen and (max-width: 460px) {
-    #slide-1 #lang-toggle {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      font-size: 0.8em;
-      line-height: 2.5em; }
-      #slide-1 #lang-toggle li {
-        display: block; }
-        #slide-1 #lang-toggle li:nth-child(2) {
-          display: none; } }
+    .lang-toggle {
+      font-size: 0.8em; }
+      .lang-toggle.desktop {
+        display: none; }
+      .lang-toggle.mobile {
+        display: inline-block; }
+      #left .lang-toggle {
+        position: relative;
+        top: 45px;
+        left: 20px; }
+      #slide-1 .lang-toggle {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        line-height: 2.5em; }
+        #slide-1 .lang-toggle li {
+          display: block; }
+          #slide-1 .lang-toggle li:nth-child(2) {
+            display: none; } }
+  @media only screen and (max-height: 420px) and (min-width: 320px) {
+    .lang-toggle {
+      position: relative;
+      top: 0;
+      left: 6px; } }
 
 nav.margin-circles {
   position: fixed;
@@ -1152,7 +1180,7 @@ a.lightbox {
         width: 400px;
         margin: 0 auto;
         display: block;
-        top: -75px; }
+        top: 0; }
         #address-form div.user-data.borough-select {
           margin: 0 auto;
           margin-top: 20px; } }
@@ -1189,6 +1217,7 @@ ul.validation-error {
     display: inline-block;
     position: relative;
     padding: 10px;
+    margin-top: 10px;
     color: #FFFFFF;
     font-size: 0.7em;
     font-weight: 300;
@@ -1250,7 +1279,7 @@ ul.validation-error {
     ul.validation-error #error-not-found {
       max-width: 80%;
       display: block;
-      top: 145px; }
+      top: 0; }
     ul.validation-error #error-boro, ul.validation-error #error-address {
       width: 400px;
       display: block;
@@ -1309,10 +1338,10 @@ ul.validation-error {
     left: 50%;
     bottom: 5%;
     margin-left: -75px; }
-    .button.search.es {
-      width: 170px; }
+  .button.start-over {
+    width: 200px; }
   .button.learn-more {
-    width: 180px;
+    width: 200px;
     margin-left: 50px; }
   @media only screen and (max-height: 770px) {
     .button {
@@ -1321,11 +1350,7 @@ ul.validation-error {
       padding: 8px 12px; }
       .button.search {
         width: 125px;
-        margin-left: -62.5px; }
-      .button.start-over.es {
-        width: 215px; }
-      .button.learn-more {
-        width: 175px; } }
+        margin-left: -62.5px; } }
   @media only screen and (max-width: 980px) {
     .button {
       width: 160px;
@@ -1494,9 +1519,9 @@ ul.validation-error {
   -webkit-columns: 200px 3;
   -moz-columns: 200px 3;
   columns: 200px 3;
-  -webkit-column-gap: 0;
-  -moz-column-gap: 0;
-  column-gap: 0;
+  -webkit-column-gap: 10px;
+  -moz-column-gap: 10px;
+  column-gap: 10px;
   -webkit-column-rule: 1px solid #ABABAB;
   -moz-column-rule: 1px solid #ABABAB;
   column-rule: 1px solid #ABABAB; }
@@ -1515,7 +1540,7 @@ ul.validation-error {
       width: 630px; }
       .dhcr-choice p {
         height: 95px;
-        width: 80%;
+        width: 175px;
         font-size: 2.5em; } }
   @media only screen and (max-width: 460px) {
     .dhcr-choice {
@@ -1733,7 +1758,8 @@ p.map-message {
     #left {
       position: relative;
       width: 100%;
-      height: auto; } }
+      height: auto;
+      margin-top: 30px; } }
   @media only screen and (max-height: 420px) and (min-width: 320px) {
     #left {
       width: 100%;
@@ -1742,27 +1768,6 @@ p.map-message {
       display: block;
       margin-left: 3%;
       margin-top: 70px; } }
-
-#lang-toggle {
-  position: relative; }
-  @media only screen and (max-width: 980px) {
-    #lang-toggle li {
-      display: block; }
-      #lang-toggle li:nth-child(2) {
-        display: none; } }
-  @media only screen and (max-height: 420px) and (min-width: 320px) {
-    #lang-toggle {
-      top: 0;
-      left: 0; } }
-  @media only screen and (max-width: 460px) {
-    #lang-toggle {
-      top: 70px;
-      left: 20px;
-      font-size: 0.8em; }
-      #lang-toggle li {
-        display: inline-block; }
-        #lang-toggle li:nth-child(2) {
-          display: inline-block; } }
 
 #side-nav {
   position: relative;
@@ -1794,7 +1799,7 @@ p.map-message {
     #side-nav {
       width: 60%;
       left: 0;
-      top: 46px;
+      top: 20px;
       margin-left: 28%; }
       #side-nav h3 {
         display: block;
@@ -1904,7 +1909,7 @@ body {
       position: relative;
       display: block;
       width: 75%;
-      margin-top: 85px;
+      margin-top: 50px;
       margin-left: 10%; }
       #main h1, #main h3, #main p, #main li {
         max-width: 100%;
@@ -1943,7 +1948,7 @@ body {
       position: relative;
       display: block;
       width: 90%;
-      margin: 80px auto 50px auto; }
+      margin: 50px auto 50px auto; }
       #main h1, #main h3, #main p {
         max-width: 100%;
         width: 100%; }
@@ -1970,8 +1975,8 @@ body {
           height: auto; } }
   @media only screen and (max-height: 420px) and (min-width: 320px) {
     #main {
-      margin: 3%;
-      width: 95%; }
+      width: 95%;
+      margin: 0 0px 50px 20px; }
       #main .video {
         width: 100%; }
         #main .video iframe {

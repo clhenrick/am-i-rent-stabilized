@@ -108,7 +108,7 @@ this["app"]["templates"]["how"] = Handlebars.template({"compiler":[6,">= 2.0.0-b
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.how : stack1), depth0))
     + "</a></li>\n    <li class=\"nav\"><a href=\"resources.html\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.resources : stack1), depth0))
-    + "</a></li>\n  </ul>\n</nav>\n\n<div id=\"left\">\n  <div id=\"lang-toggle\">\n      <ul>\n          <li><a class=\"toggle-es\" href=\"#\">en español</a></li>\n          <li><p>•</p></li>\n          <li><a class=\"toggle-zh\" href=\"#\">中文</a></li>\n      </ul>\n  </div>\n\n  <div id=\"side-nav\">\n    <h3>"
+    + "</a></li>\n  </ul>\n</nav>\n\n<div id=\"left\">\n  <div class=\"lang-toggle\">\n      <ul>\n          <li><a class=\"toggle-es\" href=\"#\">en español</a></li>\n          <li><p>•</p></li>\n          <li><a class=\"toggle-zh\" href=\"#\">中文</a></li>\n      </ul>\n  </div>\n\n  <div id=\"side-nav\">\n    <h3>"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_side : depth0)) != null ? stack1.h3 : stack1), depth0))
     + "</h3>\n    <ul>\n      <li><a href=\"#how\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_side : depth0)) != null ? stack1.how : stack1), depth0))
@@ -211,7 +211,7 @@ this["app"]["templates"]["main"] = Handlebars.template({"compiler":[6,">= 2.0.0-
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.resources : stack1), depth0))
     + "</a></li>            \n  </ul>\n</nav>\n\n<div id=\"mobile-message\">\n  <img src=\"assets/png/rotate.png\">\n  <h1>"
     + alias2(((helper = (helper = helpers.mobile_msg || (depth0 != null ? depth0.mobile_msg : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"mobile_msg","hash":{},"data":data}) : helper)))
-    + "</h1>          \n</div>\n\n<nav class=\"margin-circles\">\n    <ul>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n    </ul>\n</nav>\n\n<div class=\"slides-container\">\n    <div class=\"slide\" id=\"slide-1\">\n      <div id=\"lang-toggle\">\n          <ul>\n              <li><a class=\"toggle-es\" href=\"#\"></a></li>\n              <li><p>•</p></li>\n              <li><a class=\"toggle-zh\" href=\"#\"></a></li>\n          </ul>\n      </div>      \n      <div class=\"centered\"> \n          <img class=\"triple-s\" src=\"assets/png/triple-sss.png\">              \n          <img class=\"building intro\" src=\"assets/png/building.png\">\n          <h1 class=\"landing\">"
+    + "</h1>          \n</div>\n\n<div class=\"lang-toggle desktop\">\n    <ul>\n        <li><a class=\"toggle-es\" href=\"#\"></a></li>\n        <li><p>•</p></li>\n        <li><a class=\"toggle-zh\" href=\"#\"></a></li>\n    </ul>\n</div>\n\n<nav class=\"margin-circles\">\n    <ul>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n    </ul>\n</nav>\n\n<div class=\"slides-container\">\n    <div class=\"slide\" id=\"slide-1\">\n      <div class=\"lang-toggle mobile\">\n          <ul>\n              <li><a class=\"toggle-es\" href=\"#\"></a></li>\n              <li><p>•</p></li>\n              <li><a class=\"toggle-zh\" href=\"#\"></a></li>\n          </ul>\n      </div>      \n      <div class=\"centered\"> \n          <img class=\"triple-s\" src=\"assets/png/triple-sss.png\">              \n          <img class=\"building intro\" src=\"assets/png/building.png\">\n          <h1 class=\"landing\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide01 : depth0)) != null ? stack1.h1 : stack1), depth0))
     + "</h1> \n          <h2 class=\"sub-head\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide01 : depth0)) != null ? stack1.h2 : stack1), depth0))
@@ -334,7 +334,7 @@ this["app"]["templates"]["resources"] = Handlebars.template({"compiler":[6,">= 2
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.how : stack1), depth0))
     + "</a></li>\n    <li class=\"nav\"><a href=\"resources.html\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.resources : stack1), depth0))
-    + "</a></li>\n  </ul>\n</nav>\n\n<div id=\"left\">\n  <div id=\"lang-toggle\">\n      <ul>\n          <li><a class=\"toggle-es\" href=\"#\">en español</a></li>\n          <li><p>•</p></li>\n          <li><a class=\"toggle-zh\" href=\"#\">中文</a></li>\n      </ul>\n  </div>\n\n  <div id=\"side-nav\">\n    <h3>"
+    + "</a></li>\n  </ul>\n</nav>\n\n<div id=\"left\">\n  <div class=\"lang-toggle\">\n      <ul>\n          <li><a class=\"toggle-es\" href=\"#\">en español</a></li>\n          <li><p>•</p></li>\n          <li><a class=\"toggle-zh\" href=\"#\">中文</a></li>\n      </ul>\n  </div>\n\n  <div id=\"side-nav\">\n    <h3>"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_side : depth0)) != null ? stack1.h3 : stack1), depth0))
     + "</h3>\n    <ul>\n      <li>\n        <a class=\"responsive-turn-off\" href=\"#non-gov\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_side : depth0)) != null ? stack1.nongov : stack1), depth0))
@@ -533,7 +533,7 @@ this["app"]["templates"]["why"] = Handlebars.template({"compiler":[6,">= 2.0.0-b
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.how : stack1), depth0))
     + "</a></li>\n    <li class=\"nav\"><a href=\"resources.html\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.resources : stack1), depth0))
-    + "</a></li>\n  </ul>\n</nav>\n\n<div id=\"left\">\n  <div id=\"lang-toggle\">\n      <ul>\n          <li><a class=\"toggle-es\" href=\"#\">en español</a></li>\n          <li><p>•</p></li>\n          <li><a class=\"toggle-zh\" href=\"#\">中文</a></li>\n      </ul>\n  </div>\n\n  <div id=\"side-nav\">\n    <h3>"
+    + "</a></li>\n  </ul>\n</nav>\n\n<div id=\"left\">\n  <div class=\"lang-toggle\">\n      <ul>\n          <li><a class=\"toggle-es\" href=\"#\">en español</a></li>\n          <li><p>•</p></li>\n          <li><a class=\"toggle-zh\" href=\"#\">中文</a></li>\n      </ul>\n  </div>\n\n  <div id=\"side-nav\">\n    <h3>"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_side : depth0)) != null ? stack1.h3 : stack1), depth0))
     + "</h3>\n    <ul>\n      <li><a href=\"#why\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_side : depth0)) != null ? stack1.why : stack1), depth0))
@@ -1360,9 +1360,9 @@ app.language = (function(w,d,$) {
       } else {
         app.pages.toggleBurger();
       }  
-      $es = $('#lang-toggle .toggle-es');
-      $zh = $('#lang-toggle .toggle-zh');
-      $en = $('#lang-toggle .toggle-en');
+      $es = $('.lang-toggle .toggle-es');
+      $zh = $('.lang-toggle .toggle-zh');
+      $en = $('.lang-toggle .toggle-en');
       changeLangButtons(lang);      
     });
   }
@@ -1418,7 +1418,7 @@ app.language = (function(w,d,$) {
   }
 
   function initLangButtons() {
-    $('#lang-toggle').find('a').on('click', function(e) {
+    $('.lang-toggle').find('a').on('click', function(e) {
       e.preventDefault();      
       var val = $(this).html();
       if (val === "en español") {
