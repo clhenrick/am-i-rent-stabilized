@@ -40,6 +40,8 @@
     ul.drop-down {
       opacity: 1;
       pointer-events: auto;
+      margin-top: 0;
+      padding-left: 0;
     }
     &:after {
     // do to: change direction of arrow to point up
@@ -89,6 +91,7 @@
     
     li {        
       list-style: none;
+      padding-left: 0;
       display: block;        
     }
     
@@ -113,7 +116,7 @@
   @include responsive_height(medium-screens) {
     width: 100%;
     height: 230px;
-    margin-top: 50px;
+    margin-top: 0;
 
     input { 
       &.address-input {
@@ -132,7 +135,7 @@
       width: 400px;
       margin: 0 auto;
       display: block;
-      top: -75px;      
+      // top: -75px;      
 
       &.borough-select {
         width: 340px;
@@ -144,7 +147,7 @@
   }
 
   @include responsive(medium-screens) {
-    margin-top: 40px;
+    margin-top: 0;
 
     input { 
       &.address-input {
@@ -170,7 +173,7 @@
 
   @include responsive(small-screens) {
     height: 204px;
-    margin-top: 17%;
+    margin-top: 0;
     
     input {
       &.address-input {
@@ -182,7 +185,7 @@
 
     div.user-data {
       width: 240px;
-      top: -125px;
+      top: 0;
       font-size: 0.6em;
 
       &.borough-select {
@@ -258,25 +261,6 @@ ul.validation-error {
     text-align: center;
   }  
 
-  // @include responsive(medium-screens) {
-  //   #error-not-found {
-  //     max-width: 65%;
-  //     display: block;
-  //     top: 145px;
-  //   }
-
-  //   #error-boro, #error-address {
-  //     width: inherit;
-  //     display: block;
-  //     top: 0;
-  //     margin: 0 auto;
-  //     margin-top: 25px;
-  //     font-size: 0.8em;
-  //     text-align: center;
-  //     padding: 10px;
-  //   }     
-  // }
-
   @include responsive_height(medium-screens) {
       li {
         display: block;
@@ -287,8 +271,8 @@ ul.validation-error {
 
       #error-not-found {
         margin: 0 auto;
-        margin-top: -25px;
-        top: 135px;
+        // margin-top: -25px;
+        // top: 135px;
         font-size: 0.7em;
 
         &.es { font-size: 0.6em; }
@@ -345,7 +329,7 @@ ul.validation-error {
     li {
       &#error-address, &#error-boro {
         width: 200px;
-        top: -125px;
+        top: 0;
         padding: inherit;
         margin: 0 auto;
         margin-top: 5px;
@@ -356,7 +340,7 @@ ul.validation-error {
       }
 
       &#error-not-found {
-        top: 130px;
+        top: 0;
         max-width: inherit;
         width: 250px;
         margin: 0 auto;         

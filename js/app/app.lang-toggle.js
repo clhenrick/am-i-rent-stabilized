@@ -5,16 +5,17 @@ app.language = (function(w,d,$) {
     var $es,
         $zh,
         $en,
-        langs = ['en','es', 'zh'];
+        langs = ['en','es','zh'];
 
   function loadTemplateData(lang, currentPage, callback){
     var template,
         html,
         filePath,
         contentFolder = 'data/';
-    if (langs.indexOf(lang) === -1) { lang = 'en'; }
-    // w.location.hash = '?lang=' + lang;
 
+    if (langs.indexOf(lang) === -1) { lang = 'en'; }
+    // w.location.hash = '?lang=' + lang;    
+    console.log('load template lang: ', lang);
     // load the correct JSON file based on the app's page...
     if (currentPage === 'index') {      
       filePath = contentFolder + 'main-content.json';
@@ -67,11 +68,13 @@ app.language = (function(w,d,$) {
 
       if (typeof lang === 'undefined') {
         curLang = d.URL.substring(d.URL.lastIndexOf('=') + 1, d.URL.length);
-        console.log('curLang: ', curLang);        
-
+        // curLang = w.location.href.substring(w.location.href.lastIndexOf('=') + 1, w.location.href.length);
+        console.log('curLang: ', curLang.path);
       } else {
         curLang = lang;
       }
+
+      console.log('curLang: ', curLang);
 
       loadTemplateData(curLang, currentPage, callback);
   }
@@ -85,6 +88,7 @@ app.language = (function(w,d,$) {
       $('body').addClass('es');
       $('body').removeClass('en');
       $('body').removeClass('zh');
+      toggleNavButtonHref('es', 'en');
     } else if (lang === "zh") {
       $es.html('en español');
       $zh.html('in english');
@@ -92,12 +96,15 @@ app.language = (function(w,d,$) {
       $('body').addClass('zh');
       $('body').removeClass('es');
       $('body').removeClass('en');
+      toggleNavButtonHref('zh','en');
     } else {
       $es.html('en español');
       $zh.html('中文');
       $('body').addClass('en');
       $('body').removeClass('es');
       $('body').removeClass('zh');
+      toggleNavButtonHref('en', 'es');
+      toggleNavButtonHref('en', 'zh');
     }
   }
 
@@ -111,7 +118,19 @@ app.language = (function(w,d,$) {
         langToggle('zh');
       } else {
         langToggle('en');
-      }            
+      }
+      return false;            
+    });
+  }
+
+  function toggleNavButtonHref(newLang, oldLang) {
+    // var $navButtons = $('.nav');
+    $.each($('.nav a'), function(index, value){
+      if ($(value).attr('href').indexOf('lang') === -1){
+        $(value).attr('href', $(value).attr('href') + '?lang=' + newLang);  
+      } else {
+        $(value).attr('href', $(value).attr('href').replace('lang=' + oldLang, 'lang=' + newLang));
+      }      
     });
   }
 

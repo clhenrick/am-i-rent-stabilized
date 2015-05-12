@@ -100,10 +100,12 @@
     }    
 
     .yes, .no {
+      margin-top: 3%;
       p {
         font-size: 1.3em;
         max-width: 95%;
-        margin-top: 3%;
+        width: 85%;
+        margin-top: 2%;
       }
     }
   }      

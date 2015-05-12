@@ -57,37 +57,33 @@
     </div>
 
     <div class="slide" id="slide-2">
-        <div class="centered">
-            <!-- <h4 class="step">Step 1 of 5</h4> -->
-            <h1 class="step">{{slide02.h1}}</h1>
-            <p class="step">{{slide02.privacy}}</p>
+      <div class="centered">
+        <!-- <h4 class="step">Step 1 of 5</h4> -->
+        <h1 class="step">{{slide02.h1}}</h1>
+        <p class="step">{{slide02.privacy}}</p>
 
-            <form id="address-form">
-                <ul class="validation-error">
-                    <li id="error-not-found"  class="vis-hidden">
-                      {{ slide02.form.val_errors.not_found }}
-                    </li>
-                </ul>                      
-                <div class="user-data street-address">
-                    <input class="address-input" name="address-input" type="text" placeholder="{{{slide02.form.address}}}" tabindex="1">
-                </div>                        
-                <div class="user-data borough-select">
-                    <span id="select-boro"> {{{slide02.form.boro_select}}} </span>
-                    <ul class="drop-down" id="boroughs">
-                      <li><a data-boro="BX" href="#"> {{ slide02.form.boroughs.bx }} </a></li>
-                      <li><a data-boro="BK" href="#"> {{ slide02.form.boroughs.bk }} </a></li>
-                      <li><a data-boro="MN" href="#"> {{ slide02.form.boroughs.mn }} </a></li>
-                      <li><a data-boro="QN" href="#"> {{ slide02.form.boroughs.qn }}  </a></li>
-                      <li><a data-boro="SI" href="#"> {{ slide02.form.boroughs.si }}  </a></li>
-                    </ul>
-                </div>
-                <ul class="validation-error">                            
-                    <li id="error-address" class="vis-hidden"> {{{slide02.form.val_errors.address}}} </li>
-                    <li id="error-boro" class="vis-hidden"> {{slide02.form.val_errors.boro}} </li>
-                </ul>                                                
-            </form>                       
-        </div>
-        <p class="button search" type="submit"><a href="#"> {{ slide02.search }} </a></p>
+        <form id="address-form">                    
+          <div class="user-data street-address">
+              <input class="address-input" name="address-input" type="text" placeholder="{{{slide02.form.address}}}" tabindex="1">
+          </div>                        
+          <div class="user-data borough-select">
+              <span id="select-boro"> {{{slide02.form.boro_select}}} </span>
+              <ul class="drop-down" id="boroughs">
+                <li><a data-boro="BX" href="#"> {{ slide02.form.boroughs.bx }} </a></li>
+                <li><a data-boro="BK" href="#"> {{ slide02.form.boroughs.bk }} </a></li>
+                <li><a data-boro="MN" href="#"> {{ slide02.form.boroughs.mn }} </a></li>
+                <li><a data-boro="QN" href="#"> {{ slide02.form.boroughs.qn }}  </a></li>
+                <li><a data-boro="SI" href="#"> {{ slide02.form.boroughs.si }}  </a></li>
+              </ul>
+          </div>
+          <ul class="validation-error">
+            <li id="error-not-found"  class="vis-hidden">{{{ slide02.form.val_errors.not_found }}}</li>
+            <li id="error-address" class="vis-hidden"> {{{slide02.form.val_errors.address}}} </li>
+            <li id="error-boro" class="vis-hidden"> {{slide02.form.val_errors.boro}} </li>
+          </ul>                                                
+        </form>                       
+      </div>
+      <p class="button search" type="submit"><a href="#"> {{ slide02.search }} </a></p>
     </div>  
 
     <div class="slide" id="slide-3">

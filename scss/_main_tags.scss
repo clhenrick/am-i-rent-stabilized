@@ -152,6 +152,11 @@ h1 {
         width: 95%;
       }
 
+      &.step {
+        max-width: 90%;
+        width: 90%;
+      }
+
       .yes & {
         width: 95%;
       }
@@ -337,6 +342,11 @@ p {
     &.go-step4 {
       width: 40%;
     } 
+
+    &.step {
+      width: 65%;
+      margin-top: 2%;
+    }
 
     &.be-sure {
       width: 80%;
