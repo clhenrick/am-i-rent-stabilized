@@ -65,6 +65,20 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest('js/dist'));
 });
 
+gulp.task('scripts-other-pgs', function() {
+    return gulp.src([
+        'js/vendor/other_pages/handlebars.runtime.min.js',
+        'js/dist/templates.js',
+        'js/app/app.lang-toggle.js',
+        'js/app/app.other-pages.js'
+      ])
+      .pipe(concat('otherpages.js'))
+      .pipe(gulp.dest('js/dist'))
+      .pipe(uglify())
+      .pipe(rename('otherpages.min.js'))
+      .pipe(gulp.dest('js/dist'));
+});
+
 // run local server
 gulp.task('webserver', function() {
   gulp.src('.')
@@ -84,4 +98,4 @@ gulp.task('watch', function() {
 });
 
 // Default Task
-gulp.task('default', ['lint', 'sass', 'webserver', 'templates', 'scripts', 'watch']);
+gulp.task('default', ['lint', 'sass', 'webserver', 'templates', 'scripts', 'scripts-other-pgs', 'watch']);
