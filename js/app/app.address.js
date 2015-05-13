@@ -24,7 +24,7 @@ app.address = (function(w,d) {
           
           // delay API calls so user sees loading gif
           setTimeout(function(){    
-            console.log('form filled, parsed address: ', parsed_address);
+            // console.log('form filled, parsed address: ', parsed_address);
             app.map.fns.geoclient(parsed_address[0], parsed_address[1], borough); 
           }, 1000);              
 

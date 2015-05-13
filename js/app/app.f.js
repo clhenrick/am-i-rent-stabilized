@@ -73,7 +73,7 @@ app.helpers = (function(w,d,el) {
 
       goToPrevSlide : function(callback){          
         var previous = app.f.getSlideIndex(state.currentSlide) -1;
-        console.log('go previous slide', previous);
+        // console.log('go previous slide', previous);
         if (previous >=0) {      
           app.f.goToSlide(app.el.slides[previous]);       
           if (callback && typeof callback === "function") { 

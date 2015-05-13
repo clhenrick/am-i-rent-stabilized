@@ -48,7 +48,7 @@ app.l = (function(w,d,$,el,f) {
     // listen to window hash change
     w.onhashchange = function() {
       // console.log('window.location.hash: ', w.location.hash);
-      console.log(d.URL.substring(d.URL.lastIndexOf('=') + 1, d.URL.length));
+      // console.log(d.URL.substring(d.URL.lastIndexOf('=') + 1, d.URL.length));
     };
 
     // go back
