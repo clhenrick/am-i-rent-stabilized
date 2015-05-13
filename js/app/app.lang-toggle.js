@@ -15,7 +15,7 @@ app.language = (function(w,d,$) {
 
     if (langs.indexOf(lang) === -1) { lang = 'en'; }
     // w.location.hash = '?lang=' + lang;    
-    console.log('load template lang: ', lang);
+
     // load the correct JSON file based on the app's page...
     if (currentPage === 'index') {      
       filePath = contentFolder + 'main-content.json';
@@ -68,13 +68,10 @@ app.language = (function(w,d,$) {
 
       if (typeof lang === 'undefined') {
         curLang = d.URL.substring(d.URL.lastIndexOf('=') + 1, d.URL.length);
-        // curLang = w.location.href.substring(w.location.href.lastIndexOf('=') + 1, w.location.href.length);
-        console.log('curLang: ', curLang.path);
+        // curLang = w.location.href.substring(w.location.href.lastIndexOf('=') + 1, w.location.href.length);        
       } else {
         curLang = lang;
       }
-
-      console.log('curLang: ', curLang);
 
       loadTemplateData(curLang, currentPage, callback);
   }

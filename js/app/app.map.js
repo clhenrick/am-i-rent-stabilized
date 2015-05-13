@@ -40,10 +40,10 @@ app.map = (function(d,w,a,H,$){
           .type(type)
           .on('success', function(data){
             callback(data);
-            console.log('getJSON data: ', data);
+            // console.log('getJSON data: ', data);
           })
           .on('error', function(err){
-            callback('error');
+            // callback('error');
           })
           .go();
     }
@@ -61,8 +61,7 @@ app.map = (function(d,w,a,H,$){
             borough = 'borough=' + boro + '&',
             url = 'https://api.cityofnewyork.us/geoclient/v1/address.json?',
             urlConcat = url + stNum + stName + borough + appID + appKey;
-
-      console.log('getting json...');
+      
       getJSON(urlConcat, 'jsonp', checkResult);      
     };
 
@@ -87,7 +86,7 @@ app.map = (function(d,w,a,H,$){
         var gcr_stringify = JSON.stringify(g);
         _gaq.push(['_trackEvent', 'Geoclient Success', 'Result', gcr_stringify]);
 
-        console.log('geoclient success, data: ', g);
+        // console.log('geoclient success, data: ', g);
         
         getCDBdata(bbl);
         showMarker(data);
@@ -179,9 +178,9 @@ app.map = (function(d,w,a,H,$){
 
     // if the results of the CDB SQL query have a row then show yes else display no
     var checkData = function(data) {   
-      console.log('cdb data: ', data); 
+      // console.log('cdb data: ', data); 
       if (data.rows.length > 0 && state.yesNoState === false) {
-        console.log('bbl match!');
+        // console.log('bbl match!');
         var bbl_match = JSON.stringify(data.rows[0].bbl);
         _gaq.push(['_trackEvent', 'CDB', 'Match', bbl_match]);
         app.f.toggleClass(app.el.yes, 'hidden');
@@ -234,6 +233,9 @@ app.map = (function(d,w,a,H,$){
       keyboard : false
     });
 
+    if (app.el.map.tap) app.el.map.tap.disable();
+    // app.el.map.style.cursor='default';
+
     var basemap = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',{
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
     });
@@ -264,20 +266,11 @@ app.map = (function(d,w,a,H,$){
     function(layer) {
       taxLots = layer.getSubLayer(0);
       taxLots.setCartoCSS(cartocss);
-      // taxLots.setSQL(sql);
-      // taxLots.setInteraction(true);
-      // taxLots.setInteractivity('address, borough, unitsres, ownername');
-      // taxLots.on('click', function(e, pos, latlng, data){
-      //   console.log('data: ', data);
-      // });
-      
+      taxLots.setInteraction(false);      
       app.el.map.addLayer(layer, false);
       basemap.bringToBack();
-    })
-    // .addTo(el.map)
+    })    
     .done(function(layer){
-      // console.log(layer);
-      // basemap.bringToBack();
     });
   }; // end init()
 
