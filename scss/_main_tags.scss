@@ -1,0 +1,491 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body, div, p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #4a4a4a;
+  font: {    
+    family: $body-font;
+    weight: 400;
+    size: 62.5%;
+  }
+  letter-spacing: 0.0625em;
+  background-color: $white;
+
+  &.en {
+    font-size: 62.5%;
+  }
+
+  &.es {
+    font-size: 50%;
+  }
+
+  &.zh {
+    font-size: 50%;
+  }
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-margin-after: 0;
+    -webkit-margin-before: 0;
+    -webkit-padding-start: 0;
+    -webkit-padding-end: 0;    
+}
+
+h1, h2, h3, h4 {
+  width: 100%;
+  margin: 0 auto; 
+  margin-bottom: 0;
+  font-weight: 700;
+  line-height: 1em;
+  text-align: center;
+  color: $gray;
+
+  @include responsive(small-screens) {
+    max-width: 100%;
+    padding: 0 1%;    
+  }
+}
+
+h1 {
+  font-family: $header-font;
+  font-size: 5.4em;
+  color: $gray;
+  max-width: 95%;
+  width: 75%;
+  margin-top: 75px;
+  
+  &.landing {
+    margin-top: 0px;
+    letter-spacing: 0.05em;
+    font-style: italic;
+  } 
+
+  &.step {
+    width: 80%;
+  }  
+
+  &.checking {
+    margin-top: 0;
+  }
+
+  .yes & {
+    margin-top: 50px;
+  }
+
+  &.end {
+    margin-top: 0;
+  } 
+
+  @include responsive_height(medium-screens){
+    width: 65%;
+    margin-top: 3%;
+    font-size: 3.8em;
+
+    &.landing {
+      margin-top: 0px;
+      width: 65%;
+      &.es {
+        font-size: 3.2em;        
+      }
+    }
+
+    &.step { width: 65%; }
+
+    .yes & {
+      width: 55%;
+      margin-top: 3%;
+    }
+
+    &.news {
+      margin-top: 7%;
+    }
+
+    &.es {
+      font-size: 3.2em;
+    }
+  }
+
+  @include responsive(medium-screens) {
+    width: 65%;
+    font-size: 3.8em;
+    margin-top: 3%;
+
+    &.landing {
+      margin-top: 0;
+      max-width: 75%;
+      
+      &.es {
+        font-size: 3.2em;
+        width: 65%;
+      }
+    }
+    &.news {
+      margin-top: 7%;
+    }    
+  }
+
+  @include responsive(tablet-screens) {
+    margin-top: 15%;
+    width: 75%;
+  }
+
+  @include responsive(small-screens) {
+      font-size: 1.8em;
+      line-height: 1.2em;
+      width: 100%;
+      max-width: 95%;
+      margin-top: 3%;    
+
+      &.landing {
+        margin-top: 10px;
+        max-width: 95%;
+        width: 95%;
+      }
+
+      &.step {
+        max-width: 90%;
+        width: 90%;
+      }
+
+      .yes & {
+        width: 95%;
+      }
+
+      &.check-it {
+        width: 80%;
+      }
+
+      &.end {
+        font-size: 2.5em;
+      }
+  }
+}
+
+h2 {
+  color: $lightgray;
+  font: {
+    family: $body-font;
+    size: 2.8em;
+    style: italic;
+    weight: bold;
+  }
+  
+  &.sub-head {
+    margin-top: 50px;
+  }
+
+  @include responsive_height(medium-screens) {
+    font-size: 2.2em;    
+
+    &.sub-head {
+      margin-top: 2%;
+      font-style: italic;
+    }    
+  }
+
+  @include responsive(medium-screens) {
+    font-size: 2.2em;
+  }
+
+  @include responsive(tablet-screens) {   
+    &.sub-head {
+      width: 75%;
+    }
+
+  }  
+
+  @include responsive(small-screens) {
+    font-size: 1.6em;
+    
+    &.sub-head {
+      width: 85%;
+      margin-top: 5%;
+    }
+  }  
+}
+
+h3 {
+  font-size: 4em;
+}
+
+h4 {
+  font-size: 2.4em;
+  color: $orange;
+  
+  &.step {
+    margin-top: 20px;
+    font-family: $body-font;
+    font-weight: 300;
+  }
+}
+
+/* Paragraphs*/
+p {
+  width: 80%;
+  margin: 0 auto;
+  font-size: 2.2em;
+  color: $green;
+  text-align: center;
+  // margin-top: 20px;    
+
+  em {
+    font-weight: 600;
+    font-style: italic;
+  }
+
+  &.landing{
+    margin-top: 25px;
+  }
+
+  &.step {
+    margin-top: 25px;
+  }
+
+  .no & {
+    margin-top: 75px;
+    width: 85%;
+  }
+
+  &.share-it {
+    color: $medgray;  
+  }
+
+  &.be-sure {
+    margin-top: 65px;
+    width: 70%;
+  }
+
+  &.check-it {
+    margin-top: 70px;
+    width: 35%;
+  }
+
+  &.view-sample {
+    margin-top: 20px;
+  }   
+
+  @include responsive_height(medium-screens){
+      max-width: 90%;
+      font-size: 1.8em;
+      margin-top: 1%;
+
+      &.go-step4 {
+        width: 20%;
+        &.es {
+          width: 30%;
+        }
+      }
+
+      &.check-it {
+        margin-top: 25px;
+        width: 30%;
+      }
+
+      .no & { 
+        margin-top: 25px;
+        width: 60%; 
+      }
+
+      &.be-sure {
+        margin-top: 25px;
+        width: 55%;
+      }
+
+      .centered.no & {
+        margin-top: 30px;
+      }      
+  }     
+
+  @include responsive(tablet-screens) {
+    
+    width: 55%;
+    margin-top: 5%;
+
+    &.landing {
+      margin-top: 5%;
+      width: 40%;      
+    }
+
+    &.go-step4 {
+      width: 40%;
+      margin-top: 0;
+    }
+
+    .no & {
+      width: 70%;
+    }
+
+    &.be-sure {
+      margin-top: 3%;
+      width: 55%;
+    }
+  }
+
+  @include responsive(small-screens) {
+    font-size: 1.3em;
+
+    &.landing {
+      margin-top: 5%;
+      width: 48%;
+    }
+
+    &.go-step4 {
+      width: 40%;
+    } 
+
+    &.step {
+      width: 65%;
+      margin-top: 2%;
+    }
+
+    &.be-sure {
+      width: 80%;
+      margin-top: 5%;
+    }
+
+    &.check-it {
+      width: 60%;
+      // margin-top: 10%;
+
+      .addtocalendar {
+        margin-top: 15%;
+      }
+    }
+    
+    .yes &, .no & {
+      font-size: 1.5em;
+    }       
+  }
+
+}
+
+/* Links */
+
+a {
+  text-decoration: none;
+  font-weight: 600;
+  color: $bluegreen;
+  
+  &.internal {
+    color: $orange;
+  }
+  
+  &:hover {
+    color: $lightblue;
+  }
+  
+  @include responsive(small-screens) {
+    &.go-step4 {
+      width: 40%;
+    }
+  }
+
+}
+
+/* Images */
+img {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  max-width: 100%;
+
+  &.triple-s {
+    width: 40px;
+    margin-top: 10px;
+  }
+
+  &.building.intro {
+    width: 120px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  &.checking {
+    left: -10px;
+    width: 175px;
+    margin-top: 50px;
+  }
+
+  &.mascot {
+    width: 260px;
+    margin-top: 20px;
+    &.monster {      
+      left: 11px;
+    }
+    &.intro {
+      width: 130px;
+    }
+  }
+
+  &.rent-history {
+    width: 150px;
+    border: 1px solid $lightgray;
+    margin-top: 30px;
+  }
+
+  @include responsive_height(medium-screens) {
+    &.triple-s {
+      width: 30px;
+      margin-top: 1%;
+      margin-bottom: 0;
+    }
+
+    &.building.intro {
+      width: 80px;
+      margin-top: 1%;
+      margin-bottom: 1%;
+    }
+
+    &.mascot {
+      max-width: 20%;
+    }
+  }  
+
+  @include responsive(tablet-screens) {
+    &.rent-history {
+      width: 175px;
+    }
+  }
+
+  @include responsive(small-screens) {
+    &.triple-s {
+      width: 25px;
+      margin-top: 5px;
+    }
+
+    &.building.intro {
+      width: 55px;
+    }
+
+    &.mascot {
+      max-width: 35%;
+      margin-top: 10px;
+    }
+
+    &.rent-history {
+      width: 125px;
+      left: 0;
+      margin: 0 auto;
+      margin-top: 5%;      
+    }        
+  }  
+}
+
+
+.hidden {
+  display: none;
+}
+
+.vis-hidden {
+  visibility: hidden;
+}

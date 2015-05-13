@@ -1,0 +1,165 @@
+.dhcr-choice {
+  position: relative;  
+  max-width: 1000px;
+  max-height: 120px;
+  margin: 0 auto;
+  margin-top: 50px;
+
+  @include columns($width: 200px, $number: 3, $gap: 10px);
+
+  p {
+    max-width: 200px;
+    height: 110px;    
+    margin-top: 0;
+  }
+
+  @include responsive_height(medium-screens) {
+    width: 650px;
+    p {
+      // margin-top: 30px;
+      width: 175px;
+    }
+  }
+
+  @include responsive(tablet-screens) {
+    height: 120px;
+    width: 630px;
+    
+    p {
+      height: 95px;
+      width: 175px;
+      font-size: 2.5em;
+    }
+  }
+
+  @include responsive(small-screens) {
+    width: 100%;
+    height: 65px;
+    margin-top: 25px;
+    margin-bottom: 10%;
+
+    @include columns($width: 100px, $number: 3, $gap: 10px);
+
+    p {
+      width: 90%;
+      height: 55px;
+      margin-top: 10px;
+      font-size: 1.3em;
+    }    
+  }
+}
+
+.action-choice {
+  position: relative;
+  max-width: 730px;
+  height: 315px;
+  margin: 0 auto;
+  margin-top: 60px;
+
+  @include columns($width:325px, $number:2, $gap:80px);
+  
+  @include responsive_height(medium-screens) {
+    width: 640px;
+    margin-top: 30px;
+    height: 300px;
+    @include columns($width:300px, $number:2, $gap:20px);  
+  }  
+
+  @include responsive(tablet-screens) {
+    width: 600px;
+    margin-top: 15%;
+    @include columns($width:255px, $number:2, $gap:80px);
+  }
+
+  @include responsive(small-screens) {
+    width: 100%;
+    height: 215px;
+    @include columns($width:125px, $number:2, $gap: 10px);    
+  }
+
+  p {
+    max-width: 100%;
+    width: 325px;
+    height: 250px;
+    margin: 0;
+    margin-top: 20px;    
+    font-size: 2.5em;
+    text-align: left;
+
+    @include responsive_height(medium-screens) {
+      margin-top: 1%;
+      max-width: 100%;
+      width: 300px;
+      height: 250px;
+      padding: 20px;
+      font-size: 2em;   
+
+      &.es { font-size: 1.8em; }
+    }
+
+    @include responsive(medium-screens) {
+      &.es { font-size: 1.8em; }
+    }
+    
+    @include responsive(tablet-screens) {
+      width: 255px;
+      height: 250px;      
+    }
+
+    @include responsive(small-screens) {
+      max-width: 100%;
+      width: 80%;
+      height: 200px;
+      font-size: 1.2em;
+      padding: 5px;
+      margin-left: 20px;
+    }
+  }
+
+  h4 {
+    position: relative;
+    margin-top: 0;
+    font-family: $header-font;
+    font-size: 3.2em;
+    font-weight: 700;
+    text-align: center;
+    color: $green;
+
+    &:last-child {
+      top: -3px;
+    }
+
+    @include responsive(small-screens) {
+      font-size: 1.5em;      
+    }        
+  }
+} // end .action-choice
+
+input[placeholder] {
+  color: $medgray !important;
+  font-family: $body-font !important;
+  font-weight: 300 !important;
+}
+input::-webkit-input-placeholder {
+   color: $medgray !important;
+   font-family: $body-font !important;
+   font-weight: 300 !important;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+   color: $medgray !important;
+   font-family: $body-font !important;
+   font-weight: 300  !important;
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+   color: $medgray !important;
+   font-family: $body-font !important;
+   font-weight: 300  !important;
+}
+
+input:-ms-input-placeholder {  
+   color: $medgray !important;
+   font-family: $body-font !important;
+   font-weight: 300  !important;
+}

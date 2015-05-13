@@ -1,24 +1,25 @@
-Am I Rent Stabilized dot com
+Am I Rent Stabilized 
 ============================
 
-A web site that informs NYC residents about rent regulation laws, how to find out if they may be rent regulated and paying too much rent, and how to take action. See it in action at [amirentstabilized.com](http://amirentstabilized.com/).
+A web site that informs NYC residents about Rent Stabilization, how to find out if their apartment may be rent stabilized and paying too much rent, and what to do about it.  
 
-## Runs on
-- [JQuery](http://jquery.com/)
-- [Leaflet](http://leafletjs.com/)
-- [CartoDB.JS](http://docs.cartodb.com/cartodb-platform/cartodb-js.html)
+See it in action at [amirentstabilized.com](http://amirentstabilized.com/).
+
+## (Version 2) Runs on
+- [Greensock's GSAP Animation Library](http://greensock.com/gsap)
+- [CartoDB JS](http://docs.cartodb.com/cartodb-platform/cartodb-js.html)
 - [CartoDB SQL API](http://docs.cartodb.com/cartodb-platform/sql-api.html)
+- [CartoDB's Positron map tiles](http://cartodb.com/basemaps/)
 - [NYC Geoclient API](https://developer.cityofnewyork.us/api/geoclient-api)
-- [Parse-Address](https://github.com/hassansin/parse-address) (U.S. Street Address Parser)
 - [GitHub Pages](https://pages.github.com/)
 
 ## Data Sources
 - [NYC Map Pluto](http://www.nyc.gov/html/dcp/html/bytes/dwn_pluto_mappluto.shtml) (Tax Lot data)
 - New York State's [HCR](http://www.nyshcr.org/) - [Rent Stabilized Buldings List](https://github.com/clhenrick/dhcr-rent-stabilized-data)
-- [Positron basemap tiles](#)
+- CartoDB's [Positron basemap tiles](http://blog.cartodb.com/getting-to-know-positron-and-dark-matter/) which use data from [OpenStreetMap](http://wiki.openstreetmap.org/wiki/Main_Page)
 
 ## Installation
-1. In terminal `cd` to this repo and do `bower install` to grab all dependencies.  
+1. In terminal `cd` to this repo and do `bower install && npm install` to grab all dependencies.  
 2. Host code on a webserver of your choice.
 
 ## Data Processing:
@@ -34,13 +35,23 @@ The processed data is [publicly available for download on CartoDB](http://chenri
 3. Point the CDB SQL API to the CartoDB account name and data table (it must be set to public).
 
 ## Credits
-Big thanks to [Caroline Woolard](http://carolinewoolard.com/) for suggesting the idea to me.
+- Big thanks to [Caroline Woolard](http://carolinewoolard.com/) for suggesting the idea to me.
+
+- [Jue Yang](https://github.com/jueyang) designed the awesome building graphics which informed the overall redesign of version 2 of the site.
+
+- [BetaNYC](http://betanyc.us/) provided motivational and technical support.
+
+- [Radish Lab](http://radishlab.com/) contributed the UI/UX design mockups of version 2.
+
+### Fullscreen slides with GSAP's TweenLite, CSSPlugin and ScrollToPlugin
+Forked from [Chrysto](http://codepen.io/bassta/)'s Pen [Fullscreen slides with TweenLite, CSSPlugin and ScrollToPlugin](http://codepen.io/bassta/pen/kDvmC/).
+
+A [Pen](http://codepen.io/anon/pen/XJqaRg) by [Captain Anonymous](http://codepen.io/anon) on [CodePen](http://codepen.io/).
+
+[License](http://codepen.io/anon/pen/XJqaRg/license).
 
 ## LICENSE
 [Creative Commons Attribution-NonCommercial ](http://creativecommons.org/licenses/by-nc/4.0/)   
 (CC BY-NC)
 
 In other words: **_Not For Profit!_**
-
-
-

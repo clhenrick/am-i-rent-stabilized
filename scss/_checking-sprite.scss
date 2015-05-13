@@ -1,0 +1,26 @@
+#sprite {
+  position: relative;
+  left: -15px;
+  width: 192px; 
+  height: 424px;
+  margin: 0 auto;
+  margin-top: 75px;
+  background: url('../assets/png/checking-sprite.png') left center;
+  
+  @include animation($name:play);
+
+  @include responsive_height(medium-screens) {
+  	margin-top: 5%;
+	background: url('../assets/png/checking-sprite-sm.png');
+	width: 128px;
+	height: 288px;
+	left: 0;
+    @include keyframes($name:play, $to:-1280px);  
+  }
+}
+
+@include keyframes($name:play, $to:-1920px);
+
+@include responsive_height(medium-screens) {
+	@include keyframes($name:play, $to:-1280px);	
+}
