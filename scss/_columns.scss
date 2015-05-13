@@ -61,7 +61,7 @@
   @include responsive_height(medium-screens) {
     width: 640px;
     margin-top: 30px;
-    height: 275px;
+    height: 300px;
     @include columns($width:300px, $number:2, $gap:20px);  
   }  
 
@@ -90,7 +90,7 @@
       margin-top: 1%;
       max-width: 100%;
       width: 300px;
-      height: 225px;
+      height: 250px;
       padding: 20px;
       font-size: 2em;   
 

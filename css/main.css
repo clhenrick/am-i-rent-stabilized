@@ -838,9 +838,9 @@ nav.main-nav {
     top: 80px;
     left: 30px; }
   @media only screen and (max-width: 980px) {
-    .lang-toggle.desktop li {
+    .lang-toggle.desktop li, #left .lang-toggle li {
       display: block; }
-      .lang-toggle.desktop li:nth-child(2) {
+      .lang-toggle.desktop li:nth-child(2), #left .lang-toggle li:nth-child(2) {
         display: none; }
     .lang-toggle li {
       display: inline-block; }
@@ -1582,7 +1582,7 @@ ul.validation-error {
     .action-choice {
       width: 640px;
       margin-top: 30px;
-      height: 275px;
+      height: 300px;
       -webkit-columns: 300px 2;
       -moz-columns: 300px 2;
       columns: 300px 2;
@@ -1631,7 +1631,7 @@ ul.validation-error {
         margin-top: 1%;
         max-width: 100%;
         width: 300px;
-        height: 225px;
+        height: 250px;
         padding: 20px;
         font-size: 2em; }
         .action-choice p.es {
@@ -1863,13 +1863,15 @@ body {
     font-size: 1.8em;
     line-height: 1.6em; }
   #main ul {
-    margin-left: 25px; }
+    margin-left: 25px;
+    padding-left: 0; }
   #main li {
     color: #417505;
     font-size: 1.8em;
     width: 80%;
     margin-top: 20px;
-    list-style-position: outside; }
+    list-style-position: outside;
+    padding-left: 0; }
     #main li p {
       margin-top: 5px;
       font-size: 1em; }
