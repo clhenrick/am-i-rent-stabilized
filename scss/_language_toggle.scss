@@ -46,16 +46,15 @@
   }
 
   @include responsive(medium-screens) {
-    // top: 80px;
-    // left: 30px;
-    // display: inline-block;
-    // width: auto;
-
-    li {
-      display: block;
-
-      &:nth-child(2) {
-        display: none;
+    // position: relative;
+    // top: 45px;
+    // left: 20px;
+    &.desktop {
+      li {
+        display: block;
+        &:nth-child(2) {
+          display: none;
+        }
       }
     }
 

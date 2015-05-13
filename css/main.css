@@ -838,9 +838,9 @@ nav.main-nav {
     top: 80px;
     left: 30px; }
   @media only screen and (max-width: 980px) {
-    .lang-toggle li {
+    .lang-toggle.desktop li {
       display: block; }
-      .lang-toggle li:nth-child(2) {
+      .lang-toggle.desktop li:nth-child(2) {
         display: none; }
     .lang-toggle li {
       display: inline-block; }
