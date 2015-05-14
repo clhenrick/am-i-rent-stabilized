@@ -586,10 +586,7 @@ app.language = (function(w,d,$) {
         filePath,
         contentFolder = 'data/';
 
-    if (langs.indexOf(lang) === -1) { lang = 'en'; }
-    // w.location.hash = '?lang=' + lang;    
-
-    // load the correct JSON file based on the app's page...
+    // load the correct JSON file based on the app's page
     if (currentPage === 'index') {      
       filePath = contentFolder + 'main-content.json';
       template = app.templates.main;
@@ -604,7 +601,8 @@ app.language = (function(w,d,$) {
       template = app.templates.resources;
     }    
     
-    $.getJSON(filePath, function(data) {      
+    $.getJSON(filePath, function(data) {
+      // load the correct language object
       if (lang === 'es') {
         html = template(data.languages.es);        
       } else if (lang === 'zh') {
@@ -613,12 +611,9 @@ app.language = (function(w,d,$) {
         html = template(data.languages.en);
       }      
       d.querySelector('#wrapper').innerHTML = html;
-      initLangButtons();      
+      initLangButtons(); 
     })
-    .done(function(){
-      if (callback && typeof callback === "function") { 
-        callback();
-      }      
+    .done(function(){     
       if (currentPage === 'index') {
         app.init.init();
       } else {
@@ -627,30 +622,25 @@ app.language = (function(w,d,$) {
       $es = $('.lang-toggle .toggle-es');
       $zh = $('.lang-toggle .toggle-zh');
       $en = $('.lang-toggle .toggle-en');
-      changeLangButtons(lang);      
+      changeLangButtons(lang);  
+      if (callback && typeof callback === "function") { 
+        callback();
+      }           
     });
   }
   
   function langToggle(lang, callback) {
-      var curLang;
+      var curLang = w.localStorage.getItem('lang') || 'en';
       var currentPage = document.URL.substring(document.URL.lastIndexOf('/') + 1, document.URL.lastIndexOf('.'));
       
       if (['index', 'why', 'how', 'resources'].indexOf(currentPage) === -1) {
         currentPage = 'index';
       }
 
-      if (typeof lang === 'undefined') {
-        curLang = d.URL.substring(d.URL.lastIndexOf('=') + 1, d.URL.length);
-        // curLang = w.location.href.substring(w.location.href.lastIndexOf('=') + 1, w.location.href.length);        
-      } else {
-        curLang = lang;
-      }
-
-      loadTemplateData(curLang, currentPage, callback);
+      loadTemplateData(curLang, currentPage);
   }
 
   function changeLangButtons(lang) {
-    // console.log('changeLangButtons: ', lang);
     if (lang === "es") {  
       $es.html('in english');
       $es.removeClass('toggle-es').addClass('toggle-en');
@@ -658,7 +648,6 @@ app.language = (function(w,d,$) {
       $('body').addClass('es');
       $('body').removeClass('en');
       $('body').removeClass('zh');
-      toggleNavButtonHref('es', 'en');
     } else if (lang === "zh") {
       $es.html('en español');
       $zh.html('in english');
@@ -666,41 +655,32 @@ app.language = (function(w,d,$) {
       $('body').addClass('zh');
       $('body').removeClass('es');
       $('body').removeClass('en');
-      toggleNavButtonHref('zh','en');
     } else {
       $es.html('en español');
       $zh.html('中文');
       $('body').addClass('en');
       $('body').removeClass('es');
       $('body').removeClass('zh');
-      toggleNavButtonHref('en', 'es');
-      toggleNavButtonHref('en', 'zh');
     }
   }
 
   function initLangButtons() {
     $('.lang-toggle').find('a').on('click', function(e) {
-      e.preventDefault();      
+      e.preventDefault();
+      
+      var lang;
+      
       var val = $(this).html();
       if (val === "en español") {
-        langToggle('es');
+        lang = 'es';        
       } else if (val === "中文") {
-        langToggle('zh');
+        lang = 'zh';
       } else {
-        langToggle('en');
+        lang = 'en';
       }
+      langToggle(lang);
+      w.localStorage.setItem('lang', lang);
       return false;            
-    });
-  }
-
-  function toggleNavButtonHref(newLang, oldLang) {
-    // var $navButtons = $('.nav');
-    $.each($('.nav a'), function(index, value){
-      if ($(value).attr('href').indexOf('lang') === -1){
-        $(value).attr('href', $(value).attr('href') + '?lang=' + newLang);  
-      } else {
-        $(value).attr('href', $(value).attr('href').replace('lang=' + oldLang, 'lang=' + newLang));
-      }      
     });
   }
 
