@@ -11,12 +11,12 @@ See it in action at [amirentstabilized.com](http://amirentstabilized.com/).
 - [CartoDB SQL API](http://docs.cartodb.com/cartodb-platform/sql-api.html)
 - [CartoDB's Positron map tiles](http://cartodb.com/basemaps/)
 - [NYC Geoclient API](https://developer.cityofnewyork.us/api/geoclient-api)
-- [GitHub Pages](https://pages.github.com/)
+- [Handlebars.js](http://handlebarsjs.com/)
 
 ## Data Sources
 - [NYC Map Pluto](http://www.nyc.gov/html/dcp/html/bytes/dwn_pluto_mappluto.shtml) (Tax Lot data)
 - New York State's [HCR](http://www.nyshcr.org/) - [Rent Stabilized Buldings List](https://github.com/clhenrick/dhcr-rent-stabilized-data)
-- CartoDB's [Positron basemap tiles](http://blog.cartodb.com/getting-to-know-positron-and-dark-matter/) which use data from [OpenStreetMap](http://wiki.openstreetmap.org/wiki/Main_Page)
+- [OpenStreetMap](http://wiki.openstreetmap.org/wiki/Main_Page)
 
 ## Installation
 1. In terminal `cd` to this repo and do `bower install && npm install` to grab all dependencies.  
