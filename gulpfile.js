@@ -93,7 +93,7 @@ gulp.task('webserver', function() {
 // Watch Files For Changes
 gulp.task('watch', function() {
     gulp.watch('templates/*.hbs');
-    gulp.watch('js/app/*.js', ['lint', 'scripts']);
+    gulp.watch('js/app/*.js', ['lint', 'scripts', 'scripts-other-pgs']);
     gulp.watch('scss/*.scss', ['sass']);
 });
 
