@@ -549,7 +549,7 @@ p {
   p.share-it {
     color: #9B9B9B; }
   p.be-sure {
-    margin-top: 65px;
+    margin-top: 25px;
     width: 70%; }
   p.check-it {
     margin-top: 70px;
@@ -870,7 +870,7 @@ nav.main-nav {
           display: block; }
           #slide-1 .lang-toggle li:nth-child(2) {
             display: none; } }
-  @media only screen and (max-height: 420px) and (min-width: 320px) {
+  @media only screen and (max-height: 320px) and (min-width: 320px) {
     .lang-toggle {
       position: relative;
       top: 0;
@@ -978,7 +978,7 @@ nav.margin-circles {
       width: 100%;
       left: 0;
       margin: 0; } }
-  @media only screen and (max-height: 420px) and (min-width: 320px) {
+  @media only screen and (max-height: 320px) and (min-width: 320px) {
     .slides-container {
       display: none; } }
 
@@ -1760,7 +1760,7 @@ p.map-message {
       width: 100%;
       height: auto;
       margin-top: 30px; } }
-  @media only screen and (max-height: 420px) and (min-width: 320px) {
+  @media only screen and (max-height: 320px) and (min-width: 320px) {
     #left {
       width: 100%;
       height: auto;
@@ -1824,7 +1824,7 @@ p.map-message {
   @media only screen and (max-width: 460px) {
     #side-nav {
       display: none; } }
-  @media only screen and (max-height: 420px) and (min-width: 320px) {
+  @media only screen and (max-height: 320px) and (min-width: 320px) {
     #side-nav {
       display: none; } }
 
@@ -1975,7 +1975,7 @@ body {
         #main .video iframe {
           margin-top: 10px;
           height: auto; } }
-  @media only screen and (max-height: 420px) and (min-width: 320px) {
+  @media only screen and (max-height: 320px) and (min-width: 320px) {
     #main {
       width: 95%;
       margin: 0 0px 50px 20px; }
@@ -1988,7 +1988,7 @@ body {
 
 #mobile-message {
   display: none; }
-  @media only screen and (max-height: 420px) and (min-width: 320px) {
+  @media only screen and (max-height: 320px) and (min-width: 320px) {
     #mobile-message {
       display: block;
       position: absolute;
