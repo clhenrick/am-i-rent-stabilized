@@ -23,42 +23,10 @@
     height: auto;
     position: relative;    
     display: block;
-    margin-left: 3%;
-    margin-top: 70px;
+    margin-left: 0;
+    margin-top: 25px;
   }  
 }
-
-// #lang-toggle {
-//   position: relative;
-
-//   @include responsive(medium-screens) {
-//     li {
-//       display: block;
-
-//       &:nth-child(2) {
-//         display: none;
-//       }
-//     }
-//   }
-
-//   @include responsive_mobile_landscape() {
-//     top: 0;
-//     left: 0;
-//   }
-
-//   @include responsive(small-screens) {
-//     top: 70px;
-//     left: 20px;
-//     font-size: 0.8em;
-    
-//     li {
-//       display: inline-block;
-//       &:nth-child(2) {
-//         display: inline-block;
-//       }
-//     }
-//   }
-// }
 
 #side-nav {
   position: relative;

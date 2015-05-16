@@ -38,17 +38,11 @@
     left: 30px;
   }
 
-  @include responsive_height(medium-screens) {
-    // top: 20px;
-    // left: 20px;
-    // display: inline-block;
-    // width: auto;    
-  }
+  // @include responsive_height(medium-screens) {
+
+  // }
 
   @include responsive(medium-screens) {
-    // position: relative;
-    // top: 45px;
-    // left: 20px;
     &.desktop, #left & {
       li {
         display: block;
@@ -109,6 +103,25 @@
   @include responsive_mobile_landscape() {
     position: relative;
     top: 0;
-    left: 6px;
+    left: 0;
+
+    #left & {
+      position: relative;
+      top: 45px;
+      left: 20px;      
+
+      li {
+        list-style: none;
+        display: inline-block;
+
+        &:nth-child(2) {
+          display: inline-block;
+        }
+        &:last-child {
+          list-style: disc;
+          list-style-position: inside;
+        }        
+      }
+    }    
   }
 }

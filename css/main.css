@@ -874,7 +874,19 @@ nav.main-nav {
     .lang-toggle {
       position: relative;
       top: 0;
-      left: 6px; } }
+      left: 0; }
+      #left .lang-toggle {
+        position: relative;
+        top: 45px;
+        left: 20px; }
+        #left .lang-toggle li {
+          list-style: none;
+          display: inline-block; }
+          #left .lang-toggle li:nth-child(2) {
+            display: inline-block; }
+          #left .lang-toggle li:last-child {
+            list-style: disc;
+            list-style-position: inside; } }
 
 nav.margin-circles {
   position: fixed;
@@ -1766,8 +1778,8 @@ p.map-message {
       height: auto;
       position: relative;
       display: block;
-      margin-left: 3%;
-      margin-top: 70px; } }
+      margin-left: 0;
+      margin-top: 25px; } }
 
 #side-nav {
   position: relative;
@@ -1978,7 +1990,7 @@ body {
   @media only screen and (max-height: 320px) and (min-width: 320px) {
     #main {
       width: 95%;
-      margin: 0 0px 50px 20px; }
+      margin: 55px 0 50px 20px; }
       #main .video {
         width: 100%; }
         #main .video iframe {
