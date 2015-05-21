@@ -105,7 +105,7 @@
 				"facts" : "Aquí algunos datos:",
 				"one" : "Cerca de 1 millón de apartamentos en la ciudad de Nueva York tienen la renta estabilizada. Eso es casi la mitad de todos los apartamentos en Nueva York.",
 				"two" : "La estabilización de renta brinda a los arrendatarios el derecho de quedarse en su apartamento con un modesto incremento en la renta al año, usualmente entre 2-6%",
-				"three" : "Protege al arrendador de ser desalojado son una causa justa.",
+				"three" : "Protege al arrendador de ser desalojado sin una causa justa.",
 				"four" : "Fortalece los derechos del arrendador a obtener servicios de primera y reparaciones en sus apartamentos mientras penaliza a dueños negligentes."
 			},
 			"what" : {
@@ -128,9 +128,9 @@
 				"h3" : "Esto se pone peor. Actualmente las leyes de estabilización de renta y el control de renta tiene que ser renovadas periódicamente. Cada vez que son renovadas, la industria de bienes raíces  intenta debilitar las. ",
 				"p1" : "La industria de bienes raíces ha tenido éxito. Desde 1990 ",
 				"p1_s" : "la ciudad ha perdido un estimado de 300,000 apartamentos con renta estabilizada.",
-				"p2" : "Los siguientes videos creados ",
-				"a" : "NY Tenants Project",
-				"p3" : "explican parte de la historia acerca de la regulación de renta en la ciudad de Nueva York, y como la industria de bienes raíces la ha debilitado.  También hablan de lo que está actualmente sucediendo en tres vecindarios de la ciudad de Nueva York."
+				"p2" : "Los siguientes videos fueron creados por ",
+				"a" : "NY Tenants Project.",
+				"p3" : "Este vídeo explica parte de la historia acerca de la regulación de renta en la ciudad de Nueva York, y como las industria de bienes raíces la ha debilitado. También hablan ser lo que está actualmente sucediendo en tres vecindarios de la ciudad de Nueva York."
 			},
 			"videos" : {
 				"how" : "Cómo llegamos hasta aquí?",
@@ -141,7 +141,7 @@
 			},
 			"get_involved" : {
 				"h1" : "Qué puedo hacer?",
-				"h3" : "You can get involved in several ways:",
+				"h3" : "Puede involucrarse de muchas maneras:",
 				"first" : "Primero aprende acerca de tus derechos. Asiste a un seminario de derecho de inquilinos. Vaya a los enlaces en ",
 				"a" : "la páginas de Recursos.",
 				"second" : "Cree una asociación de inquilinos en su edificio y luego haga su asociación parte de otra ya establecida. Esta es la mejor manera de proteger su renta estabilizada y la de sus vecinos. ",
