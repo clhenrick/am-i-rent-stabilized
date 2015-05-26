@@ -574,11 +574,11 @@ this["app"]["templates"]["why"] = Handlebars.template({"compiler":[6,">= 2.0.0-b
 var app = app || {};
 
 app.language = (function(w,d,$) {
-
-    var $es,
-        $zh,
-        $en,
-        langs = ['en','es','zh'];
+  // language toggle module
+  // variables to reference the language toggle buttons
+  var $es,
+      $zh,
+      $en;
 
   function loadTemplateData(lang, currentPage, callback){
     var template,
@@ -586,7 +586,7 @@ app.language = (function(w,d,$) {
         filePath,
         contentFolder = 'data/';
 
-    // load the correct JSON file based on the app's page
+    // set variables to the correct JSON file & template based on the app's current page
     if (currentPage === 'index') {      
       filePath = contentFolder + 'main-content.json';
       template = app.templates.main;
@@ -602,7 +602,7 @@ app.language = (function(w,d,$) {
     }    
     
     $.getJSON(filePath, function(data) {
-      // load the correct language object
+      // load the correct language from the json data
       if (lang === 'es') {
         html = template(data.languages.es);        
       } else if (lang === 'zh') {
@@ -630,17 +630,20 @@ app.language = (function(w,d,$) {
   }
   
   function langToggle(lang, callback) {
-      var curLang = w.localStorage.getItem('lang') || 'en';
-      var currentPage = document.URL.substring(document.URL.lastIndexOf('/') + 1, document.URL.lastIndexOf('.'));
-      
-      if (['index', 'why', 'how', 'resources'].indexOf(currentPage) === -1) {
-        currentPage = 'index';
-      }
+    // loads the correct lang json & template; 
+    // this gets called when the page first loads and when the user clicks the lang button
+    var curLang = w.localStorage.getItem('lang') || 'en';
+    var currentPage = document.URL.substring(document.URL.lastIndexOf('/') + 1, document.URL.lastIndexOf('.'));
+    
+    if (['index', 'why', 'how', 'resources'].indexOf(currentPage) === -1) {
+      currentPage = 'index';
+    }
 
-      loadTemplateData(curLang, currentPage);
+    loadTemplateData(curLang, currentPage);
   }
 
   function changeLangButtons(lang) {
+    // change the language toggle buttons so the user can switch between them
     if (lang === "es") {  
       $es.html('in english');
       $es.removeClass('toggle-es').addClass('toggle-en');
@@ -665,11 +668,10 @@ app.language = (function(w,d,$) {
   }
 
   function initLangButtons() {
+    // add the event listener 
     $('.lang-toggle').find('a').on('click', function(e) {
       e.preventDefault();
-      
-      var lang;
-      
+      var lang;      
       var val = $(this).html();
       if (val === "en español") {
         lang = 'es';        
@@ -677,10 +679,10 @@ app.language = (function(w,d,$) {
         lang = 'zh';
       } else {
         lang = 'en';
-      }
-      langToggle(lang);
+      }      
       w.localStorage.setItem('lang', lang);
-      return false;            
+      langToggle(lang);
+      return false;
     });
   }
 
