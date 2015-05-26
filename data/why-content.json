@@ -2,6 +2,7 @@
 	"languages" : {
 		"en" : {
 			"nav_main" : {
+				"title": "Am I Rent Stabilized?",
 				"why" : "Why it Matters",
 				"how" : "How it Works",
 				"resources" : "Resources"
@@ -85,22 +86,23 @@
 
 		"es" : {
 			"nav_main" : {
+				"title" : "¿Tengo Renta Estabilizada?",
 				"why" : "Porqué es importante",
 				"how" : "Como funciona",
 				"resources" : "Recursos"
 			},
 			"nav_side" : {
 				"h3" : "Ir a un tópico",
-				"why" : "Por qué es importante?",
-				"what" : "Por qué más debe importarme?",
+				"why" : "¿Por qué es importante?",
+				"what" : "¿Por qué más debe importarme?",
 				"under" : "Bajo Ataque",
-				"messed" : "Esto es un desastre!",
+				"messed" : "¡Esto es un desastre!",
 				"videos" : "Videos",
 				"involved" : "Involucre se",
 				"not" : "Si no tienen renta estabilizada"
 			},
 			"why" : {
-				"h1" : "Por qué la renta estabilizada es buena para la ciudad de Nueva York?",
+				"h1" : "¿Por qué la renta estabilizada es buena para la ciudad de Nueva York?",
 				"h3" : "Simplemente sepa que la estabilización de renta es la ley de renta más importante que mantiene a la ciudad de Nueva York.asequible a sus residentes.",
 				"facts" : "Aquí algunos datos:",
 				"one" : "Cerca de 1 millón de apartamentos en la ciudad de Nueva York tienen la renta estabilizada. Eso es casi la mitad de todos los apartamentos en Nueva York.",
@@ -109,7 +111,7 @@
 				"four" : "Fortalece los derechos del arrendador a obtener servicios de primera y reparaciones en sus apartamentos mientras penaliza a dueños negligentes."
 			},
 			"what" : {
-				"h1" : "Por qué más debe importarme?",
+				"h1" : "¿Por qué más debe importarme?",
 				"h3" : "Si su apartamento tiene renta estabilizada y el propietario le miente acerca de ésto, usted podría recibir su dinero de vuelta.",
 				"p1" : "Si el DHCR encuentra su denuncia válida, ellos le van a requerir a el propietario que le reembolse el dinero que legalmente se le debe. ",
 				"a" : "En un caso reciente un inquilino recibió de vuelta $112,000 que se le habían cobrado de más!"
@@ -124,7 +126,7 @@
 				"three" : "Atormentando a los inquilinos forzando que se muden para hacerle mejoras al apartamento y subir el precio de la renta."
 			},
 			"messed" : {
-				"h1" : "Esto es un desastre!",
+				"h1" : "¡Esto es un desastre!",
 				"h3" : "Esto se pone peor. Actualmente las leyes de estabilización de renta y el control de renta tiene que ser renovadas periódicamente. Cada vez que son renovadas, la industria de bienes raíces  intenta debilitar las. ",
 				"p1" : "La industria de bienes raíces ha tenido éxito. Desde 1990 ",
 				"p1_s" : "la ciudad ha perdido un estimado de 300,000 apartamentos con renta estabilizada.",
@@ -133,14 +135,14 @@
 				"p3" : "Este vídeo explica parte de la historia acerca de la regulación de renta en la ciudad de Nueva York, y como las industria de bienes raíces la ha debilitado. También hablan ser lo que está actualmente sucediendo en tres vecindarios de la ciudad de Nueva York."
 			},
 			"videos" : {
-				"how" : "Cómo llegamos hasta aquí?",
-				"what" : "Qué es desocupación desregulada?",
-				"bronx" : "Qué está pasando en el Bronx?",
-				"bushwick" : "Qué está pasando en Bushwick?",
-				"chinatown" : "Qué está pasando en Chinatown"
+				"how" : "¿Cómo llegamos hasta aquí?",
+				"what" : "¿Qué es desocupación desregulada?",
+				"bronx" : "¿Qué está pasando en el Bronx?",
+				"bushwick" : "¿Qué está pasando en Bushwick?",
+				"chinatown" : "¿Qué está pasando en Chinatown?"
 			},
 			"get_involved" : {
-				"h1" : "Qué puedo hacer?",
+				"h1" : "¿Qué puedo hacer?",
 				"h3" : "Puede involucrarse de muchas maneras:",
 				"first" : "Primero aprende acerca de tus derechos. Asiste a un seminario de derecho de inquilinos. Vaya a los enlaces en ",
 				"a" : "la páginas de Recursos.",
@@ -148,7 +150,7 @@
 				"third" : "Haga que su voz sea escuchada. Contacte sus representantes locales, vaya a reuniones de las junta de su comunidad, y dígale al alcalde que debe haber un énfasis en preservar viviendas económicamente accesibles."
 			},
 			"not_rs" : {
-				"h1" : "Qué hacer si mi renta no está estabilizada?",
+				"h1" : "¿Qué hacer si mi renta no está estabilizada?",
 				"h3" : "Desafortunadamente no hay mucho que pueda hacer para prevenir que su renta suba exageradamente.",
 				"p1" : {
 					"one" : "Independientemente ",
@@ -167,6 +169,7 @@
 
 		"zh" : {
 			"nav_main" : {
+				"title" : "Am I Rent Stabilized?",
 				"why" : "为什么了租金稳定与否很重要？",
 				"how" : "租金稳定是怎么一回事？",
 				"resources" : "相关资料"

@@ -3,6 +3,7 @@
     {
       "en" : {
             "nav_main": {
+                "title" : "Am I Rent Stabilized?",
                 "why": "Why it Matters",
                 "how": "How it Works",
                 "resources": "Resources"
@@ -100,6 +101,7 @@
 
       "es" : {
             "nav_main": {
+                "title" : "¿Tengo Renta Estabilizada?",
                 "why": "Porqué es Importante",
                 "how": "Como Funciona",
                 "resources": "Recursos"
@@ -197,6 +199,7 @@
 
       "zh" : {
             "nav_main": {
+                "title" : "Am I Rent Stabilized?",
                 "why": "为什么了租金稳定与否很重要?",
                 "how": "租金稳定是怎么一回事？",
                 "resources": "相关资料"
