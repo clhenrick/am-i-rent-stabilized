@@ -2,19 +2,14 @@ var app = app || {};
 
 app.events = (function(w, d, $) {    
 
-    var publish = function (name, o) {
-       
-       // console.log("EVENT [" + name + "]", o);
-        $(document).trigger(name, [o]);
-    
+    var publish = function (name, o) {              
+        $(document).trigger(name, [o]);    
     };
 
-    var subscribe = function (name, callback) {
-        
+    var subscribe = function (name, callback) {      
         $(document).on(name, function(event, o){            
             callback(o);
         });
-
     };
 
     return {
