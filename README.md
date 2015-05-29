@@ -1,5 +1,6 @@
 Am I Rent Stabilized 
 ============================
+![](assets/png/airs_landing_page.png)
 
 A web site that informs NYC residents about Rent Stabilization, how to find out if their apartment may be rent stabilized and paying too much rent, and what to do about it.  
 
