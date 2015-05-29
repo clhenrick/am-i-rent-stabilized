@@ -842,19 +842,14 @@ var app = app || {};
 
 app.events = (function(w, d, $) {    
 
-    var publish = function (name, o) {
-       
-       // console.log("EVENT [" + name + "]", o);
-        $(document).trigger(name, [o]);
-    
+    var publish = function (name, o) {              
+        $(document).trigger(name, [o]);    
     };
 
-    var subscribe = function (name, callback) {
-        
+    var subscribe = function (name, callback) {      
         $(document).on(name, function(event, o){            
             callback(o);
         });
-
     };
 
     return {
@@ -1788,29 +1783,82 @@ app.s = (function(w,d) {
 
   var state = {
     formFilled : false, // has the user filled out the address form?    
-    currentSlide : null,
-    isAnimating : false,
-    pageHeight : null,
-    yesNoState : false,
-    propertyData : null
+    currentSlide : null, // current slide the user is on
+    isAnimating : false, // if the app is animating from one slide to another
+    pageHeight : null,  // slide height is set to page height minus the height of top nav bar
+    yesNoState : false, // false = address not found in db, true = found
+    propertyData : null // data returned from the geoclient api
   };
 
   app.events.subscribe('state-change', function(updates){
-    
     if (updates.isAnimating !== undefined) state.isAnimating = updates.isAnimating;
     if (updates.formFilled !== undefined) state.formFilled = updates.formFilled;    
     if (updates.currentSlide !== undefined) state.currentSlide = updates.currentSlide;
     if (updates.pageHeight !== undefined) state.pageHeight = updates.pageHeight; 
     if (updates.yesNoState !== undefined) state.yesNoState = updates.yesNoState;
-    if (updates.propertyData !== undefined) state.propertyData = updates.propertyData;
-    
-    // console.log('state: ', state);
-
+    if (updates.propertyData !== undefined) state.propertyData = updates.propertyData;    
     app.events.publish('state-updated', state);
   });
 
   return {
     state : state
   };
+
+})(window, document);
+
+// code credit: http://jsfiddle.net/rvuayqeo/1/
+//& http://stackoverflow.com/questions/15084675/how-to-implement-swipe-gestures-for-mobile-devices
+
+var app = app || {};
+
+app.swipe = (function(w,d){
+  return function detectswipe(el,func) {
+      swipe_det = new Object();
+      swipe_det.sX = 0;
+      swipe_det.sY = 0;
+      swipe_det.eX = 0;
+      swipe_det.eY = 0;
+      var min_x = 20;  //min x swipe for horizontal swipe
+      var max_x = 40;  //max x difference for vertical swipe
+      var min_y = 40;  //min y swipe for vertical swipe
+      var max_y = 50;  //max y difference for horizontal swipe
+      var direc = "";
+      ele = d.getElementById(el);
+      ele.addEventListener('touchstart',function(e){
+        var t = e.touches[0];
+        swipe_det.sX = t.screenX; 
+        swipe_det.sY = t.screenY;
+      },false);
+      ele.addEventListener('touchmove',function(e){
+        e.preventDefault();
+        var t = e.touches[0];
+        swipe_det.eX = t.screenX; 
+        swipe_det.eY = t.screenY;    
+      },false);
+      ele.addEventListener('touchend',function(e){
+        //horizontal detection
+        if ((((swipe_det.eX - min_x > swipe_det.sX) || (swipe_det.eX + min_x < swipe_det.sX)) && ((swipe_det.eY < swipe_det.sY + max_y) && (swipe_det.sY > swipe_det.eY - max_y)))) {
+          if(swipe_det.eX > swipe_det.sX) direc = "r";
+          else direc = "l";
+        }
+        //vertical detection
+        if ((((swipe_det.eY - min_y > swipe_det.sY) || (swipe_det.eY + min_y < swipe_det.sY)) && ((swipe_det.eX < swipe_det.sX + max_x) && (swipe_det.sX > swipe_det.eX - max_x)))) {
+          if(swipe_det.eY > swipe_det.sY) direc = "d";
+          else direc = "u";
+        }
+    
+        if (direc != "") {
+          if(typeof func == 'function') func(el,direc);
+        }
+        direc = "";
+      },false);  
+    }
+
+    // sample code...
+    // function myfunction(el,d) {
+    //   alert("you swiped on element with id '"+el+"' to "+d+" direction");
+    // }
+
+    // detectswipe('swipeme',myfunction);
 
 })(window, document);
