@@ -1,10 +1,10 @@
-Am I Rent Stabilized 
+Am I Rent Stabilized? 
 ============================
 ![](assets/png/airs_landing_page.png)
 
-A web site that informs NYC residents about Rent Stabilization, how to find out if their apartment may be rent stabilized and paying too much rent, and what to do about it.  
+A web site that informs NYC residents about Rent Stabilization by simplifying the process of how to find out if their apartment may be rent stabilized, if they are paying too much rent, and what to do about it.  
 
-See it in action at [amirentstabilized.com](http://amirentstabilized.com/).
+See it in action at [amirentstabilized.com](https://amirentstabilized.com/).
 
 ## (Version 2) Runs on
 - [Greensock's GSAP Animation Library](http://greensock.com/gsap)
@@ -13,6 +13,8 @@ See it in action at [amirentstabilized.com](http://amirentstabilized.com/).
 - [CartoDB's Positron map tiles](http://cartodb.com/basemaps/)
 - [NYC Geoclient API](https://developer.cityofnewyork.us/api/geoclient-api)
 - [Handlebars.js](http://handlebarsjs.com/)
+- [addToCalendar.js]()
+- [addThis](http://addthis.com)
 
 ## Data Sources
 - [NYC Map Pluto](http://www.nyc.gov/html/dcp/html/bytes/dwn_pluto_mappluto.shtml) (Tax Lot data)
