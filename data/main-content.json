@@ -102,23 +102,23 @@
       "es" : {
             "nav_main": {
                 "title" : "¿Tengo Renta Estabilizada?",
-                "why": "Porqué es Importante",
-                "how": "Como Funciona",
+                "why": "¿Porqué es importante?",
+                "how": "¿Cómo funciona?",
                 "resources": "Recursos"
             },
             "nav_bottom_arrow": {
                 "begin": "Inicio",
                 "next": "Siguiente"
             },
-            "mobile_msg": "Please rotate your device or make your browser window taller.",
+            "mobile_msg": "Favor de rotar su celular.",
             "slide01": {
                 "h1": "La Mitad de Todos Los Apartamentos en la Ciudad de Nueva York Tienen Renta Estabilizada.",
                 "h2": "Descubra si el suyo es uno de ellos.",
-                "landing": "O brinque este paso hasta",
-                "go_step_4": "Cuando usted recibe su historial de renta"
+                "landing": "O salte este paso hasta",
+                "go_step_4": "Una vez recibido el historial de renta"
             },
             "slide02": {
-                "h1": "Primero, escriba el número de su edificio y el distrito donde vive.",
+                "h1": "Primero, escriba la dirección del edificio y el distrito donde se encuentra.",
                 "privacy": "No compartiremos su información, tampoco será usada con propósitos comerciales.",
                 "form": {
                   "address": "Número del edificio y el nombre de la calle",
@@ -131,63 +131,63 @@
                       "si": "Staten Island"
                   },
                   "val_errors": {
-                      "not_found": "* Lo sentimos, no reconocemos ésta dirección, por favor trate de nuevo.<br>Asegúrese de solo escribir el número del edificio y el nombre/número de la calle.",
-                      "boro": "* Por favor seleccione su distrito",
-                      "address": "* Por Favor entre el número de su edificio y el nombre/número de la calle"
+                      "not_found": "* Lo sentimos, no reconocemos ésta dirección, favor de intentar de nuevo. <br>Únicamente se debe escribir el número del edificio y el nombre/número de la calle.",
+                      "boro": "* Por favor seleccione el distrito.",
+                      "address": "* Por favor escriba el número de su edificio y el nombre/número de la calle."
                   }
                 },
                 "search": "Búsqueda"
             },
             "slide03": {
                 "checking": "Verificando...",
-                "p": "Esto tomará solo un momento."
+                "p": "Esto tomará unos momentos."
             },
             "slide04": {
                 "yes": {
-                    "h1": "Su apartamento <em>podría</em> tener renta estabilizada!",
-                    "p": "Pero, hay solo una manera de estar seguros, siga leyendo."
+                    "h1": "¡El apartamento <em>podría</em> tener renta estabilizada!",
+                    "p": "Pero, hay solo una manera de asegurarse, siga leyendo."
                 },
                 "no": {
-                    "p": "Aunque no encontremos su dirección en nuestra base de datos, no podemos estar  100&#37; seguros que su renta no es estabilizada. Continúe leyendo."
+                    "p": "Aunque no encontremos su dirección en nuestra base de datos, no podemos estar 100&#37; seguros que esta renta no se encuentre estabilizada. Sigamos..."
                 },
                 "map": {
-                    "caption": "Anaranjado significa que la propiedad podría tener apartamentos con renta estabilizada.",
-                    "view_map": "Abra una nueva ventana para ver este mapa."
+                    "caption": "El color anaranjado significa que la propiedad podría tener apartamentos con renta estabilizada.",
+                    "view_map": "Se abrirá una nueva ventana para ver este mapa."
                 }
             },
             "slide05": {
-                "h1": "Solicite el historial de renta de su apartamento al Departamento de Viviendas y Renovación de Comunidades de Nueva York.",
-                "mail": "Puede solicitarla vía email.",
-                "phone": "Puede llamar a las oficinas al",
-                "visit": "También Puede visitar",
-                "office": "sus oficinas.",
+                "h1": "Para solicitar el historial de renta de su apartamento al Departamento de Viviendas y Renovación de Comunidades de Nueva York.",
+                "mail": "Puede solicitarse vía email.",
+                "phone": "Llamando a las oficinas al ",
+                "visit": "También se puede visitar",
+                "office": "estas oficinas.",
                 "tell_them": "Asegúrese de decirle su nombre, dirección, número de apartamento y que le gustaría solicitar el historial de renta de su apartamento.",
-                "mailed": "Se le enviará por correo."
+                "mailed": "El historial llegará por correo."
             },
             "slide06": {
-                "h1": "Después de solicitar su historial de renta añada un recordatorio a su calendario.",
-                "arrive": "Debe llegar en menos de una semana.",
-                "friends": "Mientras tanto, haga que sus amigos y vecinos soliciten uno también."
+                "h1": "Después de solicitar el historial de renta añada un recordatorio a su calendario.",
+                "arrive": "Crear un recordatorio en su calendario.",
+                "friends": "El historial debe llegar en menos de una semana. Mientras tanto, haga que sus amigos y vecinos soliciten uno también."
             },
             "slide07": {
-                "h1": "Una vez reciba el historial de renta, mire lo que los inquilinos anteriores pagaban y si su renta estaba estabilizada.",
-                "p": "Mire un ejemplo de historial de renta."
+                "h1": "Una vez recibido el historial, se puede leer lo que inquilinos anteriores pagaban y si la renta se encontraba estabilizada anteriormente.",
+                "p": "Ver un ejemplo de historial de renta."
             },
             "slide08": {
-                "h1": "Si pagaban mucho menos de lo que usted paga ahora, siga estos pasos:",
+                "h1": "Si los inquilinos anteriores pagaban mucho menos de lo que se paga ahora, seguir estos pasos:",
                 "option01": "Opción 1:",
                 "no_local_tr": {
-                    "a": "Contacte un grupo de derechos para inquilinos para que le aconseje.",
-                    "p": "Estos grupos pueden ofrecerle información útil y ayudarle a tomar el mejor curso de acción."
+                    "a": "Contactar un grupo de derechos para inquilinos para recibir consejo.",
+                    "p": "Estos grupos pueden ofrecer información útil y ayudar a tomar el mejor curso de acción."
                 },
                 "yes_local_tr": {
-                    "p": "Contacte un grupo de derechos para inquilinos para que le aconseje.",
-                    "a": "Encuentre aquí una lista de grupos de derechos para inquilinos en su comunidad."
+                    "p": "Contactar un grupo de derechos para inquilinos para recibir consejo.",
+                    "a": "Aquí se puede ver una lista de grupos de derechos para inquilinos en su comunidad."
                 },
                 "option02": "Opción 2:",
-                "p1": "Presente una denuncia al DHCR llenando y enviando por correo ",
-                "a": "la forma de cobro de más de renta (rent overcharge form).",
-                "p2": "Entienda que el dueño de su apartamento será notificado que usted tomó dicha acción."
+                "p1": "Presentar una denuncia al DHCR llenando y enviando por correo ",
+                "a": "la forma de sobre-cobro de renta (rent overcharge form). ",
+                "p2": "Importante: El propietario de su apartamento será notificado que usted tomó dicha acción. "
             },
             "slide09": {
                 "h1": "¡Buen Trabajo!",
