@@ -84,80 +84,80 @@
 		"es" : {
 			"nav_main" : {
 				"title" : "¿Tengo Renta Estabilizada?",
-				"why" : "Porqué es Importante",
-				"how" : "Como Funciona",
+				"why" : "¿Porqué es importante?",
+				"how" : "¿Cómo funciona?",
 				"resources" : "Recursos"
 				},
 			"nav_side" : {
 				"h3" : "Ir a un tema:",
-				"how" : "Como funciona",
-				"code" : "Código e Información",
+				"how" : "¿Cómo funciona?",
+				"code" : "Código y Datos",
 				"credits" : "Créditos"
 				},
 			"how" : {
-				"h1" : "Cómo funciona ésta página web",
+				"h1" : "Cómo funciona esta página web",
 				"p01" : [
-					"Ésta página web verifica su dirección residencial y le indica si coincide con la lista de propiedades que ",
+					"Esta página web verifica una dirección residencial e indica si coincide con la lista de propiedades que ",
 					"probablemente tienen apartamentos con renta estabilizada. ",
-					"Aunque éste procedimiento no es 100% preciso, se le recomienda que la mejor acción a seguir es solicitar el historial de renta de su apartamento y buscar asesoramiento de algún grupo de derechos para inquilinos o algún abogado de vivienda. Ésto podría ser útil si: el  historial de renta de su apartamento es confuso; si está siendo intimidado por el propietario de su apartamento, o si posiblemente se le debe una gran suma de dinero."
+					"Aunque este procedimiento no es 100% preciso, se recomienda, como la mejor acción a seguir, solicitar el historial de renta de su apartamento y buscar asesoría de algún grupo de derechos para inquilinos o algún abogado de vivienda. Esto podría ser útil si: el historial de renta del apartamento es confuso; si hay evidencia de intimidación por parte del propietario de su apartamento, o si posiblemente se le debe una gran suma de dinero a los inquilinos."
 					],
 				"p02" : [
-					"Ésta página web no guarda ninguna de su información personal. Pero si guarda las direcciones suministradas con el único propósito de análisis internos por los creadores de éstas página. ",
+					"Ésta página web no guarda información personal. Pero sí guarda las direcciones suministradas con el único propósito de análisis internos por los creadores de esta página. ",
 					"La información se mantiene privada y no se comparte."
 					],
 				"h3" : [
-					"Descargo de responsabilidad!",
+					"¡Nuestra Responsabilidad! ",
 					"Estimando los edificios de la ciudad de Nueva York que tienen más posibilidades de tener renta estabilizada."
 					],
 				"p03" : [
-						"Ésta página web fue creada con el único propósito de brindar información y ",
-						"absolutamente no tiene ningún interés legal. ",
+						"Esta página web fue creada con el único propósito de brindar información y ",
+						"no tiene ningún interés o validez legal. ",
 						"No le va a indicar con precisión si su apartamento tiene renta estilizada debido a que los números de apartamentos no están incluidos en la base de datos. Para  averiguar con precisión si su renta es estabilizada debe solicitar el historial de renta de su apartamento al DHCR y buscar consejo de algún grupo de derechos de inquilinos."
 					],
 				"p04" : [
-					"A los propietarios de edificios con renta estabilizada le es sugerido reportar dichos apartamentos al ",
+					"A los propietarios de edificios con renta estabilizada les es sugerido reportar dichos apartamentos al ",
 					"DHCR. ",
-					"Éste proceso es esencialmente voluntario, ya que no se penaliza a los propietarios que decidan no registrar sus apartamentos con renta estabilizada. Esto hace difícil monitorear cuantos apartamentos con renta estabilizada existen y donde están localizados."
+					"Este proceso es esencialmente voluntario, ya que no se penaliza a los propietarios que decidan no registrar sus apartamentos con renta estabilizada. Esto hace complicado monitorear cuantos apartamentos con renta estabilizada existen y donde están localizados. "
 				],
-				"p05" : "Cada año el DHCR distribuye la lista que contiene las direcciones de los edificios con apartamentos con renta estabilizada que han sido registrados.",
+				"p05" : "Cada año el DHCR distribuye la lista que contiene las direcciones de los edificios que cuentan con apartamentos de renta estabilizada que ya han sido registrados.",
 				"p06" : [
 					"En general, los edificios que contienen apartamentos con renta estabilizada son aquellos que: fueron construidos antes del 1974, tienen 6 o más apartamentos, y no son co-op o condominios. Cuando comparamos estas características entre ",
-					"la oficina de impuestos y lotes de Nueva York (NYC PLUTO",
-					" con la lista del DHCR es evidente que hay propiedades que ",
+					"la oficina de impuestos y lotes de Nueva York (NYC PLUTO) ",
+					"con la lista del DHCR es evidente que hay propiedades que ",
 					"contienen apartamentos con renta estabilizada que no han sido registrados."
 				],
 				"p07" : "La base de datos que utiliza esta página web combina las propiedades en la lista del DHCR con aquellas que tienen altas probabilidades de tener unidades con renta estabilizada que no están en la lista con el propósito de tener un estimado de la ubicación de todos los apartamentos con renta estabilizada en la ciudad de Nueva York."
 			},
 			"code" : {
-				"h1" : "Código y Data",
-				"p" : "Usted puede inspeccionar y descargar el código de ésta página web. Puede descargar Excel y los archivos CSV del DHCR con la lista de los edificios con renta estabilizada. Enlaces a continuación.",
+				"h1" : "Código y Datos",
+				"p" : "Usted puede revisar y descargar el código de ésta página web. Puede descargar un archivo de Excel y los archivos CSV del DHCR con la lista de los edificios con renta estabilizada. Enlaces a continuación.",
 				"ul" : [
 					"Github Repo (código)",
-					"Obtenga la Data",
+					"Obtenga los Datos",
 					"Lista de edificios con renta estabilizada"
 					]
 				},
 			"credits" : {
 				"h1" : "Créditos",
-				"h3" : "Gracias a usted por visitar nuestra página web y verificar su historial de renta.",
+				"h3" : "Gracias a los usuarios por visitar nuestra página web y verificar su historial de renta.",
 				"p01" : "Las siguientes personas y organizaciones hicieron este proyecto posible.",
 				"ul" : [
 					"Caroline Woolard",
-					" inspiró la idea de ésta página web.",
+					" inspiracion de la idea.",
 					"Radish Lab",
-					" proveyó valiosa ayuda con el diseño para la versión 2 de ésta página web.",
+					" proveyó valiosa ayuda con el diseño para la versión 2 del sitio.",
 					"Jue Yang",
-					" contribuyó con arte.",
+					" contribuyó con el arte.",
 					"BetaNYC",
-					"  y sus socios proveyeron ayuda técnica y de motivación.",
+					"  y sus socios, proveyeron ayuda técnica y de motivación.",
 					"CartoDB",
-					" es el servidor de Data y también proveyó la tecnología necesaria para la búsqueda de data y la representación en el mapa."
+					" servidor de Datos y también proveyó la tecnología necesaria para la búsqueda de estos y su representación en el mapa."
 				],
 				"p02" : [					
-					"Nos encantaría escuchar su historia, especialmente si ésta página web le ayudó en alguna manera.",
-					"Siéntase en la libertad de contactarnos."
+					"Nos encantaría escuchar su historia, especialmente si le ayudó en alguna manera. ",
+					"Estamos a sus órdenes."
 					],
-				"p03" : "Trabajemos juntos para mantener a la ciudad de Nueva York económicamente accesible para que se pueda mantener como el lugar culturalmente rico y socialmente diverso que es hoy día."
+				"p03" : "Trabajemos juntos para mantener a la ciudad de Nueva York económicamente accesible y para que se pueda mantener como el lugar culturalmente rico y socialmente diverso que es hoy en día."
 			}	
 		},
 
