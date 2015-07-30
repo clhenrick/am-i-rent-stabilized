@@ -109,7 +109,8 @@ app.helpers = (function(w,d,el) {
           d.querySelector('.tr-modal').innerHTML = '';
           app.f.goToSlide(app.el.slides[0]);
           app.events.publish('state-change', {
-            formFilled : false
+            formFilled : false,
+            yesNoState : false
           });
         }
       },

@@ -94,7 +94,8 @@ app.map = (function(d,w,a,H,$){
       } else {      
 
         app.el.addressInput.value='';
-        app.f.resetBoroValue();      
+        app.f.resetBoroValue();
+
         if (app.f.hasClass(app.el.valErrorNF, 'vis-hidden')===true) {
           app.f.toggleClass(app.el.valErrorNF, 'vis-hidden');
         }
@@ -105,7 +106,7 @@ app.map = (function(d,w,a,H,$){
           app.f.addClass(app.el.valErrorAddress, 'vis-hidden');
         }
         
-        app.events.publish('state-change', { formFilled : false });
+        app.events.publish('state-change', { formFilled : false, yesNoState: false });
         app.f.goToPrevSlide(); 
       }     
     };
@@ -135,7 +136,7 @@ app.map = (function(d,w,a,H,$){
     };
 
     function checkRS(data) {
-      if (data.rows.length > 0 && state.yesNoState === false) {      
+      if (data.rows.length > 0 && state.yesNoState === false) {
         var bbl_match = JSON.stringify(data.rows[0].bbl);
         _gaq.push(['_trackEvent', 'CDB', 'Match', bbl_match]);
         app.f.toggleClass(app.el.yes, 'hidden');
