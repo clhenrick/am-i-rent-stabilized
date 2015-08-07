@@ -210,21 +210,21 @@
 			"nav_side" : {
 				"h3" : "Ir a",
 				"nongov" : "Organizaciones de Derechos para Inquilinos",
-				"citywide" : "Por toda la Ciudad",
+				"citywide" : "En toda la Ciudad",
 				"boro" : "Por Distrito",
 				"hood" : "Por Vecindario",
 				"gov" : "Recursos Gubernamentales"
 			},
 			"nongov" : {
 				"h1" : "Recursos de Derechos para Inquilinos",
-				"h3" : "Estos son organizaciones gubernamentales y no gubernamentales que protegen los derechos de inquilinos y promueven viviendas económicas en la ciudad de Nueva York. Hay cientos de éstas organizaciones en la ciudad de Nueva York.",				
+				"h3" : "Estas son organizaciones gubernamentales y no gubernamentales que protegen los derechos de inquilinos y promueven viviendas económicas en la ciudad de Nueva York. Hay cientos de estas organizaciones en la ciudad de Nueva York. ",
 				"citywide" : {					
-					"h3" : "Por toda la Ciudad",
+					"h3" : "En toda la Ciudad",
 					"p01" : "Estas organizaciones operan por toda la ciudad.",
 					"ul" : [
 						{
 							"org" : "Asian Americans For Equality",
-							"desc" : "La AFE está comprometida en preservar viviendas asequibles por todo Nueva York y de proveer nuevas oportunidades a las diversas comunidades de inmigrantes. Asociación para el desarrollo de viviendas y comunidades."
+							"desc" : "La AFE está comprometida en preservar viviendas accesibles por todo Nueva York y de proveer nuevas oportunidades a las diversas comunidades de inmigrantes. Asociación para el desarrollo de viviendas y comunidades."
 						},
 						{
 							"org" : "Association for Neighborhood and Housing Development",
@@ -236,11 +236,11 @@
 						},
 						{
 							"org" : "Eviction Intervention Services",
-							"desc" : "Lleva a cabo la prevención de personas sin hogares al mantener a residentes en sus comunidades preservando viviendas económicas, promoviendo y sustentado las construcción de viviendas económicas para dueños con bajo y moderado ingreso."
+							"desc" : "Lleva a cabo la prevención de personas sin hogar al mantener a residentes en sus comunidades, preservando viviendas económicas, y promoviendo y sustentando la construcción de viviendas económicas para dueños de viviendas con con bajo a moderado ingreso."
 						},
 						{
 							"org" : "Make The Road New York",
-							"desc" : "Trabajan con el propósito de alcanzar dignidad y justicia para las comunidades latinas y la clase trabajadora mediante la organización, la innovación de leyes, la  educación, y servicios de sobrevivencia."
+							"desc" : "Trabajan con el propósito de alcanzar dignidad y justicia para las comunidades latinas y la clase trabajadora mediante la organización, la innovación de leyes, la  educación, y servicios de sobrevivencia. "
 						},
 						{
 							"org" : "Metropolitan Council on Housing",
@@ -248,7 +248,7 @@
 						},
 						{
 							"org" : "MFY Legal Services Inc.",
-							"desc" : "Promueven asistencia legal gratis a los residentes de Nueva York en una amplia gama de problemas legales civiles, dándole prioridad a los servicios necesitados por poblaciones vulnerables que no tienen acceso a estos servicios."
+							"desc" : "Promueven asistencia legal gratuita a los residentes de Nueva York en una amplia gama de problemas legales civiles, dándole prioridad a los servicios necesitados por poblaciones vulnerables que no tienen acceso a estos servicios."
 						},
 						{
 							"org" : "Picture the Homeless",
@@ -264,7 +264,7 @@
 						},
 						{
 							"org" : "Urban Homesteading Assistance Board",
-							"desc" : "Ayudan a residentes de bajo y moderado ingreso a tomar control de sus viviendas y mejorar sus comunidades mediante la creación de asociaciones de inquilinos con base sólida y la creación de cooperativas."
+							"desc" : "Ayudan a residentes de bajo y mediano ingreso a tomar control de sus viviendas y mejorar sus comunidades mediante la creación de asociaciones de inquilinos con base sólida y la creación de cooperativas."
 						}
 					]
 				},
@@ -316,27 +316,27 @@
 						},
 						{
 							"org" : "El Barrio's Operation Fight Back",
-							"desc" : "Renueva, maneja y promueve viviendas económicamente accesibles, brinda servicios de apoyo, educación,  y ofrece oportunidades de desarrollo económico a familias de bajo ingreso en East Harlem."
+							"desc" : "Renueva, maneja y promueve viviendas económicamente accesibles, brinda servicios de apoyo, educación, y ofrece oportunidades de desarrollo económico a familias de bajo ingreso en East Harlem."
 						},
 						{
 							"org" : "Fifth Avenue Committee, Inc.",
-							"desc" : "Ayuda a inquilinos y promueve el desarrollo de la comunidad en el sur de Brooklyn y el bajo Park Slope."
+							"desc" : "Ayuda a inquilinos y promueve el desarrollo de la comunidad en el sur de Brooklyn y el bajo Park Slope. "
 						},
 						{
 							"org" : "Flatbush Development Corp.",
-							"desc" : "Provee viviendas seguras y decentes a familias de bajo ingreso e individuos en Manhattan Valley y a través del Alto Manhattan."
+							"desc" : "Lleva a cabo el desarrollo de comunidades y vivienda de bajo costo en Flatbush, Brooklyn."
 						},
 						{
 							"org" : "Manhattan Valley Development Corporation",
-							"desc" : "Organización de base comunitaria con el propósito de impactar en las siguientes comunidades: Bedford-Stuyvesant, East Flatbush, el norte de Bronx, el norte de  Queens y el sur del Bronx."
+							"desc" : "Provee viviendas seguras y decentes a familias de bajo ingreso e individuos en Manhattan Valley y a través del Alto Manhattan."
 						},
 						{
 							"org" : "Neighborhood Housing Services of NYC, Inc.",
-							"desc" : "Ayuda a inquilinos de Bushwick a evitar desalojos ilegales y promueven la preservación y el desarrollo de viviendas económicamente accesibles."
+							"desc" : "Organización de base comunitaria con el propósito de impactar en las siguientes comunidades: Bedford-Stuyvesant, East Flatbush, el norte de Bronx, el norte de Queens y el sur del Bronx."
 						},
 						{
 							"org" : "North West Bushwick Community Group",
-							"desc" : "Promueve viviendas económicamente accesibles y el desarrollo de pequeños negocios en el centro de Brooklyn."
+							"desc" : "Ayuda a inquilinos de Bushwick a evitar desalojos ilegales y promueven la preservación y el desarrollo de viviendas económicamente accesibles."
 						},
 						{
 							"org" : "Pratt Area Community Council",
@@ -363,7 +363,7 @@
 				"ul" : [
 					{
 						"org" : "New York Department of Homes and Community Renewal",
-						"desc" : "Aquí puedes entablar una denuncia por sobrecargo en su renta y recibir asesoría en problemas relacionados con viviendas. ",
+						"desc" : "Aquí puedes entablar una denuncia por sobrecargo en su renta y recibir asesoría en problemas relacionados con viviendas.",
 						"a" : "Las Oficinas de HCR."
 					},
 					{
