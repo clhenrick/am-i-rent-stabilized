@@ -36,7 +36,7 @@
 			"under" : {
 				"h1" : "Rent Stabilization is under attack.",
 				"h3" : "The real estate industry sees a huge profit to made by eliminating all NYC rent-stabilized apartments.",
-				"p" : "With the current rent laws, destabilization (also called vacancy decontrol) may happen when a rent-stabilized apartment’s monthly rent exceeds $2,500 while the apartment is vacant. For example, if a tenant who is rent-stabilized and whose rent is at $2,500 or more moves out, the landlord may then take the apartment out of stabilization. A landlord may then charge market rate to the next tenant and increase rents as they see fit.",
+				"p" : "With the current rent laws, destabilization (also called vacancy decontrol) may happen when a rent-stabilized apartment’s monthly rent exceeds $2,700 while the apartment is vacant. For example, if a tenant who is rent-stabilized and whose rent is at $2,700 or more moves out, the landlord may then take the apartment out of stabilization. A landlord may then charge market rate to the next tenant and increase rents as they see fit.",
 				"methods" : "Methods landlords use to destabilize apartments:",
 				"one" : "Lying to new tenants by illegally overcharging them and hoping they won’t notice.",
 				"two" : "Gutting apartments after a tenant moves out and using the expenses towards increasing the legal rent they may charge to the next tenant. Often this may involve lying about the amount of the expenses of the renovation.",
@@ -119,7 +119,7 @@
 			"under" : {
 				"h1" : "La renta estabilizada se encuentra bajo ataque.",
 				"h3" : "La industria de bienes raíces quiere eliminar las rentas estabilizadas ya que esto les brindaría un gran margen de ganancias.",
-				"p" : "Con las leyes actuales de renta, la  desestabilización puede ocurrir cuando un apartamento con renta estabilizada que pague $2,500 queda vacante. Por ejemplo, cuando un inquilino con renta estabilizada que pague $2,500 o más se muda, el propietario podría retirar el apartamento fuera de la estabilización. Entonces, el propietario podría facturar la renta del apartamento a precio del mercado y hasta  aumentar la renta cuanto crea necesario.",
+				"p" : "Con las leyes actuales de renta, la  desestabilización puede ocurrir cuando un apartamento con renta estabilizada que pague $2,700 queda vacante. Por ejemplo, cuando un inquilino con renta estabilizada que pague $2,700 o más se muda, el propietario podría retirar el apartamento fuera de la estabilización. Entonces, el propietario podría facturar la renta del apartamento a precio del mercado y hasta  aumentar la renta cuanto crea necesario.",
 				"methods" : "Métodos que los propietarios usan para desestabilizar apartamentos:",
 				"one" : "Mintiendo a los nuevos inquilinos acerca del precio del apartamento e ilegalmente facturando la renta por encima del costo real.",
 				"two" : "Renovando los apartamentos después que sus inquilinos se mudaron y usando los gastos como excusa para subir el precio de la renta a futuros arrendadores.",
@@ -202,7 +202,7 @@
 			"under" : {
 				"h1" : "有些人不希望租金稳定。",
 				"h3" : "房地产商知道如果纽约租金稳定的公寓少了，他们可以多赚。",
-				"p" : "在现有的租赁法律中， 如果一间月租超过2500美金的租金稳定的公寓空出，它的租金便成为“不稳定”（也叫“放开空缺”）。举例来说，一位住客每月付2500美金的租金。他的租金本来是稳定的，但在他搬出公寓的时候，房东可以把稳定的房租变为“不稳定”。当房东再次将同一公寓出租的时候，他可以根据“市场价“增加房租”，从而向下一位租客多收租金。",
+				"p" : "在现有的租赁法律中， 如果一间月租超过2700美金的租金稳定的公寓空出，它的租金便成为“不稳定”（也叫“放开空缺”）。举例来说，一位住客每月付2700美金的租金。他的租金本来是稳定的，但在他搬出公寓的时候，房东可以把稳定的房租变为“不稳定”。当房东再次将同一公寓出租的时候，他可以根据“市场价“增加房租”，从而向下一位租客多收租金。",
 				"methods" : "房东会用一些办法使房租 “不稳定”：",
 				"one" : "向租客说谎，多收非法的租金，同时希望租客不会发现。",
 				"two" : "在租客搬出公寓之后重新装潢，然后把装潢费用算为“合法”的租金涨幅。房东往往会谎报装潢费用。",
