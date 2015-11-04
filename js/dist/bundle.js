@@ -376,34 +376,34 @@ this["app"]["templates"]["resources"] = Handlebars.template({"compiler":[6,">= 2
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['3'] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['3'] : stack1)) != null ? stack1.desc : stack1), depth0))
-    + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"\">\n      "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['3'] : stack1)) != null ? stack1.org : stack1), depth0))
-    + "\n    </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['3'] : stack1)) != null ? stack1.desc : stack1), depth0))
-    + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://metcouncilonhousing.org/\">\n        "
+    + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.maketheroadny.org/\">\n      "
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['4'] : stack1)) != null ? stack1.org : stack1), depth0))
-    + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['4'] : stack1)) != null ? stack1.desc : stack1), depth0))
-    + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.mfy.org/projects\">\n      "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['5'] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n    </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['5'] : stack1)) != null ? stack1.desc : stack1), depth0))
-    + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.picturethehomeless.org/\">\n      "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['6'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['4'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://metcouncilonhousing.org/\">\n        "
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['5'] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['5'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.mfy.org/projects\">\n      "
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['6'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + "\n    </a>\n      <p>"
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['6'] : stack1)) != null ? stack1.desc : stack1), depth0))
-    + "</p>\n    </li>            \n    <li>\n      <a target=\"_blank\" href=\"http://righttothecity.org/\">\n        "
+    + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.picturethehomeless.org/\">\n      "
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['7'] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['7'] : stack1)) != null ? stack1.desc : stack1), depth0))
-    + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.tenantsandneighbors.org/\">\n        "
+    + "</p>\n    </li>            \n    <li>\n      <a target=\"_blank\" href=\"http://righttothecity.org/\">\n        "
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['8'] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['8'] : stack1)) != null ? stack1.desc : stack1), depth0))
-    + "</p>\n    </li>            \n    <li>\n      <a target=\"_blank\" href=\"http://www.uhab.org\">\n        "
+    + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.tenantsandneighbors.org/\">\n        "
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['9'] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['9'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + "</p>\n    </li>            \n    <li>\n      <a target=\"_blank\" href=\"http://www.uhab.org\">\n        "
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['10'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + "\n      </a>\n      <p>"
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['10'] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n  </ul>\n  \n  <a name=\"boro\"></a>          \n  <h3>"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.boro : stack1)) != null ? stack1.h3 : stack1), depth0))
     + "</h3>\n  <p>"
@@ -718,11 +718,10 @@ app.address = (function(w,d) {
       createMailTo : function() {
         var email = "rentinfo@nyshcr.org",
               subject = "request for rent history",
-              body = "Hello, \n\n" +
+              body = "DHCR administrator, \n\n" +
                           "I, YOUR NAME HERE, am currently renting " + 
                           "YOUR ADDRESS, APARTMENT NUMBER, BOROUGH, ZIPCODE" +
-                          " and would like to request the rent history for this apartment." +
-                          " Any information you can provide me would be greatly appreciated. \n\n" +
+                          " and would like to request the complete rent history for this apartment back to the year 1984.\n\n" +
                           "thank you,\n\n" +
                           "- YOUR NAME HERE",
               msg = 'mailto:' + encodeURIComponent(email) +
