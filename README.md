@@ -2,7 +2,7 @@ Am I Rent Stabilized?
 ============================
 ![](assets/png/airs_landing_page.png)
 
-A web site that informs NYC residents about Rent Stabilization by simplifying the process of how to find out if their apartment may be rent stabilized, if they are paying too much rent, and what to do about it.  
+A mobile friendly, multi-lingual web app that informs NYC residents about [Rent Stabilization](http://www.nycrgb.org/html/resources/faq/rentstab.html) by simplifying the process of how to find out if their apartment may be rent stabilized, if they are paying too much rent, and what to do about it.  
 
 See it in action at [amirentstabilized.com](https://amirentstabilized.com/).
 
@@ -24,6 +24,15 @@ See it in action at [amirentstabilized.com](https://amirentstabilized.com/).
 ## Installation
 1. In terminal `cd` to this repo and do `bower install && npm install` to grab all dependencies.  
 2. Host code on a webserver of your choice.
+
+## Updating the Content:
+As the site is translated to Chinese and Spanish, any changes to the site's content must also be translated to these languages. This is done by editing the Handlebars templates files in the `templates/` and the `JSON` files in `data/`. Each of these folders contains a file that corresponds to one page of the app (home, why-it-matters, how-it-works, resources). Each `JSON` file contains the content in 3 languages while each template file contains the markup and Handlebars templating code.
+
+After updating these sets of files you must precompile the templates for them to be updated in the app. Make sure you have Node JS and the Handlebars module installed globally then do:
+
+```
+handlebars templates/*.hbs -n app.templates js/dist/templates.js
+```
 
 ## Data Processing:
 The processed data is [publicly available for download on CartoDB](http://chenrick.cartodb.com/tables/all_nyc_likely_rent_stabl_merged/public) but if you'd like to host it yourself you may do the following (note you will need to have [GDAL](http://www.gdal.org/) and [PostGIS](http://postgis.net/) installed):
