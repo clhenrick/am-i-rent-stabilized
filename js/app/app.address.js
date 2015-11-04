@@ -65,11 +65,10 @@ app.address = (function(w,d) {
       createMailTo : function() {
         var email = "rentinfo@nyshcr.org",
               subject = "request for rent history",
-              body = "Hello, \n\n" +
+              body = "DHCR administrator, \n\n" +
                           "I, YOUR NAME HERE, am currently renting " + 
                           "YOUR ADDRESS, APARTMENT NUMBER, BOROUGH, ZIPCODE" +
-                          " and would like to request the rent history for this apartment." +
-                          " Any information you can provide me would be greatly appreciated. \n\n" +
+                          " and would like to request the complete rent history for this apartment back to the year 1984.\n\n" +
                           "thank you,\n\n" +
                           "- YOUR NAME HERE",
               msg = 'mailto:' + encodeURIComponent(email) +
