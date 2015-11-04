@@ -1,7 +1,8 @@
 {
   "name": "am-i-rent-stabilized",
-  "description": "A web app to inform NYC residents if their apartment might be rent stabilized",
-  "version": "0.1.0",
+  "url": "https://amirentstabilized.com/",
+  "description": "A web app to inform NYC residents if their apartment might be rent stabilized.",
+  "version": "0.2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/clhenrick/am-i-rent-stabilized.git"
@@ -9,26 +10,26 @@
   "author": {
     "name": "Chris Henrick",
     "email": "chrishenrick@gmail.com",
-    "url": "http://chrishenrick.com/"
+    "url": "https://clhenrick.github.io"
   },
   "licenses": [
     {
-      "type": "MIT",
-      "url": "http://github.com/jeremyosborne/packagejsonexample/blob/master/LICENSE.txt"
+      "type": "",
+      "url": ""
     }
   ],
   "main": "js/index.js",
   "dependencies": { },
   "devDependencies": {
-    "gulp": "^3.8.11",
+    "gulp": "^3.9.0",
     "gulp-concat": "^2.5.2",
     "gulp-declare": "^0.3.0",
     "gulp-handlebars": "^4.0.0",
-    "gulp-minify-css": "^1.1.0",
     "gulp-jshint": "^1.9.4",
+    "gulp-minify-css": "^1.1.0",
     "gulp-plumber": "^1.0.0",
     "gulp-rename": "^1.2.0",
-    "gulp-sass": "^1.3.3",
+    "gulp-sass": "^2.1.0",
     "gulp-server-livereload": "^1.2.1",
     "gulp-uglify": "^1.1.0",
     "gulp-webserver": "^0.9.0",
