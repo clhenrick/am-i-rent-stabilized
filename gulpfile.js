@@ -45,15 +45,6 @@ gulp.task('sass', function() {
         .pipe(gulp.dest('app/css'));
 });
 
-gulp.task('sass-build', function(){
-  return gulp.src('app/scss/*.scss')
-    .pipe(plumber())
-    .pipe(sass({errLogToConsole: true}))
-    .pipe(minifyCSS())
-    .pipe(rename('main.min.css'))
-    .pipe(gulp.dest('build/css'));
-})
-
 // precompile handlebars templates
 gulp.task('templates', function () {
     gulp.src('app/templates/*.hbs')
@@ -78,18 +69,6 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest('app/js/'));
 });
 
-// ^ ... for production
-gulp.task('scripts-build', function() {
-  return gulp.src([
-    './app/js/vendor/*.js',
-    './app/js/app/*.js'
-  ])
-  .pipe(concat('bundle.js'))
-  .pipe(uglify())
-  .pipe(rename('bundle.min.js'))
-  .pipe(gulp.dest('build/js'));
-})
-
 // concat & minify scripts for pages other than index.html
 gulp.task('scripts-other-pgs', function() {
     return gulp.src([
@@ -100,20 +79,6 @@ gulp.task('scripts-other-pgs', function() {
       ])
       .pipe(concat('otherpages.js'))
       .pipe(gulp.dest('app/js'));
-});
-
-// ^ ... for production
-gulp.task('scripts-other-pgs-build', function() {
-    return gulp.src([
-        'app/js/vendor/other_pages/handlebars.runtime.min.js',
-        'app/js/app/templates.js',
-        'app/js/app/app.lang-toggle.js',
-        'app/js/app/app.other-pages.js'
-      ])
-      .pipe(concat('otherpages.js'))
-      .pipe(uglify())
-      .pipe(rename('otherpages.min.js'))
-      .pipe(gulp.dest('build/js'));
 });
 
 // for production use minified js & css files.
@@ -207,7 +172,6 @@ gulp.task('production', function(cb) {
     'copy-html',
     'copy-data',
     'templates',
-    'sass-build',
     'useref-index',
     'useref-html',
     cb
