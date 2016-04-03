@@ -11,6 +11,8 @@ var gulp = require('gulp');
     handlebars = require('gulp-handlebars'),
     wrap = require('gulp-wrap'),
     declare = require('gulp-declare'),
+    useref = require('gulp-useref'),
+    gulpIf = require('gulp-if'),
     del = require('del'),
     runSequence = require('run-sequence');
 
@@ -28,7 +30,7 @@ function handleError(err) {
 
 // Lint Task
 gulp.task('lint', function() {
-    return gulp.src('app/js/app/*.js')
+    return gulp.src(['app/js/app/*.js', '!app/js/app/templates.js'])
         .pipe(plumber())
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
@@ -66,7 +68,7 @@ gulp.task('templates', function () {
 });
 
 
-// Concatenate & Minify vendor libraries
+// Concatenate & Minify app js & vendor js libraries
 gulp.task('scripts', function() {
     return gulp.src([
             'app/js/vendor/*.js',
@@ -76,6 +78,7 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest('app/js/'));
 });
 
+// ^ ... for production
 gulp.task('scripts-build', function() {
   return gulp.src([
     './app/js/vendor/*.js',
@@ -87,6 +90,7 @@ gulp.task('scripts-build', function() {
   .pipe(gulp.dest('build/js'));
 })
 
+// concat & minify scripts for pages other than index.html
 gulp.task('scripts-other-pgs', function() {
     return gulp.src([
         'app/js/vendor/other_pages/handlebars.runtime.min.js',
@@ -98,6 +102,7 @@ gulp.task('scripts-other-pgs', function() {
       .pipe(gulp.dest('app/js'));
 });
 
+// ^ ... for production
 gulp.task('scripts-other-pgs-build', function() {
     return gulp.src([
         'app/js/vendor/other_pages/handlebars.runtime.min.js',
@@ -109,6 +114,25 @@ gulp.task('scripts-other-pgs-build', function() {
       .pipe(uglify())
       .pipe(rename('otherpages.min.js'))
       .pipe(gulp.dest('build/js'));
+});
+
+// for production use minified js & css files.
+gulp.task('useref-index', function(){
+  return gulp.src(['app/*.html'])
+    .pipe(useref())
+    .pipe(gulpIf('*.js', uglify()))
+    // Minifies only if it's a CSS file
+    .pipe(gulpIf('*.css', minifyCSS()))
+    .pipe(gulp.dest('build'))
+});
+
+gulp.task('useref-html', function(){
+  return gulp.src(['app/html/*.html'])
+    .pipe(useref())
+    .pipe(gulpIf('*.js', uglify()))
+    // Minifies only if it's a CSS file
+    .pipe(gulpIf('*.css', minifyCSS()))
+    .pipe(gulp.dest('build/html'))
 });
 
 // run local server
@@ -163,7 +187,16 @@ gulp.task('clean:build', function() {
 });
 
 // Default Task
-gulp.task('default', ['lint', 'sass', 'webserver', 'templates', 'scripts', 'scripts-other-pgs', 'copy', 'watch']);
+gulp.task('default',
+  [ 'lint',
+    'sass',
+    'webserver',
+    'templates',
+    'scripts',
+    'scripts-other-pgs',
+    'watch'
+  ]
+);
 
 // Production
 gulp.task('production', function(cb) {
@@ -175,8 +208,8 @@ gulp.task('production', function(cb) {
     'copy-data',
     'templates',
     'sass-build',
-    'scripts-build',
-    'scripts-other-pgs-build',
+    'useref-index',
+    'useref-html',
     cb
   );
 });
