@@ -1,6 +1,6 @@
-Am I Rent Stabilized? 
+Am I Rent Stabilized?
 ============================
-![](assets/png/airs_landing_page.png)
+![](app/assets/png/airs_landing_page.png)
 
 A mobile friendly, multi-lingual web app that informs NYC residents about [Rent Stabilization](http://www.nycrgb.org/html/resources/faq/rentstab.html) by simplifying the process of how to find out if their apartment may be rent stabilized, if they are paying too much rent, and what to do about it.  
 
@@ -31,7 +31,7 @@ As the site is translated to Chinese and Spanish, any changes to the site's cont
 After updating these sets of files you must precompile the templates for them to be updated in the app. Make sure you have Node JS and the Handlebars module installed globally then do:
 
 ```
-handlebars templates/*.hbs -n app.templates js/dist/templates.js
+handlebars app/templates/*.hbs -n app.templates app/js/app/templates.js
 ```
 
 ## Data Processing:
