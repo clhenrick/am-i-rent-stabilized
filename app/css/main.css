@@ -26,14 +26,29 @@ body {
  * and Firefox.
  * Correct `block` display not defined for `main` in IE 11.
  */
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
   display: block; }
 
 /**
  * 1. Correct `inline-block` display not defined in IE 8/9.
  * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
  */
-audio, canvas, progress, video {
+audio,
+canvas,
+progress,
+video {
   display: inline-block;
   /* 1 */
   vertical-align: baseline;
@@ -51,7 +66,8 @@ audio:not([controls]) {
  * Address `[hidden]` styling not present in IE 8/9/10.
  * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
  */
-[hidden], template {
+[hidden],
+template {
   display: none; }
 
 /* Links
@@ -65,7 +81,8 @@ a {
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
  */
-a:active, a:hover {
+a:active,
+a:hover {
   outline: 0; }
 
 /* Text-level semantics
@@ -79,7 +96,8 @@ abbr[title] {
 /**
  * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
  */
-b, strong {
+b,
+strong {
   font-weight: bold; }
 
 /**
@@ -112,7 +130,8 @@ small {
 /**
  * Prevent `sub` and `sup` affecting `line-height` in all browsers.
  */
-sub, sup {
+sub,
+sup {
   font-size: 75%;
   line-height: 0;
   position: relative;
@@ -163,7 +182,10 @@ pre {
 /**
  * Address odd `em`-unit font size rendering in all browsers.
  */
-code, kbd, pre, samp {
+code,
+kbd,
+pre,
+samp {
   font-family: monospace, monospace;
   font-size: 1em; }
 
@@ -179,7 +201,11 @@ code, kbd, pre, samp {
  * 2. Correct font properties not being inherited.
  * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
  */
-button, input, optgroup, select, textarea {
+button,
+input,
+optgroup,
+select,
+textarea {
   color: inherit;
   /* 1 */
   font: inherit;
@@ -199,7 +225,8 @@ button {
  * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
  * Correct `select` style inheritance in Firefox.
  */
-button, select {
+button,
+select {
   text-transform: none; }
 
 /**
@@ -209,7 +236,10 @@ button, select {
  * 3. Improve usability and consistency of cursor style between image-type
  *    `input` and others.
  */
-button, html input[type="button"], input[type="reset"], input[type="submit"] {
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
   -webkit-appearance: button;
   /* 2 */
   cursor: pointer;
@@ -218,13 +248,15 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
 /**
  * Re-set default cursor for disabled elements.
  */
-button[disabled], html input[disabled] {
+button[disabled],
+html input[disabled] {
   cursor: default; }
 
 /**
  * Remove inner padding and border in Firefox 4+.
  */
-button::-moz-focus-inner, input::-moz-focus-inner {
+button::-moz-focus-inner,
+input::-moz-focus-inner {
   border: 0;
   padding: 0; }
 
@@ -242,7 +274,8 @@ input {
  * 1. Address box sizing set to `content-box` in IE 8/9/10.
  * 2. Remove excess padding in IE 8/9/10.
  */
-input[type="checkbox"], input[type="radio"] {
+input[type="checkbox"],
+input[type="radio"] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -253,7 +286,8 @@ input[type="checkbox"], input[type="radio"] {
  * `font-size` values of the `input`, it causes the cursor style of the
  * decrement button to change from `default` to `text`.
  */
-input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   height: auto; }
 
 /**
@@ -274,7 +308,8 @@ input[type="search"] {
  * Safari (but not Chrome) clips the cancel button when the search input has
  * padding (and `textfield` appearance).
  */
-input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none; }
 
 /**
@@ -317,7 +352,8 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-td, th {
+td,
+th {
   padding: 0; }
 
 /**
@@ -338,7 +374,9 @@ td, th {
   outline: none !important;
   cursor: pointer; }
 
-.atcb-link:focus ~ ul, .atcb-link:active ~ ul, .atcb-list:hover {
+.atcb-link:focus ~ ul,
+.atcb-link:active ~ ul,
+.atcb-list:hover {
   visibility: visible; }
 
 .atcb-list {
@@ -349,7 +387,8 @@ td, th {
   width: 170px;
   z-index: 900; }
 
-.atcb-list, .atcb-item {
+.atcb-list,
+.atcb-item {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -364,7 +403,8 @@ td, th {
   outline: none;
   display: block; }
 
-.atcb-item.hover, .atcb-item:hover {
+.atcb-item.hover,
+.atcb-item:hover {
   position: relative;
   z-index: 900;
   cursor: pointer;
@@ -722,7 +762,7 @@ nav.main-nav {
     nav.main-nav div.burger.open {
       position: relative;
       display: inline-block;
-      background-image: url('../assets/png/x.png');
+      background-image: url("../assets/png/x.png");
       background-position: center;
       width: 19px;
       height: 18px;
@@ -792,7 +832,7 @@ nav.main-nav {
       display: inline-block;
       position: relative;
       float: right;
-      background-image: url('../assets/png/hamburger-sm.png');
+      background-image: url("../assets/png/hamburger-sm.png");
       width: 30px;
       height: 18px;
       margin-top: 22px;
@@ -899,11 +939,11 @@ nav.margin-circles {
     width: 25px;
     height: 25px;
     margin-top: 25px;
-    background-image: url('../assets/png/oval_25_blank.png');
+    background-image: url("../assets/png/oval_25_blank.png");
     background-size: 25px;
     background-repeat: no-repeat; }
   nav.margin-circles li:first-child {
-    background-image: url('../assets/png/oval_25_filled.png'); }
+    background-image: url("../assets/png/oval_25_filled.png"); }
   @media only screen and (max-height: 770px) {
     nav.margin-circles {
       top: 25%; }
@@ -935,6 +975,7 @@ nav.margin-circles {
   .go-next.bottom-arrow.es {
     width: 170px;
     margin-left: -85px; }
+
 .go-next h3 {
   font-family: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif;
   color: #fb9d00;
@@ -944,22 +985,26 @@ nav.margin-circles {
   text-align: center; }
   .es .go-next h3 {
     font-size: 2.5em; }
+
 .go-next .arrow {
   position: relative;
   top: 10px;
   height: 28px;
   width: 76px;
   margin: 0 auto;
-  background-image: url('../assets/png/chevron.png');
+  background-image: url("../assets/png/chevron.png");
   background-repeat: no-repeat; }
+
 .go-next h3:hover, .go-next .arrow:hover {
   color: #FFC462; }
+
 @media only screen and (max-height: 770px) {
   .go-next.bottom-arrow {
     bottom: 3%;
     margin-left: -62.5px; }
   .go-next h3 {
     font-size: 2.5em; } }
+
 @media only screen and (max-width: 460px) {
   .go-next.bottom-arrow {
     bottom: 5%; }
@@ -968,13 +1013,13 @@ nav.margin-circles {
     .go-next.bottom-arrow .arrow {
       width: 32px;
       height: 11px;
-      background-image: url('../assets/png/chevron-sm.png'); } }
+      background-image: url("../assets/png/chevron-sm.png"); } }
 
 .slides-container {
   position: absolute;
   top: 60px;
   width: 960px;
-  left: 53.77604%;
+  left: 53.776041666667%;
   margin-left: -516.25px;
   height: 100%;
   overflow: hidden;
@@ -1098,7 +1143,7 @@ a.lightbox {
     width: 370px;
     height: 50px;
     border: none;
-    background-image: url('../assets/png/address-enter-line.png');
+    background-image: url("../assets/png/address-enter-line.png");
     background-repeat: no-repeat;
     background-position: center bottom;
     padding-left: 10px;
@@ -1130,7 +1175,7 @@ a.lightbox {
       right: 20px;
       top: 45%;
       margin-top: -1px;
-      background-image: url('../assets/png/drop-down-triangle.png');
+      background-image: url("../assets/png/drop-down-triangle.png");
       background-repeat: no-repeat;
       background-position: center center; }
     #address-form .borough-select ul.drop-down {
@@ -1220,7 +1265,7 @@ a.lightbox {
             height: 10px;
             right: 5px;
             top: 20px;
-            background-image: url('../assets/png/drop-down-triangle-sm.png'); } }
+            background-image: url("../assets/png/drop-down-triangle-sm.png"); } }
 
 ul.validation-error {
   padding: 0;
@@ -1401,126 +1446,74 @@ ul.validation-error {
   height: 424px;
   margin: 0 auto;
   margin-top: 75px;
-  background: url('../assets/png/checking-sprite.png') left center;
+  background: url("../assets/png/checking-sprite.png") left center;
   -webkit-animation: play 0.8s steps(10) infinite;
   -moz-animation: play 0.8s steps(10) infinite;
   -ms-animation: play 0.8s steps(10) infinite;
   -o-animation: play 0.8s steps(10) infinite;
   animation: play 0.8s steps(10) infinite; }
-  @media only screen and (max-height: 770px) {
-    #sprite {
-      margin-top: 5%;
-      background: url('../assets/png/checking-sprite-sm.png');
-      width: 128px;
-      height: 288px;
-      left: 0;
-      @-webkit-keyframes play {
-        from {
-          background-position: 0; }
-
-        to {
-          background-position: -1280px; } }
-
-      @-moz-keyframes play {
-        from {
-          background-position: 0; }
-
-        to {
-          background-position: -1280px; } }
-
-      @-ms-keyframes play {
-        from {
-          background-position: 0; }
-
-        to {
-          background-position: -1280px; } }
-
-      @-o-keyframes play {
-        from {
-          background-position: 0; }
-
-        to {
-          background-position: -1280px; } }
-
-      @keyframes play {
-        from {
-          background-position: 0; }
-
-        to {
-          background-position: -1280px; } }
- } }
 
 @-webkit-keyframes play {
   from {
     background-position: 0; }
-
   to {
     background-position: -1920px; } }
 
 @-moz-keyframes play {
   from {
     background-position: 0; }
-
   to {
     background-position: -1920px; } }
 
 @-ms-keyframes play {
-  from {
+  #sprite from {
     background-position: 0; }
-
-  to {
+  #sprite to {
     background-position: -1920px; } }
 
 @-o-keyframes play {
   from {
     background-position: 0; }
-
   to {
     background-position: -1920px; } }
 
 @keyframes play {
   from {
     background-position: 0; }
-
   to {
     background-position: -1920px; } }
-
-@media only screen and (max-height: 770px) {
-  @-webkit-keyframes play {
-    from {
-      background-position: 0; }
-
-    to {
-      background-position: -1280px; } }
-
-  @-moz-keyframes play {
-    from {
-      background-position: 0; }
-
-    to {
-      background-position: -1280px; } }
-
-  @-ms-keyframes play {
-    from {
-      background-position: 0; }
-
-    to {
-      background-position: -1280px; } }
-
-  @-o-keyframes play {
-    from {
-      background-position: 0; }
-
-    to {
-      background-position: -1280px; } }
-
-  @keyframes play {
-    from {
-      background-position: 0; }
-
-    to {
-      background-position: -1280px; } }
- }
+  @media only screen and (max-height: 770px) {
+    #sprite {
+      margin-top: 5%;
+      background: url("../assets/png/checking-sprite-sm.png");
+      width: 128px;
+      height: 288px;
+      left: 0; }
+    @-webkit-keyframes play {
+      from {
+        background-position: 0; }
+      to {
+        background-position: -1280px; } }
+    @-moz-keyframes play {
+      from {
+        background-position: 0; }
+      to {
+        background-position: -1280px; } }
+    @-ms-keyframes play {
+      #sprite from {
+        background-position: 0; }
+      #sprite to {
+        background-position: -1280px; } }
+    @-o-keyframes play {
+      from {
+        background-position: 0; }
+      to {
+        background-position: -1280px; } }
+    @keyframes play {
+      from {
+        background-position: 0; }
+      to {
+        background-position: -1280px; } } }
 
 .dhcr-choice {
   position: relative;
@@ -1740,6 +1733,7 @@ p.map-message {
 .addtocalendar ul.atcb-list {
   width: 275px;
   border: 3px solid #9B9B9B; }
+
 .addtocalendar li.atcb-item {
   padding: 5px;
   border-bottom: 1px solid #9B9B9B;
@@ -1752,9 +1746,11 @@ p.map-message {
     padding-left: 2%; }
     .addtocalendar li.atcb-item .atcb-item-link:hover {
       color: #9cddf0; }
+
 @media only screen and (max-height: 770px) {
   .addtocalendar ul.atcb-list {
     width: 225px; } }
+
 @media only screen and (max-width: 980px) {
   .addtocalendar ul.atcb-list {
     width: 225px; } }
@@ -1894,7 +1890,8 @@ body {
     display: block;
     top: -40px;
     visibility: hidden; }
-  #main a[name="videos"], #main a[name="why"], #main a[name="how"], #main a[name="non-gov"] {
+  #main a[name="videos"], #main a[name="why"],
+  #main a[name="how"], #main a[name="non-gov"] {
     top: -80px; }
   #main .video {
     max-width: 600px;
