@@ -7,7 +7,7 @@ app.map = (function(d,w,a,H,$){
       state = app.s,
       addressMarker, // leaflet marker to locate user's address on map
       sqlURL = "https://chenrick.cartodb.com/api/v2/sql?q=", //cartodb SQL API reference
-      g = {}, // to store properties from NYC Geoclient API result      
+      g = {}, // to store properties from NYC Geoclient API result
       source = d.getElementById('org-template').innerHTML,
       template = H.compile(source),
       hbData = {orgs: []};
@@ -26,48 +26,46 @@ app.map = (function(d,w,a,H,$){
     } else {
       return options.inverse(this);
     }
-  });   
+  });
 
   app.events.subscribe('state-updated', function(updatedState){
     state = updatedState;
   });
 
-
   function mapfns() {
-
     function getJSON(url, type, callback) {
       a().url(url)
-          .type(type)
-          .on('success', function(data){
-            callback(data);
-            // console.log('getJSON data: ', data);
-          })
-          .on('error', function(err){
-            // callback('error');
-          })
-          .go();
+        .type(type)
+        .on('success', function(data){
+          callback(data);
+          // console.log('getJSON data: ', data);
+        })
+        .on('error', function(err){
+          // callback('error');
+        })
+        .go();
     }
 
     // grab property data from nyc geo-client api
-    var geoclient = function(num, name, boro) {
+    function geoclient(num, name, boro) {
       // create URL to pass to geoclient api
       var id = '9cd0a15f',
-            appID = 'app_id=' + id + '&',
-            key = '54dc84bcaca9ff4877da771750033275',
-            appKey = 'app_key=' + key,
-            stNum = 'houseNumber='+ num + '&',
-            nameEncoded = name.replace(' ', '+'),
-            stName = 'street=' + nameEncoded + '&',
-            borough = 'borough=' + boro + '&',
-            url = 'https://api.cityofnewyork.us/geoclient/v1/address.json?',
-            urlConcat = url + stNum + stName + borough + appID + appKey;
-      
-      getJSON(urlConcat, 'jsonp', checkResult);      
+          appID = 'app_id=' + id + '&',
+          key = '54dc84bcaca9ff4877da771750033275',
+          appKey = 'app_key=' + key,
+          stNum = 'houseNumber='+ num + '&',
+          nameEncoded = name.replace(' ', '+'),
+          stName = 'street=' + nameEncoded + '&',
+          borough = 'borough=' + boro + '&',
+          url = 'https://api.cityofnewyork.us/geoclient/v1/address.json?',
+          urlConcat = url + stNum + stName + borough + appID + appKey;
+
+      getJSON(urlConcat, 'jsonp', checkResult);
     };
 
     // see if the geolient result has a bbl
-    var checkResult = function(data) {
-      if (typeof data === "object" && data.address.bbl !== undefined ) {      
+    function checkResult(data) {
+      if (typeof data === "object" && data.address.bbl !== undefined ) {
         var d = data.address;
         g =  {
           bbl : d.bbl,
@@ -81,18 +79,16 @@ app.map = (function(d,w,a,H,$){
           cd: d.communityDistrict,
           bin : d.giBuildingIdentificationNumber1,
           tr_groups : []
-        };      
+        };
         var bbl = d.bbl;
         var gcr_stringify = JSON.stringify(g);
         _gaq.push(['_trackEvent', 'Geoclient Success', 'Result', gcr_stringify]);
 
         // console.log('geoclient success, data: ', g);
-        
-        getCDBdata(bbl);
         showMarker(data);
-
-      } else {      
-
+        getCDBdata(bbl);
+      } else {
+        // geoclient didn't recognize the address, ask user to try again
         app.el.addressInput.value='';
         app.f.resetBoroValue();
 
@@ -105,10 +101,10 @@ app.map = (function(d,w,a,H,$){
         if (app.f.hasClass(app.el.valErrorAddress, 'vis-hidden')===false) {
           app.f.addClass(app.el.valErrorAddress, 'vis-hidden');
         }
-        
+
         app.events.publish('state-change', { formFilled : false, yesNoState: false });
-        app.f.goToPrevSlide(); 
-      }     
+        app.f.goToPrevSlide();
+      }
     };
 
     function trQuery(lat, lon) {
@@ -119,17 +115,17 @@ app.map = (function(d,w,a,H,$){
                     "nyc_tenants_rights_service_areas.the_geom," +
                     "ST_GeomFromText(" +
                      "'Point(" + lon + " " + lat + ")', 4326" +
-                    ")" +      
-                  ");";  
+                    ")" +
+                  ");";
       return query;
-    }  
+    }
 
     // check the bbl number against the cartodb data
-    var getCDBdata = function(bbl) {
+    function getCDBdata(bbl, data) {
       // sql to pass cartodb's sql api
-      var sql1 = "SELECT bbl FROM map_pluto_likely_rs " +
-                    "WHERE bbl = " + bbl;    
-      var sql2 = trQuery(g.lat, g.lon);                  
+      var sql1 = "SELECT bbl FROM map_pluto_likely_rs_2016v1 " +
+                    "WHERE bbl = " + bbl;
+      var sql2 = trQuery(g.lat, g.lon);
 
       getJSON(sqlURL + sql1, 'json', checkRS);
       getJSON(sqlURL + sql2, 'json', checkTR);
@@ -141,8 +137,8 @@ app.map = (function(d,w,a,H,$){
         _gaq.push(['_trackEvent', 'CDB', 'Match', bbl_match]);
         app.f.toggleClass(app.el.yes, 'hidden');
         app.f.toggleClass(app.el.no, 'hidden');
-        app.events.publish('state-change', { yesNoState : true });            
-      } 
+        app.events.publish('state-change', { yesNoState : true });
+      }
 
       app.f.goToNextSlide();
     }
@@ -151,7 +147,7 @@ app.map = (function(d,w,a,H,$){
       if (data.rows.length > 0) {
         app.f.addClass(app.el.noTR, 'hidden');
         app.f.removeClass(app.el.yesTR, 'hidden');
-        
+
         var i = 0, l = data.rows.length;
         for (i; i<l; i++) {
           var x = data.rows[i];
@@ -160,8 +156,8 @@ app.map = (function(d,w,a,H,$){
         }
         var html = template(hbData);
         app.el.trModal.innerHTML = html;
-        g.tr_groups.length = 0;     
-      } 
+        g.tr_groups.length = 0;
+      }
     }
 
     function handlebarsMake(data) {
@@ -175,11 +171,11 @@ app.map = (function(d,w,a,H,$){
       };
       // var html = template(context);
       return context;
-    }  
+    }
 
     // if the results of the CDB SQL query have a row then show yes else display no
-    var checkData = function(data) {   
-      // console.log('cdb data: ', data); 
+    function checkData(data) {
+      // console.log('cdb data: ', data);
       if (data.rows.length > 0 && state.yesNoState === false) {
         // console.log('bbl match!');
         var bbl_match = JSON.stringify(data.rows[0].bbl);
@@ -187,30 +183,28 @@ app.map = (function(d,w,a,H,$){
         app.f.toggleClass(app.el.yes, 'hidden');
         app.f.toggleClass(app.el.no, 'hidden');
         app.events.publish('state-change', { yesNoState : true });
-      } 
+      }
       app.f.goToNextSlide();
       // console.log('checkData goToNextSlide called');
     };
 
-    var showMarker = function(data) {
+    function showMarker(data) {
       // console.log('showMarker data: ', data);
       var x = data.address.longitudeInternalLabel,
-            y = data.address.latitudeInternalLabel,
-            latlng = [y, x],
-            address = data.address.houseNumber + ' ' + 
-                            data.address.firstStreetNameNormalized + '<br>' +
-                            data.address.uspsPreferredCityName + ', NY ' +
-                            data.address.zipCode;
+          y = data.address.latitudeInternalLabel,
+          latlng = [y, x],
+          address = data.address.houseNumber + ' ' +
+                    data.address.firstStreetNameNormalized + '<br>' +
+                    data.address.uspsPreferredCityName + ', NY ' +
+                    data.address.zipCode;
       // remove geocoded marker if one already exists
-      if (addressMarker) { 
+      if (addressMarker) {
         app.el.map.removeLayer(addressMarker);
       }
       // add a marker and pan and zoom the el.map to it
       addressMarker = new L.marker(latlng).addTo(el.map);
-      addressMarker.on('popupopen', function(e){
-        app.el.map.setView(latlng, 16);  
-      }); 
-      addressMarker.bindPopup("<b>" + address + "</b>").openPopup();   
+      app.el.map.setView(latlng, 16);
+      addressMarker.bindPopup("<b>" + address + "</b>").openPopup();
     };
 
     app.map.fns = {
@@ -221,8 +215,7 @@ app.map = (function(d,w,a,H,$){
     return app.map.fns;
   } // end mapfns
 
-  var initMap = function() {  
-
+  var initMap = function() {
     app.el.map = new L.Map('map', {
       center : [40.7127, -74.0059],
       zoom : 12,
@@ -241,36 +234,36 @@ app.map = (function(d,w,a,H,$){
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
     });
 
-    var cdbURL = 'https://chenrick.cartodb.com/api/v2/viz/20b7c6ac-ee12-11e4-b74e-0e853d047bba/viz.json';
+    var cdbURL = 'https://chenrick.carto.com/api/v2/viz/c591fa2e-726b-11e6-83e8-0e05a8b3e3d7/viz.json';
 
-    var cartocss = "#all_map_pluto_rent_stabl_reg_2014v1 {" +
+    var cartocss = "#map_pluto_likely_rs_2016v1 {" +
                       "polygon-fill: #FF6600;" +
                       "polygon-opacity: 0.6;" +
-                      "line-color: #000;" +
+                      "line-color: #FFF;" +
                       "line-width: 0.7;" +
                       "line-opacity: 0.3;" +
                     "}";
-                    
-    var sql = 'SELECT the_geom, the_geom_webmercator, cartodb_id, address, borough, ownername, unitsres ' + 
-              'FROM all_nyc_likely_rent_stabl_merged';
+
+    var sql = 'SELECT the_geom, the_geom_webmercator, cartodb_id, address, borough, ownername, unitsres ' +
+              'FROM map_pluto_likely_rs_2016v1';
 
     var taxLots;
 
     app.el.map.addLayer(basemap);
 
     cartodb.createLayer(el.map, cdbURL, {
-        cartodb_logo: false, 
-        legends: false,
-        https: true,
-        fullscreen : true     
+      cartodb_logo: false,
+      legends: false,
+      https: true,
+      fullscreen : true
     },
     function(layer) {
       taxLots = layer.getSubLayer(0);
       taxLots.setCartoCSS(cartocss);
-      taxLots.setInteraction(false);      
+      taxLots.setInteraction(false);
       app.el.map.addLayer(layer, false);
       basemap.bringToBack();
-    })    
+    })
     .done(function(layer){
     });
   }; // end init()
