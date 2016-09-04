@@ -170,6 +170,9 @@ FROM map_pluto_exempt_rs b
 WHERE a.bbl = b.bbl
 AND a.exemptions = 'needs updating';
 
+--- change null values in "exemptions" to 'none listed'
+update map_pluto_likely_rs_2016v1 set exemptions = 'none listed' where exemptions is null
+
 --- set "registered" = TRUE based on exempt_stabilized.registred_units
 UPDATE map_pluto_likely_rs a
 SET registered = TRUE
