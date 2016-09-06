@@ -1,5 +1,5 @@
 .dhcr-choice {
-  position: relative;  
+  position: relative;
   max-width: 1000px;
   max-height: 120px;
   margin: 0 auto;
@@ -9,7 +9,7 @@
 
   p {
     max-width: 200px;
-    height: 110px;    
+    height: 110px;
     margin-top: 0;
   }
 
@@ -24,7 +24,7 @@
   @include responsive(tablet-screens) {
     height: 120px;
     width: 630px;
-    
+
     p {
       height: 95px;
       width: 175px;
@@ -45,7 +45,7 @@
       height: 55px;
       margin-top: 10px;
       font-size: 1.3em;
-    }    
+    }
   }
 }
 
@@ -57,13 +57,13 @@
   margin-top: 60px;
 
   @include columns($width:325px, $number:2, $gap:80px);
-  
+
   @include responsive_height(medium-screens) {
     width: 640px;
     margin-top: 30px;
     height: 300px;
-    @include columns($width:300px, $number:2, $gap:20px);  
-  }  
+    @include columns($width:300px, $number:2, $gap:20px);
+  }
 
   @include responsive(tablet-screens) {
     width: 600px;
@@ -74,7 +74,7 @@
   @include responsive(small-screens) {
     width: 100%;
     height: 215px;
-    @include columns($width:125px, $number:2, $gap: 10px);    
+    @include columns($width:125px, $number:2, $gap: 10px);
   }
 
   p {
@@ -82,8 +82,8 @@
     width: 325px;
     height: 250px;
     margin: 0;
-    margin-top: 20px;    
-    font-size: 2.5em;
+    margin-top: 20px;
+    font-size: 2.3em;
     text-align: left;
 
     @include responsive_height(medium-screens) {
@@ -92,7 +92,7 @@
       width: 300px;
       height: 250px;
       padding: 20px;
-      font-size: 2em;   
+      font-size: 2em;
 
       &.es { font-size: 1.8em; }
     }
@@ -100,10 +100,10 @@
     @include responsive(medium-screens) {
       &.es { font-size: 1.8em; }
     }
-    
+
     @include responsive(tablet-screens) {
       width: 255px;
-      height: 250px;      
+      height: 250px;
     }
 
     @include responsive(small-screens) {
@@ -130,8 +130,8 @@
     }
 
     @include responsive(small-screens) {
-      font-size: 1.5em;      
-    }        
+      font-size: 1.5em;
+    }
   }
 } // end .action-choice
 
@@ -158,7 +158,7 @@ input::-moz-placeholder {  /* Firefox 19+ */
    font-weight: 300  !important;
 }
 
-input:-ms-input-placeholder {  
+input:-ms-input-placeholder {
    color: $medgray !important;
    font-family: $body-font !important;
    font-weight: 300  !important;

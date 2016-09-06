@@ -92,12 +92,12 @@ gulp.task('useref-index', function(){
 });
 
 gulp.task('useref-html', function(){
-  return gulp.src(['app/html/*.html'])
+  return gulp.src(['app/info/*.html'])
     .pipe(useref())
     .pipe(gulpIf('*.js', uglify()))
     // Minifies only if it's a CSS file
     .pipe(gulpIf('*.css', minifyCSS()))
-    .pipe(gulp.dest('build/html'))
+    .pipe(gulp.dest('build/info'))
 });
 
 // run local server
@@ -113,9 +113,9 @@ gulp.task('webserver', function() {
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-    gulp.watch('templates/*.hbs');
-    gulp.watch('js/app/*.js', ['lint', 'scripts', 'scripts-other-pgs']);
-    gulp.watch('scss/*.scss', ['sass']);
+    gulp.watch('app/templates/*.hbs');
+    gulp.watch('app/js/app/*.js', ['lint', 'scripts', 'scripts-other-pgs']);
+    gulp.watch('app/scss/*.scss', ['sass']);
 });
 
 // copy index.html to build
@@ -134,8 +134,8 @@ gulp.task('copy-assets', function(){
 
 // copy html dir to build
 gulp.task('copy-html', function() {
-  return gulp.src(['app/html/*.html'])
-    .pipe(gulp.dest('build/html/'))
+  return gulp.src(['app/info/*.html'])
+    .pipe(gulp.dest('build/info/'))
     .on('error', handleError);
 });
 

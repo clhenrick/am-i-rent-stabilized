@@ -1,6 +1,6 @@
 {
 	"languages" : {
-		
+
 		"en" : {
 			"nav_main" : {
 				"title" : "Am I Rent Stabilized?",
@@ -18,8 +18,8 @@
 			},
 			"nongov" : {
 				"h1" : "Tenants Rights Resources",
-				"h3" : "These are governmental and non-government organizations who work to protect tenants and promote affordable housing in NYC. This is by no means an exhaustive list as there are hundreds of such organizations in NYC.",				
-				"citywide" : {					
+				"h3" : "These are governmental and non-government organizations who work to protect tenants and promote affordable housing in NYC. This is by no means an exhaustive list as there are hundreds of such organizations in NYC.",
+				"citywide" : {
 					"h3" : "City Wide",
 					"p01" : "These organizations operate on a city-wide level.",
 					"ul" : [
@@ -39,6 +39,10 @@
 							"org" : "Eviction Intervention Services",
 							"desc" : "Performs homelessness prevention by keeping residents in their communities, preserving existing affordable housing, and promoting and supporting the construction of affordable housing for low, moderate and middle-income households in NYC."
 						},
+            {
+              "org" : "HRI",
+              "desc" : "HRI is a legal mobilization effort that systematically and proactively investigates rent fraud in rent stabilized buildings and connects tenants to legal support."
+            },
 						{
 							"org" : "Make The Road New York",
 							"desc" : "Works with Latino and working class communities to achieve dignity and justice through organizing, policy innovation, transformative education, and survival services."
@@ -55,6 +59,10 @@
 							"org" : "Picture the Homeless",
 							"desc" : "Works to advocate for affordable housing and performs outreach for homeless NYC residents."
 						},
+            {
+              "org" : "Rent Logic",
+              "desc" : "Rentlogic helps people find out everything about an apartment before they sign a lease, including mold, bedbugs, vermin or if the landlord has a history of tenant harassment."
+            },
 						{
 							"org" : "Right To The City Alliance",
 							"desc" : "Works to prevent the displacement of low-income people, people of color, and LGBTQ persons. Operates nationally."
@@ -158,7 +166,7 @@
 						{
 							"org" : "Women’s Housing and Economic Development Corporation",
 							"desc" : "Community development organization that builds affordable housing and promotes community development in the south Bronx."
-						}						
+						}
 					]
 				}
 			},
@@ -222,7 +230,7 @@
 			"nongov" : {
 				"h1" : "Recursos de Derechos para Inquilinos",
 				"h3" : "Estas son organizaciones gubernamentales y no gubernamentales que protegen los derechos de inquilinos y promueven viviendas económicas en la ciudad de Nueva York. Hay cientos de estas organizaciones en la ciudad de Nueva York. ",
-				"citywide" : {					
+				"citywide" : {
 					"h3" : "En toda la Ciudad",
 					"p01" : "Estas organizaciones operan por toda la ciudad.",
 					"ul" : [
@@ -242,6 +250,10 @@
 							"org" : "Eviction Intervention Services",
 							"desc" : "Lleva a cabo la prevención de personas sin hogar al mantener a residentes en sus comunidades, preservando viviendas económicas, y promoviendo y sustentando la construcción de viviendas económicas para dueños de viviendas con con bajo a moderado ingreso."
 						},
+            {
+              "org" : "HRI",
+              "desc" : "HRI es un esfuerzo de movilización legal que investiga de manera sistemática y proactiva cualquier caso de renta fraudulenta en edificios de renta estabilizada y que conecta a los inquilinos con apoyo legal."
+            },
 						{
 							"org" : "Make The Road New York",
 							"desc" : "Trabajan con el propósito de alcanzar dignidad y justicia para las comunidades latinas y la clase trabajadora mediante la organización, la innovación de leyes, la  educación, y servicios de sobrevivencia. "
@@ -258,6 +270,10 @@
 							"org" : "Picture the Homeless",
 							"desc" : "Trabajan defendiendo viviendas económicamente accesibles y ayudan a personas sin hogares en la ciudad de Nueva York."
 						},
+            {
+              "org" : "Rent Logic",
+              "desc" : "Rentlogic ayuda a la gente a encontrar todo lo necesario sobre un apartamento antes de firmar un contrato de arrendamiento incluyendo información sobre moho, chinches, bichos o si el propietario tiene una historia de acoso al inquilino."
+            },
 						{
 							"org" : "Right To The City Alliance",
 							"desc" : "Su trabajo se enfoca en la prevención del desplazamiento de personas con bajos ingresos, de color, y de lesbianas, homosexuales, y transexuales. Operan en todo el país."
@@ -357,7 +373,7 @@
 						{
 							"org" : "Women’s Housing and Economic Development Corporation",
 							"desc" : "Organización de desarrollo comunitario que construye viviendas económicamente accesibles y promueve el desarrollo comunitario en el sur del Bronx."
-						}						
+						}
 					]
 				}
 			},
@@ -420,8 +436,8 @@
 			},
 			"nongov" : {
 				"h1" : "住客权利资料",
-				"h3" : "以下是一些政府和非政府的机构致力保护住客权利，强调纽约合理房价的重要性。纽约有上百个这样的机构，这里列举的只是其中一部分。",				
-				"citywide" : {					
+				"h3" : "以下是一些政府和非政府的机构致力保护住客权利，强调纽约合理房价的重要性。纽约有上百个这样的机构，这里列举的只是其中一部分。",
+				"citywide" : {
 					"h3" : "全市",
 					"p01" : "这些机构是全市性的。",
 					"ul" : [
@@ -441,6 +457,10 @@
 							"org" : "驱逐干预服务 （Eviction Intervention Services）",
 							"desc" : "保持居民在自己的社区，保留现有的经济适用房，促进和支持纽约的低，中，中等收入家庭经济住房建设。预防居民无家可归。"
 						},
+            {
+              "org" : "HRI",
+              "desc" : "HRI是您随时随地的法律后援团，竭诚为您提供房租欺诈调查与法律支持的服务"
+            },
 						{
 							"org" : "为纽约铺路 （Make The Road New York）",
 							"desc" : "通过动员，推动政策，教育改革，以及生存服务，来帮助拉美移民以及工人阶级的社区取得尊严和公道。"
@@ -457,6 +477,10 @@
 							"org" : "为无家可归着想（Picture the Homeless）",
 							"desc" : "为纽约无家可归者推广经济住房。"
 						},
+            {
+              "org" : "Rent Logic",
+              "desc" : "在您签订租约之前，您可以借助Rentlogic了解您公寓的一切：房里是否有霉菌？臭虫？老鼠？抑或是房东是否对曾经的租户进行过骚扰？"
+            },
 						{
 							"org" : "人人有权协会（Right To The City Alliance）",
 							"desc" : "预防低收入者，有色人群，LGBTQ人群的流离失所。全国运营。"
@@ -556,7 +580,7 @@
 						{
 							"org" : "妇女住房和经济发展会 （Women’s Housing and Economic Development Corporation）",
 							"desc" : "本组织帮助社区发展组织，建立经济住房，促进南布朗克斯社区的发展。"
-						}						
+						}
 					]
 				}
 			},
