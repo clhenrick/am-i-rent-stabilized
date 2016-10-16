@@ -38,7 +38,7 @@ As the entire site is translated to Chinese and Spanish, any changes to the site
 After updating these sets of files you must precompile the templates for them to be updated in the app. Make sure you have Node.JS and the Handlebars module installed globally then do:
 
 ```
-handlebars app/templates/*.hbs -n app.templates app/js/app/templates.js
+handlebars app/templates/*.hbs -n app.templates -f app/js/app/templates.js
 ```
 
 **Note** that if you're running the `gulp default` task, making changes to any files in `app/templates/*.hbs` will automatically re-compile `app/js/templates.js`.

@@ -305,15 +305,15 @@ this["app"]["templates"]["resources"] = Handlebars.template({"compiler":[6,">= 2
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['10'] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['10'] : stack1)) != null ? stack1.desc : stack1), depth0))
-    + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.tenantsandneighbors.org/\">\n        "
+    + "</p>\n    </li>\n		<li>\n			<a target=\"_blank\" href=\"http://stabilizingnyc.org/\">\n				"
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['11'] : stack1)) != null ? stack1.org : stack1), depth0))
-    + "\n      </a>\n      <p>"
+    + "\n			</a>\n			<p>"
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['11'] : stack1)) != null ? stack1.desc : stack1), depth0))
-    + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.uhab.org\">\n        "
+    + "</p>\n		</li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.tenantsandneighbors.org/\">\n        "
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['12'] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['12'] : stack1)) != null ? stack1.desc : stack1), depth0))
-    + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://stabilizingnyc.org/\">\n        "
+    + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.uhab.org\">\n        "
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['13'] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['13'] : stack1)) != null ? stack1.desc : stack1), depth0))
