@@ -228,7 +228,9 @@ this["app"]["templates"]["main"] = Handlebars.template({"compiler":[6,">= 2.0.0-
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide09 : depth0)) != null ? stack1.learn : stack1), depth0))
     + "</a></p>\n            </div>\n            <div class=\"share-box-end\">\n                <p class=\"share-it\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide09 : depth0)) != null ? stack1.share : stack1), depth0))
-    + "</p>\n                <div class=\"addthis_sharing_toolbox\"></div>\n            </div>\n        </div>\n    </div>\n</div> <!-- end slides container -->\n<script src=\"//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-551311020cabbff0\" async=\"async\"></script>\n";
+    + "</p>\n                <div class=\"addthis_sharing_toolbox\"></div>\n            </div>\n            <div class=\"button-holder\">\n                <p class=\"button rent-logic\" type=\"submit\"><a id=\"rent-logic\" target=\"_blank\" href=\"https://rentlogic.com\">"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide09 : depth0)) != null ? stack1.rent : stack1), depth0))
+    + "</a></p>\n            </div>\n        </div>\n    </div>\n</div> <!-- end slides container -->\n<script src=\"//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-551311020cabbff0\" async=\"async\"></script>\n";
 },"useData":true});
 this["app"]["templates"]["resources"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, alias1=this.lambda, alias2=this.escapeExpression;
@@ -305,11 +307,11 @@ this["app"]["templates"]["resources"] = Handlebars.template({"compiler":[6,">= 2
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['10'] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['10'] : stack1)) != null ? stack1.desc : stack1), depth0))
-    + "</p>\n    </li>\n		<li>\n			<a target=\"_blank\" href=\"http://stabilizingnyc.org/\">\n				"
+    + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://stabilizingnyc.org/\">\n        "
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['11'] : stack1)) != null ? stack1.org : stack1), depth0))
-    + "\n			</a>\n			<p>"
+    + "\n      </a>\n      <p>"
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['11'] : stack1)) != null ? stack1.desc : stack1), depth0))
-    + "</p>\n		</li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.tenantsandneighbors.org/\">\n        "
+    + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.tenantsandneighbors.org/\">\n        "
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['12'] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['12'] : stack1)) != null ? stack1.desc : stack1), depth0))

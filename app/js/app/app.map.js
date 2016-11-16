@@ -61,7 +61,7 @@ app.map = (function(d,w,a,H,$){
           urlConcat = url + stNum + stName + borough + appID + appKey;
 
       getJSON(urlConcat, 'jsonp', checkResult);
-    };
+    }
 
     // see if the geolient result has a bbl
     function checkResult(data) {
@@ -80,13 +80,16 @@ app.map = (function(d,w,a,H,$){
           bin : d.giBuildingIdentificationNumber1,
           tr_groups : []
         };
-        var bbl = d.bbl;
         var gcr_stringify = JSON.stringify(g);
         _gaq.push(['_trackEvent', 'Geoclient Success', 'Result', gcr_stringify]);
 
         // console.log('geoclient success, data: ', g);
         showMarker(data);
-        getCDBdata(bbl);
+        getCDBdata(g.bbl);
+        //call here function that get's BIN(g.bin), calls API, gets BIN's matching URL, and set's value to button Rent Logic
+        bintoURL(g.bin);
+
+
       } else {
         // geoclient didn't recognize the address, ask user to try again
         app.el.addressInput.value='';
@@ -105,7 +108,22 @@ app.map = (function(d,w,a,H,$){
         app.events.publish('state-change', { formFilled : false, yesNoState: false });
         app.f.goToPrevSlide();
       }
-    };
+    }
+
+    // maps BIN to Rent Logic URL and set it to the button View Building Info at RentLogic
+    function bintoURL(bin){
+      var cartourl = "https://chenrick.carto.com/api/v2/sql?q=SELECT+url+FROM+bin_bbl_url+WHERE+bin=" + bin;
+      // API request:
+      $.getJSON(cartourl, function(data) {
+      })
+      .done(function(data) {
+        var rentLogicURL = data.rows[0].url || "http://www.rentlogic.com";
+        document.getElementById("rent-logic").href = rentLogicURL;
+      })
+      .fail(function(){
+        document.getElementById("rent-logic").href = "http://www.rentlogic.com";
+      })
+    }
 
     function trQuery(lat, lon) {
       // construct the tenants rights group query
@@ -129,7 +147,7 @@ app.map = (function(d,w,a,H,$){
 
       getJSON(sqlURL + sql1, 'json', checkRS);
       getJSON(sqlURL + sql2, 'json', checkTR);
-    };
+    }
 
     function checkRS(data) {
       if (data.rows.length > 0 && state.yesNoState === false) {
@@ -186,7 +204,7 @@ app.map = (function(d,w,a,H,$){
       }
       app.f.goToNextSlide();
       // console.log('checkData goToNextSlide called');
-    };
+    }
 
     function showMarker(data) {
       // console.log('showMarker data: ', data);
@@ -205,7 +223,7 @@ app.map = (function(d,w,a,H,$){
       addressMarker = new L.marker(latlng).addTo(el.map);
       app.el.map.setView(latlng, 16);
       addressMarker.bindPopup("<b>" + address + "</b>").openPopup();
-    };
+    }
 
     app.map.fns = {
       geoclient : geoclient,
@@ -214,6 +232,7 @@ app.map = (function(d,w,a,H,$){
 
     return app.map.fns;
   } // end mapfns
+
 
   var initMap = function() {
     app.el.map = new L.Map('map', {

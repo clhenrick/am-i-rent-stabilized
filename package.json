@@ -23,7 +23,9 @@
     }
   ],
   "main": "js/index.js",
-  "dependencies": {},
+  "dependencies": {
+    "stream-browserify": "^2.0.1"
+  },
   "devDependencies": {
     "del": "^2.2.0",
     "gh-pages": "^0.11.0",

@@ -1396,10 +1396,18 @@ ul.validation-error {
     bottom: 5%;
     margin-left: -75px; }
   .button.start-over {
-    width: 200px; }
+    min-width: 200px;
+    width: auto; }
   .button.learn-more {
     width: 200px;
     margin-left: 50px; }
+  .button.rent-logic {
+    width: auto;
+    text-align: center;
+    display: inline-block;
+    white-space: nowrap;
+    margin: 10px auto;
+    background-color: #46B9BC; }
   @media only screen and (max-height: 770px) {
     .button {
       width: 180px;
@@ -1407,7 +1415,16 @@ ul.validation-error {
       padding: 8px 12px; }
       .button.search {
         width: 125px;
-        margin-left: -62.5px; } }
+        margin-left: -62.5px; }
+      .button.start-over {
+        min-width: 200px; }
+      .button.rent-logic {
+        width: auto;
+        text-align: center;
+        display: inline-block;
+        white-space: nowrap;
+        margin: 10px auto;
+        background-color: #46B9BC; } }
   @media only screen and (max-width: 980px) {
     .button {
       width: 160px;
@@ -1425,11 +1442,19 @@ ul.validation-error {
         width: 110px;
         margin-left: -55px; }
       .button.start-over {
+        min-width: 200px;
         width: 120px; }
       .button.learn-more {
         width: 125px;
         margin-top: 10px;
-        margin-left: 10px; } }
+        margin-left: 10px; }
+      .button.rent-logic {
+        width: auto;
+        text-align: center;
+        display: inline-block;
+        white-space: nowrap;
+        margin: 10px auto;
+        background-color: #46B9BC; } }
 
 .button-holder {
   width: 100%;

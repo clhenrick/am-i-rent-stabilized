@@ -20,12 +20,22 @@
   }
 
   &.start-over {
-    width: 200px;
+    min-width:200px;
+    width: auto;
   }
 
   &.learn-more {
     width: 200px;
     margin-left: 50px;
+  }
+
+  &.rent-logic {
+    width: auto;
+    text-align:center;
+    display:inline-block;
+    white-space:nowrap;
+    margin: 10px auto;
+    background-color:#46B9BC;
   }
 
   @include responsive_height(medium-screens) {
@@ -39,12 +49,23 @@
     }
 
     &.start-over {
+    min-width:200px;
       // width: 200px;
     }
 
     &.learn-more {
       // width: 200px;
     }
+
+    &.rent-logic {
+    width: auto;
+    text-align:center;
+    display:inline-block;
+    white-space:nowrap;
+    margin: 10px auto;
+    background-color:#46B9BC;
+  }
+
   }
 
   @include responsive(medium-screens) {        
@@ -71,6 +92,7 @@
     }
 
     &.start-over {
+      min-width:200px;
       width: 120px;
     }
 
@@ -78,6 +100,15 @@
       width: 125px;       
       margin-top: 10px;
       margin-left: 10px;
+    }
+    
+    &.rent-logic {
+      width: auto;
+      text-align:center;
+      display:inline-block;
+      white-space:nowrap;
+      margin: 10px auto;
+      background-color:#46B9BC;
     }      
   }
 
