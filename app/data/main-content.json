@@ -1,5 +1,5 @@
 {
-  "languages" : 
+  "languages" :
     {
       "en" : {
             "nav_main": {
@@ -96,7 +96,7 @@
                 "start": "Start Over",
                 "learn": "Learn More",
                 "share": "Share it!",
-                "rent" : "View Building Info at RentLogic"
+                "rent" : "View Building Info at RentLogic.com"
             }
         },
 
@@ -195,7 +195,7 @@
                 "start": "Empezar de nuevo",
                 "learn": "Aprenda más",
                 "share": "¡Compartalo!",
-                "rent" : "Vea informacion de sus edificios en RentLogic"
+                "rent" : "Vea informacion de sus edificios en RentLogic.com"
             }
         },
 
@@ -294,7 +294,7 @@
                 "start": "重新来过",
                 "learn": "了解更多",
                 "share": "分享给其他人！",
-                "rent" : "用 RentLogic 查找公寓楼信息"
+                "rent" : "用 RentLogic.com 查找公寓楼信息"
             }
         }
     }

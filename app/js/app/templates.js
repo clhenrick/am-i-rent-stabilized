@@ -228,7 +228,7 @@ this["app"]["templates"]["main"] = Handlebars.template({"compiler":[6,">= 2.0.0-
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide09 : depth0)) != null ? stack1.learn : stack1), depth0))
     + "</a></p>\n            </div>\n            <div class=\"share-box-end\">\n                <p class=\"share-it\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide09 : depth0)) != null ? stack1.share : stack1), depth0))
-    + "</p>\n                <div class=\"addthis_sharing_toolbox\"></div>\n            </div>\n            <div class=\"button-holder\">\n                <p class=\"button rent-logic\" type=\"submit\"><a id=\"rent-logic\" target=\"_blank\" href=\"#\">"
+    + "</p>\n                <div class=\"addthis_sharing_toolbox\"></div>\n            </div>\n            <div class=\"button-holder\">\n                <p class=\"button rent-logic\" type=\"submit\"><a id=\"rent-logic\" target=\"_blank\" href=\"https://rentlogic.com\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide09 : depth0)) != null ? stack1.rent : stack1), depth0))
     + "</a></p>\n            </div>\n        </div>\n    </div>\n</div> <!-- end slides container -->\n<script src=\"//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-551311020cabbff0\" async=\"async\"></script>\n";
 },"useData":true});

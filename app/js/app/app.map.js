@@ -80,17 +80,16 @@ app.map = (function(d,w,a,H,$){
           bin : d.giBuildingIdentificationNumber1,
           tr_groups : []
         };
-        var bbl = d.bbl;
         var gcr_stringify = JSON.stringify(g);
         _gaq.push(['_trackEvent', 'Geoclient Success', 'Result', gcr_stringify]);
 
         // console.log('geoclient success, data: ', g);
         showMarker(data);
-        getCDBdata(bbl);
+        getCDBdata(g.bbl);
         //call here function that get's BIN(g.bin), calls API, gets BIN's matching URL, and set's value to button Rent Logic
         bintoURL(g.bin);
-         
-        
+
+
       } else {
         // geoclient didn't recognize the address, ask user to try again
         app.el.addressInput.value='';
@@ -111,23 +110,20 @@ app.map = (function(d,w,a,H,$){
       }
     }
 
-    // maps BIN to Rent Logic URL and set it to the button View Building Info at RentLogic 
+    // maps BIN to Rent Logic URL and set it to the button View Building Info at RentLogic
     function bintoURL(bin){
-      //console.log(bin);
       var cartourl = "https://chenrick.carto.com/api/v2/sql?q=SELECT+url+FROM+bin_bbl_url+WHERE+bin=" + bin;
       // API request:
-      $.get( cartourl, function( data ) {
+      $.getJSON(cartourl, function(data) {
       })
       .done(function(data) {
-        var rentLogicURL = data.rows[0].url;
-        //console.log(rentLogicURL);
+        var rentLogicURL = data.rows[0].url || "http://www.rentlogic.com";
         document.getElementById("rent-logic").href = rentLogicURL;
       })
       .fail(function(){
         document.getElementById("rent-logic").href = "http://www.rentlogic.com";
       })
     }
-
 
     function trQuery(lat, lon) {
       // construct the tenants rights group query
@@ -227,18 +223,12 @@ app.map = (function(d,w,a,H,$){
       addressMarker = new L.marker(latlng).addTo(el.map);
       app.el.map.setView(latlng, 16);
       addressMarker.bindPopup("<b>" + address + "</b>").openPopup();
-    
-
-
-
     }
 
     app.map.fns = {
       geoclient : geoclient,
       showMarker : showMarker
     };
-
-
 
     return app.map.fns;
   } // end mapfns
