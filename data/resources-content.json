@@ -1,6 +1,5 @@
 {
 	"languages" : {
-
 		"en" : {
 			"nav_main" : {
 				"title" : "Am I Rent Stabilized?",
@@ -68,16 +67,16 @@
 							"desc" : "Works to prevent the displacement of low-income people, people of color, and LGBTQ persons. Operates nationally."
 						},
 						{
+							"org" : "Stabilizing NYC",
+							"desc" : "Stabilizing NYC is a coalition comprised of fourteen grassroots neighborhood-based organizations, a citywide legal service provider and a citywide housing advocacy organization who have come together to combat tenant harassment and preserve affordable housing for the New Yorkers who need it most. This project combines legal, advocacy and organizing resources into a citywide network to help tenants take their predatory equity landlords to task for patchwork repairs, bogus eviction cases, and affirmative harassment."
+						},
+						{
 							"org" : "Tenants and Neighbors",
 							"desc" : "Helps tenants organize at the building and community level to preserve at-risk affordable housing."
 						},
 						{
 							"org" : "Urban Homesteading Assistance Board",
 							"desc" : "Helps low to moderate income residents to take control of their housing and enhance their communities by creating strong tenant associations and lasting affordable co-ops."
-						},
-						{
-							"org" : "Stabilizing NYC",
-							"desc" : "Stabilizing NYC is a coalition comprised of fourteen grassroots neighborhood-based organizations, a citywide legal service provider and a citywide housing advocacy organization who have come together to combat tenant harassment and preserve affordable housing for the New Yorkers who need it most. This project combines legal, advocacy and organizing resources into a citywide network to help tenants take their predatory equity landlords to task for patchwork repairs, bogus eviction cases, and affirmative harassment."
 						}
 					]
 				},
@@ -277,6 +276,10 @@
 						{
 							"org" : "Right To The City Alliance",
 							"desc" : "Su trabajo se enfoca en la prevención del desplazamiento de personas con bajos ingresos, de color, y de lesbianas, homosexuales, y transexuales. Operan en todo el país."
+						},
+						{
+							"org" : "Stabilizing NYC",
+							"desc" : "La estabilización de Nueva York es una coalición formada por catorce organizaciones basadas en el vecindario de base, un proveedor de servicios legales en toda la ciudad y una organización de defensa de la vivienda en toda la ciudad que se han unido para combatir el acoso inquilino y preservar la vivienda asequible para los neoyorquinos que más la necesitan. Este proyecto combina legal, la promoción y la organización de los recursos en una red en toda la ciudad para ayudar a los inquilinos llevan a sus propietarios de acciones depredadoras a la tarea para la reparación del remiendo, los casos de desalojo falsos, y el acoso afirmativa."
 						},
 						{
 							"org" : "Tenants and Neighbors",
@@ -484,6 +487,10 @@
 						{
 							"org" : "人人有权协会（Right To The City Alliance）",
 							"desc" : "预防低收入者，有色人群，LGBTQ人群的流离失所。全国运营。"
+						},
+						{
+							"org" : "稳定纽约租金（Stabilizing NYC）",
+							"desc" : "稳定纽约租金是一个以十四个社区为基础的组织所组成的联盟，提供全市法律服务以及推广相关组织并打击居/住户经骚，保留经济住房给最需要的纽约客。这个项目结合了法律丶推广以及组织资源进入城市网络并帮助居/住户向掠夺者房东对抗装修为由或其他非法驱逐等途径以及骚扰。"
 						},
 						{
 							"org" : "住客邻里（Tenants and Neighbors）",
