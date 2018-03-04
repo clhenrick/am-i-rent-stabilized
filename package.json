@@ -14,7 +14,9 @@
     "url": "https://clhenrick.github.io"
   },
   "scripts": {
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "dev": "gulp",
+    "dist": "gulp production"
   },
   "licenses": [
     {
