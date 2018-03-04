@@ -16,7 +16,8 @@
   "scripts": {
     "deploy": "gh-pages -d build",
     "dev": "gulp",
-    "dist": "gulp production"
+    "dist": "gulp production",
+    "compile-templates": "gulp templates"
   },
   "licenses": [
     {
@@ -47,6 +48,7 @@
     "gulp-useref": "^3.0.8",
     "gulp-webserver": "^0.9.0",
     "gulp-wrap": "^0.11.0",
+    "handlebars": "^4.0.11",
     "run-sequence": "^1.1.5",
     "useref": "^1.2.0",
     "vinyl-transform": "^1.0.0",
