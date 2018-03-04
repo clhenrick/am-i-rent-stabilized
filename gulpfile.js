@@ -48,7 +48,9 @@ gulp.task('sass', function() {
 // precompile handlebars templates
 gulp.task('templates', function () {
     gulp.src('app/templates/*.hbs')
-      .pipe(handlebars())
+      .pipe(handlebars({
+        handlebars: require('handlebars')
+      }))
       .pipe(wrap('Handlebars.template(<%= contents %>)'))
       .pipe(declare({
           namespace: 'app.templates',
