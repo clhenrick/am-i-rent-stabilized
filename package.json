@@ -1,9 +1,8 @@
 {
   "name": "am-i-rent-stabilized",
-  "url": "https://amirentstabilized.com/",
   "description": "A web app to inform NYC residents if their apartment might be rent stabilized.",
   "version": "0.2.0",
-  "homepage": "http://clhenrick.github.io/am-i-rent-stabilized",
+  "homepage": "https://amirentstabilized.com/",
   "repository": {
     "type": "git",
     "url": "https://github.com/clhenrick/am-i-rent-stabilized.git"
@@ -11,24 +10,15 @@
   "author": {
     "name": "Chris Henrick",
     "email": "chrishenrick@gmail.com",
-    "url": "https://clhenrick.github.io"
+    "url": "http://clhenrick.io"
   },
   "scripts": {
     "deploy": "gh-pages -d build",
     "dev": "gulp",
-    "dist": "gulp production",
+    "prod": "gulp production",
     "compile-templates": "gulp templates"
   },
-  "licenses": [
-    {
-      "type": "",
-      "url": ""
-    }
-  ],
-  "main": "js/index.js",
-  "dependencies": {
-    "stream-browserify": "^2.0.1"
-  },
+  "license": "UNLICENSED",
   "devDependencies": {
     "del": "^2.2.0",
     "gh-pages": "^0.11.0",
@@ -50,6 +40,7 @@
     "gulp-wrap": "^0.11.0",
     "handlebars": "^4.0.11",
     "run-sequence": "^1.1.5",
+    "stream-browserify": "^2.0.1",
     "useref": "^1.2.0",
     "vinyl-transform": "^1.0.0",
     "wrap": "^0.1.2"
