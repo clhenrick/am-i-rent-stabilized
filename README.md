@@ -33,15 +33,19 @@ Make sure you have Node.js at v5.9.1 or greater with `Node-Sass`, `Handlebars`, 
 - Run `gulp production` to compile the distribution code in a `build/` directory.
 
 ## Updating the Site's Content:
-As the entire site is translated to Chinese and Spanish, any changes to the site's content must also be translated to these languages. This is done by editing  the JSON files in `data/`. Any changes to the site structure must be made to the Handlebars templates in `app/templates/`. Each of the JSON files and Handlebars files in these folders corresponds to one page of the app (`index.html`, `why-it-matters.html`, `how-it-works.html`, & `resources.html`). Each JSON file contains the content in 3 languages while each template file contains the markup and Handlebars templating code.
+As the entire site is translated to Chinese and Spanish, any changes to the site's content must also be translated to these languages. This is done by editing  the JSON files in `app/data/`.
 
-After updating these sets of files you must precompile the templates for them to be updated in the app. Make sure you have Node.JS and the Handlebars module installed globally then do:
+Any changes to the site's HTML must be made to the Handlebars templates in `app/templates/`.
+
+Each of the JSON files and Handlebars files in these folders corresponds to one page of the app (`index.html`, `why-it-matters.html`, `how-it-works.html`, & `resources.html`). Each JSON file contains the written content in 3 languages while each template file contains the markup and Handlebars templating code.
+
+After updating these sets of files you must precompile the templates for the content to be updated in the app. You can run the gulp `templates` task to do this by running the following npm script:
 
 ```
-handlebars app/templates/*.hbs -n app.templates -f app/js/app/templates.js
+npm run compile-templates
 ```
 
-**Note** that if you're running the `gulp default` task, making changes to any files in `app/templates/*.hbs` will automatically re-compile `app/js/templates.js`.
+If you're running the `gulp default` task, then making changes to any files in `app/templates/*.hbs` will automatically re-compile `app/js/templates.js`. However, _you will still need to compile the bundled files for the app_, `bundle.js` and `otherpages.js`, otherwise the app will not use the newly compiled templates!
 
 ## Data Processing:
 The processed data is [publicly available for download on CartoDB](https://chenrick.carto.com/tables/map_pluto_likely_rs_2016v1/public/map) but if you'd like to host it yourself you may do the following (note you will need to have [GDAL](http://www.gdal.org/) and [PostGIS](http://postgis.net/) installed):
