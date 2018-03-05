@@ -38,10 +38,6 @@
 							"org" : "Eviction Intervention Services",
 							"desc" : "Performs homelessness prevention by keeping residents in their communities, preserving existing affordable housing, and promoting and supporting the construction of affordable housing for low, moderate and middle-income households in NYC."
 						},
-            {
-              "org" : "HRI",
-              "desc" : "HRI is a legal mobilization effort that systematically and proactively investigates rent fraud in rent stabilized buildings and connects tenants to legal support."
-            },
 						{
 							"org" : "Make The Road New York",
 							"desc" : "Works with Latino and working class communities to achieve dignity and justice through organizing, policy innovation, transformative education, and survival services."
@@ -249,10 +245,6 @@
 							"org" : "Eviction Intervention Services",
 							"desc" : "Lleva a cabo la prevención de personas sin hogar al mantener a residentes en sus comunidades, preservando viviendas económicas, y promoviendo y sustentando la construcción de viviendas económicas para dueños de viviendas con con bajo a moderado ingreso."
 						},
-            {
-              "org" : "HRI",
-              "desc" : "HRI es un esfuerzo de movilización legal que investiga de manera sistemática y proactiva cualquier caso de renta fraudulenta en edificios de renta estabilizada y que conecta a los inquilinos con apoyo legal."
-            },
 						{
 							"org" : "Make The Road New York",
 							"desc" : "Trabajan con el propósito de alcanzar dignidad y justicia para las comunidades latinas y la clase trabajadora mediante la organización, la innovación de leyes, la  educación, y servicios de sobrevivencia. "
@@ -460,10 +452,6 @@
 							"org" : "驱逐干预服务 （Eviction Intervention Services）",
 							"desc" : "保持居民在自己的社区，保留现有的经济适用房，促进和支持纽约的低，中，中等收入家庭经济住房建设。预防居民无家可归。"
 						},
-            {
-              "org" : "HRI",
-              "desc" : "HRI是一个可以系统地、主动地调查租金稳定型建筑中的租金诈骗并且给予租客法律援助的法律动员工作。"
-            },
 						{
 							"org" : "为纽约铺路 （Make The Road New York）",
 							"desc" : "通过动员，推动政策，教育改革，以及生存服务，来帮助拉美移民以及工人阶级的社区取得尊严和公道。"

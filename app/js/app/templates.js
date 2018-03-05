@@ -1,7 +1,7 @@
 this["app"] = this["app"] || {};
 this["app"]["templates"] = this["app"]["templates"] || {};
-this["app"]["templates"]["how"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var stack1, alias1=this.lambda, alias2=this.escapeExpression;
+this["app"]["templates"]["how"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 
   return "<nav class=\"main-nav\">\n  <img class=\"logo\" src=\"../assets/png/logo.png\">\n  <h1>            \n    <a class=\"go-first\" href=\"../index.html\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.title : stack1), depth0))
@@ -22,41 +22,41 @@ this["app"]["templates"]["how"] = Handlebars.template({"compiler":[6,">= 2.0.0-b
     + "</a></li>\n    </ul>          \n  </div>\n</div>\n\n<div id=\"main\">\n  <a name=\"how\"></a>\n  <h1> "
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.h1 : stack1), depth0))
     + " </h1>\n  <p>\n    "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p01 : stack1)) != null ? stack1['0'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p01 : stack1)) != null ? stack1["0"] : stack1), depth0))
     + "\n    <strong> "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p01 : stack1)) != null ? stack1['1'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p01 : stack1)) != null ? stack1["1"] : stack1), depth0))
     + " </strong>\n    "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p01 : stack1)) != null ? stack1['2'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p01 : stack1)) != null ? stack1["2"] : stack1), depth0))
     + "\n  </p>\n\n  <p>\n    "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p02 : stack1)) != null ? stack1['0'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p02 : stack1)) != null ? stack1["0"] : stack1), depth0))
     + "\n    <strong> "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p02 : stack1)) != null ? stack1['1'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p02 : stack1)) != null ? stack1["1"] : stack1), depth0))
     + " </strong></p>\n\n  <h3>"
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.h3 : stack1)) != null ? stack1['0'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.h3 : stack1)) != null ? stack1["0"] : stack1), depth0))
     + "</h3>\n  <p>\n    "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p03 : stack1)) != null ? stack1['0'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p03 : stack1)) != null ? stack1["0"] : stack1), depth0))
     + "\n    <strong>"
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p03 : stack1)) != null ? stack1['1'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p03 : stack1)) != null ? stack1["1"] : stack1), depth0))
     + "</strong>\n    "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p03 : stack1)) != null ? stack1['2'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p03 : stack1)) != null ? stack1["2"] : stack1), depth0))
     + "\n  </p>\n\n  <h3>"
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.h3 : stack1)) != null ? stack1['1'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.h3 : stack1)) != null ? stack1["1"] : stack1), depth0))
     + "</h3>\n  <p>\n    "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p04 : stack1)) != null ? stack1['0'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p04 : stack1)) != null ? stack1["0"] : stack1), depth0))
     + "\n    <a target=\"_blank\" href=\"http://www.nyshcr.org/\">\n      "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p04 : stack1)) != null ? stack1['1'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p04 : stack1)) != null ? stack1["1"] : stack1), depth0))
     + "\n    </a>\n    "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p04 : stack1)) != null ? stack1['2'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p04 : stack1)) != null ? stack1["2"] : stack1), depth0))
     + "\n  </p>\n  <p>\n    "
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p05 : stack1), depth0))
     + "\n  </p>\n  <p>\n    "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p06 : stack1)) != null ? stack1['0'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p06 : stack1)) != null ? stack1["0"] : stack1), depth0))
     + "\n    <a target=\"_blank\" href=\"http://www.nyc.gov/html/dcp/html/bytes/dwn_pluto_mappluto.shtml\">\n      "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p06 : stack1)) != null ? stack1['1'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p06 : stack1)) != null ? stack1["1"] : stack1), depth0))
     + "\n    </a>\n      "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p06 : stack1)) != null ? stack1['2'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p06 : stack1)) != null ? stack1["2"] : stack1), depth0))
     + "\n    <a target=\"_blank\" href=\"http://cdb.io/1CxBFB4\">\n      "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p06 : stack1)) != null ? stack1['3'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p06 : stack1)) != null ? stack1["3"] : stack1), depth0))
     + "\n    </a>\n  </p>\n\n  <p>\n    "
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.p07 : stack1), depth0))
     + "\n  </p>\n  \n  <a name=\"code-data\"></a>\n  <h1>"
@@ -64,47 +64,47 @@ this["app"]["templates"]["how"] = Handlebars.template({"compiler":[6,">= 2.0.0-b
     + "</h1>\n  <p>\n    "
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.code : depth0)) != null ? stack1.p : stack1), depth0))
     + "\n  </p>\n  <ul>\n    <li><a target=\"_blank\" href=\"https://github.com/clhenrick/am-i-rent-stabilized\">\n      "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.code : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['0'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.code : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["0"] : stack1), depth0))
     + "\n    </a></li>\n    <li><a target=\"_blank\" href=\"http://chenrick.cartodb.com/tables/all_nyc_likely_rent_stabl_merged/public\">\n      "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.code : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['1'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.code : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["1"] : stack1), depth0))
     + "\n    </a></li>\n    <li><a target=\"_blank\" href=\"https://github.com/clhenrick/dhcr-rent-stabilized-data\">\n      "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.code : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['2'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.code : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["2"] : stack1), depth0))
     + "\n    </a></li>\n  </ul>\n  \n  <a name=\"credits\"></a>\n  <h1>"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.h1 : stack1), depth0))
     + "</h1>\n  <p>\n    "
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.p01 : stack1), depth0))
     + "\n  </p>\n  <ul>\n    <li>\n      <a target=\"_blank\" href=\"http://carolinewoolard.com/\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['0'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["0"] : stack1), depth0))
     + "\n      </a>\n      "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['1'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["1"] : stack1), depth0))
     + "\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://radishlab.com/\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['2'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["2"] : stack1), depth0))
     + "\n      </a>\n      "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['3'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["3"] : stack1), depth0))
     + "\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://goodlemons.com/\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['4'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["4"] : stack1), depth0))
     + "\n      </a>\n      "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['5'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["5"] : stack1), depth0))
     + "\n    </li>            \n    <li>\n      <a target=\"_blank\" href=\"http://betanyc.us\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['6'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["6"] : stack1), depth0))
     + "\n      </a>\n      "
-    + ((stack1 = alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['7'] : stack1), depth0)) != null ? stack1 : "")
+    + ((stack1 = alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["7"] : stack1), depth0)) != null ? stack1 : "")
     + "\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://cartodb.com\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['8'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["8"] : stack1), depth0))
     + "\n      </a>\n      "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['9'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["9"] : stack1), depth0))
     + "\n   </li>\n  </ul>\n\n  <h3>"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.h3 : stack1), depth0))
     + "</h3>\n  <p>\n    "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.p02 : stack1)) != null ? stack1['0'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.p02 : stack1)) != null ? stack1["0"] : stack1), depth0))
     + "\n    <a href=\"mailto:amirentstabilized@gmail.com\">\n      "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.p02 : stack1)) != null ? stack1['1'] : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.p02 : stack1)) != null ? stack1["1"] : stack1), depth0))
     + "\n    </a>\n  </p> \n  <p>\n    "
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.p03 : stack1), depth0))
     + "\n  </p>\n</div>";
 },"useData":true});
-this["app"]["templates"]["main"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var stack1, helper, alias1=this.lambda, alias2=this.escapeExpression;
+this["app"]["templates"]["main"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, helper, alias1=container.lambda, alias2=container.escapeExpression;
 
   return "<nav class=\"main-nav\">\n  <img class=\"logo\" src=\"assets/png/logo.png\">\n  <h1>\n    <a class=\"go-first\" href=\"#\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.title : stack1), depth0))
@@ -115,7 +115,7 @@ this["app"]["templates"]["main"] = Handlebars.template({"compiler":[6,">= 2.0.0-
     + "</a></li>\n    <li class=\"nav\"><a href=\"info/resources.html\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.resources : stack1), depth0))
     + "</a></li>\n  </ul>\n</nav>\n\n<div id=\"mobile-message\">\n  <img src=\"assets/png/rotate.png\">\n  <h1>"
-    + alias2(((helper = (helper = helpers.mobile_msg || (depth0 != null ? depth0.mobile_msg : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"mobile_msg","hash":{},"data":data}) : helper)))
+    + alias2(((helper = (helper = helpers.mobile_msg || (depth0 != null ? depth0.mobile_msg : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"mobile_msg","hash":{},"data":data}) : helper)))
     + "</h1>\n</div>\n\n<div class=\"lang-toggle desktop\">\n    <ul>\n        <li><a class=\"toggle-es\" href=\"#\"></a></li>\n        <li><p>•</p></li>\n        <li><a class=\"toggle-zh\" href=\"#\"></a></li>\n    </ul>\n</div>\n\n<nav class=\"margin-circles\">\n    <ul>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n    </ul>\n</nav>\n\n<div class=\"slides-container\">\n    <div class=\"slide\" id=\"slide-1\">\n      <div class=\"lang-toggle mobile\">\n          <ul>\n              <li><a class=\"toggle-es\" href=\"#\"></a></li>\n              <li><p>•</p></li>\n              <li><a class=\"toggle-zh\" href=\"#\"></a></li>\n          </ul>\n      </div>\n      <div class=\"centered\">\n          <img class=\"triple-s\" src=\"assets/png/triple-sss.png\">\n          <img class=\"building intro\" src=\"assets/png/building.png\">\n          <h1 class=\"landing\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide01 : depth0)) != null ? stack1.h1 : stack1), depth0))
     + "</h1>\n          <h2 class=\"sub-head\">"
@@ -232,8 +232,8 @@ this["app"]["templates"]["main"] = Handlebars.template({"compiler":[6,">= 2.0.0-
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide09 : depth0)) != null ? stack1.rent : stack1), depth0))
     + "</a></p>\n            </div>\n        </div>\n    </div>\n</div> <!-- end slides container -->\n<script src=\"//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-551311020cabbff0\" async=\"async\"></script>\n";
 },"useData":true});
-this["app"]["templates"]["resources"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var stack1, alias1=this.lambda, alias2=this.escapeExpression;
+this["app"]["templates"]["resources"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 
   return "<nav class=\"main-nav\">\n  <img class=\"logo\" src=\"../assets/png/logo.png\">\n  <h1>\n    <a class=\"go-first\" href=\"../index.html\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.title : stack1), depth0))
@@ -264,189 +264,185 @@ this["app"]["templates"]["resources"] = Handlebars.template({"compiler":[6,">= 2
     + "</h3>\n  <p>"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.p01 : stack1), depth0))
     + "</p>\n  <ul>\n    <li>\n      <a target=\"_blank\" href=\"http://www.aafe.org\">\n      "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['0'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["0"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['0'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["0"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.anhd.org\">\n      "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['1'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["1"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['1'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["1"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://cuffh.org/\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['2'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["2"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['2'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["2"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.eisny.org\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['3'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["3"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['3'] : stack1)) != null ? stack1.desc : stack1), depth0))
-    + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://housingrightsny.org/\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['4'] : stack1)) != null ? stack1.org : stack1), depth0))
-    + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['4'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["3"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.maketheroadny.org/\">\n      "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['5'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["4"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n    </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['5'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["4"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://metcouncilonhousing.org/\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['6'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["5"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['6'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["5"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.mfy.org/projects\">\n      "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['7'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["6"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n    </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['7'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["6"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.picturethehomeless.org/\">\n      "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['8'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["7"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['8'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["7"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"https://rentlogic.com/\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['9'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["8"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['9'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["8"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://righttothecity.org/\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['10'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["9"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['10'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["9"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://stabilizingnyc.org/\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['11'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["10"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['11'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["10"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.tenantsandneighbors.org/\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['12'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["11"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['12'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["11"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.uhab.org\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['13'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["12"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['13'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.citywide : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["12"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n  </ul>\n\n  <a name=\"boro\"></a>\n  <h3>"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.boro : stack1)) != null ? stack1.h3 : stack1), depth0))
     + "</h3>\n  <p>"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.boro : stack1)) != null ? stack1.p : stack1), depth0))
     + "</p>\n  <ul>\n    <li>\n      <a target=\"_blank\" href=\"http://brooklynhousing.org\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.boro : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['0'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.boro : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["0"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.boro : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['0'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.boro : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["0"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.bronxshepherds.org/\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.boro : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['1'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.boro : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["1"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.boro : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['1'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.boro : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["1"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.bka.org\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.boro : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['2'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.boro : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["2"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.boro : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['2'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.boro : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["2"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://queenscommunityhouse.org\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.boro : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['3'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.boro : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["3"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.boro : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['3'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.boro : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["3"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li><a target=\"_blank\" href=\"www.nhsofsi.org\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.boro : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['4'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.boro : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["4"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.boro : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['4'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.boro : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["4"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n  </ul>\n\n  <a name=\"hood\"></a>\n  <h3>"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.h3 : stack1), depth0))
     + "</h3>\n  <p>"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.p : stack1), depth0))
     + "</p>\n  <ul>\n    <li>\n      <a target=\"_blank\" href=\"http://www.carrollgardensassociation.com/\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['0'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["0"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['0'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["0"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"https://coopersquare.org/\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['1'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["1"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['1'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["1"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://crownheightstenantunion.org/\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['2'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["2"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['2'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["2"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.enyuyc.net\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['3'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["3"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['3'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["3"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.ebofb.org\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['4'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["4"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['4'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["4"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.fifthave.org/\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['5'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["5"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['5'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["5"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.fdconline.org/\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['6'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["6"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['6'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["6"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://mvdc.org/\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['7'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["7"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['7'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["7"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.nhsnyc.org\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['8'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["8"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['8'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["8"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://NWBcommunity.org\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['9'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["9"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['9'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["9"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"www.prattarea.org\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['10'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["10"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['10'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["10"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://stnicksalliance.org/SNA/#\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['11'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["11"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['11'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["11"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.unhp.org/\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['12'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["12"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['12'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["12"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.whedco.org\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['13'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["13"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1['13'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.nongov : depth0)) != null ? stack1.hood : stack1)) != null ? stack1.ul : stack1)) != null ? stack1["13"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n  </ul>\n\n  <a name=\"gov\"></a>\n  <h1>"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.h3 : stack1), depth0))
     + "</h1>\n  <p>"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.p : stack1), depth0))
     + "</p>\n  <ul>\n    <li>\n      <a target=\"_blank\" href=\"http://www.nyshcr.org\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['0'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["0"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['0'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["0"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "\n        <a href=\"http://www.nyshcr.org/AboutUs/contact.htm#rent-admin\">\n          "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['0'] : stack1)) != null ? stack1.a : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["0"] : stack1)) != null ? stack1.a : stack1), depth0))
     + "\n        </a>\n      </p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://a836-acris.nyc.gov/CP/\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['1'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["1"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['1'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["1"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www.nyc.gov/html/dob/html/bis/bis.shtml\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['2'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["2"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['2'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["2"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www1.nyc.gov/nyc-resources/service/1522/disability-rent-increase-exemption-drie-program\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['3'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["3"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['3'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["3"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"https://a806-housingconnect.nyc.gov/nyclottery/lottery.html#home\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['4'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["4"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['4'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["4"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www1.nyc.gov/site/hpd/index.page\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['5'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["5"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['5'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["5"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "\n        <a target=\"_blank\" href=\"https://hpdonline.hpdnyc.org/HPDonline/provide_address.aspx\">\n          "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['5'] : stack1)) != null ? stack1.a : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["5"] : stack1)) != null ? stack1.a : stack1), depth0))
     + "\n        </a>\n      </p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://nycrgb.org/html/resources/resources.html\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['6'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["6"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['6'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["6"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n    <li>\n      <a target=\"_blank\" href=\"http://www1.nyc.gov/nyc-resources/service/2424/senior-citizen-rent-increase-exemption-scrie\">\n        "
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['7'] : stack1)) != null ? stack1.org : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["7"] : stack1)) != null ? stack1.org : stack1), depth0))
     + "\n      </a>\n      <p>"
-    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1['7'] : stack1)) != null ? stack1.desc : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["7"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n  </ul>\n</div>\n";
 },"useData":true});
-this["app"]["templates"]["why"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var stack1, alias1=this.lambda, alias2=this.escapeExpression;
+this["app"]["templates"]["why"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 
   return "<nav class=\"main-nav\">\n  <img class=\"logo\" src=\"../assets/png/logo.png\">\n  <h1>            \n    <a class=\"go-first\" href=\"../index.html\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.title : stack1), depth0))
