@@ -1,0 +1,29 @@
+[dir="rtl"] {
+  nav > img, nav > h1 {
+    float: right !important;
+  }
+
+  nav > ul {
+    float: left !important;
+  }
+
+  nav li.nav {
+    margin-left: 55px;
+    margin-right: 0;
+
+    &:last-child {
+      margin-left: 30px;
+      margin-right: 0;
+    }
+  }
+
+  nav.margin-circles, .lang-toggle {
+    left: auto;
+    right: 30px;
+  }
+
+  #address-form .borough-select:after {
+    left: 20px;
+    right: auto;
+  }
+}

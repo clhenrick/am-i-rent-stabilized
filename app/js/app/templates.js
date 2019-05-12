@@ -130,7 +130,7 @@ this["app"]["templates"]["main"] = Handlebars.template({"compiler":[7,">= 4.0.0"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide02 : depth0)) != null ? stack1.h1 : stack1), depth0))
     + "</h1>\n        <p class=\"step\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide02 : depth0)) != null ? stack1.privacy : stack1), depth0))
-    + "</p>\n\n        <form id=\"address-form\">\n          <div class=\"user-data street-address\">\n              <input class=\"address-input\" name=\"address-input\" type=\"text\" placeholder=\""
+    + "</p>\n\n        <form id=\"address-form\">\n          <div class=\"user-data street-address\">\n              <input class=\"address-input\" name=\"address-input\" type=\"text\" dir=\"auto\" placeholder=\""
     + ((stack1 = alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.slide02 : depth0)) != null ? stack1.form : stack1)) != null ? stack1.address : stack1), depth0)) != null ? stack1 : "")
     + "\" tabindex=\"1\">\n          </div>\n          <div class=\"user-data borough-select\">\n              <span id=\"select-boro\"> "
     + ((stack1 = alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.slide02 : depth0)) != null ? stack1.form : stack1)) != null ? stack1.boro_select : stack1), depth0)) != null ? stack1 : "")
