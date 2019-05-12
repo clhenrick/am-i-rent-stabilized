@@ -2125,3 +2125,24 @@ body {
   width: 350px;
   margin-top: 15px;
   overflow: hidden; }
+
+[dir="rtl"] nav > img, [dir="rtl"] nav > h1 {
+  float: right !important; }
+
+[dir="rtl"] nav > ul {
+  float: left !important; }
+
+[dir="rtl"] nav li.nav {
+  margin-left: 55px;
+  margin-right: 0; }
+  [dir="rtl"] nav li.nav:last-child {
+    margin-left: 30px;
+    margin-right: 0; }
+
+[dir="rtl"] nav.margin-circles, [dir="rtl"] .lang-toggle {
+  left: auto;
+  right: 30px; }
+
+[dir="rtl"] #address-form .borough-select:after {
+  left: 20px;
+  right: auto; }

@@ -37,6 +37,11 @@ app.language = (function(w,d,$) {
       } else  {
         html = template(data.languages.en);
       }
+      /*
+      if (['ar', 'fa', 'he'].indexOf(lang) > -1) {
+        d.querySelector('#wrapper').dir = 'rtl';
+      }
+      */
       d.querySelector('#wrapper').innerHTML = html;
       initLangButtons();
     })
