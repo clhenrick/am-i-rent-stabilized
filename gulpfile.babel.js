@@ -162,16 +162,16 @@ export const production = gulp.series(
   minifyOtherPages,
 );
 
-console.log(gulp.series)
-
 // Default Task
 const build = gulp.series(
-  lint,
-  compileSass,
+  gulp.parallel(
+    lint,
+    scripts,
+    scriptsOtherPages,
+    templates
+  ),
+  gulp.parallel(compileSass),
   webserver,
-  templates,
-  scripts,
-  scriptsOtherPages,
   watch
 );
 
