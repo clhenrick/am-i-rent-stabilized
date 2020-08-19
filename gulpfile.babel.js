@@ -79,22 +79,25 @@ function scriptsOtherPages() {
 }
 
 // for production use minified js & css files.
-function minifyIndex() {
+function minifyIndexJs() {
   return gulp.src('app/*.html', { allowEmpty: true })
     .pipe(useref())
     .pipe(gulpIf('*.js', uglify()))
-    // Minifies only if it's a CSS file
-    .pipe(gulpIf('*.css', minifyCSS()))
     .pipe(gulp.dest('build'))
 }
 
-function minifyOtherPages() {
+function minifyOtherPagesJs() {
   return gulp.src('app/info/*.html', { allowEmpty: true })
     .pipe(useref())
     .pipe(gulpIf('*.js', uglify()))
-    // Minifies only if it's a CSS file
-    .pipe(gulpIf('*.css', minifyCSS()))
     .pipe(gulp.dest('build/info'))
+}
+
+function minifyMainCss() {
+  return gulp.src('app/*.html', { allowEmpty: true })
+    .pipe(useref())
+    .pipe(gulpIf('*.css', minifyCSS()))
+    .pipe(gulp.dest('build'))
 }
 
 // run local server
@@ -111,7 +114,7 @@ function webserver() {
 // Watch Files For Changes
 function watch() {
   gulp.watch('app/templates/*.hbs', templates);
-  gulp.watch('app/js/app/*.js', gulp.series(lint, scripts, scriptsOtherPages));
+  gulp.watch('app/js/app/*.js', gulp.series(lint, gulp.parallel(scripts, scriptsOtherPages)));
   gulp.watch('app/scss/*.scss', compileSass);
 }
 
@@ -151,26 +154,32 @@ function clean() {
 // Production Build
 export const production = gulp.series(
   clean,
-  copyIndex,
-  copyAssets,
-  copyOtherPages,
-  copyData,
-  templates,
-  scripts,
-  scriptsOtherPages,
-  minifyIndex,
-  minifyOtherPages,
-);
-
-// Default Task
-const build = gulp.series(
   gulp.parallel(
-    lint,
+    copyIndex,
+    copyAssets,
+    copyOtherPages,
+    copyData
+  ),
+  gulp.parallel(
     scripts,
     scriptsOtherPages,
     templates
   ),
-  gulp.parallel(compileSass),
+  minifyIndexJs,
+  minifyOtherPagesJs,
+  compileSass,
+  minifyMainCss,
+);
+
+// Default Task
+const build = gulp.series(
+  lint,
+  gulp.parallel(
+    scripts,
+    scriptsOtherPages,
+    templates
+  ),
+  compileSass,
   webserver,
   watch
 );
