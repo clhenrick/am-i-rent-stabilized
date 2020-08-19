@@ -86,7 +86,7 @@ gulp.task('scripts-other-pgs', function() {
 // for production use minified js & css files.
 gulp.task('useref-index', function(){
   return gulp.src(['app/*.html'])
-    .pipe(useref())
+    .pipe(useref({ allowEmpty: true }))
     .pipe(gulpIf('*.js', uglify()))
     // Minifies only if it's a CSS file
     .pipe(gulpIf('*.css', minifyCSS()))
@@ -95,7 +95,7 @@ gulp.task('useref-index', function(){
 
 gulp.task('useref-html', function(){
   return gulp.src(['app/info/*.html'])
-    .pipe(useref())
+    .pipe(useref({ allowEmpty: true }))
     .pipe(gulpIf('*.js', uglify()))
     // Minifies only if it's a CSS file
     .pipe(gulpIf('*.css', minifyCSS()))
