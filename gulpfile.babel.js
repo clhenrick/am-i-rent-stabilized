@@ -13,7 +13,6 @@ import declare from 'gulp-declare'
 import useref from 'gulp-useref'
 import gulpIf from 'gulp-if'
 import del from 'del'
-import runSequence from 'run-sequence'
 
 const server_config = {
   host: 'localhost',
@@ -157,6 +156,8 @@ export const production = gulp.series(
   copyOtherPages,
   copyData,
   templates,
+  scripts,
+  scriptsOtherPages,
   minifyIndex,
   minifyOtherPages,
 );
