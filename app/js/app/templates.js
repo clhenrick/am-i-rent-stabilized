@@ -1,6 +1,6 @@
 this["app"] = this["app"] || {};
 this["app"]["templates"] = this["app"]["templates"] || {};
-this["app"]["templates"]["how"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+this["app"]["templates"]["how"] = Handlebars.template({"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 
   return "<nav class=\"main-nav\">\n  <img class=\"logo\" src=\"../assets/png/logo.png\">\n  <h1>            \n    <a class=\"go-first\" href=\"../index.html\">"
@@ -103,7 +103,7 @@ this["app"]["templates"]["how"] = Handlebars.template({"compiler":[7,">= 4.0.0"]
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.credits : depth0)) != null ? stack1.p03 : stack1), depth0))
     + "\n  </p>\n</div>";
 },"useData":true});
-this["app"]["templates"]["main"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+this["app"]["templates"]["main"] = Handlebars.template({"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=container.lambda, alias2=container.escapeExpression;
 
   return "<nav class=\"main-nav\">\n  <img class=\"logo\" src=\"assets/png/logo.png\">\n  <h1>\n    <a class=\"go-first\" href=\"#\">"
@@ -115,7 +115,7 @@ this["app"]["templates"]["main"] = Handlebars.template({"compiler":[7,">= 4.0.0"
     + "</a></li>\n    <li class=\"nav\"><a href=\"info/resources.html\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.nav_main : depth0)) != null ? stack1.resources : stack1), depth0))
     + "</a></li>\n  </ul>\n</nav>\n\n<div id=\"mobile-message\">\n  <img src=\"assets/png/rotate.png\">\n  <h1>"
-    + alias2(((helper = (helper = helpers.mobile_msg || (depth0 != null ? depth0.mobile_msg : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"mobile_msg","hash":{},"data":data}) : helper)))
+    + alias2(((helper = (helper = helpers.mobile_msg || (depth0 != null ? depth0.mobile_msg : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"mobile_msg","hash":{},"data":data}) : helper)))
     + "</h1>\n</div>\n\n<div class=\"lang-toggle desktop\">\n    <ul>\n        <li><a class=\"toggle-es\" href=\"#\"></a></li>\n        <li><p>•</p></li>\n        <li><a class=\"toggle-zh\" href=\"#\"></a></li>\n    </ul>\n</div>\n\n<nav class=\"margin-circles\">\n    <ul>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n        <li></li>\n    </ul>\n</nav>\n\n<div class=\"slides-container\">\n    <div class=\"slide\" id=\"slide-1\">\n      <div class=\"lang-toggle mobile\">\n          <ul>\n              <li><a class=\"toggle-es\" href=\"#\"></a></li>\n              <li><p>•</p></li>\n              <li><a class=\"toggle-zh\" href=\"#\"></a></li>\n          </ul>\n      </div>\n      <div class=\"centered\">\n          <img class=\"triple-s\" src=\"assets/png/triple-sss.png\">\n          <img class=\"building intro\" src=\"assets/png/building.png\">\n          <h1 class=\"landing\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide01 : depth0)) != null ? stack1.h1 : stack1), depth0))
     + "</h1>\n          <h2 class=\"sub-head\">"
@@ -232,7 +232,7 @@ this["app"]["templates"]["main"] = Handlebars.template({"compiler":[7,">= 4.0.0"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.slide09 : depth0)) != null ? stack1.rent : stack1), depth0))
     + "</a></p>\n            </div>\n        </div>\n    </div>\n</div> <!-- end slides container -->\n<script src=\"//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-551311020cabbff0\" async=\"async\"></script>\n";
 },"useData":true});
-this["app"]["templates"]["resources"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+this["app"]["templates"]["resources"] = Handlebars.template({"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 
   return "<nav class=\"main-nav\">\n  <img class=\"logo\" src=\"../assets/png/logo.png\">\n  <h1>\n    <a class=\"go-first\" href=\"../index.html\">"
@@ -441,7 +441,7 @@ this["app"]["templates"]["resources"] = Handlebars.template({"compiler":[7,">= 4
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.gov : depth0)) != null ? stack1.ul : stack1)) != null ? stack1["7"] : stack1)) != null ? stack1.desc : stack1), depth0))
     + "</p>\n    </li>\n  </ul>\n</div>\n";
 },"useData":true});
-this["app"]["templates"]["why"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+this["app"]["templates"]["why"] = Handlebars.template({"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 
   return "<nav class=\"main-nav\">\n  <img class=\"logo\" src=\"../assets/png/logo.png\">\n  <h1>            \n    <a class=\"go-first\" href=\"../index.html\">"
