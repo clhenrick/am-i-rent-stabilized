@@ -4,7 +4,7 @@
     "es6": true,
     "node": true
   },
-  "extends": ["eslint:recommended", "plugin:jest/recommended"],
+  "extends": ["eslint:recommended"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly",
@@ -18,7 +18,6 @@
   },
   "rules": {
     "no-unused-vars": 1,
-    "jest/valid-expect": 0,
     "font-family-no-missing-generic-family-keyword": 0
   }
 }
