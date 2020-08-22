@@ -160,6 +160,11 @@ module.exports = (env, argv) => {
           ],
         },
 
+        {
+          test: /\.(hbs|handlebars)$/,
+          loader: "handlebars-loader"
+        },
+
         // rule to handle loading images
         {
           test: /\.(png|svg|jpg|gif)$/,
