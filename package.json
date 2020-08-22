@@ -18,6 +18,7 @@
   "scripts": {
     "deploy": "gh-pages -d build",
     "dev": "gulp",
+    "es": "gulp -f gulpfile2.babel.js",
     "prod": "gulp production",
     "compile-templates": "gulp templates"
   },
