@@ -31,25 +31,25 @@ export async function loadTemplateData(lang, currentPage, callback) {
   if (currentPage === "index") {
     filePath = contentFolder + "main-content.json";
     const { default: _ } = await import(
-      /* webpackChunkName: "main-hbs" */ "./templates/main.hbs"
+      /* webpackChunkName: "main-hbs" */ "./hbs_templates/main.hbs"
     );
     template = _;
   } else if (currentPage === "why") {
     filePath = "../" + contentFolder + "why-content.json";
     const { default: _ } = await import(
-      /* webpackChunkName: "why-hbs" */ "./templates/why.hbs"
+      /* webpackChunkName: "why-hbs" */ "./hbs_templates/why.hbs"
     );
     template = _;
   } else if (currentPage === "how") {
     filePath = "../" + contentFolder + "how-content.json";
     const { default: _ } = await import(
-      /* webpackChunkName: "how-hbs" */ "./templates/how.hbs"
+      /* webpackChunkName: "how-hbs" */ "./hbs_templates/how.hbs"
     );
     template = _;
   } else if (currentPage === "resources") {
     filePath = "../" + contentFolder + "resources-content.json";
     const { default: _ } = await import(
-      /* webpackChunkName: "resources-hbs" */ "./templates/resources.hbs"
+      /* webpackChunkName: "resources-hbs" */ "./hbs_templates/resources.hbs"
     );
     template = _;
   }
