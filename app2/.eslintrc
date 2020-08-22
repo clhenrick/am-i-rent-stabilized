@@ -7,9 +7,10 @@
   "extends": ["eslint:recommended", "plugin:jest/recommended"],
   "globals": {
     "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
+    "SharedArrayBuffer": "readonly",
+    "$": "readonly"
   },
-  "plugins": ["babel", "jest", "json"],
+  "plugins": ["babel", "json"],
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 2018,
