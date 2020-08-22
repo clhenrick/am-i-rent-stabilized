@@ -1,6 +1,6 @@
 {
   "window.zoomLevel": 1,
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "[markdown]": {},
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
