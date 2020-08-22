@@ -9,6 +9,7 @@
     "start:prod": "serve dist",
     "build": "webpack --mode=production --env.NODE_ENV=production",
     "deploy": "npm run build && gh-pages -d dist -r 'https://github.com/antievictionmappingproject/covid-19-map.git'",
+    "templates": "handlebars src/templates/*.hbs -f public/templates.js",
     "lint:js": "eslint 'src/**/*.js' --ext .js",
     "lint:js:fix": "npm run lint:js -- --fix"
   },
@@ -77,6 +78,7 @@
     "eslint-plugin-json": "^2.1.1",
     "file-loader": "^6.0.0",
     "gh-pages": "^2.2.0",
+    "handlebars-loader": "^1.7.1",
     "html-webpack-plugin": "^4.0.4",
     "husky": "^4.2.5",
     "lint-staged": "^10.1.5",
@@ -99,6 +101,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.4",
+    "handlebars": "4.3.0",
     "regenerator-runtime": "^0.13.5"
   }
 }
