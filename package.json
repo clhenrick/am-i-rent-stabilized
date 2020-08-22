@@ -12,6 +12,9 @@
     "email": "chrishenrick@gmail.com",
     "url": "http://clhenrick.io"
   },
+  "engines": {
+    "node": ">=10"
+  },
   "scripts": {
     "deploy": "gh-pages -d build",
     "dev": "gulp",
@@ -20,9 +23,12 @@
   },
   "license": "UNLICENSED",
   "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/register": "^7.10.5",
     "del": "^2.2.0",
     "gh-pages": "^0.11.0",
-    "gulp": "^3.9.0",
+    "gulp": "4.0.2",
     "gulp-cache": "^0.4.3",
     "gulp-concat": "^2.5.2",
     "gulp-declare": "^0.3.0",
@@ -38,7 +44,8 @@
     "gulp-useref": "^3.0.8",
     "gulp-webserver": "^0.9.0",
     "gulp-wrap": "^0.11.0",
-    "handlebars": "^4.0.11",
+    "handlebars": "^4.3.0",
+    "node-sass": "4.9",
     "run-sequence": "^1.1.5",
     "stream-browserify": "^2.0.1",
     "useref": "^1.2.0",
