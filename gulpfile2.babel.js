@@ -67,15 +67,58 @@ function js() {
     .pipe(gulp.dest(paths.build.destBuildFolder));
 }
 
+/* HANDLE SCSS */
 function scss() {
-  return gulp.src(paths.scss.source)
+  return gulp
+    .src(paths.scss.source)
     .pipe(plumber())
     .pipe(sass({ errLogToConsole: true }))
-    .pipe(rename('main.css'))
+    .pipe(rename("main.css"))
     .pipe(gulp.dest(paths.build.destBuildFolder));
 }
 
+/* HANDLE COPYING FILES */
+function copyIndex() {
+  return gulp
+    .src(["app/index.html"])
+    .pipe(gulp.dest(paths.build.destBuildFolder))
+    .on("error", handleError);
+}
 
+// copy assets dir to build
+function copyAssets() {
+  return gulp
+    .src(["app/assets/**/*"])
+    .pipe(gulp.dest(`${paths.build.destBuildFolder}/assets/`))
+    .on("error", handleError);
+}
+
+// copy html dir to build
+function copyOtherPages() {
+  return gulp
+    .src(["app/info/*.html"])
+    .pipe(gulp.dest(`${paths.build.destBuildFolder}/info/`))
+    .on("error", handleError);
+}
+
+// copy translation data to build
+function copyData() {
+  return gulp
+    .src(["app/data/*.json"])
+    .pipe(gulp.dest(`${paths.build.destBuildFolder}/data/`))
+    .on("error", handleError);
+}
+
+function copyAllFiles(cb) {
+  copyIndex();
+  copyAssets();
+  copyOtherPages();
+  copyData();
+  if (cb && typeof cb === "function") cb();
+}
+/* END COPYING FILES */
+
+/* WATCH FILES FOR CHANGES */
 function watchFiles(cb) {
   gulp.watch(paths.js.watchFiles, gulp.series(js));
   gulp.watch(paths.scss.watchFiles, gulp.series(sass));
@@ -85,4 +128,23 @@ function watchFiles(cb) {
   }
 }
 
-export default gulp.series(clean, watchFiles, gulp.parallel(scss, js));
+/* LOCAL WEBSERVER WITH LIVE RELOAD */
+function webserver() {
+  return gulp.src(paths.build.destBuildFolder).pipe(
+    server({
+      host: server_config.host,
+      port: server_config.port,
+      livereload: true,
+      directoryListing: false,
+    })
+  );
+}
+
+/* DEFAULT GULP TASK */
+export default gulp.series(
+  clean,
+  watchFiles,
+  gulp.parallel(scss, js),
+  copyAllFiles,
+  webserver
+);
