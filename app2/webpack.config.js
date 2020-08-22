@@ -162,7 +162,14 @@ module.exports = (env, argv) => {
 
         {
           test: /\.(hbs|handlebars)$/,
-          loader: "handlebars-loader"
+          use: [
+            {
+              loader: "handlebars-loader",
+              options: {
+                helperDirs: path.resolve(__dirname, "src/hbs_helpers"),
+              }
+            }
+          ]
         },
 
         // rule to handle loading images

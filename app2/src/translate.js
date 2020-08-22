@@ -1,27 +1,8 @@
 /*jshint esversion: 6 */
-import Handlebars from "handlebars";
-
 const w = window;
 const d = document;
-
 let $es;
 let $zh;
-
-Handlebars.registerHelper("each", function (context, options) {
-  var ret = "";
-  for (var i = 0, j = context.length; i < j; i++) {
-    ret = ret + options.fn(context[i]);
-  }
-  return ret;
-});
-
-Handlebars.registerHelper("if", function (conditional, options) {
-  if (conditional) {
-    return options.fn(this);
-  } else {
-    return options.inverse(this);
-  }
-});
 
 export function langToggle(/*lang, callback*/) {
   // loads the correct lang json & template;
@@ -32,7 +13,7 @@ export function langToggle(/*lang, callback*/) {
     d.URL.lastIndexOf(".")
   );
 
-  // TODO: redirect URL to index.html instead
+  // TODO: redirect URL to index.html instead?
   if (["index", "why", "how", "resources"].indexOf(currentPage) === -1) {
     currentPage = "index";
   }
@@ -92,10 +73,13 @@ export async function loadTemplateData(lang, currentPage, callback) {
     // } else {
     //   app.pages.toggleBurger();
     // }
+
     $es = $(".lang-toggle .toggle-es");
     $zh = $(".lang-toggle .toggle-zh");
     // $en = $(".lang-toggle .toggle-en");
+
     changeLangButtons(lang);
+
     if (callback && typeof callback === "function") {
       callback();
     }
