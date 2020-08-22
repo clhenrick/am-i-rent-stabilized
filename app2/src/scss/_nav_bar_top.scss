@@ -40,10 +40,11 @@ nav.main-nav {
   // hide hamburger icon for larger screen widths
   div.burger {
     display: none;
+
     &.open {
       position: relative;
       display: inline-block;
-      background-image: url("../assets/png/x.png");
+      background-image: url("../../public/assets/png/x.png");
       background-position: center;
       width: 19px;
       height: 18px;
@@ -72,6 +73,7 @@ nav.main-nav {
         &.zh {
           font-size: 1.5em;
         }
+
         &.es {
           font-size: 1.8em;
         }
@@ -147,7 +149,7 @@ nav.main-nav {
       display: inline-block;
       position: relative;
       float: right;
-      background-image: url("../assets/png/hamburger-sm.png");
+      background-image: url("../../public/assets/png/hamburger-sm.png");
       width: 30px;
       height: 18px;
       margin-top: 22px;

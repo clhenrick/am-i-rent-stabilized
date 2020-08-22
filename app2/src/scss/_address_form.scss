@@ -23,10 +23,11 @@
     height: 50px;
     border: none;
     background: {
-      image: url("../assets/png/address-enter-line.png");
+      image: url("../../public/assets/png/address-enter-line.png");
       repeat: no-repeat;
       position: center bottom;
     }
+
     padding-left: 10px;
     font-weight: 300;
     color: $medgray;
@@ -42,9 +43,6 @@
       pointer-events: auto;
       margin-top: 0;
       padding-left: 0;
-    }
-    &:after {
-      // do to: change direction of arrow to point up
     }
   }
 
@@ -62,7 +60,7 @@
     }
 
     /* triangle */
-    &:after {
+    &::after {
       content: "";
       width: 35px;
       height: 20px;
@@ -70,7 +68,7 @@
       right: 20px;
       top: 45%;
       margin-top: -1px;
-      background-image: url("../assets/png/drop-down-triangle.png");
+      background-image: url("../../public/assets/png/drop-down-triangle.png");
       background-repeat: no-repeat;
       background-position: center center;
       // background-size: contain;
@@ -107,6 +105,7 @@
         display: none;
       }
     }
+
     li a:hover {
       background: $gray;
       color: $white;
@@ -198,12 +197,12 @@
           width: 210px;
         }
 
-        &:after {
+        &::after {
           width: 17px;
           height: 10px;
           right: 5px;
           top: 20px;
-          background-image: url("../assets/png/drop-down-triangle-sm.png");
+          background-image: url("../../public/assets/png/drop-down-triangle-sm.png");
         }
       }
     }
