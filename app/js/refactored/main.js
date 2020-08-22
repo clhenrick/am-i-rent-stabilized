@@ -1,4 +1,8 @@
 /*jshint esversion: 6 */
 import { langToggle } from "./translate";
 
-langToggle();
+function init() {
+  langToggle();
+}
+
+window.addEventListener('DOMContentLoaded', init);
