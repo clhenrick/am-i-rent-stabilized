@@ -45,7 +45,8 @@ module.exports = (env, argv) => {
      * The key (e.g. "index") can be referenced elsewhere in the configuration
      ******************************************************************************/
     entry: {
-      index: "./src/index.js",
+      index: path.join(__dirname, "src/", "index.js"),
+      infoPages: path.join(__dirname, "src/", "infoPages.js"),
     },
 
     /******************************************************************************
@@ -58,6 +59,8 @@ module.exports = (env, argv) => {
 
       // tell webpack to put our processed files in a directory called "dist"
       path: path.resolve(__dirname, "dist"),
+
+      publicPath: "/"
     },
 
     /******************************************************************************
@@ -247,8 +250,38 @@ module.exports = (env, argv) => {
       // makes sure our output folder is cleaned before adding new files to it
       new CleanWebpackPlugin(),
 
-      // handles HTML files
-      new HtmlWebpackPlugin({ template: "./public/index.html" }),
+      // handle HTML files
+      new HtmlWebpackPlugin({
+        filename: "index.html",
+        inject: "body",
+        template: path.join(__dirname, "public", "index.html"),
+        excludeChunks: ["infoPages"],
+        scriptLoading: "defer",
+      }),
+
+      new HtmlWebpackPlugin({
+        filename: "info/how.html",
+        inject: "body",
+        template: path.join(__dirname, "public/info", "how.html"),
+        excludeChunks: ["index"],
+        scriptLoading: "defer",
+      }),
+
+      new HtmlWebpackPlugin({
+        filename: "info/why.html",
+        inject: "body",
+        template: path.join(__dirname, "public/info", "why.html"),
+        excludeChunks: ["index"],
+        scriptLoading: "defer",
+      }),
+
+      new HtmlWebpackPlugin({
+        filename: "info/resources.html",
+        inject: "body",
+        template: path.join(__dirname, "public/info", "resources.html"),
+        excludeChunks: ["index"],
+        scriptLoading: "defer",
+      }),
 
       // handles copying files that aren't "imported" into our JS to the output directory
       new CopyPlugin([
