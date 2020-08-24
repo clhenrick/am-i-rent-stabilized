@@ -10,9 +10,6 @@
     <meta name="description" content="Find out if your NYC apartment is rent stabilized!">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
     <link href='//fonts.googleapis.com/css?family=Oxygen:400,700,300' rel='stylesheet' type='text/css'>
-    <!--build:css ../css/main.min.css -->
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
-    <!--endbuild-->
     <link rel="shortcut icon" href="../assets/favicon/favicon.png"/>
     <script src="//use.typekit.net/emf7xrp.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
@@ -30,23 +27,5 @@
   <body>
     <div id="wrapper"></div>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <!--build:js ../js/otherpages.min.js-->
-    <script type="text/javascript" src="../js/otherpages.js"></script>
-    <!--endbuild-->
-    <script type="text/javascript">
-      function ready(fn) {
-        if (document.readyState != 'loading'){
-          fn();
-        } else if (document.addEventListener) {
-          document.addEventListener('DOMContentLoaded', fn);
-        } else {
-          document.attachEvent('onreadystatechange', function() {
-            if (document.readyState != 'loading')
-              fn();
-          });
-        }
-      }
-      ready(app.language.langToggle);
-    </script>
   </body>
 </html>
