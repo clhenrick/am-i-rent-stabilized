@@ -66,6 +66,9 @@ export async function loadTemplateData(lang, currentPage, callback) {
     d.querySelector("#wrapper").innerHTML = html;
     initLangButtons();
   }).done(function () {
+    // TODO: maybe fire a custom event to trigger
+    // parts of app that require the DOM to be present?
+    // then all this other stuff could be moved elsewhere.
     $es = $(".lang-toggle .toggle-es");
     $zh = $(".lang-toggle .toggle-zh");
 
