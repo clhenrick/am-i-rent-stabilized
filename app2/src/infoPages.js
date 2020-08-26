@@ -1,4 +1,7 @@
 import "./scss/main.scss";
-import { langToggle } from "./translate";
+import { langToggle } from "./utils/translate";
+import { navigationMenuToggle } from "./components/navigation";
 
-langToggle();
+console.log("infoPages entry");
+
+langToggle(navigationMenuToggle);

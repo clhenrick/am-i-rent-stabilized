@@ -4,7 +4,7 @@ const d = document;
 let $es;
 let $zh;
 
-export function langToggle(/*lang, callback*/) {
+export function langToggle(callback) {
   // loads the correct lang json & template;
   // this gets called when the page first loads and when the user clicks the lang button
   var curLang = w.localStorage.getItem("lang") || "en";
@@ -18,7 +18,7 @@ export function langToggle(/*lang, callback*/) {
     currentPage = "index";
   }
 
-  loadTemplateData(curLang, currentPage);
+  loadTemplateData(curLang, currentPage, callback);
 }
 
 export async function loadTemplateData(lang, currentPage, callback) {
@@ -31,25 +31,25 @@ export async function loadTemplateData(lang, currentPage, callback) {
   if (currentPage === "index") {
     filePath = contentFolder + "main-content.json";
     const { default: _ } = await import(
-      /* webpackChunkName: "main-hbs" */ "./hbs_templates/main.hbs"
+      /* webpackChunkName: "main-hbs" */ "../hbs_templates/main.hbs"
     );
     template = _;
   } else if (currentPage === "why") {
     filePath = "../" + contentFolder + "why-content.json";
     const { default: _ } = await import(
-      /* webpackChunkName: "why-hbs" */ "./hbs_templates/why.hbs"
+      /* webpackChunkName: "why-hbs" */ "../hbs_templates/why.hbs"
     );
     template = _;
   } else if (currentPage === "how") {
     filePath = "../" + contentFolder + "how-content.json";
     const { default: _ } = await import(
-      /* webpackChunkName: "how-hbs" */ "./hbs_templates/how.hbs"
+      /* webpackChunkName: "how-hbs" */ "../hbs_templates/how.hbs"
     );
     template = _;
   } else if (currentPage === "resources") {
     filePath = "../" + contentFolder + "resources-content.json";
     const { default: _ } = await import(
-      /* webpackChunkName: "resources-hbs" */ "./hbs_templates/resources.hbs"
+      /* webpackChunkName: "resources-hbs" */ "../hbs_templates/resources.hbs"
     );
     template = _;
   }
@@ -66,17 +66,8 @@ export async function loadTemplateData(lang, currentPage, callback) {
     d.querySelector("#wrapper").innerHTML = html;
     initLangButtons();
   }).done(function () {
-    /* TODO: FIX ME */
-    // if (currentPage === "index") {
-    //   /* app init() is called here */
-    //   app.init.init();
-    // } else {
-    //   app.pages.toggleBurger();
-    // }
-
     $es = $(".lang-toggle .toggle-es");
     $zh = $(".lang-toggle .toggle-zh");
-    // $en = $(".lang-toggle .toggle-en");
 
     changeLangButtons(lang);
 

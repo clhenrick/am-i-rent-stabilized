@@ -1,7 +1,12 @@
 /*jshint esversion: 6 */
 import "./scss/main.scss";
-import { langToggle } from "./translate";
+import { langToggle } from "./utils/translate";
+import { navigationMenuToggle } from "./components/navigation";
 
-langToggle();
+console.log("index entry");
 
-console.log("hello world!");
+langToggle(handleContentLoaded);
+
+function handleContentLoaded() {
+  navigationMenuToggle();
+}
