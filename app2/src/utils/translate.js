@@ -121,7 +121,7 @@ function initLangButtons() {
         lang = "en";
       }
       w.localStorage.setItem("lang", lang);
-      langToggle(lang);
+      langToggle();
       return false;
     });
 }
