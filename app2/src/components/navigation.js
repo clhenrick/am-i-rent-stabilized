@@ -1,3 +1,5 @@
+import { Component } from "./_componentBase";
+
 export function navigationMenuToggle() {
   const navIcon = document.querySelector(".burger");
   const mainNavList = document.querySelector(".main-nav ul");
@@ -8,17 +10,15 @@ export function navigationMenuToggle() {
   });
 }
 
-export class NavMenuToggle {
+export class NavMenuToggle extends Component {
   constructor() {
+    super();
     this.navIcon = document.querySelector(".burger");
     this.mainNavList = document.querySelector(".main-nav ul");
-    this.bindEvents = this.bindEvents.bind(this);
-    this.removeEvents = this.removeEvents.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
   bindEvents() {
-    console.log(this.bindEvents);
     this.navIcon.addEventListener("click", this.handleClick);
   }
 
