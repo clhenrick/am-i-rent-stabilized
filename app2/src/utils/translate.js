@@ -1,8 +1,6 @@
 /*jshint esversion: 6 */
 const w = window;
 const d = document;
-let $es;
-let $zh;
 
 export function langToggle() {
   // loads the correct lang json & template;
@@ -79,40 +77,7 @@ export async function loadTemplateData(lang, currentPage) {
       init = _;
     }
     init();
-
-    // TODO: maybe fire a custom event to trigger
-    // parts of app that require the DOM to be present?
-    // then all this other stuff could be moved elsewhere.
-    $es = $(".lang-toggle .toggle-es");
-    $zh = $(".lang-toggle .toggle-zh");
-
-    changeLangButtons(lang);
   });
-}
-
-function changeLangButtons(lang) {
-  // change the language toggle buttons so the user can switch between them
-  if (lang === "es") {
-    $es.html("in english");
-    $es.removeClass("toggle-es").addClass("toggle-en");
-    $zh.html("中文");
-    $("body").addClass("es");
-    $("body").removeClass("en");
-    $("body").removeClass("zh");
-  } else if (lang === "zh") {
-    $es.html("en español");
-    $zh.html("in english");
-    $zh.removeClass("toggle-zh").addClass("toggle-en");
-    $("body").addClass("zh");
-    $("body").removeClass("es");
-    $("body").removeClass("en");
-  } else {
-    $es.html("en español");
-    $zh.html("中文");
-    $("body").addClass("en");
-    $("body").removeClass("es");
-    $("body").removeClass("zh");
-  }
 }
 
 export function getCurLang() {
