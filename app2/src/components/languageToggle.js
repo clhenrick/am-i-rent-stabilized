@@ -9,6 +9,7 @@ export class LanguageToggle extends Component {
   init() {
     this.handleClick = this.handleClick.bind(this);
     this.getCurrentLanguage = this.getCurrentLanguage.bind(this);
+    this.changeLanguageButtons = this.changeLanguageButtons.bind(this);
   }
 
   bindEvents() {
@@ -33,6 +34,37 @@ export class LanguageToggle extends Component {
       result = "en";
     }
     return result;
+  }
+
+  // TODO:
+  // - this should fire when template data has finished loading
+  // - refactor logic?
+  // - drop usage of jQuery
+  changeLanguageButtons(lang) {
+    const $es = $(".lang-toggle .toggle-es");
+    const $zh = $(".lang-toggle .toggle-zh");
+
+    if (lang === "es") {
+      $es.html("in english");
+      $es.removeClass("toggle-es").addClass("toggle-en");
+      $zh.html("中文");
+      $("body").addClass("es");
+      $("body").removeClass("en");
+      $("body").removeClass("zh");
+    } else if (lang === "zh") {
+      $es.html("en español");
+      $zh.html("in english");
+      $zh.removeClass("toggle-zh").addClass("toggle-en");
+      $("body").addClass("zh");
+      $("body").removeClass("es");
+      $("body").removeClass("en");
+    } else {
+      $es.html("en español");
+      $zh.html("中文");
+      $("body").addClass("en");
+      $("body").removeClass("es");
+      $("body").removeClass("zh");
+    }
   }
 
   handleClick(event) {
