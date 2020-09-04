@@ -48,6 +48,10 @@ export class LanguageToggle extends Component {
   }
 
   // TODO:
+  // - fix bug: there are 2 separate lang toggle elements!
+  //   - one for mobile, one for desktop
+  //   - only the desktop one is updated in index.html
+  //   - refactor the hbs template so there is only one?
   // - refactor logic?
   setLanguageToggleBtns() {
     if (getCurLang() === LANGS.ES) {
