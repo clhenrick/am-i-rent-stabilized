@@ -1,7 +1,11 @@
 export class Component {
   constructor(props = {}) {
+    this.init = this.init || function () {};
+    this.init = this.init.bind(this);
+
     this.bindEvents = this.bindEvents || function () {};
     this.bindEvents = this.bindEvents.bind(this);
+
     this.removeEvents = this.removeEvents || function () {};
     this.removeEvents = this.removeEvents.bind(this);
 
@@ -9,6 +13,11 @@ export class Component {
       this.element = props.element;
     }
 
+    this.init();
+  }
+
+  init() {
+    // do other setup work here such as add more class properties, fetch data, etc.
     this.bindEvents();
   }
 }
