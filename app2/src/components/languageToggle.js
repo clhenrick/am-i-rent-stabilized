@@ -10,6 +10,7 @@ export class LanguageToggle extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.getCurrentLanguage = this.getCurrentLanguage.bind(this);
     this.changeLanguageButtons = this.changeLanguageButtons.bind(this);
+    this.bindEvents();
   }
 
   bindEvents() {

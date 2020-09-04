@@ -17,6 +17,7 @@ export class NavMenuToggle extends Component {
 
   init() {
     this.handleClick = this.handleClick.bind(this);
+    this.bindEvents();
   }
 
   bindEvents() {
