@@ -12,23 +12,25 @@ export function navigationMenuToggle() {
 
 export class NavMenuToggle extends Component {
   constructor() {
-    super();
-    this.navIcon = document.querySelector(".burger");
-    this.mainNavList = document.querySelector(".main-nav ul");
+    super({ element: document.querySelector("nav.main-nav") });
     this.handleClick = this.handleClick.bind(this);
   }
 
   bindEvents() {
-    this.navIcon.addEventListener("click", this.handleClick);
+    this.element
+      .querySelector(".burger")
+      .addEventListener("click", this.handleClick);
   }
 
   removeEvents() {
-    this.navIcon.removeEventListener("click", this.handleClick);
+    this.element
+      .querySelector(".burger")
+      .removeEventListener("click", this.handleClick);
   }
 
   handleClick(event) {
     event.preventDefault();
-    this.navIcon.classList.toggle("open");
-    this.mainNavList.classList.toggle("responsive");
+    this.element.querySelector(".burger").classList.toggle("open");
+    this.element.querySelector("ul").classList.toggle("responsive");
   }
 }
