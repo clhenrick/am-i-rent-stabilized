@@ -1,10 +1,14 @@
 export class Component {
-  constructor() {
-    this.bindEventListeners = this.bindEventListeners.bind(this);
-    this.removeEventListeners = this.removeEventListeners.bind(this);
+  constructor(props = {}) {
+    this.bindEvents = this.bindEvents || function () {};
+    this.bindEvents = this.bindEvents.bind(this);
+    this.removeEvents = this.removeEvents || function () {};
+    this.removeEvents = this.removeEvents.bind(this);
+
+    if ("element" in props) {
+      this.element = props.element;
+    }
+
+    this.bindEvents();
   }
-
-  bindEventListeners() {}
-
-  removeEventListeners() {}
 }
