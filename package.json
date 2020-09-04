@@ -45,7 +45,7 @@
     "gulp-webserver": "^0.9.0",
     "gulp-wrap": "^0.11.0",
     "handlebars": "^4.3.0",
-    "node-sass": "4.9",
+    "node-sass": "4.13",
     "run-sequence": "^1.1.5",
     "stream-browserify": "^2.0.1",
     "useref": "^1.2.0",
