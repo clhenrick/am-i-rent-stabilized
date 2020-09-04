@@ -1,6 +1,5 @@
 export class Component {
   constructor(props = {}) {
-    this.init = this.init || function () {};
     this.init = this.init.bind(this);
 
     this.bindEvents = this.bindEvents || function () {};
