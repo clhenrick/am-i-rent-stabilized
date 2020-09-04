@@ -7,7 +7,7 @@ let $zh;
 export function langToggle() {
   // loads the correct lang json & template;
   // this gets called when the page first loads and when the user clicks the lang button
-  var curLang = w.localStorage.getItem("lang") || "en";
+  var curLang = getCurLang();
   var currentPage = d.URL.substring(
     d.URL.lastIndexOf("/") + 1,
     d.URL.lastIndexOf(".")
@@ -113,4 +113,8 @@ function changeLangButtons(lang) {
     $("body").removeClass("es");
     $("body").removeClass("zh");
   }
+}
+
+export function getCurLang() {
+  return w.localStorage.getItem("lang") || "en";
 }
