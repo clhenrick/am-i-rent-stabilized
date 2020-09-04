@@ -64,7 +64,6 @@ export async function loadTemplateData(lang, currentPage, callback) {
       html = template(data.languages.en);
     }
     d.querySelector("#wrapper").innerHTML = html;
-    initLangButtons();
   }).done(function () {
     // TODO: maybe fire a custom event to trigger
     // parts of app that require the DOM to be present?
@@ -103,25 +102,4 @@ function changeLangButtons(lang) {
     $("body").removeClass("es");
     $("body").removeClass("zh");
   }
-}
-
-function initLangButtons() {
-  // add the event listener
-  $(".lang-toggle")
-    .find("a")
-    .on("click", function (e) {
-      e.preventDefault();
-      var lang;
-      var val = $(this).html();
-      if (val === "en español") {
-        lang = "es";
-      } else if (val === "中文") {
-        lang = "zh";
-      } else {
-        lang = "en";
-      }
-      w.localStorage.setItem("lang", lang);
-      langToggle();
-      return false;
-    });
 }
