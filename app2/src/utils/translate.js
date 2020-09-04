@@ -4,7 +4,7 @@ const d = document;
 let $es;
 let $zh;
 
-export function langToggle(callback) {
+export function langToggle() {
   // loads the correct lang json & template;
   // this gets called when the page first loads and when the user clicks the lang button
   var curLang = w.localStorage.getItem("lang") || "en";
@@ -13,15 +13,15 @@ export function langToggle(callback) {
     d.URL.lastIndexOf(".")
   );
 
-  // TODO: redirect URL to index.html instead?
+  // TODO: redirect URL to index.html instead? or a 404 page?
   if (["index", "why", "how", "resources"].indexOf(currentPage) === -1) {
     currentPage = "index";
   }
 
-  loadTemplateData(curLang, currentPage, callback);
+  loadTemplateData(curLang, currentPage);
 }
 
-export async function loadTemplateData(lang, currentPage, callback) {
+export async function loadTemplateData(lang, currentPage) {
   let template,
     html,
     filePath,
@@ -64,7 +64,22 @@ export async function loadTemplateData(lang, currentPage, callback) {
       html = template(data.languages.en);
     }
     d.querySelector("#wrapper").innerHTML = html;
-  }).done(function () {
+  }).done(async function () {
+    // load the correct chunk for either the app for index.html or helper js for info/*.html pages
+    let init;
+    if (currentPage === "index") {
+      const { default: _ } = await import(
+        /* webpackChunkName: "init-app" */ "./initApp.js"
+      );
+      init = _;
+    } else {
+      const { default: _ } = await import(
+        /* webpackChunkName: "init-info-pages" */ "./initInfoPages.js"
+      );
+      init = _;
+    }
+    init();
+
     // TODO: maybe fire a custom event to trigger
     // parts of app that require the DOM to be present?
     // then all this other stuff could be moved elsewhere.
@@ -72,10 +87,6 @@ export async function loadTemplateData(lang, currentPage, callback) {
     $zh = $(".lang-toggle .toggle-zh");
 
     changeLangButtons(lang);
-
-    if (callback && typeof callback === "function") {
-      callback();
-    }
   });
 }
 
