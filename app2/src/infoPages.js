@@ -1,12 +1,13 @@
 import "./scss/main.scss";
 import { langToggle } from "./utils/translate";
 import { NavMenuToggle } from "./components/navigation";
+import { LanguageToggle } from "./components/languageToggle";
 
 console.log("infoPages entry");
 
 function init() {
   const navMenuToggle = new NavMenuToggle();
-  navMenuToggle.bindEvents();
+  const languageToggle = new LanguageToggle();
 }
 
 // FIXME: navigationMenuToggle is only called once,
