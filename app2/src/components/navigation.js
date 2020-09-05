@@ -11,8 +11,8 @@ export function navigationMenuToggle() {
 }
 
 export class NavMenuToggle extends Component {
-  constructor() {
-    super({ element: document.querySelector("nav.main-nav") });
+  constructor(props) {
+    super(props);
   }
 
   init() {
