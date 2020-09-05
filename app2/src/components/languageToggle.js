@@ -47,64 +47,72 @@ export class LanguageToggle extends Component {
     return result;
   }
 
-  // TODO:
-  // - refactor logic?
   setLanguageToggleBtns() {
+    const es = new LanguageToggleButton({
+      lang: LANGS.ES,
+      label: IN_LANG.ES,
+      className: "toggle-es",
+      element: this.toggleBtnES,
+    });
+
+    const zh = new LanguageToggleButton({
+      lang: LANGS.ZH,
+      label: IN_LANG.ZH,
+      className: "toggle-zh",
+      element: this.toggleBtnZH,
+    });
+
     if (getCurLang() === LANGS.ES) {
-      // toggle lang to es
-      // 1. toggle previous lang text & lang attr to en
-      this.toggleBtnES.innerHTML = IN_LANG.EN;
-      this.toggleBtnES.lang = LANGS.EN;
-
-      // 2. toggle class name to en
-      this.toggleBtnES.classList.remove("toggle-es");
-      this.toggleBtnES.classList.add("toggle-en");
-
-      // 3. make sure other button has correct text & lang attr
-      this.toggleBtnZH.innerHTML = IN_LANG.ZH;
-      this.toggleBtnZH.lang = LANGS.ZH;
-
-      // 4. update body class name to current lang
-      document.body.classList.add("es");
-      document.body.classList.remove("en");
-      document.body.classList.remove("zh");
-
-      // 5. set lang attr on html tag
+      es.toggle();
+      document.body.className = LANGS.ES;
       document.querySelector("html").lang = LANGS.ES;
     } else if (getCurLang() === LANGS.ZH) {
-      // toggle to zh
-      // similar process to toggle to es above
-      this.toggleBtnES.innerHTML = IN_LANG.ES;
-      this.toggleBtnES.lang = LANGS.ES;
-
-      this.toggleBtnZH.innerHTML = IN_LANG.EN;
-      this.toggleBtnZH.lang = LANGS.EN;
-
-      this.toggleBtnZH.classList.remove("toggle-zh");
-      this.toggleBtnZH.classList.add("toggle-en");
-
-      document.body.classList.add("zh");
-      document.body.classList.remove("es");
-      document.body.classList.remove("en");
-
+      zh.toggle();
+      document.body.className = LANGS.ZH;
       document.querySelector("html").lang = LANGS.ZH;
     } else {
-      // default is to set lang to en
-
-      // make sure other btns text & lang attr are correctly set
-      this.toggleBtnES.innerHTML = IN_LANG.ES;
-      this.toggleBtnES.lang = LANGS.ES;
-
-      this.toggleBtnZH.innerHTML = IN_LANG.ZH;
-      this.toggleBtnZH.lang = LANGS.ZH;
-
-      // toggle body class name
-      document.body.classList.add("en");
-      document.body.classList.remove("es");
-      document.body.classList.remove("zh");
-
-      // set html tag's lang attr
+      document.body.className = LANGS.EN;
       document.querySelector("html").lang = LANGS.EN;
+    }
+  }
+}
+
+class LanguageToggleButton {
+  constructor(props = {}) {
+    if ("lang" in props) {
+      this.lang = props.lang;
+    }
+
+    if ("label" in props) {
+      this.label = props.label;
+    }
+
+    if ("className" in props) {
+      this.className = props.className;
+    }
+
+    if ("element" in props) {
+      this.element = props.element;
+    }
+
+    this.init();
+  }
+
+  init() {
+    this.element.innerHTML = this.label;
+    this.element.className = this.className;
+    this.element.lang = this.lang;
+  }
+
+  toggle() {
+    if (this.element.classList.contains(this.className)) {
+      this.element.className = "toggle-en";
+      this.element.innerHTML = IN_LANG.EN;
+      this.element.lang = LANGS.EN;
+    } else {
+      this.element.className = this.className;
+      this.element.innerHTML = this.label;
+      this.element.lang = this.lang;
     }
   }
 }
