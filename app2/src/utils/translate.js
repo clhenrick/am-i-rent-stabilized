@@ -18,8 +18,10 @@ export function setCurLang(lang) {
 
 async function renderHtmlFromTemplate(lang, currentPage) {
   try {
-    const { default: template } = await getHtmlTemplate(currentPage);
-    const { languages } = await getLocaleJson(lang, currentPage);
+    const [{ default: template }, { languages }] = await Promise.all([
+      getHtmlTemplate(currentPage),
+      getLocaleJson(lang, currentPage),
+    ]);
     renderHtml(lang, languages, template);
   } catch (error) {
     console.error(error);
