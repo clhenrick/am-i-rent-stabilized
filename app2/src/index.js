@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
 import "./scss/main.scss";
-import { langToggle } from "./utils/translate";
+import { translatePage } from "./utils/translate";
 
 console.log("index entry");
 
-langToggle();
+translatePage();
