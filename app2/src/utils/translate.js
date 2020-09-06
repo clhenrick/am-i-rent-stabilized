@@ -47,7 +47,7 @@ function renderHtml(lang, localeJson, template) {
 }
 
 async function getLocaleJson(lang, currentPage) {
-  const localesDirName = "data";
+  const localesDirName = "locales";
   const dir = currentPage === "index" ? "." : "..";
   const name = currentPage === "index" ? "main" : currentPage;
   const localeFileName = `${name}-content.json`;
