@@ -1,11 +1,27 @@
+import { getPageJsBundle } from "./pageBundle";
+
 // FIXME: alias these in webpack config
 const w = window;
 const d = document;
 
-// loads the correct lang json & hbs template;
-// this gets called when the page first loads and when the user clicks the lang button
-export function translatePage() {
-  renderHtmlFromTemplate(getCurLang(), getCurrentPageName());
+/**
+ * translatePage
+ * For a given HTML page:
+ * load the correct locale json & hbs template
+ * render the HTML with the locale
+ * then load the page's JS bundle.
+ * This is called when the page first loads and
+ * when the user changes the page's language.
+ */
+export async function translatePage() {
+  const currentPage = getCurrentPageName();
+  try {
+    await renderHtmlFromTemplate(getCurLang(), currentPage);
+    const main = await getPageJsBundle(currentPage);
+    main();
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 export function getCurLang() {
@@ -16,28 +32,28 @@ export function setCurLang(lang) {
   w.localStorage.setItem("lang", lang || "en");
 }
 
-async function renderHtmlFromTemplate(lang, currentPage) {
+function getCurrentPageName() {
+  let result = d.URL.substring(
+    d.URL.lastIndexOf("/") + 1,
+    d.URL.lastIndexOf(".")
+  );
+  // FIXME: redirect URL to index.html instead? or a 404 page?
+  if (["index", "why", "how", "resources"].indexOf(result) === -1) {
+    result = "index";
+  }
+  return result;
+}
+
+async function renderHtmlFromTemplate(lang, pageName) {
   try {
     const [{ default: template }, { languages }] = await Promise.all([
-      getHtmlTemplate(currentPage),
-      getLocaleJson(lang, currentPage),
+      getHtmlTemplate(pageName),
+      getLocaleJson(lang, pageName),
     ]);
     renderHtml(lang, languages, template);
   } catch (error) {
     console.error(error);
   }
-}
-
-function getCurrentPageName() {
-  let currentPage = d.URL.substring(
-    d.URL.lastIndexOf("/") + 1,
-    d.URL.lastIndexOf(".")
-  );
-  // FIXME: redirect URL to index.html instead? or a 404 page?
-  if (["index", "why", "how", "resources"].indexOf(currentPage) === -1) {
-    currentPage = "index";
-  }
-  return currentPage;
 }
 
 function renderHtml(lang, localeJson, template) {
@@ -46,10 +62,10 @@ function renderHtml(lang, localeJson, template) {
   }
 }
 
-async function getLocaleJson(lang, currentPage) {
+async function getLocaleJson(lang, pageName) {
   const localesDirName = "locales";
-  const dir = currentPage === "index" ? "." : "..";
-  const name = currentPage === "index" ? "main" : currentPage;
+  const dir = pageName === "index" ? "." : "..";
+  const name = pageName === "index" ? "main" : pageName;
   const localeFileName = `${name}-content.json`;
   const res = await fetch(`${dir}/${localesDirName}/${localeFileName}`);
   if (res.ok) return res.json();
