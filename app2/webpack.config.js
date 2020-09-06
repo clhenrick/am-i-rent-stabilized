@@ -128,29 +128,12 @@ module.exports = (env, argv) => {
           // tell webpack to ignore the node_modules directory for this rule
           exclude: /node_modules/,
 
-          // many options in webpack's config can take a value as an array or object
-          // here we're specify an object with additonal properties, such as
-          // plugins for babel to use
+          // see babel.config.js for babel specific options
           use: [
             {
               loader: "babel-loader",
               options: {
                 cacheDirectory: true,
-                presets: [
-                  [
-                    "@babel/preset-env",
-                    {
-                      useBuiltIns: "usage",
-                      corejs: { version: 3, proposals: true },
-                    },
-                  ],
-                ],
-                plugins: [
-                  "@babel/plugin-proposal-object-rest-spread",
-                  "@babel/plugin-transform-runtime",
-                  "@babel/plugin-transform-async-to-generator",
-                  "@babel/plugin-proposal-class-properties",
-                ],
               },
             },
             {
