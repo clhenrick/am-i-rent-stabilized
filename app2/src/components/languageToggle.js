@@ -54,15 +54,8 @@ export class LanguageToggle extends Component {
 
     if (getCurLang() === LANGS.ES) {
       es.toggle();
-      document.body.className = LANGS.ES;
-      document.querySelector("html").lang = LANGS.ES;
     } else if (getCurLang() === LANGS.ZH) {
       zh.toggle();
-      document.body.className = LANGS.ZH;
-      document.querySelector("html").lang = LANGS.ZH;
-    } else {
-      document.body.className = LANGS.EN;
-      document.querySelector("html").lang = LANGS.EN;
     }
   }
 }

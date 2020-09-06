@@ -1,4 +1,5 @@
 import { getPageJsBundle } from "./pageBundle";
+import { LANGS } from "./constants";
 
 // FIXME: alias these in webpack config
 const w = window;
@@ -25,11 +26,19 @@ export async function translatePage() {
 }
 
 export function getCurLang() {
-  return w.localStorage.getItem("lang") || "en";
+  const lang = w.localStorage.getItem("lang");
+  if (lang && Object.values(LANGS).indexOf(lang) !== -1) {
+    return lang;
+  }
+  return "en";
 }
 
 export function setCurLang(lang) {
-  w.localStorage.setItem("lang", lang || "en");
+  if (lang && Object.values(LANGS).indexOf(lang) !== -1) {
+    d.body.className = lang;
+    d.querySelector("html").lang = lang;
+    w.localStorage.setItem("lang", lang);
+  }
 }
 
 function getCurrentPageName() {
