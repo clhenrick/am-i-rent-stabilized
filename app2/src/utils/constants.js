@@ -9,3 +9,11 @@ export const IN_LANG = {
   ES: "en español",
   ZH: "中文",
 };
+
+export const IN_LANG_TO_LANG = Object.entries(IN_LANG).reduce(
+  (acc, [key, val]) => {
+    acc[val] = LANGS[key];
+    return acc;
+  },
+  {}
+);

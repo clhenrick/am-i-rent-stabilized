@@ -1,6 +1,6 @@
 import { Component } from "./_componentBase";
 import { translatePage, getCurLang, setCurLang } from "../utils/translate";
-import { LANGS, IN_LANG } from "../utils/constants";
+import { LANGS, IN_LANG, IN_LANG_TO_LANG } from "../utils/constants";
 
 export class LanguageToggle extends Component {
   constructor(props) {
@@ -31,34 +31,24 @@ export class LanguageToggle extends Component {
 
   handleClick(event) {
     event.preventDefault();
-    setCurLang(this.getLangFromBtn(event.target));
+    setCurLang(this.getLangFromBtn(event.target.innerHTML));
     translatePage();
   }
 
-  getLangFromBtn(btn) {
-    let result;
-    if (btn.innerHTML === "en español") {
-      result = "es";
-    } else if (btn.innerHTML === "中文") {
-      result = "zh";
-    } else {
-      result = "en";
-    }
-    return result;
+  getLangFromBtn(inLang) {
+    return IN_LANG_TO_LANG[inLang];
   }
 
   setLanguageToggleBtns() {
     const es = new LanguageToggleButton({
       lang: LANGS.ES,
       label: IN_LANG.ES,
-      className: "toggle-es",
       element: this.toggleBtnES,
     });
 
     const zh = new LanguageToggleButton({
       lang: LANGS.ZH,
       label: IN_LANG.ZH,
-      className: "toggle-zh",
       element: this.toggleBtnZH,
     });
 
@@ -87,10 +77,6 @@ class LanguageToggleButton {
       this.label = props.label;
     }
 
-    if ("className" in props) {
-      this.className = props.className;
-    }
-
     if ("element" in props) {
       this.element = props.element;
     }
@@ -99,6 +85,8 @@ class LanguageToggleButton {
   }
 
   init() {
+    this.className = `toggle-${this.lang}`;
+    this.toggledClassName = `toggle-${LANGS.EN}`;
     this.element.innerHTML = this.label;
     this.element.className = this.className;
     this.element.lang = this.lang;
@@ -106,7 +94,7 @@ class LanguageToggleButton {
 
   toggle() {
     if (this.element.classList.contains(this.className)) {
-      this.element.className = "toggle-en";
+      this.element.className = this.toggledClassName;
       this.element.innerHTML = IN_LANG.EN;
       this.element.lang = LANGS.EN;
     } else {
