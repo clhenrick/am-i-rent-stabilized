@@ -2,21 +2,20 @@
 const w = window;
 const d = document;
 
+// loads the correct lang json & hbs template;
+// this gets called when the page first loads and when the user clicks the lang button
 export function langToggle() {
-  // loads the correct lang json & template;
-  // this gets called when the page first loads and when the user clicks the lang button
-  var curLang = getCurLang();
-  var currentPage = d.URL.substring(
+  let currentPage = d.URL.substring(
     d.URL.lastIndexOf("/") + 1,
     d.URL.lastIndexOf(".")
   );
 
-  // TODO: redirect URL to index.html instead? or a 404 page?
+  // FIXME: redirect URL to index.html instead? or a 404 page?
   if (["index", "why", "how", "resources"].indexOf(currentPage) === -1) {
     currentPage = "index";
   }
 
-  loadTemplateData(curLang, currentPage);
+  loadTemplateData(getCurLang(), currentPage);
 }
 
 export async function loadTemplateData(lang, currentPage) {
@@ -82,4 +81,8 @@ export async function loadTemplateData(lang, currentPage) {
 
 export function getCurLang() {
   return w.localStorage.getItem("lang") || "en";
+}
+
+export function setCurLang(lang) {
+  w.localStorage.setItem("lang", lang || "en");
 }

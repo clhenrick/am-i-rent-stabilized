@@ -1,5 +1,5 @@
 import { Component } from "./_componentBase";
-import { langToggle, getCurLang } from "../utils/translate";
+import { langToggle, getCurLang, setCurLang } from "../utils/translate";
 import { LANGS, IN_LANG } from "../utils/constants";
 
 export class LanguageToggle extends Component {
@@ -31,7 +31,7 @@ export class LanguageToggle extends Component {
 
   handleClick(event) {
     event.preventDefault();
-    window.localStorage.setItem("lang", this.getLangFromBtn(event.target));
+    setCurLang(this.getLangFromBtn(event.target));
     langToggle();
   }
 
