@@ -60,7 +60,7 @@ export class LanguageToggle extends Component {
   }
 }
 
-class LanguageToggleButton {
+export class LanguageToggleButton {
   constructor(props = {}) {
     if ("lang" in props) {
       this.lang = props.lang;
