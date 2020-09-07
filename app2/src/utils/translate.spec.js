@@ -1,4 +1,9 @@
-import { translatePage, getCurLang, setCurLang } from "./translate";
+import {
+  translatePage,
+  getCurLang,
+  setCurLang,
+  getCurrentPageName,
+} from "./translate";
 
 jest.spyOn(window.localStorage.__proto__, "setItem");
 jest.spyOn(window.localStorage.__proto__, "getItem");
@@ -10,8 +15,10 @@ describe("getCurLang", () => {
   });
 
   test("It returns the correct language code when it has been already set", () => {
+    let result;
+
     window.localStorage.setItem("lang", "es");
-    let result = getCurLang();
+    result = getCurLang();
     expect(result).toBe("es");
 
     window.localStorage.setItem("lang", "zh");
@@ -46,5 +53,19 @@ describe("setCurLang", () => {
   test("It ignores unrecognized language codes", () => {
     setCurLang("pr");
     expect(window.localStorage.getItem("lang")).toBe("es");
+  });
+});
+
+describe("getCurrentPageName", () => {
+  test("It returns the correct substring of the current document's name", () => {
+    let result;
+
+    window.history.pushState("", null, "/index.html");
+    result = getCurrentPageName();
+    expect(result).toBe("index");
+
+    window.history.pushState("", null, "/info/why.html");
+    result = getCurrentPageName();
+    expect(result).toBe("why");
   });
 });

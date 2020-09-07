@@ -41,7 +41,7 @@ export function setCurLang(lang) {
   }
 }
 
-function getCurrentPageName() {
+export function getCurrentPageName() {
   let result = d.URL.substring(
     d.URL.lastIndexOf("/") + 1,
     d.URL.lastIndexOf(".")
@@ -57,7 +57,7 @@ async function renderHtmlFromTemplate(lang, pageName) {
   try {
     const [{ default: template }, { languages }] = await Promise.all([
       getHtmlTemplate(pageName),
-      getLocaleJson(lang, pageName),
+      getLocaleJson(pageName),
     ]);
     renderHtml(lang, languages, template);
   } catch (error) {
@@ -71,7 +71,7 @@ function renderHtml(lang, localeJson, template) {
   }
 }
 
-async function getLocaleJson(lang, pageName) {
+async function getLocaleJson(pageName) {
   const localesDirName = "locales";
   const dir = pageName === "index" ? "." : "..";
   const name = pageName === "index" ? "main" : pageName;
