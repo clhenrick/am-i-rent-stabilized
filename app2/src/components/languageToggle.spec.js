@@ -2,11 +2,18 @@ import fs from "fs";
 import path from "path";
 import { LanguageToggle } from "./languageToggle";
 import H from "handlebars";
-import { translatePage, getCurLang, setCurLang } from "../utils/translate";
-
-jest.mock(translatePage);
 
 const localeData = require("../../public/locales/main-content.json");
+
+const translate = require("../utils/translate");
+jest.mock("../utils/translate", () => {
+  return {
+    __esModule: true,
+    translatePage: jest.fn(),
+    getCurLang: jest.fn(),
+    setCurLang: jest.fn(),
+  };
+});
 
 describe("LanguageToggle", () => {
   let languageToggle;
@@ -18,32 +25,35 @@ describe("LanguageToggle", () => {
     );
     const template = H.compile(hbsFile);
     const html = template(localeData.languages.en);
-
     document.body.innerHTML = `<div id="wrapper">${html}</div>`;
 
     languageToggle = new LanguageToggle({
-      element: document.querySelector("div.lang-toggle"),
+      element: document.querySelector("div.lang-toggle.desktop"),
     });
-    // languageToggle.handleClick = jest.fn(() => "test");
+
+    languageToggle.handleClick = jest.fn();
   });
 
   afterAll(() => {
     jest.resetModules();
   });
 
-  test("Component HTML exists", () => {
+  test("The component's HTML exists", () => {
     expect(document.querySelector(".lang-toggle")).toBeDefined();
   });
 
-  test("Component element property exists", () => {
+  test("The consumer should be able to call new() on LanguageToggle", () => {
+    expect(languageToggle).toBeTruthy();
+  });
+
+  test("The component element property exists", () => {
     expect(languageToggle.element).toBeDefined();
   });
 
-  // test("Component child buttons handle click", () => {
-  //   translatePage.mockResolvedValue(undefined);
-  //   const spy = jest.spyOn(languageToggle, "handleClick");
-  //   document.querySelector("div.lang-toggle a").click();
-  //   expect(spy).toHaveBeenCalled();
-  //   spy.mockRestore();
-  // })
+  test("The component button children handles a click event", () => {
+    const spy = jest.spyOn(languageToggle, "handleClick");
+    document.querySelector("div.lang-toggle.desktop a").click();
+    expect(spy).toHaveBeenCalledTimes(1);
+    spy.mockRestore();
+  });
 });
