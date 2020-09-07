@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
-import { LanguageToggle, LanguageToggleButton } from "./languageToggle";
 import H from "handlebars";
+import { LanguageToggle, LanguageToggleButton } from "./languageToggle";
 
 const localeData = require("../../public/locales/main-content.json");
 
