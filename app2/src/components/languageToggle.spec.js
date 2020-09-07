@@ -30,8 +30,6 @@ describe("LanguageToggle", () => {
     languageToggle = new LanguageToggle({
       element: document.querySelector("div.lang-toggle.desktop"),
     });
-
-    languageToggle.handleClick = jest.fn();
   });
 
   afterAll(() => {
@@ -46,14 +44,17 @@ describe("LanguageToggle", () => {
     expect(languageToggle).toBeTruthy();
   });
 
-  test("The component element property exists", () => {
+  test("The component instance's element property exists", () => {
     expect(languageToggle.element).toBeDefined();
   });
 
-  test("The component button children handles a click event", () => {
-    const spy = jest.spyOn(languageToggle, "handleClick");
-    document.querySelector("div.lang-toggle.desktop a").click();
-    expect(spy).toHaveBeenCalledTimes(1);
-    spy.mockRestore();
+  test("The component's buttons correctly handle a click event", () => {
+    document.querySelector("div.lang-toggle.desktop a[lang='es']").click();
+    expect(translate.translatePage).toHaveBeenCalled();
+    expect(translate.setCurLang).toHaveBeenCalledWith("es");
+
+    document.querySelector("div.lang-toggle.desktop a[lang='zh']").click();
+    expect(translate.translatePage).toHaveBeenCalled();
+    expect(translate.setCurLang).toHaveBeenCalledWith("zh");
   });
 });
