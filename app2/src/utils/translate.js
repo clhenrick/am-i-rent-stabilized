@@ -84,7 +84,7 @@ export async function getLocaleJson(pageName) {
   }
 }
 
-async function getHtmlTemplate(pageName) {
+export async function getHtmlTemplate(pageName) {
   const name = pageName === "index" ? "main" : pageName;
   return await import(
     /* webpackChunkName: "locales-hbs" */ `../hbs_templates/${name}.hbs`
