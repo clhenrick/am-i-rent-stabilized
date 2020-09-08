@@ -86,7 +86,11 @@ export async function getLocaleJson(pageName) {
 
 export async function getHtmlTemplate(pageName) {
   const name = pageName === "index" ? "main" : pageName;
-  return await import(
-    /* webpackChunkName: "locales-hbs" */ `../hbs_templates/${name}.hbs`
-  );
+  try {
+    return await import(
+      /* webpackChunkName: "locales-hbs" */ `../hbs_templates/${name}.hbs`
+    );
+  } catch (error) {
+    throw new Error("Problem loading .hbs file");
+  }
 }

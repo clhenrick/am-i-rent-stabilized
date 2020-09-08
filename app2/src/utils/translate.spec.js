@@ -14,6 +14,12 @@ describe("getHtmlTemplate", () => {
     const result = await getHtmlTemplate("index");
     expect(result).toBeTruthy();
   });
+
+  test("it throws an error for a non-matching page name", async () => {
+    await expect(getHtmlTemplate("foobar")).rejects.toThrow(
+      "Problem loading .hbs file"
+    );
+  });
 });
 
 describe("getLocaleJson", () => {
