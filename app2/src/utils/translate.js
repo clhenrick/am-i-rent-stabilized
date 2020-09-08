@@ -71,14 +71,17 @@ function renderHtml(lang, localeJson, template) {
   }
 }
 
-async function getLocaleJson(pageName) {
+export async function getLocaleJson(pageName) {
   const localesDirName = "locales";
   const dir = pageName === "index" ? "." : "..";
   const name = pageName === "index" ? "main" : pageName;
   const localeFileName = `${name}-content.json`;
-  const res = await fetch(`${dir}/${localesDirName}/${localeFileName}`);
-  if (res.ok) return res.json();
-  throw new Error("Problem fetching locale json");
+  try {
+    const res = await fetch(`${dir}/${localesDirName}/${localeFileName}`);
+    if (res.ok) return res.json();
+  } catch (error) {
+    throw new Error("Problem fetching locale json");
+  }
 }
 
 async function getHtmlTemplate(pageName) {

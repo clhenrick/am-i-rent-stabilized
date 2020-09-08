@@ -1,12 +1,45 @@
 import {
-  translatePage,
   getCurLang,
   setCurLang,
   getCurrentPageName,
+  getLocaleJson,
 } from "./translate";
 
 jest.spyOn(window.localStorage.__proto__, "setItem");
 jest.spyOn(window.localStorage.__proto__, "getItem");
+
+describe("getLocaleJson", () => {
+  let data;
+  let expectedData;
+
+  beforeEach(() => {
+    fetch.resetMocks();
+    data = { en: {}, es: {}, zh: {} };
+    expectedData = Object.assign({}, data);
+  });
+
+  test("loads the locale json for a given page", async () => {
+    let result;
+
+    fetch.mockResponseOnce(JSON.stringify(data));
+    result = await getLocaleJson("index");
+    expect(result).toMatchObject(expectedData);
+    expect(fetch).toHaveBeenCalledWith("./locales/main-content.json");
+
+    fetch.mockResponseOnce(JSON.stringify(data));
+    result = await getLocaleJson("how");
+    expect(result).toMatchObject(expectedData);
+    expect(fetch).toHaveBeenCalledWith("../locales/how-content.json");
+  });
+
+  test("throws an error if the locale json cannot be found", async () => {
+    expect.assertions(1);
+    fetch.mockReject(() => Promise.reject());
+    await expect(getLocaleJson("foobar")).rejects.toThrow(
+      "Problem fetching locale json"
+    );
+  });
+});
 
 describe("getCurLang", () => {
   test("It returns the 'en' language code by default", () => {
