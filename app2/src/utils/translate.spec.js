@@ -10,13 +10,9 @@ jest.spyOn(window.localStorage.__proto__, "setItem");
 jest.spyOn(window.localStorage.__proto__, "getItem");
 
 describe("getHtmlTemplate", () => {
-  // FIXME: jest needs help parsing .hbs files
-  // see: https://jestjs.io/docs/en/webpack.html#handling-static-assets
-  // and: https://github.com/facebook/jest/issues/3604
   test("it loads the correct handlebars template", async () => {
-    // const result = await getHtmlTemplate("index");
-    // console.log(result);
-    // expect(result).toBeTruthy();
+    const result = await getHtmlTemplate("index");
+    expect(result).toBeTruthy();
   });
 });
 
