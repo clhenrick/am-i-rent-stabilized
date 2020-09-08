@@ -65,7 +65,11 @@
     "automock": false,
     "setupFiles": [
       "./setupJest.js"
-    ]
+    ],
+    "transform": {
+      "^.+\\.[jt]sx?$": "babel-jest",
+      "\\.hbs$": "jest-handlebars"
+    }
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
