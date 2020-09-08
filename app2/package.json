@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "description": "Web app to inform nyc residents about rent stabilization",
   "private": true,
+  "author": {
+    "name": "Chris Henrick",
+    "email": "chrishenrick@gmail.com",
+    "url": "http://clhenrick.io"
+  },
+  "license": "MIT",
   "main": "src/index.js",
   "scripts": {
     "start": "webpack-dev-server --mode=development --env.NODE_ENV=development",
@@ -55,12 +61,12 @@
       "pre-commit": "lint-staged"
     }
   },
-  "author": {
-    "name": "Chris Henrick",
-    "email": "chrishenrick@gmail.com",
-    "url": "http://clhenrick.io"
+  "jest": {
+    "automock": false,
+    "setupFiles": [
+      "./setupJest.js"
+    ]
   },
-  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
