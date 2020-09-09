@@ -1,15 +1,4 @@
-<nav class="main-nav">
-  <img class="logo" src="../assets/png/logo.png">
-  <h1>            
-    <a class="go-first" href="../index.html">{{nav_main.title}}</a>
-  </h1>
-  <div class="burger" alt="-"></div>
-  <ul>
-    <li class="nav"><a href="why.html">{{nav_main.why}}</a></li>
-    <li class="nav"><a href="how.html">{{nav_main.how}}</a></li>
-    <li class="nav"><a href="resources.html">{{nav_main.resources}}</a></li>
-  </ul>
-</nav>
+{{>../hbs_partials/navigation_info}}
 
 <div id="left">
   <div class="lang-toggle">
@@ -26,7 +15,7 @@
       <li><a href="#how">{{nav_side.how}}</a></li>
       <li><a href="#code-data">{{{nav_side.code}}}</a></li>
       <li><a href="#credits">{{nav_side.credits}}</a></li>
-    </ul>          
+    </ul>
   </div>
 </div>
 
@@ -75,7 +64,7 @@
   <p>
     {{how.p07}}
   </p>
-  
+
   <a name="code-data"></a>
   <h1>{{{code.h1}}}</h1>
   <p>
@@ -92,7 +81,7 @@
       {{code.ul.[2]}}
     </a></li>
   </ul>
-  
+
   <a name="credits"></a>
   <h1>{{credits.h1}}</h1>
   <p>
@@ -116,7 +105,7 @@
         {{credits.ul.[4]}}
       </a>
       {{credits.ul.[5]}}
-    </li>            
+    </li>
     <li>
       <a target="_blank" href="http://betanyc.us">
         {{credits.ul.[6]}}
@@ -137,7 +126,7 @@
     <a href="mailto:amirentstabilized@gmail.com">
       {{credits.p02.[1]}}
     </a>
-  </p> 
+  </p>
   <p>
     {{credits.p03}}
   </p>
