@@ -65,7 +65,7 @@ async function renderHtmlFromTemplate(lang, pageName) {
   }
 }
 
-function renderHtml(lang, localeJson, template) {
+export function renderHtml(lang, localeJson, template) {
   if (lang && localeJson && template) {
     d.querySelector("#wrapper").innerHTML = template(localeJson[lang]);
   }

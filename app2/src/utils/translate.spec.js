@@ -1,13 +1,57 @@
+import fs from "fs";
+import path from "path";
+import H from "handlebars";
 import {
   getCurLang,
   setCurLang,
   getCurrentPageName,
   getLocaleJson,
   getHtmlTemplate,
+  renderHtml,
 } from "./translate";
 
 jest.spyOn(window.localStorage.__proto__, "setItem");
 jest.spyOn(window.localStorage.__proto__, "getItem");
+
+const indexLocale = require("../../public/locales/main-content.json");
+const whyLocale = require("../../public/locales/why-content.json");
+
+describe("renderHtml", () => {
+  let indexTemplate;
+  let whyTemplate;
+
+  beforeAll(() => {
+    indexTemplate = H.compile(
+      fs.readFileSync(
+        path.resolve(__dirname, "../hbs_templates/main.hbs"),
+        "utf8"
+      )
+    );
+
+    whyTemplate = H.compile(
+      fs.readFileSync(
+        path.resolve(__dirname, "../hbs_templates/main.hbs"),
+        "utf8"
+      )
+    );
+  });
+
+  test("it renders html from a locales json and hbs template", () => {
+    document.body.innerHTML = '<div id="wrapper"></div>';
+    renderHtml("en", indexLocale, indexTemplate);
+    expect(document.querySelector("#wrapper").innerHTML).toBeDefined();
+
+    document.body.innerHTML = '<div id="wrapper"></div>';
+    renderHtml("es", whyLocale, whyTemplate);
+    expect(document.querySelector("#wrapper").innerHTML).toBeDefined();
+  });
+
+  test("it does not render html if missing arguments", () => {
+    document.body.innerHTML = '<div id="wrapper"></div>';
+    renderHtml();
+    expect(document.querySelector("#wrapper").innerHTML).toBe("");
+  });
+});
 
 describe("getHtmlTemplate", () => {
   test("it loads the correct handlebars template", async () => {
