@@ -5,7 +5,7 @@
   left: 30px;
   z-index: 11;
 
-  &.mobile {
+  .mobile & {
     display: none;
   }
 
@@ -17,11 +17,12 @@
     list-style: none;
     display: inline-block;
   }
+
   li:last-child {
     list-style: disc;
     list-style-position: inside;
-    // margin-left: 10px;
   }
+
   a,
   p {
     text-decoration: none;
@@ -30,6 +31,7 @@
     font-size: 1.8em;
     color: $lightgray;
   }
+
   a:hover {
     color: $gray;
   }
@@ -39,15 +41,12 @@
     left: 30px;
   }
 
-  // @include responsive_height(medium-screens) {
-
-  // }
-
   @include responsive(medium-screens) {
-    &.desktop,
+    .desktop &,
     #left & {
       li {
         display: block;
+
         &:nth-child(2) {
           display: none;
         }
@@ -56,6 +55,7 @@
 
     li {
       display: inline-block;
+
       &:nth-child(2) {
         display: inline-block;
       }
@@ -71,11 +71,11 @@
   @include responsive(small-screens) {
     font-size: 0.8em;
 
-    &.desktop {
+    .desktop & {
       display: none;
     }
 
-    &.mobile {
+    .mobile & {
       display: inline-block;
     }
 
@@ -118,6 +118,7 @@
         &:nth-child(2) {
           display: inline-block;
         }
+
         &:last-child {
           list-style: disc;
           list-style-position: inside;
