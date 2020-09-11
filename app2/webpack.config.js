@@ -153,6 +153,9 @@ module.exports = (env, argv) => {
               loader: "handlebars-loader",
               options: {
                 helperDirs: path.resolve(__dirname, "src/hbs_helpers"),
+                partialDirs: [
+                  path.resolve(__dirname, "src/hbs_partials")
+                ]
               }
             }
           ]
@@ -299,4 +302,3 @@ module.exports = (env, argv) => {
 
   return config;
 };
-
