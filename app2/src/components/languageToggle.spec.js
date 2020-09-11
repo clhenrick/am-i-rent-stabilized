@@ -28,7 +28,7 @@ describe("LanguageToggle", () => {
     document.body.innerHTML = `<div id="wrapper">${html}</div>`;
 
     languageToggle = new LanguageToggle({
-      element: document.querySelector("div.lang-toggle.desktop"),
+      element: document.querySelector("div.desktop .lang-toggle"),
     });
   });
 
@@ -49,11 +49,11 @@ describe("LanguageToggle", () => {
   });
 
   test("The component's buttons correctly handle a click event", () => {
-    document.querySelector("div.lang-toggle.desktop a[lang='es']").click();
+    document.querySelector("div.desktop .lang-toggle a[lang='es']").click();
     expect(translate.translatePage).toHaveBeenCalled();
     expect(translate.setCurLang).toHaveBeenCalledWith("es");
 
-    document.querySelector("div.lang-toggle.desktop a[lang='zh']").click();
+    document.querySelector("div.desktop .lang-toggle a[lang='zh']").click();
     expect(translate.translatePage).toHaveBeenCalled();
     expect(translate.setCurLang).toHaveBeenCalledWith("zh");
   });
