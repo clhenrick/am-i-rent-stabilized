@@ -1,7 +1,8 @@
 import fs from "fs";
 import path from "path";
 import H from "handlebars";
-import { LanguageToggle, LanguageToggleButton } from "./languageToggle";
+import { LanguageToggle } from "./languageToggle";
+import { LanguageToggleButton } from "./languageToggleButton";
 import { LANGS, IN_LANG } from "../utils/constants";
 
 const localeData = require("../../public/locales/main-content.json");
@@ -11,13 +12,15 @@ jest.mock("../utils/translate", () => {
   return {
     __esModule: true,
     translatePage: jest.fn(),
-    getCurLang: jest.fn(),
+    getCurLang: jest.fn(() => "en"),
     setCurLang: jest.fn(),
   };
 });
 
 describe("LanguageToggle", () => {
   let languageToggle;
+  let spyEs;
+  let spyZh;
 
   beforeAll(async () => {
     const hbsFile = fs.readFileSync(
@@ -31,6 +34,8 @@ describe("LanguageToggle", () => {
     languageToggle = new LanguageToggle({
       element: document.querySelector("div.desktop .lang-toggle"),
     });
+    spyEs = jest.spyOn(languageToggle.es, "toggle");
+    spyZh = jest.spyOn(languageToggle.zh, "toggle");
   });
 
   afterAll(() => {
@@ -63,6 +68,21 @@ describe("LanguageToggle", () => {
     expect(languageToggle.getLangFromBtn(IN_LANG.EN)).toBe(LANGS.EN);
     expect(languageToggle.getLangFromBtn(IN_LANG.ES)).toBe(LANGS.ES);
     expect(languageToggle.getLangFromBtn(IN_LANG.ZH)).toBe(LANGS.ZH);
+  });
+
+  test("The method setLanguageToggleBtnsText toggles the correct language", () => {
+    translate.getCurLang
+      .mockImplementationOnce(() => "es")
+      .mockImplementationOnce(() => "zh");
+
+    const mockEs = (languageToggle.es.toggle = jest.fn());
+    const mockZh = (languageToggle.zh.toggle = jest.fn());
+
+    languageToggle.setLanguageToggleBtnsText();
+    expect(mockEs).toHaveBeenCalledTimes(1);
+
+    languageToggle.setLanguageToggleBtnsText();
+    expect(mockZh).toHaveBeenCalledTimes(1);
   });
 });
 
