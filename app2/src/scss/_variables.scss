@@ -14,12 +14,15 @@ $purple: #7a5de8;
 $lightblue: #9cddf0;
 $blue: #45acff;
 $valError: #d98c8c;
-$white: #ffffff;
+$white: #fff;
 
 // fonts
 $header-font: "museo-sans-rounded", "Arial Rounded MT Bold", "Helvetica Rounded",
-  Arial, sans-serif;
-$body-font: "Oxygen", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  arial, sans-serif;
+$body-font: "Oxygen", arial, "Helvetica Neue", helvetica, sans-serif;
+
+// shared component dimensions
+$nav-main-height: 60px;
 
 // media query breakpoints
 $width-sm: 460px;

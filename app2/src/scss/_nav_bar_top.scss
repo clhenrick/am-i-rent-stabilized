@@ -4,7 +4,7 @@ nav.main-nav {
   background-color: $gray;
   top: 0;
   width: 100%;
-  height: 60px;
+  height: $nav-main-height;
   z-index: 100;
 
   .logo {

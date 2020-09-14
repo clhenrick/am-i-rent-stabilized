@@ -2,13 +2,12 @@
   position: absolute;
   top: 60px;
   width: 960px;
-  // margin: 0 auto;
   left: 53.776041666667%;
   margin-left: -516.25px;
-  height: 100%;
+  height: calc(100% - #{$nav-main-height});
   overflow: hidden;
   z-index: 10;
-  background-color: #ffffff;
+  background-color: #fff;
 
   @include responsive(medium-screens) {
     width: 100%;
@@ -30,7 +29,7 @@
 .slide {
   position: relative;
   width: 100%;
-  height: calc(100% - 60px);
+  height: 100%;
   overflow: hidden;
 }
 
@@ -41,12 +40,8 @@
 
   &.v-centered {
     top: 50%;
-    // transform: translateY(-50%);
-    @include translateY($value: -50%);
-  }
 
-  #slide-1 & {
-    // top: 38%;
+    @include translateY($value: -50%);
   }
 
   .share-box-end {
@@ -67,7 +62,6 @@
 
   @include responsive_height(medium-screens) {
     width: 100%;
-    // font-size: 1em !important;
   }
 
   @include responsive(medium-screens) {
@@ -79,10 +73,6 @@
   }
 
   @include responsive(tablet-screens) {
-    #slide-1 & {
-      // top: 45%;
-    }
-
     .no {
       margin-top: 10%;
 
@@ -95,13 +85,10 @@
   @include responsive(small-screens) {
     width: 100%;
 
-    #slide-1 & {
-      // top: 36%;
-    }
-
     .yes,
     .no {
       margin-top: 3%;
+
       p {
         font-size: 1.3em;
         max-width: 95%;
