@@ -10,11 +10,25 @@ export class LanguageToggle extends Component {
   init() {
     this.toggleBtnES = this.element.querySelector(".toggle-es");
     this.toggleBtnZH = this.element.querySelector(".toggle-zh");
+
+    this.es = new LanguageToggleButton({
+      lang: LANGS.ES,
+      label: IN_LANG.ES,
+      element: this.toggleBtnES,
+    });
+
+    this.zh = new LanguageToggleButton({
+      lang: LANGS.ZH,
+      label: IN_LANG.ZH,
+      element: this.toggleBtnZH,
+    });
+
     this.handleClick = this.handleClick.bind(this);
     this.getLangFromBtn = this.getLangFromBtn.bind(this);
-    this.setLanguageToggleBtns = this.setLanguageToggleBtns.bind(this);
+    this.setLanguageToggleBtnsText = this.setLanguageToggleBtnsText.bind(this);
+
     this.bindEvents();
-    this.setLanguageToggleBtns();
+    this.setLanguageToggleBtnsText();
   }
 
   bindEvents() {
@@ -39,23 +53,16 @@ export class LanguageToggle extends Component {
     return IN_LANG_TO_LANG[inLang];
   }
 
-  setLanguageToggleBtns() {
-    const es = new LanguageToggleButton({
-      lang: LANGS.ES,
-      label: IN_LANG.ES,
-      element: this.toggleBtnES,
-    });
-
-    const zh = new LanguageToggleButton({
-      lang: LANGS.ZH,
-      label: IN_LANG.ZH,
-      element: this.toggleBtnZH,
-    });
-
-    if (getCurLang() === LANGS.ES) {
-      es.toggle();
-    } else if (getCurLang() === LANGS.ZH) {
-      zh.toggle();
+  setLanguageToggleBtnsText() {
+    switch (getCurLang()) {
+      case LANGS.ES:
+        this.es.toggle();
+        break;
+      case LANGS.ZH:
+        this.zh.toggle();
+        break;
+      default:
+        break;
     }
   }
 }
