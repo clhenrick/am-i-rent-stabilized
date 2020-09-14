@@ -1,23 +1,24 @@
 import { LANGS, IN_LANG } from "../utils/constants";
+import { Component } from "./_componentBase";
 
-export class LanguageToggleButton {
-  constructor(props = {}) {
-    if ("lang" in props) {
-      this.lang = props.lang;
-    }
-
-    if ("label" in props) {
-      this.label = props.label;
-    }
-
-    if ("element" in props) {
-      this.element = props.element;
-    }
-
-    this.init();
+export class LanguageToggleButton extends Component {
+  constructor(props) {
+    super(props);
   }
 
-  init() {
+  init(props) {
+    if ("lang" in props && typeof props.lang === "string") {
+      this.lang = props.lang;
+    } else {
+      throw Error("LanguageToggleButton requires a valid `lang` property");
+    }
+
+    if ("label" in props && typeof props.label === "string") {
+      this.label = props.label;
+    } else {
+      throw Error("LanguageToggleButton requires a valid `label` property");
+    }
+
     this.className = `toggle-${this.lang}`;
     this.toggledClassName = `toggle-${LANGS.EN}`;
     this.element.innerHTML = this.label;
