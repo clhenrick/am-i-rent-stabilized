@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import H from "handlebars";
 import { LanguageToggle, LanguageToggleButton } from "./languageToggle";
+import { LANGS, IN_LANG } from "../utils/constants";
 
 const localeData = require("../../public/locales/main-content.json");
 
@@ -56,6 +57,12 @@ describe("LanguageToggle", () => {
     document.querySelector("div.desktop .lang-toggle a[lang='zh']").click();
     expect(translate.translatePage).toHaveBeenCalled();
     expect(translate.setCurLang).toHaveBeenCalledWith("zh");
+  });
+
+  test("The method getLangFromBtn returns the correct language code", () => {
+    expect(languageToggle.getLangFromBtn(IN_LANG.EN)).toBe(LANGS.EN);
+    expect(languageToggle.getLangFromBtn(IN_LANG.ES)).toBe(LANGS.ES);
+    expect(languageToggle.getLangFromBtn(IN_LANG.ZH)).toBe(LANGS.ZH);
   });
 });
 
