@@ -1,13 +1,15 @@
 import { Component } from "./_componentBase";
 
 describe("Component", () => {
+  let props;
   let component;
   let spy;
 
   beforeAll(() => {
     document.body.innerHTML = "<div></div>";
     spy = jest.spyOn(Component.prototype, "init");
-    component = new Component({ element: document.querySelector("div") });
+    props = { element: document.querySelector("div") };
+    component = new Component(props);
   });
 
   test("The consumer should be able to call new() on Component", () => {
@@ -51,5 +53,9 @@ describe("Component", () => {
 
   test("The component's init method is called once when an instance is made", () => {
     expect(spy).toHaveBeenCalledTimes(1);
+  });
+
+  test("The init method receives a props object as an argument", () => {
+    expect(spy).toHaveBeenCalledWith(props);
   });
 });
