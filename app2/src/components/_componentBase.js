@@ -4,18 +4,20 @@ export class Component {
     this.bindEvents = this.bindEvents.bind(this);
     this.removeEvents = this.removeEvents.bind(this);
 
+    // `element` is a required prop!
     if ("element" in props && props.element instanceof HTMLElement) {
       this.element = props.element;
     } else {
       throw new Error("Component requires a valid DOM element prop");
     }
 
-    this.init();
+    this.init(props);
   }
 
   // Do any other setup work here such as add more class properties,
-  // fetch data, etc. Make sure to call this.bindEvents() here
-  init() {}
+  // fetch data, etc. Make sure to call this.bindEvents() here.
+  // Props are passed as an arg from the constructor.
+  init(props) {}
 
   // Add any DOM event listeners
   bindEvents() {}
