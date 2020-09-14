@@ -18,8 +18,6 @@ jest.mock("../utils/translate", () => {
 
 describe("LanguageToggle", () => {
   let languageToggle;
-  let spyEs;
-  let spyZh;
 
   beforeAll(async () => {
     const hbsFile = fs.readFileSync(
@@ -33,8 +31,6 @@ describe("LanguageToggle", () => {
     languageToggle = new LanguageToggle({
       element: document.querySelector("div.desktop .lang-toggle"),
     });
-    spyEs = jest.spyOn(languageToggle.es, "toggle");
-    spyZh = jest.spyOn(languageToggle.zh, "toggle");
   });
 
   afterAll(() => {

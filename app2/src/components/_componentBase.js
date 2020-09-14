@@ -16,8 +16,8 @@ export class Component {
 
   // Do any other setup work here such as add more class properties,
   // fetch data, etc. Make sure to call this.bindEvents() here.
-  // Props are passed as an arg from the constructor.
-  init(props) {}
+  // @param Props:  props are passed as an arg from the constructor.
+  init(/* props */) {}
 
   // Add any DOM event listeners
   bindEvents() {}
