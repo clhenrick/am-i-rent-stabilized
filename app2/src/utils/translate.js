@@ -1,5 +1,5 @@
 import { getPageJsBundle } from "./pageBundle";
-import { LANGS } from "./constants";
+import { LANGS, LOCALES_JSON_DIR } from "./constants";
 
 // FIXME: alias these in webpack config
 const w = window;
@@ -72,12 +72,11 @@ export function renderHtml(localeJson, template) {
 }
 
 export async function getLocaleJson(pageName, lang) {
-  const localesDirName = "locales_";
   const dir = pageName === "index" ? "." : "..";
   const name = pageName === "index" ? "main" : pageName;
   const localeFileName = `${name}-${lang}.json`;
   try {
-    const res = await fetch(`${dir}/${localesDirName}/${localeFileName}`);
+    const res = await fetch(`${dir}/${LOCALES_JSON_DIR}/${localeFileName}`);
     if (res.ok) return res.json();
   } catch (error) {
     throw new Error("Problem fetching locale json");

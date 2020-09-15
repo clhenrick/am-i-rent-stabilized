@@ -9,6 +9,7 @@ import {
   getHtmlTemplate,
   renderHtml,
 } from "./translate";
+import { LOCALES_JSON_DIR } from "./constants";
 
 jest.spyOn(window.localStorage.__proto__, "setItem");
 jest.spyOn(window.localStorage.__proto__, "getItem");
@@ -21,8 +22,8 @@ describe("renderHtml", () => {
   let whyEsLocale;
 
   beforeAll(() => {
-    mainEnLocale = require("../../public/locales_/main-en.json");
-    whyEsLocale = require("../../public/locales_/why-es.json");
+    mainEnLocale = require(`../../public/${LOCALES_JSON_DIR}/main-en.json`);
+    whyEsLocale = require(`../../public/${LOCALES_JSON_DIR}/why-es.json`);
 
     mainTemplate = H.compile(
       fs.readFileSync(
@@ -85,12 +86,12 @@ describe("getLocaleJson", () => {
     fetch.mockResponseOnce(JSON.stringify(data));
     result = await getLocaleJson("index", "en");
     expect(result).toMatchObject(expectedData);
-    expect(fetch).toHaveBeenCalledWith("./locales_/main-en.json");
+    expect(fetch).toHaveBeenCalledWith(`./${LOCALES_JSON_DIR}/main-en.json`);
 
     fetch.mockResponseOnce(JSON.stringify(data));
     result = await getLocaleJson("how", "es");
     expect(result).toMatchObject(expectedData);
-    expect(fetch).toHaveBeenCalledWith("../locales_/how-es.json");
+    expect(fetch).toHaveBeenCalledWith(`../${LOCALES_JSON_DIR}/how-es.json`);
   });
 
   test("throws an error if the locale json cannot be found", async () => {
