@@ -55,27 +55,27 @@ export function getCurrentPageName() {
 
 async function renderHtmlFromTemplate(lang, pageName) {
   try {
-    const [{ default: template }, locales] = await Promise.all([
+    const [{ default: template }, locale] = await Promise.all([
       getHtmlTemplate(pageName),
-      getLocaleJson(pageName),
+      getLocaleJson(pageName, lang),
     ]);
-    renderHtml(lang, locales, template);
+    renderHtml(locale, template);
   } catch (error) {
     console.error(error);
   }
 }
 
-export function renderHtml(lang, localeJson, template) {
-  if (lang && localeJson && template) {
-    d.querySelector("#wrapper").innerHTML = template(localeJson[lang]);
+export function renderHtml(localeJson, template) {
+  if (localeJson && template) {
+    d.querySelector("#wrapper").innerHTML = template(localeJson);
   }
 }
 
-export async function getLocaleJson(pageName) {
-  const localesDirName = "locales";
+export async function getLocaleJson(pageName, lang) {
+  const localesDirName = "locales_";
   const dir = pageName === "index" ? "." : "..";
   const name = pageName === "index" ? "main" : pageName;
-  const localeFileName = `${name}-content.json`;
+  const localeFileName = `${name}-${lang}.json`;
   try {
     const res = await fetch(`${dir}/${localesDirName}/${localeFileName}`);
     if (res.ok) return res.json();
