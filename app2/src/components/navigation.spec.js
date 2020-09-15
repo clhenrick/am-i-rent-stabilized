@@ -2,8 +2,9 @@ import fs from "fs";
 import path from "path";
 import H from "handlebars";
 import { NavMenuToggle } from "./navigation";
+import { LOCALES_JSON_DIR } from "../utils/constants";
 
-const localeData = require("../../public/locales/main-content.json");
+const localeData = require(`../../public/${LOCALES_JSON_DIR}/main-en.json`);
 
 describe("NavMenuToggle", () => {
   let navMenuToggle;
@@ -14,7 +15,7 @@ describe("NavMenuToggle", () => {
       "utf8"
     );
     const template = H.compile(hbsFile);
-    const html = template(localeData.en);
+    const html = template(localeData);
     document.body.innerHTML = `<div id="wrapper">${html}</div>`;
 
     navMenuToggle = new NavMenuToggle({

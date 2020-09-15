@@ -2,9 +2,9 @@ import fs from "fs";
 import path from "path";
 import H from "handlebars";
 import { LanguageToggle } from "./languageToggle";
-import { LANGS, IN_LANG } from "../utils/constants";
+import { LANGS, IN_LANG, LOCALES_JSON_DIR } from "../utils/constants";
 
-const localeData = require("../../public/locales/main-content.json");
+const localeData = require(`../../public/${LOCALES_JSON_DIR}/main-en.json`);
 
 const translate = require("../utils/translate");
 jest.mock("../utils/translate", () => {
@@ -25,7 +25,7 @@ describe("LanguageToggle", () => {
       "utf8"
     );
     const template = H.compile(hbsFile);
-    const html = template(localeData.en);
+    const html = template(localeData);
     document.body.innerHTML = `<div id="wrapper">${html}</div>`;
 
     languageToggle = new LanguageToggle({
