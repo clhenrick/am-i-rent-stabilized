@@ -1,0 +1,206 @@
+{
+  "nav_main": {
+    "title": "Am I Rent Stabilized?",
+    "why": "为什么了租金稳定与否很重要？",
+    "how": "租金稳定是怎么一回事？",
+    "resources": "相关资料"
+  },
+  "nav_side": {
+    "h3": "跳到相关话题",
+    "nongov": "与住客权利相关的机构",
+    "citywide": "全市",
+    "boro": "镇区",
+    "hood": "街道",
+    "gov": "政府资源"
+  },
+  "nongov": {
+    "h1": "住客权利资料",
+    "h3": "以下是一些政府和非政府的机构致力保护住客权利，强调纽约合理房价的重要性。纽约有上百个这样的机构，这里列举的只是其中一部分。",
+    "citywide": {
+      "h3": "全市",
+      "p01": "这些机构是全市性的。",
+      "ul": [
+        {
+          "org": "美籍华人平等机构 (Asian Americans For Equality)",
+          "desc": "致力于维护整个纽约的经济适用房，并为城市的不同移民社区提供新的机会。"
+        },
+        {
+          "org": "街区住房发展协会 (Association for Neighborhood and Housing Development)",
+          "desc": "致力于保持住房经济性和社区发展。普及住客权利知识。"
+        },
+        {
+          "org": "公平住房联合教会 （Churches United For Fair Housing）",
+          "desc": "本机构基于布鲁克林，但致力于保护和组织全纽约多样化，不排斥，价格合理的社区。"
+        },
+        {
+          "org": "驱逐干预服务 （Eviction Intervention Services）",
+          "desc": "保持居民在自己的社区，保留现有的经济适用房，促进和支持纽约的低，中，中等收入家庭经济住房建设。预防居民无家可归。"
+        },
+        {
+          "org": "为纽约铺路 （Make The Road New York）",
+          "desc": "通过动员，推动政策，教育改革，以及生存服务，来帮助拉美移民以及工人阶级的社区取得尊严和公道。"
+        },
+        {
+          "org": "大都会住房评议会（Metropolitan Council on Housing）",
+          "desc": "提供一系列住客援助项目，包括免费的住客热线电话以及当面咨询。这个组织每年帮助上千纽约住户。"
+        },
+        {
+          "org": "MFY 法律咨询 （MFY Legal Services Inc.）",
+          "desc": "为纽约住客提供免费法律援助，尤其是与公民权利有关的话题。优先服务弱势群体。"
+        },
+        {
+          "org": "为无家可归着想（Picture the Homeless）",
+          "desc": "为纽约无家可归者推广经济住房。"
+        },
+        {
+          "org": "Rent Logic",
+          "desc": "Rentlogic可以在租客签订租约前帮助他们全面了解房屋，包括房间是否发霉、有臭虫、有寄生虫、或者是房东是否曾经骚扰过房客。"
+        },
+        {
+          "org": "人人有权协会（Right To The City Alliance）",
+          "desc": "预防低收入者，有色人群，LGBTQ人群的流离失所。全国运营。"
+        },
+        {
+          "org": "稳定纽约租金（Stabilizing NYC）",
+          "desc": "稳定纽约租金是一个以十四个社区为基础的组织所组成的联盟，提供全市法律服务以及推广相关组织并打击居/住户经骚，保留经济住房给最需要的纽约客。这个项目结合了法律丶推广以及组织资源进入城市网络并帮助居/住户向掠夺者房东对抗装修为由或其他非法驱逐等途径以及骚扰。"
+        },
+        {
+          "org": "住客邻里（Tenants and Neighbors）",
+          "desc": "帮助住客在自己的楼房或社区里组织起来，来保护经济住房。"
+        },
+        {
+          "org": "建造城市家园（Urban Homesteading Assistance Board）",
+          "desc": "帮助低收入人群获取他们的自己的住房，通过创建强大的租户协会和持久的实惠合作社提高他们的社区质量。"
+        }
+      ]
+    },
+    "boro": {
+      "h3": "镇区",
+      "p": "这些机构是镇区性的。",
+      "ul": [
+        {
+          "org": "布鲁克林住房与家庭服务 （Brooklyn Housing And Family Services, Inc.）",
+          "desc": "通过推广和辅导，为布鲁克林居民提供安全，价格合理的住房。"
+        },
+        {
+          "org": "布朗克斯牧羊人修复团体 (Bronx Shepherds Restoration Corporation)",
+          "desc": "为布朗克斯居民提供经济住房，以及其他社区项目。"
+        },
+        {
+          "org": "布鲁克林法律团顾问团体A（Brooklyn Legal Services Corporation A）",
+          "desc": "为低收入的个人和团体提供高质量的法律援助。"
+        },
+        {
+          "org": "皇后区社区住房 （Queens Community House, Inc.）",
+          "desc": "帮助皇后区居民获取经济住房以及社区建设。"
+        },
+        {
+          "org": "斯塔腾岛街区住房服务 （Neighborhood Housing Services of Staten Island）",
+          "desc": "提高斯塔滕岛／里士满郡的住户住房合理性以及安全性。"
+        }
+      ]
+    },
+    "hood": {
+      "h3": "街道",
+      "p": "这些机构是街道性的。",
+      "ul": [
+        {
+          "org": "开罗花园协会 （Carroll Gardens Association）",
+          "desc": "为西南布鲁克林的居民开发经济实惠/员工的住房，并提供经济发展，员工培训，劳动力培训，青少年服务，托管服务和福利援助。"
+        },
+        {
+          "org": "库珀广场委员会 （Cooper Square Committee）",
+          "desc": "帮助组织在东村的库珀广场附近住户。"
+        },
+        {
+          "org": "皇冠高地租户联盟（Crown Heights Tenants Union）",
+          "desc": "皇冠高地租户联盟始于2013年10月。本住客针对的问题包括皇冠高地的高档化，原本居民被挤出社区，以及布鲁克林非法租金超收。"
+        },
+        {
+          "org": "东纽约都市青年联合会（East New York Urban Youth Corps）",
+          "desc": "本非营利组织基于街道，造福布鲁克林东纽约社区。"
+        },
+        {
+          "org": "El Barrio反击（El Barrio's Operation Fight Back）",
+          "desc": "本组织为东哈林区低收入家庭提供整治，管理经济适用房，配套服务，教育，宣传和经济发展机会。"
+        },
+        {
+          "org": "第五大道委员会 （Fifth Avenue Committee, Inc.）",
+          "desc": "帮助南布鲁克林租户，促进社区发展。"
+        },
+        {
+          "org": "弗拉特布什开发会 （Flatbush Development Corp.）",
+          "desc": "在布鲁克林的弗拉特布什地区发展社区和经济适用房。"
+        },
+        {
+          "org": "曼哈顿谷发展会 （Manhattan Valley Development Corporation）",
+          "desc": "为曼哈顿谷和曼哈顿上城提供安全，体面的住房。"
+        },
+        {
+          "org": "纽约邻里住房服务（Neighborhood Housing Services of NYC, Inc.）",
+          "desc": "本组织以社区为基础，在下面的邻里有针对性的影响：贝德福德史岱文森，东弗拉特布什，北布朗克斯，皇后区北部和南布朗克斯。"
+        },
+        {
+          "org": "西北布什克社区组 （North West Bushwick Community Group）",
+          "desc": "帮助布鲁克林布什克附近的住户打击非法驱逐，促进真正的经济适用住房的维护和发展。"
+        },
+        {
+          "org": "普拉特区社区委员会 （Pratt Area Community Council）",
+          "desc": "促进布鲁克林中区经济住房和小企业发展。"
+        },
+        {
+          "org": "圣尼古拉斯邻里保全组 （St. Nicholas Neighborhood Preservation Corporation）",
+          "desc": "保护和重建威廉斯堡，绿点附近中低收入居民的利益。"
+        },
+        {
+          "org": "大学邻里住房计划 （University Neighborhood Housing Program）",
+          "desc": "本非营利组织致力于创建，保存西北布朗克斯的经济住房。"
+        },
+        {
+          "org": "妇女住房和经济发展会 （Women’s Housing and Economic Development Corporation）",
+          "desc": "本组织帮助社区发展组织，建立经济住房，促进南布朗克斯社区的发展。"
+        }
+      ]
+    }
+  },
+  "gov": {
+    "h3": "政府资源",
+    "p": "这些政府链接来次纽约州和城市层面运作部门的网站，涉及住房和财产所有权。",
+    "ul": [
+      {
+        "org": "纽约州家园和社区重建 （New York Department of Homes and Community Renewal）",
+        "desc": "你可以在这里提出租金过度收取的申诉，并寻求与住房相关问题的建议。你也通过这个链接与当地的",
+        "a": "HCR办事处联系。"
+      },
+      {
+        "org": "纽约市自动登记信息系统 （NYC Automated City Register Information System）",
+        "desc": "你可以通过这个链接查找产权交易信息，比如当一个财产被收购以及被谁出售。"
+      },
+      {
+        "org": "纽约市建设部门 （NYC Department of Buildings）",
+        "desc": "你可以通过这个链接查找营建许可或违规行为。"
+      },
+      {
+        "org": "纽约市DRIE",
+        "desc": "有资格获得纽约市租金冻结计划的租户残疾人（ DRIE ）享有租金冻结，以及免取未来租金上涨的权利。你可以通过这个链接获取相关信息。"
+      },
+      {
+        "org": "纽约市房屋连接（NYC Housing Connect）",
+        "desc": "你可以通过这个链接获取纽约市新的经济适用房的通知。在纽约市，许多新建筑必须依法留出低于市场利率的公寓单位。如果你符合一定的收入标准，你将有资格租住这些单位。"
+      },
+      {
+        "org": "纽约市房屋保护与开发部门（NYC Housing Preservation and Development）",
+        "desc": "本市政机构负责监督保护现有住房存量的价格稳定性和经济性。",
+        "a": "你也可以通过此机构找到有违规行为的住房地址。"
+      },
+      {
+        "org": "纽约市租金指导委员会 （NYC Rent Guidelines Board）",
+        "desc": "本链接提供纽约租房的重要信息。"
+      },
+      {
+        "org": "纽约市SCRIE",
+        "desc": "有资格获得纽约市租金冻结计划的老年人（ SCRIE ）享有租金冻结，以及免取未来租金上涨的权利。你可以通过这个链接获取相关信息。"
+      }
+    ]
+  }
+}
