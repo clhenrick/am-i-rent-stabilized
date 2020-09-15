@@ -14,7 +14,7 @@ describe("NavMenuToggle", () => {
       "utf8"
     );
     const template = H.compile(hbsFile);
-    const html = template(localeData.languages.en);
+    const html = template(localeData.en);
     document.body.innerHTML = `<div id="wrapper">${html}</div>`;
 
     navMenuToggle = new NavMenuToggle({

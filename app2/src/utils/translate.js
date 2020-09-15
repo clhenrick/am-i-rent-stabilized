@@ -55,11 +55,11 @@ export function getCurrentPageName() {
 
 async function renderHtmlFromTemplate(lang, pageName) {
   try {
-    const [{ default: template }, { languages }] = await Promise.all([
+    const [{ default: template }, locales] = await Promise.all([
       getHtmlTemplate(pageName),
       getLocaleJson(pageName),
     ]);
-    renderHtml(lang, languages, template);
+    renderHtml(lang, locales, template);
   } catch (error) {
     console.error(error);
   }
