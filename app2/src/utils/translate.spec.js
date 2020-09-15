@@ -13,15 +13,18 @@ import {
 jest.spyOn(window.localStorage.__proto__, "setItem");
 jest.spyOn(window.localStorage.__proto__, "getItem");
 
-const indexLocale = require("../../public/locales/main-content.json");
-const whyLocale = require("../../public/locales/why-content.json");
-
 describe("renderHtml", () => {
-  let indexTemplate;
+  let mainTemplate;
   let whyTemplate;
 
+  let mainEnLocale;
+  let whyEsLocale;
+
   beforeAll(() => {
-    indexTemplate = H.compile(
+    mainEnLocale = require("../../public/locales_/main-en.json");
+    whyEsLocale = require("../../public/locales_/why-es.json");
+
+    mainTemplate = H.compile(
       fs.readFileSync(
         path.resolve(__dirname, "../hbs_templates/main.hbs"),
         "utf8"
@@ -38,11 +41,11 @@ describe("renderHtml", () => {
 
   test("it renders html from a locales json and hbs template", () => {
     document.body.innerHTML = '<div id="wrapper"></div>';
-    renderHtml("en", indexLocale, indexTemplate);
+    renderHtml(mainEnLocale, mainTemplate);
     expect(document.querySelector("#wrapper").innerHTML).toBeDefined();
 
     document.body.innerHTML = '<div id="wrapper"></div>';
-    renderHtml("es", whyLocale, whyTemplate);
+    renderHtml(whyEsLocale, whyTemplate);
     expect(document.querySelector("#wrapper").innerHTML).toBeDefined();
   });
 
@@ -72,7 +75,7 @@ describe("getLocaleJson", () => {
 
   beforeEach(() => {
     fetch.resetMocks();
-    data = { en: {}, es: {}, zh: {} };
+    data = {};
     expectedData = Object.assign({}, data);
   });
 
@@ -80,14 +83,14 @@ describe("getLocaleJson", () => {
     let result;
 
     fetch.mockResponseOnce(JSON.stringify(data));
-    result = await getLocaleJson("index");
+    result = await getLocaleJson("index", "en");
     expect(result).toMatchObject(expectedData);
-    expect(fetch).toHaveBeenCalledWith("./locales/main-content.json");
+    expect(fetch).toHaveBeenCalledWith("./locales_/main-en.json");
 
     fetch.mockResponseOnce(JSON.stringify(data));
-    result = await getLocaleJson("how");
+    result = await getLocaleJson("how", "es");
     expect(result).toMatchObject(expectedData);
-    expect(fetch).toHaveBeenCalledWith("../locales/how-content.json");
+    expect(fetch).toHaveBeenCalledWith("../locales_/how-es.json");
   });
 
   test("throws an error if the locale json cannot be found", async () => {
