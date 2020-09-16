@@ -1,23 +1,10 @@
-import fs from "fs";
-import path from "path";
-import H from "handlebars";
 import { NavMenuToggle } from "./navigation";
-import { LOCALES_JSON_DIR } from "../utils/constants";
-
-const localeData = require(`../../public/${LOCALES_JSON_DIR}/main-en.json`);
 
 describe("NavMenuToggle", () => {
   let navMenuToggle;
 
   beforeAll(async () => {
-    const hbsFile = fs.readFileSync(
-      path.resolve(__dirname, "../hbs_templates/main.hbs"),
-      "utf8"
-    );
-    const template = H.compile(hbsFile);
-    const html = template(localeData);
-    document.body.innerHTML = `<div id="wrapper">${html}</div>`;
-
+    setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
     navMenuToggle = new NavMenuToggle({
       element: document.querySelector("nav.main-nav"),
     });

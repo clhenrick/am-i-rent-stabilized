@@ -1,10 +1,5 @@
-import fs from "fs";
-import path from "path";
-import H from "handlebars";
 import { LanguageToggle } from "./languageToggle";
-import { LANGS, IN_LANG, LOCALES_JSON_DIR } from "../utils/constants";
-
-const localeData = require(`../../public/${LOCALES_JSON_DIR}/main-en.json`);
+import { LANGS, IN_LANG } from "../utils/constants";
 
 const translate = require("../utils/translate");
 jest.mock("../utils/translate", () => {
@@ -20,14 +15,7 @@ describe("LanguageToggle", () => {
   let languageToggle;
 
   beforeAll(async () => {
-    const hbsFile = fs.readFileSync(
-      path.resolve(__dirname, "../hbs_templates/main.hbs"),
-      "utf8"
-    );
-    const template = H.compile(hbsFile);
-    const html = template(localeData);
-    document.body.innerHTML = `<div id="wrapper">${html}</div>`;
-
+    setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
     languageToggle = new LanguageToggle({
       element: document.querySelector("div.desktop .lang-toggle"),
     });
