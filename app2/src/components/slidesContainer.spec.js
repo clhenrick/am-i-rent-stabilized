@@ -16,8 +16,10 @@ jest.mock("../store", () => {
   };
 });
 
-// element.scrollIntoView is not part of the jsdom library
 const mockScrollIntoView = (window.HTMLElement.prototype.scrollIntoView = jest.fn());
+const mockMatchMedia = (window.matchMedia = jest.fn(() => ({
+  matches: false,
+})));
 
 describe("SlidesContainer", () => {
   const selector = ".slides-container";
@@ -73,5 +75,12 @@ describe("SlidesContainer", () => {
     mockScrollIntoView.mockClear();
     slidesContainer.scrollToActiveSlide();
     expect(mockScrollIntoView).toHaveBeenCalledTimes(1);
+  });
+
+  test("sets smooth scroll behavior from prefers-reduced-motion media query", () => {
+    expect(mockMatchMedia).toHaveBeenCalledWith(
+      "(prefers-reduced-motion: reduce)"
+    );
+    expect(mockMatchMedia).toHaveReturnedWith({ matches: false });
   });
 });
