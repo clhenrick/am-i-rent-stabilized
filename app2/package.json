@@ -121,6 +121,7 @@
   "dependencies": {
     "core-js": "^3.6.4",
     "handlebars": "4.3.0",
+    "redux": "^4.0.5",
     "regenerator-runtime": "^0.13.5"
   }
 }
