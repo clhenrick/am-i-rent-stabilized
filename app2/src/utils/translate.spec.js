@@ -9,7 +9,7 @@ import {
   getHtmlTemplate,
   renderHtml,
 } from "./translate";
-import { LOCALES_JSON_DIR } from "./constants";
+import { LOCALES_JSON_DIR } from "../constants/locales";
 
 jest.spyOn(window.localStorage.__proto__, "setItem");
 jest.spyOn(window.localStorage.__proto__, "getItem");

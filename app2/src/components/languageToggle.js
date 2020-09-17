@@ -1,7 +1,7 @@
 import { Component } from "./_componentBase";
 import { LanguageToggleButton } from "./languageToggleButton";
 import { translatePage, getCurLang, setCurLang } from "../utils/translate";
-import { LANGS, IN_LANG, IN_LANG_TO_LANG } from "../utils/constants";
+import { LANGS, IN_LANG, IN_LANG_TO_LANG } from "../constants/locales";
 
 export class LanguageToggle extends Component {
   constructor(props) {

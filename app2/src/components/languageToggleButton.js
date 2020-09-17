@@ -1,4 +1,4 @@
-import { LANGS, IN_LANG } from "../utils/constants";
+import { LANGS, IN_LANG } from "../constants/locales";
 import { Component } from "./_componentBase";
 
 export class LanguageToggleButton extends Component {

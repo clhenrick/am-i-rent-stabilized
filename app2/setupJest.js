@@ -3,7 +3,7 @@ require('jest-fetch-mock').enableMocks();
 const fs = require("fs");
 const path = require("path");
 const Handlebars = require("Handlebars");
-const constants = require("./src/utils/constants");
+const { LOCALES_JSON_DIR } = require("./src/constants/locales");
 
 registerHbsPartials();
 
@@ -12,7 +12,7 @@ global.setDocumentHtml = (html) => {
 }
 
 global.getMainHtml = () => {
-  const localeData = require(`./public/${constants.LOCALES_JSON_DIR}/main-en.json`);
+  const localeData = require(`./public/${LOCALES_JSON_DIR}/main-en.json`);
   const hbsFile = fs.readFileSync(
     path.resolve(__dirname, "./src/hbs_templates/main.hbs"),
     "utf8"

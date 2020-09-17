@@ -1,5 +1,5 @@
 import { getPageJsBundle } from "./pageBundle";
-import { LANGS, LOCALES_JSON_DIR } from "./constants";
+import { LANGS, LOCALES_JSON_DIR } from "../constants/locales";
 
 // FIXME: alias these in webpack config
 const w = window;

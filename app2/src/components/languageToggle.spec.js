@@ -1,5 +1,5 @@
 import { LanguageToggle } from "./languageToggle";
-import { LANGS, IN_LANG } from "../utils/constants";
+import { LANGS, IN_LANG } from "../constants/locales";
 
 const translate = require("../utils/translate");
 jest.mock("../utils/translate", () => {
