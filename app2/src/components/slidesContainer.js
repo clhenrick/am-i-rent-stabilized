@@ -14,18 +14,17 @@ export class SlidesContainer extends Component {
 
     this.activeSlide = store.getState().slides.curIndex;
     this.handleSlidesUpdate();
+    store.subscribe(this.handleSlidesUpdate);
   }
 
   handleSlidesUpdate() {
-    store.subscribe(() => {
-      const { slides } = store.getState();
-      if (slides.curIndex !== this.activeSlideIdx) {
-        console.log("activeSlide: ", this.activeSlide);
-        console.log(`go to slide ${slides.curIndex}`);
-        this.activeSlide = slides.curIndex;
-        this.scrollToActiveSlide();
-      }
-    });
+    const { slides } = store.getState();
+    if (slides.curIndex !== this.activeSlideIdx) {
+      // console.log("activeSlide: ", this.activeSlide);
+      // console.log(`go to slide ${slides.curIndex}`);
+      this.activeSlide = slides.curIndex;
+      this.scrollToActiveSlide();
+    }
   }
 
   scrollToActiveSlide() {
