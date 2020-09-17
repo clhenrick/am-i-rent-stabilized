@@ -1,21 +1,21 @@
 import {
-  nextSlide,
-  prevSlide,
-  goToSlide,
+  goToNextSlide,
+  goToPrevSlide,
+  goToSlideIdx,
   canAdvanceSlide,
 } from "./slidesActions";
 
 describe("slidesActions", () => {
-  test("nextSlide", () => {
-    expect(nextSlide()).toEqual({ type: "NextSlide" });
+  test("goToNextSlide", () => {
+    expect(goToNextSlide()).toEqual({ type: "GoToNextSlide" });
   });
 
-  test("prevSlide", () => {
-    expect(prevSlide()).toEqual({ type: "PrevSlide" });
+  test("goToPrevSlide", () => {
+    expect(goToPrevSlide()).toEqual({ type: "GoToPrevSlide" });
   });
 
-  test("goToSlide", () => {
-    expect(goToSlide(5)).toEqual({ type: "GoToSlide", payload: 5 });
+  test("goToSlideIdx", () => {
+    expect(goToSlideIdx(5)).toEqual({ type: "GoToSlideIdx", payload: 5 });
   });
 
   test("canAdvanceSlide", () => {

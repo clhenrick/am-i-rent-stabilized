@@ -1,5 +1,5 @@
 // action types for slides reducer
-export const NextSlide = "NextSlide";
-export const PrevSlide = "PrevSlide";
-export const GoToSlide = "GoToSlide";
+export const GoToNextSlide = "GoToNextSlide";
+export const GoToPrevSlide = "GoToPrevSlide";
+export const GoToSlideIdx = "GoToSlideIdx";
 export const CanAdvanceSlide = "CanAdvanceSlide";

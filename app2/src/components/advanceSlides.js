@@ -1,6 +1,6 @@
 import { Component } from "./_componentBase";
 import { store } from "../store";
-import { nextSlide } from "../action_creators";
+import { goToNextSlide } from "../action_creators";
 
 export class AdvanceSlides extends Component {
   constructor(props) {
@@ -24,7 +24,7 @@ export class AdvanceSlides extends Component {
   handleClick() {
     const { slides } = store.getState();
     if (slides.canAdvance) {
-      store.dispatch(nextSlide());
+      store.dispatch(goToNextSlide());
     }
   }
 }

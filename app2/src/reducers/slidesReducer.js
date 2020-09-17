@@ -5,11 +5,11 @@ const initialState = {
 
 export function slides(state = initialState, action) {
   switch (action.type) {
-    case "NextSlide":
+    case "GoToNextSlide":
       return { ...state, curIndex: state.curIndex + 1 };
-    case "PrevSlide":
+    case "GoToPrevSlide":
       return { ...state, curIndex: state.curIndex - 1 };
-    case "GoToSlide":
+    case "GoToSlideIdx":
       return { ...state, curIndex: action.payload };
     case "CanAdvanceSlide":
       return { ...state, canAdvance: action.payload };

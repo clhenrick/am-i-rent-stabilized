@@ -9,10 +9,10 @@ describe("slidesReducer", () => {
     });
   });
 
-  test("Should handle NextSlide", () => {
+  test("Should handle GoToNextSlide", () => {
     expect(
       slides(undefined, {
-        type: types.NextSlide,
+        type: types.GoToNextSlide,
       })
     ).toEqual({
       curIndex: 1,
@@ -20,7 +20,7 @@ describe("slidesReducer", () => {
     });
   });
 
-  test("Should handle PrevSlide", () => {
+  test("Should handle GoToPrevSlide", () => {
     expect(
       slides(
         {
@@ -28,7 +28,7 @@ describe("slidesReducer", () => {
           canAdvance: true,
         },
         {
-          type: types.PrevSlide,
+          type: types.GoToPrevSlide,
         }
       )
     ).toEqual({
@@ -37,7 +37,7 @@ describe("slidesReducer", () => {
     });
   });
 
-  test("Should handle GoToSlide", () => {
+  test("Should handle GoToSlideIdx", () => {
     expect(
       slides(
         {
@@ -45,7 +45,7 @@ describe("slidesReducer", () => {
           canAdvance: true,
         },
         {
-          type: types.GoToSlide,
+          type: types.GoToSlideIdx,
           payload: 3,
         }
       )
