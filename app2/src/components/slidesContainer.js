@@ -8,12 +8,14 @@ export class SlidesContainer extends Component {
 
   init() {
     this.slides = [...this.element.querySelectorAll(".slide")];
+    this.prefersReducedMotion = false;
 
     this.handleSlidesUpdate = this.handleSlidesUpdate.bind(this);
     this.scrollToActiveSlide = this.scrollToActiveSlide.bind(this);
+    this.handleMotionQuery = this.handleMotionQuery.bind(this);
 
+    this.handleMotionQuery();
     this.activeSlide = store.getState().slides.curIndex;
-    this.handleSlidesUpdate();
     store.subscribe(this.handleSlidesUpdate);
   }
 
@@ -28,7 +30,16 @@ export class SlidesContainer extends Component {
   }
 
   scrollToActiveSlide() {
-    this.activeSlide.scrollIntoView({ behavior: "smooth" });
+    this.activeSlide.scrollIntoView({
+      behavior: this.prefersReducedMotion ? "auto" : "smooth",
+    });
+  }
+
+  handleMotionQuery() {
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (motionQuery.matches) {
+      this.prefersReducedMotion = true;
+    }
   }
 
   set activeSlide(value) {
