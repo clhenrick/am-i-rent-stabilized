@@ -1,6 +1,7 @@
 import { NavMenuToggle } from "../components/navigation";
 import { LanguageToggle } from "../components/languageToggle";
 import { AdvanceSlides } from "../components/advanceSlides";
+import { SlidesContainer } from "../components/slidesContainer";
 
 export default function initApp() {
   // nav menu hamburger icon
@@ -12,6 +13,10 @@ export default function initApp() {
   });
   new LanguageToggle({
     element: document.querySelector("div.mobile > div.lang-toggle"),
+  });
+
+  new SlidesContainer({
+    element: document.querySelector(".slides-container"),
   });
 
   // slide advance buttons
