@@ -13,7 +13,7 @@ export class AdvanceSlides extends Component {
     }
 
     if ("buttonSelector" in props && typeof props.buttonSelector === "string") {
-      this.button = this.element.querySelector(props.buttonSelector); // TODO: make this an actual button
+      this.button = this.element.querySelector(props.buttonSelector);
     } else {
       throw new Error("Requires a CSS selector for its button");
     }
