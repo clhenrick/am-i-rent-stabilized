@@ -4,27 +4,30 @@ import { AdvanceSlides } from "../components/advanceSlides";
 import { SlidesContainer } from "../components/slidesContainer";
 
 export default function initApp() {
-  // nav menu hamburger icon
+  // top nav menu's hamburger icon
   new NavMenuToggle({ element: document.querySelector("nav.main-nav") });
 
-  // language toggle desktop & mobile
+  // language toggle btns desktop
   new LanguageToggle({
     element: document.querySelector("div.desktop > div.lang-toggle"),
   });
+
+  // language toggle btns mobile
   new LanguageToggle({
     element: document.querySelector("div.mobile > div.lang-toggle"),
   });
 
+  // handles slide scrolling
   new SlidesContainer({
     element: document.querySelector(".slides-container"),
   });
 
-  // slide advance buttons
+  // "next" slide advance buttons
   document.querySelectorAll(".go-next.bottom-arrow").forEach((element) => {
     new AdvanceSlides({ element, buttonSelector: "h3" });
   });
 
-  // go to slide 4
+  // handles advancing to "when you receive your rent history"
   new AdvanceSlides({
     element: document.querySelector("p.go-step4"),
     buttonSelector: "a",
