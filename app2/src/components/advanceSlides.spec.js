@@ -25,6 +25,7 @@ describe("AdvanceSlides", () => {
     spyButton = jest.spyOn(AdvanceSlides.prototype, "handleClick");
     advanceSlides = new AdvanceSlides({
       element: document.querySelector(".go-next.bottom-arrow"),
+      buttonSelector: "h3",
     });
   });
 
@@ -47,7 +48,7 @@ describe("AdvanceSlides", () => {
 
   test("handleClick method fires the nextSlide action creator", () => {
     jest.clearAllMocks();
-    advanceSlides.handleClick();
+    advanceSlides.handleClick({ preventDefault: jest.fn() });
     expect(store.dispatch).toHaveBeenCalledWith({ type: "GoToNextSlide" });
   });
 
@@ -59,7 +60,7 @@ describe("AdvanceSlides", () => {
         canAdvance: false,
       },
     }));
-    advanceSlides.handleClick();
+    advanceSlides.handleClick({ preventDefault: jest.fn() });
     expect(store.dispatch).not.toHaveBeenCalled();
   });
 });
