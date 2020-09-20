@@ -19,12 +19,17 @@ jest.mock("../store", () => {
 describe("AdvanceSlides", () => {
   let advanceSlides;
   let spyButton;
+  let spyAdvanceToSlide;
+  let element;
+  const mockClickEvent = { preventDefault: jest.fn() };
 
   beforeAll(() => {
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
+    element = document.querySelector(".go-next.bottom-arrow");
     spyButton = jest.spyOn(AdvanceSlides.prototype, "handleClick");
+    spyAdvanceToSlide = jest.spyOn(AdvanceSlides.prototype, "advanceToSlide");
     advanceSlides = new AdvanceSlides({
-      element: document.querySelector(".go-next.bottom-arrow"),
+      element,
       buttonSelector: "h3",
     });
   });
@@ -41,18 +46,32 @@ describe("AdvanceSlides", () => {
     expect(advanceSlides).toBeTruthy();
   });
 
+  test("Accepts required prop for button selector", () => {
+    expect(advanceSlides.button).toBeInstanceOf(HTMLElement);
+  });
+
+  test("Throws an error if missing prop for button selector", () => {
+    const errorMsg = "Requires a CSS selector for its button";
+    try {
+      new AdvanceSlides({ element });
+    } catch (error) {
+      expect(error).toBeInstanceOf(Error);
+      expect(error.message).toBe(errorMsg);
+    }
+  });
+
   test("The component's button handles a click event", () => {
     document.querySelector(".go-next.bottom-arrow > h3").click();
     expect(spyButton).toHaveBeenCalled();
   });
 
-  test("handleClick method fires the nextSlide action creator", () => {
+  test("handleClick calls advanceToSlide if state.slides.canAdvance is true", () => {
     jest.clearAllMocks();
-    advanceSlides.handleClick({ preventDefault: jest.fn() });
-    expect(store.dispatch).toHaveBeenCalledWith({ type: "GoToNextSlide" });
+    advanceSlides.handleClick(mockClickEvent);
+    expect(spyAdvanceToSlide).toHaveBeenCalledTimes(1);
   });
 
-  test("handleClick method does not fire the nextSlide action creator", () => {
+  test("handleClick does not call advanceToSlide if state.slides.canAdvance is false", () => {
     jest.clearAllMocks();
     store.getState.mockImplementationOnce(() => ({
       slides: {
@@ -60,7 +79,23 @@ describe("AdvanceSlides", () => {
         canAdvance: false,
       },
     }));
-    advanceSlides.handleClick({ preventDefault: jest.fn() });
-    expect(store.dispatch).not.toHaveBeenCalled();
+    advanceSlides.handleClick(mockClickEvent);
+    expect(spyAdvanceToSlide).not.toHaveBeenCalled();
+  });
+
+  test("advanceToSlide dispatches a GoToNextSlide action when advanceToIdx is undefined", () => {
+    jest.clearAllMocks();
+    advanceSlides.handleClick(mockClickEvent);
+    expect(store.dispatch).toHaveBeenCalledWith({ type: "GoToNextSlide" });
+  });
+
+  test("advanceToSlide dispatches a GoToSlideIdx action when advanceToIdx is defined", () => {
+    jest.clearAllMocks();
+    advanceSlides.advanceToIdx = 5;
+    advanceSlides.handleClick(mockClickEvent);
+    expect(store.dispatch).toHaveBeenCalledWith({
+      type: "GoToSlideIdx",
+      payload: 5,
+    });
   });
 });
