@@ -21,6 +21,13 @@ export default function initApp() {
 
   // slide advance buttons
   document.querySelectorAll(".go-next.bottom-arrow").forEach((element) => {
-    new AdvanceSlides({ element });
+    new AdvanceSlides({ element, buttonSelector: "h3" });
+  });
+
+  // go to slide 4
+  new AdvanceSlides({
+    element: document.querySelector("p.go-step4"),
+    buttonSelector: "a",
+    advanceToIdx: 6,
   });
 }
