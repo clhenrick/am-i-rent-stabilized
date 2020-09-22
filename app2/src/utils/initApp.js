@@ -2,6 +2,7 @@ import { NavMenuToggle } from "../components/navigation";
 import { LanguageToggle } from "../components/languageToggle";
 import { AdvanceSlides } from "../components/advanceSlides";
 import { SlidesContainer } from "../components/slidesContainer";
+import { KeyboardNavigation } from "../components/keyboardNavigation";
 
 export default function initApp() {
   // top nav menu's hamburger icon
@@ -32,5 +33,9 @@ export default function initApp() {
     element: document.querySelector("p.go-step4"),
     buttonSelector: "a",
     advanceToIdx: 6,
+  });
+
+  new KeyboardNavigation({
+    element: document.body,
   });
 }
