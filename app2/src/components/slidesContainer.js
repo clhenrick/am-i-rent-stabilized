@@ -11,39 +11,12 @@ export class SlidesContainer extends Component {
     this.prefersReducedMotion = false;
     this.activeSlide = store.getState().slides.curIndex;
 
-    this.bindEvents = this.bindEvents.bind(this);
-    this.removeEvents = this.removeEvents.bind(this);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
     this.handleSlidesUpdate = this.handleSlidesUpdate.bind(this);
     this.scrollToActiveSlide = this.scrollToActiveSlide.bind(this);
     this.handleMotionQuery = this.handleMotionQuery.bind(this);
 
-    this.bindEvents();
     this.handleMotionQuery();
-
     store.subscribe(this.handleSlidesUpdate);
-  }
-
-  bindEvents() {
-    document.addEventListener("keydown", this.handleKeyDown);
-  }
-
-  removeEvents() {
-    document.removeEventListener("keydown", this.handleKeyDown);
-  }
-
-  handleKeyDown(event) {
-    event.preventDefault();
-    switch (event.code) {
-      case "ArrowDown":
-        // dispatch go next slide
-        break;
-      case "ArrowUp":
-        // dispatch go prev slide
-        break;
-      default:
-        break;
-    }
   }
 
   handleSlidesUpdate() {
