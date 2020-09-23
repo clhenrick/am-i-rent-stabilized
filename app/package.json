@@ -13,6 +13,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode=development --env.NODE_ENV=development",
     "start:prod": "serve dist",
+    "webpack:debug": "webpack --debug=true --display-error-details=true --progress=true --mode=development --env.NODE_ENV=development",
     "prod": "webpack --mode=production --env.NODE_ENV=production",
     "deploy": "npm run build && gh-pages -d dist -r 'https://github.com/antievictionmappingproject/covid-19-map.git'",
     "templates": "handlebars src/templates/*.hbs -f public/templates.js",
