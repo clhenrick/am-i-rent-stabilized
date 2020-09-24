@@ -5,6 +5,13 @@ import { SlidesContainer } from "../components/slidesContainer";
 import { KeyboardNavigation } from "../components/keyboardNavigation";
 
 export default function initApp() {
+  if (process.env.NODE_ENV !== "production") {
+    // enables slides keyboard navigation for debugging
+    new KeyboardNavigation({
+      element: document.body,
+    });
+  }
+
   // top nav menu's hamburger icon
   new NavMenuToggle({ element: document.querySelector("nav.main-nav") });
 
@@ -33,9 +40,5 @@ export default function initApp() {
     element: document.querySelector("p.go-step4"),
     buttonSelector: "a",
     advanceToIdx: 6,
-  });
-
-  new KeyboardNavigation({
-    element: document.body,
   });
 }
