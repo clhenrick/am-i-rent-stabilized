@@ -3,6 +3,7 @@ import { LanguageToggle } from "../components/languageToggle";
 import { AdvanceSlides } from "../components/advanceSlides";
 import { SlidesContainer } from "../components/slidesContainer";
 import { KeyboardNavigation } from "../components/keyboardNavigation";
+import { AddressSearchForm } from "../components/addressSearchForm";
 
 export default function initApp() {
   if (process.env.NODE_ENV !== "production") {
@@ -40,5 +41,10 @@ export default function initApp() {
     element: document.querySelector("p.go-step4"),
     buttonSelector: "a",
     advanceToIdx: 6,
+  });
+
+  // address search form & geocoding of address input
+  new AddressSearchForm({
+    element: document.querySelector("#address-form"),
   });
 }
