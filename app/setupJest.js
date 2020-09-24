@@ -38,4 +38,8 @@ function registerHbsPartials() {
     path.resolve(__dirname, "./src/hbs_partials/language_toggle.hbs"),
     "utf8"
   ));
+
+  Handlebars.registerPartial("address_search_form", fs.readFileSync(
+    path.resolve(__dirname, "./src/hbs_partials/address_search_form.hbs")
+  ));
 }
