@@ -1,15 +1,26 @@
 import { KeyboardNavigation } from "./keyboardNavigation";
-// import { store } from "../store";
+import { store } from "../store";
 
-jest.mock("../store");
+jest.mock("../store", () => {
+  return {
+    __esModule: true,
+    store: {
+      getState: jest.fn(() => ({
+        slides: {
+          curIndex: 0,
+          canAdvance: true,
+        },
+      })),
+      dispatch: jest.fn(),
+    },
+  };
+});
 
 describe("KeyboardNavigation", () => {
   let keyboardNavigation;
-  let store;
   let mockCurSlideIndex;
 
   beforeAll(() => {
-    store = require("../store");
     mockCurSlideIndex = jest.spyOn(
       KeyboardNavigation.prototype,
       "curSlideIndex"
