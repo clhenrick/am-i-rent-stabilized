@@ -1,0 +1,21 @@
+{{! Address search on slide 2 }}
+<form id="address-form">
+  <div class="user-data street-address">
+      <input class="address-input" name="address-input" type="text" placeholder="{{{slide02.form.address}}}" tabindex="1">
+  </div>
+  <div class="user-data borough-select">
+      <span id="select-boro"> {{{slide02.form.boro_select}}} </span>
+      <ul class="drop-down" id="boroughs">
+        <li><a data-boro="BX" href="#"> {{ slide02.form.boroughs.bx }} </a></li>
+        <li><a data-boro="BK" href="#"> {{ slide02.form.boroughs.bk }} </a></li>
+        <li><a data-boro="MN" href="#"> {{ slide02.form.boroughs.mn }} </a></li>
+        <li><a data-boro="QN" href="#"> {{ slide02.form.boroughs.qn }}  </a></li>
+        <li><a data-boro="SI" href="#"> {{ slide02.form.boroughs.si }}  </a></li>
+      </ul>
+  </div>
+  <ul class="validation-error">
+    <li id="error-not-found"  class="val-err vis-hidden">{{{ slide02.form.val_errors.not_found }}}</li>
+    <li id="error-address" class="val-err vis-hidden"> {{{slide02.form.val_errors.address}}} </li>
+    <li id="error-boro" class="val-err vis-hidden"> {{slide02.form.val_errors.boro}} </li>
+  </ul>
+</form>
