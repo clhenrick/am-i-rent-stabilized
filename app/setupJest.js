@@ -40,6 +40,7 @@ function registerHbsPartials() {
   ));
 
   Handlebars.registerPartial("address_search_form", fs.readFileSync(
-    path.resolve(__dirname, "./src/hbs_partials/address_search_form.hbs")
+    path.resolve(__dirname, "./src/hbs_partials/address_search_form.hbs"),
+    "utf8"
   ));
 }
