@@ -9,9 +9,7 @@ export class AddressSearchForm extends Component {
 
   init() {
     this.inputAddress = this.element.querySelector("input.address-input");
-    this.selectBorough = this.element.querySelector(
-      "div.user-data.borough-select"
-    );
+    this.datalist = this.element.querySelector("datalist#autocomplete-results");
 
     this.addressSearchText = "";
 
@@ -53,7 +51,7 @@ export class AddressSearchForm extends Component {
     const {
       addressGeocode: { result, status, error },
     } = store.getState();
-    if (result) {
+    if (result && result.features && result.features.length) {
       this.handleGeocodeResponse(result, status);
     }
     if (error) {
@@ -61,9 +59,15 @@ export class AddressSearchForm extends Component {
     }
   }
 
-  handleGeocodeResponse(data, status) {
-    // TODO handle updating form input with autocomplete results
-    console.log(data, status);
+  handleGeocodeResponse(data) {
+    this.datalist.innerHTML = "";
+    data.features.forEach(({ properties }) => {
+      const option = document.createElement("option");
+      option.value = properties.label || "";
+      option.dataset.bbl = properties.pad_bbl || "";
+      option.dataset.id = properties.id;
+      this.datalist.append(option);
+    });
   }
 
   handleGeocodeError(error) {
