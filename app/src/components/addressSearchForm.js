@@ -26,17 +26,20 @@ export class AddressSearchForm extends Component {
   }
 
   bindEvents() {
-    this.element.addEventListener("submit", this.preventDefault);
+    this.element.addEventListener("submit", this.handleSubmit);
     this.inputAddress.addEventListener("input", this.handleInputChange);
   }
 
   removeEvents() {
-    this.element.removeEventListener("submit", this.preventDefault);
+    this.element.removeEventListener("submit", this.handleSubmit);
     this.inputAddress.removeEventListener("input", this.handleInputChange);
   }
 
   handleSubmit(event) {
     event.preventDefault();
+    // TODO: validate form input
+    // TODO: handle BBL look up
+    console.log("form submit!");
   }
 
   handleInputChange(event) {
@@ -65,7 +68,6 @@ export class AddressSearchForm extends Component {
       const option = document.createElement("option");
       option.value = properties.label || "";
       option.dataset.bbl = properties.pad_bbl || "";
-      option.dataset.id = properties.id;
       this.datalist.append(option);
     });
   }
