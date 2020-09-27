@@ -5,16 +5,17 @@
         class="address-input"
         name="address-input"
         type="text"
-        list="autocomplete-results"
+        list="autosuggest-results"
         placeholder="{{{slide02.form.address}}}"
         autocomplete="off"
+        minlength="10"
+        required
       >
-      <datalist id="autocomplete-results"></datalist>
+      <datalist id="autosuggest-results"></datalist>
   </div>
   <ul class="validation-error">
     <li id="error-not-found"  class="val-err vis-hidden">{{{ slide02.form.val_errors.not_found }}}</li>
     <li id="error-address" class="val-err vis-hidden"> {{{slide02.form.val_errors.address}}} </li>
-    <li id="error-boro" class="val-err vis-hidden"> {{slide02.form.val_errors.boro}} </li>
   </ul>
   <button class="button submit" type="submit">{{ slide02.search }}</button>
 </form>
