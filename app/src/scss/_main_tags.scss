@@ -1,3 +1,7 @@
+*:focus {
+  outline-color: $blue;
+}
+
 html {
   margin: 0;
   padding: 0;
@@ -17,6 +21,7 @@ body {
     weight: 400;
     size: 62.5%;
   }
+
   letter-spacing: 0.0625em;
   background-color: $white;
 
@@ -34,8 +39,8 @@ body {
 }
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -72,7 +77,7 @@ h1 {
   margin-top: 75px;
 
   &.landing {
-    margin-top: 0px;
+    margin-top: 0;
     letter-spacing: 0.05em;
     font-style: italic;
   }
@@ -99,8 +104,9 @@ h1 {
     font-size: 3.8em;
 
     &.landing {
-      margin-top: 0px;
+      margin-top: 0;
       width: 65%;
+
       &.es {
         font-size: 3.2em;
       }
@@ -138,6 +144,7 @@ h1 {
         width: 65%;
       }
     }
+
     &.news {
       margin-top: 7%;
     }
@@ -237,7 +244,7 @@ h4 {
   }
 }
 
-/* Paragraphs*/
+/* Paragraphs */
 p {
   width: 80%;
   margin: 0 auto;
@@ -289,6 +296,7 @@ p {
 
     &.go-step4 {
       width: 20%;
+
       &.es {
         width: 30%;
       }
@@ -425,9 +433,11 @@ img {
   &.mascot {
     width: 260px;
     margin-top: 20px;
+
     &.monster {
       left: 11px;
     }
+
     &.intro {
       width: 130px;
     }
