@@ -1,22 +1,8 @@
 .button {
   @include button;
-  font-size: 2em;
-
-  &:hover {
-    background-color: $orange;
-  }
 
   a {
     color: $white;
-  }
-
-  &.search {
-    position: absolute;
-    display: block;
-    width: 150px;
-    left: 50%;
-    bottom: 5%;
-    margin-left: -75px;
   }
 
   &.start-over {
@@ -50,11 +36,6 @@
 
     &.start-over {
       min-width: 200px;
-      // width: 200px;
-    }
-
-    &.learn-more {
-      // width: 200px;
     }
 
     &.rent-logic {
@@ -79,7 +60,6 @@
   }
 
   @include responsive(small-screens) {
-    // margin: 0 auto;
     width: 110px;
     font-size: 1.3em;
     padding: 8px 12px;
@@ -87,7 +67,6 @@
     &.search {
       width: 110px;
       margin-left: -55px;
-      // width: 110px;
     }
 
     &.start-over {

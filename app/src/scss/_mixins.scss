@@ -4,11 +4,9 @@
   -webkit-columns: $width $number;
   -moz-columns: $width $number;
   columns: $width $number;
-
   -webkit-column-gap: $gap;
   -moz-column-gap: $gap;
   column-gap: $gap;
-
   -webkit-column-rule: 1px solid $lightgray;
   -moz-column-rule: 1px solid $lightgray;
   column-rule: 1px solid $lightgray;
@@ -28,12 +26,22 @@
   position: relative;
   width: 170px;
   margin: 0 auto;
-  font-size: 3em;
+  font-size: 2em;
   text-align: center;
   text-transform: uppercase;
   background-color: $darkorange;
   padding: 10px 20px;
   border-radius: 35px;
+
+  &:hover {
+    background-color: $orange;
+  }
+
+  &:focus {
+    outline: none;
+    border: none;
+    box-shadow: 0 0 3px 2px $blue;
+  }
 }
 
 // background size for images
@@ -57,6 +65,7 @@
     from {
       background-position: $from;
     }
+
     to {
       background-position: $to;
     }
@@ -66,6 +75,7 @@
     from {
       background-position: $from;
     }
+
     to {
       background-position: $to;
     }
@@ -75,6 +85,7 @@
     from {
       background-position: $from;
     }
+
     to {
       background-position: $to;
     }
@@ -84,6 +95,7 @@
     from {
       background-position: $from;
     }
+
     to {
       background-position: $to;
     }
@@ -93,6 +105,7 @@
     from {
       background-position: $from;
     }
+
     to {
       background-position: $to;
     }
