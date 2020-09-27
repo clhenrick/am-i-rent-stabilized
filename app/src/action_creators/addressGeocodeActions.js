@@ -1,4 +1,4 @@
-import fetch from "cross-fetch";
+import "cross-fetch/polyfill";
 
 import {
   AddressGeocodeRequest,
@@ -21,7 +21,7 @@ export const addressGeocodeFailure = (error) => ({
 });
 
 export const addressGeocodeFetch = (text) => (dispatch) => {
-  dispatch(addressGeocodeRequest);
+  dispatch(addressGeocodeRequest());
   return fetch(
     `https://geosearch.planninglabs.nyc/v1/autocomplete?text=${text}`
   )
