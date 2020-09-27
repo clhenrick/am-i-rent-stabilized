@@ -1,3 +1,4 @@
+import "cross-fetch/polyfill";
 import { getPageJsBundle } from "./pageBundle";
 import { LANGS, LOCALES_JSON_DIR } from "../constants/locales";
 
