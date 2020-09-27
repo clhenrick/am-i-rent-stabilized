@@ -1,26 +1,15 @@
-/* User address entry form */
-
+// AddressSearchForm styles
 #address-form {
   position: relative;
-  margin-top: 10px;
+  margin-top: 24px;
   width: 100%;
   font-size: 2.5em;
 
-  div.user-data {
-    position: relative;
-    display: inline-block;
-    max-width: 500px;
-    margin-top: 10px;
-    color: $medgray;
-  }
-
-  .street-address {
-    margin-left: 75px;
-  }
-
   input.address-input {
-    width: 370px;
+    width: 400px;
     height: 50px;
+    display: block;
+    margin: 0 auto;
     border: none;
     background: {
       image: url("../../public/assets/png/address-enter-line.png");
@@ -28,87 +17,8 @@
       position: center bottom;
     }
 
-    padding-left: 10px;
-    font-weight: 300;
-    color: $medgray;
-
     &.es {
       font-size: 0.75em;
-    }
-  }
-
-  .borough-select.active {
-    ul.drop-down {
-      opacity: 1;
-      pointer-events: auto;
-      margin-top: 0;
-      padding-left: 0;
-    }
-  }
-
-  .borough-select {
-    z-index: 100;
-    position: relative;
-    width: 340px;
-    padding: 10px;
-    margin-left: 125px;
-    cursor: pointer;
-    border: 3px solid $medgray;
-
-    span {
-      font-weight: 300;
-    }
-
-    /* triangle */
-    &::after {
-      content: "";
-      width: 35px;
-      height: 20px;
-      position: absolute;
-      right: 20px;
-      top: 45%;
-      margin-top: -1px;
-      background-image: url("../../public/assets/png/drop-down-triangle.png");
-      background-repeat: no-repeat;
-      background-position: center center;
-      // background-size: contain;
-    }
-
-    ul.drop-down {
-      position: absolute;
-      width: 340px;
-      top: 100%;
-      left: -3px;
-      right: 0;
-      opacity: 0;
-      background: $white;
-      border: 3px solid $medgray;
-      border-top: none;
-      pointer-events: none;
-    }
-
-    li {
-      list-style: none;
-      padding-left: 0;
-      display: block;
-    }
-
-    li a {
-      text-decoration: none;
-      font-weight: 300;
-      font-size: 0.9em;
-      color: $medgray;
-      padding: 3px 8px;
-      display: block;
-
-      span.value {
-        display: none;
-      }
-    }
-
-    li a:hover {
-      background: $gray;
-      color: $white;
     }
   }
 
@@ -119,7 +29,6 @@
 
     input {
       &.address-input {
-        width: 400px;
         height: 60px;
 
         &.es {
@@ -131,17 +40,8 @@
     div.user-data {
       font-size: 0.9em;
       height: 60px;
-      width: 400px;
       margin: 0 auto;
       display: block;
-      // top: -75px;
-
-      &.borough-select {
-        width: 340px;
-        // left: -32px;
-        margin: 0 auto;
-        margin-top: 20px;
-      }
     }
   }
 
@@ -150,7 +50,6 @@
 
     input {
       &.address-input {
-        width: 400px;
         height: 60px;
       }
     }
@@ -158,15 +57,9 @@
     div.user-data {
       font-size: 0.9em;
       height: 60px;
-      width: 400px;
       margin: 0 auto;
       display: block;
       top: 0;
-
-      &.borough-select {
-        margin: 0 auto;
-        margin-top: 20px;
-      }
     }
   }
 
@@ -186,25 +79,6 @@
       width: 240px;
       top: 0;
       font-size: 0.6em;
-
-      &.borough-select {
-        width: 210px;
-        height: 45px;
-        margin-top: 5px;
-        left: 0;
-
-        ul.drop-down {
-          width: 210px;
-        }
-
-        &::after {
-          width: 17px;
-          height: 10px;
-          right: 5px;
-          top: 20px;
-          background-image: url("../../public/assets/png/drop-down-triangle-sm.png");
-        }
-      }
     }
   }
 } // end address form
@@ -219,7 +93,6 @@ ul.validation-error {
     position: relative;
     padding: 10px;
     margin-top: 10px;
-    // border: 3px solid $white;
     color: $white;
     font-size: 0.7em;
     font-weight: 300;
@@ -270,8 +143,6 @@ ul.validation-error {
 
     #error-not-found {
       margin: 0 auto;
-      // margin-top: -25px;
-      // top: 135px;
       font-size: 0.7em;
 
       &.es {
