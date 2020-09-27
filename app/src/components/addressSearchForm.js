@@ -17,11 +17,11 @@ export class AddressSearchForm extends Component {
     this.removeEvents = this.removeEvents.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleStoreSubscribtion = this.handleStoreSubscribtion.bind(this);
+    this.handleStoreSubscription = this.handleStoreSubscription.bind(this);
     this.handleGeocodeResponse = this.handleGeocodeResponse.bind(this);
     this.handleGeocodeError = this.handleGeocodeError.bind(this);
 
-    store.subscribe(this.handleStoreSubscribtion);
+    store.subscribe(this.handleStoreSubscription);
     this.bindEvents();
   }
 
@@ -50,7 +50,7 @@ export class AddressSearchForm extends Component {
     }
   }
 
-  handleStoreSubscribtion() {
+  handleStoreSubscription() {
     const {
       addressGeocode: { result, status, error },
     } = store.getState();
