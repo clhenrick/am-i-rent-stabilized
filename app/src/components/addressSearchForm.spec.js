@@ -1,5 +1,8 @@
 import { AddressSearchForm } from "./AddressSearchForm";
 import { store } from "../store";
+import throttle from "lodash.throttle";
+
+jest.mock("lodash.throttle");
 
 jest.mock("../store", () => {
   return {
@@ -37,6 +40,11 @@ describe("AddressSearchForm", () => {
     AddressSearchForm.prototype,
     "handleGeocodeError"
   );
+
+  throttle.mockImplementation((cb) => {
+    cb.cancel = jest.fn();
+    return cb;
+  });
 
   beforeAll(() => {
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
