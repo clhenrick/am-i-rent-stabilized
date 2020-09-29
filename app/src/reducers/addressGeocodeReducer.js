@@ -1,29 +1,34 @@
-import {
-  AddressGeocodeRequest,
-  AddressGeocodeSuccess,
-  AddressGeocodeFailure,
-} from "../constants/actionTypes";
+import * as types from "../constants/actionTypes";
 
 export const initialState = {
   status: "idle",
-  result: null,
   error: null,
+  autosuggestions: null,
+  searchResult: null,
 };
 
 export function addressGeocode(state = initialState, action) {
   switch (action.type) {
-    case AddressGeocodeRequest:
+    case types.AddressSearchRequest:
+    case types.AddressAutosuggestRequest:
       return {
         ...state,
         status: "fetching",
       };
-    case AddressGeocodeSuccess:
+    case types.AddressSearchSuccess:
       return {
         ...state,
         status: "idle",
-        result: action.payload,
+        searchResult: action.payload,
       };
-    case AddressGeocodeFailure:
+    case types.AddressAutosuggestSuccess:
+      return {
+        ...state,
+        status: "idle",
+        autosuggestions: action.payload,
+      };
+    case types.AddressSearchFailure:
+    case types.AddressAutosuggestFailure:
       return {
         ...state,
         status: "failure",
