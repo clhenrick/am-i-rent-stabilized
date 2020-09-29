@@ -86,7 +86,7 @@ describe("AddressSearchForm", () => {
     jest.clearAllMocks();
     store.getState.mockImplementationOnce(() => ({
       addressGeocode: {
-        result: { features: [{}] },
+        autosuggestions: { features: [{}] },
         status: "idle",
         error: null,
       },

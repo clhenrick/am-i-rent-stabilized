@@ -1,6 +1,6 @@
 import throttle from "lodash.throttle";
 import { Component } from "./_componentBase";
-import { addressGeocodeFetch } from "../action_creators";
+import { addressAutosuggestFetch } from "../action_creators";
 import { store } from "../store";
 
 const INPUT_THROTTLE_MS = 350;
@@ -54,17 +54,22 @@ export class AddressSearchForm extends Component {
     this.addressSearchText = event.target.value;
     // TODO: throttle text input as to not overwhelm the geocoding API
     if (this.addressSearchText.length > MIN_SEARCH_TEXT_LENGTH) {
-      store.dispatch(addressGeocodeFetch(this.addressSearchText));
+      store.dispatch(addressAutosuggestFetch(this.addressSearchText));
     }
   }
 
   handleStoreSubscription() {
     const {
-      addressGeocode: { result, status, error },
+      addressGeocode: { autosuggestions, status, error },
     } = store.getState();
-    if (result && result.features && result.features.length) {
-      this.handleGeocodeResponse(result, status);
+    if (
+      autosuggestions &&
+      autosuggestions.features &&
+      autosuggestions.features.length
+    ) {
+      this.handleGeocodeResponse(autosuggestions, status);
     }
+    // TODO: handle autosuggestions.errors array
     if (error) {
       this.handleGeocodeError(error);
     }
