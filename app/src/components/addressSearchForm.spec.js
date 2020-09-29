@@ -32,13 +32,13 @@ describe("AddressSearchForm", () => {
     AddressSearchForm.prototype,
     "handleInputChange"
   );
-  let spyHandleGeocodeResponse = jest.spyOn(
+  let spyUpdateDataListItems = jest.spyOn(
     AddressSearchForm.prototype,
-    "handleGeocodeResponse"
+    "updateDataListItems"
   );
-  let spyHandleGeocodeError = jest.spyOn(
+  let spyHandleFetchError = jest.spyOn(
     AddressSearchForm.prototype,
-    "handleGeocodeError"
+    "handleFetchError"
   );
 
   throttle.mockImplementation((cb) => {
@@ -82,61 +82,60 @@ describe("AddressSearchForm", () => {
     expect(store.getState).toHaveBeenCalled();
   });
 
-  test("handleStoreSubscription appropriately calls handleGeocodeResponse", () => {
+  test("handleStoreSubscription appropriately calls updateDataListItems", () => {
     jest.clearAllMocks();
-    store.getState.mockImplementationOnce(() => ({
+    store.getState.mockImplementation(() => ({
       addressGeocode: {
         autosuggestions: { features: [{}] },
         status: "idle",
         error: null,
       },
     }));
-    addressSearchForm.handleGeocodeResponse = jest.fn();
+    addressSearchForm.updateDataListItems = jest.fn();
     addressSearchForm.handleStoreSubscription();
-    expect(addressSearchForm.handleGeocodeResponse).toHaveBeenCalledWith(
-      { features: [{}] },
-      "idle"
-    );
+    expect(addressSearchForm.updateDataListItems).toHaveBeenCalled();
   });
 
-  test("handleStoreSubscription appropriately calls handleGeocodeError", () => {
+  test("handleStoreSubscription appropriately calls handleFetchError", () => {
     jest.clearAllMocks();
-    store.getState.mockImplementationOnce(() => ({
+    store.getState.mockImplementation(() => ({
       addressGeocode: {
         result: null,
         status: "idle",
-        error: new Error(),
+        error: new Error("Something went wrong"),
       },
     }));
-    addressSearchForm.handleGeocodeError = jest.fn();
+    addressSearchForm.handleFetchError = jest.fn();
     addressSearchForm.handleStoreSubscription();
-    expect(addressSearchForm.handleGeocodeError).toHaveBeenCalledWith(
-      new Error()
-    );
+    expect(addressSearchForm.handleFetchError).toHaveBeenCalled();
   });
 
-  test("handleGeocodeResponse", () => {
+  test("updateDataListItems", () => {
     jest.clearAllMocks();
     addressSearchForm = new AddressSearchForm({
       element: document.querySelector("#address-form"),
     });
-    const mockData = {
-      features: [
-        {
-          properties: {
-            label: "111 Fake St, Brooklyn, NY",
-            pad_bbl: 999,
-          },
+    store.getState.mockImplementation(() => ({
+      addressGeocode: {
+        autosuggestions: {
+          features: [
+            {
+              properties: {
+                label: "111 Fake St, Brooklyn, NY",
+                pad_bbl: 999,
+              },
+            },
+            {
+              properties: {
+                label: "666 Devil Ave, Staten Island, NY",
+                pad_bbl: 666,
+              },
+            },
+          ],
         },
-        {
-          properties: {
-            label: "666 Devil Ave, Staten Island, NY",
-            pad_bbl: 666,
-          },
-        },
-      ],
-    };
-    addressSearchForm.handleGeocodeResponse(mockData);
+      },
+    }));
+    addressSearchForm.updateDataListItems();
     expect(addressSearchForm.datalist.children).toBeInstanceOf(HTMLCollection);
     expect(addressSearchForm.datalist.children).toHaveLength(2);
     expect(addressSearchForm.datalist.children[0].value).toBe(

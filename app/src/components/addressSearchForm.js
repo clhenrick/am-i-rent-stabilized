@@ -1,6 +1,9 @@
 import throttle from "lodash.throttle";
 import { Component } from "./_componentBase";
-import { addressAutosuggestFetch } from "../action_creators";
+import {
+  addressAutosuggestFetch,
+  addressSearchFetch,
+} from "../action_creators";
 import { store } from "../store";
 
 const INPUT_THROTTLE_MS = 350;
@@ -25,8 +28,8 @@ export class AddressSearchForm extends Component {
     );
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleStoreSubscription = this.handleStoreSubscription.bind(this);
-    this.handleGeocodeResponse = this.handleGeocodeResponse.bind(this);
-    this.handleGeocodeError = this.handleGeocodeError.bind(this);
+    this.updateDataListItems = this.updateDataListItems.bind(this);
+    this.handleFetchError = this.handleFetchError.bind(this);
 
     store.subscribe(this.handleStoreSubscription);
     this.bindEvents();
@@ -44,40 +47,36 @@ export class AddressSearchForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    // TODO: validate form input
-    // TODO: handle BBL look up
     this.handleInputChange.cancel();
-    console.log("form submit! ", event);
+    const searchText = this.inputAddress.value;
+    if (searchText.length) {
+      store.dispatch(addressSearchFetch(searchText));
+    }
   }
 
   handleInputChange(event) {
     this.addressSearchText = event.target.value;
-    // TODO: throttle text input as to not overwhelm the geocoding API
     if (this.addressSearchText.length > MIN_SEARCH_TEXT_LENGTH) {
       store.dispatch(addressAutosuggestFetch(this.addressSearchText));
     }
   }
 
   handleStoreSubscription() {
-    const {
-      addressGeocode: { autosuggestions, status, error },
-    } = store.getState();
-    if (
-      autosuggestions &&
-      autosuggestions.features &&
-      autosuggestions.features.length
-    ) {
-      this.handleGeocodeResponse(autosuggestions, status);
+    if (this.fetchStatus === "idle" && this.autosuggestionsList) {
+      this.updateDataListItems();
     }
-    // TODO: handle autosuggestions.errors array
-    if (error) {
-      this.handleGeocodeError(error);
+    if (this.fetchStatus === "idle" && this.searchResult) {
+      // TO DO...
+      console.log(this.searchResult);
+    }
+    if (this.fetchError || this.fetchStatus === "error") {
+      this.handleFetchError();
     }
   }
 
-  handleGeocodeResponse(data) {
+  updateDataListItems() {
     this.datalist.innerHTML = "";
-    data.features.forEach(({ properties }) => {
+    this.autosuggestionsList.forEach(({ properties }) => {
       const option = document.createElement("option");
       option.value = properties.label || "";
       option.dataset.bbl = properties.pad_bbl || "";
@@ -85,8 +84,46 @@ export class AddressSearchForm extends Component {
     });
   }
 
-  handleGeocodeError(error) {
+  handleFetchError() {
     // TODO: error handling
-    console.error(error);
+    // console.error(this.fetchError);
+  }
+
+  get autosuggestionsList() {
+    const {
+      addressGeocode: { autosuggestions },
+    } = store.getState();
+    if (
+      autosuggestions &&
+      autosuggestions.features &&
+      autosuggestions.features.length
+    ) {
+      return autosuggestions.features;
+    }
+    return undefined;
+  }
+
+  get searchResult() {
+    const {
+      addressGeocode: { searchResult },
+    } = store.getState();
+    if (searchResult && searchResult.features && searchResult.features.length) {
+      return searchResult.features[0];
+    }
+    return undefined;
+  }
+
+  get fetchStatus() {
+    const {
+      addressGeocode: { status },
+    } = store.getState();
+    return status;
+  }
+
+  get fetchError() {
+    const {
+      addressGeocode: { error },
+    } = store.getState();
+    return error ? error.message : undefined;
   }
 }
