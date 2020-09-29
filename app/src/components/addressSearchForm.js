@@ -1,6 +1,10 @@
+import throttle from "lodash.throttle";
 import { Component } from "./_componentBase";
 import { addressGeocodeFetch } from "../action_creators";
 import { store } from "../store";
+
+const INPUT_THROTTLE_MS = 350;
+const MIN_SEARCH_TEXT_LENGTH = 1;
 
 export class AddressSearchForm extends Component {
   constructor(props) {
@@ -15,7 +19,10 @@ export class AddressSearchForm extends Component {
 
     this.bindEvents = this.bindEvents.bind(this);
     this.removeEvents = this.removeEvents.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleInputChange = throttle(
+      this.handleInputChange.bind(this),
+      INPUT_THROTTLE_MS
+    );
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleStoreSubscription = this.handleStoreSubscription.bind(this);
     this.handleGeocodeResponse = this.handleGeocodeResponse.bind(this);
@@ -39,13 +46,14 @@ export class AddressSearchForm extends Component {
     event.preventDefault();
     // TODO: validate form input
     // TODO: handle BBL look up
-    console.log("form submit!");
+    this.handleInputChange.cancel();
+    console.log("form submit! ", event);
   }
 
   handleInputChange(event) {
     this.addressSearchText = event.target.value;
     // TODO: throttle text input as to not overwhelm the geocoding API
-    if (this.addressSearchText.length > 3) {
+    if (this.addressSearchText.length > MIN_SEARCH_TEXT_LENGTH) {
       store.dispatch(addressGeocodeFetch(this.addressSearchText));
     }
   }
