@@ -21,11 +21,11 @@
       font-size: 0.75em;
     }
 
-    &:invalid {
+    &.invalid {
       border: 3px dashed $valError;
     }
 
-    &:valid {
+    &.valid {
       border: 3px solid lighten($bluegreen, 10%);
     }
 

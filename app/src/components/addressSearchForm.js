@@ -1,8 +1,10 @@
 import throttle from "lodash.throttle";
 import { Component } from "./_componentBase";
+import { SearchValidationErrors } from "./searchValidationErrors";
 import {
   addressAutosuggestFetch,
   addressSearchFetch,
+  goToNextSlide,
 } from "../action_creators";
 import { store } from "../store";
 
@@ -19,6 +21,13 @@ export class AddressSearchForm extends Component {
     this.datalist = this.element.querySelector("datalist#autosuggest-results");
 
     this.addressSearchText = "";
+    this.cached = {};
+    this.cached.searchResult = undefined;
+
+    this.validationErrors = new SearchValidationErrors({
+      element: this.element.querySelector("ul"),
+      searchForm: this,
+    });
 
     this.bindEvents = this.bindEvents.bind(this);
     this.removeEvents = this.removeEvents.bind(this);
@@ -29,6 +38,8 @@ export class AddressSearchForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleStoreSubscription = this.handleStoreSubscription.bind(this);
     this.updateDataListItems = this.updateDataListItems.bind(this);
+    this.validateSearchResult = this.validateSearchResult.bind(this);
+    this.clearCachedSearchResult = this.clearCachedSearchResult.bind(this);
     this.handleFetchError = this.handleFetchError.bind(this);
 
     store.subscribe(this.handleStoreSubscription);
@@ -48,15 +59,20 @@ export class AddressSearchForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
     this.handleInputChange.cancel();
-    const searchText = this.inputAddress.value;
-    if (searchText.length) {
-      store.dispatch(addressSearchFetch(searchText));
+    this.clearCachedSearchResult();
+    if (this.inputAddress.value.length) {
+      store.dispatch(addressSearchFetch(this.inputAddress.value));
+    } else {
+      this.validationErrors.showNoInput();
     }
   }
 
   handleInputChange(event) {
     this.addressSearchText = event.target.value;
-    if (this.addressSearchText.length > MIN_SEARCH_TEXT_LENGTH) {
+    if (!this.validationErrors.areHidden) {
+      this.validationErrors.hideAll();
+    }
+    if (this.addressSearchText.length >= MIN_SEARCH_TEXT_LENGTH) {
       store.dispatch(addressAutosuggestFetch(this.addressSearchText));
     }
   }
@@ -65,9 +81,13 @@ export class AddressSearchForm extends Component {
     if (this.fetchStatus === "idle" && this.autosuggestionsList) {
       this.updateDataListItems();
     }
-    if (this.fetchStatus === "idle" && this.searchResult) {
-      // TO DO...
-      console.log(this.searchResult);
+    if (
+      this.fetchStatus === "idle" &&
+      this.searchResult &&
+      !this.cached.searchResult
+    ) {
+      this.cacheSearchResult();
+      this.validateSearchResult();
     }
     if (this.fetchError || this.fetchStatus === "error") {
       this.handleFetchError();
@@ -82,6 +102,23 @@ export class AddressSearchForm extends Component {
       option.dataset.bbl = properties.pad_bbl || "";
       this.datalist.append(option);
     });
+  }
+
+  validateSearchResult() {
+    if (this.searchResult.length) {
+      this.inputAddress.blur();
+      store.dispatch(goToNextSlide());
+    } else {
+      this.validationErrors.showNotFound();
+    }
+  }
+
+  cacheSearchResult() {
+    this.cached.searchResult = [...this.searchResult];
+  }
+
+  clearCachedSearchResult() {
+    this.cached.searchResult = undefined;
   }
 
   handleFetchError() {
@@ -107,8 +144,8 @@ export class AddressSearchForm extends Component {
     const {
       addressGeocode: { searchResult },
     } = store.getState();
-    if (searchResult && searchResult.features && searchResult.features.length) {
-      return searchResult.features[0];
+    if (searchResult && searchResult.features) {
+      return searchResult.features;
     }
     return undefined;
   }
