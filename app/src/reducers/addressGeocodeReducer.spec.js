@@ -92,4 +92,17 @@ describe("addressGeocode Reducer", () => {
       searchResult: null,
     });
   });
+
+  test("Should handle ResetAddressState", () => {
+    expect(
+      addressGeocode(initialState, {
+        type: types.ResetAddressState,
+      })
+    ).toEqual({
+      status: "idle",
+      error: null,
+      autosuggestions: null,
+      searchResult: null,
+    });
+  });
 });

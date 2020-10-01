@@ -2,6 +2,10 @@ import "cross-fetch/polyfill";
 
 import * as types from "../constants/actionTypes";
 
+export const resetAddressState = () => ({
+  type: types.ResetAddressState,
+});
+
 /*
  * Address Autosuggestions Actions
  */

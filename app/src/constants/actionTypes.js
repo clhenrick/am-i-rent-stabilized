@@ -4,10 +4,8 @@ export const GoToPrevSlide = "GoToPrevSlide";
 export const GoToSlideIdx = "GoToSlideIdx";
 export const CanAdvanceSlide = "CanAdvanceSlide";
 
-// to remove...
-export const AddressGeocodeRequest = "AddressGeocodeRequest";
-export const AddressGeocodeSuccess = "AddressGeocodeSuccess";
-export const AddressGeocodeFailure = "AddressGeocodeFailure";
+// ... for address
+export const ResetAddressState = "ResetAddressState";
 
 // ... for address geocode seach result
 export const AddressSearchRequest = "AddressSearchRequest";

@@ -11,6 +11,12 @@ describe("addressGeocodeActions", () => {
     fetch.resetMocks();
   });
 
+  test("should create an action to reset the address state slice", () => {
+    expect(actions.resetAddressState()).toEqual({
+      type: types.ResetAddressState,
+    });
+  });
+
   test("should create an action for an address search request", () => {
     expect(actions.addressSearchRequest()).toEqual({
       type: types.AddressSearchRequest,
