@@ -1,5 +1,5 @@
 import { Component } from "./_componentBase";
-import { store } from "../store";
+import { store, observeStore } from "../store";
 
 export class SlidesContainer extends Component {
   constructor(props) {
@@ -16,14 +16,12 @@ export class SlidesContainer extends Component {
     this.handleMotionQuery = this.handleMotionQuery.bind(this);
 
     this.handleMotionQuery();
-    store.subscribe(this.handleSlidesUpdate);
+    observeStore(store, (state) => state.slides, this.handleSlidesUpdate);
   }
 
   handleSlidesUpdate() {
     const { slides } = store.getState();
     if (slides.curIndex !== this.activeSlideIdx) {
-      // console.log("activeSlide: ", this.activeSlide);
-      // console.log(`go to slide ${slides.curIndex}`);
       this.activeSlide = slides.curIndex;
       this.scrollToActiveSlide();
     }

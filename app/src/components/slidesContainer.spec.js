@@ -1,5 +1,5 @@
 import { SlidesContainer } from "./slidesContainer";
-import { store } from "../store";
+import { store, observeStore } from "../store";
 
 jest.mock("../store", () => {
   return {
@@ -13,6 +13,7 @@ jest.mock("../store", () => {
       })),
       subscribe: jest.fn((cb) => cb()),
     },
+    observeStore: jest.fn(),
   };
 });
 
@@ -56,7 +57,7 @@ describe("SlidesContainer", () => {
   });
 
   test("subscribes to the redux store", () => {
-    expect(store.subscribe).toHaveBeenCalledTimes(1);
+    expect(observeStore).toHaveBeenCalledTimes(1);
   });
 
   test("handleSlidesUpdate responds to state.slides changes", () => {
