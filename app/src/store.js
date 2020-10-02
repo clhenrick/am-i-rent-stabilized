@@ -15,5 +15,19 @@ export const store = createStore(
   composeEnhancers(applyMiddleware(thunkMiddleware))
 );
 
-// log initial state
-console.log("initial redux state: ", store.getState());
+// code credit: https://github.com/reduxjs/redux/issues/303#issuecomment-125184409
+export function observeStore(rstore, select = (state) => state, onChange) {
+  let currentState;
+
+  function handleChange() {
+    let nextState = select(rstore.getState());
+    if (nextState !== currentState) {
+      currentState = nextState;
+      onChange(currentState);
+    }
+  }
+
+  let unsubscribe = rstore.subscribe(handleChange);
+  handleChange();
+  return unsubscribe;
+}
