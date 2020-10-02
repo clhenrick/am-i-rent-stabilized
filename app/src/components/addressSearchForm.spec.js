@@ -18,6 +18,7 @@ jest.mock("../store", () => {
       subscribe: jest.fn((cb) => cb()),
       dispatch: jest.fn(),
     },
+    observeStore: jest.fn(),
   };
 });
 

@@ -6,7 +6,7 @@ import {
   addressSearchFetch,
   goToNextSlide,
 } from "../action_creators";
-import { store } from "../store";
+import { store, observeStore } from "../store";
 
 const INPUT_THROTTLE_MS = 350;
 const MIN_SEARCH_TEXT_LENGTH = 1;
@@ -42,7 +42,11 @@ export class AddressSearchForm extends Component {
     this.clearCachedSearchResult = this.clearCachedSearchResult.bind(this);
     this.handleFetchError = this.handleFetchError.bind(this);
 
-    store.subscribe(this.handleStoreSubscription);
+    observeStore(
+      store,
+      (state) => state.addressGeocode,
+      this.handleStoreSubscription
+    );
     this.bindEvents();
   }
 
