@@ -48,14 +48,14 @@ describe("ProgressIndicator", () => {
       new ProgressIndicator({
         element: document.querySelector("#progress-indicator"),
       });
-    }).toThrow();
+    }).toThrow("Requires redux store");
 
     expect(() => {
       new ProgressIndicator({
         element: document.querySelector("#progress-indicator"),
         store: {},
       });
-    }).toThrow();
+    }).toThrow("Requires redux store");
   });
 
   test("uses observeStore to watch for redux state changes", () => {

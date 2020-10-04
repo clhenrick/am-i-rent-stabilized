@@ -7,19 +7,15 @@ export class ProgressIndicator extends Component {
   }
 
   init() {
+    super.checkForStore();
     this.list = this.element.querySelector("ul");
     this.renderCircles = this.renderCircles.bind(this);
     this.appendCircle = this.appendCircle.bind(this);
-
-    if (this.store) {
-      observeStore(
-        this.store,
-        (state) => state.slides.curIndex,
-        this.renderCircles
-      );
-    } else {
-      throw new Error("ProgressIndicator requires a store prop");
-    }
+    observeStore(
+      this.store,
+      (state) => state.slides.curIndex,
+      this.renderCircles
+    );
   }
 
   renderCircles() {
