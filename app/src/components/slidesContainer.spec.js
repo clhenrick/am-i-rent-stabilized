@@ -12,6 +12,7 @@ jest.mock("../store", () => {
         },
       })),
       subscribe: jest.fn((cb) => cb()),
+      dispatch: jest.fn(),
     },
     observeStore: jest.fn(),
   };
@@ -35,6 +36,7 @@ describe("SlidesContainer", () => {
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
     slidesContainer = new SlidesContainer({
       element: document.querySelector(selector),
+      store,
     });
   });
 
@@ -48,6 +50,21 @@ describe("SlidesContainer", () => {
 
   test("The consumer should be able to call new() on SlidesContainer", () => {
     expect(slidesContainer).toBeTruthy();
+  });
+
+  test("Throws an error if props.store is missing or invalid", () => {
+    expect(() => {
+      new SlidesContainer({
+        element: document.querySelector("#progress-indicator"),
+      });
+    }).toThrow();
+
+    expect(() => {
+      new SlidesContainer({
+        element: document.querySelector("#progress-indicator"),
+        store: {},
+      });
+    }).toThrow();
   });
 
   test("has a slides array property", () => {
