@@ -1,5 +1,5 @@
 import { Component } from "./_componentBase";
-import { store, observeStore } from "../store";
+import { observeStore } from "../store";
 
 export class ProgressIndicator extends Component {
   constructor(props) {
@@ -10,7 +10,16 @@ export class ProgressIndicator extends Component {
     this.list = this.element.querySelector("ul");
     this.renderCircles = this.renderCircles.bind(this);
     this.appendCircle = this.appendCircle.bind(this);
-    observeStore(store, (state) => state.slides.curIndex, this.renderCircles);
+
+    if (this.store) {
+      observeStore(
+        this.store,
+        (state) => state.slides.curIndex,
+        this.renderCircles
+      );
+    } else {
+      throw new Error("ProgressIndicator requires a store prop");
+    }
   }
 
   renderCircles() {
@@ -28,7 +37,7 @@ export class ProgressIndicator extends Component {
   }
 
   get curSlideIndex() {
-    const { slides } = store.getState();
+    const { slides } = this.store.getState();
     return slides.curIndex;
   }
 }

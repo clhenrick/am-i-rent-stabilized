@@ -1,3 +1,4 @@
+import { store } from "../store";
 import { NavMenuToggle } from "../components/navigation";
 import { LanguageToggle } from "../components/languageToggle";
 import { AdvanceSlides } from "../components/advanceSlides";
@@ -30,6 +31,7 @@ export default function initApp() {
   // lefthand progress circles
   new ProgressIndicator({
     element: document.getElementById("progress-indicator"),
+    store,
   });
 
   // handles slide scrolling
