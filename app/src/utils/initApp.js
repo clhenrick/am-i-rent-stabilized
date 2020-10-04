@@ -4,6 +4,7 @@ import { AdvanceSlides } from "../components/advanceSlides";
 import { SlidesContainer } from "../components/slidesContainer";
 import { KeyboardNavigation } from "../components/keyboardNavigation";
 import { AddressSearchForm } from "../components/addressSearchForm";
+import { ProgressIndicator } from "../components/progressIndicator";
 
 export default function initApp() {
   if (process.env.NODE_ENV !== "production") {
@@ -24,6 +25,11 @@ export default function initApp() {
   // language toggle btns mobile
   new LanguageToggle({
     element: document.querySelector("div.mobile > div.lang-toggle"),
+  });
+
+  // lefthand progress circles
+  new ProgressIndicator({
+    element: document.getElementById("progress-indicator"),
   });
 
   // handles slide scrolling
