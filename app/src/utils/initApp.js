@@ -37,6 +37,7 @@ export default function initApp() {
   // handles slide scrolling
   new SlidesContainer({
     element: document.querySelector(".slides-container"),
+    store,
   });
 
   // "next" slide advance buttons

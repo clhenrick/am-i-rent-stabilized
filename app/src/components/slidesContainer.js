@@ -1,5 +1,5 @@
 import { Component } from "./_componentBase";
-import { store, observeStore } from "../store";
+import { observeStore } from "../store";
 
 export class SlidesContainer extends Component {
   constructor(props) {
@@ -9,18 +9,27 @@ export class SlidesContainer extends Component {
   init() {
     this.slides = [...this.element.querySelectorAll(".slide")];
     this.prefersReducedMotion = false;
-    this.activeSlide = store.getState().slides.curIndex;
 
     this.handleSlidesUpdate = this.handleSlidesUpdate.bind(this);
     this.scrollToActiveSlide = this.scrollToActiveSlide.bind(this);
     this.handleMotionQuery = this.handleMotionQuery.bind(this);
 
     this.handleMotionQuery();
-    observeStore(store, (state) => state.slides, this.handleSlidesUpdate);
+
+    if (this.store) {
+      this.activeSlide = this.store.getState().slides.curIndex;
+      observeStore(
+        this.store,
+        (state) => state.slides,
+        this.handleSlidesUpdate
+      );
+    } else {
+      throw new Error("Requires redux store as a prop");
+    }
   }
 
   handleSlidesUpdate() {
-    const { slides } = store.getState();
+    const { slides } = this.store.getState();
     if (slides.curIndex !== this.activeSlideIdx) {
       this.activeSlide = slides.curIndex;
       this.scrollToActiveSlide();
