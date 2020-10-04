@@ -59,14 +59,14 @@ describe("AddressSearchForm", () => {
     expect(
       () =>
         new AddressSearchForm({
-          element: document.querySelector("#progress-indicator"),
+          element: document.querySelector("#address-form"),
         })
     ).toThrow("Requires redux store");
 
     expect(
       () =>
         new AddressSearchForm({
-          element: document.querySelector("#progress-indicator"),
+          element: document.querySelector("#address-form"),
           store: {},
         })
     ).toThrow("Requires redux store");
