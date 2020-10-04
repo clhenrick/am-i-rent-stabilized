@@ -56,18 +56,20 @@ describe("AddressSearchForm", () => {
   });
 
   test("Throws an error if props.store is missing or invalid", () => {
-    expect(() => {
-      new AddressSearchForm({
-        element: document.querySelector("#progress-indicator"),
-      });
-    }).toThrow();
+    expect(
+      () =>
+        new AddressSearchForm({
+          element: document.querySelector("#progress-indicator"),
+        })
+    ).toThrow("Requires redux store");
 
-    expect(() => {
-      new AddressSearchForm({
-        element: document.querySelector("#progress-indicator"),
-        store: {},
-      });
-    }).toThrow();
+    expect(
+      () =>
+        new AddressSearchForm({
+          element: document.querySelector("#progress-indicator"),
+          store: {},
+        })
+    ).toThrow("Requires redux store");
   });
 
   test("handleInputChange", () => {

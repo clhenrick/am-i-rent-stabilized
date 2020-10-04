@@ -17,6 +17,8 @@ export class AddressSearchForm extends Component {
   }
 
   init() {
+    super.checkForStore();
+
     this.inputAddress = this.element.querySelector("input.address-input");
     this.datalist = this.element.querySelector("datalist#autosuggest-results");
 

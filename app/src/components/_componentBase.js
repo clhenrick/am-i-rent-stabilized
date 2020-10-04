@@ -3,6 +3,7 @@ export class Component {
     this.init = this.init.bind(this);
     this.bindEvents = this.bindEvents.bind(this);
     this.removeEvents = this.removeEvents.bind(this);
+    this.checkForStore = this.checkForStore.bind(this);
 
     // `element` is a required prop!
     if ("element" in props && props.element instanceof HTMLElement) {
@@ -11,10 +12,16 @@ export class Component {
       throw new Error("Component requires a valid DOM element prop");
     }
 
-    // pass the redux store to components as a prop instead of importing it
-    // this makes testing components that use the store a bit easier I think
-    // it also helps make it more clear which components use the store
-    if ("store" in props && typeof props.store === "object") {
+    // Pass the redux store to components as a prop instead of importing it.
+    // This makes testing components that use the store a bit easier I think.
+    // It also helps make it more clear which components use the store
+    if (
+      "store" in props &&
+      typeof props.store === "object" &&
+      typeof props.store.dispatch === "function" &&
+      typeof props.store.getState === "function" &&
+      typeof props.store.subscribe === "function"
+    ) {
       this.store = props.store;
     }
 
@@ -31,4 +38,11 @@ export class Component {
 
   // Remove any DOM event listeners
   removeEvents() {}
+
+  // can be used to make sure a store is passed when a component relies on it
+  checkForStore() {
+    if (!this.store) {
+      throw new Error("Requires redux store as a prop");
+    }
+  }
 }
