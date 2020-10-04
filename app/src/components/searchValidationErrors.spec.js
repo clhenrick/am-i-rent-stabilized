@@ -1,5 +1,8 @@
 import { SearchValidationErrors } from "./searchValidationErrors";
 import { AddressSearchForm } from "./addressSearchForm";
+import { store } from "../store";
+
+jest.mock("../store");
 
 describe("SearchValidationErrors", () => {
   let addressSearchForm;
@@ -32,6 +35,7 @@ describe("SearchValidationErrors", () => {
 
     addressSearchForm = new AddressSearchForm({
       element: document.querySelector("#address-form"),
+      store,
     });
     searchValidationErrors = new SearchValidationErrors({
       element: document.querySelector("#address-form ul"),

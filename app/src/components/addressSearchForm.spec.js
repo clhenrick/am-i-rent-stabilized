@@ -39,6 +39,7 @@ describe("AddressSearchForm", () => {
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
     addressSearchForm = new AddressSearchForm({
       element: document.querySelector("#address-form"),
+      store,
     });
   });
 
@@ -52,6 +53,21 @@ describe("AddressSearchForm", () => {
 
   test("The consumer should be able to call new() on AddressSearchForm", () => {
     expect(addressSearchForm).toBeTruthy();
+  });
+
+  test("Throws an error if props.store is missing or invalid", () => {
+    expect(() => {
+      new AddressSearchForm({
+        element: document.querySelector("#progress-indicator"),
+      });
+    }).toThrow();
+
+    expect(() => {
+      new AddressSearchForm({
+        element: document.querySelector("#progress-indicator"),
+        store: {},
+      });
+    }).toThrow();
   });
 
   test("handleInputChange", () => {
@@ -103,6 +119,7 @@ describe("AddressSearchForm", () => {
     jest.clearAllMocks();
     addressSearchForm = new AddressSearchForm({
       element: document.querySelector("#address-form"),
+      store,
     });
     store.getState.mockImplementation(() => ({
       addressGeocode: {
