@@ -7,25 +7,18 @@ export class SlidesContainer extends Component {
   }
 
   init() {
+    super.checkForStore();
+
     this.slides = [...this.element.querySelectorAll(".slide")];
     this.prefersReducedMotion = false;
+    this.activeSlide = this.store.getState().slides.curIndex;
 
     this.handleSlidesUpdate = this.handleSlidesUpdate.bind(this);
     this.scrollToActiveSlide = this.scrollToActiveSlide.bind(this);
     this.handleMotionQuery = this.handleMotionQuery.bind(this);
 
     this.handleMotionQuery();
-
-    if (this.store) {
-      this.activeSlide = this.store.getState().slides.curIndex;
-      observeStore(
-        this.store,
-        (state) => state.slides,
-        this.handleSlidesUpdate
-      );
-    } else {
-      throw new Error("Requires redux store as a prop");
-    }
+    observeStore(this.store, (state) => state.slides, this.handleSlidesUpdate);
   }
 
   handleSlidesUpdate() {
