@@ -20,19 +20,11 @@
     "h1": "Primero, escriba la dirección del edificio y el distrito donde se encuentra.",
     "privacy": "No compartiremos su información, tampoco será usada con propósitos comerciales.",
     "form": {
-      "address": "Número del edificio y el nombre de la calle",
-      "boro_select": "Seleccione su Distrito",
-      "boroughs": {
-        "bx": "Bronx",
-        "bk": "Brooklyn",
-        "mn": "Manhattan",
-        "qn": "Queens",
-        "si": "Staten Island"
-      },
+      "label": "Dirección",
+      "placeholder": "Su dirección postal de NYC",
       "val_errors": {
-        "not_found": "* Lo sentimos, no reconocemos ésta dirección, favor de intentar de nuevo. <br>Únicamente se debe escribir el número del edificio y el nombre/número de la calle.",
-        "boro": "* Por favor seleccione el distrito.",
-        "address": "* Por favor escriba el número de su edificio y el nombre/número de la calle."
+        "not_found": "* Lo sentimos, no reconocemos ésta dirección, favor de intentar de nuevo.",
+        "address": "* Ingrese el número de su edificio, el nombre de la calle y el distrito."
       }
     },
     "search": "Búsqueda"

@@ -20,19 +20,11 @@
     "h1": "First, let's have your building address and borough.",
     "privacy": "We won't share this information or use it commericially.",
     "form": {
-      "address": "Building No. &amp; Street Name",
-      "boro_select": "Select a Borough",
-      "boroughs": {
-        "bx": "Bronx",
-        "bk": "Brooklyn",
-        "mn": "Manhattan",
-        "qn": "Queens",
-        "si": "Staten Island"
-      },
+      "label": "Street Address",
+      "placeholder": "Your NYC street address",
       "val_errors": {
-        "not_found": "* Sorry, we don't recognize that NYC address, please try again!<br>Make sure you enter only your building number and street name.",
-        "boro": "* Please select your borough",
-        "address": "* Please enter your building's number &amp; street name"
+        "not_found": "* Sorry, we don't recognize that NYC address, please try again!",
+        "address": "* Enter your building number, street name, and borough."
       }
     },
     "search": "Search"
