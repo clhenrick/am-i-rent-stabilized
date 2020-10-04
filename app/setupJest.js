@@ -39,6 +39,11 @@ function registerHbsPartials() {
     "utf8"
   ));
 
+  Handlebars.registerPartial("progress_indicator", fs.readFileSync(
+    path.resolve(__dirname, "./src/hbs_partials/progress_indicator.hbs"),
+    "utf8"
+  ));
+
   Handlebars.registerPartial("address_search_form", fs.readFileSync(
     path.resolve(__dirname, "./src/hbs_partials/address_search_form.hbs"),
     "utf8"
