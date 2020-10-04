@@ -11,6 +11,13 @@ export class Component {
       throw new Error("Component requires a valid DOM element prop");
     }
 
+    // pass the redux store to components as a prop instead of importing it
+    // this makes testing components that use the store a bit easier I think
+    // it also helps make it more clear which components use the store
+    if ("store" in props && typeof props.store === "object") {
+      this.store = props.store;
+    }
+
     this.init(props);
   }
 
