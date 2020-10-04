@@ -5,11 +5,20 @@
   width: 100%;
   font-size: 2.5em;
 
+  div.user-data.street-address {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+  }
+
+  label {
+    padding-right: 12px;
+  }
+
   input.address-input {
     width: 400px;
     height: 50px;
     display: block;
-    margin: 0 auto;
     border: none;
     background: {
       image: url("../../public/assets/png/address-enter-line.png");
@@ -49,7 +58,6 @@
   @include responsive_height(medium-screens) {
     width: 100%;
     height: 230px;
-    margin-top: 0;
 
     input {
       &.address-input {
@@ -70,8 +78,6 @@
   }
 
   @include responsive(medium-screens) {
-    margin-top: 0;
-
     input {
       &.address-input {
         height: 60px;
@@ -89,7 +95,14 @@
 
   @include responsive(small-screens) {
     height: 204px;
-    margin-top: 0;
+
+    div.user-data {
+      flex-direction: column;
+      justify-content: initial;
+      width: 240px;
+      top: 0;
+      font-size: 0.6em;
+    }
 
     input {
       &.address-input {
@@ -97,12 +110,6 @@
         height: 50px;
         margin-top: 3px;
       }
-    }
-
-    div.user-data {
-      width: 240px;
-      top: 0;
-      font-size: 0.6em;
     }
   }
 } // end address form
@@ -135,10 +142,6 @@ ul.validation-error {
   #error-address {
     width: 370px;
     margin-left: 75px;
-  }
-
-  #error-boro {
-    margin-left: 125px;
   }
 
   #error-not-found {
@@ -174,20 +177,6 @@ ul.validation-error {
       }
     }
 
-    #error-boro {
-      width: 325px;
-      text-align: left;
-      font-size: 0.7em;
-      margin: 0 auto;
-      margin-top: 10px;
-      top: 0;
-      padding: 10px;
-
-      &.es {
-        font-size: 0.6em;
-      }
-    }
-
     #error-address {
       font-size: 0.7em;
       width: 475px;
@@ -208,7 +197,6 @@ ul.validation-error {
       top: 0;
     }
 
-    #error-boro,
     #error-address {
       width: 400px;
       display: block;
@@ -228,8 +216,7 @@ ul.validation-error {
     padding: 2px;
 
     li {
-      &#error-address,
-      &#error-boro {
+      &#error-address {
         width: 200px;
         top: 0;
         padding: inherit;

@@ -1,19 +1,21 @@
 {{! Address search on slide 2 }}
 <form id="address-form">
   <div class="user-data street-address">
+      <label for="address-search-input">{{slide02.form.label}}:</label>
       <input
+        id="address-search-input"
         class="address-input"
         name="address-input"
         type="text"
         list="autosuggest-results"
-        placeholder="{{{slide02.form.address}}}"
+        placeholder="{{slide02.form.placeholder}}"
         autocomplete="off"
       >
       <datalist id="autosuggest-results"></datalist>
   </div>
   <ul class="validation-error">
-    <li id="error-not-found"  class="val-err vis-hidden">{{{ slide02.form.val_errors.not_found }}}</li>
-    <li id="error-address" class="val-err vis-hidden"> {{{slide02.form.val_errors.address}}} </li>
+    <li id="error-not-found"  class="val-err vis-hidden">{{slide02.form.val_errors.not_found}}</li>
+    <li id="error-address" class="val-err vis-hidden">{{slide02.form.val_errors.address}}</li>
   </ul>
   <button class="button submit" type="submit">{{ slide02.search }}</button>
 </form>
