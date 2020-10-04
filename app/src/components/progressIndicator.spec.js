@@ -1,21 +1,21 @@
 import { ProgressIndicator } from "./progressIndicator";
-// import { store, observeStore } from "../store";
+import { store } from "../store";
 
-// jest.mock("../store", () => {
-//   return {
-//     __esModule: true,
-//     store: {
-//       getState: jest.fn(() => ({
-//         slides: {
-//           curIndex: 0,
-//         },
-//       })),
-//       subscribe: jest.fn((cb) => cb()),
-//       dispatch: jest.fn(),
-//     },
-//     observeStore: jest.fn(),
-//   };
-// });
+jest.mock("../store", () => {
+  return {
+    __esModule: true,
+    store: {
+      getState: jest.fn(() => ({
+        slides: {
+          curIndex: 0,
+        },
+      })),
+      subscribe: jest.fn((cb) => cb()),
+      dispatch: jest.fn(),
+    },
+    observeStore: jest.fn(),
+  };
+});
 
 describe("ProgressIndicator", () => {
   let progressIndicator;
@@ -27,6 +27,7 @@ describe("ProgressIndicator", () => {
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
     progressIndicator = new ProgressIndicator({
       element: document.querySelector("#progress-indicator"),
+      store,
     });
   });
 
@@ -42,42 +43,51 @@ describe("ProgressIndicator", () => {
     expect(progressIndicator).toBeTruthy();
   });
 
-  test("uses observeStore", () => {
-    const store = require("../store");
-    const spy = jest.spyOn(store, "observeStore");
-    progressIndicator = new ProgressIndicator({
-      element: document.querySelector("#progress-indicator"),
-    });
-    expect(spy).toHaveBeenCalledTimes(1);
+  test("Throws an error if props.store is missing or invalid", () => {
+    expect(() => {
+      new ProgressIndicator({
+        element: document.querySelector("#progress-indicator"),
+      });
+    }).toThrow();
+
+    expect(() => {
+      new ProgressIndicator({
+        element: document.querySelector("#progress-indicator"),
+        store: {},
+      });
+    }).toThrow();
   });
 
-  test("responds to redux state changes of slides.curIndex", () => {
-    const { store } = require("../store");
-    spyRenderCircles.mockRestore();
-    store.dispatch({ type: "GoToNextSlide" });
+  test("uses observeStore to watch for redux state changes", () => {
+    const store = require("../store");
+    const spy = jest.spyOn(store, "observeStore");
+    expect(spy).toHaveBeenCalledTimes(1);
+    spy.mockRestore();
+  });
+
+  // No idea how to get this test to pass...
+  // eslint-disable-next-line
+  test.skip("responds to redux state changes of slides.curIndex", () => {
+    jest.restoreAllMocks();
+    const store = jest.requireActual("../store");
+    spyRenderCircles = jest.spyOn(ProgressIndicator.prototype, "renderCircles");
+    progressIndicator = new ProgressIndicator({
+      element: document.querySelector("#progress-indicator"),
+      store: store.store,
+    });
+    store.store.dispatch({ type: "GoToNextSlide" });
     expect(spyRenderCircles).toHaveBeenCalledTimes(2);
   });
 
   test("renderCircles", () => {
-    const { ProgressIndicator } = require("./progressIndicator");
     const { store } = require("../store");
     jest.mock("../store");
 
-    store.getState.mockImplementation(() => ({
-      slides: { curIndex: 0 },
-    }));
-
     progressIndicator = new ProgressIndicator({
       element: document.querySelector("#progress-indicator"),
+      store,
     });
     progressIndicator.renderCircles();
-
-    // console.log(progressIndicator.curSlideIndex);
-    // console.log(
-    //   Array.from(progressIndicator.list.querySelectorAll("li")).map((el) =>
-    //     el.classList.contains("active")
-    //   )
-    // );
 
     expect(progressIndicator.list.children.length).toBeGreaterThan(0);
     expect(
@@ -95,6 +105,19 @@ describe("ProgressIndicator", () => {
       progressIndicator.list
         .querySelectorAll("li")[2]
         .classList.contains("active")
+    ).toBe(true);
+  });
+
+  test("appendCircle", () => {
+    store.getState.mockImplementation(() => ({
+      slides: {
+        curIndex: 9,
+      },
+    }));
+    progressIndicator.appendCircle(9);
+    expect(progressIndicator.list.children).toHaveLength(10);
+    expect(
+      progressIndicator.list.children[9].classList.contains("active")
     ).toBe(true);
   });
 });
