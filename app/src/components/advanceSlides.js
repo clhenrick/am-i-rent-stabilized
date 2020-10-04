@@ -1,5 +1,4 @@
 import { Component } from "./_componentBase";
-import { store } from "../store";
 import { goToNextSlide, goToSlideIdx } from "../action_creators";
 
 export class AdvanceSlides extends Component {
@@ -8,6 +7,8 @@ export class AdvanceSlides extends Component {
   }
 
   init(props) {
+    super.checkForStore();
+
     if ("advanceToIdx" in props && typeof props.advanceToIdx === "number") {
       this.advanceToIdx = props.advanceToIdx;
     }
@@ -34,7 +35,7 @@ export class AdvanceSlides extends Component {
 
   handleClick(event) {
     event.preventDefault();
-    const { slides } = store.getState();
+    const { slides } = this.store.getState();
     if (slides.canAdvance) {
       this.advanceToSlide();
     }
@@ -42,9 +43,9 @@ export class AdvanceSlides extends Component {
 
   advanceToSlide() {
     if (this.advanceToIdx !== undefined) {
-      store.dispatch(goToSlideIdx(this.advanceToIdx));
+      this.store.dispatch(goToSlideIdx(this.advanceToIdx));
     } else {
-      store.dispatch(goToNextSlide());
+      this.store.dispatch(goToNextSlide());
     }
   }
 }

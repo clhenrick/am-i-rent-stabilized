@@ -12,6 +12,7 @@ jest.mock("../store", () => {
         },
       })),
       dispatch: jest.fn(),
+      subscribe: jest.fn(),
     },
   };
 });
@@ -30,6 +31,7 @@ describe("AdvanceSlides", () => {
     spyAdvanceToSlide = jest.spyOn(AdvanceSlides.prototype, "advanceToSlide");
     advanceSlides = new AdvanceSlides({
       element,
+      store,
       buttonSelector: "h3",
     });
   });
@@ -46,18 +48,31 @@ describe("AdvanceSlides", () => {
     expect(advanceSlides).toBeTruthy();
   });
 
+  test("Throws an error if props.store is missing or invalid", () => {
+    expect(
+      () =>
+        new AdvanceSlides({
+          element,
+        })
+    ).toThrow("Requires redux store");
+
+    expect(
+      () =>
+        new AdvanceSlides({
+          element,
+          store: {},
+        })
+    ).toThrow("Requires redux store");
+  });
+
   test("Accepts required prop for button selector", () => {
     expect(advanceSlides.button).toBeInstanceOf(HTMLElement);
   });
 
   test("Throws an error if missing prop for button selector", () => {
-    const errorMsg = "Requires a CSS selector for its button";
-    try {
-      new AdvanceSlides({ element });
-    } catch (error) {
-      expect(error).toBeInstanceOf(Error);
-      expect(error.message).toBe(errorMsg);
-    }
+    expect(() => new AdvanceSlides({ element, store })).toThrow(
+      "Requires a CSS selector for its button"
+    );
   });
 
   test("The component's button handles a click event", () => {

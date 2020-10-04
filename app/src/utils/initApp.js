@@ -42,12 +42,13 @@ export default function initApp() {
 
   // "next" slide advance buttons
   document.querySelectorAll(".go-next.bottom-arrow").forEach((element) => {
-    new AdvanceSlides({ element, buttonSelector: "h3" });
+    new AdvanceSlides({ element, store, buttonSelector: "h3" });
   });
 
   // handles advancing to "when you receive your rent history"
   new AdvanceSlides({
     element: document.querySelector("p.go-step4"),
+    store,
     buttonSelector: "a",
     advanceToIdx: 6,
   });
