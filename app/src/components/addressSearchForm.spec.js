@@ -24,22 +24,10 @@ jest.mock("../store", () => {
 
 describe("AddressSearchForm", () => {
   let addressSearchForm;
-  let spyHandleStoreSubscription = jest.spyOn(
-    AddressSearchForm.prototype,
-    "handleStoreSubscription"
-  );
   let spyHandleSubmit = jest.spyOn(AddressSearchForm.prototype, "handleSubmit");
   let spyHandleInputChange = jest.spyOn(
     AddressSearchForm.prototype,
     "handleInputChange"
-  );
-  let spyUpdateDataListItems = jest.spyOn(
-    AddressSearchForm.prototype,
-    "updateDataListItems"
-  );
-  let spyHandleFetchError = jest.spyOn(
-    AddressSearchForm.prototype,
-    "handleFetchError"
   );
 
   throttle.mockImplementation((cb) => {

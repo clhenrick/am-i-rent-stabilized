@@ -1,21 +1,7 @@
 import { store, observeStore } from "./store";
 
-const spyDispatch = jest.spyOn(store, "dispatch");
 const spyGetState = jest.spyOn(store, "getState");
 const spySubscribe = jest.spyOn(store, "subscribe");
-
-const initialMockState = {
-  addressGeocode: {
-    autosuggestions: null,
-    searchResult: null,
-    status: "idle",
-    error: null,
-  },
-  slides: {
-    curIndex: 0,
-    canAdvance: true,
-  },
-};
 
 describe("observeStore", () => {
   let select;
