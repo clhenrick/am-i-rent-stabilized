@@ -52,10 +52,41 @@ describe("Component", () => {
   });
 
   test("The component's init method is called once when an instance is made", () => {
+    jest.clearAllMocks();
+    new Component(props);
     expect(spy).toHaveBeenCalledTimes(1);
+    jest.clearAllMocks();
   });
 
   test("The init method receives a props object as an argument", () => {
+    new Component({ ...props });
     expect(spy).toHaveBeenCalledWith(props);
+    jest.clearAllMocks();
+  });
+
+  test("The component accepts a valid redux store", () => {
+    const { store } = require("../store");
+    jest.mock("../store");
+
+    let instance = new Component({
+      ...props,
+      store: {},
+    });
+    expect(instance.store).not.toBeTruthy();
+
+    instance = new Component({
+      ...props,
+      store,
+    });
+    expect(instance.store).toBeTruthy();
+    jest.clearAllMocks();
+  });
+
+  test("checkForStore", () => {
+    const instance = new Component({
+      ...props,
+    });
+    expect(() => instance.checkForStore()).toThrow("Requires redux store");
+    jest.clearAllMocks();
   });
 });
