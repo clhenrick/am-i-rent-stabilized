@@ -6,7 +6,7 @@ import {
   addressSearchFetch,
   goToNextSlide,
 } from "../action_creators";
-import { store, observeStore } from "../store";
+import { observeStore } from "../store";
 
 const INPUT_THROTTLE_MS = 350;
 const MIN_SEARCH_TEXT_LENGTH = 1;
@@ -43,7 +43,7 @@ export class AddressSearchForm extends Component {
     this.handleFetchError = this.handleFetchError.bind(this);
 
     observeStore(
-      store,
+      this.store,
       (state) => state.addressGeocode,
       this.handleStoreSubscription
     );
@@ -65,7 +65,7 @@ export class AddressSearchForm extends Component {
     this.handleInputChange.cancel();
     this.clearCachedSearchResult();
     if (this.inputAddress.value.length) {
-      store.dispatch(addressSearchFetch(this.inputAddress.value));
+      this.store.dispatch(addressSearchFetch(this.inputAddress.value));
     } else {
       this.validationErrors.showNoInput();
     }
@@ -77,7 +77,7 @@ export class AddressSearchForm extends Component {
       this.validationErrors.hideAll();
     }
     if (this.addressSearchText.length >= MIN_SEARCH_TEXT_LENGTH) {
-      store.dispatch(addressAutosuggestFetch(this.addressSearchText));
+      this.store.dispatch(addressAutosuggestFetch(this.addressSearchText));
     }
   }
 
@@ -111,7 +111,7 @@ export class AddressSearchForm extends Component {
   validateSearchResult() {
     if (this.searchResult.length) {
       this.inputAddress.blur();
-      store.dispatch(goToNextSlide());
+      this.store.dispatch(goToNextSlide());
     } else {
       this.validationErrors.showNotFound();
     }
@@ -133,7 +133,7 @@ export class AddressSearchForm extends Component {
   get autosuggestionsList() {
     const {
       addressGeocode: { autosuggestions },
-    } = store.getState();
+    } = this.store.getState();
     if (
       autosuggestions &&
       autosuggestions.features &&
@@ -147,7 +147,7 @@ export class AddressSearchForm extends Component {
   get searchResult() {
     const {
       addressGeocode: { searchResult },
-    } = store.getState();
+    } = this.store.getState();
     if (searchResult && searchResult.features) {
       return searchResult.features;
     }
@@ -157,14 +157,14 @@ export class AddressSearchForm extends Component {
   get fetchStatus() {
     const {
       addressGeocode: { status },
-    } = store.getState();
+    } = this.store.getState();
     return status;
   }
 
   get fetchError() {
     const {
       addressGeocode: { error },
-    } = store.getState();
+    } = this.store.getState();
     return error ? error.message : undefined;
   }
 }

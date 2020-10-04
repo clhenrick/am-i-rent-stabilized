@@ -54,5 +54,6 @@ export default function initApp() {
   // address search form & geocoding of address input
   new AddressSearchForm({
     element: document.querySelector("#address-form"),
+    store,
   });
 }
