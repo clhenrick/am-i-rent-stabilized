@@ -12,6 +12,7 @@ export default function initApp() {
     // enables slides keyboard navigation for debugging
     new KeyboardNavigation({
       element: document.body,
+      store,
     });
   }
 

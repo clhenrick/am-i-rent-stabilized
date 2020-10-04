@@ -12,6 +12,7 @@ jest.mock("../store", () => {
         },
       })),
       dispatch: jest.fn(),
+      subscribe: jest.fn(),
     },
   };
 });
@@ -43,6 +44,7 @@ describe("KeyboardNavigation", () => {
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
     keyboardNavigation = new KeyboardNavigation({
       element: document.body,
+      store,
     });
   });
 
@@ -50,8 +52,25 @@ describe("KeyboardNavigation", () => {
     jest.resetModules();
   });
 
-  test("The consumer should be able to call new() on LanguageToggle", () => {
+  test("The consumer should be able to call new() on KeyboardNavigation", () => {
     expect(keyboardNavigation).toBeTruthy();
+  });
+
+  test("Throws an error if props.store is missing or invalid", () => {
+    expect(
+      () =>
+        new KeyboardNavigation({
+          element: document.body,
+        })
+    ).toThrow("Requires redux store");
+
+    expect(
+      () =>
+        new KeyboardNavigation({
+          element: document.body,
+          store: {},
+        })
+    ).toThrow("Requires redux store");
   });
 
   test("curSlideIndex returns the value of slides.curIndex from the redux store", () => {

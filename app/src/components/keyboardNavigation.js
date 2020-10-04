@@ -1,4 +1,3 @@
-import { store } from "../store";
 import { goToNextSlide, goToPrevSlide } from "../action_creators";
 import { Component } from "./_componentBase";
 
@@ -8,6 +7,7 @@ export class KeyboardNavigation extends Component {
   }
 
   init() {
+    super.checkForStore();
     this.slides = this.element.querySelectorAll(".slide");
 
     this.bindEvents = this.bindEvents.bind(this);
@@ -43,18 +43,18 @@ export class KeyboardNavigation extends Component {
 
   maybeGoToNextSlide() {
     if (this.curSlideIndex() < this.slides.length - 1) {
-      store.dispatch(goToNextSlide());
+      this.store.dispatch(goToNextSlide());
     }
   }
 
   maybeGoToPrevSlide() {
     if (this.curSlideIndex() > 0) {
-      store.dispatch(goToPrevSlide());
+      this.store.dispatch(goToPrevSlide());
     }
   }
 
   curSlideIndex() {
-    const { slides } = store.getState();
+    const { slides } = this.store.getState();
     return slides.curIndex;
   }
 }
