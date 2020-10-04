@@ -1,4 +1,4 @@
-nav.margin-circles {
+div#progress-indicator {
   position: fixed;
   z-index: 100;
   top: 22%;
@@ -15,10 +15,10 @@ nav.margin-circles {
     background-image: url("../../public/assets/png/oval_25_blank.png");
     background-size: 25px;
     background-repeat: no-repeat;
-  }
 
-  li:first-child {
-    background-image: url("../../public/assets/png/oval_25_filled.png");
+    &.active {
+      background-image: url("../../public/assets/png/oval_25_filled.png");
+    }
   }
 
   @include responsive_height(medium-screens) {
