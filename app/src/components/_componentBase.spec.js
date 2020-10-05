@@ -23,20 +23,8 @@ describe("Component", () => {
 
   test("The component throws an error when not passed a valid element property", () => {
     const errorMsg = "Component requires a valid DOM element prop";
-
-    try {
-      new Component();
-    } catch (error) {
-      expect(error).toBeInstanceOf(Error);
-      expect(error.message).toBe(errorMsg);
-    }
-
-    try {
-      new Component({ element: "foo" });
-    } catch (error) {
-      expect(error).toBeInstanceOf(Error);
-      expect(error.message).toBe(errorMsg);
-    }
+    expect(() => new Component()).toThrow(errorMsg);
+    expect(() => new Component({ element: "foo" })).toThrow(errorMsg);
   });
 
   test("The component has an init method", () => {
