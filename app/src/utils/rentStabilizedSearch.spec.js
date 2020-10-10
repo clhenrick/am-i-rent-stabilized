@@ -1,8 +1,22 @@
 const { RentStabilizedSearch } = require("./rentStabilizedSearch");
-const { store, observeStore } = require("../store");
+import * as types from "../constants/actionTypes";
+
 jest.mock("../store");
 
 describe("RentStabilizedSearch", () => {
+  let store;
+  let observeStore;
+
+  beforeEach(() => {
+    const storeM = require("../store");
+    store = storeM.store;
+    observeStore = storeM.observeStore;
+  });
+
+  afterEach(() => {
+    jest.resetAllMocks();
+  });
+
   test("The consumer should be able to call new() on RentStabilizedSearch", () => {
     const rentStabilizedSearch = new RentStabilizedSearch({ store });
     expect(rentStabilizedSearch).toBeTruthy();
@@ -15,14 +29,12 @@ describe("RentStabilizedSearch", () => {
   });
 
   test("subscribes to the redux store", () => {
-    jest.resetAllMocks();
     const rentStabilizedSearch = new RentStabilizedSearch({ store });
     expect(observeStore).toHaveBeenCalledTimes(1);
   });
 
   test("handleChange responds to searchResult data", () => {
-    jest.resetAllMocks();
-    store.getState.mockImplementation(() => ({
+    store.getState.mockImplementationOnce(() => ({
       addressGeocode: {
         searchResult: {
           features: [
@@ -40,11 +52,11 @@ describe("RentStabilizedSearch", () => {
     rentStabilizedSearch.handleChange();
     expect(spy).toHaveBeenCalledTimes(1);
     expect(store.getState).toHaveBeenCalledTimes(1);
+    spy.mockRestore();
   });
 
   test("handleChange does not respond to searchResult data", () => {
-    jest.resetAllMocks();
-    store.getState.mockImplementation(() => ({
+    store.getState.mockImplementationOnce(() => ({
       addressGeocode: {
         searchResult: {
           features: [],
@@ -56,14 +68,23 @@ describe("RentStabilizedSearch", () => {
     rentStabilizedSearch.handleChange();
     expect(spy).not.toHaveBeenCalledTimes(1);
     expect(store.getState).toHaveBeenCalledTimes(1);
+    spy.mockRestore();
   });
 
-  // FIXME
-  test.skip("lookupBBL dispatches fetchRentStabilized action", () => {
-    jest.resetAllMocks();
+  test("lookupBBL dispatches fetchRentStabilized action", () => {
+    const dispatchMock = store.dispatch;
     const rentStabilizedSearch = new RentStabilizedSearch({ store });
     const feature = { properties: { pad_bbl: "987654321" } };
     rentStabilizedSearch.lookupBBL(feature);
-    expect(store.dispatch).toHaveBeenCalledWith(expect.any(Function));
+    expect(dispatchMock).toHaveBeenCalledTimes(1);
+    expect(dispatchMock).toHaveBeenCalledWith(expect.any(Function));
+  });
+
+  test("lookupBBL dispatches GoToPrevSlide action", () => {
+    const dispatchMock = store.dispatch;
+    const rentStabilizedSearch = new RentStabilizedSearch({ store });
+    const feature = {};
+    rentStabilizedSearch.lookupBBL(feature);
+    expect(dispatchMock).toHaveBeenCalledWith({ type: types.GoToPrevSlide });
   });
 });
