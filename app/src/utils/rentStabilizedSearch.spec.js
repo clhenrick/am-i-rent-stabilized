@@ -30,10 +30,10 @@ describe("RentStabilizedSearch", () => {
 
   test("subscribes to the redux store", () => {
     const rentStabilizedSearch = new RentStabilizedSearch({ store });
-    expect(observeStore).toHaveBeenCalledTimes(1);
+    expect(observeStore).toHaveBeenCalledTimes(2);
   });
 
-  test("handleChange responds to searchResult data", () => {
+  test("handleSearchChange responds to searchResult data", () => {
     store.getState.mockImplementationOnce(() => ({
       addressGeocode: {
         searchResult: {
@@ -49,13 +49,13 @@ describe("RentStabilizedSearch", () => {
     }));
     const spy = jest.spyOn(RentStabilizedSearch.prototype, "lookupBBL");
     const rentStabilizedSearch = new RentStabilizedSearch({ store });
-    rentStabilizedSearch.handleChange();
+    rentStabilizedSearch.handleSearchChange();
     expect(spy).toHaveBeenCalledTimes(1);
     expect(store.getState).toHaveBeenCalledTimes(1);
     spy.mockRestore();
   });
 
-  test("handleChange does not respond to searchResult data", () => {
+  test("handleSearchChange does not respond to searchResult data", () => {
     store.getState.mockImplementationOnce(() => ({
       addressGeocode: {
         searchResult: {
@@ -65,7 +65,7 @@ describe("RentStabilizedSearch", () => {
     }));
     const spy = jest.spyOn(RentStabilizedSearch.prototype, "lookupBBL");
     const rentStabilizedSearch = new RentStabilizedSearch({ store });
-    rentStabilizedSearch.handleChange();
+    rentStabilizedSearch.handleSearchChange();
     expect(spy).not.toHaveBeenCalledTimes(1);
     expect(store.getState).toHaveBeenCalledTimes(1);
     spy.mockRestore();

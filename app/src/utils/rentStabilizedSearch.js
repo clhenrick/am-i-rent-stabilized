@@ -1,4 +1,8 @@
-import { fetchRentStabilized, goToPrevSlide } from "../action_creators";
+import {
+  fetchRentStabilized,
+  goToPrevSlide,
+  goToNextSlide,
+} from "../action_creators";
 import { observeStore } from "../store";
 
 export class RentStabilizedSearch {
@@ -16,15 +20,24 @@ export class RentStabilizedSearch {
     }
 
     this.lookupBBL = this.lookupBBL.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleSearchChange = this.handleSearchChange.bind(this);
+    this.handleRSChange = this.handleRSChange.bind(this);
+    this.handleRSError = this.handleRSError.bind(this);
+    this.handleGoToNextSlide = this.handleGoToNextSlide.bind(this);
+
     observeStore(
       this.store,
       (state) => state.addressGeocode.searchResult,
-      this.handleChange
+      this.handleSearchChange
+    );
+    observeStore(
+      this.store,
+      (state) => state.rentStabilized,
+      this.handleRSChange
     );
   }
 
-  handleChange() {
+  handleSearchChange() {
     const searchResult = this.searchResult;
     if (searchResult && searchResult.features && searchResult.features.length) {
       this.lookupBBL(searchResult.features[0]);
@@ -33,12 +46,31 @@ export class RentStabilizedSearch {
 
   lookupBBL(feature) {
     const { properties } = feature;
-    if (!properties || !properties.pad_bbl) {
-      // TODO: set searchForm error msg
-      this.store.dispatch(goToPrevSlide());
-    } else {
+    if (properties && properties.pad_bbl) {
       this.store.dispatch(fetchRentStabilized(properties.pad_bbl));
+    } else {
+      this.handleRSError();
     }
+  }
+
+  handleRSChange() {
+    const { status, match, error } = this.rentStabilized;
+    if (status === "idle" && match && match.rows) {
+      this.handleGoToNextSlide();
+    }
+    if (status === "error" || error !== null) {
+      this.handleRSError();
+    }
+  }
+
+  async handleGoToNextSlide() {
+    await new Promise((resolve) => setTimeout(resolve, 2500));
+    this.store.dispatch(goToNextSlide());
+  }
+
+  handleRSError() {
+    // TODO: set AddressSearchForm error msg
+    this.store.dispatch(goToPrevSlide());
   }
 
   get searchResult() {
@@ -46,5 +78,9 @@ export class RentStabilizedSearch {
       addressGeocode: { searchResult },
     } = this.store.getState();
     return searchResult;
+  }
+
+  get rentStabilized() {
+    return this.store.getState().rentStabilized;
   }
 }
