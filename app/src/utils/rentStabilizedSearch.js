@@ -33,7 +33,7 @@ export class RentStabilizedSearch {
 
   lookupBBL(feature) {
     const { properties } = feature;
-    if (!properties.pad_bbl || !properties.pad_bbl.length) {
+    if (!properties || !properties.pad_bbl) {
       // TODO: set searchForm error msg
       this.store.dispatch(goToPrevSlide());
     } else {
