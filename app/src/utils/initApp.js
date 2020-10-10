@@ -1,4 +1,5 @@
 import { store } from "../store";
+import { RentStabilizedSearch } from "../utils/rentStabilizedSearch";
 import { NavMenuToggle } from "../components/navigation";
 import { LanguageToggle } from "../components/languageToggle";
 import { AdvanceSlides } from "../components/advanceSlides";
@@ -15,6 +16,9 @@ export default function initApp() {
       store,
     });
   }
+
+  // service that looks up RS match
+  new RentStabilizedSearch({ store });
 
   // top nav menu's hamburger icon
   new NavMenuToggle({ element: document.querySelector("nav.main-nav") });
