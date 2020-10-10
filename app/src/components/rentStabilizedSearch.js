@@ -12,6 +12,8 @@ export class RentStabilizedSearch extends Component {
   }
 
   init() {
+    super.checkForStore();
+
     this.lookupBBL = this.lookupBBL.bind(this);
     this.handleSearchChange = this.handleSearchChange.bind(this);
     this.handleRSChange = this.handleRSChange.bind(this);

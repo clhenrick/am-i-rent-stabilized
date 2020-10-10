@@ -6,6 +6,12 @@ jest.mock("../store");
 describe("RentStabilizedSearch", () => {
   let store;
   let observeStore;
+  let element;
+
+  beforeAll(() => {
+    setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
+    element = document.getElementById("slide-3");
+  });
 
   beforeEach(() => {
     const storeM = require("../store");
@@ -18,18 +24,18 @@ describe("RentStabilizedSearch", () => {
   });
 
   test("The consumer should be able to call new() on RentStabilizedSearch", () => {
-    const rentStabilizedSearch = new RentStabilizedSearch({ store });
+    const rentStabilizedSearch = new RentStabilizedSearch({ store, element });
     expect(rentStabilizedSearch).toBeTruthy();
   });
 
   test("Throws an error if not passed redux store as a prop", () => {
-    expect(() => new RentStabilizedSearch()).toThrow(
-      "RentStabilizedSearch requires redux store as a prop"
+    expect(() => new RentStabilizedSearch({ element })).toThrow(
+      "Requires redux store as a prop"
     );
   });
 
   test("subscribes to the redux store", () => {
-    const rentStabilizedSearch = new RentStabilizedSearch({ store });
+    const rentStabilizedSearch = new RentStabilizedSearch({ store, element });
     expect(observeStore).toHaveBeenCalledTimes(2);
   });
 
@@ -48,7 +54,7 @@ describe("RentStabilizedSearch", () => {
       },
     }));
     const spy = jest.spyOn(RentStabilizedSearch.prototype, "lookupBBL");
-    const rentStabilizedSearch = new RentStabilizedSearch({ store });
+    const rentStabilizedSearch = new RentStabilizedSearch({ store, element });
     rentStabilizedSearch.handleSearchChange();
     expect(spy).toHaveBeenCalledTimes(1);
     expect(store.getState).toHaveBeenCalledTimes(1);
@@ -64,7 +70,7 @@ describe("RentStabilizedSearch", () => {
       },
     }));
     const spy = jest.spyOn(RentStabilizedSearch.prototype, "lookupBBL");
-    const rentStabilizedSearch = new RentStabilizedSearch({ store });
+    const rentStabilizedSearch = new RentStabilizedSearch({ store, element });
     rentStabilizedSearch.handleSearchChange();
     expect(spy).not.toHaveBeenCalledTimes(1);
     expect(store.getState).toHaveBeenCalledTimes(1);
@@ -73,7 +79,7 @@ describe("RentStabilizedSearch", () => {
 
   test("lookupBBL dispatches fetchRentStabilized action", () => {
     const dispatchMock = store.dispatch;
-    const rentStabilizedSearch = new RentStabilizedSearch({ store });
+    const rentStabilizedSearch = new RentStabilizedSearch({ store, element });
     const feature = { properties: { pad_bbl: "987654321" } };
     rentStabilizedSearch.lookupBBL(feature);
     expect(dispatchMock).toHaveBeenCalledTimes(1);
@@ -82,7 +88,7 @@ describe("RentStabilizedSearch", () => {
 
   test("lookupBBL dispatches GoToPrevSlide action", () => {
     const dispatchMock = store.dispatch;
-    const rentStabilizedSearch = new RentStabilizedSearch({ store });
+    const rentStabilizedSearch = new RentStabilizedSearch({ store, element });
     const feature = {};
     rentStabilizedSearch.lookupBBL(feature);
     expect(dispatchMock).toHaveBeenCalledWith({ type: types.GoToPrevSlide });
