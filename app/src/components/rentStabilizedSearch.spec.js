@@ -77,7 +77,7 @@ describe("RentStabilizedSearch", () => {
     spy.mockRestore();
   });
 
-  test("lookupBBL dispatches fetchRentStabilized action", () => {
+  test("lookupBBL correctly dispatches fetchRentStabilized action", () => {
     const dispatchMock = store.dispatch;
     const rentStabilizedSearch = new RentStabilizedSearch({ store, element });
     const feature = { properties: { pad_bbl: "987654321" } };
@@ -86,11 +86,59 @@ describe("RentStabilizedSearch", () => {
     expect(dispatchMock).toHaveBeenCalledWith(expect.any(Function));
   });
 
-  test("lookupBBL dispatches GoToPrevSlide action", () => {
-    const dispatchMock = store.dispatch;
+  test("lookupBBL correctly invokes handleRSError", () => {
+    const spy = jest.spyOn(RentStabilizedSearch.prototype, "handleRSError");
     const rentStabilizedSearch = new RentStabilizedSearch({ store, element });
     const feature = {};
     rentStabilizedSearch.lookupBBL(feature);
+    expect(spy).toHaveBeenCalledTimes(1);
+    spy.mockRestore();
+  });
+
+  test("handleRSChange correctly invokes handleGoToNextSlide", () => {
+    const spy = jest.spyOn(
+      RentStabilizedSearch.prototype,
+      "handleGoToNextSlide"
+    );
+    const rentStabilizedSearch = new RentStabilizedSearch({ store, element });
+    store.getState.mockImplementationOnce(() => ({
+      rentStabilized: {
+        status: "idle",
+        match: { rows: [] },
+        error: null,
+      },
+    }));
+    rentStabilizedSearch.handleRSChange();
+    expect(spy).toHaveBeenCalledTimes(1);
+    spy.mockRestore();
+  });
+
+  test("handleRSChange correctly invokes handleRSError", () => {
+    const spy = jest.spyOn(RentStabilizedSearch.prototype, "handleRSError");
+    const rentStabilizedSearch = new RentStabilizedSearch({ store, element });
+    store.getState.mockImplementationOnce(() => ({
+      rentStabilized: {
+        status: "error",
+        match: null,
+        error: new Error(),
+      },
+    }));
+    rentStabilizedSearch.handleRSChange();
+    expect(spy).toHaveBeenCalledTimes(1);
+    spy.mockRestore();
+  });
+
+  test("handleGoToNextSlide", async () => {
+    const dispatchMock = store.dispatch;
+    const rentStabilizedSearch = new RentStabilizedSearch({ store, element });
+    await rentStabilizedSearch.handleGoToNextSlide();
+    expect(dispatchMock).toHaveBeenCalledWith({ type: types.GoToNextSlide });
+  });
+
+  test("handleRSError", () => {
+    const dispatchMock = store.dispatch;
+    const rentStabilizedSearch = new RentStabilizedSearch({ store, element });
+    rentStabilizedSearch.handleRSError();
     expect(dispatchMock).toHaveBeenCalledWith({ type: types.GoToPrevSlide });
   });
 });
