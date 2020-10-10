@@ -1,3 +1,4 @@
+import { Component } from "./_componentBase";
 import {
   fetchRentStabilized,
   goToPrevSlide,
@@ -5,20 +6,12 @@ import {
 } from "../action_creators";
 import { observeStore } from "../store";
 
-export class RentStabilizedSearch {
+export class RentStabilizedSearch extends Component {
   constructor(props) {
-    const { store } = props || {};
-    if (
-      store &&
-      typeof store.dispatch === "function" &&
-      typeof store.getState === "function" &&
-      typeof store.subscribe === "function"
-    ) {
-      this.store = store;
-    } else {
-      throw new Error("RentStabilizedSearch requires redux store as a prop");
-    }
+    super(props);
+  }
 
+  init() {
     this.lookupBBL = this.lookupBBL.bind(this);
     this.handleSearchChange = this.handleSearchChange.bind(this);
     this.handleRSChange = this.handleRSChange.bind(this);
