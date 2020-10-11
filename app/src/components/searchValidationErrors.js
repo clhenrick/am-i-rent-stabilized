@@ -5,16 +5,19 @@ export class SearchValidationErrors extends Component {
     this._searchForm = searchForm;
     this.errorNotFound = this.element.querySelector("#error-not-found");
     this.errorNoInput = this.element.querySelector("#error-address");
+    this.errorGeneric = this.element.querySelector("#error-generic");
   }
 
   showAll() {
     this.showNotFound();
     this.showNoInput();
+    this.showGeneric();
   }
 
   hideAll() {
     this.hideNotFound();
     this.hideNoInput();
+    this.hideGeneric();
   }
 
   showNotFound() {
@@ -35,6 +38,14 @@ export class SearchValidationErrors extends Component {
     this._searchForm.inputAddress.classList.remove("invalid");
   }
 
+  showGeneric() {
+    this.errorGeneric.classList.remove("vis-hidden");
+  }
+
+  hideGeneric() {
+    this.errorGeneric.classList.add("vis-hidden");
+  }
+
   get noInputIsHidden() {
     return this.errorNoInput.classList.contains("vis-hidden");
   }
@@ -43,7 +54,13 @@ export class SearchValidationErrors extends Component {
     return this.errorNotFound.classList.contains("vis-hidden");
   }
 
+  get genericIsHidden() {
+    return this.errorGeneric.classList.contains("vis-hidden");
+  }
+
   get areHidden() {
-    return this.noInputIsHidden && this.notFoundIsHidden;
+    return (
+      this.noInputIsHidden && this.notFoundIsHidden && this.genericIsHidden
+    );
   }
 }

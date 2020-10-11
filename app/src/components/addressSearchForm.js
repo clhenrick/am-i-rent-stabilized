@@ -128,8 +128,7 @@ export class AddressSearchForm extends Component {
   }
 
   handleFetchError() {
-    // TODO: error handling
-    // console.error(this.fetchError);
+    this.validationErrors.showGeneric();
   }
 
   get autosuggestionsList() {
