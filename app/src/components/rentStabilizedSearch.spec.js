@@ -135,10 +135,10 @@ describe("RentStabilizedSearch", () => {
     expect(dispatchMock).toHaveBeenCalledWith({ type: types.GoToNextSlide });
   });
 
-  test("handleRSError", () => {
+  test("handleRSError", async () => {
     const dispatchMock = store.dispatch;
     const rentStabilizedSearch = new RentStabilizedSearch({ store, element });
-    rentStabilizedSearch.handleRSError();
+    await rentStabilizedSearch.handleRSError();
     expect(dispatchMock).toHaveBeenCalledWith({ type: types.GoToPrevSlide });
   });
 });

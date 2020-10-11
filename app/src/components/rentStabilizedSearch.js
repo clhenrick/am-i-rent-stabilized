@@ -6,6 +6,8 @@ import {
 } from "../action_creators";
 import { observeStore } from "../store";
 
+const TRANSITION_DELAY_MS = 2500;
+
 export class RentStabilizedSearch extends Component {
   constructor(props) {
     super(props);
@@ -19,6 +21,7 @@ export class RentStabilizedSearch extends Component {
     this.handleRSChange = this.handleRSChange.bind(this);
     this.handleRSError = this.handleRSError.bind(this);
     this.handleGoToNextSlide = this.handleGoToNextSlide.bind(this);
+    this.delay = this.delay.bind(this);
 
     observeStore(
       this.store,
@@ -59,13 +62,17 @@ export class RentStabilizedSearch extends Component {
   }
 
   async handleGoToNextSlide() {
-    await new Promise((resolve) => setTimeout(resolve, 2500));
+    await this.delay();
     this.store.dispatch(goToNextSlide());
   }
 
-  handleRSError() {
-    // TODO: set AddressSearchForm error msg
+  async handleRSError() {
+    await this.delay();
     this.store.dispatch(goToPrevSlide());
+  }
+
+  async delay() {
+    await new Promise((resolve) => setTimeout(resolve, TRANSITION_DELAY_MS));
   }
 
   get searchResult() {
