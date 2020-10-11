@@ -24,7 +24,8 @@
       "placeholder": "Your NYC street address",
       "val_errors": {
         "not_found": "* Sorry, we don't recognize that NYC address, please try again!",
-        "address": "* Enter your building number, street name, and borough."
+        "address": "* Enter your building number, street name, and borough.",
+        "generic": "Something went wrong, please try again."
       }
     },
     "search": "Search"
