@@ -1,5 +1,4 @@
 import "cross-fetch/polyfill";
-
 import * as types from "../constants/actionTypes";
 
 export const resetAddressState = () => ({
@@ -74,8 +73,10 @@ export const addressSearchFetch = (text) => (dispatch) => {
     })
     .then((json) => {
       dispatch(addressSearchSuccess(json));
+      return json;
     })
     .catch((error) => {
       dispatch(addressSearchFailure(error));
+      return error;
     });
 };

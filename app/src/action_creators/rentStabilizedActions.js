@@ -35,6 +35,12 @@ export const fetchRentStabilized = (bbl) => (dispatch) => {
       }
       throw new Error("Problem fetching rent stabilized lookup data");
     })
-    .then((json) => dispatch(rentStabilizedSuccess(json)))
-    .catch((error) => dispatch(rentStabilizedFailure(error)));
+    .then((json) => {
+      dispatch(rentStabilizedSuccess(json));
+      return json;
+    })
+    .catch((error) => {
+      dispatch(rentStabilizedFailure(error));
+      return error;
+    });
 };
