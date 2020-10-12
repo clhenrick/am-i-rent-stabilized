@@ -7,6 +7,8 @@ import {
   goToNextSlide,
 } from "../action_creators";
 import { observeStore } from "../store";
+import { delay } from "../utils/delay";
+import { RS_SEARCH_DELAY_MS } from "../constants/app";
 
 const INPUT_THROTTLE_MS = 350;
 const MIN_SEARCH_TEXT_LENGTH = 1;
@@ -110,7 +112,7 @@ export class AddressSearchForm extends Component {
 
   async handleRSChange() {
     if (this.statusRS === "error" || this.errorRS) {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      await delay(RS_SEARCH_DELAY_MS);
       this.handleFetchError();
     }
   }

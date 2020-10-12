@@ -5,8 +5,8 @@ import {
   goToNextSlide,
 } from "../action_creators";
 import { observeStore } from "../store";
-
-const TRANSITION_DELAY_MS = 2500;
+import { delay } from "../utils/delay";
+import { RS_SEARCH_DELAY_MS } from "../constants/app";
 
 export class RentStabilizedSearch extends Component {
   constructor(props) {
@@ -21,7 +21,6 @@ export class RentStabilizedSearch extends Component {
     this.handleRSChange = this.handleRSChange.bind(this);
     this.handleRSError = this.handleRSError.bind(this);
     this.handleGoToNextSlide = this.handleGoToNextSlide.bind(this);
-    this.delay = this.delay.bind(this);
 
     observeStore(
       this.store,
@@ -62,17 +61,13 @@ export class RentStabilizedSearch extends Component {
   }
 
   async handleGoToNextSlide() {
-    await this.delay();
+    await delay(RS_SEARCH_DELAY_MS);
     this.store.dispatch(goToNextSlide());
   }
 
   async handleRSError() {
-    await this.delay();
+    await delay(RS_SEARCH_DELAY_MS);
     this.store.dispatch(goToPrevSlide());
-  }
-
-  async delay() {
-    await new Promise((resolve) => setTimeout(resolve, TRANSITION_DELAY_MS));
   }
 
   get searchResult() {
