@@ -40,4 +40,16 @@ describe("rentStabilizedReducer", () => {
       error: new Error(),
     });
   });
+
+  test("Should handle RentStabilizedReset", () => {
+    expect(
+      rentStabilized(initialState, {
+        type: types.RentStabilizedReset,
+      })
+    ).toEqual({
+      status: "idle",
+      error: null,
+      match: null,
+    });
+  });
 });

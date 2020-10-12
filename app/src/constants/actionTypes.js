@@ -21,3 +21,4 @@ export const AddressAutosuggestFailure = "AddressAutosuggestFailure";
 export const RentStabilizedRequest = "RentStabilizedRequest";
 export const RentStabilizedSuccess = "RentStabilizedSuccess";
 export const RentStabilizedFailure = "RentStabilizedFailure";
+export const RentStabilizedReset = "RentStabilizedReset";

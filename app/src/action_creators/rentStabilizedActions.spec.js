@@ -40,6 +40,12 @@ describe("rentStabilizedActions", () => {
     });
   });
 
+  test("creates a rent stabilized reset action", () => {
+    expect(actions.rentStabilizedReset()).toEqual({
+      type: types.RentStabilizedReset,
+    });
+  });
+
   test("creates expected actions when fetching data is successful", () => {
     fetch.mockResponse(JSON.stringify({ rows: [{}] }), {
       status: 200,

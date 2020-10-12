@@ -7,13 +7,19 @@ import * as types from "../constants/actionTypes";
 export const rentStabilizedRequest = () => ({
   type: types.RentStabilizedRequest,
 });
+
 export const rentStabilizedSuccess = (payload) => ({
   type: types.RentStabilizedSuccess,
   payload,
 });
+
 export const rentStabilizedFailure = (error) => ({
   type: types.RentStabilizedFailure,
   error,
+});
+
+export const rentStabilizedReset = () => ({
+  type: types.RentStabilizedReset,
 });
 
 export const fetchRentStabilized = (bbl) => (dispatch) => {
