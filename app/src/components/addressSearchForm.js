@@ -38,7 +38,8 @@ export class AddressSearchForm extends Component {
       INPUT_THROTTLE_MS
     );
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleStoreSubscription = this.handleStoreSubscription.bind(this);
+    this.handleAGChange = this.handleAGChange.bind(this);
+    this.handleRSChange = this.handleRSChange.bind(this);
     this.updateDataListItems = this.updateDataListItems.bind(this);
     this.validateSearchResult = this.validateSearchResult.bind(this);
     this.clearCachedSearchResult = this.clearCachedSearchResult.bind(this);
@@ -47,8 +48,15 @@ export class AddressSearchForm extends Component {
     observeStore(
       this.store,
       (state) => state.addressGeocode,
-      this.handleStoreSubscription
+      this.handleAGChange
     );
+
+    observeStore(
+      this.store,
+      (state) => state.rentStabilized,
+      this.handleRSChange
+    );
+
     this.bindEvents();
   }
 
@@ -83,19 +91,26 @@ export class AddressSearchForm extends Component {
     }
   }
 
-  handleStoreSubscription() {
-    if (this.fetchStatus === "idle" && this.autosuggestionsList) {
+  handleAGChange() {
+    if (this.statusAG === "idle" && this.autosuggestionsList) {
       this.updateDataListItems();
     }
     if (
-      this.fetchStatus === "idle" &&
+      this.statusAG === "idle" &&
       this.searchResult &&
       !this.cached.searchResult
     ) {
       this.cacheSearchResult();
       this.validateSearchResult();
     }
-    if (this.fetchError || this.fetchStatus === "error") {
+    if (this.statusAG === "error" || this.errorAG) {
+      this.handleFetchError();
+    }
+  }
+
+  async handleRSChange() {
+    if (this.statusRS === "error" || this.errorRS) {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
       this.handleFetchError();
     }
   }
@@ -155,17 +170,31 @@ export class AddressSearchForm extends Component {
     return undefined;
   }
 
-  get fetchStatus() {
+  get statusAG() {
     const {
       addressGeocode: { status },
     } = this.store.getState();
     return status;
   }
 
-  get fetchError() {
+  get errorAG() {
     const {
       addressGeocode: { error },
     } = this.store.getState();
     return error ? error.message : undefined;
+  }
+
+  get statusRS() {
+    const {
+      rentStabilized: { status },
+    } = this.store.getState();
+    return status;
+  }
+
+  get errorRS() {
+    const {
+      rentStabilized: { error },
+    } = this.store.getState();
+    return error;
   }
 }

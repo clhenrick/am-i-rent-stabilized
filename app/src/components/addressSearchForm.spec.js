@@ -83,13 +83,13 @@ describe("AddressSearchForm", () => {
     expect(store.dispatch).toHaveBeenCalledWith(expect.any(Function));
   });
 
-  test("handleStoreSubscription responds to store.getState", () => {
+  test("handleAGChange responds to store.getState", () => {
     jest.clearAllMocks();
-    addressSearchForm.handleStoreSubscription();
+    addressSearchForm.handleAGChange();
     expect(store.getState).toHaveBeenCalled();
   });
 
-  test("handleStoreSubscription appropriately calls updateDataListItems", () => {
+  test("handleAGChange appropriately calls updateDataListItems", () => {
     jest.clearAllMocks();
     store.getState.mockImplementation(() => ({
       addressGeocode: {
@@ -99,11 +99,11 @@ describe("AddressSearchForm", () => {
       },
     }));
     addressSearchForm.updateDataListItems = jest.fn();
-    addressSearchForm.handleStoreSubscription();
+    addressSearchForm.handleAGChange();
     expect(addressSearchForm.updateDataListItems).toHaveBeenCalled();
   });
 
-  test("handleStoreSubscription appropriately calls handleFetchError", () => {
+  test("handleAGChange appropriately calls handleFetchError", () => {
     jest.clearAllMocks();
     store.getState.mockImplementation(() => ({
       addressGeocode: {
@@ -113,7 +113,7 @@ describe("AddressSearchForm", () => {
       },
     }));
     addressSearchForm.handleFetchError = jest.fn();
-    addressSearchForm.handleStoreSubscription();
+    addressSearchForm.handleAGChange();
     expect(addressSearchForm.handleFetchError).toHaveBeenCalled();
   });
 
