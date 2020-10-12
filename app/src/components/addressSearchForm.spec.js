@@ -14,6 +14,11 @@ jest.mock("../store", () => {
           status: "idle",
           error: null,
         },
+        rentStabilized: {
+          status: "idle",
+          error: null,
+          match: null,
+        },
       })),
       subscribe: jest.fn((cb) => cb()),
       dispatch: jest.fn(),
@@ -92,13 +97,30 @@ describe("AddressSearchForm", () => {
     spy.mockRestore();
   });
 
-  test("handleInputChange calls store.dispatch when appropriate", () => {
+  test("handleInputChange dispatches async action", () => {
     addressSearchForm = new AddressSearchForm({
       element,
       store,
     });
     addressSearchForm.handleInputChange({ target: { value: "555 2nd Ave" } });
     expect(store.dispatch).toHaveBeenCalledWith(expect.any(Function));
+  });
+
+  test("handleInputChange dispatches RentStabilizedReset", () => {
+    store.getState.mockImplementationOnce(() => ({
+      rentStabilized: {
+        error: new Error(),
+        status: "error",
+      },
+    }));
+    addressSearchForm = new AddressSearchForm({
+      element,
+      store,
+    });
+    addressSearchForm.handleInputChange({ target: { value: "" } });
+    expect(store.dispatch).toHaveBeenCalledWith({
+      type: "RentStabilizedReset",
+    });
   });
 
   test("handleAGChange responds to store.getState", () => {
