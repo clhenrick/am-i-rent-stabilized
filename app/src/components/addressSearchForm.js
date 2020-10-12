@@ -5,6 +5,7 @@ import {
   addressAutosuggestFetch,
   addressSearchFetch,
   goToNextSlide,
+  rentStabilizedReset,
 } from "../action_creators";
 import { observeStore } from "../store";
 import { delay } from "../utils/delay";
@@ -87,6 +88,9 @@ export class AddressSearchForm extends Component {
     this.addressSearchText = event.target.value;
     if (!this.validationErrors.areHidden) {
       this.validationErrors.hideAll();
+    }
+    if (this.statusRS === "error" || this.errorRS) {
+      this.store.dispatch(rentStabilizedReset());
     }
     if (this.addressSearchText.length >= MIN_SEARCH_TEXT_LENGTH) {
       this.store.dispatch(addressAutosuggestFetch(this.addressSearchText));
