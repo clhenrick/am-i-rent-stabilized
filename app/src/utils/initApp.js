@@ -5,7 +5,6 @@ import { AdvanceSlides } from "../components/advanceSlides";
 import { SlidesContainer } from "../components/slidesContainer";
 import { KeyboardNavigation } from "../components/keyboardNavigation";
 import { AddressSearchForm } from "../components/addressSearchForm";
-import { RentStabilizedSearch } from "../components/rentStabilizedSearch";
 import { ProgressIndicator } from "../components/progressIndicator";
 
 export default function initApp() {
@@ -58,12 +57,6 @@ export default function initApp() {
   // address search form & geocoding of address input
   new AddressSearchForm({
     element: document.querySelector("#address-form"),
-    store,
-  });
-
-  // handles looking for an RS match
-  new RentStabilizedSearch({
-    element: document.querySelector("#slide-3"),
     store,
   });
 }
