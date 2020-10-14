@@ -2,8 +2,8 @@ import throttle from "lodash.throttle";
 import { Component } from "./_componentBase";
 import { SearchValidationErrors } from "./searchValidationErrors";
 import {
+  searchRentStabilized,
   addressAutosuggestFetch,
-  addressSearchFetch,
   goToNextSlide,
   rentStabilizedReset,
 } from "../action_creators";
@@ -78,7 +78,7 @@ export class AddressSearchForm extends Component {
     this.handleInputChange.cancel();
     this.clearCachedSearchResult();
     if (this.inputAddress.value.length) {
-      this.store.dispatch(addressSearchFetch(this.inputAddress.value));
+      this.store.dispatch(searchRentStabilized(this.inputAddress.value));
     } else {
       this.validationErrors.showNoInput();
     }
