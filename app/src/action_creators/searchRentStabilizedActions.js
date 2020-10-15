@@ -56,10 +56,9 @@ export const searchRentStabilized = (addressText) => async (dispatch) => {
   } catch (error) {
     if (error === ERROR_ADDRESS_NOT_FOUND) {
       return;
-    } else {
-      await delay(RS_SEARCH_DELAY_MS);
-      dispatch(rentStabilizedFailure(error));
-      dispatch(goToSlideIdx(1));
     }
+    await delay(RS_SEARCH_DELAY_MS);
+    dispatch(rentStabilizedFailure(error));
+    dispatch(goToSlideIdx(1));
   }
 };

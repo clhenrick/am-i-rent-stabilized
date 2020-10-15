@@ -68,7 +68,16 @@ describe("getBBL", () => {
 });
 
 describe("searchRentStabilized", () => {
+  let store;
+
   beforeEach(() => {
+    store = mockStore({
+      addressGeocode: { autosuggestions: null, status: "idle", error: null },
+      rentStabilized: { status: "idle", match: null, error: null },
+    });
+  });
+
+  afterEach(() => {
     fetch.resetMocks();
   });
 
@@ -97,25 +106,109 @@ describe("searchRentStabilized", () => {
       { type: types.GoToSlideIdx, payload: 3 },
     ];
 
-    const store = mockStore({
-      addressGeocode: { autosuggestions: null, status: "idle", error: null },
-      rentStabilized: { status: "idlea", match: null, error: null },
+    return store.dispatch(searchRentStabilized("Some NYC address")).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
     });
+  });
+
+  test("It handles no address search results", () => {
+    fetch.mockResponseOnce(JSON.stringify({ features: [] }), {
+      status: 200,
+      statusText: "OK",
+    });
+
+    const expectedActions = [
+      { type: types.AddressSearchRequest },
+      {
+        type: types.AddressSearchSuccess,
+        payload: { features: [] },
+      },
+    ];
 
     return store.dispatch(searchRentStabilized("Some NYC address")).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
 
-  test.skip("It handles address not found error", () => {
-    // TODO
+  test("It handles BBL not found error", () => {
+    fetch.mockResponseOnce(JSON.stringify({ features: [{ properties: {} }] }), {
+      status: 200,
+      statusText: "OK",
+    });
+
+    const expectedActions = [
+      { type: types.AddressSearchRequest },
+      {
+        type: types.AddressSearchSuccess,
+        payload: { features: [{ properties: {} }] },
+      },
+      {
+        type: types.RentStabilizedFailure,
+        error: new Error(ERROR_MISSING_BBL),
+      },
+      {
+        type: types.GoToSlideIdx,
+        payload: 1,
+      },
+    ];
+
+    return store.dispatch(searchRentStabilized("Some NYC address")).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
   });
 
-  test.skip("It handles BBL not found error", () => {
-    // TODO
+  test("It handles geocoder API server error", () => {
+    fetch.mockReject(new Error("Server Error"));
+
+    const expectedActions = [
+      { type: types.AddressSearchRequest },
+      {
+        type: types.AddressSearchFailure,
+        error: new Error("Server Error"),
+      },
+    ];
+
+    return store.dispatch(searchRentStabilized("Some NYC address")).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
   });
 
-  test.skip("It handles RS not found error", () => {
-    // TODO
+  test("It handles RS server error", () => {
+    fetch
+      .mockResponseOnce(
+        JSON.stringify({ features: [{ properties: { pad_bbl: "01010101" } }] }),
+        {
+          status: 200,
+          statusText: "OK",
+        }
+      )
+      .mockReject(new Error("Server Error"));
+
+    const expectedActions = [
+      { type: types.AddressSearchRequest },
+      {
+        type: types.AddressSearchSuccess,
+        payload: { features: [{ properties: { pad_bbl: "01010101" } }] },
+      },
+      {
+        type: types.RentStabilizedRequest,
+      },
+      {
+        type: types.RentStabilizedFailure,
+        error: new Error("Server Error"),
+      },
+      {
+        type: types.RentStabilizedFailure,
+        error: ERROR_RS,
+      },
+      {
+        type: types.GoToSlideIdx,
+        payload: 1,
+      },
+    ];
+
+    return store.dispatch(searchRentStabilized("Some NYC address")).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
   });
 });
