@@ -7,23 +7,24 @@ import { goToSlideIdx } from "./slidesActions";
 import { delay } from "../utils/delay";
 import { RS_SEARCH_DELAY_MS } from "../constants/app";
 
-const ERROR_ADDRESS_NOT_FOUND = "Address search result not found";
-const ERROR_MISSING_BBL = "Missing BBL property on address search result";
-const ERROR_RS = "Problem looking up rent stabilization data";
+export const ERROR_ADDRESS_NOT_FOUND = "Address search result not found";
+export const ERROR_MISSING_BBL =
+  "Missing BBL property on address search result";
+export const ERROR_RS = "Problem looking up rent stabilization data";
 
-function validateSearchResult(result) {
+export function validateSearchResult(result) {
   if (!result || !result.features || !result.features.length) {
     throw ERROR_ADDRESS_NOT_FOUND;
   }
 }
 
-function validateRS(result) {
+export function validateRS(result) {
   if (!result || !result.rows) {
     throw ERROR_RS;
   }
 }
 
-function getBBL(feature) {
+export function getBBL(feature) {
   if (!feature || !feature.properties || !feature.properties.pad_bbl) {
     throw new Error(ERROR_MISSING_BBL);
   }
