@@ -7,6 +7,29 @@ import { goToSlideIdx } from "./slidesActions";
 import { delay } from "../utils/delay";
 import { RS_SEARCH_DELAY_MS } from "../constants/app";
 
+const ERROR_ADDRESS_NOT_FOUND = "Address search result not found";
+const ERROR_MISSING_BBL = "Missing BBL property on address search result";
+const ERROR_RS = "Problem looking up rent stabilization data";
+
+function validateSearchResult(result) {
+  if (!result || !result.features || !result.features.length) {
+    throw ERROR_ADDRESS_NOT_FOUND;
+  }
+}
+
+function validateRS(result) {
+  if (!result || !result.rows) {
+    throw ERROR_RS;
+  }
+}
+
+function getBBL(feature) {
+  if (!feature || !feature.properties || !feature.properties.pad_bbl) {
+    throw new Error(ERROR_MISSING_BBL);
+  }
+  return feature.properties.pad_bbl;
+}
+
 /**
  * searchRentStabilized
  * This is a compound action creator that handles:
@@ -19,16 +42,23 @@ import { RS_SEARCH_DELAY_MS } from "../constants/app";
 export const searchRentStabilized = (addressText) => async (dispatch) => {
   try {
     const searchResult = await dispatch(addressSearchFetch(addressText));
-    const {
-      properties: { pad_bbl },
-    } = searchResult.features[0];
-    const rsResult = await dispatch(fetchRentStabilized(pad_bbl));
+    validateSearchResult(searchResult);
+
+    const bbl = getBBL(searchResult.features[0]);
+    const rsResult = await dispatch(fetchRentStabilized(bbl));
+    validateRS(rsResult);
+
     await delay(RS_SEARCH_DELAY_MS);
     dispatch(goToSlideIdx(3));
+
     return rsResult;
   } catch (error) {
-    await delay(RS_SEARCH_DELAY_MS);
-    dispatch(rentStabilizedFailure(error));
-    dispatch(goToSlideIdx(1));
+    if (error === ERROR_ADDRESS_NOT_FOUND) {
+      return;
+    } else {
+      await delay(RS_SEARCH_DELAY_MS);
+      dispatch(rentStabilizedFailure(error));
+      dispatch(goToSlideIdx(1));
+    }
   }
 };
