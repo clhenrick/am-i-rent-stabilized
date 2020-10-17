@@ -2,7 +2,7 @@ require('jest-fetch-mock').enableMocks();
 
 const fs = require("fs");
 const path = require("path");
-const Handlebars = require("Handlebars");
+const Handlebars = require("handlebars");
 const { LOCALES_JSON_DIR } = require("./src/constants/locales");
 
 registerHbsPartials();
