@@ -1,31 +1,10 @@
 import { AddressSearchForm } from "./addressSearchForm";
 import { SearchValidationErrors } from "./searchValidationErrors";
-import { store } from "../store";
+import { store, observeStore } from "../store";
 import throttle from "lodash.throttle";
 
 jest.mock("lodash.throttle");
-jest.mock("../store", () => {
-  return {
-    __esModule: true,
-    store: {
-      getState: jest.fn(() => ({
-        addressGeocode: {
-          result: null,
-          status: "idle",
-          error: null,
-        },
-        rentStabilized: {
-          status: "idle",
-          error: null,
-          match: null,
-        },
-      })),
-      subscribe: jest.fn((cb) => cb()),
-      dispatch: jest.fn(),
-    },
-    observeStore: jest.fn(),
-  };
-});
+jest.mock("../store");
 
 describe("AddressSearchForm", () => {
   let element;
@@ -39,6 +18,21 @@ describe("AddressSearchForm", () => {
   beforeAll(() => {
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
     element = document.querySelector("#address-form");
+  });
+
+  beforeEach(() => {
+    store.getState.mockImplementation(() => ({
+      addressGeocode: {
+        result: null,
+        status: "idle",
+        error: null,
+      },
+      rentStabilized: {
+        status: "idle",
+        error: null,
+        match: null,
+      },
+    }));
   });
 
   afterAll(() => {
@@ -74,7 +68,7 @@ describe("AddressSearchForm", () => {
     ).toThrow("Requires redux store");
   });
 
-  test("has a validationErrors property", () => {
+  test("validationErrors property is an instance of SearchValidationErrors", () => {
     addressSearchForm = new AddressSearchForm({
       element,
       store,
@@ -123,64 +117,110 @@ describe("AddressSearchForm", () => {
     });
   });
 
-  test("handleAGChange responds to store.getState", () => {
+  test("uses observeStore to watch for redux state changes", () => {
+    observeStore.mockReset();
+    new AddressSearchForm({
+      element,
+      store,
+    });
+    expect(observeStore).toHaveBeenCalledTimes(2);
+  });
+
+  test("responds to changes in state.addressGeocode", () => {
+    const spy = jest.spyOn(AddressSearchForm.prototype, "handleAGChange");
+    observeStore.mockImplementation((store, stateSlice, cb) => {
+      stateSlice = (state) => state.addressGeocode;
+      cb();
+    });
     addressSearchForm = new AddressSearchForm({
       element,
       store,
     });
-    addressSearchForm.handleAGChange();
-    expect(store.getState).toHaveBeenCalled();
+    expect(spy).toHaveBeenCalledTimes(1);
+    spy.mockRestore();
+  });
+
+  test("responds to changes in state.rentStabilized", () => {
+    const spy = jest.spyOn(AddressSearchForm.prototype, "handleRSChange");
+    observeStore.mockImplementation((store, stateSlice, cb) => {
+      stateSlice = (state) => state.rentStabilized;
+      cb();
+    });
+    addressSearchForm = new AddressSearchForm({
+      element,
+      store,
+    });
+    expect(spy).toHaveBeenCalledTimes(1);
+    spy.mockRestore();
   });
 
   test("handleAGChange appropriately calls updateDataListItems", () => {
+    const spy = jest.spyOn(AddressSearchForm.prototype, "updateDataListItems");
     addressSearchForm = new AddressSearchForm({
       element,
       store,
     });
+    store.getState.mockClear();
     store.getState.mockImplementation(() => ({
       addressGeocode: {
-        autosuggestions: { features: [{}] },
+        autosuggestions: { features: [{ properties: {} }] },
         status: "idle",
         error: null,
       },
     }));
-    addressSearchForm.updateDataListItems = jest.fn();
     addressSearchForm.handleAGChange();
-    expect(addressSearchForm.updateDataListItems).toHaveBeenCalled();
+    expect(spy).toHaveBeenCalledTimes(1);
+    spy.mockRestore();
   });
 
   test("handleAGChange appropriately calls handleFetchError", () => {
+    const spy = jest.spyOn(AddressSearchForm.prototype, "handleFetchError");
     addressSearchForm = new AddressSearchForm({
       element,
       store,
     });
+    store.getState.mockClear();
+    store.getState.mockImplementation(() => ({
+      addressGeocode: {
+        autosuggestions: null,
+        searchResult: null,
+        status: "error",
+        error: new Error("Something went wrong"),
+      },
+      rentStabilized: {
+        status: "idle",
+        error: null,
+        match: null,
+      },
+    }));
+    addressSearchForm.handleAGChange();
+    expect(spy).toHaveBeenCalled();
+    spy.mockRestore();
+  });
+
+  test("handleRSChange", async () => {
+    const spy = jest.spyOn(AddressSearchForm.prototype, "handleFetchError");
+    addressSearchForm = new AddressSearchForm({
+      element,
+      store,
+    });
+
     store.getState.mockImplementation(() => ({
       addressGeocode: {
         result: null,
         status: "idle",
-        error: new Error("Something went wrong"),
+        error: null,
       },
-    }));
-    addressSearchForm.handleFetchError = jest.fn();
-    addressSearchForm.handleAGChange();
-    expect(addressSearchForm.handleFetchError).toHaveBeenCalled();
-  });
-
-  test("handleRSChange", async () => {
-    store.getState.mockImplementation(() => ({
       rentStabilized: {
         error: new Error(),
         status: null,
         match: null,
       },
     }));
-    const spy = jest.spyOn(AddressSearchForm.prototype, "handleFetchError");
-    addressSearchForm = new AddressSearchForm({
-      element,
-      store,
-    });
+
     await addressSearchForm.handleRSChange();
     expect(spy).toHaveBeenCalledTimes(1);
+    spy.mockRestore();
   });
 
   test("updateDataListItems", () => {
