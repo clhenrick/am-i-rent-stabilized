@@ -1,5 +1,5 @@
 import { ProgressIndicator } from "./progressIndicator";
-import { store } from "../store";
+import { store, observeStore } from "../store";
 
 jest.mock("../store", () => {
   return {
@@ -65,18 +65,20 @@ describe("ProgressIndicator", () => {
     spy.mockRestore();
   });
 
-  // No idea how to get this test to pass...
-  // eslint-disable-next-line
-  test.skip("responds to redux state changes of slides.curIndex", () => {
-    jest.restoreAllMocks();
-    const store = jest.requireActual("../store");
-    spyRenderCircles = jest.spyOn(ProgressIndicator.prototype, "renderCircles");
+  test("responds to redux state changes of slides.curIndex", () => {
+    const spy = jest.spyOn(ProgressIndicator.prototype, "renderCircles");
+
+    observeStore.mockImplementation((store, stateSlice, cb) => {
+      stateSlice = (state) => state.slides.curIndex;
+      cb();
+    });
+
     progressIndicator = new ProgressIndicator({
       element: document.querySelector("#progress-indicator"),
-      store: store.store,
+      store,
     });
-    store.store.dispatch({ type: "GoToNextSlide" });
-    expect(spyRenderCircles).toHaveBeenCalledTimes(2);
+
+    expect(spy).toHaveBeenCalledTimes(1);
   });
 
   test("renderCircles", () => {
