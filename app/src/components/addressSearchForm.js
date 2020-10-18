@@ -132,7 +132,7 @@ export class AddressSearchForm extends Component {
   }
 
   validateSearchResult() {
-    if (this.searchResult.length) {
+    if (this.searchResult && this.searchResult.length) {
       this.inputAddress.blur();
       this.store.dispatch(goToNextSlide());
     } else {

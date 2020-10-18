@@ -262,6 +262,45 @@ describe("AddressSearchForm", () => {
     expect(addressSearchForm.datalist.children[1].dataset.bbl).toBe("666");
   });
 
+  test("validateSearchResult success", () => {
+    addressSearchForm = new AddressSearchForm({
+      element: document.querySelector("#address-form"),
+      store,
+    });
+    store.getState.mockImplementation(() => ({
+      addressGeocode: {
+        status: "idle",
+        error: null,
+        searchResult: {
+          features: [{}],
+        },
+      },
+    }));
+    addressSearchForm.validateSearchResult();
+    expect(store.dispatch).toHaveBeenCalledWith({
+      type: "GoToNextSlide",
+    });
+  });
+
+  test("validateSearchResult error", () => {
+    const spy = jest.spyOn(SearchValidationErrors.prototype, "showNotFound");
+    addressSearchForm = new AddressSearchForm({
+      element: document.querySelector("#address-form"),
+      store,
+    });
+    store.getState.mockImplementation(() => ({
+      addressGeocode: {
+        status: "idle",
+        error: null,
+        searchResult: {
+          features: [],
+        },
+      },
+    }));
+    addressSearchForm.validateSearchResult();
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
+
   test("handleSubmit", () => {
     const spy = jest.spyOn(AddressSearchForm.prototype, "handleSubmit");
     const event = new Event("submit");
