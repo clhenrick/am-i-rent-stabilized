@@ -1,0 +1,31 @@
+ul.validation-error {
+  padding: 0;
+  margin-top: 5px;
+
+  li {
+    width: 70%;
+    display: block;
+    margin: 12px auto;
+    text-align: center;
+    padding: 10px;
+    color: $white;
+    font-size: 0.7em;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 1px;
+    list-style: none;
+    background-color: $valError;
+  }
+
+  @include responsive_height(medium-screens) {
+    li.es {
+      font-size: 0.6em;
+    }
+  }
+
+  @include responsive(small-screens) {
+    max-width: 95%;
+    margin: 0 auto;
+    padding: 2px;
+  }
+}
