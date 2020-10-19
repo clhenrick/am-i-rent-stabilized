@@ -7,6 +7,7 @@ import { KeyboardNavigation } from "../components/keyboardNavigation";
 import { AddressSearchForm } from "../components/addressSearchForm";
 import { ProgressIndicator } from "../components/progressIndicator";
 import { VerifyRentStabilized } from "../components/verifyRentStabilized";
+import { SearchResultMap } from "../components/searchResultMap";
 
 export default function initApp() {
   if (process.env.NODE_ENV !== "production") {
@@ -64,6 +65,11 @@ export default function initApp() {
   // toggle yes/no message for rent stabilized result
   new VerifyRentStabilized({
     element: document.getElementById("slide-4"),
+    store,
+  });
+
+  new SearchResultMap({
+    element: document.getElementById("map"),
     store,
   });
 }
