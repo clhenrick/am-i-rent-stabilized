@@ -1,6 +1,8 @@
+import "cross-fetch/polyfill";
 import { Component } from "./_componentBase";
 import { observeStore } from "../store";
 import { mapsApiSql } from "../utils/sql";
+import { cartoAccount } from "../constants/config";
 const d3 = Object.assign({}, require("d3-tile"), require("d3-geo"));
 
 const ZOOM = {
@@ -30,13 +32,17 @@ export class SearchResultMap extends Component {
     this._zoom = ZOOM.DEFAULT;
     this._center = CENTER.DEFAULT;
     this._projection = d3.geoMercator();
+    this._cartoTilesSchema = null;
 
     this.updateProjection = this.updateProjection.bind(this);
     this.updateMapView = this.updateMapView.bind(this);
     this.handleSearchResult = this.handleSearchResult.bind(this);
     this.renderMap = this.renderMap.bind(this);
     this.renderTile = this.renderTile.bind(this);
+    this.renderCartoTile = this.renderCartoTile.bind(this);
     this.getTonerTileUrl = this.getTonerTileUrl.bind(this);
+    this.getCartoTileUrl = this.getCartoTileUrl.bind(this);
+    this.fetchCartoTilesSchema = this.fetchCartoTilesSchema.bind(this);
 
     observeStore(
       this.store,
@@ -44,8 +50,25 @@ export class SearchResultMap extends Component {
       this.handleSearchResult
     );
 
-    this.updateProjection();
-    this.renderMap();
+    this.fetchCartoTilesSchema().then(() => {
+      this.updateProjection();
+      this.renderMap();
+    });
+  }
+
+  async fetchCartoTilesSchema() {
+    try {
+      const mapsApiUrl = `https://${cartoAccount}.carto.com/api/v1/map/`;
+      const res = await fetch(
+        `${mapsApiUrl}?config=${encodeURIComponent(
+          JSON.stringify(this.mapsApiConfig)
+        )}`
+      );
+      const json = await res.json();
+      this._cartoTilesSchema = json;
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   handleSearchResult() {
@@ -77,6 +100,7 @@ export class SearchResultMap extends Component {
 
   renderMap() {
     this.gBaseTiles.innerHTML = `${this.tiles.map(this.renderTile)}`;
+    this.gRsTiles.innerHTML = `${this.tiles.map(this.renderCartoTile)}`;
   }
 
   renderTile([x, y, z], i, { translate: [tx, ty], scale: k }) {
@@ -89,10 +113,34 @@ export class SearchResultMap extends Component {
     )}" width="${k}" height="${k}"></image>`;
   }
 
+  renderCartoTile([x, y, z], i, { translate: [tx, ty], scale: k }) {
+    return `<image xlink:href="${this.getCartoTileUrl(
+      x,
+      y,
+      z
+    )}" x="${Math.round((x + tx) * k)}" y="${Math.round(
+      (y + ty) * k
+    )}" width="${k}" height="${k}"></image>`;
+  }
+
   getTonerTileUrl(x, y, z) {
     return `https://stamen-tiles-${
       "abc"[Math.abs(x + y) % 3]
     }.a.ssl.fastly.net/toner-lite/${z}/${x}/${y}${
+      devicePixelRatio > 1 ? "@2x" : ""
+    }.png`;
+  }
+
+  getCartoTileUrl(x, y, z) {
+    const { layergroupid, cdn_url } = this.cartoTilesSchema;
+    const {
+      templates: { https },
+    } = cdn_url;
+    const baseURL = https.url.replace(
+      "{s}",
+      https.subdomains[Math.abs(x + y) % https.subdomains.length]
+    );
+    return `${baseURL}/${cartoAccount}/api/v1/map/${layergroupid}/${z}/${x}/${y}${
       devicePixelRatio > 1 ? "@2x" : ""
     }.png`;
   }
@@ -172,6 +220,18 @@ export class SearchResultMap extends Component {
     return this.tile();
   }
 
+  get cartoTilesSchema() {
+    return this._cartoTilesSchema;
+  }
+
+  set cartoTilesSchema(schema) {
+    if (schema && schema.cdn_url && schema.layergroupid) {
+      this._cartoTilesSchema = schema;
+    } else {
+      throw "Invalid CARTO tiles schema";
+    }
+  }
+
   get cartocss() {
     return `#layer {
       polygon-fill: orange;
@@ -186,7 +246,7 @@ export class SearchResultMap extends Component {
         {
           type: "cartodb",
           options: {
-            sql: mapsApiSql,
+            sql: mapsApiSql(),
             cartocss: this.cartocss,
             cartocss_version: "2.1.0",
           },
