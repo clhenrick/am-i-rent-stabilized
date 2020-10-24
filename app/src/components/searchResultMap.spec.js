@@ -25,6 +25,21 @@ describe("SearchResultMap", () => {
         match: null,
       },
     }));
+
+    fetch.mockResponse(
+      JSON.stringify({
+        layergroupid: "blablabla",
+        cdn_url: {
+          templates: {
+            https: {
+              url: "https://cartocdn-gusc-{s}.global.ssl.fastly.net",
+              subdomains: ["a", "b", "c", "d"],
+            },
+          },
+        },
+      }),
+      { status: 200, statusText: "OK" }
+    );
   });
 
   afterAll(() => {
