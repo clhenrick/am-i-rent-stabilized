@@ -38,9 +38,9 @@ export class SearchResultMap extends Component {
     this.updateMapView = this.updateMapView.bind(this);
     this.handleSearchResult = this.handleSearchResult.bind(this);
     this.renderMap = this.renderMap.bind(this);
-    this.renderTile = this.renderTile.bind(this);
+    this.renderBasemapTile = this.renderBasemapTile.bind(this);
     this.renderCartoTile = this.renderCartoTile.bind(this);
-    this.getTonerTileUrl = this.getTonerTileUrl.bind(this);
+    this.getBasemapTileUrl = this.getBasemapTileUrl.bind(this);
     this.getCartoTileUrl = this.getCartoTileUrl.bind(this);
     this.fetchCartoTilesSchema = this.fetchCartoTilesSchema.bind(this);
 
@@ -100,12 +100,12 @@ export class SearchResultMap extends Component {
   }
 
   renderMap() {
-    this.gBaseTiles.innerHTML = `${this.tiles.map(this.renderTile)}`;
+    this.gBaseTiles.innerHTML = `${this.tiles.map(this.renderBasemapTile)}`;
     this.gRsTiles.innerHTML = `${this.tiles.map(this.renderCartoTile)}`;
   }
 
-  renderTile([x, y, z], i, { translate: [tx, ty], scale: k }) {
-    return `<image xlink:href="${this.getTonerTileUrl(
+  renderBasemapTile([x, y, z], i, { translate: [tx, ty], scale: k }) {
+    return `<image xlink:href="${this.getBasemapTileUrl(
       x,
       y,
       z
@@ -124,10 +124,10 @@ export class SearchResultMap extends Component {
     )}" width="${k}" height="${k}"></image>`;
   }
 
-  getTonerTileUrl(x, y, z) {
-    return `https://stamen-tiles-${
+  getBasemapTileUrl(x, y, z) {
+    return `https://cartodb-basemaps-${
       "abc"[Math.abs(x + y) % 3]
-    }.a.ssl.fastly.net/toner-lite/${z}/${x}/${y}${
+    }.global.ssl.fastly.net/light_all/${z}/${x}/${y}${
       devicePixelRatio > 1 ? "@2x" : ""
     }.png`;
   }

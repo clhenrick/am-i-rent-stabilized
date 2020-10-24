@@ -61,18 +61,18 @@ describe("SearchResultMap", () => {
     ).toThrow("Requires redux store");
   });
 
-  test("getTonerTileUrl", () => {
+  test("getCartoTileUrl", () => {
     window.devicePixelRatio = 2;
     searchResultMap = new SearchResultMap({
       element,
       store,
     });
-    expect(searchResultMap.getTonerTileUrl(40, 30, 20)).toEqual(
-      "https://stamen-tiles-b.a.ssl.fastly.net/toner-lite/20/40/30@2x.png"
+    expect(searchResultMap.getCartoTileUrl(40, 30, 20)).toEqual(
+      "https://cartodb-basemaps-b.global.ssl.fastly.net/light_all/20/40/30@2x.png"
     );
     window.devicePixelRatio = 1;
-    expect(searchResultMap.getTonerTileUrl(1, 2, 3)).toEqual(
-      "https://stamen-tiles-a.a.ssl.fastly.net/toner-lite/3/1/2.png"
+    expect(searchResultMap.getCartoTileUrl(1, 2, 3)).toEqual(
+      "https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/3/1/2.png"
     );
   });
 });
