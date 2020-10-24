@@ -24,7 +24,7 @@ export class SearchResultMap extends Component {
     this.svg = this.element.querySelector("svg");
     this.gBaseTiles = this.svg.querySelector("g.tiles-base-map");
     this.gRsTiles = this.svg.querySelector("g.tiles-rent-stabilized");
-    this.marker = this.svg.querySelector("symbol");
+    this.marker = this.svg.querySelector("g.location-marker");
 
     this.width = 550;
     this.height = 300;
@@ -95,6 +95,7 @@ export class SearchResultMap extends Component {
     console.log(coordinates, name, borough, state, zipcode);
     this.zoom = ZOOM.RESULT;
     this.center = coordinates;
+    this.showMarker();
     this.renderMap();
   }
 
@@ -150,6 +151,14 @@ export class SearchResultMap extends Component {
       .center(this.center)
       .scale(Math.pow(2, this.zoom) / (2 * Math.PI))
       .translate([this.width / 2, this.height / 2]);
+  }
+
+  showMarker() {
+    this.marker.setAttribute("opacity", 1);
+  }
+
+  hideMarker() {
+    this.marker.setAttribute("opacity", 0);
   }
 
   get searchResultDetails() {
