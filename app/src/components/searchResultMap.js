@@ -7,7 +7,7 @@ const d3 = Object.assign({}, require("d3-tile"), require("d3-geo"));
 
 const ZOOM = {
   DEFAULT: 20,
-  RESULT: 26,
+  RESULT: 24,
 };
 const CENTER = {
   DEFAULT: [-74.006, 40.7128],
@@ -243,9 +243,11 @@ export class SearchResultMap extends Component {
 
   get cartocss() {
     return `#layer {
-      polygon-fill: orange;
-      polygon-opacity: 1;
-      line-width: 0;
+      polygon-fill: #FF6600;
+      polygon-opacity: 0.6;
+      line-width: 0.7;
+      line-color: #FFF;
+      line-opacity: 0.3;
     }`;
   }
 
