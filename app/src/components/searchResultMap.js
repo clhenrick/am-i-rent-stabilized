@@ -38,10 +38,10 @@ export class SearchResultMap extends Component {
     this.updateMapView = this.updateMapView.bind(this);
     this.handleSearchResult = this.handleSearchResult.bind(this);
     this.renderMap = this.renderMap.bind(this);
-    this.renderBasemapTile = this.renderBasemapTile.bind(this);
-    this.renderCartoTile = this.renderCartoTile.bind(this);
+    this.renderMapTile = this.renderMapTile.bind(this);
+    this.renderMapTiles = this.renderMapTiles.bind(this);
     this.getBasemapTileUrl = this.getBasemapTileUrl.bind(this);
-    this.getCartoTileUrl = this.getCartoTileUrl.bind(this);
+    this.getDataTileUrl = this.getDataTileUrl.bind(this);
     this.fetchCartoTilesSchema = this.fetchCartoTilesSchema.bind(this);
 
     observeStore(
@@ -100,28 +100,27 @@ export class SearchResultMap extends Component {
   }
 
   renderMap() {
-    this.gBaseTiles.innerHTML = `${this.tiles.map(this.renderBasemapTile)}`;
-    this.gRsTiles.innerHTML = `${this.tiles.map(this.renderCartoTile)}`;
+    this.gBaseTiles.innerHTML = this.renderMapTiles("basemap");
+    this.gRsTiles.innerHTML = this.renderMapTiles("data");
   }
 
-  renderBasemapTile([x, y, z], i, { translate: [tx, ty], scale: k }) {
-    return `<image xlink:href="${this.getBasemapTileUrl(
-      x,
-      y,
-      z
-    )}" x="${Math.round((x + tx) * k)}" y="${Math.round(
-      (y + ty) * k
-    )}" width="${k}" height="${k}"></image>`;
+  renderMapTiles(type) {
+    return this.tiles
+      .map((path, i, transform) => this.renderMapTile(path, transform, type))
+      .join("");
   }
 
-  renderCartoTile([x, y, z], i, { translate: [tx, ty], scale: k }) {
-    return `<image xlink:href="${this.getCartoTileUrl(
-      x,
-      y,
-      z
-    )}" x="${Math.round((x + tx) * k)}" y="${Math.round(
-      (y + ty) * k
-    )}" width="${k}" height="${k}"></image>`;
+  renderMapTile(path, transform, type) {
+    const [x, y, z] = path;
+    const {
+      translate: [tx, ty],
+      scale: k,
+    } = transform;
+    const getTileUrl =
+      type === "basemap" ? this.getBasemapTileUrl : this.getDataTileUrl;
+    return `<image xlink:href="${getTileUrl(x, y, z)}" x="${Math.round(
+      (x + tx) * k
+    )}" y="${Math.round((y + ty) * k)}" width="${k}" height="${k}"></image>`;
   }
 
   getBasemapTileUrl(x, y, z) {
@@ -132,7 +131,7 @@ export class SearchResultMap extends Component {
     }.png`;
   }
 
-  getCartoTileUrl(x, y, z) {
+  getDataTileUrl(x, y, z) {
     const { layergroupid, cdn_url } = this.cartoTilesSchema;
     const {
       templates: { https },
@@ -217,7 +216,7 @@ export class SearchResultMap extends Component {
     return this._projection;
   }
 
-  get tile() {
+  get tileSchema() {
     return d3
       .tile()
       .size([this.width, this.height])
@@ -226,7 +225,7 @@ export class SearchResultMap extends Component {
   }
 
   get tiles() {
-    return this.tile();
+    return this.tileSchema();
   }
 
   get cartoTilesSchema() {
