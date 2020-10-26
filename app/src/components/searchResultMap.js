@@ -45,6 +45,7 @@ export class SearchResultMap extends Component {
     this.getBasemapTileUrl = this.getBasemapTileUrl.bind(this);
     this.getDataTileUrl = this.getDataTileUrl.bind(this);
     this.fetchCartoTilesSchema = this.fetchCartoTilesSchema.bind(this);
+    this.resetMap = this.resetMap.bind(this);
 
     observeStore(
       this.store,
@@ -178,6 +179,13 @@ export class SearchResultMap extends Component {
 
   hideMarker() {
     this.marker.setAttribute("opacity", 0);
+  }
+
+  resetMap() {
+    this.zoom = ZOOM.DEFAULT;
+    this.center = CENTER.DEFAULT;
+    this.hideMarker();
+    this.renderMap();
   }
 
   get dimensions() {
