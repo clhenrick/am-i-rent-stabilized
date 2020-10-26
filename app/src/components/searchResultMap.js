@@ -12,6 +12,11 @@ const ZOOM = {
 const CENTER = {
   DEFAULT: [-74.006, 40.7128],
 };
+const MARKER = {
+  WIDTH: 16 * 2,
+  HEIGHT: 20 * 2,
+};
+const BORDER_WIDTH = 3;
 
 export class SearchResultMap extends Component {
   constructor(props) {
@@ -25,9 +30,6 @@ export class SearchResultMap extends Component {
     this.gBaseTiles = this.svg.querySelector("g.tiles-base-map");
     this.gRsTiles = this.svg.querySelector("g.tiles-rent-stabilized");
     this.marker = this.svg.querySelector("g.location-marker");
-
-    this.width = 550;
-    this.height = 300;
 
     this._zoom = ZOOM.DEFAULT;
     this._center = CENTER.DEFAULT;
@@ -100,8 +102,25 @@ export class SearchResultMap extends Component {
   }
 
   renderMap() {
+    this.setMapSize();
+    this.setMarkerPosition();
     this.gBaseTiles.innerHTML = this.renderMapTiles("basemap");
     this.gRsTiles.innerHTML = this.renderMapTiles("data");
+  }
+
+  setMapSize() {
+    const { width, height } = this.dimensions;
+    this.svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+  }
+
+  setMarkerPosition() {
+    const { width, height } = this.dimensions;
+    this.marker.setAttribute(
+      "transform",
+      `translate(${width / 2 - MARKER.WIDTH / 2}, ${
+        height / 2 - MARKER.HEIGHT
+      }), scale(2)`
+    );
   }
 
   renderMapTiles(type) {
@@ -146,10 +165,11 @@ export class SearchResultMap extends Component {
   }
 
   updateProjection() {
+    const { width, height } = this.dimensions;
     this._projection
       .center(this.center)
       .scale(Math.pow(2, this.zoom) / (2 * Math.PI))
-      .translate([this.width / 2, this.height / 2]);
+      .translate([width / 2, height / 2]);
   }
 
   showMarker() {
@@ -158,6 +178,13 @@ export class SearchResultMap extends Component {
 
   hideMarker() {
     this.marker.setAttribute("opacity", 0);
+  }
+
+  get dimensions() {
+    let { width, height } = this.element.getBoundingClientRect();
+    width -= BORDER_WIDTH * 2;
+    height -= BORDER_WIDTH * 2;
+    return { width, height };
   }
 
   get searchResultDetails() {
@@ -217,9 +244,10 @@ export class SearchResultMap extends Component {
   }
 
   get tileSchema() {
+    const { width, height } = this.dimensions;
     return d3
       .tile()
-      .size([this.width, this.height])
+      .size([width, height])
       .scale(this.projection.scale() * 2 * Math.PI)
       .translate(this.projection([0, 0]));
   }
