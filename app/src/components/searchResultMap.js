@@ -30,6 +30,7 @@ export class SearchResultMap extends Component {
     this.gBaseTiles = this.svg.querySelector("g.tiles-base-map");
     this.gRsTiles = this.svg.querySelector("g.tiles-rent-stabilized");
     this.marker = this.svg.querySelector("g.location-marker");
+    this.popup = this.element.querySelector("div.map-pop-up");
 
     this._zoom = ZOOM.DEFAULT;
     this._center = CENTER.DEFAULT;
@@ -95,9 +96,10 @@ export class SearchResultMap extends Component {
       state,
       zipcode,
     } = this.searchResultDetails;
-    console.log(coordinates, name, borough, state, zipcode);
     this.zoom = ZOOM.RESULT;
     this.center = coordinates;
+    this.setPopupContent({ name, borough, state, zipcode });
+    this.showPopUp();
     this.showMarker();
     this.renderMap();
   }
@@ -171,6 +173,23 @@ export class SearchResultMap extends Component {
       .center(this.center)
       .scale(Math.pow(2, this.zoom) / (2 * Math.PI))
       .translate([width / 2, height / 2]);
+  }
+
+  setPopupContent(props) {
+    if (!props) {
+      this.popup.innerHTML = "";
+    } else {
+      const { name, borough, state, zipcode } = props;
+      this.popup.innerHTML = `<p>${name}</p><p>${borough} ${state} ${zipcode}</p>`;
+    }
+  }
+
+  showPopUp() {
+    this.popup.classList.remove("hidden");
+  }
+
+  hidePopUp() {
+    this.popup.classList.add("hidden");
   }
 
   showMarker() {
