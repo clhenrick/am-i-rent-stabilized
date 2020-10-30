@@ -5,6 +5,8 @@ import { observeStore } from "../store";
 
 gsap.registerPlugin(ScrollToPlugin);
 
+const SCROLL_DURATION_SECONDS = 0.65;
+
 export class SlidesContainer extends Component {
   constructor(props) {
     super(props);
@@ -34,9 +36,8 @@ export class SlidesContainer extends Component {
   }
 
   scrollToActiveSlide() {
-    const duration = this.prefersReducedMotion ? 0 : 0.65;
     gsap.to(this.element, {
-      duration,
+      duration: this.prefersReducedMotion ? 0 : SCROLL_DURATION_SECONDS,
       scrollTo: ".slide.active",
       ease: "sine.inOut",
     });
