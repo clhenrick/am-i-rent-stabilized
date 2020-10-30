@@ -70,7 +70,10 @@
     "transform": {
       "^.+\\.[jt]sx?$": "babel-jest",
       "\\.hbs$": "jest-handlebars"
-    }
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!(gsap)/)"
+    ]
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

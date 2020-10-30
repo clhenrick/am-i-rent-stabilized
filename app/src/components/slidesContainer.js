@@ -28,7 +28,6 @@ export class SlidesContainer extends Component {
   handleSlidesUpdate() {
     const { slides } = this.store.getState();
     if (slides.curIndex !== this.activeSlideIdx) {
-      console.log(this.activeSlideIdx);
       this.activeSlide = slides.curIndex;
       this.scrollToActiveSlide();
     }

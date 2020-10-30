@@ -1,3 +1,4 @@
+import { gsap } from "gsap";
 import { SlidesContainer } from "./slidesContainer";
 import { store, observeStore } from "../store";
 
@@ -18,7 +19,8 @@ jest.mock("../store", () => {
   };
 });
 
-const mockScrollIntoView = (window.HTMLElement.prototype.scrollIntoView = jest.fn());
+jest.mock("gsap");
+
 const mockMatchMedia = (window.matchMedia = jest.fn(() => ({
   matches: false,
 })));
@@ -34,10 +36,17 @@ describe("SlidesContainer", () => {
       "scrollToActiveSlide"
     );
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
+  });
+
+  beforeEach(() => {
     slidesContainer = new SlidesContainer({
       element: document.querySelector(selector),
       store,
     });
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
   afterAll(() => {
@@ -89,10 +98,9 @@ describe("SlidesContainer", () => {
     expect(slidesContainer.activeSlideIdx).toBe(5);
   });
 
-  test("scrollToActiveSlide calls element.scrollIntoView", () => {
-    mockScrollIntoView.mockClear();
+  test("scrollToActiveSlide calls gsap.to", () => {
     slidesContainer.scrollToActiveSlide();
-    expect(mockScrollIntoView).toHaveBeenCalledTimes(1);
+    expect(gsap.to).toHaveBeenCalledTimes(1);
   });
 
   test("sets smooth scroll behavior from prefers-reduced-motion media query", () => {
