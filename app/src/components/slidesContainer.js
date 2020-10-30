@@ -1,5 +1,9 @@
+import { gsap } from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { Component } from "./_componentBase";
 import { observeStore } from "../store";
+
+gsap.registerPlugin(ScrollToPlugin);
 
 export class SlidesContainer extends Component {
   constructor(props) {
@@ -24,14 +28,18 @@ export class SlidesContainer extends Component {
   handleSlidesUpdate() {
     const { slides } = this.store.getState();
     if (slides.curIndex !== this.activeSlideIdx) {
+      console.log(this.activeSlideIdx);
       this.activeSlide = slides.curIndex;
       this.scrollToActiveSlide();
     }
   }
 
   scrollToActiveSlide() {
-    this.activeSlide.scrollIntoView({
-      behavior: this.prefersReducedMotion ? "auto" : "smooth",
+    const duration = this.prefersReducedMotion ? 0 : 0.65;
+    gsap.to(this.element, {
+      duration,
+      scrollTo: ".slide.active",
+      ease: "sine.inOut",
     });
   }
 
