@@ -15,7 +15,6 @@
     "start:prod": "serve dist",
     "webpack:debug": "webpack --debug=true --display-error-details=true --verbose=true --mode=development --env.NODE_ENV=development",
     "prod": "webpack --mode=production --env.NODE_ENV=production",
-    "templates": "handlebars src/templates/*.hbs -f public/templates.js",
     "lint:js": "eslint 'src/**/*.js' --ext .js",
     "lint:js:fix": "npm run lint:js -- --fix",
     "test": "jest",
