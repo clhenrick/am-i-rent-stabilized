@@ -304,4 +304,27 @@ describe("SearchResultMap", () => {
     searchResultMap.hideMarker();
     expect(searchResultMap.marker.getAttribute("opacity")).toBe("0");
   });
+
+  test("resetMap", () => {
+    const spy1 = jest.spyOn(SearchResultMap.prototype, "hideMarker");
+    const spy2 = jest.spyOn(SearchResultMap.prototype, "renderMap");
+    const instance = new SearchResultMap({ store, element });
+    instance.resetMap();
+    expect(spy1).toHaveBeenCalledTimes(1);
+    expect(spy2).toHaveBeenCalledTimes(1);
+    expect(instance.zoom).toEqual(ZOOM.DEFAULT);
+    expect(instance.center).toEqual(CENTER.DEFAULT);
+  });
+
+  test("zoom property setter", () => {
+    expect(() => {
+      searchResultMap.zoom = null;
+    }).toThrow("zoom should be an integer");
+  });
+
+  test("center property setter", () => {
+    expect(() => {
+      searchResultMap.center = [];
+    }).toThrow("center must be an array with lat lon coordinates.");
+  });
 });
