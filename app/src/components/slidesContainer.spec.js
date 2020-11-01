@@ -98,9 +98,19 @@ describe("SlidesContainer", () => {
     expect(slidesContainer.activeSlideIdx).toBe(5);
   });
 
-  test("scrollToActiveSlide calls gsap.to", () => {
+  test("scrollToActiveSlide calls gsap.to()", () => {
     slidesContainer.scrollToActiveSlide();
     expect(gsap.to).toHaveBeenCalledTimes(1);
+  });
+
+  test("scrollToActiveSlide sets duration for gsap.to()", () => {
+    slidesContainer.prefersReducedMotion = true;
+    slidesContainer.scrollToActiveSlide();
+    expect(gsap.to).toHaveBeenCalledWith(slidesContainer.element, {
+      duration: 0,
+      scrollTo: ".slide.active",
+      ease: "sine.inOut",
+    });
   });
 
   test("sets smooth scroll behavior from prefers-reduced-motion media query", () => {
