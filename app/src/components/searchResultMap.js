@@ -3,18 +3,18 @@ import { Component } from "./_componentBase";
 import { MapTileLayers } from "./mapTileLayers";
 import { observeStore } from "../store";
 
-const ZOOM = {
+export const ZOOM = {
   DEFAULT: 20,
   RESULT: 24,
 };
-const CENTER = {
+export const CENTER = {
   DEFAULT: [-74.006, 40.7128],
 };
-const MARKER = {
+export const MARKER = {
   WIDTH: 16 * 2,
   HEIGHT: 20 * 2,
 };
-const BORDER_WIDTH = 3;
+export const BORDER_WIDTH = 3;
 
 export class SearchResultMap extends Component {
   constructor(props) {
@@ -102,7 +102,7 @@ export class SearchResultMap extends Component {
 
   updateProjection() {
     const { width, height } = this.dimensions;
-    this._projection
+    this.projection
       .center(this.center)
       .scale(Math.pow(2, this.zoom) / (2 * Math.PI))
       .translate([width / 2, height / 2]);
@@ -161,8 +161,7 @@ export class SearchResultMap extends Component {
         zipcode: postalcode,
       };
     } catch (error) {
-      console.error(error);
-      return null;
+      return false;
     }
   }
 
