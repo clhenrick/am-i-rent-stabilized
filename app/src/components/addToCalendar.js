@@ -3,7 +3,7 @@ import { Component } from "./_componentBase";
 
 // Wrapper component for add-to-calendar-button widget
 // https://www.addevent.com/add-to-calendar-button
-export class AddToCalendarButton extends Component {
+export class AddToCalendar extends Component {
   constructor(props) {
     super(props);
   }

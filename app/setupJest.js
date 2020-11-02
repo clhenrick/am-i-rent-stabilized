@@ -31,7 +31,7 @@ function registerHbsPartials() {
     "progress_indicator",
     "address_search_form",
     "search_result_map",
-    "add_to_calendar_btn"
+    "add_to_calendar"
   ];
 
   for (const partial of partials) {
