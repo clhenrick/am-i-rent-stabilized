@@ -8,6 +8,7 @@ import { AddressSearchForm } from "../components/addressSearchForm";
 import { ProgressIndicator } from "../components/progressIndicator";
 import { VerifyRentStabilized } from "../components/verifyRentStabilized";
 import { SearchResultMap } from "../components/searchResultMap";
+import { RentHistoryEmail } from "../components/rentHistoryEmail";
 
 export default function initApp() {
   if (process.env.NODE_ENV !== "production") {
@@ -71,5 +72,9 @@ export default function initApp() {
   new SearchResultMap({
     element: document.getElementById("map"),
     store,
+  });
+
+  new RentHistoryEmail({
+    element: document.getElementById("mail-to"),
   });
 }
