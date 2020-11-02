@@ -9,6 +9,7 @@ import { ProgressIndicator } from "../components/progressIndicator";
 import { VerifyRentStabilized } from "../components/verifyRentStabilized";
 import { SearchResultMap } from "../components/searchResultMap";
 import { RentHistoryEmail } from "../components/rentHistoryEmail";
+import { AddToCalendarButton } from "../components/addToCalendarBtn";
 
 export default function initApp() {
   if (process.env.NODE_ENV !== "production") {
@@ -76,5 +77,9 @@ export default function initApp() {
 
   new RentHistoryEmail({
     element: document.getElementById("mail-to"),
+  });
+
+  new AddToCalendarButton({
+    element: document.querySelector(".atc-container"),
   });
 }
