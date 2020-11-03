@@ -89,13 +89,9 @@ describe("AddToCalendar", () => {
   });
 
   test("formatDate", () => {
-    const now = new Date();
-    const expected = now.toLocaleString("en-US", {
-      year: "numeric",
-      day: "2-digit",
-      month: "2-digit",
-    });
-    expect(addToCalendar.formatDate(now)).toEqual(expected);
+    const date = new Date(2020, 10, 3);
+    const expected = "11/03/2020";
+    expect(addToCalendar.formatDate(date)).toEqual(expected);
   });
 
   test("formatDate throws", () => {
