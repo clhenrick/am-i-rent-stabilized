@@ -17,8 +17,8 @@
     "prod": "webpack --mode=production --env.NODE_ENV=production",
     "lint:js": "eslint 'src/**/*.js' --ext .js",
     "lint:js:fix": "npm run lint:js -- --fix",
-    "test": "NODE_ENV=test jest",
-    "test:watch": "NODE_ENV=test jest --watch"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "repository": {
     "type": "git",
