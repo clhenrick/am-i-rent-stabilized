@@ -10,6 +10,7 @@ import { VerifyRentStabilized } from "../components/verifyRentStabilized";
 import { SearchResultMap } from "../components/searchResultMap";
 import { RentHistoryEmail } from "../components/rentHistoryEmail";
 import { AddToCalendar } from "../components/addToCalendar";
+import { StartOver } from "../components/startOver";
 
 export default function initApp() {
   if (process.env.NODE_ENV !== "production") {
@@ -81,5 +82,10 @@ export default function initApp() {
 
   new AddToCalendar({
     element: document.querySelector(".atc-container"),
+  });
+
+  new StartOver({
+    element: document.querySelector(".button.start-over"),
+    store,
   });
 }
