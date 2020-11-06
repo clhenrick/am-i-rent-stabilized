@@ -95,9 +95,38 @@ describe("addressGeocode Reducer", () => {
 
   test("Should handle ResetAddressState", () => {
     expect(
-      addressGeocode(initialState, {
-        type: types.ResetAddressState,
-      })
+      addressGeocode(
+        {
+          status: "idle",
+          error: null,
+          autosuggestions: { features: [] },
+          searchResult: { features: [] },
+        },
+        {
+          type: types.ResetAddressState,
+        }
+      )
+    ).toEqual({
+      status: "idle",
+      error: null,
+      autosuggestions: null,
+      searchResult: null,
+    });
+  });
+
+  test("Should handle ResetAppState", () => {
+    expect(
+      addressGeocode(
+        {
+          status: "idle",
+          error: null,
+          autosuggestions: { features: [] },
+          searchResult: { features: [] },
+        },
+        {
+          type: types.ResetAppState,
+        }
+      )
     ).toEqual({
       status: "idle",
       error: null,

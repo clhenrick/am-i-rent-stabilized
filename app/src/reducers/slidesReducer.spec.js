@@ -88,4 +88,13 @@ describe("slidesReducer", () => {
       canAdvance: true,
     });
   });
+
+  test("Should handle ResetAppState", () => {
+    expect(
+      slides({ curIndex: 9, canAdvance: false }, { type: types.ResetAppState })
+    ).toEqual({
+      curIndex: 0,
+      canAdvance: true,
+    });
+  });
 });

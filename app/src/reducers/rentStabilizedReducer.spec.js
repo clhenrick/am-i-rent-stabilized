@@ -43,9 +43,35 @@ describe("rentStabilizedReducer", () => {
 
   test("Should handle RentStabilizedReset", () => {
     expect(
-      rentStabilized(initialState, {
-        type: types.RentStabilizedReset,
-      })
+      rentStabilized(
+        {
+          status: "idle",
+          match: { rows: [] },
+          error: null,
+        },
+        {
+          type: types.RentStabilizedReset,
+        }
+      )
+    ).toEqual({
+      status: "idle",
+      error: null,
+      match: null,
+    });
+  });
+
+  test("Should handle ResetAppState", () => {
+    expect(
+      rentStabilized(
+        {
+          status: "idle",
+          match: { rows: [] },
+          error: null,
+        },
+        {
+          type: types.ResetAppState,
+        }
+      )
     ).toEqual({
       status: "idle",
       error: null,

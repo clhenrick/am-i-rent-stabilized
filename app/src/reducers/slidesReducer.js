@@ -13,6 +13,8 @@ export function slides(state = initialState, action) {
       return { ...state, curIndex: action.payload };
     case "CanAdvanceSlide":
       return { ...state, canAdvance: action.payload };
+    case "ResetAppState":
+      return { ...initialState };
     default:
       return state;
   }

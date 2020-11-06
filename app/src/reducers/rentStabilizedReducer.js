@@ -25,6 +25,7 @@ export function rentStabilized(state = initialState, action) {
         status: "error",
         error: action.error,
       };
+    case types.ResetAppState:
     case types.RentStabilizedReset:
       return {
         ...initialState,

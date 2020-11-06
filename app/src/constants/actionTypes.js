@@ -22,3 +22,6 @@ export const RentStabilizedRequest = "RentStabilizedRequest";
 export const RentStabilizedSuccess = "RentStabilizedSuccess";
 export const RentStabilizedFailure = "RentStabilizedFailure";
 export const RentStabilizedReset = "RentStabilizedReset";
+
+// reset app state
+export const ResetAppState = "ResetAppState";

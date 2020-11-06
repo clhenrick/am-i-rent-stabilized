@@ -34,6 +34,7 @@ export function addressGeocode(state = initialState, action) {
         status: "failure",
         error: action.error,
       };
+    case types.ResetAppState:
     case types.ResetAddressState:
       return {
         ...initialState,
