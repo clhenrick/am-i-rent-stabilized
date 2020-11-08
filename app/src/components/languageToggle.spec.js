@@ -1,5 +1,6 @@
 import { LanguageToggle } from "./languageToggle";
 import { LANGS, IN_LANG } from "../constants/locales";
+import { store } from "../store";
 
 const translate = require("../utils/translate");
 jest.mock("../utils/translate", () => {
@@ -11,13 +12,21 @@ jest.mock("../utils/translate", () => {
   };
 });
 
+jest.mock("../store");
+
 describe("LanguageToggle", () => {
   let languageToggle;
+  let element;
 
   beforeAll(async () => {
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
+    element = document.querySelector("div.desktop .lang-toggle");
+  });
+
+  beforeEach(() => {
     languageToggle = new LanguageToggle({
-      element: document.querySelector("div.desktop .lang-toggle"),
+      element,
+      store,
     });
   });
 
@@ -25,8 +34,12 @@ describe("LanguageToggle", () => {
     jest.resetModules();
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   test("The component's HTML exists", () => {
-    expect(document.querySelector(".lang-toggle")).toBeDefined();
+    expect(element).toBeDefined();
   });
 
   test("The consumer should be able to call new() on LanguageToggle", () => {
@@ -37,14 +50,36 @@ describe("LanguageToggle", () => {
     expect(languageToggle.element).toBeDefined();
   });
 
-  test("The component's buttons correctly handle a click event", () => {
+  test("handleClick calls store.dispatch", () => {
+    const event = {
+      target: languageToggle.element.querySelector("a[lang='es']"),
+      preventDefault: jest.fn(),
+    };
+    languageToggle.handleClick(event);
+    expect(store.dispatch).toHaveBeenCalledWith({ type: "ResetAppState" });
+  });
+
+  test("handleClick calls setCurLang and translatePage", () => {
+    const event = {
+      target: languageToggle.element.querySelector("a[lang='es']"),
+      preventDefault: jest.fn(),
+    };
+    languageToggle.handleClick(event);
+    expect(translate.setCurLang).toHaveBeenCalledTimes(1);
+    expect(translate.translatePage).toHaveBeenCalledTimes(1);
+  });
+
+  test("The component's buttons call handleClick", () => {
+    const spyHandleClick = jest.spyOn(LanguageToggle.prototype, "handleClick");
+    languageToggle = new LanguageToggle({ element, store });
+
     document.querySelector("div.desktop .lang-toggle a[lang='es']").click();
-    expect(translate.translatePage).toHaveBeenCalled();
-    expect(translate.setCurLang).toHaveBeenCalledWith("es");
+    expect(spyHandleClick).toHaveBeenCalledTimes(1);
+
+    spyHandleClick.mockClear();
 
     document.querySelector("div.desktop .lang-toggle a[lang='zh']").click();
-    expect(translate.translatePage).toHaveBeenCalled();
-    expect(translate.setCurLang).toHaveBeenCalledWith("zh");
+    expect(spyHandleClick).toHaveBeenCalledTimes(1);
   });
 
   test("The method getLangFromBtn returns the correct language code", () => {

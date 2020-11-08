@@ -32,11 +32,13 @@ export default function initApp() {
   // language toggle btns desktop
   new LanguageToggle({
     element: document.querySelector("div.desktop > div.lang-toggle"),
+    store,
   });
 
   // language toggle btns mobile
   new LanguageToggle({
     element: document.querySelector("div.mobile > div.lang-toggle"),
+    store,
   });
 
   // lefthand progress circles
