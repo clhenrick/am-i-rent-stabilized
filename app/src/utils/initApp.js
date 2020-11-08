@@ -12,13 +12,18 @@ import { RentHistoryEmail } from "../components/rentHistoryEmail";
 import { AddToCalendar } from "../components/addToCalendar";
 import { StartOver } from "../components/startOver";
 
+// prevents KeyboardNavigation from being added multiple times
+// when page's language is toggled
+let keyNavEnabled = false;
+
 export default function initApp() {
-  if (process.env.NODE_ENV !== "production") {
-    // enables slides keyboard navigation for debugging
+  // enables slides keyboard navigation for debugging
+  if (process.env.NODE_ENV !== "production" && !keyNavEnabled) {
     new KeyboardNavigation({
       element: document.body,
       store,
     });
+    keyNavEnabled = true;
   }
 
   // top nav menu's hamburger icon
