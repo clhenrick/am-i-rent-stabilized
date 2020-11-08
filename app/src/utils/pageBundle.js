@@ -5,10 +5,9 @@ export async function getPageJsBundle(pageName) {
       /* webpackChunkName: "init-app" */ "./initApp.js"
     );
     return _;
-  } else {
-    const { default: _ } = await import(
-      /* webpackChunkName: "init-info-pages" */ "./initInfoPages.js"
-    );
-    return _;
   }
+  const { default: _ } = await import(
+    /* webpackChunkName: "init-info-pages" */ "./initInfoPages.js"
+  );
+  return _;
 }
