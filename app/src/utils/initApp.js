@@ -12,87 +12,135 @@ import { RentHistoryEmail } from "../components/rentHistoryEmail";
 import { AddToCalendar } from "../components/addToCalendar";
 import { StartOver } from "../components/startOver";
 
-// prevents KeyboardNavigation from being added multiple times
-// when page's language is toggled
-let keyNavEnabled = false;
+const registry = new Map();
+
+export function addToRegistry(name, component) {
+  if (registry.has(name)) {
+    const prev = registry.get(name);
+    prev.cleanUp();
+    registry.delete(name);
+  }
+  registry.set(name, component);
+}
 
 export default function initApp() {
   // enables slides keyboard navigation for debugging
-  if (process.env.NODE_ENV !== "production" && !keyNavEnabled) {
-    new KeyboardNavigation({
-      element: document.body,
-      store,
-    });
-    keyNavEnabled = true;
+  if (process.env.NODE_ENV !== "production") {
+    addToRegistry(
+      "keyboardNavigation",
+      new KeyboardNavigation({
+        element: document.body,
+        store,
+      })
+    );
   }
 
   // top nav menu's hamburger icon
-  new NavMenuToggle({ element: document.querySelector("nav.main-nav") });
+  addToRegistry(
+    "navMenuToggle",
+    new NavMenuToggle({ element: document.querySelector("nav.main-nav") })
+  );
 
   // language toggle btns desktop
-  new LanguageToggle({
-    element: document.querySelector("div.desktop > div.lang-toggle"),
-    store,
-  });
+  addToRegistry(
+    "languageToggle",
+    new LanguageToggle({
+      element: document.querySelector("div.desktop > div.lang-toggle"),
+      store,
+    })
+  );
 
   // language toggle btns mobile
-  new LanguageToggle({
-    element: document.querySelector("div.mobile > div.lang-toggle"),
-    store,
-  });
+  addToRegistry(
+    "languageToggleMobile",
+    new LanguageToggle({
+      element: document.querySelector("div.mobile > div.lang-toggle"),
+      store,
+    })
+  );
 
   // lefthand progress circles
-  new ProgressIndicator({
-    element: document.getElementById("progress-indicator"),
-    store,
-  });
+  addToRegistry(
+    "progressIndicator",
+    new ProgressIndicator({
+      element: document.getElementById("progress-indicator"),
+      store,
+    })
+  );
 
   // handles slide scrolling
-  new SlidesContainer({
-    element: document.querySelector(".slides-container"),
-    store,
-  });
+  addToRegistry(
+    "slidesContainer",
+    new SlidesContainer({
+      element: document.querySelector(".slides-container"),
+      store,
+    })
+  );
 
   // "next" slide advance buttons
-  document.querySelectorAll(".go-next.bottom-arrow").forEach((element) => {
-    new AdvanceSlides({ element, store, buttonSelector: "h3" });
+  document.querySelectorAll(".go-next.bottom-arrow").forEach((element, idx) => {
+    addToRegistry(
+      `advanceSlides${idx}`,
+      new AdvanceSlides({ element, store, buttonSelector: "h3" })
+    );
   });
 
   // handles advancing to "when you receive your rent history"
-  new AdvanceSlides({
-    element: document.querySelector("p.go-step4"),
-    store,
-    buttonSelector: "a",
-    advanceToIdx: 6,
-  });
+  addToRegistry(
+    "goToRentHistory",
+    new AdvanceSlides({
+      element: document.querySelector("p.go-step4"),
+      store,
+      buttonSelector: "a",
+      advanceToIdx: 6,
+    })
+  );
 
   // address search form & geocoding of address input
-  new AddressSearchForm({
-    element: document.querySelector("#address-form"),
-    store,
-  });
+  addToRegistry(
+    "addressSearchForm",
+    new AddressSearchForm({
+      element: document.querySelector("#address-form"),
+      store,
+    })
+  );
 
   // toggle yes/no message for rent stabilized result
-  new VerifyRentStabilized({
-    element: document.getElementById("slide-4"),
-    store,
-  });
+  addToRegistry(
+    "verifyRentStabilized",
+    new VerifyRentStabilized({
+      element: document.getElementById("slide-4"),
+      store,
+    })
+  );
 
-  new SearchResultMap({
-    element: document.getElementById("map"),
-    store,
-  });
+  addToRegistry(
+    "searchResultMap",
+    new SearchResultMap({
+      element: document.getElementById("map"),
+      store,
+    })
+  );
 
-  new RentHistoryEmail({
-    element: document.getElementById("mail-to"),
-  });
+  addToRegistry(
+    "rentHistoryEmail",
+    new RentHistoryEmail({
+      element: document.getElementById("mail-to"),
+    })
+  );
 
-  new AddToCalendar({
-    element: document.querySelector(".atc-container"),
-  });
+  addToRegistry(
+    "addToCalendar",
+    new AddToCalendar({
+      element: document.querySelector(".atc-container"),
+    })
+  );
 
-  new StartOver({
-    element: document.querySelector(".button.start-over"),
-    store,
-  });
+  addToRegistry(
+    "startOver",
+    new StartOver({
+      element: document.querySelector(".button.start-over"),
+      store,
+    })
+  );
 }
