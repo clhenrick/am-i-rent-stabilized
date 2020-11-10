@@ -24,7 +24,9 @@ export class Component {
     this.init = this.init.bind(this);
     this.bindEvents = this.bindEvents.bind(this);
     this.removeEvents = this.removeEvents.bind(this);
+    this.unsubscribe = this.unsubscribe.bind(this);
     this.checkForStore = this.checkForStore.bind(this);
+    this.cleanUp = this.cleanUp.bind(this);
 
     this.init(props);
   }
@@ -40,6 +42,9 @@ export class Component {
   // Remove any DOM event listeners
   removeEvents() {}
 
+  // placeholder to unsubscribe from redux store, if subscribed to
+  unsubscribe() {}
+
   // can be used to make sure a store is passed when a component relies on it
   checkForStore() {
     if (!this.store) {
@@ -47,8 +52,19 @@ export class Component {
     }
   }
 
+  // call prior to removing component instance
+  cleanUp() {
+    this.unsubscribe();
+    this.removeEvents();
+    this.element = null;
+  }
+
   get element() {
     return this._element;
+  }
+
+  set element(el) {
+    this._element = el;
   }
 
   get store() {

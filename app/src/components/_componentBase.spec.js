@@ -8,8 +8,15 @@ describe("Component", () => {
   beforeAll(() => {
     document.body.innerHTML = "<div></div>";
     spy = jest.spyOn(Component.prototype, "init");
+  });
+
+  beforeEach(() => {
     props = { element: document.querySelector("div") };
     component = new Component(props);
+  });
+
+  afterEach(() => {
+    spy.mockClear();
   });
 
   test("The consumer should be able to call new() on Component", () => {
@@ -76,5 +83,15 @@ describe("Component", () => {
     });
     expect(() => instance.checkForStore()).toThrow("Requires redux store");
     jest.clearAllMocks();
+  });
+
+  test("cleanUp", () => {
+    const spy1 = jest.spyOn(Component.prototype, "removeEvents");
+    const spy2 = jest.spyOn(Component.prototype, "unsubscribe");
+    component = new Component(props);
+    component.cleanUp();
+    expect(spy1).toHaveBeenCalledTimes(1);
+    expect(spy2).toHaveBeenCalledTimes(1);
+    expect(component.element).toBeNull();
   });
 });
