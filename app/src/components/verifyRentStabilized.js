@@ -14,7 +14,7 @@ export class VerifyRentStabilized extends Component {
 
     this.updateMessage = this.updateMessage.bind(this);
 
-    observeStore(
+    this.unsubscribe = observeStore(
       this.store,
       (state) => state.rentStabilized.match,
       this.updateMessage

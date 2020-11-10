@@ -11,7 +11,7 @@ export class ProgressIndicator extends Component {
     this.list = this.element.querySelector("ul");
     this.renderCircles = this.renderCircles.bind(this);
     this.appendCircle = this.appendCircle.bind(this);
-    observeStore(
+    this.unsubscribe = observeStore(
       this.store,
       (state) => state.slides.curIndex,
       this.renderCircles

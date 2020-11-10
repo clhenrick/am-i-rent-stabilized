@@ -48,13 +48,13 @@ export class AddressSearchForm extends Component {
     this.clearCachedSearchResult = this.clearCachedSearchResult.bind(this);
     this.handleFetchError = this.handleFetchError.bind(this);
 
-    observeStore(
+    this.unsubscribeAG = observeStore(
       this.store,
       (state) => state.addressGeocode,
       this.handleAGChange
     );
 
-    observeStore(
+    this.unsubscribeRS = observeStore(
       this.store,
       (state) => state.rentStabilized,
       this.handleRSChange
@@ -150,6 +150,13 @@ export class AddressSearchForm extends Component {
 
   handleFetchError() {
     this.validationErrors.showGeneric();
+  }
+
+  cleanUp() {
+    this.unsubscribeAG();
+    this.unsubscribeRS();
+    this.removeEvents();
+    this.element = null;
   }
 
   get autosuggestionsList() {

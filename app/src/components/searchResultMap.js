@@ -42,7 +42,7 @@ export class SearchResultMap extends Component {
     this.renderMap = this.renderMap.bind(this);
     this.resetMap = this.resetMap.bind(this);
 
-    observeStore(
+    this.unsubscribe = observeStore(
       this.store,
       (state) => state.addressGeocode.searchResult,
       this.handleSearchResult

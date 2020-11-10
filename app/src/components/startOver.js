@@ -17,6 +17,12 @@ export class StartOver extends Component {
     this.element.querySelector("a").addEventListener("click", this.handleClick);
   }
 
+  removeEvents() {
+    this.element
+      .querySelector("a")
+      .removeEventListener("click", this.handleClick);
+  }
+
   handleClick(event) {
     event.preventDefault();
     this.store.dispatch(resetAppState());

@@ -24,7 +24,11 @@ export class SlidesContainer extends Component {
     this.handleMotionQuery = this.handleMotionQuery.bind(this);
 
     this.handleMotionQuery();
-    observeStore(this.store, (state) => state.slides, this.handleSlidesUpdate);
+    this.unsubscribe = observeStore(
+      this.store,
+      (state) => state.slides,
+      this.handleSlidesUpdate
+    );
   }
 
   handleSlidesUpdate() {
