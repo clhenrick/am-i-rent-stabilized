@@ -1,4 +1,5 @@
 import { store } from "../store";
+import { ComponentRegistry } from "./componentRegistry";
 import { NavMenuToggle } from "../components/navigation";
 import { LanguageToggle } from "../components/languageToggle";
 import { AdvanceSlides } from "../components/advanceSlides";
@@ -12,20 +13,12 @@ import { RentHistoryEmail } from "../components/rentHistoryEmail";
 import { AddToCalendar } from "../components/addToCalendar";
 import { StartOver } from "../components/startOver";
 
-export const registry = new Map();
-
-export function addToRegistry(name, component) {
-  if (registry.has(name)) {
-    registry.get(name).cleanUp();
-    registry.delete(name);
-  }
-  registry.set(name, component);
-}
+const registry = new ComponentRegistry();
 
 export default function initApp() {
   // enables slides keyboard navigation for debugging
   if (process.env.NODE_ENV !== "production") {
-    addToRegistry(
+    registry.add(
       "keyboardNavigation",
       new KeyboardNavigation({
         element: document.body,
@@ -35,13 +28,13 @@ export default function initApp() {
   }
 
   // top nav menu's hamburger icon
-  addToRegistry(
+  registry.add(
     "navMenuToggle",
     new NavMenuToggle({ element: document.querySelector("nav.main-nav") })
   );
 
   // language toggle btns desktop
-  addToRegistry(
+  registry.add(
     "languageToggle",
     new LanguageToggle({
       element: document.querySelector("div.desktop > div.lang-toggle"),
@@ -50,7 +43,7 @@ export default function initApp() {
   );
 
   // language toggle btns mobile
-  addToRegistry(
+  registry.add(
     "languageToggleMobile",
     new LanguageToggle({
       element: document.querySelector("div.mobile > div.lang-toggle"),
@@ -59,7 +52,7 @@ export default function initApp() {
   );
 
   // lefthand progress circles
-  addToRegistry(
+  registry.add(
     "progressIndicator",
     new ProgressIndicator({
       element: document.getElementById("progress-indicator"),
@@ -68,7 +61,7 @@ export default function initApp() {
   );
 
   // handles slide scrolling
-  addToRegistry(
+  registry.add(
     "slidesContainer",
     new SlidesContainer({
       element: document.querySelector(".slides-container"),
@@ -78,14 +71,14 @@ export default function initApp() {
 
   // "next" slide advance buttons
   document.querySelectorAll(".go-next.bottom-arrow").forEach((element, idx) => {
-    addToRegistry(
+    registry.add(
       `advanceSlides${idx}`,
       new AdvanceSlides({ element, store, buttonSelector: "h3" })
     );
   });
 
   // handles advancing to "when you receive your rent history"
-  addToRegistry(
+  registry.add(
     "goToRentHistory",
     new AdvanceSlides({
       element: document.querySelector("p.go-step4"),
@@ -96,7 +89,7 @@ export default function initApp() {
   );
 
   // address search form & geocoding of address input
-  addToRegistry(
+  registry.add(
     "addressSearchForm",
     new AddressSearchForm({
       element: document.querySelector("#address-form"),
@@ -105,7 +98,7 @@ export default function initApp() {
   );
 
   // toggle yes/no message for rent stabilized result
-  addToRegistry(
+  registry.add(
     "verifyRentStabilized",
     new VerifyRentStabilized({
       element: document.getElementById("slide-4"),
@@ -113,7 +106,7 @@ export default function initApp() {
     })
   );
 
-  addToRegistry(
+  registry.add(
     "searchResultMap",
     new SearchResultMap({
       element: document.getElementById("map"),
@@ -121,21 +114,21 @@ export default function initApp() {
     })
   );
 
-  addToRegistry(
+  registry.add(
     "rentHistoryEmail",
     new RentHistoryEmail({
       element: document.getElementById("mail-to"),
     })
   );
 
-  addToRegistry(
+  registry.add(
     "addToCalendar",
     new AddToCalendar({
       element: document.querySelector(".atc-container"),
     })
   );
 
-  addToRegistry(
+  registry.add(
     "startOver",
     new StartOver({
       element: document.querySelector(".button.start-over"),
