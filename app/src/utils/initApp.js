@@ -12,12 +12,11 @@ import { RentHistoryEmail } from "../components/rentHistoryEmail";
 import { AddToCalendar } from "../components/addToCalendar";
 import { StartOver } from "../components/startOver";
 
-const registry = new Map();
+export const registry = new Map();
 
 export function addToRegistry(name, component) {
   if (registry.has(name)) {
-    const prev = registry.get(name);
-    prev.cleanUp();
+    registry.get(name).cleanUp();
     registry.delete(name);
   }
   registry.set(name, component);
