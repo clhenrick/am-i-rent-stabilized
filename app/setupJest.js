@@ -21,6 +21,14 @@ global.getMainHtml = () => {
   return template(localeData);
 };
 
+window.addeventatc = {
+  refresh: jest.fn(),
+};
+
+window.matchMedia = jest.fn(() => ({
+  matches: false,
+}));
+
 function registerHbsPartials() {
   // These partials are automatically read by webpack using the handlebars-loader,
   // however for Jest we have to register them in order for tests to run.
