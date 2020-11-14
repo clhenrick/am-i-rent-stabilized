@@ -127,7 +127,7 @@ export class AddressSearchForm extends Component {
       const option = document.createElement("option");
       option.value = properties.label || "";
       option.dataset.bbl = properties.pad_bbl || "";
-      this.datalist.append(option);
+      this.datalist.appendChild(option);
     });
   }
 

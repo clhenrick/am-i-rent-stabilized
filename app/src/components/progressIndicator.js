@@ -29,7 +29,7 @@ export class ProgressIndicator extends Component {
     if (index === this.curSlideIndex) {
       listItem.classList.add("active");
     }
-    this.list.append(listItem);
+    this.list.appendChild(listItem);
   }
 
   get curSlideIndex() {
