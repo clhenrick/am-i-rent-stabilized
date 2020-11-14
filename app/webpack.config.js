@@ -60,7 +60,7 @@ module.exports = (env, argv) => {
       // tell webpack to put our processed files in a directory called "dist"
       path: path.resolve(__dirname, "dist"),
 
-      publicPath: "/"
+      publicPath: "/",
     },
 
     /******************************************************************************
@@ -126,7 +126,10 @@ module.exports = (env, argv) => {
           test: /\.js$/,
 
           // tell webpack to ignore the node_modules directory for this rule
-          exclude: /node_modules/,
+          exclude: {
+            test: /node_modules/,
+            not: [/d3-geo|d3-tile|d3-array/],
+          },
 
           // see babel.config.js for babel specific options
           use: [
@@ -153,12 +156,10 @@ module.exports = (env, argv) => {
               loader: "handlebars-loader",
               options: {
                 helperDirs: path.resolve(__dirname, "src/hbs_helpers"),
-                partialDirs: [
-                  path.resolve(__dirname, "src/hbs_partials")
-                ]
-              }
-            }
-          ]
+                partialDirs: [path.resolve(__dirname, "src/hbs_partials")],
+              },
+            },
+          ],
         },
 
         // rule to handle loading images
@@ -270,9 +271,7 @@ module.exports = (env, argv) => {
       }),
 
       // handles copying files that aren't "imported" into our JS to the output directory
-      new CopyPlugin([
-        { from: "public" },
-      ]),
+      new CopyPlugin([{ from: "public" }]),
 
       // handles extracting our CSS into a file(s)
       new MiniCssExtractPlugin({
