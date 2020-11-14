@@ -17,7 +17,7 @@ const registry = new ComponentRegistry();
 
 export default function initApp() {
   // enables slides keyboard navigation for debugging
-  if (process.env.NODE_ENV !== "production") {
+  if (process.env.NODE_ENV === "development") {
     registry.add(
       "keyboardNavigation",
       new KeyboardNavigation({
