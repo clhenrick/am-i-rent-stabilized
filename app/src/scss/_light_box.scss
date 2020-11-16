@@ -1,6 +1,5 @@
 /* Lightbox for sample rent history */
 a.lightbox {
-  // display: none;
   position: fixed;
   z-index: 49;
   top: 0;
@@ -15,6 +14,7 @@ a.lightbox {
   pointer-events: none;
 
   img {
+    display: none;
     position: relative;
     left: 30px;
     max-height: 680px;
@@ -28,6 +28,10 @@ a.lightbox {
     outline: none;
     display: block;
     z-index: 20;
+  }
+
+  &:target img {
+    display: block;
   }
 
   @include responsive(tablet-screens) {
