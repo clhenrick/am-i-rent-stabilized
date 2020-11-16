@@ -295,6 +295,9 @@ module.exports = (env, argv) => {
       // want in production, such as logging
       new webpack.DefinePlugin({
         "process.env.NODE_ENV": JSON.stringify(argv.env.NODE_ENV),
+        "process.env.USE_REDUX_LOGGER": JSON.stringify(
+          argv.env.USE_REDUX_LOGGER
+        ),
       }),
     ],
   };

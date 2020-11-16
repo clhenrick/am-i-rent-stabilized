@@ -2,6 +2,4 @@
 import "./scss/main.scss";
 import { translatePage } from "./utils/translate";
 
-console.log("infoPages entry");
-
 translatePage();
