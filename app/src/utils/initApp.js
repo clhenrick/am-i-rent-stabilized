@@ -16,6 +16,9 @@ import { StartOver } from "../components/startOver";
 const registry = new ComponentRegistry();
 
 export default function initApp() {
+  // first safely remove previous components
+  registry.removeAll();
+
   // enables slides keyboard navigation for debugging
   if (process.env.NODE_ENV === "development") {
     registry.add(

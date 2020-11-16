@@ -6,6 +6,8 @@ import { LanguageToggle } from "../components/languageToggle";
 const registry = new ComponentRegistry();
 
 export default function initInfoPages() {
+  registry.removeAll();
+
   registry.add(
     "navMenuToggle",
     new NavMenuToggle({ element: document.querySelector("nav.main-nav") })
