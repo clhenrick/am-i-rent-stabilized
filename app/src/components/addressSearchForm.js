@@ -4,7 +4,7 @@ import { SearchValidationErrors } from "./searchValidationErrors";
 import {
   searchRentStabilized,
   addressAutosuggestFetch,
-  goToNextSlide,
+  goToSlideIdx,
   rentStabilizedReset,
 } from "../action_creators";
 import { observeStore } from "../store";
@@ -134,7 +134,7 @@ export class AddressSearchForm extends Component {
   validateSearchResult() {
     if (this.searchResult && this.searchResult.length) {
       this.inputAddress.blur();
-      this.store.dispatch(goToNextSlide());
+      this.store.dispatch(goToSlideIdx(2));
     } else {
       this.validationErrors.showNotFound();
     }

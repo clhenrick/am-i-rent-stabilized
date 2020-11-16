@@ -278,7 +278,8 @@ describe("AddressSearchForm", () => {
     }));
     addressSearchForm.validateSearchResult();
     expect(store.dispatch).toHaveBeenCalledWith({
-      type: "GoToNextSlide",
+      type: "GoToSlideIdx",
+      payload: 2,
     });
   });
 
