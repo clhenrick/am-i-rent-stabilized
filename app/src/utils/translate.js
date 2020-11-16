@@ -43,15 +43,14 @@ export function setCurLang(lang) {
 }
 
 export function getCurrentPageName() {
-  let result = d.URL.substring(
-    d.URL.lastIndexOf("/") + 1,
-    d.URL.lastIndexOf(".")
-  );
+  const path = window.location.pathname;
+  let page = path.split("/").pop();
+  page = page.replace(/.html/gi, "");
   // FIXME: redirect URL to index.html instead? or a 404 page?
-  if (["index", "why", "how", "resources"].indexOf(result) === -1) {
-    result = "index";
+  if (["index", "why", "how", "resources"].indexOf(page) === -1) {
+    page = "index";
   }
-  return result;
+  return page;
 }
 
 async function renderHtmlFromTemplate(lang, pageName) {
