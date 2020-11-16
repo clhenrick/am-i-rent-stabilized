@@ -27,17 +27,45 @@ describe("ComponentRegistry", () => {
     jest.resetModules();
   });
 
-  test("ComponentRegistry.add stores a component instance", () => {
+  test("add stores a component instance", () => {
     registry.add("one", one);
     expect(registry.size).toEqual(1);
+  });
+
+  test("add throws if not passed a key", () => {
+    expect(() => registry.add()).toThrow("requires a name / key");
+  });
+
+  test("add throws if not passed a component instance", () => {
+    expect(() => registry.add("foo")).toThrow(
+      "requires component to be a Component instance"
+    );
+    expect(() => registry.add("foo", {})).toThrow(
+      "requires component to be a Component instance"
+    );
+  });
+
+  test("get", () => {
+    registry.add("one", one);
     expect(registry.get("one")).toEqual(one);
   });
 
-  test("ComponentRegistry.add replaces an existing component instance", () => {
+  test("remove", () => {
     registry.add("one", one);
-    registry.add("one", two);
-    expect(registry.size).toEqual(1);
-    expect(spyCleanUp).toHaveBeenCalledTimes(1);
-    expect(registry.get("one")).toEqual(two);
+    registry.remove("one");
+    expect(spyCleanUp).toHaveBeenCalled();
+
+    spyCleanUp.mockClear();
+    registry.remove("foo");
+    expect(spyCleanUp).not.toHaveBeenCalled();
+  });
+
+  test("removeAll", () => {
+    registry.add("one", one);
+    registry.add("two", two);
+    registry.removeAll();
+    expect(registry.size).toEqual(0);
+    expect(spyCleanUp).toHaveBeenCalledTimes(2);
+    spyCleanUp.mockClear();
   });
 });
