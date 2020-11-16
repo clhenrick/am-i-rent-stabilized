@@ -35,8 +35,8 @@ describe("initInfoPages", () => {
     );
   });
 
-  test("on subsequent calls, all previous component instances are correctly removed", () => {
-    // this is difficult to test here so I'm relying on testing the behvaior in ComponentRegistry instead
-    expect(true).toBe(true);
+  test("any prior component instances are removed from the registry", () => {
+    initInfoPages();
+    expect(ComponentRegistry.prototype.removeAll).toHaveBeenCalled();
   });
 });
