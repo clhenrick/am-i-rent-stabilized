@@ -86,12 +86,9 @@ describe("Component", () => {
   });
 
   test("cleanUp", () => {
-    const spy1 = jest.spyOn(Component.prototype, "removeEvents");
-    const spy2 = jest.spyOn(Component.prototype, "unsubscribe");
+    const spy = jest.spyOn(Component.prototype, "unsubscribe");
     component = new Component(props);
     component.cleanUp();
-    expect(spy1).toHaveBeenCalledTimes(1);
-    expect(spy2).toHaveBeenCalledTimes(1);
-    expect(component.element).toBeNull();
+    expect(spy).toHaveBeenCalledTimes(1);
   });
 });

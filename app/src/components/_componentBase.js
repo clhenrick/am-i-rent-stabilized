@@ -55,8 +55,6 @@ export class Component {
   // call prior to removing component instance
   cleanUp() {
     this.unsubscribe();
-    this.removeEvents();
-    this.element = null;
   }
 
   get element() {
