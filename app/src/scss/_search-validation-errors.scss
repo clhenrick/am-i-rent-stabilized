@@ -1,6 +1,7 @@
-ul.validation-error {
+ul.search-validation-errors {
   padding: 0;
   margin-top: 5px;
+  height: 125px;
 
   li {
     width: 70%;
@@ -15,6 +16,10 @@ ul.validation-error {
     letter-spacing: 1px;
     list-style: none;
     background-color: $valError;
+
+    &.hidden {
+      display: none;
+    }
   }
 
   @include responsive_height(medium-screens) {

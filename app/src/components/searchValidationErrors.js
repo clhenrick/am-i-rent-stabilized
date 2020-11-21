@@ -21,41 +21,41 @@ export class SearchValidationErrors extends Component {
   }
 
   showNotFound() {
-    this.errorNotFound.classList.remove("vis-hidden");
+    this.errorNotFound.classList.remove("hidden");
   }
 
   hideNotFound() {
-    this.errorNotFound.classList.add("vis-hidden");
+    this.errorNotFound.classList.add("hidden");
   }
 
   showNoInput() {
-    this.errorNoInput.classList.remove("vis-hidden");
+    this.errorNoInput.classList.remove("hidden");
     this._searchForm.inputAddress.classList.add("invalid");
   }
 
   hideNoInput() {
-    this.errorNoInput.classList.add("vis-hidden");
+    this.errorNoInput.classList.add("hidden");
     this._searchForm.inputAddress.classList.remove("invalid");
   }
 
   showGeneric() {
-    this.errorGeneric.classList.remove("vis-hidden");
+    this.errorGeneric.classList.remove("hidden");
   }
 
   hideGeneric() {
-    this.errorGeneric.classList.add("vis-hidden");
+    this.errorGeneric.classList.add("hidden");
   }
 
   get noInputIsHidden() {
-    return this.errorNoInput.classList.contains("vis-hidden");
+    return this.errorNoInput.classList.contains("hidden");
   }
 
   get notFoundIsHidden() {
-    return this.errorNotFound.classList.contains("vis-hidden");
+    return this.errorNotFound.classList.contains("hidden");
   }
 
   get genericIsHidden() {
-    return this.errorGeneric.classList.contains("vis-hidden");
+    return this.errorGeneric.classList.contains("hidden");
   }
 
   get areHidden() {
