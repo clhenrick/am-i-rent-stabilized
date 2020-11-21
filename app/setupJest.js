@@ -38,8 +38,9 @@ function registerHbsPartials() {
     "language_toggle",
     "progress_indicator",
     "address_search_form",
+    "search_validation_errors",
     "search_result_map",
-    "add_to_calendar"
+    "add_to_calendar",
   ];
 
   for (const partial of partials) {

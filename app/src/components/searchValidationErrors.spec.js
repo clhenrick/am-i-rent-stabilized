@@ -54,28 +54,28 @@ describe("SearchValidationErrors", () => {
   test("showNotFound", () => {
     searchValidationErrors.showNotFound();
     expect(
-      searchValidationErrors.errorNotFound.classList.contains("vis-hidden")
+      searchValidationErrors.errorNotFound.classList.contains("hidden")
     ).toBe(false);
   });
 
   test("hideNotFound", () => {
     searchValidationErrors.hideNotFound();
     expect(
-      searchValidationErrors.errorNotFound.classList.contains("vis-hidden")
+      searchValidationErrors.errorNotFound.classList.contains("hidden")
     ).toBe(true);
   });
 
   test("showNoInput", () => {
     searchValidationErrors.showNoInput();
     expect(
-      searchValidationErrors.errorNoInput.classList.contains("vis-hidden")
+      searchValidationErrors.errorNoInput.classList.contains("hidden")
     ).toBe(false);
   });
 
   test("hideNoInput", () => {
     searchValidationErrors.hideNoInput();
     expect(
-      searchValidationErrors.errorNoInput.classList.contains("vis-hidden")
+      searchValidationErrors.errorNoInput.classList.contains("hidden")
     ).toBe(true);
   });
 
