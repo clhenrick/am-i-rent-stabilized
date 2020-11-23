@@ -1,8 +1,10 @@
 import { LanguageToggle } from "./languageToggle";
 import { LANGS, IN_LANG } from "../constants/locales";
 import { store } from "../store";
-
+import { logLanguageToggle } from "../utils/logging";
 const translate = require("../utils/translate");
+
+jest.mock("../utils/logging");
 jest.mock("../utils/translate", () => {
   return {
     __esModule: true,
@@ -67,6 +69,15 @@ describe("LanguageToggle", () => {
     languageToggle.handleClick(event);
     expect(translate.setCurLang).toHaveBeenCalledTimes(1);
     expect(translate.translatePage).toHaveBeenCalledTimes(1);
+  });
+
+  test("handleClick logs a Language Toggle event", () => {
+    const event = {
+      target: languageToggle.element.querySelector("a[lang='es']"),
+      preventDefault: jest.fn(),
+    };
+    languageToggle.handleClick(event);
+    expect(logLanguageToggle).toHaveBeenCalledWith("es");
   });
 
   test("The component's buttons call handleClick", () => {

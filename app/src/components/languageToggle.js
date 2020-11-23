@@ -3,6 +3,7 @@ import { LanguageToggleButton } from "./languageToggleButton";
 import { resetAppState } from "../action_creators";
 import { translatePage, getCurLang, setCurLang } from "../utils/translate";
 import { LANGS, IN_LANG, IN_LANG_TO_LANG } from "../constants/locales";
+import { logLanguageToggle } from "../utils/logging";
 
 export class LanguageToggle extends Component {
   constructor(props) {
@@ -49,8 +50,9 @@ export class LanguageToggle extends Component {
 
   handleClick(event) {
     event.preventDefault();
-    this.store.dispatch(resetAppState());
     setCurLang(this.getLangFromBtn(event.target.innerHTML));
+    logLanguageToggle(this.getLangFromBtn(event.target.innerHTML));
+    this.store.dispatch(resetAppState());
     translatePage();
   }
 

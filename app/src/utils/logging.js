@@ -17,6 +17,9 @@ export const logAddressRS = (address) =>
     label: address,
   });
 
+export const logLanguageToggle = (lang) =>
+  logEvent("Language Toggle", { label: lang });
+
 export const logAddressNotRS = (address) =>
   logEvent("Address Not Rent Stabilized", {
     event_category: "search",
