@@ -20,7 +20,7 @@ export const crashReporter = (store) => (next) => (action) => {
     return next(action);
   } catch (err) {
     logException(
-      `Redux caught exception: ${
+      `crashReporter: ${
         typeof err === "object"
           ? `${err.name}; ${err.message}; ${JSON.stringify(store.getState())}`
           : `${err}; ${JSON.stringify(store.getState())}`

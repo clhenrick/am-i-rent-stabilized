@@ -36,7 +36,7 @@ describe("crashReporter", () => {
       crashReporter(store)(next)(action);
     }).toThrow("Something bad happened");
     expect(logException).toHaveBeenCalledWith(
-      "Redux caught exception: Error; Something bad happened; {}"
+      "crashReporter: Error; Something bad happened; {}"
     );
   });
 });
