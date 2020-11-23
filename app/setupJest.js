@@ -29,6 +29,8 @@ window.matchMedia = jest.fn(() => ({
   matches: false,
 }));
 
+window.gtag = jest.fn();
+
 function registerHbsPartials() {
   // These partials are automatically read by webpack using the handlebars-loader,
   // however for Jest we have to register them in order for tests to run.
