@@ -15,13 +15,15 @@ const composeEnhancers =
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     : compose;
 
-const crashReporter = () => (next) => (action) => {
+export const crashReporter = (store) => (next) => (action) => {
   try {
     return next(action);
   } catch (err) {
     logException(
       `Redux caught exception: ${
-        typeof err === "object" ? `${err.name}, ${err.message}` : err
+        typeof err === "object"
+          ? `${err.name}; ${err.message}; ${JSON.stringify(store.getState())}`
+          : `${err}; ${JSON.stringify(store.getState())}`
       }`
     );
     throw err;
