@@ -1,9 +1,11 @@
-import { store, observeStore } from "../store";
+import { store } from "../store";
 import { MapTileLayers } from "./mapTileLayers";
 import { SearchResultMap } from "./searchResultMap";
+import { logException } from "../utils/logging";
 const d3Tile = require("d3-tile");
 
 jest.mock("../store");
+jest.mock("../utils/logging");
 
 jest.mock("d3-tile");
 d3Tile.tile.mockImplementation(() => {
@@ -82,6 +84,24 @@ describe("MapTileLayers", () => {
 
   test("The consumer should be able to call new() on MapTileLayers", () => {
     expect(mapTileLayers).toBeTruthy();
+  });
+
+  test("fetchCartoTilesSchema", async () => {
+    await mapTileLayers.fetchCartoTilesSchema();
+    expect(mapTileLayers.cartoTilesSchema).toBeTruthy();
+  });
+
+  test("fetchCartoTilesSchema error", async () => {
+    fetch.mockReject(new Error("Bam!"));
+    mapTileLayers = new MapTileLayers(
+      new SearchResultMap({
+        element,
+        store,
+      })
+    );
+    await mapTileLayers.fetchCartoTilesSchema();
+    expect(mapTileLayers.cartoTilesSchema).toBeNull();
+    expect(logException).toHaveBeenCalled();
   });
 
   test("renderMapTiles", () => {

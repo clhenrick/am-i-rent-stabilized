@@ -2,6 +2,7 @@ import "cross-fetch/polyfill";
 import * as d3Tile from "d3-tile";
 import { mapsApiSql } from "../utils/sql";
 import { cartoAccount } from "../constants/config";
+import { logException, handleErrorObj } from "../utils/logging";
 
 export class MapTileLayers {
   constructor(searchResultMap) {
@@ -15,11 +16,22 @@ export class MapTileLayers {
     this.getBasemapTileUrl = this.getBasemapTileUrl.bind(this);
     this.getDataTileUrl = this.getDataTileUrl.bind(this);
     this.fetchCartoTilesSchema = this.fetchCartoTilesSchema.bind(this);
+    this.init = this.init.bind(this);
 
-    this.fetchCartoTilesSchema().then(() => {
-      searchResultMap.updateProjection();
-      searchResultMap.renderMap();
-    });
+    this.init();
+  }
+
+  init() {
+    this.fetchCartoTilesSchema()
+      .then(() => {
+        if (this.cartoTilesSchema) {
+          this.searchResultMap.updateProjection();
+          this.searchResultMap.renderMap();
+        }
+      })
+      .catch((error) => {
+        logException(handleErrorObj("MapTileLayers.init", error), true);
+      });
   }
 
   async fetchCartoTilesSchema() {
@@ -33,7 +45,7 @@ export class MapTileLayers {
       const json = await res.json();
       this._cartoTilesSchema = json;
     } catch (error) {
-      console.error(error);
+      logException(handleErrorObj("fetchCartoTilesSchema", error), true);
     }
   }
 
