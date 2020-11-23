@@ -10,6 +10,9 @@ import {
   ERROR_MISSING_BBL,
 } from "./searchRentStabilizedActions";
 import * as types from "../constants/actionTypes";
+import { logException } from "../utils/logging";
+
+jest.mock("../utils/logging");
 
 const mockStore = configureMockStore([thunk]);
 
@@ -154,6 +157,11 @@ describe("searchRentStabilized", () => {
 
     return store.dispatch(searchRentStabilized("Some NYC address")).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
+      expect(logException).toHaveBeenCalledWith(
+        `Error in searchRentStabilized: Error; ${ERROR_MISSING_BBL}; ${JSON.stringify(
+          store.getState()
+        )}`
+      );
     });
   });
 
@@ -170,6 +178,11 @@ describe("searchRentStabilized", () => {
 
     return store.dispatch(searchRentStabilized("Some NYC address")).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
+      expect(logException).toHaveBeenCalledWith(
+        `Error in searchRentStabilized: Error; Missing BBL property on address search result; ${JSON.stringify(
+          store.getState()
+        )}`
+      );
     });
   });
 
@@ -209,6 +222,11 @@ describe("searchRentStabilized", () => {
 
     return store.dispatch(searchRentStabilized("Some NYC address")).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
+      expect(logException).toHaveBeenCalledWith(
+        `Error in searchRentStabilized: Problem looking up rent stabilization data; ${JSON.stringify(
+          store.getState()
+        )}`
+      );
     });
   });
 });
