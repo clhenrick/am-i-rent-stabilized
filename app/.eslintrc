@@ -9,7 +9,7 @@
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly",
-    "$": "readonly"
+    "gtag": "readonly"
   },
   "plugins": ["babel", "json", "jest"],
   "parser": "babel-eslint",
