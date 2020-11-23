@@ -1,5 +1,6 @@
 import "cross-fetch/polyfill";
 import * as types from "../constants/actionTypes";
+import { logException, handleErrorObj } from "../utils/logging";
 
 export const resetAddressState = () => ({
   type: types.ResetAddressState,
@@ -39,6 +40,7 @@ export const addressAutosuggestFetch = (text) => (dispatch) => {
     })
     .catch((error) => {
       dispatch(addressAutosuggestFailure(error));
+      logException(handleErrorObj("addressAutosuggestFetch", error), true);
     });
 };
 
@@ -77,6 +79,7 @@ export const addressSearchFetch = (text) => (dispatch) => {
     })
     .catch((error) => {
       dispatch(addressSearchFailure(error));
+      logException(handleErrorObj("addressSearchFetch", error), true);
       return error;
     });
 };

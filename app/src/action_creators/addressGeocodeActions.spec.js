@@ -2,6 +2,9 @@ import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import * as actions from "./addressGeocodeActions";
 import * as types from "../constants/actionTypes";
+import { logException } from "../utils/logging";
+
+jest.mock("../utils/logging");
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -77,6 +80,7 @@ describe("addressGeocodeActions", () => {
       .dispatch(actions.addressSearchFetch("Another NYC address"))
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
+        expect(logException).toHaveBeenCalled();
       });
   });
 
@@ -140,6 +144,7 @@ describe("addressGeocodeActions", () => {
       .dispatch(actions.addressAutosuggestFetch("Another NYC address"))
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
+        expect(logException).toHaveBeenCalled();
       });
   });
 });
