@@ -15,15 +15,6 @@
     margin-left: 50px;
   }
 
-  &.rent-logic {
-    width: auto;
-    text-align: center;
-    display: inline-block;
-    white-space: nowrap;
-    margin: 10px auto;
-    background-color: #46b9bc;
-  }
-
   @include responsive_height(medium-screens) {
     width: 180px;
     font-size: 1.8em;
@@ -36,15 +27,6 @@
 
     &.start-over {
       min-width: 200px;
-    }
-
-    &.rent-logic {
-      width: auto;
-      text-align: center;
-      display: inline-block;
-      white-space: nowrap;
-      margin: 10px auto;
-      background-color: #46b9bc;
     }
   }
 
@@ -78,15 +60,6 @@
       width: 125px;
       margin-top: 10px;
       margin-left: 10px;
-    }
-
-    &.rent-logic {
-      width: auto;
-      text-align: center;
-      display: inline-block;
-      white-space: nowrap;
-      margin: 10px auto;
-      background-color: #46b9bc;
     }
   }
 }
