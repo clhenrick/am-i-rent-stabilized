@@ -1,10 +1,14 @@
 import { AddressSearchForm } from "./addressSearchForm";
 import { SearchValidationErrors } from "./searchValidationErrors";
 import { store, observeStore } from "../store";
+import { searchRentStabilized } from "../action_creators/searchRentStabilizedActions";
+import { logEvent, logException } from "../utils/logging";
 import throttle from "lodash.throttle";
 
 jest.mock("lodash.throttle");
 jest.mock("../store");
+jest.mock("../action_creators/searchRentStabilizedActions");
+jest.mock("../utils/logging");
 
 describe("AddressSearchForm", () => {
   let element;
@@ -33,6 +37,14 @@ describe("AddressSearchForm", () => {
         match: null,
       },
     }));
+    addressSearchForm = new AddressSearchForm({
+      element,
+      store,
+    });
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
   afterAll(() => {
@@ -44,10 +56,6 @@ describe("AddressSearchForm", () => {
   });
 
   test("The consumer should be able to call new() on AddressSearchForm", () => {
-    addressSearchForm = new AddressSearchForm({
-      element,
-      store,
-    });
     expect(addressSearchForm).toBeTruthy();
   });
 
@@ -69,10 +77,6 @@ describe("AddressSearchForm", () => {
   });
 
   test("validationErrors property is an instance of SearchValidationErrors", () => {
-    addressSearchForm = new AddressSearchForm({
-      element,
-      store,
-    });
     expect(addressSearchForm.validationErrors).toBeInstanceOf(
       SearchValidationErrors
     );
@@ -92,16 +96,12 @@ describe("AddressSearchForm", () => {
   });
 
   test("handleInputChange dispatches async action", () => {
-    addressSearchForm = new AddressSearchForm({
-      element,
-      store,
-    });
     addressSearchForm.handleInputChange({ target: { value: "555 2nd Ave" } });
     expect(store.dispatch).toHaveBeenCalledWith(expect.any(Function));
   });
 
   test("handleInputChange dispatches RentStabilizedReset", () => {
-    store.getState.mockImplementationOnce(() => ({
+    store.getState.mockImplementation(() => ({
       rentStabilized: {
         error: new Error(),
         status: "error",
@@ -118,11 +118,6 @@ describe("AddressSearchForm", () => {
   });
 
   test("uses observeStore to watch for redux state changes", () => {
-    observeStore.mockReset();
-    new AddressSearchForm({
-      element,
-      store,
-    });
     expect(observeStore).toHaveBeenCalledTimes(2);
   });
 
@@ -184,7 +179,7 @@ describe("AddressSearchForm", () => {
       addressGeocode: {
         autosuggestions: null,
         searchResult: null,
-        status: "error",
+        status: "failure",
         error: new Error("Something went wrong"),
       },
       rentStabilized: {
@@ -213,7 +208,7 @@ describe("AddressSearchForm", () => {
       },
       rentStabilized: {
         error: new Error(),
-        status: null,
+        status: "error",
         match: null,
       },
     }));
@@ -224,11 +219,6 @@ describe("AddressSearchForm", () => {
   });
 
   test("updateDataListItems", () => {
-    jest.clearAllMocks();
-    addressSearchForm = new AddressSearchForm({
-      element: document.querySelector("#address-form"),
-      store,
-    });
     store.getState.mockImplementation(() => ({
       addressGeocode: {
         autosuggestions: {
@@ -263,10 +253,6 @@ describe("AddressSearchForm", () => {
   });
 
   test("validateSearchResult success", () => {
-    addressSearchForm = new AddressSearchForm({
-      element: document.querySelector("#address-form"),
-      store,
-    });
     store.getState.mockImplementation(() => ({
       addressGeocode: {
         status: "idle",
@@ -298,8 +284,13 @@ describe("AddressSearchForm", () => {
         },
       },
     }));
+    addressSearchForm.inputAddress.value = "444 Unknown Street, Staten Island";
     addressSearchForm.validateSearchResult();
     expect(spy).toHaveBeenCalledTimes(1);
+    expect(logEvent).toHaveBeenCalledWith("address-not-found", {
+      event_category: "Search",
+      value: "444 Unknown Street, Staten Island",
+    });
   });
 
   test("handleSubmit", () => {
@@ -310,8 +301,36 @@ describe("AddressSearchForm", () => {
       element,
       store,
     });
+    addressSearchForm.inputAddress.value = "999 Main Street";
     addressSearchForm.element.dispatchEvent(event);
     expect(spy).toHaveBeenCalled();
+    expect(logEvent).toHaveBeenCalled();
     expect(event.preventDefault).toHaveBeenCalled();
+    expect(store.dispatch).toHaveBeenCalled();
+    expect(searchRentStabilized).toHaveBeenCalledWith("999 Main Street");
+  });
+
+  test("handleSubmit no user input", () => {
+    const spy = jest.spyOn(SearchValidationErrors.prototype, "showNoInput");
+    const event = new Event("submit");
+    event.preventDefault = jest.fn();
+    addressSearchForm = new AddressSearchForm({
+      element,
+      store,
+    });
+    addressSearchForm.inputAddress.value = "";
+    addressSearchForm.element.dispatchEvent(event);
+    expect(spy).toHaveBeenCalled();
+  });
+
+  test("handleFetchError", () => {
+    const spy = jest.spyOn(SearchValidationErrors.prototype, "showGeneric");
+    addressSearchForm = new AddressSearchForm({
+      element,
+      store,
+    });
+    addressSearchForm.handleFetchError(new Error("Something went wrong"));
+    expect(spy).toHaveBeenCalled();
+    expect(logException).toHaveBeenCalledWith("Error, Something went wrong");
   });
 });

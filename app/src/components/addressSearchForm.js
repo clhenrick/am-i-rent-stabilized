@@ -10,6 +10,7 @@ import {
 import { observeStore } from "../store";
 import { delay } from "../utils/delay";
 import { RS_SEARCH_DELAY_MS } from "../constants/app";
+import { logEvent, logException } from "../utils/logging";
 
 const INPUT_THROTTLE_MS = 350;
 const MIN_SEARCH_TEXT_LENGTH = 1;
@@ -77,8 +78,10 @@ export class AddressSearchForm extends Component {
     event.preventDefault();
     this.handleInputChange.cancel();
     this.clearCachedSearchResult();
-    if (this.inputAddress.value.length) {
-      this.store.dispatch(searchRentStabilized(this.inputAddress.value));
+    const value = this.inputAddress.value;
+    if (value.length) {
+      this.store.dispatch(searchRentStabilized(value));
+      logEvent("address-search-input", { event_category: "Search", value });
     } else {
       this.validationErrors.showNoInput();
     }
@@ -89,7 +92,7 @@ export class AddressSearchForm extends Component {
     if (!this.validationErrors.areHidden) {
       this.validationErrors.hideAll();
     }
-    if (this.statusRS === "error" || this.errorRS) {
+    if (this.statusRS === "error" && this.errorRS) {
       this.store.dispatch(rentStabilizedReset());
     }
     if (this.addressSearchText.length >= MIN_SEARCH_TEXT_LENGTH) {
@@ -109,15 +112,15 @@ export class AddressSearchForm extends Component {
       this.cacheSearchResult();
       this.validateSearchResult();
     }
-    if (this.statusAG === "error" || this.errorAG) {
-      this.handleFetchError();
+    if (this.statusAG === "failure" && this.errorAG) {
+      this.handleFetchError(this.errorAG);
     }
   }
 
   async handleRSChange() {
-    if (this.statusRS === "error" || this.errorRS) {
+    if (this.statusRS === "error" && this.errorRS) {
       await delay(RS_SEARCH_DELAY_MS);
-      this.handleFetchError();
+      this.handleFetchError(this.errorRS);
     }
   }
 
@@ -137,6 +140,11 @@ export class AddressSearchForm extends Component {
       this.store.dispatch(goToSlideIdx(2));
     } else {
       this.validationErrors.showNotFound();
+      const value = this.inputAddress.value;
+      logEvent("address-not-found", {
+        event_category: "Search",
+        value,
+      });
     }
   }
 
@@ -148,8 +156,13 @@ export class AddressSearchForm extends Component {
     this.cached.searchResult = undefined;
   }
 
-  handleFetchError() {
+  handleFetchError(error) {
     this.validationErrors.showGeneric();
+    // TODO: if exceptions are being logged from Redux middleware correctly,
+    // then the following logException call may be redundant
+    logException(
+      typeof error === "object" ? `${error.name}, ${error.message}` : error
+    );
   }
 
   cleanUp() {
