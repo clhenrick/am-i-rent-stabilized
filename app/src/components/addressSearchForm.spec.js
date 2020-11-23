@@ -2,7 +2,7 @@ import { AddressSearchForm } from "./addressSearchForm";
 import { SearchValidationErrors } from "./searchValidationErrors";
 import { store, observeStore } from "../store";
 import { searchRentStabilized } from "../action_creators/searchRentStabilizedActions";
-import { logEvent, logException } from "../utils/logging";
+import { logAddressSearch, logAddressNF, logException } from "../utils/logging";
 import throttle from "lodash.throttle";
 
 jest.mock("lodash.throttle");
@@ -269,7 +269,7 @@ describe("AddressSearchForm", () => {
     });
   });
 
-  test("validateSearchResult error", () => {
+  test("validateSearchResult not found", () => {
     const spy = jest.spyOn(SearchValidationErrors.prototype, "showNotFound");
     addressSearchForm = new AddressSearchForm({
       element: document.querySelector("#address-form"),
@@ -287,10 +287,9 @@ describe("AddressSearchForm", () => {
     addressSearchForm.inputAddress.value = "444 Unknown Street, Staten Island";
     addressSearchForm.validateSearchResult();
     expect(spy).toHaveBeenCalledTimes(1);
-    expect(logEvent).toHaveBeenCalledWith("address-not-found", {
-      event_category: "Search",
-      value: "444 Unknown Street, Staten Island",
-    });
+    expect(logAddressNF).toHaveBeenCalledWith(
+      "444 Unknown Street, Staten Island"
+    );
   });
 
   test("handleSubmit", () => {
@@ -304,7 +303,7 @@ describe("AddressSearchForm", () => {
     addressSearchForm.inputAddress.value = "999 Main Street";
     addressSearchForm.element.dispatchEvent(event);
     expect(spy).toHaveBeenCalled();
-    expect(logEvent).toHaveBeenCalled();
+    expect(logAddressSearch).toHaveBeenCalledWith("999 Main Street");
     expect(event.preventDefault).toHaveBeenCalled();
     expect(store.dispatch).toHaveBeenCalled();
     expect(searchRentStabilized).toHaveBeenCalledWith("999 Main Street");

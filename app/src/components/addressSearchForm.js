@@ -10,7 +10,7 @@ import {
 import { observeStore } from "../store";
 import { delay } from "../utils/delay";
 import { RS_SEARCH_DELAY_MS } from "../constants/app";
-import { logEvent, logException } from "../utils/logging";
+import { logAddressSearch, logAddressNF, logException } from "../utils/logging";
 
 const INPUT_THROTTLE_MS = 350;
 const MIN_SEARCH_TEXT_LENGTH = 1;
@@ -81,7 +81,7 @@ export class AddressSearchForm extends Component {
     const value = this.inputAddress.value;
     if (value.length) {
       this.store.dispatch(searchRentStabilized(value));
-      logEvent("address-search-input", { event_category: "Search", value });
+      logAddressSearch(value);
     } else {
       this.validationErrors.showNoInput();
     }
@@ -140,11 +140,7 @@ export class AddressSearchForm extends Component {
       this.store.dispatch(goToSlideIdx(2));
     } else {
       this.validationErrors.showNotFound();
-      const value = this.inputAddress.value;
-      logEvent("address-not-found", {
-        event_category: "Search",
-        value,
-      });
+      logAddressNF(this.inputAddress.value);
     }
   }
 
