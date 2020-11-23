@@ -4,3 +4,21 @@ export const logEvent = (eventName, eventParameters) =>
 
 export const logException = (description, fatal = false) =>
   gtag("event", "exception", { description, fatal });
+
+export const logAddressSearch = (address) =>
+  logEvent("Address Search", { event_category: "search", label: address });
+
+export const logAddressNF = (address) =>
+  logEvent("Address Not Found", { event_category: "search", label: address });
+
+export const logAddressRS = (address) =>
+  logEvent("Address Rent Stabilized", {
+    event_category: "search",
+    label: address,
+  });
+
+export const logAddressNotRS = (address) =>
+  logEvent("Address Not Rent Stabilized", {
+    event_category: "search",
+    label: address,
+  });
