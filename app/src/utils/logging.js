@@ -22,3 +22,8 @@ export const logAddressNotRS = (address) =>
     event_category: "search",
     label: address,
   });
+
+export const handleErrorObj = (prefix, error) =>
+  typeof error === "object"
+    ? `${prefix}; ${error.name}; ${error.message}`
+    : `${prefix}; ${error}`;
