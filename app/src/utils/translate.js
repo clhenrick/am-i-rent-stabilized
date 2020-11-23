@@ -1,6 +1,7 @@
 import "cross-fetch/polyfill";
 import { getPageJsBundle } from "./pageBundle";
 import { LANGS, LOCALES_JSON_DIR } from "../constants/locales";
+import { logException, handleErrorObj } from "./logging";
 
 // FIXME: alias these in webpack config
 const w = window;
@@ -22,7 +23,7 @@ export async function translatePage() {
     const main = await getPageJsBundle(currentPage);
     main();
   } catch (error) {
-    console.error(error);
+    logException(handleErrorObj("translatePage", error));
   }
 }
 
@@ -61,7 +62,7 @@ async function renderHtmlFromTemplate(lang, pageName) {
     ]);
     renderHtml(locale, template);
   } catch (error) {
-    console.error(error);
+    logException(handleErrorObj("renderHtmlFromTemplate", error));
   }
 }
 
