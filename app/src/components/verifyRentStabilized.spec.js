@@ -1,7 +1,9 @@
 import { VerifyRentStabilized } from "./verifyRentStabilized";
 import { store, observeStore } from "../store";
+import { logAddressRS } from "../utils/logging";
 
 jest.mock("../store");
+jest.mock("../utils/logging");
 
 describe("VerifyRentStabilized", () => {
   let element;
@@ -81,6 +83,22 @@ describe("VerifyRentStabilized", () => {
       rentStabilized: {
         match: {
           total_rows: 1,
+          rows: [
+            {
+              bbl: "999999999",
+            },
+          ],
+        },
+      },
+      addressGeocode: {
+        searchResult: {
+          features: [
+            {
+              properties: {
+                label: "999 Main Street",
+              },
+            },
+          ],
         },
       },
     }));
@@ -95,6 +113,7 @@ describe("VerifyRentStabilized", () => {
       false
     );
     expect(verifyRentStabilized.msgNo.classList.contains("hidden")).toBe(true);
+    expect(logAddressRS).toHaveBeenCalledWith("999 Main Street");
   });
 
   test("updateMessage handles a non-match", () => {
@@ -103,6 +122,9 @@ describe("VerifyRentStabilized", () => {
         match: {
           total_rows: 0,
         },
+      },
+      addressGeocode: {
+        searchResult: null,
       },
     }));
 
