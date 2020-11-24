@@ -8,15 +8,13 @@ const middlewares = [thunkMiddleware];
 export const crashReporter = (store) => (next) => (action) => {
   try {
     return next(action);
-  } catch (err) {
+  } catch (error) {
     logException(
-      `crashReporter: ${
-        typeof err === "object"
-          ? `${err.name}; ${err.message}; ${JSON.stringify(store.getState())}`
-          : `${err}; ${JSON.stringify(store.getState())}`
-      }`
+      `${handleErrorObj("crashReporter", error)}; ${JSON.stringify(
+        store.getState()
+      )}`
     );
-    throw err;
+    throw error;
   }
 };
 
