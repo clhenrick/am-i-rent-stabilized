@@ -6,7 +6,6 @@ import { addressSearchFetch } from "./addressGeocodeActions";
 import { goToSlideIdx } from "./slidesActions";
 import { delay } from "../utils/delay";
 import { RS_SEARCH_DELAY_MS } from "../constants/app";
-import { logException } from "../utils/logging";
 
 export const ERROR_ADDRESS_NOT_FOUND = "Address search result not found";
 export const ERROR_MISSING_BBL =
@@ -41,10 +40,7 @@ export function getBBL(feature) {
  * 4. going to the "you might/might not be rent stabilized" slide
  * 5. OR going back to the address search slide if an error occurs
  */
-export const searchRentStabilized = (addressText) => async (
-  dispatch,
-  getState
-) => {
+export const searchRentStabilized = (addressText) => async (dispatch) => {
   try {
     const searchResult = await dispatch(addressSearchFetch(addressText));
     validateSearchResult(searchResult);
