@@ -64,14 +64,5 @@ export const searchRentStabilized = (addressText) => async (
     await delay(RS_SEARCH_DELAY_MS);
     dispatch(rentStabilizedFailure(error));
     dispatch(goToSlideIdx(1));
-    logException(
-      typeof error === "object"
-        ? `Error in searchRentStabilized: ${error.name}; ${
-            error.message
-          }; ${JSON.stringify(getState())}`
-        : `Error in searchRentStabilized: ${error}; ${JSON.stringify(
-            getState()
-          )}`
-    );
   }
 };

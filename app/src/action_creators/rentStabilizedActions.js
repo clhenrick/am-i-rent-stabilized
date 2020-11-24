@@ -42,7 +42,6 @@ export const fetchRentStabilized = (bbl) => (dispatch) => {
     })
     .catch((error) => {
       dispatch(rentStabilizedFailure(error));
-      logException(handleErrorObj(error), true);
       return error;
     });
 };

@@ -40,7 +40,6 @@ export const addressAutosuggestFetch = (text) => (dispatch) => {
     })
     .catch((error) => {
       dispatch(addressAutosuggestFailure(error));
-      logException(handleErrorObj("addressAutosuggestFetch", error), true);
     });
 };
 
@@ -79,7 +78,6 @@ export const addressSearchFetch = (text) => (dispatch) => {
     })
     .catch((error) => {
       dispatch(addressSearchFailure(error));
-      logException(handleErrorObj("addressSearchFetch", error), true);
       return error;
     });
 };

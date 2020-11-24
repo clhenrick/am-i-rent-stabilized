@@ -2,9 +2,6 @@ import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import * as types from "../constants/actionTypes";
 import * as actions from "./rentStabilizedActions";
-import { logException } from "../utils/logging";
-
-jest.mock("../utils/logging");
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -78,7 +75,6 @@ describe("rentStabilizedActions", () => {
 
     return store.dispatch(actions.fetchRentStabilized("123456789")).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
-      expect(logException).toHaveBeenCalled();
     });
   });
 });
