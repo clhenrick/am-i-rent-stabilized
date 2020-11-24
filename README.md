@@ -6,46 +6,67 @@ A mobile friendly, multi-lingual web app that informs NYC residents about [Rent 
 
 See it in action at [amirentstabilized.com](https://amirentstabilized.com/).
 
-## V2 Runs on
-- [Greensock's GSAP Animation Library](http://greensock.com/gsap)
-- [CartoDB JS](http://docs.cartodb.com/cartodb-platform/cartodb-js.html)
-- [CartoDB SQL API](http://docs.cartodb.com/cartodb-platform/sql-api.html)
-- [CartoDB's Positron map tiles](http://cartodb.com/basemaps/)
-- [NYC Geoclient API](https://developer.cityofnewyork.us/api/geoclient-api)
-- [Handlebars.js](http://handlebarsjs.com/)
-- [AddToCalendar.js](https://github.com/AddToCalendar/addtocalendar)
-- [addThis](http://addthis.com)
+## Develop
+Requires familiarity with the Command Line Interface, as well as installations of NodeJS v10.16.2 and Yarn ~v1.22.
+
+**Note** that if you do not the have the specified NodeJS version above (source of truth is the [`package.json`](./app/package.json) "engines" field) then the scrips below will not run. You can use [Node Version Manager (nvm)](https://github.com/nvm-sh/nvm) to switch between different NodeJS versions in a shell.
+
+### Available Scripts
+
+**Note**  that the following commands assume to be run from the `./app` directory.
+
+First be sure to install the required 3rd party dependencies:
+
+```
+yarn install
+```
+
+To start have Webpack watch for changes and serve the site using Webpack Dev Server:
+
+```
+yarn start
+```
+
+To create a production optimized build (will output assets to the `app/dist` directory):
+
+```
+yarn prod
+```
+
+To run the tests in watch mode (_highly recommended during development!_):
+
+```
+yarn test:watch
+```
+
+To debug Webpack build issues, create a "debug" build by doing:
+
+```
+yarn webpack:debug
+```
+
+To serve the assets of the production build do:
+
+```
+yarn start:prod
+```
+
+
+## Updating the Site's Content:
+The app uses HandlebarsJS for translating content between three languages: English, Spanish, and Chinese. Any changes made to any of the content in any of the HTML pages will need to be reflected in the corresponding locales JSON and Handlebars template files. These are located as follows:
+
+- `app/public/locales`: JSON files for locales and are named as `[page name]-[language code].json`.
+- `app/src/hbs_templates`: Handlebars template files that correspond to the websites HTML pages 
+- in both sets of files `main` maps to `index.html`
+
+The `handlebars-loader` Webpack loader handles the `.hbs` file extension so Webpack won't complain. It will automatically look for Handlebars partials in `app/src/hbs_partials` and helpers in `app/src/hbs_helpers`.
+
+Any newly added Handlebars partials will need to be registered with Jest in order for the unit tests not to break. See `src/setupJest.js` for how this is done.
 
 ## Data Sources
 - [NYC MapPluto](http://www.nyc.gov/html/dcp/html/bytes/dwn_pluto_mappluto.shtml) Tax Lot geospatial data.
 - New York State's [HCR](http://www.nyshcr.org/) - [Rent Stabilized Buldings List](https://github.com/clhenrick/dhcr-rent-stabilized-data).
 - Exempt Stabilized buildings via [nyc-stabilization-unit-counts](https://github.com/talos/nyc-stabilization-unit-counts).
-
-## Installation
-Make sure you have Node.js at v5.9.1 or greater with `Node-Sass`, `Handlebars`, and `Gulp` modules installed globally.  
-1. In terminal `cd` to this repo and do `npm install` to grab all dependencies.  
-2. Run `gulp production` to compile the distribution code.  
-3. Host code on a webserver of your choice.  
-
-## Develop
-Make sure you have Node.js at v5.9.1 or greater with `Node-Sass`, `Handlebars`, and `Gulp` modules installed globally.  
-- Run `gulp` to start a local server and automatically watch for changes. The site will refresh automatically after making any changes.  
-- Run `gulp production` to compile the distribution code in a `build/` directory.
-
-## Updating the Site's Content:
-As the entire site is translated to Chinese and Spanish, any changes to the site's content must also be translated to these languages. This is done by editing  the JSON files in `app/data/`.
-
-Any changes to the site's HTML must be made to the Handlebars templates in `app/templates/`.
-
-Each of the JSON files and Handlebars files in these folders corresponds to one page of the app (`index.html`, `why-it-matters.html`, `how-it-works.html`, & `resources.html`). Each JSON file contains the written content in 3 languages while each template file contains the markup and Handlebars templating code.
-
-After updating these sets of files you must precompile the templates for the content to be updated in the app. You can run the gulp `templates` task to do this by running the following npm script:
-
-```
-npm run compile-templates
-```
-
-If you're running the `gulp default` task, then making changes to any files in `app/templates/*.hbs` will automatically re-compile `app/js/templates.js`. However, _you will still need to compile the bundled files for the app_, `bundle.js` and `otherpages.js`, otherwise the app will not use the newly compiled templates!
 
 ## Data Processing:
 The processed data is [publicly available for download on CartoDB](https://chenrick.carto.com/tables/map_pluto_likely_rs_2016v1/public/map) but if you'd like to host it yourself you may do the following (note you will need to have [GDAL](http://www.gdal.org/) and [PostGIS](http://postgis.net/) installed):
