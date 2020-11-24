@@ -1,9 +1,15 @@
 // see: https://developers.google.com/analytics/devguides/collection/upgrade/analyticsjs#measure_events
-export const logEvent = (eventName, eventParameters) =>
-  gtag("event", eventName, eventParameters);
+export const logEvent = (eventName, eventParameters) => {
+  if (process.env.NODE_ENV !== "development") {
+    gtag("event", eventName, eventParameters);
+  }
+};
 
-export const logException = (description, fatal = false) =>
-  gtag("event", "exception", { description, fatal });
+export const logException = (description, fatal = false) => {
+  if (process.env.NODE_ENV !== "development") {
+    gtag("event", "exception", { description, fatal });
+  }
+};
 
 export const logAddressSearch = (address) =>
   logEvent("Address Search", { event_category: "search", label: address });
