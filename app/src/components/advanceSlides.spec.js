@@ -8,7 +8,6 @@ jest.mock("../store", () => {
       getState: jest.fn(() => ({
         slides: {
           curIndex: 0,
-          canAdvance: true,
         },
       })),
       dispatch: jest.fn(),
@@ -80,22 +79,10 @@ describe("AdvanceSlides", () => {
     expect(spyButton).toHaveBeenCalled();
   });
 
-  test("handleClick calls advanceToSlide if state.slides.canAdvance is true", () => {
+  test("handleClick calls advanceToSlide", () => {
     jest.clearAllMocks();
     advanceSlides.handleClick(mockClickEvent);
     expect(spyAdvanceToSlide).toHaveBeenCalledTimes(1);
-  });
-
-  test("handleClick does not call advanceToSlide if state.slides.canAdvance is false", () => {
-    jest.clearAllMocks();
-    store.getState.mockImplementationOnce(() => ({
-      slides: {
-        curIndex: 0,
-        canAdvance: false,
-      },
-    }));
-    advanceSlides.handleClick(mockClickEvent);
-    expect(spyAdvanceToSlide).not.toHaveBeenCalled();
   });
 
   test("advanceToSlide dispatches a GoToNextSlide action when advanceToIdx is undefined", () => {

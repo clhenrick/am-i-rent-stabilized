@@ -35,10 +35,7 @@ export class AdvanceSlides extends Component {
 
   handleClick(event) {
     event.preventDefault();
-    const { slides } = this.store.getState();
-    if (slides.canAdvance) {
-      this.advanceToSlide();
-    }
+    this.advanceToSlide();
   }
 
   advanceToSlide() {

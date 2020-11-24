@@ -8,7 +8,6 @@ jest.mock("../store", () => {
       getState: jest.fn(() => ({
         slides: {
           curIndex: 0,
-          canAdvance: true,
         },
       })),
       dispatch: jest.fn(),
@@ -90,7 +89,6 @@ describe("KeyboardNavigation", () => {
     store.getState.mockImplementationOnce(() => ({
       slides: {
         curIndex: 200,
-        canAdvance: true,
       },
     }));
     keyboardNavigation.maybeGoToNextSlide();
@@ -102,7 +100,6 @@ describe("KeyboardNavigation", () => {
     store.getState.mockImplementationOnce(() => ({
       slides: {
         curIndex: 1,
-        canAdvance: true,
       },
     }));
     keyboardNavigation.maybeGoToPrevSlide();
@@ -114,7 +111,6 @@ describe("KeyboardNavigation", () => {
     store.getState.mockImplementationOnce(() => ({
       slides: {
         curIndex: 0,
-        canAdvance: true,
       },
     }));
     keyboardNavigation.maybeGoToPrevSlide();

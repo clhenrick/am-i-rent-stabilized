@@ -9,7 +9,6 @@ jest.mock("../store", () => {
       getState: jest.fn(() => ({
         slides: {
           curIndex: 0,
-          canAdvance: true,
         },
       })),
       subscribe: jest.fn((cb) => cb()),
@@ -90,7 +89,6 @@ describe("SlidesContainer", () => {
     store.getState.mockImplementationOnce(() => ({
       slides: {
         curIndex: 5,
-        canAdvance: true,
       },
     }));
     slidesContainer.handleSlidesUpdate();
