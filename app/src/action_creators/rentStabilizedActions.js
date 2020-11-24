@@ -3,7 +3,6 @@ import "cross-fetch/polyfill";
 import { cartoAccount } from "../constants/config";
 import { rentStabilizedBblSql } from "../utils/sql";
 import * as types from "../constants/actionTypes";
-import { logException, handleErrorObj } from "../utils/logging";
 
 export const rentStabilizedRequest = () => ({
   type: types.RentStabilizedRequest,
