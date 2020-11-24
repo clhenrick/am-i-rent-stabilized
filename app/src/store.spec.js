@@ -38,7 +38,6 @@ describe("observeStore", () => {
     expect(select).toHaveBeenCalledTimes(1);
     expect(select).toHaveReturnedWith({
       curIndex: 1,
-      canAdvance: true,
     });
   });
 

@@ -5,7 +5,6 @@ describe("slidesReducer", () => {
   test("Should return the initial state", () => {
     expect(slides(undefined, {})).toEqual({
       curIndex: 0,
-      canAdvance: true,
     });
   });
 
@@ -16,7 +15,6 @@ describe("slidesReducer", () => {
       })
     ).toEqual({
       curIndex: 1,
-      canAdvance: true,
     });
   });
 
@@ -25,7 +23,6 @@ describe("slidesReducer", () => {
       slides(
         {
           curIndex: 1,
-          canAdvance: true,
         },
         {
           type: types.GoToPrevSlide,
@@ -33,7 +30,6 @@ describe("slidesReducer", () => {
       )
     ).toEqual({
       curIndex: 0,
-      canAdvance: true,
     });
   });
 
@@ -42,7 +38,6 @@ describe("slidesReducer", () => {
       slides(
         {
           curIndex: 0,
-          canAdvance: true,
         },
         {
           type: types.GoToSlideIdx,
@@ -51,41 +46,6 @@ describe("slidesReducer", () => {
       )
     ).toEqual({
       curIndex: 3,
-      canAdvance: true,
-    });
-  });
-
-  test("Should handle CanAdvanceSlide", () => {
-    expect(
-      slides(
-        {
-          curIndex: 1,
-          canAdvance: true,
-        },
-        {
-          type: types.CanAdvanceSlide,
-          payload: false,
-        }
-      )
-    ).toEqual({
-      curIndex: 1,
-      canAdvance: false,
-    });
-
-    expect(
-      slides(
-        {
-          curIndex: 9,
-          canAdvance: false,
-        },
-        {
-          type: types.CanAdvanceSlide,
-          payload: true,
-        }
-      )
-    ).toEqual({
-      curIndex: 9,
-      canAdvance: true,
     });
   });
 
@@ -94,7 +54,6 @@ describe("slidesReducer", () => {
       slides({ curIndex: 9, canAdvance: false }, { type: types.ResetAppState })
     ).toEqual({
       curIndex: 0,
-      canAdvance: true,
     });
   });
 });

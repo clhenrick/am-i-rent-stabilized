@@ -1,9 +1,4 @@
-import {
-  goToNextSlide,
-  goToPrevSlide,
-  goToSlideIdx,
-  canAdvanceSlide,
-} from "./slidesActions";
+import { goToNextSlide, goToPrevSlide, goToSlideIdx } from "./slidesActions";
 
 describe("slidesActions", () => {
   test("goToNextSlide", () => {
@@ -16,12 +11,5 @@ describe("slidesActions", () => {
 
   test("goToSlideIdx", () => {
     expect(goToSlideIdx(5)).toEqual({ type: "GoToSlideIdx", payload: 5 });
-  });
-
-  test("canAdvanceSlide", () => {
-    expect(canAdvanceSlide(false)).toEqual({
-      type: "CanAdvanceSlide",
-      payload: false,
-    });
   });
 });

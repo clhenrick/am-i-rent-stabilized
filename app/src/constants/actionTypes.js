@@ -2,7 +2,6 @@
 export const GoToNextSlide = "GoToNextSlide";
 export const GoToPrevSlide = "GoToPrevSlide";
 export const GoToSlideIdx = "GoToSlideIdx";
-export const CanAdvanceSlide = "CanAdvanceSlide";
 
 // ... for address
 export const ResetAddressState = "ResetAddressState";

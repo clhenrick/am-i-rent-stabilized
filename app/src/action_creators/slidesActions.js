@@ -12,8 +12,3 @@ export const goToSlideIdx = (payload = 0) => ({
   type: types.GoToSlideIdx,
   payload,
 });
-
-export const canAdvanceSlide = (payload = true) => ({
-  type: types.CanAdvanceSlide,
-  payload,
-});
