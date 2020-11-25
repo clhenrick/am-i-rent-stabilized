@@ -113,7 +113,9 @@ export class SearchResultMap extends Component {
       this.popup.innerHTML = "";
     } else {
       const { name, borough, state, zipcode } = props;
-      this.popup.innerHTML = `<p>${name}</p><p>${borough} ${state} ${zipcode}</p>`;
+      this.popup.querySelector(
+        ".map-pop-up--content"
+      ).innerHTML = `<p>${name}</p><p>${borough} ${state} ${zipcode}</p>`;
     }
   }
 
