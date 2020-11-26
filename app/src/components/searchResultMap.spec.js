@@ -1,12 +1,12 @@
 import { geoMercator } from "d3-geo";
 import { store, observeStore } from "../store";
+import { SearchResultMap } from "./searchResultMap";
 import {
-  SearchResultMap,
-  ZOOM,
-  CENTER,
-  MARKER,
-  BORDER_WIDTH,
-} from "./searchResultMap";
+  MAP_ZOOM,
+  MAP_CENTER,
+  MAP_MARKER,
+  MAP_BORDER_WIDTH,
+} from "../constants/app";
 import { MapPopup } from "./mapPopup";
 import { MapTileLayers } from "./mapTileLayers";
 
@@ -207,7 +207,7 @@ describe("SearchResultMap", () => {
       },
     }));
     instance.updateMapView();
-    expect(instance.zoom).toEqual(ZOOM.RESULT);
+    expect(instance.zoom).toEqual(MAP_ZOOM.RESULT);
     expect(instance.center).toEqual([0, 0]);
     expect(spy1).toHaveBeenCalledWith({
       name: "Bla",
@@ -240,7 +240,7 @@ describe("SearchResultMap", () => {
     searchResultMap.setMapSize();
     const result = searchResultMap.svg.getAttribute("viewBox");
     expect(result).toEqual(
-      `0 0 ${width - BORDER_WIDTH * 2} ${height - BORDER_WIDTH * 2}`
+      `0 0 ${width - MAP_BORDER_WIDTH * 2} ${height - MAP_BORDER_WIDTH * 2}`
     );
   });
 
@@ -248,21 +248,21 @@ describe("SearchResultMap", () => {
     searchResultMap.setMarkerPosition();
     const result = searchResultMap.marker.getAttribute("transform");
     expect(result).toEqual(
-      `translate(${(width - BORDER_WIDTH * 2) / 2 - MARKER.WIDTH / 2}, ${
-        (height - BORDER_WIDTH * 2) / 2 - MARKER.HEIGHT
-      }), scale(2)`
+      `translate(${
+        (width - MAP_BORDER_WIDTH * 2) / 2 - MAP_MARKER.WIDTH / 2
+      }, ${(height - MAP_BORDER_WIDTH * 2) / 2 - MAP_MARKER.HEIGHT}), scale(2)`
     );
   });
 
   test("updateProjection", () => {
     searchResultMap.updateProjection();
-    expect(center).toHaveBeenCalledWith(CENTER.DEFAULT);
+    expect(center).toHaveBeenCalledWith(MAP_CENTER.DEFAULT);
     expect(scale).toHaveBeenCalledWith(
-      Math.pow(2, ZOOM.DEFAULT) / (2 * Math.PI)
+      Math.pow(2, MAP_ZOOM.DEFAULT) / (2 * Math.PI)
     );
     expect(translate).toHaveBeenCalledWith([
-      (width - BORDER_WIDTH * 2) / 2,
-      (height - BORDER_WIDTH * 2) / 2,
+      (width - MAP_BORDER_WIDTH * 2) / 2,
+      (height - MAP_BORDER_WIDTH * 2) / 2,
     ]);
   });
 
@@ -284,8 +284,8 @@ describe("SearchResultMap", () => {
     instance.resetMap();
     expect(spy1).toHaveBeenCalledTimes(1);
     expect(spy2).toHaveBeenCalledTimes(1);
-    expect(instance.zoom).toEqual(ZOOM.DEFAULT);
-    expect(instance.center).toEqual(CENTER.DEFAULT);
+    expect(instance.zoom).toEqual(MAP_ZOOM.DEFAULT);
+    expect(instance.center).toEqual(MAP_CENTER.DEFAULT);
   });
 
   test("zoom property setter", () => {

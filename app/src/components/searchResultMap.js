@@ -3,19 +3,12 @@ import { Component } from "./_componentBase";
 import { MapTileLayers } from "./mapTileLayers";
 import { MapPopup } from "./mapPopup";
 import { observeStore } from "../store";
-
-export const ZOOM = {
-  DEFAULT: 20,
-  RESULT: 24,
-};
-export const CENTER = {
-  DEFAULT: [-74.006, 40.7128],
-};
-export const MARKER = {
-  WIDTH: 16 * 2,
-  HEIGHT: 20 * 2,
-};
-export const BORDER_WIDTH = 3;
+import {
+  MAP_ZOOM,
+  MAP_CENTER,
+  MAP_MARKER,
+  MAP_BORDER_WIDTH,
+} from "../constants/app";
 
 export class SearchResultMap extends Component {
   constructor(props) {
@@ -34,8 +27,8 @@ export class SearchResultMap extends Component {
       map: this,
     });
 
-    this._zoom = ZOOM.DEFAULT;
-    this._center = CENTER.DEFAULT;
+    this._zoom = MAP_ZOOM.DEFAULT;
+    this._center = MAP_CENTER.DEFAULT;
     this._projection = geoMercator();
 
     this.mapTileLayers = new MapTileLayers(this);
@@ -74,7 +67,7 @@ export class SearchResultMap extends Component {
       state,
       zipcode,
     } = this.searchResultDetails;
-    this.zoom = ZOOM.RESULT;
+    this.zoom = MAP_ZOOM.RESULT;
     this.center = coordinates;
     this.popup.setContent({ name, borough, state, zipcode });
     this.popup.setPosition();
@@ -99,8 +92,8 @@ export class SearchResultMap extends Component {
     const { width, height } = this.dimensions;
     this.marker.setAttribute(
       "transform",
-      `translate(${width / 2 - MARKER.WIDTH / 2}, ${
-        height / 2 - MARKER.HEIGHT
+      `translate(${width / 2 - MAP_MARKER.WIDTH / 2}, ${
+        height / 2 - MAP_MARKER.HEIGHT
       }), scale(2)`
     );
   }
@@ -122,8 +115,8 @@ export class SearchResultMap extends Component {
   }
 
   resetMap() {
-    this.zoom = ZOOM.DEFAULT;
-    this.center = CENTER.DEFAULT;
+    this.zoom = MAP_ZOOM.DEFAULT;
+    this.center = MAP_CENTER.DEFAULT;
     this.hideMarker();
     this.popup.hide();
     this.renderMap();
@@ -131,8 +124,8 @@ export class SearchResultMap extends Component {
 
   get dimensions() {
     let { width, height } = this.element.getBoundingClientRect();
-    width -= BORDER_WIDTH * 2;
-    height -= BORDER_WIDTH * 2;
+    width -= MAP_BORDER_WIDTH * 2;
+    height -= MAP_BORDER_WIDTH * 2;
     return { width, height };
   }
 
