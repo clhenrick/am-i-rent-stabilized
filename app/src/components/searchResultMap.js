@@ -69,16 +69,16 @@ export class SearchResultMap extends Component {
     } = this.searchResultDetails;
     this.zoom = MAP_ZOOM.RESULT;
     this.center = coordinates;
+    this.renderMap();
+    this.showMarker();
+    this.setMarkerPosition();
+    this.popup.show();
     this.popup.setContent({ name, borough, state, zipcode });
     this.popup.setPosition();
-    this.popup.show();
-    this.showMarker();
-    this.renderMap();
   }
 
   renderMap() {
     this.setMapSize();
-    this.setMarkerPosition();
     this.gBaseTiles.innerHTML = this.mapTileLayers.renderMapTiles("basemap");
     this.gRsTiles.innerHTML = this.mapTileLayers.renderMapTiles("data");
   }

@@ -177,6 +177,7 @@ describe("SearchResultMap", () => {
     const spy2 = jest.spyOn(MapPopup.prototype, "show");
     const spy3 = jest.spyOn(SearchResultMap.prototype, "showMarker");
     const spy4 = jest.spyOn(SearchResultMap.prototype, "renderMap");
+    const spy5 = jest.spyOn(SearchResultMap.prototype, "setMarkerPosition");
     const instance = new SearchResultMap({ element, store });
     store.getState.mockImplementation(() => ({
       addressGeocode: {
@@ -218,6 +219,7 @@ describe("SearchResultMap", () => {
     expect(spy2).toHaveBeenCalledTimes(1);
     expect(spy3).toHaveBeenCalledTimes(1);
     expect(spy4).toHaveBeenCalledTimes(1);
+    expect(spy5).toHaveBeenCalledTimes(1);
   });
 
   test("updateMapView with no searchResultDetails", () => {
@@ -226,12 +228,10 @@ describe("SearchResultMap", () => {
   });
 
   test("renderMap", () => {
-    const spy1 = jest.spyOn(SearchResultMap.prototype, "setMapSize");
-    const spy2 = jest.spyOn(SearchResultMap.prototype, "setMarkerPosition");
+    const spy = jest.spyOn(SearchResultMap.prototype, "setMapSize");
     const instance = new SearchResultMap({ element, store });
     instance.renderMap();
-    expect(spy1).toHaveBeenCalledTimes(1);
-    expect(spy2).toHaveBeenCalledTimes(1);
+    expect(spy).toHaveBeenCalledTimes(1);
     expect(instance.gBaseTiles.innerHTML).toBeTruthy();
     expect(instance.gRsTiles.innerHTML).toBeTruthy();
   });
