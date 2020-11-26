@@ -28,7 +28,6 @@ describe("AddToCalendar", () => {
 
   test("The component's HTML exists", () => {
     expect(element).toBeDefined();
-    expect(element.querySelector("svg")).toBeDefined();
   });
 
   test("The consumer should be able to call new() on SearchResultMap", () => {
@@ -83,7 +82,7 @@ describe("AddToCalendar", () => {
   });
 
   test("daysFromNow throws", () => {
-    expect(() => addToCalendar.daysFromNow(NaN)).toThrow(
+    expect(() => addToCalendar.daysFromNow(0.5)).toThrow(
       "daysFromNow's argument should be an integer"
     );
   });
