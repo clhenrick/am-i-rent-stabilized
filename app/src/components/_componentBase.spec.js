@@ -16,7 +16,12 @@ describe("Component", () => {
   });
 
   afterEach(() => {
+    jest.clearAllMocks();
     spy.mockClear();
+  });
+
+  afterAll(() => {
+    jest.resetAllModules();
   });
 
   test("The consumer should be able to call new() on Component", () => {
@@ -47,16 +52,11 @@ describe("Component", () => {
   });
 
   test("The component's init method is called once when an instance is made", () => {
-    jest.clearAllMocks();
-    new Component(props);
     expect(spy).toHaveBeenCalledTimes(1);
-    jest.clearAllMocks();
   });
 
   test("The init method receives a props object as an argument", () => {
-    new Component({ ...props });
     expect(spy).toHaveBeenCalledWith(props);
-    jest.clearAllMocks();
   });
 
   test("The component accepts a valid redux store", () => {
@@ -74,7 +74,6 @@ describe("Component", () => {
       store,
     });
     expect(instance.store).toBeTruthy();
-    jest.clearAllMocks();
   });
 
   test("checkForStore", () => {
@@ -82,7 +81,6 @@ describe("Component", () => {
       ...props,
     });
     expect(() => instance.checkForStore()).toThrow("Requires redux store");
-    jest.clearAllMocks();
   });
 
   test("cleanUp", () => {
