@@ -1,20 +1,12 @@
 import { KeyboardNavigation } from "./keyboardNavigation";
 import { store } from "../store";
 
-jest.mock("../store", () => {
-  return {
-    __esModule: true,
-    store: {
-      getState: jest.fn(() => ({
-        slides: {
-          curIndex: 0,
-        },
-      })),
-      dispatch: jest.fn(),
-      subscribe: jest.fn(),
-    },
-  };
-});
+jest.mock("../store");
+store.getState.mockImplementation(() => ({
+  slides: {
+    curIndex: 0,
+  },
+}));
 
 describe("KeyboardNavigation", () => {
   let keyboardNavigation;
@@ -125,6 +117,19 @@ describe("KeyboardNavigation", () => {
   test("handleKeyDown is called on document keydown event", () => {
     document.dispatchEvent(new Event("keydown"));
     expect(spyHandleKeydown).toHaveBeenCalled();
+  });
+
+  test("handleKeyDown ignores event when not emitted from body", () => {
+    const event = {
+      target: {
+        matches: jest.fn(() => false),
+      },
+      code: "ArrowDown",
+      preventDefault: jest.fn(),
+    };
+    keyboardNavigation.handleKeyDown(event);
+    expect(spyMaybeGoToNextSlide).not.toHaveBeenCalled();
+    expect(spyMaybeGoToPrevSlide).not.toHaveBeenCalled();
   });
 
   test("handleKeyDown calls class methods when receiving correct key code", () => {

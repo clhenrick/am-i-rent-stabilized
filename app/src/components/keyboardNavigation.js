@@ -11,6 +11,7 @@ export class KeyboardNavigation extends Component {
     this.slides = this.element.querySelectorAll(".slide");
 
     this.bindEvents = this.bindEvents.bind(this);
+    this.removeEvents = this.removeEvents.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.maybeGoToNextSlide = this.maybeGoToNextSlide.bind(this);
     this.maybeGoToPrevSlide = this.maybeGoToPrevSlide.bind(this);
@@ -31,6 +32,13 @@ export class KeyboardNavigation extends Component {
   }
 
   handleKeyDown(event) {
+    if (
+      event.target &&
+      typeof event.target.matches === "function" &&
+      !event.target.matches("body")
+    ) {
+      return;
+    }
     switch (event.code) {
       case "ArrowDown":
         event.preventDefault();
