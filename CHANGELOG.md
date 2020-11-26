@@ -1,0 +1,98 @@
+# Am I Rent Stabilized Changelog
+This changelog describes major changes to the website and application. It was first created on November 25, 2020.
+
+## 2020-11-25
+This was a major JavaScript refactor (perhaps more likely a rewrite) of the application's codebase that amounted to almost 300 commits!
+Note that this **did not** involve implementing a JavaScript framework such as React or Vue, and kept the current Handlebars based implementation. 
+The primary goal of this refactor was to make the JavaScript code easier to reason about and to shore it up with unit tests, linting, and automated code formatting. 
+The following is a comprehensive overview of the changes that were made.
+
+### Code Refactor
+- [x] refactor JavaScript in previous `app/js/app` directory
+- [x] restructure the sub-directories in `app/`, e.g. use the `src/` and `public` directory conventions.
+- [x] modularize the code using ES modules 
+- [x] use ES6+ features / syntax
+- [x] isolate interactive UI elements as ES6 Class components that inherit from a super class.
+- [x] utilize immutable application state management with ReduxJS
+
+#### Components
+Create Component classes for each interactive element to isolate its logic, styles, and DOM element(s).
+- [x] Component super class
+- [x] AddToCalendar
+- [x] AddressSearchForm
+- [x] AdvanceSlides
+- [x] KeyboardNavigation
+- [x] LanguageToggle
+- [x] LanguageToggleButton
+- [x] MapTileLayers
+- [x] MapPopup
+- [x] Navigation
+- [x] ProgressIndicator
+- [x] RentHistoryEmail
+- [x] SearchResultMap
+- [x] SearchValidationErrors
+- [x] slidesContainer
+- [x] StartOver
+- [x] VerifyRentStabilized  
+
+#### State Management
+- [x] use Redux.JS for managing application state
+- [x] use Redux Dev Tools for tracking state when in dev mode
+- [x] use `redux-logger` in a "debug" mode for debugging builds when necessary
+- [x] use `redux-thunk` for handling async actions
+- [x] use custom middlewares for logging errors and crashes
+- [x] use an `observeStore` function that allows for Components to react to state changes
+
+### Frontend Build System Eval
+- [x] evaluated the previous frontend build system that used Gulp.JS and found it to be difficult to improve upon so scrapped it.
+- [x] use Webpack as a frontend build system and support "dev" and "prod" builds
+- [x] use Webpack Dev Server
+- [x] use Babel.JS for transpiling ES6+ code to ES5 for IE11
+- [x] create separate entry points (code split) for `index.html` and `info/*.html` pages
+
+### Code Quality Improvement
+- [x] set up an ESLint task
+- [x] set up a Prettier code formatting task
+- [x] set up the Jest testing framework 
+- [x] set up a `git` commit hook that runs Prettier and ESLint
+- [x] write unit tests
+- [x] setup Github Action for running unit tests in pull requests
+- [x] setup lightweight error/exception logging using Google Analytics `gtag.js`
+
+### Static Assets
+- [x] Split up locales JSON files (previously all three supported languages were in one file per HTML page)
+- [x] Rename `app/data/` directory to `app/public/locales/`
+- [x] use `[page-name]-[lang-code].json` file naming convention for locale files
+- [x] updated translation buisness logic to accommodate this new convention
+
+### 3rd Party Deps
+- [x] upgrade GSAP dependency
+- [x] remove packages installed in `bower_components` (think this is just `cartodb.js`?)
+- [x] remove `jQuery`
+- [x] remove `cartodb.js`
+- [x] remove `aja.js`
+- [x] kept `addthis.js` (social media sharing widget)
+- [x] upgrade `atc.js` (Add to Calendar)
+- [x] upgrade `handlebars.js`
+- [x] upgrade `analytics.js` to `gtag.js`
+
+### Slippy Map
+- [x] remove usage of Leaflet.JS / CartoDB.JS dependencies
+- [x] use `d3-tile` and `d3-geo` for lightweight implementation
+- [x] use CARTO Maps API for querying likely rent stabilized map tiles
+- [x] kept CARTO Positron basemap tiles
+
+### Use NYC Planning Labs Geocoder for Address Search
+The previous address geocoding API being used required the street address and borough name to be passed as separate params which require separate inputs in the UI. The newer Geocoding API supports autosuggest which provides a better User Experience.
+- [documentation](https://labs-geosearch-docs.netlify.app/)
+- [x] remove borough select / dropdown
+- [x] use autosuggest API endpoint and show results via an HTML `datalist`
+- [x] update form validations error messages & styling
+- [x] update translation text for form input & error validations
+- [x] fix handling of form submit
+- [x] made the form's "search" button an actual form submit button
+- [x] add HTML label for form's text/search input
+
+### Other
+- [x] use Netlify for Preview Deploys, builds, and other misc checks on pull requests
+- [x] use Netlify to host the website and automatically deploy it when pushing to the `master` git branch
