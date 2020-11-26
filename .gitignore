@@ -1,8 +1,6 @@
 .DS_Store
 .*.swp
 **/node_modules/
-**/build/
-app/js/bundle.js
-app/js/otherpages.js
-tmp/
 **/dist/
+**/coverage/
+tmp/
