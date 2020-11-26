@@ -9,6 +9,7 @@ jest.mock("lodash.throttle");
 jest.mock("../store");
 jest.mock("../action_creators/searchRentStabilizedActions");
 jest.mock("../utils/logging");
+jest.mock("./searchValidationErrors");
 
 describe("AddressSearchForm", () => {
   let element;
@@ -82,6 +83,17 @@ describe("AddressSearchForm", () => {
     );
   });
 
+  test("removeEvents", () => {
+    const spy1 = jest.spyOn(addressSearchForm.element, "removeEventListener");
+    const spy2 = jest.spyOn(
+      addressSearchForm.inputAddress,
+      "removeEventListener"
+    );
+    addressSearchForm.removeEvents();
+    expect(spy1).toHaveBeenCalled();
+    expect(spy2).toHaveBeenCalled();
+  });
+
   test("handleInputChange responds to address input event", () => {
     const spy = jest.spyOn(AddressSearchForm.prototype, "handleInputChange");
     addressSearchForm = new AddressSearchForm({
@@ -93,6 +105,12 @@ describe("AddressSearchForm", () => {
       .dispatchEvent(new Event("input", { bubbles: true }));
     expect(spy).toHaveBeenCalled();
     spy.mockRestore();
+  });
+
+  test("handleInputChange hides validation error messages if present", () => {
+    addressSearchForm.validationErrors.areHidden = false;
+    addressSearchForm.handleInputChange({ target: { value: "555 2nd Ave" } });
+    expect(addressSearchForm.validationErrors.hideAll).toHaveBeenCalled();
   });
 
   test("handleInputChange dispatches async action", () => {
@@ -168,6 +186,31 @@ describe("AddressSearchForm", () => {
     spy.mockRestore();
   });
 
+  test("handleAGChange responds to a searchResult value", () => {
+    const spy1 = jest.spyOn(AddressSearchForm.prototype, "cacheSearchResult");
+    const spy2 = jest.spyOn(
+      AddressSearchForm.prototype,
+      "validateSearchResult"
+    );
+    addressSearchForm = new AddressSearchForm({
+      element,
+      store,
+    });
+    store.getState.mockClear();
+    store.getState.mockImplementation(() => ({
+      addressGeocode: {
+        searchResult: {
+          features: [{}],
+        },
+        status: "idle",
+        error: null,
+      },
+    }));
+    addressSearchForm.handleAGChange();
+    expect(spy1).toHaveBeenCalled();
+    expect(spy2).toHaveBeenCalled();
+  });
+
   test("handleAGChange appropriately calls handleFetchError", () => {
     const spy = jest.spyOn(AddressSearchForm.prototype, "handleFetchError");
     addressSearchForm = new AddressSearchForm({
@@ -226,13 +269,11 @@ describe("AddressSearchForm", () => {
             {
               properties: {
                 label: "111 Fake St, Brooklyn, NY",
-                pad_bbl: 999,
               },
             },
             {
               properties: {
                 label: "666 Devil Ave, Staten Island, NY",
-                pad_bbl: 666,
               },
             },
           ],
@@ -245,14 +286,13 @@ describe("AddressSearchForm", () => {
     expect(addressSearchForm.datalist.children[0].value).toBe(
       "111 Fake St, Brooklyn, NY"
     );
-    expect(addressSearchForm.datalist.children[0].dataset.bbl).toBe("999");
     expect(addressSearchForm.datalist.children[1].value).toBe(
       "666 Devil Ave, Staten Island, NY"
     );
-    expect(addressSearchForm.datalist.children[1].dataset.bbl).toBe("666");
   });
 
   test("validateSearchResult success", () => {
+    const spyBlur = jest.spyOn(addressSearchForm.inputAddress, "blur");
     store.getState.mockImplementation(() => ({
       addressGeocode: {
         status: "idle",
@@ -263,6 +303,7 @@ describe("AddressSearchForm", () => {
       },
     }));
     addressSearchForm.validateSearchResult();
+    expect(spyBlur).toHaveBeenCalled();
     expect(store.dispatch).toHaveBeenCalledWith({
       type: "GoToSlideIdx",
       payload: 2,
@@ -287,6 +328,7 @@ describe("AddressSearchForm", () => {
     addressSearchForm.inputAddress.value = "444 Unknown Street, Staten Island";
     addressSearchForm.validateSearchResult();
     expect(spy).toHaveBeenCalledTimes(1);
+    expect(store.dispatch).not.toHaveBeenCalled();
     expect(logAddressNF).toHaveBeenCalledWith(
       "444 Unknown Street, Staten Island"
     );
@@ -308,7 +350,6 @@ describe("AddressSearchForm", () => {
     expect(store.dispatch).toHaveBeenCalled();
     expect(searchRentStabilized).toHaveBeenCalledWith("999 Main Street");
     expect(addressSearchForm.inputAddress.value).toEqual("");
-    expect(addressSearchForm.addressSearchText).toEqual("");
   });
 
   test("handleSubmit no user input", () => {
@@ -324,6 +365,21 @@ describe("AddressSearchForm", () => {
     expect(spy).toHaveBeenCalled();
   });
 
+  test("cacheSearchResult", () => {
+    store.getState.mockClear();
+    store.getState.mockImplementation(() => ({
+      addressGeocode: {
+        searchResult: {
+          features: [{ foo: "bar" }],
+        },
+        status: "idle",
+        error: null,
+      },
+    }));
+    addressSearchForm.cacheSearchResult();
+    expect(addressSearchForm.cached.searchResult).toEqual([{ foo: "bar" }]);
+  });
+
   test("handleFetchError", () => {
     const spy = jest.spyOn(SearchValidationErrors.prototype, "showGeneric");
     addressSearchForm = new AddressSearchForm({
@@ -332,6 +388,20 @@ describe("AddressSearchForm", () => {
     });
     addressSearchForm.handleFetchError(new Error("Something went wrong"));
     expect(spy).toHaveBeenCalled();
-    expect(logException).toHaveBeenCalledWith("Error, Something went wrong");
+    expect(logException).toHaveBeenCalled();
+  });
+
+  test("cleanUp", () => {
+    const spy3 = jest.spyOn(AddressSearchForm.prototype, "removeEvents");
+    addressSearchForm = new AddressSearchForm({
+      element,
+      store,
+    });
+    const spy1 = (addressSearchForm.unsubscribeAG = jest.fn());
+    const spy2 = (addressSearchForm.unsubscribeRS = jest.fn());
+    addressSearchForm.cleanUp();
+    expect(spy1).toHaveBeenCalled();
+    expect(spy2).toHaveBeenCalled();
+    expect(spy3).toHaveBeenCalled();
   });
 });

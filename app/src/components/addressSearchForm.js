@@ -10,7 +10,12 @@ import {
 import { observeStore } from "../store";
 import { delay } from "../utils/delay";
 import { RS_SEARCH_DELAY_MS } from "../constants/app";
-import { logAddressSearch, logAddressNF, logException } from "../utils/logging";
+import {
+  logAddressSearch,
+  logAddressNF,
+  logException,
+  handleErrorObj,
+} from "../utils/logging";
 
 const INPUT_THROTTLE_MS = 350;
 const MIN_SEARCH_TEXT_LENGTH = 1;
@@ -26,7 +31,6 @@ export class AddressSearchForm extends Component {
     this.inputAddress = this.element.querySelector("input.address-input");
     this.datalist = this.element.querySelector("datalist#autosuggest-results");
 
-    this.addressSearchText = "";
     this.cached = {};
     this.cached.searchResult = undefined;
 
@@ -39,7 +43,8 @@ export class AddressSearchForm extends Component {
     this.removeEvents = this.removeEvents.bind(this);
     this.handleInputChange = throttle(
       this.handleInputChange.bind(this),
-      INPUT_THROTTLE_MS
+      INPUT_THROTTLE_MS,
+      { leading: true }
     );
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleAGChange = this.handleAGChange.bind(this);
@@ -83,22 +88,21 @@ export class AddressSearchForm extends Component {
       this.store.dispatch(searchRentStabilized(value));
       logAddressSearch(value);
       this.inputAddress.value = "";
-      this.addressSearchText = "";
     } else {
       this.validationErrors.showNoInput();
     }
   }
 
   handleInputChange(event) {
-    this.addressSearchText = event.target.value;
+    const value = event.target.value;
     if (!this.validationErrors.areHidden) {
       this.validationErrors.hideAll();
     }
     if (this.statusRS === "error" && this.errorRS) {
       this.store.dispatch(rentStabilizedReset());
     }
-    if (this.addressSearchText.length >= MIN_SEARCH_TEXT_LENGTH) {
-      this.store.dispatch(addressAutosuggestFetch(this.addressSearchText));
+    if (value.length >= MIN_SEARCH_TEXT_LENGTH) {
+      this.store.dispatch(addressAutosuggestFetch(value));
     }
   }
 
@@ -131,7 +135,6 @@ export class AddressSearchForm extends Component {
     this.autosuggestionsList.forEach(({ properties }) => {
       const option = document.createElement("option");
       option.value = properties.label || "";
-      option.dataset.bbl = properties.pad_bbl || "";
       this.datalist.appendChild(option);
     });
   }
@@ -158,9 +161,7 @@ export class AddressSearchForm extends Component {
     this.validationErrors.showGeneric();
     // TODO: if exceptions are being logged from Redux middleware correctly,
     // then the following logException call may be redundant
-    logException(
-      typeof error === "object" ? `${error.name}, ${error.message}` : error
-    );
+    logException(handleErrorObj("AddressSearchForm.handleFetchError", error));
   }
 
   cleanUp() {
@@ -205,7 +206,7 @@ export class AddressSearchForm extends Component {
     const {
       addressGeocode: { error },
     } = this.store.getState();
-    return error ? error.message : undefined;
+    return error;
   }
 
   get statusRS() {
