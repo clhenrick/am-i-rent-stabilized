@@ -22,6 +22,7 @@ describe("KeyboardNavigation", () => {
   let spyMaybeGoToNextSlide;
   let spyMaybeGoToPrevSlide;
   let spyHandleKeydown;
+  let spyRemoveEvents;
 
   beforeAll(() => {
     spyCurSlideIndex = jest.spyOn(
@@ -40,11 +41,19 @@ describe("KeyboardNavigation", () => {
       KeyboardNavigation.prototype,
       "handleKeyDown"
     );
+    spyRemoveEvents = jest.spyOn(KeyboardNavigation.prototype, "removeEvents");
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
+  });
+
+  beforeEach(() => {
     keyboardNavigation = new KeyboardNavigation({
       element: document.body,
       store,
     });
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
   afterAll(() => {
@@ -79,13 +88,11 @@ describe("KeyboardNavigation", () => {
   });
 
   test("maybeGoToNextSlide should dispatch GoToNextSlide action if permissible", () => {
-    jest.clearAllMocks();
     keyboardNavigation.maybeGoToNextSlide();
     expect(store.dispatch).toHaveBeenCalledWith({ type: "GoToNextSlide" });
   });
 
   test("maybeGoToNextSlide should not call store.dispatch if not permissible", () => {
-    jest.clearAllMocks();
     store.getState.mockImplementationOnce(() => ({
       slides: {
         curIndex: 200,
@@ -96,7 +103,6 @@ describe("KeyboardNavigation", () => {
   });
 
   test("maybeGoToPrevSlide should dispatch GoToPrevSlide action if permissible", () => {
-    jest.clearAllMocks();
     store.getState.mockImplementationOnce(() => ({
       slides: {
         curIndex: 1,
@@ -107,7 +113,6 @@ describe("KeyboardNavigation", () => {
   });
 
   test("maybeGoToPrevSlide should not call store.dispatch if not permissible", () => {
-    jest.clearAllMocks();
     store.getState.mockImplementationOnce(() => ({
       slides: {
         curIndex: 0,
@@ -134,5 +139,10 @@ describe("KeyboardNavigation", () => {
       preventDefault: jest.fn(),
     });
     expect(spyMaybeGoToPrevSlide).toHaveBeenCalled();
+  });
+
+  test("cleanUp", () => {
+    keyboardNavigation.cleanUp();
+    expect(spyRemoveEvents).toHaveBeenCalledTimes(1);
   });
 });

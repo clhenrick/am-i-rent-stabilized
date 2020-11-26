@@ -26,6 +26,10 @@ export class KeyboardNavigation extends Component {
     document.removeEventListener("keydown", this.handleKeyDown);
   }
 
+  cleanUp() {
+    this.removeEvents();
+  }
+
   handleKeyDown(event) {
     switch (event.code) {
       case "ArrowDown":
