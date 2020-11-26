@@ -1,4 +1,5 @@
 import { Component } from "./_componentBase";
+import { MAP_MARKER } from "../constants/app";
 
 export class MapPopup extends Component {
   constructor(props) {
@@ -9,12 +10,10 @@ export class MapPopup extends Component {
     this.map = props.map;
     this.mapDimensions = this.map.dimensions;
     this.contentContainer = this.element.querySelector(".map-pop-up--content");
-    this.arrowContainer = this.element.querySelector(
-      ".map-pop-up--arrow-container"
-    );
-
     this.setContent = this.setContent.bind(this);
     this.setPosition = this.setPosition.bind(this);
+    this.show = this.show.bind(this);
+    this.hide = this.hide.bind(this);
   }
 
   setContent(addressRecord) {
@@ -27,8 +26,11 @@ export class MapPopup extends Component {
   }
 
   setPosition() {
-    const { width } = this.dimensions;
-    this.element.style.left = `${width / 2}px`;
+    const mapWidth = this.map.dimensions.width;
+    const mapHeight = this.map.dimensions.height;
+    const { width, height } = this.dimensions;
+    this.element.style.left = `${mapWidth / 2 - width / 2}px`;
+    this.element.style.top = `${mapHeight / 2 - height - MAP_MARKER.HEIGHT}px`;
   }
 
   show() {

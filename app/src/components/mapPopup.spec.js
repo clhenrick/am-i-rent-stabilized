@@ -13,6 +13,13 @@ describe("MapPopup", () => {
   beforeAll(() => {
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
     element = document.getElementById("map").querySelector(".map-pop-up");
+
+    // workaround for JSDOM not supporting layout
+    // see: https://github.com/testing-library/react-testing-library/issues/353#issuecomment-481248489
+    Object.defineProperty(element, "getBoundingClientRect", {
+      configurable: true,
+      value: () => ({ width: 250, height: 75 }),
+    });
   });
 
   beforeEach(() => {
@@ -59,12 +66,12 @@ describe("MapPopup", () => {
     jest.resetModules();
   });
 
-  test("The component's HTML exists", () => {
-    expect(element).toBeDefined();
-  });
-
   test("The consumer should be able to call new() on MapPopup", () => {
     expect(mapPopup).toBeTruthy();
+  });
+
+  test("The component's HTML exists", () => {
+    expect(mapPopup.element).toBeDefined();
   });
 
   test("setContent to empty", () => {
@@ -83,6 +90,13 @@ describe("MapPopup", () => {
     expect(mapPopup.contentContainer.innerHTML).toEqual(
       "<p>999 West St</p><p>Brooklyn NY 99999</p>"
     );
+  });
+
+  test("setPosition", () => {
+    map.dimensions = { width: 500, height: 300 };
+    mapPopup.setPosition();
+    expect(mapPopup.element.style.top).toEqual("35px");
+    expect(mapPopup.element.style.left).toEqual("125px");
   });
 
   test("show", () => {
