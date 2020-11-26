@@ -5,10 +5,6 @@ describe("AddToCalendar", () => {
   let addToCalendar;
   const atcFactory = () => new AddToCalendar({ element });
 
-  window.addeventatc = {
-    refresh: jest.fn(),
-  };
-
   beforeAll(() => {
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
     element = document.querySelector(".atc-container");
