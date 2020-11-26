@@ -1,8 +1,8 @@
 # Am I Rent Stabilized Changelog
 This changelog describes major changes to the website and application. It was first created on November 25, 2020.
 
-## 2020-11-25
-This was a major JavaScript refactor (perhaps more likely a rewrite) of the application's codebase that amounted to almost 300 commits!
+## 2020-11-25 (PR #58)
+This was a major JavaScript refactor (perhaps more likely a rewrite) of the application's codebase that amounted to almost 400 commits!
 Note that this **did not** involve implementing a JavaScript framework such as React or Vue, and kept the current Handlebars based implementation. 
 The primary goal of this refactor was to make the JavaScript code easier to reason about and to shore it up with unit tests, linting, and automated code formatting. 
 The following is a comprehensive overview of the changes that were made.
@@ -96,3 +96,24 @@ The previous address geocoding API being used required the street address and bo
 ### Other
 - [x] use Netlify for Preview Deploys, builds, and other misc checks on pull requests
 - [x] use Netlify to host the website and automatically deploy it when pushing to the `master` git branch
+
+### Left Overs
+The following items I did not get to completing and intend to address after Pull Request #58 has been merged (you can only fit so much in a single PR!)
+
+- [ ] JS resize handler for setting slide size
+  - when the browser is resized, the layout shifts oddly. A resize event handler would fix this.
+
+- [ ] Tenants Rights search component
+  - needs a modal component (could combine with rent-history modal)
+  - needs the tenants rights spatial search query
+  - needs an SQL query for CARTO
+  - needs async action for fetching data
+  - could move hbs template from index.html page to a file
+
+- [ ] manage focus when scrolling between slides (see [this write up for why](https://css-tricks.com/smooth-scrolling-accessibility/))
+
+- [ ] Fix tab index so that the user can't jump between slides by tabbing
+  - maybe set tabIndex="-1" on all focusable elements that aren't in the current slide?
+  - look into using the [`inert` html property](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inert) ([video demo](https://www.youtube.com/watch?v=fGLp_gfMMGU&list=PL7Bjl0Cb4SboBHNihVBRd-AdctfXcmClc&index=3&t=0s&app=desktop)) (requires a [polyfill](https://github.com/WICG/inert) for some browsers)
+
+- [ ] add a 404 page and adjust translation business logic for it
