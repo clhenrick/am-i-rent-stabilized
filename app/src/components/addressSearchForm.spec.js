@@ -307,6 +307,8 @@ describe("AddressSearchForm", () => {
     expect(event.preventDefault).toHaveBeenCalled();
     expect(store.dispatch).toHaveBeenCalled();
     expect(searchRentStabilized).toHaveBeenCalledWith("999 Main Street");
+    expect(addressSearchForm.inputAddress.value).toEqual("");
+    expect(addressSearchForm.addressSearchText).toEqual("");
   });
 
   test("handleSubmit no user input", () => {
