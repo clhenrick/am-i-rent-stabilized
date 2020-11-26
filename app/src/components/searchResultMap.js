@@ -1,6 +1,7 @@
 import { geoMercator } from "d3-geo";
 import { Component } from "./_componentBase";
 import { MapTileLayers } from "./mapTileLayers";
+import { MapPopup } from "./mapPopup";
 import { observeStore } from "../store";
 
 export const ZOOM = {
@@ -28,7 +29,10 @@ export class SearchResultMap extends Component {
     this.gBaseTiles = this.svg.querySelector("g.tiles-base-map");
     this.gRsTiles = this.svg.querySelector("g.tiles-rent-stabilized");
     this.marker = this.svg.querySelector("g.location-marker");
-    this.popup = this.element.querySelector("div.map-pop-up");
+    this.popup = new MapPopup({
+      element: this.element.querySelector("div.map-pop-up"),
+      map: this,
+    });
 
     this._zoom = ZOOM.DEFAULT;
     this._center = CENTER.DEFAULT;
@@ -72,8 +76,9 @@ export class SearchResultMap extends Component {
     } = this.searchResultDetails;
     this.zoom = ZOOM.RESULT;
     this.center = coordinates;
-    this.setPopupContent({ name, borough, state, zipcode });
-    this.showPopUp();
+    this.popup.setContent({ name, borough, state, zipcode });
+    this.popup.setPosition();
+    this.popup.show();
     this.showMarker();
     this.renderMap();
   }
@@ -108,25 +113,6 @@ export class SearchResultMap extends Component {
       .translate([width / 2, height / 2]);
   }
 
-  setPopupContent(props) {
-    if (!props) {
-      this.popup.innerHTML = "";
-    } else {
-      const { name, borough, state, zipcode } = props;
-      this.popup.querySelector(
-        ".map-pop-up--content"
-      ).innerHTML = `<p>${name}</p><p>${borough} ${state} ${zipcode}</p>`;
-    }
-  }
-
-  showPopUp() {
-    this.popup.classList.remove("hidden");
-  }
-
-  hidePopUp() {
-    this.popup.classList.add("hidden");
-  }
-
   showMarker() {
     this.marker.setAttribute("opacity", 1);
   }
@@ -139,6 +125,7 @@ export class SearchResultMap extends Component {
     this.zoom = ZOOM.DEFAULT;
     this.center = CENTER.DEFAULT;
     this.hideMarker();
+    this.popup.hide();
     this.renderMap();
   }
 

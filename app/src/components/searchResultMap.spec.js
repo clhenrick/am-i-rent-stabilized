@@ -7,6 +7,7 @@ import {
   MARKER,
   BORDER_WIDTH,
 } from "./searchResultMap";
+import { MapPopup } from "./mapPopup";
 import { MapTileLayers } from "./mapTileLayers";
 
 jest.mock("../store");
@@ -172,8 +173,8 @@ describe("SearchResultMap", () => {
   });
 
   test("updateMapView", () => {
-    const spy1 = jest.spyOn(SearchResultMap.prototype, "setPopupContent");
-    const spy2 = jest.spyOn(SearchResultMap.prototype, "showPopUp");
+    const spy1 = jest.spyOn(MapPopup.prototype, "setContent");
+    const spy2 = jest.spyOn(MapPopup.prototype, "show");
     const spy3 = jest.spyOn(SearchResultMap.prototype, "showMarker");
     const spy4 = jest.spyOn(SearchResultMap.prototype, "renderMap");
     const instance = new SearchResultMap({ element, store });
@@ -263,35 +264,6 @@ describe("SearchResultMap", () => {
       (width - BORDER_WIDTH * 2) / 2,
       (height - BORDER_WIDTH * 2) / 2,
     ]);
-  });
-
-  test("setPopupContent to empty", () => {
-    searchResultMap.popup.innerHTML = "<p></p>";
-    searchResultMap.setPopupContent();
-    expect(searchResultMap.popup.innerHTML).toEqual("");
-  });
-
-  test("setPopupContent to not empty", () => {
-    searchResultMap.setPopupContent({
-      name: "999 West St",
-      borough: "Brooklyn",
-      state: "NY",
-      zipcode: "99999",
-    });
-    expect(searchResultMap.popup.innerHTML).toEqual(
-      "<p>999 West St</p><p>Brooklyn NY 99999</p>"
-    );
-  });
-
-  test("showPopUp", () => {
-    searchResultMap.hidePopUp();
-    searchResultMap.showPopUp();
-    expect(searchResultMap.popup.classList.contains("hidden")).toBe(false);
-  });
-
-  test("hidePopUp", () => {
-    searchResultMap.hidePopUp();
-    expect(searchResultMap.popup.classList.contains("hidden")).toBe(true);
   });
 
   test("showMarker", () => {
