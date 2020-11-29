@@ -18,6 +18,7 @@ jest.mock("../store", () => {
 });
 
 describe("ProgressIndicator", () => {
+  let element;
   let progressIndicator;
   let spyRenderCircles;
 
@@ -25,10 +26,18 @@ describe("ProgressIndicator", () => {
     spyRenderCircles = jest.spyOn(ProgressIndicator.prototype, "renderCircles");
 
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
+    element = document.querySelector("#progress-indicator");
+  });
+
+  beforeEach(() => {
     progressIndicator = new ProgressIndicator({
-      element: document.querySelector("#progress-indicator"),
+      element,
       store,
     });
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
   afterAll(() => {
@@ -36,7 +45,7 @@ describe("ProgressIndicator", () => {
   });
 
   test("The component's HTML exists", () => {
-    expect(document.querySelector("#progress-indicator")).toBeDefined();
+    expect(element).not.toBeNull();
   });
 
   test("The consumer should be able to call new() on AddressSearchForm", () => {

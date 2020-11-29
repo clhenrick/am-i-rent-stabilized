@@ -29,7 +29,10 @@ describe("Component", () => {
   });
 
   test("The component's element property should exist", () => {
-    expect(component.element).toBeDefined();
+    expect(component.element).not.toBeNull();
+  });
+
+  test("The component's element property should be an HTMLElement instance", () => {
     expect(component.element instanceof HTMLElement).toBe(true);
   });
 

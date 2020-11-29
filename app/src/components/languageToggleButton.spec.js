@@ -8,6 +8,9 @@ describe("LanguageToggleButton", () => {
     document.body.innerHTML =
       "<a class='toggle-es' lang='es' href='#'>en español</a>";
     element = document.querySelector("a.toggle-es");
+  });
+
+  beforeEach(() => {
     es = new LanguageToggleButton({
       lang: "es",
       label: "en español",
@@ -15,8 +18,16 @@ describe("LanguageToggleButton", () => {
     });
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   afterAll(() => {
     jest.resetModules();
+  });
+
+  test("The component's HTML exists", () => {
+    expect(element).not.toBeNull();
   });
 
   test("The consumer should be able to call new() on LanguageToggleButton", () => {
@@ -25,14 +36,12 @@ describe("LanguageToggleButton", () => {
 
   test("It throws an Error if not passed a valid `lang` property", () => {
     const errorMsg = "LanguageToggleButton requires a valid `lang` property";
-
     try {
       new LanguageToggleButton({ element });
     } catch (error) {
       expect(error).toBeInstanceOf(Error);
       expect(error.message).toBe(errorMsg);
     }
-
     try {
       new LanguageToggleButton({ element, lang: 0 });
     } catch (error) {
@@ -44,16 +53,14 @@ describe("LanguageToggleButton", () => {
   test("It throws an Error if not passed a valid `label` property", () => {
     const errorMsg = "LanguageToggleButton requires a valid `label` property";
     const lang = "zh";
-
     try {
       new LanguageToggleButton({ element, lang });
     } catch (error) {
       expect(error).toBeInstanceOf(Error);
       expect(error.message).toBe(errorMsg);
     }
-
     try {
-      new LanguageToggleButton({ element, lang, label: NaN });
+      new LanguageToggleButton({ element, lang, label: "" });
     } catch (error) {
       expect(error).toBeInstanceOf(Error);
       expect(error.message).toBe(errorMsg);

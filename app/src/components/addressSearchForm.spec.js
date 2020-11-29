@@ -53,7 +53,7 @@ describe("AddressSearchForm", () => {
   });
 
   test("The component's HTML exists", () => {
-    expect(element).toBeDefined();
+    expect(element).not.toBeNull();
   });
 
   test("The consumer should be able to call new() on AddressSearchForm", () => {

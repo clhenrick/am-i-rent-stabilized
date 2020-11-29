@@ -78,8 +78,18 @@ describe("MapTileLayers", () => {
     );
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   afterAll(() => {
     jest.resetModules();
+  });
+
+  test("The component's HTML exists", () => {
+    // MapTileLayers is not a subclass of Component and does not require an
+    // HTML element. Only it's parent, SearchResultMap, does.
+    expect(false).toBe(false);
   });
 
   test("The consumer should be able to call new() on MapTileLayers", () => {

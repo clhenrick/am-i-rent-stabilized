@@ -66,12 +66,12 @@ describe("MapPopup", () => {
     jest.resetModules();
   });
 
-  test("The consumer should be able to call new() on MapPopup", () => {
-    expect(mapPopup).toBeTruthy();
+  test("The component's HTML exists", () => {
+    expect(element).not.toBeNull();
   });
 
-  test("The component's HTML exists", () => {
-    expect(mapPopup.element).toBeDefined();
+  test("The consumer should be able to call new() on MapPopup", () => {
+    expect(mapPopup).toBeTruthy();
   });
 
   test("setContent to empty", () => {

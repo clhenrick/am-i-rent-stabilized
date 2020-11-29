@@ -52,6 +52,13 @@ describe("KeyboardNavigation", () => {
     jest.resetModules();
   });
 
+  test("The components HTML exists", () => {
+    // KeyboardNavigation doesn't really need an HTML element as it adds
+    // its event listener to the document. However, since it conforms to a
+    // Component subclass it is passed the body element as to not throw an error.
+    expect(true).toBe(true);
+  });
+
   test("The consumer should be able to call new() on KeyboardNavigation", () => {
     expect(keyboardNavigation).toBeTruthy();
   });

@@ -26,6 +26,7 @@ const mockMatchMedia = (window.matchMedia = jest.fn(() => ({
 
 describe("SlidesContainer", () => {
   const selector = ".slides-container";
+  let element;
   let slidesContainer;
   let spyScrollToActiveSlide;
 
@@ -35,11 +36,12 @@ describe("SlidesContainer", () => {
       "scrollToActiveSlide"
     );
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
+    element = document.querySelector(selector);
   });
 
   beforeEach(() => {
     slidesContainer = new SlidesContainer({
-      element: document.querySelector(selector),
+      element,
       store,
     });
   });
@@ -53,7 +55,7 @@ describe("SlidesContainer", () => {
   });
 
   test("The component's HTML exists", () => {
-    expect(document.querySelector(selector)).toBeDefined();
+    expect(element).not.toBeNull();
   });
 
   test("The consumer should be able to call new() on SlidesContainer", () => {
@@ -63,13 +65,13 @@ describe("SlidesContainer", () => {
   test("Throws an error if props.store is missing or invalid", () => {
     expect(() => {
       new SlidesContainer({
-        element: document.querySelector("#progress-indicator"),
+        element,
       });
     }).toThrow();
 
     expect(() => {
       new SlidesContainer({
-        element: document.querySelector("#progress-indicator"),
+        element,
         store: {},
       });
     }).toThrow();

@@ -28,6 +28,9 @@ describe("AdvanceSlides", () => {
     element = document.querySelector(".go-next.bottom-arrow");
     spyButton = jest.spyOn(AdvanceSlides.prototype, "handleClick");
     spyAdvanceToSlide = jest.spyOn(AdvanceSlides.prototype, "advanceToSlide");
+  });
+
+  beforeEach(() => {
     advanceSlides = new AdvanceSlides({
       element,
       store,
@@ -35,12 +38,18 @@ describe("AdvanceSlides", () => {
     });
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   afterAll(() => {
     jest.resetModules();
   });
 
   test("The component's HTML exists", () => {
-    expect(document.querySelectorAll(".go-next.bottom-arrow")).toHaveLength(6);
+    expect([
+      ...document.querySelectorAll(".go-next.bottom-arrow"),
+    ]).toHaveLength(6);
   });
 
   test("The consumer should be able to call new() on AdvanceSlides class", () => {
@@ -54,7 +63,6 @@ describe("AdvanceSlides", () => {
           element,
         })
     ).toThrow("Requires redux store");
-
     expect(
       () =>
         new AdvanceSlides({
@@ -80,19 +88,16 @@ describe("AdvanceSlides", () => {
   });
 
   test("handleClick calls advanceToSlide", () => {
-    jest.clearAllMocks();
     advanceSlides.handleClick(mockClickEvent);
     expect(spyAdvanceToSlide).toHaveBeenCalledTimes(1);
   });
 
   test("advanceToSlide dispatches a GoToNextSlide action when advanceToIdx is undefined", () => {
-    jest.clearAllMocks();
     advanceSlides.handleClick(mockClickEvent);
     expect(store.dispatch).toHaveBeenCalledWith({ type: "GoToNextSlide" });
   });
 
   test("advanceToSlide dispatches a GoToSlideIdx action when advanceToIdx is defined", () => {
-    jest.clearAllMocks();
     advanceSlides.advanceToIdx = 5;
     advanceSlides.handleClick(mockClickEvent);
     expect(store.dispatch).toHaveBeenCalledWith({

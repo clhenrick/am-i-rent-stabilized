@@ -2,12 +2,21 @@ import { NavMenuToggle } from "./navigation";
 
 describe("NavMenuToggle", () => {
   let navMenuToggle;
+  let element;
 
-  beforeAll(async () => {
+  beforeAll(() => {
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
+    element = document.querySelector("nav.main-nav");
+  });
+
+  beforeEach(() => {
     navMenuToggle = new NavMenuToggle({
-      element: document.querySelector("nav.main-nav"),
+      element,
     });
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
   afterAll(() => {
@@ -15,7 +24,7 @@ describe("NavMenuToggle", () => {
   });
 
   test("The components HTML exists", () => {
-    expect(document.querySelector("nav.main-nav")).toBeDefined();
+    expect(element).not.toBeNull();
   });
 
   test("The consumer should be able to call new() on NavMenuToggle", () => {

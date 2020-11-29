@@ -5,6 +5,7 @@ import { store } from "../store";
 jest.mock("../store");
 
 describe("SearchValidationErrors", () => {
+  let element;
   let addressSearchForm;
   let searchValidationErrors;
 
@@ -33,18 +34,30 @@ describe("SearchValidationErrors", () => {
 
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
 
+    element = document.querySelector("#address-form ul");
+  });
+
+  beforeEach(() => {
     addressSearchForm = new AddressSearchForm({
       element: document.querySelector("#address-form"),
       store,
     });
     searchValidationErrors = new SearchValidationErrors({
-      element: document.querySelector("#address-form ul"),
+      element,
       searchForm: addressSearchForm,
     });
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  afterAll(() => {
+    jest.resetModules();
+  });
+
   test("The component's HTML exists", () => {
-    expect(document.querySelector("#address-form ul")).toBeDefined();
+    expect(element).not.toBeNull();
   });
 
   test("The consumer should be able to call new() on AddressSearchForm", () => {

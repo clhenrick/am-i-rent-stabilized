@@ -88,8 +88,8 @@ describe("SearchResultMap", () => {
   });
 
   test("The component's HTML exists", () => {
-    expect(element).toBeDefined();
-    expect(element.querySelector("svg")).toBeDefined();
+    expect(element).not.toBeNull();
+    expect(element.querySelector("svg")).not.toBeNull();
   });
 
   test("The consumer should be able to call new() on SearchResultMap", () => {
