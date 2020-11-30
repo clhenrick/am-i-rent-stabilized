@@ -1,0 +1,27 @@
+<div class="org-container">
+    <a href="#close" title="Close" class="close">X</a>
+    <h1>
+        Here are some groups that help people with housing
+        issues in your neighborhood:
+    </h1>
+    {{#each orgs}}
+    <div class="tr-org-info">
+        <h3>{{name}}</h3>
+        {{#if website}}
+        <p class="website-url"><span>Website: </span><a target="_blank" href="{{website}}">{{website}}</a></p>
+        {{/if}}
+        {{#if phone}}
+        <p class="phone-no"><span>Phone: </span>{{phone}}</p>
+        {{/if}}
+        {{#if address}}
+        <p class="address"><span>Address: </span>{{address}}</p>
+        {{/if}}
+        {{#if email}}
+        <p class="email"><span>Email: </span>{{email}}</p>
+        {{/if}}
+        <p class="description"><span>Description: </span><br>
+            {{description}}
+        </p>
+    </div>
+    {{/each}}
+</div>

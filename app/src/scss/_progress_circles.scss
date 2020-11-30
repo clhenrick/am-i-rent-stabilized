@@ -1,0 +1,46 @@
+div#progress-indicator {
+  position: fixed;
+  z-index: 100;
+  top: 22%;
+  left: 30px;
+
+  ul {
+    list-style-type: none;
+  }
+
+  li {
+    width: 25px;
+    height: 25px;
+    margin-top: 25px;
+    background-image: url("../../public/assets/png/oval_25_blank.png");
+    background-size: 25px;
+    background-repeat: no-repeat;
+
+    &.active {
+      background-image: url("../../public/assets/png/oval_25_filled.png");
+    }
+  }
+
+  @include responsive_height(medium-screens) {
+    top: 25%;
+
+    li {
+      width: 20px;
+      height: 20px;
+      background-size: 20px;
+      margin-top: 20px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  @include responsive(tablet-screens) {
+    display: none;
+  }
+
+  @include responsive(small-screens) {
+    display: none;
+  }
+}

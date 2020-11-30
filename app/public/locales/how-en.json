@@ -1,0 +1,79 @@
+{
+  "nav_main": {
+    "title": "Am I Rent Stabilized?",
+    "why": "Why it Matters",
+    "how": "How it Works",
+    "resources": "Resources"
+  },
+  "nav_side": {
+    "h3": "Jump to a topic:",
+    "how": "How it Works",
+    "code": "Code &amp; Data",
+    "credits": "Credits"
+  },
+  "how": {
+    "h1": "How This Site Works",
+    "p01": [
+      "This site checks your building's address and sees if it matches a list of properties that are ",
+      "likely to have rent stabilized apartments. ",
+      " However, it is not 100% accurate so the best course of action is always to request your rent history and then seek the advice of a tenants rights group or housing lawyer. This may be helpful if your rent history is unclear, if you are being intimidated by your landlord, worried about aggravating your landlord, or if you may be owed a large sum of money."
+    ],
+    "p02": [
+      "This site does not keep any personal identifiable information from you. It does keep track of addresses searched for internal analysis only. ",
+      "This info is kept private and not shared."
+    ],
+    "h3": [
+      "Disclaimer!",
+      "Estimating NYC buildings that are likely to have rent stabilized apartments"
+    ],
+    "p03": [
+      "This site is for informational purposes ony and ",
+      "has absolutely no legal bearing! ",
+      "It will not tell you if your apartment is definitely rent stabilized as the apartment numbers are not in the database. To find out for sure, you must request request your rent history from the DHCR and potentially seek advice from a tenants rights group."
+    ],
+    "p04": [
+      "Landlords are required to report their rent stabilized apartments to the ",
+      "DHCR",
+      " every year. This process is essentially voluntary as landlords are not held accountable for choosing not to register their rent stabilized apartments. This makes it difficult to track how many rent stabilized apartments exist and where they are located."
+    ],
+    "p05": "Each year the DHCR releases a list containing the addresses of buildings with rent stabilized apartments that have been registered.",
+    "p06": [
+      "In general, it is likely that a building has rent stabilized apartments if it was built before 1974, has 6 or more apartments, and is not a co-op or condo. When comparing this query on NYC's ",
+      "tax lot data (NYC PLUTO)",
+      " to properties on the DHCR list it is evident that there are properties that ",
+      "likely have rent stabilized apartments which are not registered with the DHCR."
+    ],
+    "p07": "The database used by this site combines the properties on the DHCR list with those that are likely to have rent stabilized units and are not currently on the DHCR list in order to get an estimate of the locations of all rent stabilized apartments in NYC."
+  },
+  "code": {
+    "h1": "Code and Data",
+    "p": "You may inspect and download the code for this site, download the data it uses, and download Excel and CSV files of the DHCR rent stabilized building list from the links below.",
+    "ul": [
+      "Github Repo (code)",
+      "Get the Data",
+      "DHCR's Rent Stabilzed Building List"
+    ]
+  },
+  "credits": {
+    "h1": "Credits",
+    "h3": "And most of all thanks to you for visiting this site and checking your rent history!",
+    "p01": "The following people and organizations helped tremendously to make this project happen.",
+    "ul": [
+      "Caroline Woolard",
+      "originally gave me the idea to build the site.",
+      "Radish Lab",
+      " provided extremely helpful design assistance for version 2 of this website.",
+      "Jue Yang",
+      " contributed kick-ass art work.",
+      "BetaNYC",
+      " and its members provided much needed technical &amp; motivational support.",
+      "CartoDB",
+      "hosts the data as well as provides the technology necessary for querying the data and rendering it on a map."
+    ],
+    "p02": [
+      "We'd love to hear about your story, especially if this site helped you in any way, so feel free to ",
+      "get in touch."
+    ],
+    "p03": "Let's work together to keep NYC affordable so that it can stay the culturally rich and socio-economically diverse place it's so well-  known for being."
+  }
+}

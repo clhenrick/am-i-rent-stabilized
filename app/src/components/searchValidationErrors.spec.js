@@ -1,0 +1,132 @@
+import { SearchValidationErrors } from "./searchValidationErrors";
+import { AddressSearchForm } from "./addressSearchForm";
+import { store } from "../store";
+
+jest.mock("../store");
+
+describe("SearchValidationErrors", () => {
+  let element;
+  let addressSearchForm;
+  let searchValidationErrors;
+
+  let spyShowNotFound;
+  let spyHideNotFound;
+  let spyShowNoInput;
+  let spyHideNoInput;
+  let spyShowGeneric;
+  let spyHideGeneric;
+
+  beforeAll(() => {
+    spyShowNotFound = jest.spyOn(
+      SearchValidationErrors.prototype,
+      "showNotFound"
+    );
+    spyHideNotFound = jest.spyOn(
+      SearchValidationErrors.prototype,
+      "hideNotFound"
+    );
+    spyShowNoInput = jest.spyOn(
+      SearchValidationErrors.prototype,
+      "showNoInput"
+    );
+    spyHideNoInput = jest.spyOn(
+      SearchValidationErrors.prototype,
+      "hideNoInput"
+    );
+    spyShowGeneric = jest.spyOn(
+      SearchValidationErrors.prototype,
+      "showGeneric"
+    );
+    spyHideGeneric = jest.spyOn(
+      SearchValidationErrors.prototype,
+      "hideGeneric"
+    );
+
+    setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
+
+    element = document.querySelector("#address-form ul");
+  });
+
+  beforeEach(() => {
+    addressSearchForm = new AddressSearchForm({
+      element: document.querySelector("#address-form"),
+      store,
+    });
+    searchValidationErrors = new SearchValidationErrors({
+      element,
+      searchForm: addressSearchForm,
+    });
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  afterAll(() => {
+    jest.resetModules();
+  });
+
+  test("The component's HTML exists", () => {
+    expect(element).not.toBeNull();
+  });
+
+  test("The consumer should be able to call new() on AddressSearchForm", () => {
+    expect(searchValidationErrors).toBeTruthy();
+  });
+
+  test("showNotFound", () => {
+    searchValidationErrors.showNotFound();
+    expect(
+      searchValidationErrors.errorNotFound.classList.contains("hidden")
+    ).toBe(false);
+  });
+
+  test("hideNotFound", () => {
+    searchValidationErrors.hideNotFound();
+    expect(
+      searchValidationErrors.errorNotFound.classList.contains("hidden")
+    ).toBe(true);
+  });
+
+  test("showNoInput", () => {
+    searchValidationErrors.showNoInput();
+    expect(
+      searchValidationErrors.errorNoInput.classList.contains("hidden")
+    ).toBe(false);
+  });
+
+  test("hideNoInput", () => {
+    searchValidationErrors.hideNoInput();
+    expect(
+      searchValidationErrors.errorNoInput.classList.contains("hidden")
+    ).toBe(true);
+  });
+
+  test("showGeneric", () => {
+    searchValidationErrors.showGeneric();
+    expect(
+      searchValidationErrors.errorGeneric.classList.contains("hidden")
+    ).toBe(false);
+  });
+
+  test("hideGeneric", () => {
+    searchValidationErrors.hideGeneric();
+    expect(
+      searchValidationErrors.errorGeneric.classList.contains("hidden")
+    ).toBe(true);
+  });
+
+  test("showAll", () => {
+    searchValidationErrors.showAll();
+    expect(spyShowNoInput).toHaveBeenCalledTimes(1);
+    expect(spyShowNotFound).toHaveBeenCalledTimes(1);
+    expect(spyShowGeneric).toHaveBeenCalledTimes(1);
+  });
+
+  test("hideAll", () => {
+    searchValidationErrors.hideAll();
+    expect(spyHideNoInput).toHaveBeenCalledTimes(1);
+    expect(spyHideNotFound).toHaveBeenCalledTimes(1);
+    expect(spyHideGeneric).toHaveBeenCalledTimes(1);
+  });
+});

@@ -1,0 +1,100 @@
+.slides-container {
+  position: absolute;
+  top: 60px;
+  width: 960px;
+  left: 53.776041666667%;
+  margin-left: -516.25px;
+  height: calc(100% - #{$nav-main-height});
+  overflow: hidden;
+  z-index: 10;
+  background-color: #fff;
+
+  @include responsive(medium-screens) {
+    width: 100%;
+    left: 0;
+    margin: 0;
+  }
+
+  @include responsive(small-screens) {
+    width: 100%;
+    left: 0;
+    margin: 0;
+  }
+
+  @include responsive_mobile_landscape() {
+    display: none;
+  }
+}
+
+.slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.centered {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+
+  &.v-centered {
+    top: 50%;
+
+    @include translateY($value: -50%);
+  }
+
+  .share-box-end {
+    display: block;
+    position: relative;
+    margin-top: 20px;
+    text-align: center;
+
+    p {
+      display: inline;
+    }
+
+    .addthis_sharing_toolbox {
+      margin: 0 auto;
+      margin-top: 10px;
+    }
+  }
+
+  @include responsive_height(medium-screens) {
+    width: 100%;
+  }
+
+  @include responsive(medium-screens) {
+    width: 100%;
+
+    a.lightbox img {
+      max-width: 420px;
+    }
+  }
+
+  @include responsive(tablet-screens) {
+    .no {
+      margin-top: 10%;
+
+      p:last-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  @include responsive(small-screens) {
+    width: 100%;
+
+    .yes,
+    .no {
+      margin-top: 3%;
+
+      p {
+        font-size: 1.3em;
+        max-width: 95%;
+        width: 85%;
+        margin-top: 2%;
+      }
+    }
+  }
+}

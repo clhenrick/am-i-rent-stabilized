@@ -1,0 +1,90 @@
+{
+  "nav_main": {
+    "title": "Am I Rent Stabilized?",
+    "why": "Why it Matters",
+    "how": "How it Works",
+    "resources": "Resources"
+  },
+  "nav_bottom_arrow": {
+    "begin": "Begin",
+    "next": "Next"
+  },
+  "mobile_msg": "Please rotate your device or make your browser window taller.",
+  "slide01": {
+    "h1": "Half of All Apartments in NYC Are Rent Stabilized.",
+    "h2": "Find out if yours is one of them.",
+    "landing": "Or jump ahead to",
+    "go_step_4": "When you receive your rent history"
+  },
+  "slide02": {
+    "h1": "First, let's have your building address and borough.",
+    "privacy": "We won't share this information or use it commericially.",
+    "form": {
+      "label": "Street Address",
+      "placeholder": "Your NYC street address",
+      "val_errors": {
+        "not_found": "* Sorry, we don't recognize that NYC address, please try again!",
+        "address": "* Enter your building number, street name, and borough.",
+        "generic": "Something went wrong, please try again."
+      }
+    },
+    "search": "Search"
+  },
+  "slide03": {
+    "checking": "Checking...",
+    "p": "This will only take a moment."
+  },
+  "slide04": {
+    "yes": {
+      "h1": "Your apartment <em>might be</em> rent stabilized!",
+      "p": "But there's only one way to know for sure, so keep reading."
+    },
+    "no": {
+      "p": "Although your address wasn't found in our database we can't be 100&#37; sure you aren't rent stabilized, so keep reading!"
+    },
+    "map": {
+      "caption": "Orange means a property likely has rent-stabilized apartments.",
+      "view_map": "View this map in a separate window."
+    }
+  },
+  "slide05": {
+    "h1": "Request your rent history from the NY Department of Homes and Community Renewal.",
+    "mail": "Request it by email",
+    "phone": "Call them at ",
+    "visit": "You can also visit a",
+    "office": "DHCR office",
+    "tell_them": "Be sure to tell them your name, address, apartment number, and that you'd like to request your rent history.",
+    "mailed": "It will be mailed to your apartment."
+  },
+  "slide06": {
+    "h1": "After requesting your rent history, add a reminder to your calendar.",
+    "arrive": "It shouldn't take more than a week to arrive in the mail",
+    "friends": "Meanwhile, have your friends and neighbors check their apartments too!"
+  },
+  "slide07": {
+    "h1": "Once you receive it, look at what previous tenants paid and if their rent was stabilized.",
+    "p": "View a sample rent history."
+  },
+  "slide08": {
+    "h1": "If they were paying a lot less than you are, here's how to take action:",
+    "option01": "Option 1:",
+    "no_local_tr": {
+      "a": "Contact a tenants rights group for advice.",
+      "p": "These groups can provide useful information and help you take the best course of action."
+    },
+    "yes_local_tr": {
+      "p": "Contact a tenants rights group for advice. These groups can provide useful information and help you take the best course of action.",
+      "a": "Here are groups that help people in your neighborhood."
+    },
+    "option02": "Option 2",
+    "p1": "File a complaint with the HCR by filling out and mailing a",
+    "a": "rent overcharge form.",
+    "p2": "But be aware that your landlord will be notified when you file a complaint."
+  },
+  "slide09": {
+    "h1": "Nice Work!",
+    "start": "Start Over",
+    "learn": "Learn More",
+    "share": "Share it!"
+  }
+}

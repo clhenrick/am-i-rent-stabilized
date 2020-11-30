@@ -1,0 +1,75 @@
+.button {
+  @include button;
+
+  a {
+    color: $white;
+  }
+
+  &.start-over {
+    min-width: 200px;
+    width: auto;
+  }
+
+  &.learn-more {
+    width: 200px;
+    margin-left: 50px;
+  }
+
+  @include responsive_height(medium-screens) {
+    width: 180px;
+    font-size: 1.8em;
+    padding: 8px 12px;
+
+    &.search {
+      width: 125px;
+      margin-left: -62.5px;
+    }
+
+    &.start-over {
+      min-width: 200px;
+    }
+  }
+
+  @include responsive(medium-screens) {
+    width: 160px;
+    font-size: 1.8em;
+    padding: 8px 12px;
+
+    &.search {
+      width: 125px;
+      margin-left: -62.5px;
+    }
+  }
+
+  @include responsive(small-screens) {
+    width: 110px;
+    font-size: 1.3em;
+    padding: 8px 12px;
+
+    &.search {
+      width: 110px;
+      margin-left: -55px;
+    }
+
+    &.start-over {
+      min-width: 200px;
+      width: 120px;
+    }
+
+    &.learn-more {
+      width: 125px;
+      margin-top: 10px;
+      margin-left: 10px;
+    }
+  }
+}
+
+.button-holder {
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+
+  @include responsive(small-screens) {
+    margin-top: 10px;
+  }
+}
