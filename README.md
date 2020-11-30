@@ -51,17 +51,38 @@ To serve the assets of the production build do:
 yarn start:prod
 ```
 
+### Other
+
+The `handlebars-loader` Webpack loader handles the `.hbs` file extension so Webpack won't complain. It will automatically look for any Handlebars partials in `app/src/hbs_partials` and helpers in `app/src/hbs_helpers`.
+
+Note that any newly added Handlebars partials will need to be registered with Jest in order for the unit tests not to break. See `src/setupJest.js` for how this is done.
+
 
 ## Updating the Site's Content:
-The app uses HandlebarsJS for translating content between three languages: English, Spanish, and Chinese. Any changes made to any of the content in any of the HTML pages will need to be reflected in the corresponding locales JSON and Handlebars template files. These are located as follows:
+The app uses Handlebars.JS for translating content between three supported languages: English, Spanish, and Chinese. *Any changes made to any of the written content in any of the HTML pages will need to be reflected in the corresponding locales JSON and potentially the Handlebars template files*.
 
-- `app/public/locales`: JSON files for locales and are named as `[page name]-[language code].json`.
+These files are located as follows:
+
+- `app/public/locales`: JSON files for locales. The naming convention used is `[page name]-[language code].json`.
 - `app/src/hbs_templates`: Handlebars template files that correspond to the websites HTML pages 
-- in both sets of files `main` maps to `index.html`
 
-The `handlebars-loader` Webpack loader handles the `.hbs` file extension so Webpack won't complain. It will automatically look for Handlebars partials in `app/src/hbs_partials` and helpers in `app/src/hbs_helpers`.
+Note that in both sets of files `main` maps to `index.html`
 
-Any newly added Handlebars partials will need to be registered with Jest in order for the unit tests not to break. See `src/setupJest.js` for how this is done.
+Additionally, all supported languages are specified in `app/src/constants/locales.js`.
+
+### Adding a New Translation
+
+Adding a new language translation will require:
+
+1. New `locale` JSON files for each corresponding HTML page
+2. Updating the constants `LANG` and `IN_LANG` in `app/src/constants/locales.js`
+3. Updating the UI to display the new language option. The corresponding UI files are:  
+    - The Handlebars `language_toggle` partial
+    - The Components `languageToggle.js` and `languageToggleButton.js` in `app/src/components`.
+
+If many lanugages are to be supported in the future, then a dropdown / select menu may be more appropriate than individual language toggle buttons.
+
+Note that currently "right to left" languages are not supported in the UI.
 
 ## Data Sources
 - [NYC MapPluto](http://www.nyc.gov/html/dcp/html/bytes/dwn_pluto_mappluto.shtml) Tax Lot geospatial data.
