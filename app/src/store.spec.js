@@ -8,10 +8,18 @@ describe("observeStore", () => {
   let handleChange;
   let unsubscribe;
 
-  beforeAll(() => {
+  beforeEach(() => {
     select = jest.fn((state) => state.addressGeocode);
     handleChange = jest.fn();
     unsubscribe = observeStore(store, select, handleChange);
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  afterAll(() => {
+    jest.resetModules();
   });
 
   test("responds correctly when first invoked", () => {
