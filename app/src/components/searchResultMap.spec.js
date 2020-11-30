@@ -175,6 +175,7 @@ describe("SearchResultMap", () => {
   test("updateMapView", () => {
     const spy1 = jest.spyOn(MapPopup.prototype, "setContent");
     const spy2 = jest.spyOn(MapPopup.prototype, "show");
+    const spy6 = jest.spyOn(MapPopup.prototype, "setPosition");
     const spy3 = jest.spyOn(SearchResultMap.prototype, "showMarker");
     const spy4 = jest.spyOn(SearchResultMap.prototype, "renderMap");
     const spy5 = jest.spyOn(SearchResultMap.prototype, "setMarkerPosition");
@@ -220,20 +221,34 @@ describe("SearchResultMap", () => {
     expect(spy3).toHaveBeenCalledTimes(1);
     expect(spy4).toHaveBeenCalledTimes(1);
     expect(spy5).toHaveBeenCalledTimes(1);
+    expect(spy6).toHaveBeenCalledTimes(1);
   });
 
   test("updateMapView with no searchResultDetails", () => {
-    const result = searchResultMap.updateMapView();
-    expect(result).toBeUndefined();
+    const spy1 = jest.spyOn(MapPopup.prototype, "setContent");
+    const spy2 = jest.spyOn(MapPopup.prototype, "show");
+    const spy6 = jest.spyOn(MapPopup.prototype, "setPosition");
+    const spy3 = jest.spyOn(SearchResultMap.prototype, "showMarker");
+    const spy4 = jest.spyOn(SearchResultMap.prototype, "renderMap");
+    const spy5 = jest.spyOn(SearchResultMap.prototype, "setMarkerPosition");
+    new SearchResultMap({ element, store });
+    expect(spy1).not.toHaveBeenCalled();
+    expect(spy2).not.toHaveBeenCalled();
+    expect(spy3).not.toHaveBeenCalled();
+    expect(spy4).not.toHaveBeenCalled();
+    expect(spy5).not.toHaveBeenCalled();
+    expect(spy6).not.toHaveBeenCalled();
   });
 
   test("renderMap", () => {
+    MapTileLayers.mockRestore();
+    const { SearchResultMap } = require("./searchResultMap");
     const spy = jest.spyOn(SearchResultMap.prototype, "setMapSize");
     const instance = new SearchResultMap({ element, store });
     instance.renderMap();
     expect(spy).toHaveBeenCalledTimes(1);
-    expect(instance.gBaseTiles.innerHTML).toBeTruthy();
-    expect(instance.gRsTiles.innerHTML).toBeTruthy();
+    expect(instance.gBaseTiles.childNodes).toBeDefined();
+    expect(instance.gRsTiles.childNodes).toBeDefined();
   });
 
   test("setMapSize", () => {
@@ -273,6 +288,7 @@ describe("SearchResultMap", () => {
   });
 
   test("hideMarker", () => {
+    searchResultMap.showMarker();
     searchResultMap.hideMarker();
     expect(searchResultMap.marker.getAttribute("opacity")).toBe("0");
   });
@@ -280,12 +296,19 @@ describe("SearchResultMap", () => {
   test("resetMap", () => {
     const spy1 = jest.spyOn(SearchResultMap.prototype, "hideMarker");
     const spy2 = jest.spyOn(SearchResultMap.prototype, "renderMap");
+    const spy3 = jest.spyOn(MapPopup.prototype, "hide");
     const instance = new SearchResultMap({ store, element });
     instance.resetMap();
     expect(spy1).toHaveBeenCalledTimes(1);
     expect(spy2).toHaveBeenCalledTimes(1);
+    expect(spy3).toHaveBeenCalledTimes(1);
     expect(instance.zoom).toEqual(MAP_ZOOM.DEFAULT);
     expect(instance.center).toEqual(MAP_CENTER.DEFAULT);
+  });
+
+  test("searchResultDetails getter", () => {
+    const value = searchResultMap.searchResultDetails;
+    expect(value).toBe(false);
   });
 
   test("zoom property setter", () => {
