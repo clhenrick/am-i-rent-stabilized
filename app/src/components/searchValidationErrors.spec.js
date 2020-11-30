@@ -13,6 +13,8 @@ describe("SearchValidationErrors", () => {
   let spyHideNotFound;
   let spyShowNoInput;
   let spyHideNoInput;
+  let spyShowGeneric;
+  let spyHideGeneric;
 
   beforeAll(() => {
     spyShowNotFound = jest.spyOn(
@@ -30,6 +32,14 @@ describe("SearchValidationErrors", () => {
     spyHideNoInput = jest.spyOn(
       SearchValidationErrors.prototype,
       "hideNoInput"
+    );
+    spyShowGeneric = jest.spyOn(
+      SearchValidationErrors.prototype,
+      "showGeneric"
+    );
+    spyHideGeneric = jest.spyOn(
+      SearchValidationErrors.prototype,
+      "hideGeneric"
     );
 
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
@@ -92,19 +102,31 @@ describe("SearchValidationErrors", () => {
     ).toBe(true);
   });
 
+  test("showGeneric", () => {
+    searchValidationErrors.showGeneric();
+    expect(
+      searchValidationErrors.errorGeneric.classList.contains("hidden")
+    ).toBe(false);
+  });
+
+  test("hideGeneric", () => {
+    searchValidationErrors.hideGeneric();
+    expect(
+      searchValidationErrors.errorGeneric.classList.contains("hidden")
+    ).toBe(true);
+  });
+
   test("showAll", () => {
-    spyShowNoInput.mockClear();
-    spyShowNotFound.mockClear();
     searchValidationErrors.showAll();
     expect(spyShowNoInput).toHaveBeenCalledTimes(1);
     expect(spyShowNotFound).toHaveBeenCalledTimes(1);
+    expect(spyShowGeneric).toHaveBeenCalledTimes(1);
   });
 
   test("hideAll", () => {
-    spyHideNoInput.mockClear();
-    spyHideNotFound.mockClear();
     searchValidationErrors.hideAll();
     expect(spyHideNoInput).toHaveBeenCalledTimes(1);
     expect(spyHideNotFound).toHaveBeenCalledTimes(1);
+    expect(spyHideGeneric).toHaveBeenCalledTimes(1);
   });
 });
