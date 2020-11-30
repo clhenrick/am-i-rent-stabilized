@@ -17,6 +17,9 @@ describe("StartOver", () => {
   });
 
   beforeEach(() => {
+    if (startOver) {
+      startOver.removeEvents();
+    }
     startOver = new StartOver({ store, element });
   });
 
@@ -42,7 +45,7 @@ describe("StartOver", () => {
 
   test("bindEvents", () => {
     startOver.element.querySelector("a").click();
-    expect(spyHandleClick).toHaveBeenCalled();
+    expect(spyHandleClick).toHaveBeenCalledTimes(1);
   });
 
   test("handleClick", () => {
