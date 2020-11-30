@@ -2,7 +2,7 @@
 This changelog describes major changes to the website and application. It was first created on November 25, 2020.
 
 ## 2020-11-29 (PR #58)
-This was a major JavaScript refactor (perhaps more so a rewrite) of the application's codebase that amounted to ~~almost~~ over 400 commits! The primary goal of this refactor was to make the JavaScript code easier to reason about as its previous implementation was, let's say, not the easiest to reason about. Secondary goals were to improve code quality with unit tests, CI builds, linting, and automated code formatting. I also removed some 3rd party libraries that were no longer needed and implemented a new build system using Webpack.
+This was a major JavaScript refactor (perhaps more so a rewrite!) of the application's codebase that amounted to over 400 commits! The primary goal of this refactor was to make the JavaScript code easier to reason about as its previous implementation was, let's say, not the easiest to reason about. Secondary goals were to improve code quality with unit tests, Continuous Integration, JS & SCSS linting, and code formatting. I also removed some 3rd party libraries that were no longer needed, upgraded ones that were kept, and implemented a new build system using Webpack.
 
 Non-goals of this refactor included:  
 - porting the codebase to a JavaScript framework such as React or Vue 
@@ -105,9 +105,10 @@ The previous address geocoding API being used required the street address and bo
 ### Other
 - [x] use Netlify for Preview Deploys, builds, and other misc checks on pull requests
 - [x] use Netlify to host the website and automatically deploy it when pushing to the `master` git branch
+- [x] removed the "Rent Logic" button / link from last slide (Rent Logic is a startup and they haven't donated a dime to me so why feature it for free on the website's homepage?)
 
 ### Left Overs
-The following items I did not get to completing and intend to address after Pull Request #58 has been merged (you can only fit so much in a single PR!)
+The following items I did not get around to completing and intend to address after Pull Request #58 has been merged (you can only fit so much in a single PR!)
 
 - [ ] JS resize handler for setting slide size
   - when the browser is resized, the layout shifts oddly. A resize event handler would fix this.
