@@ -1,6 +1,6 @@
 Am I Rent Stabilized?
 ============================
-![](app/assets/png/airs_landing_page.png)
+![](app/public/assets/png/airs_landing_page.png)
 
 A mobile friendly, multi-lingual web app that informs NYC residents about [Rent Stabilization](http://www.nycrgb.org/html/resources/faq/rentstab.html) by simplifying the process of how to find out if their apartment may be rent stabilized, if they are paying too much rent, and what to do about it.  
 
