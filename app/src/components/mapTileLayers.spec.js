@@ -1,7 +1,7 @@
 import { store } from "../store";
 import { MapTileLayers } from "./mapTileLayers";
 import { SearchResultMap } from "./searchResultMap";
-import { logException } from "../utils/logging";
+import { logException, handleErrorObj } from "../utils/logging";
 const d3Tile = require("d3-tile");
 
 jest.mock("../store");
@@ -30,6 +30,13 @@ d3Tile.tile.mockImplementation(() => {
     )
   );
   return fn;
+});
+
+// this is basically the real implementation of handleErrorObj, ugh
+handleErrorObj.mockImplementation((string, error) => {
+  const errMsg =
+    typeof error === "object" ? `${error.name}; ${error.message}` : error;
+  return `${string}; ${errMsg}`;
 });
 
 describe("MapTileLayers", () => {
@@ -96,22 +103,40 @@ describe("MapTileLayers", () => {
     expect(mapTileLayers).toBeTruthy();
   });
 
-  test("fetchCartoTilesSchema", async () => {
-    await mapTileLayers.fetchCartoTilesSchema();
-    expect(mapTileLayers.cartoTilesSchema).toBeTruthy();
-  });
-
-  test("fetchCartoTilesSchema error", async () => {
-    fetch.mockReject(new Error("Bam!"));
-    mapTileLayers = new MapTileLayers(
+  test("init", async () => {
+    const spy1 = jest.spyOn(MapTileLayers.prototype, "fetchCartoTilesSchema");
+    const spy2 = jest.spyOn(SearchResultMap.prototype, "updateProjection");
+    const spy3 = jest.spyOn(SearchResultMap.prototype, "renderMap");
+    const mapTileLayers = new MapTileLayers(
       new SearchResultMap({
         element,
         store,
       })
     );
+    await mapTileLayers.init();
+    expect(spy1).toHaveBeenCalled();
+    expect(spy2).toHaveBeenCalled();
+    expect(spy3).toHaveBeenCalled();
+  });
+
+  test("init handles error", async () => {
+    fetch.mockReject(new Error("Problems"));
+    const mapTileLayers = new MapTileLayers(
+      new SearchResultMap({
+        element,
+        store,
+      })
+    );
+    await mapTileLayers.init();
+    expect(logException).toHaveBeenCalledWith(
+      "MapTileLayers.init; Error; Problems",
+      true
+    );
+  });
+
+  test("fetchCartoTilesSchema", async () => {
     await mapTileLayers.fetchCartoTilesSchema();
-    expect(mapTileLayers.cartoTilesSchema).toBeNull();
-    expect(logException).toHaveBeenCalled();
+    expect(mapTileLayers.cartoTilesSchema).toBeTruthy();
   });
 
   test("renderMapTiles", () => {

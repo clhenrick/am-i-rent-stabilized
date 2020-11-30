@@ -21,32 +21,27 @@ export class MapTileLayers {
     this.init();
   }
 
-  init() {
-    this.fetchCartoTilesSchema()
-      .then(() => {
-        if (this.cartoTilesSchema) {
-          this.searchResultMap.updateProjection();
-          this.searchResultMap.renderMap();
-        }
-      })
-      .catch((error) => {
-        logException(handleErrorObj("MapTileLayers.init", error), true);
-      });
+  async init() {
+    try {
+      await this.fetchCartoTilesSchema();
+      if (this.cartoTilesSchema) {
+        this.searchResultMap.updateProjection();
+        this.searchResultMap.renderMap();
+      }
+    } catch (error) {
+      logException(handleErrorObj("MapTileLayers.init", error), true);
+    }
   }
 
   async fetchCartoTilesSchema() {
-    try {
-      const mapsApiUrl = `https://${cartoAccount}.carto.com/api/v1/map/`;
-      const res = await fetch(
-        `${mapsApiUrl}?config=${encodeURIComponent(
-          JSON.stringify(this.mapsApiConfig)
-        )}`
-      );
-      const json = await res.json();
-      this._cartoTilesSchema = json;
-    } catch (error) {
-      logException(handleErrorObj("fetchCartoTilesSchema", error), true);
-    }
+    const mapsApiUrl = `https://${cartoAccount}.carto.com/api/v1/map/`;
+    const res = await fetch(
+      `${mapsApiUrl}?config=${encodeURIComponent(
+        JSON.stringify(this.mapsApiConfig)
+      )}`
+    );
+    const json = await res.json();
+    this._cartoTilesSchema = json;
   }
 
   renderMapTiles(type) {
