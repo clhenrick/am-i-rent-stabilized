@@ -98,12 +98,29 @@ describe("SlidesContainer", () => {
     expect(slidesContainer.activeSlideIdx).toBe(5);
   });
 
-  test("scrollToActiveSlide calls gsap.to()", () => {
+  test("scrollToActiveSlide calls gsap.to", () => {
     slidesContainer.scrollToActiveSlide();
     expect(gsap.to).toHaveBeenCalledTimes(1);
+    expect(gsap.to).toHaveBeenCalledWith(element, {
+      duration: 0.65,
+      scrollTo: ".slide.active",
+      ease: "sine.inOut",
+    });
   });
 
-  test("scrollToActiveSlide sets duration for gsap.to()", () => {
+  test("checks prefers-reduced-motion media query", () => {
+    mockMatchMedia.mockImplementation(() => ({ matches: true }));
+    slidesContainer = new SlidesContainer({
+      element,
+      store,
+    });
+    expect(mockMatchMedia).toHaveBeenCalledWith(
+      "(prefers-reduced-motion: reduce)"
+    );
+    expect(slidesContainer.prefersReducedMotion).toBe(true);
+  });
+
+  test("`prefers-reduced-motion: reduce` disables scroll animation", () => {
     slidesContainer.prefersReducedMotion = true;
     slidesContainer.scrollToActiveSlide();
     expect(gsap.to).toHaveBeenCalledWith(slidesContainer.element, {
@@ -111,12 +128,5 @@ describe("SlidesContainer", () => {
       scrollTo: ".slide.active",
       ease: "sine.inOut",
     });
-  });
-
-  test("sets smooth scroll behavior from prefers-reduced-motion media query", () => {
-    expect(mockMatchMedia).toHaveBeenCalledWith(
-      "(prefers-reduced-motion: reduce)"
-    );
-    expect(mockMatchMedia).toHaveReturnedWith({ matches: false });
   });
 });
