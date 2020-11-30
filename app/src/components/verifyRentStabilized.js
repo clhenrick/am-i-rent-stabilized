@@ -26,7 +26,7 @@ export class VerifyRentStabilized extends Component {
     if (this.match && this.match.total_rows > 0) {
       this.msgYes.classList.remove("hidden");
       this.msgNo.classList.add("hidden");
-      logAddressRS(this.searchAddress);
+      logAddressRS(this.match.rows[0].bbl);
     } else {
       this.msgYes.classList.add("hidden");
       this.msgNo.classList.remove("hidden");
@@ -38,26 +38,5 @@ export class VerifyRentStabilized extends Component {
       rentStabilized: { match },
     } = this.store.getState();
     return match;
-  }
-
-  get searchResult() {
-    const {
-      addressGeocode: { searchResult },
-    } = this.store.getState();
-    return searchResult;
-  }
-
-  get searchResultFeatures() {
-    if (this.searchResult && this.searchResult.features) {
-      return this.searchResult.features;
-    }
-    return undefined;
-  }
-
-  get searchAddress() {
-    if (this.searchResultFeatures && this.searchResultFeatures.length) {
-      return this.searchResultFeatures[0].properties.label;
-    }
-    return undefined;
   }
 }

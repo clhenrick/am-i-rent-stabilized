@@ -90,17 +90,6 @@ describe("VerifyRentStabilized", () => {
           ],
         },
       },
-      addressGeocode: {
-        searchResult: {
-          features: [
-            {
-              properties: {
-                label: "999 Main Street",
-              },
-            },
-          ],
-        },
-      },
     }));
 
     verifyRentStabilized = new VerifyRentStabilized({
@@ -113,7 +102,7 @@ describe("VerifyRentStabilized", () => {
       false
     );
     expect(verifyRentStabilized.msgNo.classList.contains("hidden")).toBe(true);
-    expect(logAddressRS).toHaveBeenCalledWith("999 Main Street");
+    expect(logAddressRS).toHaveBeenCalledWith("999999999");
   });
 
   test("updateMessage handles a non-match", () => {
@@ -122,9 +111,6 @@ describe("VerifyRentStabilized", () => {
         match: {
           total_rows: 0,
         },
-      },
-      addressGeocode: {
-        searchResult: null,
       },
     }));
 
