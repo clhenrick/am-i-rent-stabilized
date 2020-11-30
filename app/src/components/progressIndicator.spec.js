@@ -55,13 +55,13 @@ describe("ProgressIndicator", () => {
   test("Throws an error if props.store is missing or invalid", () => {
     expect(() => {
       new ProgressIndicator({
-        element: document.querySelector("#progress-indicator"),
+        element,
       });
     }).toThrow("Requires redux store");
 
     expect(() => {
       new ProgressIndicator({
-        element: document.querySelector("#progress-indicator"),
+        element,
         store: {},
       });
     }).toThrow("Requires redux store");
@@ -83,7 +83,7 @@ describe("ProgressIndicator", () => {
     });
 
     progressIndicator = new ProgressIndicator({
-      element: document.querySelector("#progress-indicator"),
+      element,
       store,
     });
 
@@ -91,15 +91,6 @@ describe("ProgressIndicator", () => {
   });
 
   test("renderCircles", () => {
-    const { store } = require("../store");
-    jest.mock("../store");
-
-    progressIndicator = new ProgressIndicator({
-      element: document.querySelector("#progress-indicator"),
-      store,
-    });
-    progressIndicator.renderCircles();
-
     expect(progressIndicator.list.children.length).toBeGreaterThan(0);
     expect(
       progressIndicator.list
@@ -126,7 +117,6 @@ describe("ProgressIndicator", () => {
       },
     }));
     progressIndicator.appendCircle(9);
-    expect(progressIndicator.list.children).toHaveLength(10);
     expect(
       progressIndicator.list.children[9].classList.contains("active")
     ).toBe(true);
