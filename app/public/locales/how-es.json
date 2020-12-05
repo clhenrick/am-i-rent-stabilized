@@ -74,6 +74,11 @@
       "Nos encantaría escuchar su historia, especialmente si le ayudó en alguna manera. ",
       "Estamos a sus órdenes."
     ],
+    "kofi": {
+      "a": "Si este sitio web le resultó útil, considere hacer una donación",
+      "b": "Puedes donar aquí.",
+      "c": "¡Gracias!"
+    },
     "p03": "Trabajemos juntos para mantener a la ciudad de Nueva York económicamente accesible y para que se pueda mantener como el lugar culturalmente rico y socialmente diverso que es hoy en día."
   }
 }
