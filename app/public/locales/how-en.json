@@ -74,6 +74,11 @@
       "We'd love to hear about your story, especially if this site helped you in any way, so feel free to ",
       "get in touch."
     ],
+    "kofi": {
+      "a": "If you found this website to be helpful, please kindly consider making a donation as it is a 100% volunteer driven effort to keep up to date and running.",
+      "b": "You may donate here.",
+      "c": "Thank you!"
+    },
     "p03": "Let's work together to keep NYC affordable so that it can stay the culturally rich and socio-economically diverse place it's so well-  known for being."
   }
 }
