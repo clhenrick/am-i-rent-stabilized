@@ -8,6 +8,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
 const StylelintPlugin = require("stylelint-webpack-plugin");
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 // `module.exports` is NodeJS's way of exporting code from a file,
 // so that it can be made available in other files. It's what
@@ -138,14 +139,7 @@ module.exports = (env, argv) => {
               options: {
                 cacheDirectory: true,
               },
-            },
-            {
-              loader: "eslint-loader",
-              options: {
-                cache: true,
-                emitWarning: true,
-              },
-            },
+            }
           ],
         },
 
@@ -234,6 +228,8 @@ module.exports = (env, argv) => {
      * see: https://webpack.js.org/plugins/
      ******************************************************************************/
     plugins: [
+      new ESLintPlugin({ emitWarning: true, emitError: true }),
+
       // makes sure our output folder is cleaned before adding new files to it
       new CleanWebpackPlugin(),
 
