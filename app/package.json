@@ -126,7 +126,7 @@
     "cross-fetch": "^3.0.6",
     "d3-geo": "^2.0.1",
     "d3-tile": "^1.0.0",
-    "gsap": "^3.5.1",
+    "gsap": "^3.6.0",
     "handlebars": "4.7.6",
     "innersvg-polyfill": "^0.0.5",
     "lodash.throttle": "^4.1.1",
