@@ -40,12 +40,20 @@ export function getBBL(feature) {
  * 4. going to the "you might/might not be rent stabilized" slide
  * 5. OR going back to the address search slide if an error occurs
  */
-export const searchRentStabilized = (addressText) => async (dispatch) => {
+export const searchRentStabilized = (addressOrBbl) => async (dispatch) => {
   try {
-    const searchResult = await dispatch(addressSearchFetch(addressText));
-    validateSearchResult(searchResult);
+    let bbl;
 
-    const bbl = getBBL(searchResult.features[0]);
+    if (typeof addressOrBbl === "string") {
+      const searchResult = await dispatch(addressSearchFetch(addressOrBbl));
+      validateSearchResult(searchResult);
+      bbl = getBBL(searchResult.features[0]);
+    } else if (typeof addressOrBbl === "number") {
+      bbl = addressOrBbl;
+    } else {
+      throw new Error("arg must be an address (string) or bbl (number)");
+    }
+
     const rsResult = await dispatch(fetchRentStabilized(bbl));
     validateRS(rsResult);
 
