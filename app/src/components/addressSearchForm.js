@@ -84,13 +84,26 @@ export class AddressSearchForm extends Component {
     this.handleInputChange.cancel();
     this.clearCachedSearchResult();
     const value = this.inputAddress.value;
-    if (value.length) {
-      this.store.dispatch(searchRentStabilized(value));
-      logAddressSearch(value);
-      this.inputAddress.value = "";
-    } else {
+
+    if (!value.length) {
       this.validationErrors.showNoInput();
+      return;
     }
+
+    if (this.autosuggestionsList) {
+      const match = this.autosuggestionsList.filter(
+        (d) => d.properties.label === value
+      );
+      if (match.length) {
+        this.store.dispatch(searchRentStabilized(+match[0].properties.pad_bbl));
+      } else {
+        this.store.dispatch(searchRentStabilized(value));
+      }
+    } else {
+      this.store.dispatch(searchRentStabilized(value));
+    }
+    logAddressSearch(value);
+    this.inputAddress.value = "";
   }
 
   handleInputChange(event) {
@@ -135,6 +148,7 @@ export class AddressSearchForm extends Component {
     this.autosuggestionsList.forEach(({ properties }) => {
       const option = document.createElement("option");
       option.value = properties.label || "";
+      option.dataset.bbl = properties.pad_bbl;
       this.datalist.appendChild(option);
     });
   }
