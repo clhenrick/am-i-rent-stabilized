@@ -83,17 +83,21 @@ export class AddressSearchForm extends Component {
     event.preventDefault();
     this.handleInputChange.cancel();
     this.clearCachedSearchResult();
-    const addressToSearch = this.inputAddress.value;
 
-    if (!addressToSearch.length) {
+    if (this.inputAddress.value.length) {
+      this.searchRentStabilized(this.inputAddress.value);
+      logAddressSearch(this.inputAddress.value);
+      this.inputAddress.value = "";
+    } else {
       this.validationErrors.showNoInput();
-      return;
     }
+  }
 
+  searchRentStabilized(anAddressString) {
     const autosuggestMatch =
       this.autosuggestionsList &&
       this.autosuggestionsList.find(
-        (d) => d.properties.label === addressToSearch
+        (d) => d.properties.label === anAddressString
       );
 
     if (autosuggestMatch) {
@@ -104,11 +108,8 @@ export class AddressSearchForm extends Component {
         })
       );
     } else {
-      this.store.dispatch(searchRentStabilized(addressToSearch));
+      this.store.dispatch(searchRentStabilized(anAddressString));
     }
-
-    logAddressSearch(addressToSearch);
-    this.inputAddress.value = "";
   }
 
   handleInputChange(event) {
