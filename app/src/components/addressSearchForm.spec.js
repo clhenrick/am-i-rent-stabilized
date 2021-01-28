@@ -336,6 +336,10 @@ describe("AddressSearchForm", () => {
 
   test("handleSubmit", () => {
     const spy = jest.spyOn(AddressSearchForm.prototype, "handleSubmit");
+    const spy2 = jest.spyOn(
+      AddressSearchForm.prototype,
+      "searchRentStabilized"
+    );
     const event = new Event("submit");
     event.preventDefault = jest.fn();
     addressSearchForm = new AddressSearchForm({
@@ -347,13 +351,16 @@ describe("AddressSearchForm", () => {
     expect(spy).toHaveBeenCalled();
     expect(logAddressSearch).toHaveBeenCalledWith("999 Main Street");
     expect(event.preventDefault).toHaveBeenCalled();
-    expect(store.dispatch).toHaveBeenCalled();
-    expect(searchRentStabilized).toHaveBeenCalledWith("999 Main Street");
+    expect(spy2).toHaveBeenCalledWith("999 Main Street");
     expect(addressSearchForm.inputAddress.value).toEqual("");
   });
 
   test("handleSubmit no user input", () => {
     const spy = jest.spyOn(SearchValidationErrors.prototype, "showNoInput");
+    const spy2 = jest.spyOn(
+      AddressSearchForm.prototype,
+      "searchRentStabilized"
+    );
     const event = new Event("submit");
     event.preventDefault = jest.fn();
     addressSearchForm = new AddressSearchForm({
@@ -363,6 +370,46 @@ describe("AddressSearchForm", () => {
     addressSearchForm.inputAddress.value = "";
     addressSearchForm.element.dispatchEvent(event);
     expect(spy).toHaveBeenCalled();
+    expect(spy2).not.toHaveBeenCalled();
+  });
+
+  test("searchRentStabilized", () => {
+    addressSearchForm.searchRentStabilized("999 Fake Rd");
+    expect(store.dispatch).toHaveBeenCalled();
+    expect(searchRentStabilized).toHaveBeenCalledWith("999 Fake Rd");
+  });
+
+  test("searchRentStabilized autosuggestion match", () => {
+    store.getState.mockImplementation(() => ({
+      addressGeocode: {
+        autosuggestions: {
+          features: [
+            {
+              properties: {
+                label: "111 Fake St, Brooklyn, NY",
+              },
+            },
+            {
+              properties: {
+                label: "666 Devil Ave, Staten Island, NY",
+              },
+            },
+          ],
+        },
+      },
+    }));
+    addressSearchForm.searchRentStabilized("111 Fake St, Brooklyn, NY");
+    expect(store.dispatch).toHaveBeenCalled();
+    expect(searchRentStabilized).toHaveBeenCalledWith({
+      type: "FeatureCollection",
+      features: [
+        {
+          properties: {
+            label: "111 Fake St, Brooklyn, NY",
+          },
+        },
+      ],
+    });
   });
 
   test("cacheSearchResult", () => {
