@@ -44,15 +44,15 @@ export function getBBL(feature) {
  * 4. going to the "you might/might not be rent stabilized" slide
  * 5. OR going back to the address search slide if an error occurs
  */
-export const searchRentStabilized = (address) => async (dispatch) => {
+export const searchRentStabilized = (addressInfo) => async (dispatch) => {
   try {
     let searchResult;
 
-    if (typeof address === "string") {
-      searchResult = await dispatch(addressSearchFetch(address));
-    } else if (typeof address === "object" && "features" in address) {
-      dispatch(addressSearchSuccess(address));
-      searchResult = { ...address };
+    if (typeof addressInfo === "string") {
+      searchResult = await dispatch(addressSearchFetch(addressInfo));
+    } else if (typeof addressInfo === "object" && "features" in addressInfo) {
+      dispatch(addressSearchSuccess(addressInfo));
+      searchResult = { ...addressInfo };
     } else {
       throw new Error(
         "param `address` must be an address (string) or object (FeatureCollection)"
