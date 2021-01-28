@@ -2,7 +2,10 @@ import {
   fetchRentStabilized,
   rentStabilizedFailure,
 } from "./rentStabilizedActions";
-import { addressSearchFetch } from "./addressGeocodeActions";
+import {
+  addressSearchFetch,
+  addressSearchSuccess,
+} from "./addressGeocodeActions";
 import { goToSlideIdx } from "./slidesActions";
 import { delay } from "../utils/delay";
 import { RS_SEARCH_DELAY_MS } from "../constants/app";
@@ -33,6 +36,7 @@ export function getBBL(feature) {
 
 /**
  * searchRentStabilized
+ * @param {string | object } address The address to be searched
  * This is a compound action creator that handles:
  * 1. geocoding an address inputted by the user
  * 2. looking up the result in the rent stabilized data
@@ -40,21 +44,26 @@ export function getBBL(feature) {
  * 4. going to the "you might/might not be rent stabilized" slide
  * 5. OR going back to the address search slide if an error occurs
  */
-export const searchRentStabilized = (addressOrBbl) => async (dispatch) => {
+export const searchRentStabilized = (address) => async (dispatch) => {
   try {
-    let bbl;
+    let searchResult;
 
-    if (typeof addressOrBbl === "string") {
-      const searchResult = await dispatch(addressSearchFetch(addressOrBbl));
-      validateSearchResult(searchResult);
-      bbl = getBBL(searchResult.features[0]);
-    } else if (typeof addressOrBbl === "number") {
-      bbl = addressOrBbl;
+    if (typeof address === "string") {
+      searchResult = await dispatch(addressSearchFetch(address));
+    } else if (typeof address === "object" && "features" in address) {
+      dispatch(addressSearchSuccess(address));
+      searchResult = { ...address };
     } else {
-      throw new Error("arg must be an address (string) or bbl (number)");
+      throw new Error(
+        "param `address` must be an address (string) or object (FeatureCollection)"
+      );
     }
 
-    const rsResult = await dispatch(fetchRentStabilized(bbl));
+    validateSearchResult(searchResult);
+
+    const rsResult = await dispatch(
+      fetchRentStabilized(getBBL(searchResult.features[0]))
+    );
     validateRS(rsResult);
 
     await delay(RS_SEARCH_DELAY_MS);

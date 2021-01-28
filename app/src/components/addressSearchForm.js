@@ -95,7 +95,12 @@ export class AddressSearchForm extends Component {
         (d) => d.properties.label === value
       );
       if (match.length) {
-        this.store.dispatch(searchRentStabilized(+match[0].properties.pad_bbl));
+        this.store.dispatch(
+          searchRentStabilized({
+            type: "FeatureCollection",
+            features: match,
+          })
+        );
       } else {
         this.store.dispatch(searchRentStabilized(value));
       }
