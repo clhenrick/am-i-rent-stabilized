@@ -2,7 +2,10 @@ import {
   fetchRentStabilized,
   rentStabilizedFailure,
 } from "./rentStabilizedActions";
-import { addressSearchFetch } from "./addressGeocodeActions";
+import {
+  addressSearchFetch,
+  addressSearchSuccess,
+} from "./addressGeocodeActions";
 import { goToSlideIdx } from "./slidesActions";
 import { delay } from "../utils/delay";
 import { RS_SEARCH_DELAY_MS } from "../constants/app";
@@ -33,6 +36,7 @@ export function getBBL(feature) {
 
 /**
  * searchRentStabilized
+ * @param {string | object } addressInfo The address to be searched
  * This is a compound action creator that handles:
  * 1. geocoding an address inputted by the user
  * 2. looking up the result in the rent stabilized data
@@ -40,13 +44,26 @@ export function getBBL(feature) {
  * 4. going to the "you might/might not be rent stabilized" slide
  * 5. OR going back to the address search slide if an error occurs
  */
-export const searchRentStabilized = (addressText) => async (dispatch) => {
+export const searchRentStabilized = (addressInfo) => async (dispatch) => {
   try {
-    const searchResult = await dispatch(addressSearchFetch(addressText));
+    let searchResult;
+
+    if (typeof addressInfo === "string") {
+      searchResult = await dispatch(addressSearchFetch(addressInfo));
+    } else if (typeof addressInfo === "object" && "features" in addressInfo) {
+      dispatch(addressSearchSuccess(addressInfo));
+      searchResult = { ...addressInfo };
+    } else {
+      throw new Error(
+        "param `address` must be an address (string) or object (FeatureCollection)"
+      );
+    }
+
     validateSearchResult(searchResult);
 
-    const bbl = getBBL(searchResult.features[0]);
-    const rsResult = await dispatch(fetchRentStabilized(bbl));
+    const rsResult = await dispatch(
+      fetchRentStabilized(getBBL(searchResult.features[0]))
+    );
     validateRS(rsResult);
 
     await delay(RS_SEARCH_DELAY_MS);

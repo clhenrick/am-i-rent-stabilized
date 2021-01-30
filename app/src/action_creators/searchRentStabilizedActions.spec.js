@@ -81,7 +81,7 @@ describe("searchRentStabilized", () => {
     fetch.resetMocks();
   });
 
-  test("It dispatches expected actions when encountering no errors", () => {
+  test("It dispatches expected actions when param is a string", () => {
     fetch
       .mockResponseOnce(
         JSON.stringify({ features: [{ properties: { pad_bbl: "000222" } }] }),
@@ -107,6 +107,36 @@ describe("searchRentStabilized", () => {
     ];
 
     return store.dispatch(searchRentStabilized("Some NYC address")).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+  test("It dispatches expected actions when param is an object", () => {
+    fetch.mockResponseOnce(JSON.stringify({ rows: [] }), {
+      status: 200,
+      statusText: "OK",
+    });
+
+    const param = {
+      type: "FeatureCollection",
+      features: [
+        {
+          properties: { pad_bbl: "000222" },
+        },
+      ],
+    };
+
+    const expectedActions = [
+      {
+        type: types.AddressSearchSuccess,
+        payload: { ...param },
+      },
+      { type: types.RentStabilizedRequest },
+      { type: types.RentStabilizedSuccess, payload: { rows: [] } },
+      { type: types.GoToSlideIdx, payload: 3 },
+    ];
+
+    return store.dispatch(searchRentStabilized(param)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
