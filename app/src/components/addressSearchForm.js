@@ -154,7 +154,6 @@ export class AddressSearchForm extends Component {
     this.autosuggestionsList.forEach(({ properties }) => {
       const option = document.createElement("option");
       option.value = properties.label || "";
-      option.dataset.bbl = properties.pad_bbl;
       this.datalist.appendChild(option);
     });
   }

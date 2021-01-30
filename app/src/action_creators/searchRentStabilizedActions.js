@@ -36,7 +36,7 @@ export function getBBL(feature) {
 
 /**
  * searchRentStabilized
- * @param {string | object } address The address to be searched
+ * @param {string | object } addressInfo The address to be searched
  * This is a compound action creator that handles:
  * 1. geocoding an address inputted by the user
  * 2. looking up the result in the rent stabilized data
