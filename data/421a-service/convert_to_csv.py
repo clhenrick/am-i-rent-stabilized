@@ -1,6 +1,7 @@
 import os
 import xlrd
 import csv
+import re
 
 from download import DATA_DIR
 
@@ -25,22 +26,24 @@ BOROUGHS = [
 # These are just the columns from the Excel spreadsheets, we add a
 # few to the final CSV.
 COLUMNS = [
-    "BOROUGH",
-    "NEIGHBORHOOD",
-    "BUILDING CLASS CATEGORY",
-    "TAX CLASS AT PRESENT",
-    "BLOCK",
-    "LOT",
-    "BUILDING CLASS AT PRESENT",
-    "ADDRESS",
-    "ZIP CODE",
-    "RESIDENTIAL UNITS",
-    "COMMERCIAL UNITS",
-    "TOTAL UNITS",
-    "LAND SQUARE FEET",
-    "GROSS SQUARE FEET",
-    "YEAR BUILT"
+    'BOROUGH',
+    'NEIGHBORHOOD',
+    'BUILDING CLASS CATEGORY',
+    'TAX CLASS',
+    'BLOCK',
+    'LOT',
+    'BUILDING CLASS',
+    'ADDRESS',
+    'ZIP CODE',
+    'RESIDENTIAL UNITS',
+    'COMMERCIAL UNITS',
+    'TOTAL UNITS',
+    'LAND SQUARE FEET',
+    'GROSS SQUARE FEET',
+    'YEAR BUILT'
 ]
+
+COLUMNS_REGEX = "^" + ".*".join(COLUMNS).replace(" ", ".*") + "$"
 
 
 def parse_filename(name):
@@ -82,6 +85,28 @@ def parse_filename(name):
     return (parts[1], borough)
 
 
+def isheader(values_array):
+    '''
+    Tests whether or not a given row is a valid 421a data header
+    '''
+    if values_array is None:
+        raise Exception(
+            f"isheader requires an array of strings as argument"
+        )
+
+    try:
+        combined = " ".join(values_array).replace("\n", " ")
+    except:
+        return False
+
+    result = re.search(COLUMNS_REGEX, combined)
+
+    if result and len(result.string) > 0:
+        return True
+    else:
+        return False
+
+
 def itersheetrows():
     '''
     Yields an iterator that combines the rows from all
@@ -120,7 +145,8 @@ def itersheetrows():
             for i in range(min(sheet.nrows, MAX_ROWS)):
                 row = sheet.row(i)
                 rowvals = [cell.value for cell in row]
-                if COLUMNS == rowvals:
+                print(f"rowvals ${rowvals}")
+                if i < 5 and isheader(rowvals):
                     found = True
                 elif found:
                     yield [years, borough] + rowvals
