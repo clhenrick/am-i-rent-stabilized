@@ -84,21 +84,11 @@ If many lanugages are to be supported in the future, then a dropdown / select me
 
 Note that currently "right to left" languages are not supported in the UI.
 
-## Data Sources
-- [NYC MapPluto](http://www.nyc.gov/html/dcp/html/bytes/dwn_pluto_mappluto.shtml) Tax Lot geospatial data.
-- New York State's [HCR](http://www.nyshcr.org/) - [Rent Stabilized Buldings List](https://github.com/clhenrick/dhcr-rent-stabilized-data).
-- Exempt Stabilized buildings via [nyc-stabilization-unit-counts](https://github.com/talos/nyc-stabilization-unit-counts).
+## Data Sources and Processing:
 
-## Data Processing:
-The processed data is [publicly available for download on CartoDB](https://chenrick.carto.com/tables/map_pluto_likely_rs_2016v1/public/map) but if you'd like to host it yourself you may do the following (note you will need to have [GDAL](http://www.gdal.org/) and [PostGIS](http://postgis.net/) installed):
+See the [`data/`](./data) directory for a Makefile and Docker container configurations for generating the app's data.
 
-1. Import each of the [NYC MapPLUTO](http://www1.nyc.gov/site/planning/data-maps/open-data.page) shapefiles into Postgres / PostGIS. I recommend using `shp2pgsl`.
-2. Import the [DHCR rent stabilized building list](https://github.com/clhenrick/dhcr-rent-stabilized-data/tree/master/csv) data into Postgres.
-3. Import Properties with 421a tax exemptions data located in `data/exempt_stabilized.csv`.
-4. Run the queries in `sql/likely_rent_stabilized.sql` in Postgres.
-5. Export the `map_pluto_likely_rs` table as a shapefile from Postgres using `pgsql2shp`.
-6. Import the shapefile to CartoDB.
-7. You can now query the data using the CartoDB SQL API.
+The processed data is also [publicly available for download on CARTO](https://chenrick.carto.com/tables/map_pluto_likely_rs_2016v1/public/map).
 
 ## Credits
 - Big thanks to [Caroline Woolard](http://carolinewoolard.com/) for suggesting the idea to me.
