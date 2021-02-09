@@ -14,7 +14,7 @@ endif
 .RECIPEPREFIX = >
 
 # MapPLUTO data
-MAPPLUTO_DATA_VERSION := "19v1"
+MAPPLUTO_DATA_VERSION := "20v8"
 MAPPLUTO_DATA_FILE := "nyc_mappluto_$(MAPPLUTO_DATA_VERSION)_shp.zip"
 MAPPLUTO_DATA_URI := "https://www1.nyc.gov/assets/planning/download/zip/data-maps/open-data/$(MAPPLUTO_DATA_FILE)"
 
