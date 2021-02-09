@@ -14,6 +14,9 @@ endif
 .RECIPEPREFIX = >
 
 # MapPLUTO data
+# NOTE: "archived" versions of the data follow a slightly different naming convention then current releases
+# e.g. nyc_mappluto_<version>_arc_shp.zip
+# so if the mappluto data download fails, then check to make sure the version hasn't been archived.
 MAPPLUTO_DATA_VERSION := "20v8"
 MAPPLUTO_DATA_FILE := "nyc_mappluto_$(MAPPLUTO_DATA_VERSION)_shp.zip"
 MAPPLUTO_DATA_URI := "https://www1.nyc.gov/assets/planning/download/zip/data-maps/open-data/$(MAPPLUTO_DATA_FILE)"
@@ -72,10 +75,11 @@ db-service/.run.sentinel: db-service/.build.sentinel
 > @echo "Running Docker container for db-service..."
 > docker run \
 > --name airs-data-db \
+> --publish 5433:5432 \
 > --env POSTGRES_PASSWORD=$(POSTGRES_PASSWORD) \
 > --env POSTGRES_USER=$(POSTGRES_USER) \
 > --env POSTGRES_DB=$(POSTGRES_DB) \
-> -v airs-data-db:/var/lib/postgresql/data \
+> --volume airs-data-db:/var/lib/postgresql/data \
 > --restart=unless-stopped \
 > clhenrick/airs-data-db
 > touch $@
