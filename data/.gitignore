@@ -1,0 +1,7 @@
+__pycache__
+data/
+.env
+*.sentinel
+mappluto.sql
+test.sql
+likely_rs_table_dump.sql
