@@ -1,3 +1,5 @@
+# code credit: Atul Varma https://github.com/toolness/nyc-421a-xls
+
 from pathlib import Path
 import requests
 from bs4 import BeautifulSoup

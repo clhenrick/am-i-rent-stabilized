@@ -1,3 +1,6 @@
+# code credit: Atul Varma https://github.com/toolness/nyc-421a-xls
+# with patch by @clhenrick
+
 import os
 import xlrd
 import csv
@@ -43,6 +46,9 @@ COLUMNS = [
     'YEAR BUILT'
 ]
 
+# @clhenrick
+# Column names changed between the 2017-2018 and 2019-2020 xlsx files
+# this regex matches both naming conventions
 COLUMNS_REGEX = "^" + ".*".join(COLUMNS).replace(" ", ".*") + "$"
 
 
@@ -85,6 +91,8 @@ def parse_filename(name):
     return (parts[1], borough)
 
 
+# @clhenrick
+# matches inconsistent column names in xlxs files
 def isheader(values_array):
     '''
     Tests whether or not a given row is a valid 421a data header
