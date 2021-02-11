@@ -1,6 +1,6 @@
 # 421a Service
 
-This service gathers data on NYC buildings that have a 421a tax exemption status using [Python scripts developed by Atul Varma](https://github.com/toolness/nyc-421a-xls). The output is a single CSV file `421a.csv`.
+This service gathers data on NYC buildings that have a 421a tax exemption status using [Python scripts developed by Atul Varma](https://github.com/toolness/nyc-421a-xls). The output is a single CSV file `data/421a.csv`.
 
 ## Usage
 
