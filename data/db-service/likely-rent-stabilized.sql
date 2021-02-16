@@ -44,10 +44,9 @@ FROM (
         WHERE
           yearbuilt < 1974
           AND unitsres >= 6
-          AND (
-            ownername NOT ILIKE 'new york city housing authority'
-            OR ownername NOT ILIKE 'nycha'
-          )
+          AND ownername NOT ILIKE 'new york city housing authority'
+          AND ownername NOT ILIKE 'nyc housing authority'
+          AND ownername NOT ILIKE 'nycha'
           AND bldgclass NOT ILIKE 'r%'
       ) as a
   ) as _;
