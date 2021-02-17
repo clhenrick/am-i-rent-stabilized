@@ -88,7 +88,7 @@ Note that currently "right to left" languages are not supported in the UI.
 
 See the [`data/`](./data) directory for a Makefile and Docker container configurations for generating the app's data.
 
-The processed data is hosted and [publicly available for download on CARTO](https://chenrick.carto.com/tables/map_pluto_likely_rs_2016v1/public/map).
+The processed data is hosted and [publicly available for download on CARTO](https://chenrick.carto.com/tables/mappluto_likely_rs_2020_v8/public/map).
 
 ## Credits
 - Big thanks to [Caroline Woolard](http://carolinewoolard.com/) for suggesting the idea to me.
