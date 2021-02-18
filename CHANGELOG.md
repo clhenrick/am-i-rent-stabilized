@@ -1,12 +1,18 @@
 # Am I Rent Stabilized Changelog
 This changelog describes major changes to the website and application. It was first created on November 25, 2020.
 
+## 2021-02-10 (PR #80)
+Updated the ETL scripts that generate the data on NYC properties that are likely to have rent stabilized apartments. Consolidated the previous subdirectories (`scripts/`, `sql/`, and `data/`) into the single `data/` subdirectory. The data processing is now automated via a `Makefile` and several Docker containers. Running the command `make all` in the `data/` subdirectory will download the required data sources and run the necessary scripts that create a PostgreSQL database called `airs` with the `likely_rs` table containing the list of said properties. Currently this table is exported as a Shapefile and uploaded to CARTO to enable data querying and rendering by the app. A future update may replace the use of CARTO with a NodeJS server that features a RESTful API for querying the data.
+
+## 2021-01-30 (PR #79)
+Fixed a bug with the app's address search where an autosuggest search result selected by the user could return a different address by the search API endpoint.
+
 ## 2020-11-29 (PR #58)
 This was a major JavaScript refactor (perhaps more so a rewrite!) of the application's codebase that amounted to over 400 commits! The primary goal of this refactor was to make the JavaScript code easier to reason about as its previous implementation was, let's say, not the easiest to reason about. Secondary goals were to improve code quality with unit tests, Continuous Integration, JS & SCSS linting, and code formatting. I also removed some 3rd party libraries that were no longer needed, upgraded ones that were kept, and implemented a new build system using Webpack.
 
 Non-goals of this refactor included:  
-- porting the codebase to a JavaScript framework such as React or Vue 
-- porting the codebase to Typescript 
+- porting the codebase to a JavaScript framework such as React or Vue
+- porting the codebase to Typescript
 - refactoring the styles (SCSS/Sass)
 - fixing accessibility issues
 - adding new features (well except for autosuggest in the address search!)
@@ -18,7 +24,7 @@ The following is a comprehensive overview of the changes that were made.
 ### Code Refactor
 - [x] refactor JavaScript in previous `app/js/app` directory
 - [x] restructure the sub-directories in `app/`, e.g. use the `src/` and `public` directory conventions that are commonly used with modern frontend web apps.
-- [x] modularize the code using ES modules 
+- [x] modularize the code using ES modules
 - [x] use ES6+ features / syntax
 - [x] isolate interactive UI elements as ES6 Class components that inherit from a super class.
 - [x] utilize immutable application state management
@@ -62,7 +68,7 @@ Create Component classes for each interactive element to isolate its logic, styl
 - [x] set up an ESLint task
 - [x] set up StyleLint task for CSS/SCSS
 - [x] set up a Prettier code formatting task
-- [x] set up the Jest testing framework 
+- [x] set up the Jest testing framework
 - [x] set up a `git` commit hook that runs Prettier and ESLint
 - [x] write unit tests
 - [x] setup Github Action for building the app and running tests in pull requests
@@ -121,7 +127,7 @@ The following items I did not get around to completing and intend to address aft
   - needs async action for fetching data
   - could move hbs template from index.html page to a file
 
-A11Y: 
+A11Y:
 
 - [ ] manage focus when scrolling between slides (see [this write up for why](https://css-tricks.com/smooth-scrolling-accessibility/))
 
