@@ -1,17 +1,13 @@
 .button {
   @include button;
 
-  a {
-    color: $white;
-  }
-
   &.start-over {
     min-width: 200px;
     width: auto;
   }
 
   &.learn-more {
-    width: 200px;
+    min-width: 200px;
     margin-left: 50px;
   }
 
