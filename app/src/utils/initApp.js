@@ -73,11 +73,8 @@ export default function initApp() {
   );
 
   // "next" slide advance buttons
-  document.querySelectorAll(".go-next.bottom-arrow").forEach((element, idx) => {
-    registry.add(
-      `advanceSlides${idx}`,
-      new AdvanceSlides({ element, store, buttonSelector: "h3" })
-    );
+  document.querySelectorAll(".go-next").forEach((element, idx) => {
+    registry.add(`advanceSlides${idx}`, new AdvanceSlides({ element, store }));
   });
 
   // handles advancing to "when you receive your rent history"
@@ -86,7 +83,6 @@ export default function initApp() {
     new AdvanceSlides({
       element: document.querySelector("p.go-step4"),
       store,
-      buttonSelector: "a",
       advanceToIdx: 6,
     })
   );
