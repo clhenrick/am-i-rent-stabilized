@@ -72,16 +72,6 @@ describe("AdvanceSlides", () => {
     ).toThrow("Requires redux store");
   });
 
-  test("Accepts required prop for button selector", () => {
-    expect(advanceSlides.button).toBeInstanceOf(HTMLElement);
-  });
-
-  test("Throws an error if missing prop for button selector", () => {
-    expect(() => new AdvanceSlides({ element, store })).toThrow(
-      "Requires a CSS selector for its button"
-    );
-  });
-
   test("The component's button handles a click event", () => {
     document.querySelector(".go-next.bottom-arrow > h3").click();
     expect(spyButton).toHaveBeenCalled();
