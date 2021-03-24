@@ -130,7 +130,7 @@ export default function initApp() {
   registry.add(
     "startOver",
     new StartOver({
-      element: document.querySelector(".button.start-over"),
+      element: document.querySelector("button.start-over"),
       store,
     })
   );

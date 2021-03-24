@@ -14,13 +14,11 @@ export class StartOver extends Component {
   }
 
   bindEvents() {
-    this.element.querySelector("a").addEventListener("click", this.handleClick);
+    this.element.addEventListener("click", this.handleClick);
   }
 
   removeEvents() {
-    this.element
-      .querySelector("a")
-      .removeEventListener("click", this.handleClick);
+    this.element.removeEventListener("click", this.handleClick);
   }
 
   handleClick(event) {

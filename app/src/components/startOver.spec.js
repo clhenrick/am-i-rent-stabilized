@@ -44,7 +44,7 @@ describe("StartOver", () => {
   });
 
   test("bindEvents", () => {
-    startOver.element.querySelector("a").click();
+    startOver.element.click();
     expect(spyHandleClick).toHaveBeenCalledTimes(1);
   });
 
