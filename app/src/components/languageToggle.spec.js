@@ -54,7 +54,7 @@ describe("LanguageToggle", () => {
 
   test("handleClick calls store.dispatch", () => {
     const event = {
-      target: languageToggle.element.querySelector("a[lang='es']"),
+      target: languageToggle.element.querySelector("button[lang='es']"),
       preventDefault: jest.fn(),
     };
     languageToggle.handleClick(event);
@@ -63,7 +63,7 @@ describe("LanguageToggle", () => {
 
   test("handleClick calls setCurLang and translatePage", () => {
     const event = {
-      target: languageToggle.element.querySelector("a[lang='es']"),
+      target: languageToggle.element.querySelector("button[lang='es']"),
       preventDefault: jest.fn(),
     };
     languageToggle.handleClick(event);
@@ -73,7 +73,7 @@ describe("LanguageToggle", () => {
 
   test("handleClick logs a Language Toggle event", () => {
     const event = {
-      target: languageToggle.element.querySelector("a[lang='es']"),
+      target: languageToggle.element.querySelector("button[lang='es']"),
       preventDefault: jest.fn(),
     };
     languageToggle.handleClick(event);
@@ -84,12 +84,16 @@ describe("LanguageToggle", () => {
     const spyHandleClick = jest.spyOn(LanguageToggle.prototype, "handleClick");
     languageToggle = new LanguageToggle({ element, store });
 
-    document.querySelector("div.desktop .lang-toggle a[lang='es']").click();
+    document
+      .querySelector("div.desktop .lang-toggle button[lang='es']")
+      .click();
     expect(spyHandleClick).toHaveBeenCalledTimes(1);
 
     spyHandleClick.mockClear();
 
-    document.querySelector("div.desktop .lang-toggle a[lang='zh']").click();
+    document
+      .querySelector("div.desktop .lang-toggle button[lang='zh']")
+      .click();
     expect(spyHandleClick).toHaveBeenCalledTimes(1);
   });
 

@@ -37,19 +37,18 @@ export class LanguageToggle extends Component {
   }
 
   bindEvents() {
-    this.element.querySelectorAll("a").forEach((btn) => {
+    this.element.querySelectorAll("button").forEach((btn) => {
       btn.addEventListener("click", this.handleClick);
     });
   }
 
   removeEvents() {
-    this.element.querySelectorAll("a").forEach((btn) => {
+    this.element.querySelectorAll("button").forEach((btn) => {
       btn.removeEventListener("click", this.handleClick);
     });
   }
 
   handleClick(event) {
-    event.preventDefault();
     setCurLang(this.getLangFromBtn(event.target.innerHTML));
     logLanguageToggle(this.getLangFromBtn(event.target.innerHTML));
     this.store.dispatch(resetAppState());
