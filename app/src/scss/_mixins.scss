@@ -24,17 +24,22 @@
 @mixin button {
   display: inline-block;
   position: relative;
-  width: 170px;
+  min-width: 170px;
   margin: 0 auto;
   font-size: 2em;
+  font-weight: 600;
   text-align: center;
   text-transform: uppercase;
   background-color: $darkorange;
   padding: 10px 20px;
+  border: none;
   border-radius: 35px;
+  color: #fff;
+  cursor: pointer;
 
   &:hover {
     background-color: $orange;
+    color: #fff;
   }
 
   &:focus {

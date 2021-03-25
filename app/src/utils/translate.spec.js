@@ -151,6 +151,37 @@ describe("setCurLang", () => {
   });
 });
 
+describe("initLange", () => {
+  // Note: mock implementation here due to how
+  // Jest can't spy on functions called within the same module
+  // see: https://stackoverflow.com/a/52651975
+  let { initLang } = require("./translate");
+  const mockGetCurLang = jest.fn(() => "es");
+  const mockSetCurLang = jest.fn();
+  initLang = jest.fn(() => {
+    mockSetCurLang(mockGetCurLang());
+  });
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  test("getCurLang is called", () => {
+    initLang();
+    expect(mockGetCurLang).toHaveBeenCalledTimes(1);
+  });
+
+  test("setCurLang is called", () => {
+    initLang();
+    expect(mockSetCurLang).toHaveBeenCalledTimes(1);
+  });
+
+  test("setCurLang called with the correct value", () => {
+    initLang();
+    expect(mockSetCurLang).toHaveBeenCalledWith("es");
+  });
+});
+
 describe("getCurrentPageName", () => {
   test("It returns the correct substring of the current document's name", () => {
     let result;

@@ -2,7 +2,9 @@ import initInfoPages from "./initInfoPages";
 import { ComponentRegistry } from "./componentRegistry";
 import { NavMenuToggle } from "../components/navigation";
 import { LanguageToggle } from "../components/languageToggle";
+import { initLang } from "./translate";
 
+jest.mock("./translate");
 jest.mock("./componentRegistry");
 jest.mock("../components/navigation");
 jest.mock("../components/languageToggle");
@@ -38,5 +40,10 @@ describe("initInfoPages", () => {
   test("any prior component instances are removed from the registry", () => {
     initInfoPages();
     expect(ComponentRegistry.prototype.removeAll).toHaveBeenCalled();
+  });
+
+  test("the page's locale is set to the stored or default language", () => {
+    initInfoPages();
+    expect(initLang).toHaveBeenCalledTimes(1);
   });
 });

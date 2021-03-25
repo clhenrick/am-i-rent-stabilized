@@ -2,10 +2,13 @@ import { store } from "../store";
 import { ComponentRegistry } from "./componentRegistry";
 import { NavMenuToggle } from "../components/navigation";
 import { LanguageToggle } from "../components/languageToggle";
+import { initLang } from "./translate";
 
 const registry = new ComponentRegistry();
 
 export default function initInfoPages() {
+  initLang();
+
   registry.removeAll();
 
   registry.add(

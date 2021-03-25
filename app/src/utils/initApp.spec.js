@@ -1,4 +1,5 @@
 import initApp from "./initApp";
+import { initLang } from "./translate";
 import { ComponentRegistry } from "./componentRegistry";
 import { NavMenuToggle } from "../components/navigation";
 import { LanguageToggle } from "../components/languageToggle";
@@ -12,6 +13,7 @@ import { RentHistoryEmail } from "../components/rentHistoryEmail";
 import { AddToCalendar } from "../components/addToCalendar";
 import { StartOver } from "../components/startOver";
 
+jest.mock("./translate");
 jest.mock("./componentRegistry");
 jest.mock("../components/navigation");
 jest.mock("../components/languageToggle");
@@ -65,5 +67,10 @@ describe("initApp", () => {
   test("any prior component instances are removed from the registry", () => {
     initApp();
     expect(ComponentRegistry.prototype.removeAll).toHaveBeenCalled();
+  });
+
+  test("the page's locale is set to the stored or default language", () => {
+    initApp();
+    expect(initLang).toHaveBeenCalledTimes(1);
   });
 });

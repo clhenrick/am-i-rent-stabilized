@@ -13,12 +13,6 @@ export class AdvanceSlides extends Component {
       this.advanceToIdx = props.advanceToIdx;
     }
 
-    if ("buttonSelector" in props && typeof props.buttonSelector === "string") {
-      this.button = this.element.querySelector(props.buttonSelector);
-    } else {
-      throw new Error("Requires a CSS selector for its button");
-    }
-
     this.handleClick = this.handleClick.bind(this);
     this.advanceToSlide = this.advanceToSlide.bind(this);
     this.bindEvents = this.bindEvents.bind(this);
@@ -26,11 +20,11 @@ export class AdvanceSlides extends Component {
   }
 
   bindEvents() {
-    this.button.addEventListener("click", this.handleClick);
+    this.element.addEventListener("click", this.handleClick);
   }
 
   removeEvents() {
-    this.button.removeEventListener("click", this.handleClick);
+    this.element.removeEventListener("click", this.handleClick);
   }
 
   handleClick(event) {

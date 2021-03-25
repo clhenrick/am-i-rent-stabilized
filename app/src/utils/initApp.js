@@ -12,11 +12,15 @@ import { SearchResultMap } from "../components/searchResultMap";
 import { RentHistoryEmail } from "../components/rentHistoryEmail";
 import { AddToCalendar } from "../components/addToCalendar";
 import { StartOver } from "../components/startOver";
+import { initLang } from "./translate";
 
 const registry = new ComponentRegistry();
 
 export default function initApp() {
-  // first safely remove previous components
+  // set the page's language / locale
+  initLang();
+
+  // safely remove previous components
   registry.removeAll();
 
   // enables slides keyboard navigation for debugging
@@ -73,11 +77,8 @@ export default function initApp() {
   );
 
   // "next" slide advance buttons
-  document.querySelectorAll(".go-next.bottom-arrow").forEach((element, idx) => {
-    registry.add(
-      `advanceSlides${idx}`,
-      new AdvanceSlides({ element, store, buttonSelector: "h3" })
-    );
+  document.querySelectorAll(".go-next").forEach((element, idx) => {
+    registry.add(`advanceSlides${idx}`, new AdvanceSlides({ element, store }));
   });
 
   // handles advancing to "when you receive your rent history"
@@ -86,7 +87,6 @@ export default function initApp() {
     new AdvanceSlides({
       element: document.querySelector("p.go-step4"),
       store,
-      buttonSelector: "a",
       advanceToIdx: 6,
     })
   );
@@ -134,7 +134,7 @@ export default function initApp() {
   registry.add(
     "startOver",
     new StartOver({
-      element: document.querySelector(".button.start-over"),
+      element: document.querySelector("button.start-over"),
       store,
     })
   );
