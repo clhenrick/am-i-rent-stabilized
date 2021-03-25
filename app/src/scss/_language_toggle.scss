@@ -23,7 +23,7 @@
     list-style-position: inside;
   }
 
-  a,
+  button,
   p {
     text-decoration: none;
     font-family: $body-font;
@@ -32,8 +32,21 @@
     color: $lightgray;
   }
 
-  a:hover {
-    color: $gray;
+  button {
+    border: none;
+    background: none;
+    margin: 0;
+    padding: 0;
+
+    &:hover {
+      color: $gray;
+    }
+
+    &:focus {
+      outline: none;
+      border: none;
+      box-shadow: 0 0 3px 2px $blue;
+    }
   }
 
   #left & {
