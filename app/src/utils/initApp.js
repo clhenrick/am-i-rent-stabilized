@@ -12,11 +12,15 @@ import { SearchResultMap } from "../components/searchResultMap";
 import { RentHistoryEmail } from "../components/rentHistoryEmail";
 import { AddToCalendar } from "../components/addToCalendar";
 import { StartOver } from "../components/startOver";
+import { initLang } from "./translate";
 
 const registry = new ComponentRegistry();
 
 export default function initApp() {
-  // first safely remove previous components
+  // set the page's language / locale
+  initLang();
+
+  // safely remove previous components
   registry.removeAll();
 
   // enables slides keyboard navigation for debugging
