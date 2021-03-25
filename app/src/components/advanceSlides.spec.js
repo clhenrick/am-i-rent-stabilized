@@ -73,7 +73,7 @@ describe("AdvanceSlides", () => {
   });
 
   test("The component's button handles a click event", () => {
-    document.querySelector(".go-next.bottom-arrow > h3").click();
+    document.querySelector(".go-next.bottom-arrow").click();
     expect(spyButton).toHaveBeenCalled();
   });
 
