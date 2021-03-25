@@ -1,6 +1,11 @@
 # Am I Rent Stabilized Changelog
 This changelog describes major changes to the website and application. It was first created on November 25, 2020.
 
+## 2021-03-25 (PR #87)
+Fixed accessibility issues with elements that behaved like buttons but were either clickable `<div>` elements (ugh!) or anchor elements.
+
+Fixed a bug where pages would load without the locale being set thereby causing an incorrect `font-size` value to be applied to body text.
+
 ## 2021-02-10 (PR #80)
 Updated the ETL scripts that generate the data on NYC properties that are likely to have rent stabilized apartments. Consolidated the previous subdirectories (`scripts/`, `sql/`, and `data/`) into the single `data/` subdirectory. The data processing is now automated via a `Makefile` and several Docker containers. Running the command `make all` in the `data/` subdirectory will download the required data sources and run the necessary scripts that create a PostgreSQL database called `airs` with the `likely_rs` table containing the list of said properties. Currently this table is exported as a Shapefile and uploaded to CARTO to enable data querying and rendering by the app. A future update may replace the use of CARTO with a NodeJS server that features a RESTful API for querying the data.
 
