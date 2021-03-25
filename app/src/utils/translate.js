@@ -27,21 +27,25 @@ export async function translatePage() {
   }
 }
 
-export function getCurLang() {
+export const getCurLang = () => {
   const lang = w.localStorage.getItem("lang");
   if (lang && Object.values(LANGS).indexOf(lang) !== -1) {
     return lang;
   }
   return "en";
-}
+};
 
-export function setCurLang(lang) {
+export const setCurLang = (lang) => {
   if (lang && Object.values(LANGS).indexOf(lang) !== -1) {
     d.body.className = lang;
     d.querySelector("html").lang = lang;
     w.localStorage.setItem("lang", lang);
   }
-}
+};
+
+export const initLang = () => {
+  setCurLang(getCurLang());
+};
 
 export function getCurrentPageName() {
   const path = window.location.pathname;
