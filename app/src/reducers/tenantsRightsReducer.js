@@ -1,6 +1,6 @@
 import * as types from "../constants/actionTypes";
 
-const initialState = {
+export const initialState = {
   status: "idle",
   results: null,
   error: null,
@@ -11,7 +11,7 @@ export function tenantsRights(state = initialState, action) {
     case types.TenantsRightsRequest:
       return {
         ...state,
-        status: "pending",
+        status: "fetching",
       };
     case types.TenantsRightsSuccess:
       return {
