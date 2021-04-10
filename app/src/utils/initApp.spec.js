@@ -12,6 +12,7 @@ import { SearchResultMap } from "../components/searchResultMap";
 import { RentHistoryEmail } from "../components/rentHistoryEmail";
 import { AddToCalendar } from "../components/addToCalendar";
 import { StartOver } from "../components/startOver";
+import { TenantsRightsModal } from "../components/tenantsRightsModal";
 
 jest.mock("./translate");
 jest.mock("./componentRegistry");
@@ -26,9 +27,10 @@ jest.mock("../components/searchResultMap");
 jest.mock("../components/rentHistoryEmail");
 jest.mock("../components/addToCalendar");
 jest.mock("../components/startOver");
+jest.mock("../components/tenantsRightsModal");
 
 describe("initApp", () => {
-  const NUMBER_OF_COMPONENT_INSTANCES = 18; // not including KeyboardNavigation
+  const NUMBER_OF_COMPONENT_INSTANCES = 19; // not including KeyboardNavigation
 
   beforeAll(() => {
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
@@ -42,6 +44,7 @@ describe("initApp", () => {
     jest.resetModules();
   });
 
+  // not sure this test is working...
   test("it creates component instances", () => {
     initApp();
     expect(NavMenuToggle).toHaveBeenCalled();
@@ -55,6 +58,7 @@ describe("initApp", () => {
     expect(RentHistoryEmail).toHaveBeenCalled();
     expect(AddToCalendar).toHaveBeenCalled();
     expect(StartOver).toHaveBeenCalled();
+    expect(TenantsRightsModal).toHaveBeenCalled();
   });
 
   test("all component instances are added to the registry", () => {

@@ -12,6 +12,7 @@ import { SearchResultMap } from "../components/searchResultMap";
 import { RentHistoryEmail } from "../components/rentHistoryEmail";
 import { AddToCalendar } from "../components/addToCalendar";
 import { StartOver } from "../components/startOver";
+import { TenantsRightsModal } from "../components/tenantsRightsModal";
 import { initLang } from "./translate";
 
 const registry = new ComponentRegistry();
@@ -135,6 +136,14 @@ export default function initApp() {
     "startOver",
     new StartOver({
       element: document.querySelector("button.start-over"),
+      store,
+    })
+  );
+
+  registry.add(
+    "tenantsRightsModal",
+    new TenantsRightsModal({
+      element: document.querySelector("p.yes-local-tr a"),
       store,
     })
   );
