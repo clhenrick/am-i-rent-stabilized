@@ -6,6 +6,10 @@ import {
   addressSearchFetch,
   addressSearchSuccess,
 } from "./addressGeocodeActions";
+import {
+  // tenantsRightsGroupsFailure,
+  fetchTenantsRightsGroups,
+} from "./tenantsRightsGroupsActions";
 import { goToSlideIdx } from "./slidesActions";
 import { delay } from "../utils/delay";
 import { RS_SEARCH_DELAY_MS } from "../constants/app";
@@ -14,6 +18,8 @@ export const ERROR_ADDRESS_NOT_FOUND = "Address search result not found";
 export const ERROR_MISSING_BBL =
   "Missing BBL property on address search result";
 export const ERROR_RS = "Problem looking up rent stabilization data";
+export const ERROR_MISSING_COORDS =
+  "Missing coordinates from address search result";
 
 export function validateSearchResult(result) {
   if (!result || !result.features || !result.features.length) {
@@ -32,6 +38,19 @@ export function getBBL(feature) {
     throw new Error(ERROR_MISSING_BBL);
   }
   return feature.properties.pad_bbl;
+}
+
+export function getCoords(feature) {
+  if (
+    !feature ||
+    !feature.geometry ||
+    !feature.geometry.coordinates ||
+    !feature.geometry.coordinates.length
+  ) {
+    throw new Error(ERROR_MISSING_COORDS);
+  }
+  const [lon, lat] = feature.geometry.coordinates;
+  return { lon, lat };
 }
 
 /**
@@ -65,6 +84,10 @@ export const searchRentStabilized = (addressInfo) => async (dispatch) => {
       fetchRentStabilized(getBBL(searchResult.features[0]))
     );
     validateRS(rsResult);
+
+    await dispatch(
+      fetchTenantsRightsGroups(getCoords(searchResult.features[0]))
+    );
 
     await delay(RS_SEARCH_DELAY_MS);
     dispatch(goToSlideIdx(3));
