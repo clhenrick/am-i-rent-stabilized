@@ -6,7 +6,7 @@ export const rentStabilizedBblSql = (bbl) =>
 export const mapsApiSql = () =>
   `SELECT the_geom_webmercator FROM ${rentStabilizedTable}`;
 
-export const tenantsRightsSearchSql = ({ lon, lat }) =>
+export const tenantsRightsGroupsSql = ({ lon, lat }) =>
   `SELECT 
     name, 
     full_address, 
