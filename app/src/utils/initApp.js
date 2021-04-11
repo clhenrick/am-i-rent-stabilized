@@ -143,7 +143,7 @@ export default function initApp() {
   registry.add(
     "tenantsRightsModal",
     new TenantsRightsModal({
-      element: document.querySelector("p.yes-local-tr a"),
+      element: document.querySelector("div.tr-modal"),
       store,
     })
   );
