@@ -7,8 +7,6 @@
   right: 0;
   background: rgba(0, 0, 0, 0.8);
   opacity: 0;
-  -webkit-transition: opacity 400ms ease-in;
-  -moz-transition: opacity 400ms ease-in;
   transition: opacity 400ms ease-in;
   pointer-events: none;
 
@@ -22,17 +20,15 @@
 }
 
 .org-container {
-  width: 350px;
+  width: 450px;
   height: 85%;
   top: 60px;
   position: relative;
   margin: 0 auto 0 auto;
-  padding: 10px 20px 13px 20px;
+  padding: 24px;
   border-radius: 10px;
   background: #fff;
   overflow-y: auto;
-
-  // @include columns($width: 300px, $number: 2, $gap: 40px);
 
   @include responsive(small-screens) {
     width: 300px;
@@ -43,31 +39,30 @@
   }
 
   h1,
-  h3,
+  h2,
   p {
     text-align: left;
     margin: 0;
     padding: 0;
-    max-width: 100%;
-    width: 95%;
+    margin-bottom: 6px;
   }
 
   h1 {
-    max-width: 80%;
     margin-bottom: 10px;
-    font-size: 1.5em;
+    font-size: 2em;
+    line-height: 1.2em;
   }
 
-  h3 {
-    width: 85%;
-    margin-top: 25px;
-    font-size: 1.2em;
+  h2 {
+    font-style: normal;
+    font-size: 1.8em;
+    line-height: 1.3em;
   }
 
   p {
-    font-size: 1.2em;
-    min-width: 150px;
-    max-width: 300px;
+    width: 100%;
+    font-size: 1.5em;
+    line-height: 1.3em;
     padding-right: 10px;
     margin-top: 3px;
 
@@ -78,21 +73,21 @@
 }
 
 .close {
-  background: $darkorange;
-  color: #ffffff;
-  line-height: 25px;
+  width: 24px;
+  height: 24px;
   position: absolute;
   right: 12px;
-  text-align: center;
   top: 12px;
-  width: 24px;
-  text-decoration: none;
+  display: inline-block;
+  padding: 0;
+  font-size: 24px;
   font-weight: bold;
-  -webkit-border-radius: 12px;
-  -moz-border-radius: 12px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 24px;
+  background: $darkorange;
+  color: #fff;
   border-radius: 12px;
-  -moz-box-shadow: 1px 1px 3px #000;
-  -webkit-box-shadow: 1px 1px 3px #000;
   box-shadow: 1px 1px 3px #000;
 }
 
@@ -101,7 +96,10 @@
 }
 
 .tr-org-info {
-  width: 350px;
-  margin-top: 15px;
+  margin-top: 24px;
   overflow: hidden;
+
+  &:last-of-type {
+    margin-bottom: 48px;
+  }
 }
