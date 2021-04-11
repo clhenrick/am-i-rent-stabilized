@@ -40,19 +40,6 @@ export function getBBL(feature) {
   return feature.properties.pad_bbl;
 }
 
-export function getCoords(feature) {
-  if (
-    !feature ||
-    !feature.geometry ||
-    !feature.geometry.coordinates ||
-    !feature.geometry.coordinates.length
-  ) {
-    throw new Error(ERROR_MISSING_COORDS);
-  }
-  const [lon, lat] = feature.geometry.coordinates;
-  return { lon, lat };
-}
-
 /**
  * searchRentStabilized
  * @param {string | object } addressInfo The address to be searched
@@ -84,10 +71,6 @@ export const searchRentStabilized = (addressInfo) => async (dispatch) => {
       fetchRentStabilized(getBBL(searchResult.features[0]))
     );
     validateRS(rsResult);
-
-    await dispatch(
-      fetchTenantsRightsGroups(getCoords(searchResult.features[0]))
-    );
 
     await delay(RS_SEARCH_DELAY_MS);
     dispatch(goToSlideIdx(3));
