@@ -6,21 +6,21 @@
     </h1>
     {{#each orgs}}
     <div class="tr-org-info">
-        <h3>{{name}}</h3>
-        {{#if website}}
-        <p class="website-url"><span>Website: </span><a target="_blank" href="{{website}}">{{website}}</a></p>
+        <h3>{{org.name}}</h3>
+        {{#if org.website}}
+        <p class="website-url"><span>Website: </span><a target="_blank" href="{{org.website}}">{{org.website}}</a></p>
         {{/if}}
-        {{#if phone}}
-        <p class="phone-no"><span>Phone: </span>{{phone}}</p>
+        {{#if org.phone}}
+        <p class="phone-no"><span>Phone: </span>{{org.phone}}</p>
         {{/if}}
-        {{#if address}}
-        <p class="address"><span>Address: </span>{{address}}</p>
+        {{#if org.address}}
+        <p class="address"><span>Address: </span>{{org.address}}</p>
         {{/if}}
-        {{#if email}}
-        <p class="email"><span>Email: </span>{{email}}</p>
+        {{#if org.email}}
+        <p class="email"><span>Email: </span>{{org.email}}</p>
         {{/if}}
         <p class="description"><span>Description: </span><br>
-            {{description}}
+            {{org.description}}
         </p>
     </div>
     {{/each}}
