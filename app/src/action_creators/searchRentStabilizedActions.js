@@ -6,10 +6,6 @@ import {
   addressSearchFetch,
   addressSearchSuccess,
 } from "./addressGeocodeActions";
-import {
-  // tenantsRightsGroupsFailure,
-  fetchTenantsRightsGroups,
-} from "./tenantsRightsGroupsActions";
 import { goToSlideIdx } from "./slidesActions";
 import { delay } from "../utils/delay";
 import { RS_SEARCH_DELAY_MS } from "../constants/app";
