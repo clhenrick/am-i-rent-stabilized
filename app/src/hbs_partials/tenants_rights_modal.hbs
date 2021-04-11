@@ -1,27 +1,27 @@
 <div class="org-container">
-    <a href="#close" title="Close" class="close">X</a>
+    <a href="#close" title="Close" class="close" aria-label="Close Account Info Modal Box">×</a>
     <h1>
         Here are some groups that help people with housing
         issues in your neighborhood:
     </h1>
-    {{#each orgs}}
+    {{#each trGroups}}
     <div class="tr-org-info">
-        <h3>{{org.name}}</h3>
-        {{#if org.website}}
-        <p class="website-url"><span>Website: </span><a target="_blank" href="{{org.website}}">{{org.website}}</a></p>
+        <h3>{{this.name}}</h3>
+        {{#if this.website}}
+        <p class="website-url"><span>Website: </span><a target="_blank" href="{{this.website}}">{{this.website}}</a></p>
         {{/if}}
-        {{#if org.phone}}
-        <p class="phone-no"><span>Phone: </span>{{org.phone}}</p>
+        {{#if this.phone}}
+        <p class="phone-no"><span>Phone: </span>{{this.phone}}</p>
         {{/if}}
-        {{#if org.address}}
-        <p class="address"><span>Address: </span>{{org.address}}</p>
+        {{#if this.address}}
+        <p class="address"><span>Address: </span>{{this.address}}</p>
         {{/if}}
-        {{#if org.email}}
-        <p class="email"><span>Email: </span>{{org.email}}</p>
+        {{#if this.email}}
+        <p class="email"><span>Email: </span>{{this.email}}</p>
         {{/if}}
-        <p class="description"><span>Description: </span><br>
-            {{org.description}}
-        </p>
+        {{#if this.description}}
+        <p class="description"><span>Description: </span><br>{{this.description}}</p>
+        {{/if}}
     </div>
     {{/each}}
 </div>

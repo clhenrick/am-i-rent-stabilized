@@ -4,7 +4,7 @@ import { Component } from "./_componentBase";
 import { fetchTenantsRightsGroups } from "../action_creators/tenantsRightsGroupsActions";
 import template from "../hbs_partials/tenants_rights_modal.hbs";
 
-Handlebars.registerPartial("org", template);
+Handlebars.registerPartial("trGroups", template);
 
 export const ERROR_MISSING_COORDS =
   "Missing coordinates from address search result";
@@ -65,8 +65,8 @@ export class TenantsRightsModal extends Component {
     }
   }
 
-  renderModalContents(orgs) {
-    this.element.innerHTML = template({ orgs });
+  renderModalContents(trGroups) {
+    this.element.innerHTML = template({ trGroups });
   }
 
   getCoords(feature) {

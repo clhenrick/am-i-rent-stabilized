@@ -39,6 +39,5 @@ export const fetchTenantsRightsGroups = ({ lon, lat }) => (dispatch) => {
     })
     .catch((error) => {
       dispatch(tenantsRightsGroupsFailure(error));
-      return error;
     });
 };
