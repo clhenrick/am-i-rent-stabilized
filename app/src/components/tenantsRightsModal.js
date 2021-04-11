@@ -23,7 +23,7 @@ export class TenantsRightsModal extends Component {
     this.handleTenantsRightsChange = this.handleTenantsRightsChange.bind(this);
     this.handleSearchResultChange = this.handleSearchResultChange.bind(this);
     this.renderModalContents = this.renderModalContents.bind(this);
-    this.getCoords = this.getCoords.bind(this);
+    this.getSearchCoords = this.getSearchCoords.bind(this);
 
     this.unsubscribeSearchResult = observeStore(
       this.store,
@@ -36,17 +36,20 @@ export class TenantsRightsModal extends Component {
       (state) => state.tenantsRights,
       this.handleTenantsRightsChange
     );
+
+    this.maybeClearWindowHash();
   }
 
   handleSearchResultChange(result) {
     if (
       result &&
       typeof result === "object" &&
-      Array.isArray(result.features)
+      Array.isArray(result.features) &&
+      result.features.length
     ) {
       try {
         this.store.dispatch(
-          fetchTenantsRightsGroups(this.getCoords(result.features[0]))
+          fetchTenantsRightsGroups(this.getSearchCoords(result.features[0]))
         );
       } catch (error) {
         console.error(error);
@@ -66,10 +69,14 @@ export class TenantsRightsModal extends Component {
   }
 
   renderModalContents(trGroups) {
-    this.element.innerHTML = template({ trGroups });
+    try {
+      this.element.innerHTML = template({ trGroups });
+    } catch (error) {
+      console.error(error);
+    }
   }
 
-  getCoords(feature) {
+  getSearchCoords(feature) {
     if (
       !feature ||
       !feature.geometry ||
@@ -80,6 +87,13 @@ export class TenantsRightsModal extends Component {
     }
     const [lon, lat] = feature.geometry.coordinates;
     return { lon, lat };
+  }
+
+  maybeClearWindowHash() {
+    const re = /open-modal/;
+    if (re.exec(window.location.hash)) {
+      window.location.hash = "";
+    }
   }
 
   cleanUp() {
