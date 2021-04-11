@@ -4,10 +4,12 @@ import {
   validateSearchResult,
   validateRS,
   getBBL,
+  getCoords,
   searchRentStabilized,
   ERROR_ADDRESS_NOT_FOUND,
   ERROR_RS,
   ERROR_MISSING_BBL,
+  ERROR_MISSING_COORDS,
 } from "./searchRentStabilizedActions";
 import * as types from "../constants/actionTypes";
 
@@ -67,14 +69,52 @@ describe("getBBL", () => {
   });
 });
 
+describe("getCoords", () => {
+  test("undefined input", () => {
+    expect(() => getCoords()).toThrow(ERROR_MISSING_COORDS);
+  });
+
+  test("missing geometry property", () => {
+    expect(() => getCoords({})).toThrow(ERROR_MISSING_COORDS);
+  });
+
+  test("missing coordinates array", () => {
+    expect(() => getCoords({ geometry: {} })).toThrow(ERROR_MISSING_COORDS);
+  });
+
+  test("empty coordinates array", () => {
+    expect(() => getCoords({ geometry: { coordinates: [] } })).toThrow(
+      ERROR_MISSING_COORDS
+    );
+  });
+
+  test("valid input", () => {
+    expect(getCoords({ geometry: { coordinates: [1, 2] } })).toEqual({
+      lon: 1,
+      lat: 2,
+    });
+  });
+});
+
 describe("searchRentStabilized", () => {
   let store;
+  let geojson;
 
   beforeEach(() => {
     store = mockStore({
       addressGeocode: { autosuggestions: null, status: "idle", error: null },
       rentStabilized: { status: "idle", match: null, error: null },
+      tenantsRights: { status: "idle", results: null, error: null },
     });
+
+    geojson = {
+      features: [
+        {
+          properties: { pad_bbl: "000222" },
+          geometry: { coordinates: [0, 0] },
+        },
+      ],
+    };
   });
 
   afterEach(() => {
@@ -83,13 +123,14 @@ describe("searchRentStabilized", () => {
 
   test("It dispatches expected actions when param is a string", () => {
     fetch
-      .mockResponseOnce(
-        JSON.stringify({ features: [{ properties: { pad_bbl: "000222" } }] }),
-        {
-          status: 200,
-          statusText: "OK",
-        }
-      )
+      .mockResponseOnce(JSON.stringify({ ...geojson }), {
+        status: 200,
+        statusText: "OK",
+      })
+      .mockResponseOnce(JSON.stringify({ rows: [] }), {
+        status: 200,
+        statusText: "OK",
+      })
       .mockResponseOnce(JSON.stringify({ rows: [] }), {
         status: 200,
         statusText: "OK",
@@ -99,10 +140,12 @@ describe("searchRentStabilized", () => {
       { type: types.AddressSearchRequest },
       {
         type: types.AddressSearchSuccess,
-        payload: { features: [{ properties: { pad_bbl: "000222" } }] },
+        payload: { ...geojson },
       },
       { type: types.RentStabilizedRequest },
       { type: types.RentStabilizedSuccess, payload: { rows: [] } },
+      { type: types.TenantsRightsRequest },
+      { type: types.TenantsRightsSuccess, payload: { rows: [] } },
       { type: types.GoToSlideIdx, payload: 3 },
     ];
 
@@ -112,31 +155,24 @@ describe("searchRentStabilized", () => {
   });
 
   test("It dispatches expected actions when param is an object", () => {
-    fetch.mockResponseOnce(JSON.stringify({ rows: [] }), {
+    fetch.mockResponse(JSON.stringify({ rows: [] }), {
       status: 200,
       statusText: "OK",
     });
 
-    const param = {
-      type: "FeatureCollection",
-      features: [
-        {
-          properties: { pad_bbl: "000222" },
-        },
-      ],
-    };
-
     const expectedActions = [
       {
         type: types.AddressSearchSuccess,
-        payload: { ...param },
+        payload: { ...geojson },
       },
       { type: types.RentStabilizedRequest },
       { type: types.RentStabilizedSuccess, payload: { rows: [] } },
+      { type: types.TenantsRightsRequest },
+      { type: types.TenantsRightsSuccess, payload: { rows: [] } },
       { type: types.GoToSlideIdx, payload: 3 },
     ];
 
-    return store.dispatch(searchRentStabilized(param)).then(() => {
+    return store.dispatch(searchRentStabilized(geojson)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
