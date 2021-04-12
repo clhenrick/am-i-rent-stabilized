@@ -24,6 +24,7 @@ export class TenantsRightsModal extends Component {
     this.handleSearchResultChange = this.handleSearchResultChange.bind(this);
     this.renderModalContents = this.renderModalContents.bind(this);
     this.getSearchCoords = this.getSearchCoords.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
 
     this.unsubscribeSearchResult = observeStore(
       this.store,
@@ -37,7 +38,22 @@ export class TenantsRightsModal extends Component {
       this.handleTenantsRightsChange
     );
 
+    this.bindEvents();
     this.maybeClearWindowHash();
+  }
+
+  bindEvents() {
+    document.addEventListener("keydown", this.handleKeyDown);
+  }
+
+  removeEvents() {
+    document.removeEventListener("keydown", this.handleKeyDown);
+  }
+
+  handleKeyDown(event) {
+    if (event.code === "Escape") {
+      this.maybeClearWindowHash();
+    }
   }
 
   handleSearchResultChange(result) {
@@ -90,8 +106,7 @@ export class TenantsRightsModal extends Component {
   }
 
   maybeClearWindowHash() {
-    const re = /open-modal/;
-    if (re.exec(window.location.hash)) {
+    if (/open-modal/.exec(window.location.hash)) {
       window.location.hash = "";
     }
   }
