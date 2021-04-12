@@ -35,7 +35,7 @@ describe("StartOver", () => {
     expect(element).not.toBeNull();
   });
 
-  test("The consumer should be able to call new() on VerifyRentStabilized", () => {
+  test("The consumer should be able to call new() on StartOver", () => {
     expect(startOver).toBeTruthy();
   });
 
