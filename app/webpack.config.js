@@ -18,7 +18,7 @@ module.exports = (env, argv) => {
    * Whether or not we're in development mode.
    * This affects how some of the config options are set
    */
-  const devMode = argv.env.NODE_ENV !== "production";
+  const devMode = env.NODE_ENV !== "production";
 
   if (argv.mode === "development") {
     console.log("webpack is in dev mode");
@@ -290,10 +290,13 @@ module.exports = (env, argv) => {
       // helpful for enabling certain things when in development that you might not
       // want in production, such as logging
       new webpack.DefinePlugin({
-        "process.env.NODE_ENV": JSON.stringify(argv.env.NODE_ENV),
+        "process.env.NODE_ENV": JSON.stringify(env.NODE_ENV),
         "process.env.USE_REDUX_LOGGER": JSON.stringify(
-          argv.env.USE_REDUX_LOGGER
+          env.USE_REDUX_LOGGER
         ),
+        "process.env.USE_PRELOADED_STATE": JSON.stringify(
+          env.USE_PRELOADED_STATE
+        )
       }),
     ],
   };
