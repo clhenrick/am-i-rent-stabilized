@@ -2,6 +2,7 @@ import Handlebars from "handlebars";
 import { observeStore } from "../store";
 import { Component } from "./_componentBase";
 import { fetchTenantsRightsGroups } from "../action_creators/tenantsRightsGroupsActions";
+import { logException, handleErrorObj } from "../utils/logging";
 import template from "../hbs_partials/tenants_rights_modal.hbs";
 
 Handlebars.registerPartial("trGroups", template);
@@ -68,7 +69,9 @@ export class TenantsRightsModal extends Component {
           fetchTenantsRightsGroups(this.getSearchCoords(result.features[0]))
         );
       } catch (error) {
-        console.error(error);
+        logException(
+          handleErrorObj("TenantsRightsModal.handleSearchResultChange", error)
+        );
       }
     }
   }
@@ -88,7 +91,9 @@ export class TenantsRightsModal extends Component {
     try {
       this.element.innerHTML = template({ trGroups });
     } catch (error) {
-      console.error(error);
+      logException(
+        handleErrorObj("TenantsRightsModal.renderModalContents", error)
+      );
     }
   }
 
