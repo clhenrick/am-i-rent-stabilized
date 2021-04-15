@@ -58,12 +58,7 @@ export class TenantsRightsModal extends Component {
   }
 
   handleSearchResultChange(result) {
-    if (
-      result &&
-      typeof result === "object" &&
-      Array.isArray(result.features) &&
-      result.features.length
-    ) {
+    if (result?.features?.[0]) {
       try {
         this.store.dispatch(
           fetchTenantsRightsGroups(this.getSearchCoords(result.features[0]))
@@ -77,7 +72,7 @@ export class TenantsRightsModal extends Component {
   }
 
   handleTenantsRightsChange({ results, status }) {
-    if (status === "idle" && results && results.rows && results.rows.length) {
+    if (status === "idle" && results?.rows?.length) {
       this.containerYes.classList.remove("hidden");
       this.containerNo.classList.add("hidden");
       this.renderModalContents(results.rows);
@@ -98,16 +93,11 @@ export class TenantsRightsModal extends Component {
   }
 
   getSearchCoords(feature) {
-    if (
-      !feature ||
-      !feature.geometry ||
-      !feature.geometry.coordinates ||
-      !feature.geometry.coordinates.length
-    ) {
-      throw new Error(ERROR_MISSING_COORDS);
+    const [lon, lat] = feature?.geometry?.coordinates;
+    if (isFinite(lon) && isFinite(lat)) {
+      return { lon, lat };
     }
-    const [lon, lat] = feature.geometry.coordinates;
-    return { lon, lat };
+    throw new Error(ERROR_MISSING_COORDS);
   }
 
   maybeClearWindowHash() {
