@@ -14,6 +14,8 @@ export const ERROR_ADDRESS_NOT_FOUND = "Address search result not found";
 export const ERROR_MISSING_BBL =
   "Missing BBL property on address search result";
 export const ERROR_RS = "Problem looking up rent stabilization data";
+export const ERROR_MISSING_COORDS =
+  "Missing coordinates from address search result";
 
 export function validateSearchResult(result) {
   if (!result || !result.features || !result.features.length) {

@@ -22,5 +22,11 @@ export const RentStabilizedSuccess = "RentStabilizedSuccess";
 export const RentStabilizedFailure = "RentStabilizedFailure";
 export const RentStabilizedReset = "RentStabilizedReset";
 
+// tenants rights groups search
+export const TenantsRightsRequest = "TenantsRightsRequest";
+export const TenantsRightsSuccess = "TenantsRightsSuccess";
+export const TenantsRightsFailure = "TenantsRightsFailure";
+export const TenantsRightsReset = "TenantsRightsReset";
+
 // reset app state
 export const ResetAppState = "ResetAppState";

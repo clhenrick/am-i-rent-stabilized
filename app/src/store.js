@@ -10,8 +10,14 @@ const composeEnhancers =
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     : compose;
 
+// enabled via npm script "start:preloaded-state"
+const preloadedState = process.env.USE_PRELOADED_STATE
+  ? require("./preloaded-state").preloadedState
+  : {};
+
 export const store = createStore(
   rootReducer,
+  preloadedState,
   composeEnhancers(applyMiddleware(...middlewares))
 );
 

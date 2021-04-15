@@ -43,6 +43,7 @@ function registerHbsPartials() {
     "search_validation_errors",
     "search_result_map",
     "add_to_calendar",
+    "tenants_rights_modal",
   ];
 
   for (const partial of partials) {
