@@ -1,6 +1,9 @@
 # Am I Rent Stabilized Changelog
 This changelog describes significant changes to the project. It was first created on November 29, 2020 so does not account for the entire project's history.
 
+## 2021-04-14 ([PR #89](https://github.com/clhenrick/am-i-rent-stabilized/pull/89))
+Reinstated the local tenants rights groups search that was missing from the 2020-11-29 JavaScript refactor. When a user searches for their address, if the geocoding API returns a successful response, the coordinates of that address are matched spatially (point in polygon) against a table containing the catchment areas of NYC tenants rights groups via CARTO's SQL API. If any results are found then they are displayed in a modal in the second to last slide. How this data is displayed to the user could be improved, and the tenants rights groups data itself most likely needs updating.
+
 ## 2021-03-25 ([PR #87](https://github.com/clhenrick/am-i-rent-stabilized/pull/87))
 Fixed accessibility issues with elements that behaved like buttons but were either clickable `<div>` elements (ugh!) or anchor elements.
 
