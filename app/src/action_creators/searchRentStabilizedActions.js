@@ -30,10 +30,10 @@ export function validateRS(result) {
 }
 
 export function getBBL(feature) {
-  if (!feature || !feature.properties || !feature.properties.pad_bbl) {
+  if (!feature?.properties?.addendum?.pad?.bbl) {
     throw new Error(ERROR_MISSING_BBL);
   }
-  return feature.properties.pad_bbl;
+  return feature.properties.addendum.pad.bbl;
 }
 
 /**

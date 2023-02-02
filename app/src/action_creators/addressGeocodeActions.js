@@ -1,5 +1,6 @@
 import "cross-fetch/polyfill";
 import * as types from "../constants/actionTypes";
+import { geosearchApiVersion } from "../constants/config";
 
 export const resetAddressState = () => ({
   type: types.ResetAddressState,
@@ -25,7 +26,7 @@ export const addressAutosuggestFailure = (error) => ({
 export const addressAutosuggestFetch = (text) => (dispatch) => {
   dispatch(addressAutosuggestRequest());
   return fetch(
-    `https://geosearch.planninglabs.nyc/v1/autocomplete?text=${text}&size=5`
+    `https://geosearch.planninglabs.nyc/${geosearchApiVersion}/autocomplete?text=${text}&size=5`
   )
     .then((response) => {
       if (response.ok) {
@@ -62,7 +63,7 @@ export const addressSearchFailure = (error) => ({
 export const addressSearchFetch = (text) => (dispatch) => {
   dispatch(addressSearchRequest());
   return fetch(
-    `https://geosearch.planninglabs.nyc/v1/search?text=${text}&size=1`
+    `https://geosearch.planninglabs.nyc/${geosearchApiVersion}/search?text=${text}&size=1`
   )
     .then((response) => {
       if (response.ok) {
