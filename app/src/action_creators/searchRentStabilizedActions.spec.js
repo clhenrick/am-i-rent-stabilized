@@ -63,7 +63,9 @@ describe("getBBL", () => {
   });
 
   test("valid input", () => {
-    expect(getBBL({ properties: { pad_bbl: "01234" } })).toBe("01234");
+    expect(
+      getBBL({ properties: { addendum: { pad: { bbl: "01234" } } } })
+    ).toBe("01234");
   });
 });
 
@@ -84,7 +86,9 @@ describe("searchRentStabilized", () => {
   test("It dispatches expected actions when param is a string", () => {
     fetch
       .mockResponseOnce(
-        JSON.stringify({ features: [{ properties: { pad_bbl: "000222" } }] }),
+        JSON.stringify({
+          features: [{ properties: { addendum: { pad: { bbl: "01234" } } } }],
+        }),
         {
           status: 200,
           statusText: "OK",
@@ -99,7 +103,9 @@ describe("searchRentStabilized", () => {
       { type: types.AddressSearchRequest },
       {
         type: types.AddressSearchSuccess,
-        payload: { features: [{ properties: { pad_bbl: "000222" } }] },
+        payload: {
+          features: [{ properties: { addendum: { pad: { bbl: "01234" } } } }],
+        },
       },
       { type: types.RentStabilizedRequest },
       { type: types.RentStabilizedSuccess, payload: { rows: [] } },
@@ -119,11 +125,7 @@ describe("searchRentStabilized", () => {
 
     const param = {
       type: "FeatureCollection",
-      features: [
-        {
-          properties: { pad_bbl: "000222" },
-        },
-      ],
+      features: [{ properties: { addendum: { pad: { bbl: "01234" } } } }],
     };
 
     const expectedActions = [
@@ -206,7 +208,13 @@ describe("searchRentStabilized", () => {
   test("It handles RS server error", () => {
     fetch
       .mockResponseOnce(
-        JSON.stringify({ features: [{ properties: { pad_bbl: "01010101" } }] }),
+        JSON.stringify({
+          features: [
+            {
+              properties: { addendum: { pad: { bbl: "01234" } } },
+            },
+          ],
+        }),
         {
           status: 200,
           statusText: "OK",
@@ -218,7 +226,13 @@ describe("searchRentStabilized", () => {
       { type: types.AddressSearchRequest },
       {
         type: types.AddressSearchSuccess,
-        payload: { features: [{ properties: { pad_bbl: "01010101" } }] },
+        payload: {
+          features: [
+            {
+              properties: { addendum: { pad: { bbl: "01234" } } },
+            },
+          ],
+        },
       },
       {
         type: types.RentStabilizedRequest,
