@@ -1,6 +1,9 @@
 # Am I Rent Stabilized Changelog
 This changelog describes significant changes to the project. It was first created on November 29, 2020 so does not account for the entire project's history.
 
+## 2023-02-01 ([PR #118](https://github.com/clhenrick/am-i-rent-stabilized/pull/118))
+Updated the app's address search UI to use v2 of NYC Planning Labs [GeoSearch API](https://github.com/NYCPlanning/labs-geosearch-docker), an NYC specific geocoder. The v1 of the API was sunsetted in December of 2022  and as a result the app's address search no longer worked (issue [#119](https://github.com/clhenrick/am-i-rent-stabilized/issues/119)).
+
 ## 2021-04-14 ([PR #89](https://github.com/clhenrick/am-i-rent-stabilized/pull/89))
 Reinstated the local tenants rights groups search that was missing from the 2020-11-29 JavaScript refactor. When a user searches for their address, if the geocoding API returns a successful response, the coordinates of that address are matched spatially (point in polygon) against a table containing the catchment areas of NYC tenants rights groups via CARTO's SQL API. If any results are found then they are displayed in a modal in the second to last slide. How this data is displayed to the user could be improved, and the tenants rights groups data itself most likely needs updating.
 
