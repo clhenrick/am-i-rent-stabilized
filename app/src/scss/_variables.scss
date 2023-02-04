@@ -33,10 +33,3 @@ $width-lg: 1100px; // not-used
 $height-sm: 480px;
 $height-md: 770px;
 $height-lg: 900px; // not-used
-
-// for detecting retina screens with media queries
-$is-hidpi: "(-webkit-min-device-pixel-ratio: 1.5),
-					(min--moz-device-pixel-ratio: 1.5),
-					(-o-min-device-pixel-ratio: 3/2),
-					(min-device-pixel-ratio: 1.5),
-					(min-resolution: 1.5dppx)";
