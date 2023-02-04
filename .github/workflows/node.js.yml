@@ -18,11 +18,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Run tests with Node.js 12.19.0
-      uses: actions/setup-node@v1
+    - uses: actions/checkout@v3
+    - name: Use Node.js
+      uses: actions/setup-node@v3
       with:
-        node-version: 10.16.0
+        node-version: 16.13.2
     - run: npm install
-    - run: npm run prod
     - run: npm test
+    - run: npm run prod
