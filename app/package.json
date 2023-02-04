@@ -101,7 +101,6 @@
     "jest-handlebars": "^1.0.1",
     "lint-staged": "^10.1.5",
     "mini-css-extract-plugin": "^0.9.0",
-    "node-sass": "^4.14.1",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
     "prettier": "^2.0.4",
@@ -132,6 +131,7 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "regenerator-runtime": "^0.13.5",
+    "sass": "^1.58.0",
     "single-line-string": "^0.0.2"
   }
 }
