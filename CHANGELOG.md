@@ -1,6 +1,11 @@
 # Am I Rent Stabilized Changelog
 This changelog describes significant changes to the project. It was first created on November 29, 2020 so does not account for the entire project's history.
 
+## 2023-02-03 App Dependency updates ([#120](https://github.com/clhenrick/am-i-rent-stabilized/pull/120))
+- Removed `node-sass` in favor of (Dart) `sass`
+- Upgraded `webpack` to latest 4.x version 4.46.0
+- Upgraded Node.JS to `16.13.2` via `app/.nvmrc` and `.github/workflows/node.js.yml`
+
 ## 2023-02-01 ([PR #118](https://github.com/clhenrick/am-i-rent-stabilized/pull/118))
 Updated the app's address search UI to use v2 of NYC Planning Labs [GeoSearch API](https://github.com/NYCPlanning/labs-geosearch-docker), an NYC specific geocoder. The v1 of the API was sunsetted in December of 2022  and as a result the app's address search no longer worked (issue [#119](https://github.com/clhenrick/am-i-rent-stabilized/issues/119)).
 
@@ -21,7 +26,7 @@ Fixed a bug with the app's address search where an autosuggest search result sel
 ## 2020-11-29 ([PR #58](https://github.com/clhenrick/am-i-rent-stabilized/pull/58))
 This was a major JavaScript refactor (perhaps more so a rewrite!) of the application's codebase that amounted to over 400 commits! The primary goal of this refactor was to make the JavaScript code easier to reason about as its previous implementation was, let's say, not the easiest to reason about. Secondary goals were to improve code quality with unit tests, Continuous Integration, JS & SCSS linting, and code formatting. I also removed some 3rd party libraries that were no longer needed, upgraded ones that were kept, and implemented a new build system using Webpack.
 
-Non-goals of this refactor included:  
+Non-goals of this refactor included:
 - porting the codebase to a JavaScript framework such as React or Vue
 - porting the codebase to Typescript
 - refactoring the styles (SCSS/Sass)
@@ -58,7 +63,7 @@ Create Component classes for each interactive element to isolate its logic, styl
 - [x] SearchValidationErrors
 - [x] slidesContainer
 - [x] StartOver
-- [x] VerifyRentStabilized  
+- [x] VerifyRentStabilized
 
 #### State Management
 - [x] use Redux.JS for managing application state

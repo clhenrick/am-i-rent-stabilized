@@ -2,14 +2,14 @@ Am I Rent Stabilized?
 ============================
 ![](app/public/assets/png/airs_landing_page.png)
 
-A mobile friendly, multi-lingual web app that informs NYC residents about [Rent Stabilization](http://www.nycrgb.org/html/resources/faq/rentstab.html) by simplifying the process of how to find out if their apartment may be rent stabilized, if they are paying too much rent, and what to do about it.  
+A mobile friendly, multi-lingual web app that informs NYC residents about [Rent Stabilization](http://www.nycrgb.org/html/resources/faq/rentstab.html) by simplifying the process of how to find out if their apartment may be rent stabilized, if they are paying too much rent, and what to do about it.
 
 See it in action at [amirentstabilized.com](https://amirentstabilized.com/).
 
 ## Develop
-Requires familiarity with the Command Line Interface, as well as installations of NodeJS v10.16.2 and Yarn ~v1.22.
+Requires familiarity with the Command Line Interface, as well as installations of NodeJS v16.13.2 and Yarn ~v1.22.
 
-**Note** that if you do not the have the specified NodeJS version above (source of truth is the [`package.json`](./app/package.json) "engines" field) then the scrips below will not run. You can use [Node Version Manager (nvm)](https://github.com/nvm-sh/nvm) to switch between different NodeJS versions in a shell.
+**Note** it is recommended to use [Node Version Manager (nvm)](https://github.com/nvm-sh/nvm) to switch between different NodeJS versions in a shell.
 
 ### Available Scripts
 
@@ -64,7 +64,7 @@ The app uses Handlebars.JS for translating content between three supported langu
 These files are located as follows:
 
 - `app/public/locales`: JSON files for locales. The naming convention used is `[page name]-[language code].json`.
-- `app/src/hbs_templates`: Handlebars template files that correspond to the websites HTML pages 
+- `app/src/hbs_templates`: Handlebars template files that correspond to the websites HTML pages
 
 Note that in both sets of files `main` maps to `index.html`
 
@@ -76,11 +76,11 @@ Adding a new language translation will require:
 
 1. New `locale` JSON files for each corresponding HTML page
 2. Updating the constants `LANG` and `IN_LANG` in `app/src/constants/locales.js`
-3. Updating the UI to display the new language option. The corresponding UI files are:  
+3. Updating the UI to display the new language option. The corresponding UI files are:
     - The Handlebars `language_toggle` partial
     - The Components `languageToggle.js` and `languageToggleButton.js` in `app/src/components`.
 
-If many lanugages are to be supported in the future, then a dropdown / select menu may be more appropriate than individual language toggle buttons.
+If many languages are to be supported in the future, then a dropdown / select menu may be more appropriate than individual language toggle buttons.
 
 Note that currently "right to left" languages are not supported in the UI.
 
@@ -109,7 +109,7 @@ A [Pen](http://codepen.io/anon/pen/XJqaRg) by [Captain Anonymous](http://codepen
 [License](http://codepen.io/anon/pen/XJqaRg/license).
 
 ## LICENSE
-[Creative Commons Attribution-NonCommercial ](http://creativecommons.org/licenses/by-nc/4.0/)   
+[Creative Commons Attribution-NonCommercial ](http://creativecommons.org/licenses/by-nc/4.0/)
 (CC BY-NC)
 
 In other words: **_Not For Profit!_**
