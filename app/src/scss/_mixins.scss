@@ -156,17 +156,3 @@
     @content;
   }
 }
-
-// set 2x resolution images for retina displays
-// note: files should be named like image.png and image-2x.png
-@mixin retinize($file, $type, $width, $height) {
-  background-image: url("../img/" + $file + "." + $type);
-  // is the device a high dpi screen?
-  @media #{$is-hidpi} {
-    & {
-      background-image: url("../img/" + $file + "-2x." + $type);
-      // use vendor prefixes for background size
-      @include background-size($width, $height);
-    }
-  }
-}
