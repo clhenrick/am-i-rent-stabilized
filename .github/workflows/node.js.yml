@@ -23,6 +23,6 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 16.13.2
-    - run: npm ci
+    - run: npm install
     - run: npm test
     - run: npm run prod
