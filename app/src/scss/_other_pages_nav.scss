@@ -52,16 +52,16 @@
     margin-top: 10px;
     font-family: $body-font;
 
-    &:first-child {
-      margin-top: 15px;
-    }
-
     ul {
       margin-left: 10px;
     }
 
     li {
       margin-top: 5px;
+    }
+
+    &:first-child {
+      margin-top: 15px;
     }
 
     li:first-child {
