@@ -344,15 +344,15 @@ img {
 .font-style-hero {
   font-family: $header-font;
   font-size: 5.4em;
-  color: $gray;
-  max-width: 95%;
-  width: 75%;
+  color: $orange;
   margin-top: 75px;
 
   &.landing {
     margin-top: 0;
     letter-spacing: 0.05em;
     font-style: italic;
+    max-width: 95%;
+    width: 75%;
   }
 
   &.step {
@@ -372,7 +372,6 @@ img {
   }
 
   @include responsive_height(medium-screens) {
-    width: 65%;
     margin-top: 3%;
     font-size: 3.8em;
 
@@ -404,12 +403,12 @@ img {
   }
 
   @include responsive(medium-screens) {
-    width: 65%;
     font-size: 3.8em;
     margin-top: 3%;
 
     &.landing {
       margin-top: 0;
+      width: 65%;
       max-width: 75%;
 
       &.es {
@@ -425,14 +424,15 @@ img {
 
   @include responsive(tablet-screens) {
     margin-top: 15%;
-    width: 75%;
+
+    &.landing {
+      width: 75%;
+    }
   }
 
   @include responsive(small-screens) {
     font-size: 1.8em;
     line-height: 1.2em;
-    width: 100%;
-    max-width: 95%;
     margin-top: 3%;
 
     &.landing {
