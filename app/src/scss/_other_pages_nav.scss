@@ -35,7 +35,7 @@
   top: 140px;
   font-size: 1.5em;
 
-  h3 {
+  h2 {
     font-size: 1.2em;
     text-align: left;
     display: inline;
@@ -62,9 +62,10 @@
 
     li {
       margin-top: 5px;
-      &:first-child {
-        margin-top: 10px;
-      }
+    }
+
+    li:first-child {
+      margin-top: 10px;
     }
   }
 
