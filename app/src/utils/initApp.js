@@ -126,13 +126,6 @@ export default function initApp() {
   );
 
   registry.add(
-    "addToCalendar",
-    new AddToCalendar({
-      element: document.querySelector(".atc-container"),
-    })
-  );
-
-  registry.add(
     "startOver",
     new StartOver({
       element: document.querySelector("button.start-over"),
@@ -145,6 +138,13 @@ export default function initApp() {
     new TenantsRightsModal({
       element: document.querySelector("div.tr-modal"),
       store,
+    })
+  );
+
+  registry.add(
+    "addToCalendar",
+    new AddToCalendar({
+      element: document.querySelector(".atc-container"),
     })
   );
 }
