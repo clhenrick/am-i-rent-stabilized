@@ -155,15 +155,15 @@ input::-webkit-input-placeholder {
   font-weight: 300 !important;
 }
 
-input:-moz-placeholder {
-  /* Firefox 18- */
+input::-moz-placeholder {
+  /* Firefox 19+ */
   color: $medgray !important;
   font-family: $body-font !important;
   font-weight: 300 !important;
 }
 
-input::-moz-placeholder {
-  /* Firefox 19+ */
+input:-moz-placeholder {
+  /* Firefox 18- */
   color: $medgray !important;
   font-family: $body-font !important;
   font-weight: 300 !important;
