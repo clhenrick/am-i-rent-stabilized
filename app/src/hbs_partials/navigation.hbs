@@ -1,9 +1,10 @@
 {{! Navigation partial for index.html page }}
-<nav class="main-nav">
-	<div class="home-container">
-		<img class="logo" src="assets/png/logo.png" alt="">
-		<a class="go-first" href="./index.html">{{nav_main.title}}</a>
-	</div>
+<nav class="main-nav" aria-labelledby="main-nav-title">
+  <h2 id="main-nav-title" class="sr-only">{{nav_main.h2}}</h2>
+  <div class="home-container">
+    <img class="logo" src="assets/png/logo.png" alt="">
+    <a class="go-first" href="./index.html">{{nav_main.title}}</a>
+  </div>
   <button class="burger" aria-label="toggle main navigation menu" aria-pressed="false"></button>
   <ul>
     <li class="nav"><a href="info/why.html">{{nav_main.why}}</a></li>
