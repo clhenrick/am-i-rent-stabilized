@@ -59,9 +59,11 @@ export class SlidesContainer extends Component {
     this.slides.forEach((slide) => {
       slide.classList.remove("active");
       slide.setAttribute("inert", true);
+      slide.setAttribute("aria-hidden", true);
     });
     currentSlide.classList.add("active");
     currentSlide.removeAttribute("inert");
+    currentSlide.removeAttribute("aria-hidden");
     currentSlide.focus();
   }
 
