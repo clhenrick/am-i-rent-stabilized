@@ -55,8 +55,13 @@ export class SlidesContainer extends Component {
   }
 
   set activeSlide(value) {
-    this.slides.forEach((slide) => slide.classList.remove("active"));
-    this.slides[value].classList.add("active");
+    const currentSlide = this.slides[value];
+    this.slides.forEach((slide) => {
+      slide.classList.remove("active");
+      slide.setAttribute("inert", true);
+    });
+    currentSlide.classList.add("active");
+    currentSlide.removeAttribute("inert");
   }
 
   get activeSlide() {
