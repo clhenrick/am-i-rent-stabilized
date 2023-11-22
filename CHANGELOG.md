@@ -1,7 +1,7 @@
 # Am I Rent Stabilized Changelog
 This changelog describes significant changes to the project. It was first created on November 29, 2020 so does not account for the entire project's history.
 
-## 2023-11-22 A11Y improvements & bug fixes
+## 2023-11-22 A11Y improvements & bug fixes ([#124](https://github.com/clhenrick/am-i-rent-stabilized/pull/124))
 
 Accessibility fixes:
 - Corrected the usage of heading levels (h1-h6) through out the website so that there is one h1 per page and are sequential (see issue #85)
