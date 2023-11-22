@@ -12,8 +12,8 @@
 
 {{>progress_indicator}}
 
-<div class="slides-container">
-  <div class="slide" tabindex="-1" id="slide-1">
+<main class="slides-container">
+  <section class="slide" tabindex="-1" id="slide-1" aria-labelledby="slide-1-title">
 
     <div class="mobile">
       {{! LanguageToggle mobile / tablet only }}
@@ -23,7 +23,7 @@
     <div class="centered">
       <img class="triple-s" src="assets/png/triple-sss.png" alt="">
       <img class="building intro" src="assets/png/building.png" alt="">
-      <h1 class="font-style-hero landing">{{ slide01.h1 }}</h1>
+      <h1 id="slide-1-title" class="font-style-hero landing">{{ slide01.h1 }}</h1>
       <p class="font-style-secondary sub-head">{{ slide01.subhead }}</p>
       <p class="landing">{{ slide01.landing }}</p>
       <p class="go-step4">
@@ -36,25 +36,25 @@
       <div class="button-text">{{nav_bottom_arrow.begin}}</div>
       <div class="arrow"></div>
     </button>
-  </div>
+  </section>
 
-  <div class="slide" tabindex="-1" id="slide-2">
+  <section class="slide" tabindex="-1" id="slide-2" aria-labelledby="slide-2-title">
     <div class="centered">
-      <h2 class="font-style-hero step">{{slide02.h2}}</h2>
+      <h2 id="slide-2-title" class="font-style-hero step">{{slide02.h2}}</h2>
       <p class="step">{{slide02.privacy}}</p>
       {{>address_search_form}}
     </div>
-  </div>
+  </section>
 
-  <div class="slide" tabindex="-1" id="slide-3">
+  <section class="slide" tabindex="-1" id="slide-3" aria-labelledby="slide-3-title">
     <div class="centered v-centered">
-      <h2 class="font-style-hero checking"> {{slide03.checking }} </h2>
+      <h2 id="slide-3-title" class="font-style-hero checking"> {{slide03.checking }} </h2>
       <p> {{slide03.p}} </p>
       <div id="sprite"></div>
     </div>
-  </div>
+  </section>
 
-  <div class="slide" tabindex="-1" id="slide-4">
+  <section class="slide" tabindex="-1" id="slide-4" aria-label="search-results">
     <div class="centered">
       <div class="yes hidden">
         <h2 class="font-style-hero">{{{slide04.yes.h2}}}</h2>
@@ -77,12 +77,11 @@
       <div class="button-text">{{nav_bottom_arrow.next}}</div>
       <div class="arrow"></div>
     </button>
-  </div>
+  </section>
 
-  <div class="slide" tabindex="-1" id="slide-5">
+  <section class="slide" tabindex="-1" id="slide-5" aria-labelledby="slide-5-title">
     <div class="centered">
-      <!-- <h4 class="step">Step 2 of 5</h4> -->
-      <h2 class="font-style-hero">{{slide05.h2}}</h2>
+      <h2 id="slide-5-title" class="font-style-hero">{{slide05.h2}}</h2>
       <div class="dhcr-choice">
         <p><a id="mail-to" href="#">{{slide05.mail}}</a></p>
         <p>{{slide05.phone}}<br><a href="tel:1-718-739-6400">718 739-6400</a></p>
@@ -96,12 +95,11 @@
       <div class="button-text">{{nav_bottom_arrow.next}}</div>
       <div class="arrow"></div>
     </button>
-  </div>
+  </section>
 
-  <div class="slide" tabindex="-1" id="slide-6">
+  <section class="slide" tabindex="-1" id="slide-6" aria-labelledby="slide-6-title">
     <div class="centered">
-      <!-- <h4 class="step">Step 3 of 5</h4> -->
-      <h2 class="font-style-hero check-it">{{slide06.h2}}</h2>
+      <h2 id="slide-6-title" class="font-style-hero check-it">{{slide06.h2}}</h2>
       <p class="check-it">
         {{slide06.arrive}}
       </p>
@@ -114,12 +112,11 @@
       <div class="button-text">{{nav_bottom_arrow.next}}</div>
       <div class="arrow"></div>
     </button>
-  </div>
+  </section>
 
-  <div class="slide" tabindex="-1" id="slide-7">
+  <section class="slide" tabindex="-1" id="slide-7" aria-labelledby="slide-7-title">
     <div class="centered">
-      <!-- <h4 class="step">Step 4 of 5</h4> -->
-      <h2 class="font-style-hero">{{slide07.h2}}</h2>
+      <h2 id="slide-7-title" class="font-style-hero">{{slide07.h2}}</h2>
       <a href="#rent-history">
         <img class="rent-history" src="assets/png/sample-rent-history-thumb.png">
       </a>
@@ -131,13 +128,11 @@
       <div class="button-text">{{nav_bottom_arrow.next}}</div>
       <div class="arrow"></div>
     </button>
-  </div>
+  </section>
 
-  <div class="slide" tabindex="-1" id="slide-8">
+  <section class="slide" tabindex="-1" id="slide-8" aria-labelledby="slide-8-title">
     <div class="centered">
-      <!-- <h4 class="step">Step 5 of 5</h4> -->
-      <h2 class="font-style-hero">{{slide08.h2}}</h2>
-      <!-- <img class="mascot monster" src="assets/png/no1.png"> -->
+      <h2 id="slide-8-title" class="font-style-hero">{{slide08.h2}}</h2>
       <div class="action-choice">
         <h4>{{slide08.option01}}</h4>
         <p class="no-local-tr">
@@ -161,11 +156,11 @@
       <div class="button-text">{{nav_bottom_arrow.next}}</div>
       <div class="arrow"></div>
     </button>
-  </div>
+  </section>
 
-  <div class="slide" tabindex="-1" id="slide-9">
+  <section class="slide" tabindex="-1" id="slide-9" aria-labelledby="slide-9-title">
     <div class="centered v-centered">
-      <h2 class="font-style-hero end">{{slide09.h2}}</h2>
+      <h2 id="slide-9-title" class="font-style-hero end">{{slide09.h2}}</h2>
       <img class="mascot" src="assets/png/yes.png">
       <div class="button-holder">
         <button class="button start-over go-first">
@@ -180,5 +175,5 @@
         <div class="addthis_sharing_toolbox"></div>
       </div>
     </div>
-  </div>
-</div>
+  </section>
+</main>
