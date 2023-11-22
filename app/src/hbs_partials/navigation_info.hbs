@@ -1,13 +1,16 @@
-{{! Navigation partial for info/*.html pages }}
-<nav class="main-nav">
-  <img class="logo" src="../assets/png/logo.png">
-  <h1>
+{{! Navigation partial for index.html page }}
+{{!-- NOTE: this code mimics that in navigation.hbs with the exception of the paths to the html pages and logo.png  --}}
+{{!-- TODO: refactor both these handlebars partials to use the same code --}}
+<nav class="main-nav" aria-labelledby="main-nav-title">
+  <h2 id="main-nav-title" class="sr-only">{{nav_main.h2}}</h2>
+  <div class="home-container">
+    <img class="logo" src="../assets/png/logo.png" alt="">
     <a class="go-first" href="../index.html">{{nav_main.title}}</a>
-  </h1>
-  <div class="burger" alt="-"></div>
+  </div>
+  <button class="burger" aria-label="toggle main navigation menu" aria-pressed="false"></button>
   <ul>
-    <li class="nav"><a href="why.html">{{nav_main.why}}</a></li>
-    <li class="nav"><a href="how.html">{{nav_main.how}}</a></li>
-    <li class="nav"><a href="resources.html">{{nav_main.resources}}</a></li>
+    <li class="nav"><a href="./why.html">{{nav_main.why}}</a></li>
+    <li class="nav"><a href="./how.html">{{nav_main.how}}</a></li>
+    <li class="nav"><a href="./resources.html">{{nav_main.resources}}</a></li>
   </ul>
 </nav>

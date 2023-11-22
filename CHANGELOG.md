@@ -1,6 +1,17 @@
 # Am I Rent Stabilized Changelog
 This changelog describes significant changes to the project. It was first created on November 29, 2020 so does not account for the entire project's history.
 
+## 2023-11-22 A11Y improvements & bug fixes ([#124](https://github.com/clhenrick/am-i-rent-stabilized/pull/124))
+
+Accessibility fixes:
+- Corrected the usage of heading levels (h1-h6) through out the website so that there is one h1 per page and are sequential (see issue #85)
+- Fixes the main navigation's hamburger button (previously was a clickable `<div>`) by making it an actual button.
+
+Other bug fixes & improvements:
+- fixes the "start over" button click handler which was previously not working
+- cleaned up the main navigation CSS
+- removed some unused SCSS partials
+
 ## 2023-02-03 App Dependency updates ([#120](https://github.com/clhenrick/am-i-rent-stabilized/pull/120))
 - Removed `node-sass` in favor of (Dart) `sass`
 - Upgraded `webpack` to latest 4.x version 4.46.0

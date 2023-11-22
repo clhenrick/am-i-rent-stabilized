@@ -10,16 +10,17 @@ body {
   margin-bottom: 100px;
   margin-left: 25%;
 
-  h1,
+  h2,
   h3,
   p {
     text-align: left;
+    width: 100%;
     max-width: 100%;
     margin-left: 0;
     padding: 0;
   }
 
-  h1 {
+  h2 {
     margin-top: 50px;
     color: $orange;
 
@@ -102,7 +103,7 @@ body {
     width: 70%;
     margin-left: 22%;
 
-    h1 {
+    h2 {
       font-size: 3em;
       width: 100%;
       margin-left: 0;
@@ -126,7 +127,7 @@ body {
     margin-top: 50px;
     margin-left: 10%;
 
-    h1,
+    h2,
     h3,
     p,
     li {
@@ -134,7 +135,7 @@ body {
       width: 100%;
     }
 
-    h1 {
+    h2 {
       font-size: 3em;
     }
 
@@ -152,7 +153,7 @@ body {
     width: 80%;
     left: 0;
 
-    h1 {
+    h2 {
       margin-top: 25px;
       font-size: 2em;
     }
@@ -192,14 +193,14 @@ body {
     width: 90%;
     margin: 50px auto 50px auto;
 
-    h1,
+    h2,
     h3,
     p {
       max-width: 100%;
       width: 100%;
     }
 
-    h1 {
+    h2 {
       font-size: 2.3em;
       margin-top: 20px;
     }

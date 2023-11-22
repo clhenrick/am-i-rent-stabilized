@@ -22,9 +22,11 @@ export class NavMenuToggle extends Component {
       .removeEventListener("click", this.handleClick);
   }
 
-  handleClick(event) {
-    event.preventDefault();
-    this.element.querySelector(".burger").classList.toggle("open");
+  handleClick() {
+    const burger = this.element.querySelector(".burger");
+    const open = burger.getAttribute("aria-pressed") === "true";
+    burger.ariaPressed = !open;
+    burger.classList.toggle("open");
     this.element.querySelector("ul").classList.toggle("responsive");
   }
 }

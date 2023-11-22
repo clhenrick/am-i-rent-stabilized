@@ -6,7 +6,7 @@
     "resources": "Resources"
   },
   "nav_side": {
-    "h3": "Jump to an area:",
+    "h2": "Jump to an area:",
     "nongov": "Tenants Rights Orgs",
     "citywide": "Citywide",
     "boro": "By Borough",
@@ -164,7 +164,7 @@
     }
   },
   "gov": {
-    "h3": "Government Resources",
+    "h2": "Government Resources",
     "p": "These are links to websites of departments operating within the state and city levels of government that relate to housing and property ownership in NYC.",
     "ul": [
       {

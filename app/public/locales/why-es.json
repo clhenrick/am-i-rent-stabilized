@@ -6,7 +6,7 @@
     "resources": "Recursos"
   },
   "nav_side": {
-    "h3": "Ir a un tópico",
+    "h2": "Ir a un tópico",
     "why": "¿Por qué es importante?",
     "what": "¿Por qué otra razón debe importarme? ",
     "under": "Bajo Ataque",
@@ -16,7 +16,7 @@
     "not": "Si no tienen renta estabilizada"
   },
   "why": {
-    "h1": "¿Por qué la renta estabilizada es buena para la ciudad de Nueva York?",
+    "h2": "¿Por qué la renta estabilizada es buena para la ciudad de Nueva York?",
     "h3": "Simplemente hay que saber que la estabilización de renta es la ley de renta más importante que mantiene a la ciudad de Nueva York costeable a sus residentes.",
     "facts": "Aquí algunos datos:",
     "one": "Cerca de 1 millón de apartamentos en la ciudad de Nueva York tienen la renta estabilizada. Eso es casi la mitad de todos los apartamentos en Nueva York.",
@@ -25,13 +25,13 @@
     "four": "Fortalece los derechos del arrendador para obtener servicios de primera y reparaciones en sus apartamentos, al tiempo que penaliza a los dueños negligentes."
   },
   "what": {
-    "h1": "¿Por qué otra razón debe importarme?",
+    "h2": "¿Por qué otra razón debe importarme?",
     "h3": "Si su apartamento tiene renta estabilizada y el propietario lo oculta, usted podría recibir su dinero de vuelta. ",
     "p1": "Si el DHCR encuentra su denuncia válida, ellos le van a solicitar al propietario que le reembolse el dinero que legalmente se le debe.",
     "a": "En un caso reciente un inquilino recibió $112,000 que se le habían cobrado de más durante años."
   },
   "under": {
-    "h1": "La renta estabilizada se encuentra bajo ataque.",
+    "h2": "La renta estabilizada se encuentra bajo ataque.",
     "h3": "La industria de bienes raíces quiere eliminar las rentas estabilizadas ya que esto les brindaría un gran margen de ganancias.",
     "p": "Con las leyes actuales de renta, la  desestabilización puede ocurrir cuando un apartamento con renta estabilizada que pague $2,700 queda vacante. Por ejemplo, cuando un inquilino con renta estabilizada que pague $2,700 o más se muda, el propietario podría retirar el apartamento fuera de la estabilización. Entonces, el propietario podría facturar la renta del apartamento a precio del mercado y hasta  aumentar la renta cuanto crea necesario.",
     "methods": "Métodos que los propietarios usan para desestabilizar apartamentos:",
@@ -40,7 +40,7 @@
     "three": "Atormentando a los inquilinos forzando que se muden para hacerle mejoras al apartamento y subir el precio de la renta."
   },
   "messed": {
-    "h1": "¡Esto es un desastre!",
+    "h2": "¡Esto es un desastre!",
     "h3": "Claro, esto se pone peor. Actualmente las leyes de estabilización de renta y el control de renta tienen que ser renovadas periódicamente. Cada vez que se renuevan, la industria de bienes raíces intenta debilitarlas.",
     "p1": "La industria de bienes raíces ha tenido éxito en sus ataques. Desde 1990 ",
     "p1_s": "la ciudad ha perdido un estimado de 300,000 apartamentos con renta estabilizada.",
@@ -56,7 +56,7 @@
     "chinatown": "¿Qué está pasando en Chinatown?"
   },
   "get_involved": {
-    "h1": "¿Qué puedo hacer?",
+    "h2": "¿Qué puedo hacer?",
     "h3": "Puedes ser parte de la solución:",
     "first": "Empieza por aprender acerca de tus derechos. Asiste a un seminario de derecho de inquilinos. Los enlaces se encuentran en ",
     "a": "la página de Recursos.",
@@ -64,7 +64,7 @@
     "third": "Haga que su voz sea escuchada. Contacte a sus representantes locales, vaya a reuniones de las junta de su comunidad, y dígale al alcalde que debe haber un énfasis en preservar viviendas económicamente accesibles. "
   },
   "not_rs": {
-    "h1": "¿Qué hacer si mi renta no está estabilizada?",
+    "h2": "¿Qué hacer si mi renta no está estabilizada?",
     "h3": "Desafortunadamente no hay mucho que pueda hacer para prevenir que su renta suba exageradamente.",
     "p1": {
       "one": "Independientemente ",
