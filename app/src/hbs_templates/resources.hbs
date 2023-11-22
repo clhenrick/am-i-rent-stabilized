@@ -3,8 +3,8 @@
 <div id="left">
   {{>language_toggle}}
 
-  <div id="side-nav">
-    <h3>{{nav_side.h3}}</h3>
+  <nav id="side-nav" aria-labelledby="side-nav-title">
+    <h2 id="side-nav-title">{{nav_side.h2}}</h2>
     <ul>
       <li>
         <a class="responsive-turn-off" href="#non-gov">{{nav_side.nongov}}</a>
@@ -16,15 +16,15 @@
       </li>
       <li><a href="#gov">{{nav_side.gov}}</a></li>
     </ul>
-  </div>
+  </nav>
 </div>
 
 <div id="main">
   <a name="non-gov"></a>
-  <h1>{{nongov.h1}}</h1>
+  <h1 class="font-style-hero">{{nongov.h1}}</h1>
   <p>{{nongov.h3}}</p>
   <a name="city-wide"></a>
-  <h3>{{nongov.citywide.h3}}</h3>
+  <h2 class="font-style-hero">{{nongov.citywide.h3}}</h2>
   <p>{{nongov.citywide.p01}}</p>
   <ul>
     <li>
@@ -233,7 +233,7 @@
   </ul>
 
   <a name="gov"></a>
-  <h1>{{gov.h3}}</h1>
+  <h2 class="font-style-hero">{{gov.h2}}</h2>
   <p>{{gov.p}}</p>
   <ul>
     <li>

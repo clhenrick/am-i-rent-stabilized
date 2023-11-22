@@ -3,8 +3,8 @@
 <div id="left">
   {{>language_toggle}}
 
-  <div id="side-nav">
-    <h3>{{nav_side.h3}}</h3>
+  <nav id="side-nav" aria-labelledby="side-nav-title">
+    <h2 id="side-nav-title">{{nav_side.h2}}</h2>
     <ul>
       <li><a href="#why">{{nav_side.why}}</a></li>
       <li><a href="#what">{{nav_side.what}}</a></li>
@@ -14,16 +14,16 @@
       <li><a href="#get-involved">{{nav_side.involved}}</a></li>
       <li><a href="#not-rs">{{nav_side.not}}</a></li>
     </ul>
-  </div>
+  </nav>
 </div>
 
 <div id="main">
   <a name="why"></a>
-  <h1>{{why.h1}}</h1>
+  <h2 class="font-style-hero">{{why.h2}}</h2>
 
   <h3>{{why.h3}}</h3>
 
-  <h3 class="italic">{{why.facts}}</h3>
+  <p class="italic">{{why.facts}}</p>
 
   <ul>
     <li>{{why.one}}</li>
@@ -33,7 +33,7 @@
   </ul>
 
   <a name="what"></a>
-  <h1>{{what.h1}}</h1>
+  <h2 class="font-style-hero">{{what.h2}}</h2>
 
   <h3>{{what.h3}}</h3>
 
@@ -45,7 +45,7 @@
   </p>
 
   <a name="under-attack"></a>
-  <h1>{{under.h1}}</h1>
+  <h2 class="font-style-hero">{{under.h2}}</h2>
 
   <h3>{{under.h3}}</h3>
 
@@ -60,7 +60,7 @@
   </ul>
 
   <a name="messed-up"></a>
-  <h1>{{messed.h1}}</h1>
+  <h2 class="font-style-hero">{{messed.h2}}</h2>
 
   <h3>{{messed.h3}}</h3>
 
@@ -103,7 +103,7 @@
   </div>
 
   <a name="get-involved"></a>
-  <h1>{{get_involved.h1}}</h1>
+  <h2 class="font-style-hero">{{get_involved.h2}}</h2>
 
   <h3>{{get_involved.h3}}</h3>
 
@@ -116,7 +116,7 @@
   </ul>
 
   <a name="not-rs"></a>
-  <h1>{{not_rs.h1}}</h1>
+  <h2 class="font-style-hero">{{not_rs.h2}}</h2>
 
   <h3>{{not_rs.h3}}</h3>
 

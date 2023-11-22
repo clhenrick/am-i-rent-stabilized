@@ -35,7 +35,7 @@
   top: 140px;
   font-size: 1.5em;
 
-  h3 {
+  h2 {
     font-size: 1.2em;
     text-align: left;
     display: inline;
@@ -52,19 +52,20 @@
     margin-top: 10px;
     font-family: $body-font;
 
-    &:first-child {
-      margin-top: 15px;
-    }
-
     ul {
       margin-left: 10px;
     }
 
     li {
       margin-top: 5px;
-      &:first-child {
-        margin-top: 10px;
-      }
+    }
+
+    &:first-child {
+      margin-top: 15px;
+    }
+
+    li:first-child {
+      margin-top: 10px;
     }
   }
 
