@@ -63,7 +63,7 @@ export class SlidesContainer extends Component {
     });
     currentSlide.classList.add("active");
     currentSlide.removeAttribute("inert");
-    currentSlide.removeAttribute("aria-hidden");
+    currentSlide.setAttribute("aria-hidden", false);
     currentSlide.focus();
   }
 
