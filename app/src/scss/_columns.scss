@@ -124,7 +124,7 @@
     }
   }
 
-  h4 {
+  h3 {
     position: relative;
     margin-top: 0;
     font-family: $header-font;
@@ -132,10 +132,6 @@
     font-weight: 700;
     text-align: center;
     color: $green;
-
-    &:last-child {
-      top: -3px;
-    }
 
     @include responsive(small-screens) {
       font-size: 1.5em;
