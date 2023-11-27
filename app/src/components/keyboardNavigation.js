@@ -35,7 +35,7 @@ export class KeyboardNavigation extends Component {
     if (
       event.target &&
       typeof event.target.matches === "function" &&
-      !event.target.matches("body")
+      !event.target.matches("div.slide")
     ) {
       return;
     }
