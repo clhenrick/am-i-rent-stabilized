@@ -55,8 +55,18 @@ export class SlidesContainer extends Component {
   }
 
   set activeSlide(value) {
-    this.slides.forEach((slide) => slide.classList.remove("active"));
-    this.slides[value].classList.add("active");
+    this.slides.forEach((slide) => {
+      if (slide === this.slides[value]) {
+        slide.classList.add("active");
+        slide.removeAttribute("inert");
+        slide.setAttribute("aria-hidden", false);
+        slide.focus();
+      } else {
+        slide.classList.remove("active");
+        slide.setAttribute("inert", true);
+        slide.setAttribute("aria-hidden", true);
+      }
+    });
   }
 
   get activeSlide() {

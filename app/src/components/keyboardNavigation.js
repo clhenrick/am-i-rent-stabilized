@@ -35,7 +35,8 @@ export class KeyboardNavigation extends Component {
     if (
       event.target &&
       typeof event.target.matches === "function" &&
-      !event.target.matches("body")
+      // disregard the event when the target is NOT coming from a .slide div element
+      !event.target.matches("div.slide")
     ) {
       return;
     }
