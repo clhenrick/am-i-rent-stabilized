@@ -1,6 +1,17 @@
 # Am I Rent Stabilized Changelog
 This changelog describes significant changes to the project. It was first created on November 29, 2020 so does not account for the entire project's history.
 
+## 2023-11-27 Fix A11Y of Homepage / Slides ([#125](https://github.com/clhenrick/am-i-rent-stabilized/pull/125))
+
+Improves the accessibility of the home page's slides (main content):
+- Utilizes the HTML `inert` attribute to remove inactive slide content that is focusable from the tab order.
+- Applies `aria-hidden="true"` to all inactive slides.
+- Programmatically focuses the active slide when transitioning from the previous slide. Note: no focus ring is applied to the active slide since there may only ever be a single slide in view at a time.
+- Partially follows the [WAI APG's Carousel pattern](https://www.w3.org/WAI/ARIA/apg/patterns/carousel/) for making the slides accessible to users of assistive technology. I say "partially" because the homepage's slides pattern does not follow a typical carousel UX in that it does not allow users to go backwards / to a previous slide or jump to any slide using a specific set of controls. The implementation that follows guidance from the Carousel pattern was tested using VoiceOver on Safari with positive results.
+
+Other:
+- Updated dev dependency `caniuse-lite`
+
 ## 2023-11-22 A11Y improvements & bug fixes ([#124](https://github.com/clhenrick/am-i-rent-stabilized/pull/124))
 
 Accessibility fixes:
