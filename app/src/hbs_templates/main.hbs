@@ -1,7 +1,7 @@
 {{>navigation}}
 
 <div id="mobile-message">
-  <img src="assets/png/rotate.png">
+  <img alt="" src="assets/png/rotate.png">
   <p>{{mobile_msg}}</p>
 </div>
 
@@ -14,15 +14,20 @@
 
 <section
   class="slides-container"
+  {{!-- TODO: add translations for aria-label --}}
   aria-label="A step by step guide to Rent Stabilization in New York City"
+  {{!-- TODO: add translations for aria-roledescription --}}
   aria-roledescription="carousel"
 >
+  {{!-- NOTE: aria-live is used here so that when the next slide becomes active the assistive tech (e.g. screen reader notifies the user of the change) --}}
   <div class="slides" aria-live="polite">
     <div
       class="slide"
       tabindex="-1"
       role="group"
+      {{!-- TODO: add translations for aria-roledescription --}}
       aria-roledescription="slide"
+      {{!-- TODO: add translations for aria-label --}}
       aria-label="1 of 9"
       id="slide-1"
     >
@@ -53,7 +58,9 @@
       tabindex="-1"
       id="slide-2"
       role="group"
+      {{!-- TODO: add translations for aria-roledescription --}}
       aria-roledescription="slide"
+      {{!-- TODO: add translations for aria-label --}}
       aria-label="2 of 9"
     >
       <div class="centered">
@@ -68,7 +75,9 @@
       tabindex="-1"
       id="slide-3"
       role="group"
+      {{!-- TODO: add translations for aria-roledescription --}}
       aria-roledescription="slide"
+      {{!-- TODO: add translations for aria-label --}}
       aria-label="3 of 9"
     >
       <div class="centered v-centered">
@@ -83,7 +92,9 @@
       tabindex="-1"
       id="slide-4"
       role="group"
+      {{!-- TODO: add translations for aria-roledescription --}}
       aria-roledescription="slide"
+      {{!-- TODO: add translations for aria-label --}}
       aria-label="4 of 9"
     >
       <div class="centered">
@@ -115,7 +126,9 @@
       tabindex="-1"
       id="slide-5"
       role="group"
+      {{!-- TODO: add translations for aria-roledescription --}}
       aria-roledescription="slide"
+      {{!-- TODO: add translations for aria-label --}}
       aria-label="5 of 9"
     >
       <div class="centered">
@@ -140,7 +153,9 @@
       tabindex="-1"
       id="slide-6"
       role="group"
+      {{!-- TODO: add translations for aria-roledescription --}}
       aria-roledescription="slide"
+      {{!-- TODO: add translations for aria-label --}}
       aria-label="6 of 9"
     >
       <div class="centered">
@@ -164,7 +179,9 @@
       tabindex="-1"
       id="slide-7"
       role="group"
+      {{!-- TODO: add translations for aria-roledescription --}}
       aria-roledescription="slide"
+      {{!-- TODO: add translations for aria-label --}}
       aria-label="7 of 9"
     >
       <div class="centered">
@@ -173,6 +190,7 @@
           <img
             class="rent-history"
             src="assets/png/sample-rent-history-thumb.png"
+            {{!-- TODO: add translations for alt text --}}
             alt="Sample rent history provided by the NY DHCR. The letters RS under the Apartment Status column means rent stabilized."
           >
         </a>
@@ -191,7 +209,9 @@
       tabindex="-1"
       id="slide-8"
       role="group"
+      {{!-- TODO: add translations for aria-roledescription --}}
       aria-roledescription="slide"
+      {{!-- TODO: add translations for aria-label --}}
       aria-label="8 of 9"
     >
       <div class="centered">
@@ -226,7 +246,9 @@
       tabindex="-1"
       id="slide-9"
       role="group"
+      {{!-- TODO: add translations for aria-roledescription --}}
       aria-roledescription="slide"
+      {{!-- TODO: add translations for aria-label --}}
       aria-label="9 of 9"
     >
       <div class="centered v-centered">
