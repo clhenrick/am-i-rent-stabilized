@@ -55,16 +55,18 @@ export class SlidesContainer extends Component {
   }
 
   set activeSlide(value) {
-    const currentSlide = this.slides[value];
     this.slides.forEach((slide) => {
-      slide.classList.remove("active");
-      slide.setAttribute("inert", true);
-      slide.setAttribute("aria-hidden", true);
+      if (slide === this.slides[value]) {
+        slide.classList.add("active");
+        slide.removeAttribute("inert");
+        slide.setAttribute("aria-hidden", false);
+        slide.focus();
+      } else {
+        slide.classList.remove("active");
+        slide.setAttribute("inert", true);
+        slide.setAttribute("aria-hidden", true);
+      }
     });
-    currentSlide.classList.add("active");
-    currentSlide.removeAttribute("inert");
-    currentSlide.setAttribute("aria-hidden", false);
-    currentSlide.focus();
   }
 
   get activeSlide() {
