@@ -12,168 +12,236 @@
 
 {{>progress_indicator}}
 
-<main class="slides-container">
-  <section class="slide" tabindex="-1" id="slide-1" aria-labelledby="slide-1-title">
-
-    <div class="mobile">
-      {{! LanguageToggle mobile / tablet only }}
-      {{>language_toggle}}
+<section
+  class="slides-container"
+  aria-label="A step by step guide to Rent Stabilization in New York City"
+  aria-roledescription="carousel"
+>
+  <div class="slides" aria-live="polite">
+    <div
+      class="slide"
+      tabindex="-1"
+      role="group"
+      aria-roledescription="slide"
+      aria-label="1 of 9"
+      id="slide-1"
+    >
+      <div class="mobile">
+        {{! LanguageToggle mobile / tablet only }}
+        {{>language_toggle}}
+      </div>
+      <div class="centered">
+        <img class="triple-s" src="assets/png/triple-sss.png" alt="">
+        <img class="building intro" src="assets/png/building.png" alt="">
+        <h1 id="slide-1-title" class="font-style-hero landing">{{ slide01.h1 }}</h1>
+        <p class="font-style-secondary sub-head">{{ slide01.subhead }}</p>
+        <p class="landing">{{ slide01.landing }}</p>
+        <p class="go-step4">
+          <a class="go-step4" href="#slide-7">
+            {{ slide01.go_step_4 }}
+          </a>
+        </p>
+      </div>
+      <button class="go-next bottom-arrow">
+        <div class="button-text">{{nav_bottom_arrow.begin}}</div>
+        <div class="arrow"></div>
+      </button>
     </div>
 
-    <div class="centered">
-      <img class="triple-s" src="assets/png/triple-sss.png" alt="">
-      <img class="building intro" src="assets/png/building.png" alt="">
-      <h1 id="slide-1-title" class="font-style-hero landing">{{ slide01.h1 }}</h1>
-      <p class="font-style-secondary sub-head">{{ slide01.subhead }}</p>
-      <p class="landing">{{ slide01.landing }}</p>
-      <p class="go-step4">
-        <a class="go-step4" href="#slide-7">
-          {{ slide01.go_step_4 }}
+    <div
+      class="slide"
+      tabindex="-1"
+      id="slide-2"
+      role="group"
+      aria-roledescription="slide"
+      aria-label="2 of 9"
+    >
+      <div class="centered">
+        <h2 id="slide-2-title" class="font-style-hero step">{{slide02.h2}}</h2>
+        <p class="step">{{slide02.privacy}}</p>
+        {{>address_search_form}}
+      </div>
+    </div>
+
+    <div
+      class="slide"
+      tabindex="-1"
+      id="slide-3"
+      role="group"
+      aria-roledescription="slide"
+      aria-label="3 of 9"
+    >
+      <div class="centered v-centered">
+        <h2 id="slide-3-title" class="font-style-hero checking"> {{slide03.checking }} </h2>
+        <p> {{slide03.p}} </p>
+        <div id="sprite"></div>
+      </div>
+    </div>
+
+    <div
+      class="slide"
+      tabindex="-1"
+      id="slide-4"
+      role="group"
+      aria-roledescription="slide"
+      aria-label="4 of 9"
+    >
+      <div class="centered">
+        <div class="yes hidden">
+          <h2 class="font-style-hero">{{{slide04.yes.h2}}}</h2>
+          <p>{{{slide04.yes.p}}}</p>
+        </div>
+
+        <div class="no">
+          <p>{{{slide04.no.p}}}</p>
+        </div>
+
+        <div id="map-container">
+          {{>search_result_map}}
+          <p class="map-message"> {{slide04.map.caption}} </p>
+          <p class="map-message"><a href="https://chenrick.carto.com/viz/c591fa2e-726b-11e6-83e8-0e05a8b3e3d7/public_map"
+              target="_blank">{{slide04.map.view_map}}</a></p>
+        </div>
+      </div>
+
+      <button class="go-next bottom-arrow">
+        <div class="button-text">{{nav_bottom_arrow.next}}</div>
+        <div class="arrow"></div>
+      </button>
+    </div>
+
+    <div
+      class="slide"
+      tabindex="-1"
+      id="slide-5"
+      role="group"
+      aria-roledescription="slide"
+      aria-label="5 of 9"
+    >
+      <div class="centered">
+        <h2 id="slide-5-title" class="font-style-hero">{{slide05.h2}}</h2>
+        <div class="dhcr-choice">
+          <p><a id="mail-to" href="#">{{slide05.mail}}</a></p>
+          <p>{{slide05.phone}}<br><a href="tel:1-718-739-6400">718 739-6400</a></p>
+          <p>{{slide05.visit}}<br><a href="http://www.nyshcr.org/AboutUs/contact.htm#rent-admin"
+              target="_blank">{{slide05.office}}</a></p>
+        </div>
+        <p class="be-sure">{{slide05.tell_them}}</p>
+        <p class="be-sure">{{slide05.mailed}}</p>
+      </div>
+      <button class="go-next bottom-arrow">
+        <div class="button-text">{{nav_bottom_arrow.next}}</div>
+        <div class="arrow"></div>
+      </button>
+    </div>
+
+    <div
+      class="slide"
+      tabindex="-1"
+      id="slide-6"
+      role="group"
+      aria-roledescription="slide"
+      aria-label="6 of 9"
+    >
+      <div class="centered">
+        <h2 id="slide-6-title" class="font-style-hero check-it">{{slide06.h2}}</h2>
+        <p class="check-it">
+          {{slide06.arrive}}
+        </p>
+        <p class="check-it">
+          {{slide06.friends}}
+        </p>
+        {{>add_to_calendar}}
+      </div>
+      <button class="go-next bottom-arrow">
+        <div class="button-text">{{nav_bottom_arrow.next}}</div>
+        <div class="arrow"></div>
+      </button>
+    </div>
+
+    <div
+      class="slide"
+      tabindex="-1"
+      id="slide-7"
+      role="group"
+      aria-roledescription="slide"
+      aria-label="7 of 9"
+    >
+      <div class="centered">
+        <h2 id="slide-7-title" class="font-style-hero">{{slide07.h2}}</h2>
+        <a href="#rent-history">
+          <img class="rent-history" src="assets/png/sample-rent-history-thumb.png">
         </a>
-      </p>
-    </div>
-    <button class="go-next bottom-arrow">
-      <div class="button-text">{{nav_bottom_arrow.begin}}</div>
-      <div class="arrow"></div>
-    </button>
-  </section>
-
-  <section class="slide" tabindex="-1" id="slide-2" aria-labelledby="slide-2-title">
-    <div class="centered">
-      <h2 id="slide-2-title" class="font-style-hero step">{{slide02.h2}}</h2>
-      <p class="step">{{slide02.privacy}}</p>
-      {{>address_search_form}}
-    </div>
-  </section>
-
-  <section class="slide" tabindex="-1" id="slide-3" aria-labelledby="slide-3-title">
-    <div class="centered v-centered">
-      <h2 id="slide-3-title" class="font-style-hero checking"> {{slide03.checking }} </h2>
-      <p> {{slide03.p}} </p>
-      <div id="sprite"></div>
-    </div>
-  </section>
-
-  <section class="slide" tabindex="-1" id="slide-4" aria-label="search-results">
-    <div class="centered">
-      <div class="yes hidden">
-        <h2 class="font-style-hero">{{{slide04.yes.h2}}}</h2>
-        <p>{{{slide04.yes.p}}}</p>
+        <p class="view-sample"><a href="#rent-history">
+            {{slide07.p}}
+          </a></p>
       </div>
+      <button class="go-next bottom-arrow">
+        <div class="button-text">{{nav_bottom_arrow.next}}</div>
+        <div class="arrow"></div>
+      </button>
+    </div>
 
-      <div class="no">
-        <p>{{{slide04.no.p}}}</p>
+    <div
+      class="slide"
+      tabindex="-1"
+      id="slide-8"
+      role="group"
+      aria-roledescription="slide"
+      aria-label="8 of 9"
+    >
+      <div class="centered">
+        <h2 id="slide-8-title" class="font-style-hero">{{slide08.h2}}</h2>
+        <div class="action-choice">
+          <h4>{{slide08.option01}}</h4>
+          <p class="no-local-tr">
+            <a href="info/resources.html" target="_blank">{{slide08.no_local_tr.a}}</a>
+            {{slide08.no_local_tr.p}}
+          </p>
+
+          <p class="yes-local-tr hidden">
+            {{slide08.yes_local_tr.p}}
+            <a href="#open-modal"> {{slide08.yes_local_tr.a}} </a>
+          </p>
+
+          <h4>{{slide08.option02}}</h4>
+          <p>{{slide08.p1}}
+            <a href="http://www.nyshcr.org/Forms/Rent/ra89.pdf" target="_blank">{{slide08.a}}</a>
+            {{slide08.p2}}
+          </p>
+        </div>
       </div>
-
-      <div id="map-container">
-        {{>search_result_map}}
-        <p class="map-message"> {{slide04.map.caption}} </p>
-        <p class="map-message"><a href="https://chenrick.carto.com/viz/c591fa2e-726b-11e6-83e8-0e05a8b3e3d7/public_map"
-            target="_blank">{{slide04.map.view_map}}</a></p>
-      </div>
+      <button class="go-next bottom-arrow">
+        <div class="button-text">{{nav_bottom_arrow.next}}</div>
+        <div class="arrow"></div>
+      </button>
     </div>
 
-    <button class="go-next bottom-arrow">
-      <div class="button-text">{{nav_bottom_arrow.next}}</div>
-      <div class="arrow"></div>
-    </button>
-  </section>
-
-  <section class="slide" tabindex="-1" id="slide-5" aria-labelledby="slide-5-title">
-    <div class="centered">
-      <h2 id="slide-5-title" class="font-style-hero">{{slide05.h2}}</h2>
-      <div class="dhcr-choice">
-        <p><a id="mail-to" href="#">{{slide05.mail}}</a></p>
-        <p>{{slide05.phone}}<br><a href="tel:1-718-739-6400">718 739-6400</a></p>
-        <p>{{slide05.visit}}<br><a href="http://www.nyshcr.org/AboutUs/contact.htm#rent-admin"
-            target="_blank">{{slide05.office}}</a></p>
-      </div>
-      <p class="be-sure">{{slide05.tell_them}}</p>
-      <p class="be-sure">{{slide05.mailed}}</p>
-    </div>
-    <button class="go-next bottom-arrow">
-      <div class="button-text">{{nav_bottom_arrow.next}}</div>
-      <div class="arrow"></div>
-    </button>
-  </section>
-
-  <section class="slide" tabindex="-1" id="slide-6" aria-labelledby="slide-6-title">
-    <div class="centered">
-      <h2 id="slide-6-title" class="font-style-hero check-it">{{slide06.h2}}</h2>
-      <p class="check-it">
-        {{slide06.arrive}}
-      </p>
-      <p class="check-it">
-        {{slide06.friends}}
-      </p>
-      {{>add_to_calendar}}
-    </div>
-    <button class="go-next bottom-arrow">
-      <div class="button-text">{{nav_bottom_arrow.next}}</div>
-      <div class="arrow"></div>
-    </button>
-  </section>
-
-  <section class="slide" tabindex="-1" id="slide-7" aria-labelledby="slide-7-title">
-    <div class="centered">
-      <h2 id="slide-7-title" class="font-style-hero">{{slide07.h2}}</h2>
-      <a href="#rent-history">
-        <img class="rent-history" src="assets/png/sample-rent-history-thumb.png">
-      </a>
-      <p class="view-sample"><a href="#rent-history">
-          {{slide07.p}}
-        </a></p>
-    </div>
-    <button class="go-next bottom-arrow">
-      <div class="button-text">{{nav_bottom_arrow.next}}</div>
-      <div class="arrow"></div>
-    </button>
-  </section>
-
-  <section class="slide" tabindex="-1" id="slide-8" aria-labelledby="slide-8-title">
-    <div class="centered">
-      <h2 id="slide-8-title" class="font-style-hero">{{slide08.h2}}</h2>
-      <div class="action-choice">
-        <h4>{{slide08.option01}}</h4>
-        <p class="no-local-tr">
-          <a href="info/resources.html" target="_blank">{{slide08.no_local_tr.a}}</a>
-          {{slide08.no_local_tr.p}}
-        </p>
-
-        <p class="yes-local-tr hidden">
-          {{slide08.yes_local_tr.p}}
-          <a href="#open-modal"> {{slide08.yes_local_tr.a}} </a>
-        </p>
-
-        <h4>{{slide08.option02}}</h4>
-        <p>{{slide08.p1}}
-          <a href="http://www.nyshcr.org/Forms/Rent/ra89.pdf" target="_blank">{{slide08.a}}</a>
-          {{slide08.p2}}
-        </p>
+    <div
+      class="slide"
+      tabindex="-1"
+      id="slide-9"
+      role="group"
+      aria-roledescription="slide"
+      aria-label="9 of 9"
+    >
+      <div class="centered v-centered">
+        <h2 id="slide-9-title" class="font-style-hero end">{{slide09.h2}}</h2>
+        <img class="mascot" src="assets/png/yes.png">
+        <div class="button-holder">
+          <button class="button start-over go-first">
+            {{slide09.start}}
+          </button>
+          <a class="button learn-more" href="info/why.html">
+            {{slide09.learn}}
+          </a>
+        </div>
+        <div class="share-box-end">
+          <p class="share-it">{{slide09.share}}</p>
+          <div class="addthis_sharing_toolbox"></div>
+        </div>
       </div>
     </div>
-    <button class="go-next bottom-arrow">
-      <div class="button-text">{{nav_bottom_arrow.next}}</div>
-      <div class="arrow"></div>
-    </button>
-  </section>
 
-  <section class="slide" tabindex="-1" id="slide-9" aria-labelledby="slide-9-title">
-    <div class="centered v-centered">
-      <h2 id="slide-9-title" class="font-style-hero end">{{slide09.h2}}</h2>
-      <img class="mascot" src="assets/png/yes.png">
-      <div class="button-holder">
-        <button class="button start-over go-first">
-          {{slide09.start}}
-        </button>
-        <a class="button learn-more" href="info/why.html">
-          {{slide09.learn}}
-        </a>
-      </div>
-      <div class="share-box-end">
-        <p class="share-it">{{slide09.share}}</p>
-        <div class="addthis_sharing_toolbox"></div>
-      </div>
-    </div>
-  </section>
-</main>
+  </div>
+</section>
