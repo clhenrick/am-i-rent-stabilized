@@ -2,8 +2,16 @@
 <form id="address-form">
   <div class="user-data street-address">
     <label for="address-search-input">{{slide02.form.label}}:</label>
-    <input id="address-search-input" class="address-input" name="address-input" type="search" list="autosuggest-results"
-      placeholder="{{slide02.form.placeholder}}" autocomplete="off">
+    <input
+      id="address-search-input"
+      class="address-input"
+      name="address-input"
+      type="search"
+      list="autosuggest-results"
+      aria-required="true"
+      placeholder="{{slide02.form.placeholder}}"
+      autocomplete="off"
+    >
     <datalist id="autosuggest-results"></datalist>
   </div>
   {{>search_validation_errors}}
