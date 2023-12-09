@@ -31,11 +31,13 @@ export class SearchValidationErrors extends Component {
   showNoInput() {
     this.errorNoInput.classList.remove("hidden");
     this._searchForm.inputAddress.classList.add("invalid");
+    this._searchForm.inputAddress.setAttribute("aria-invalid", true);
   }
 
   hideNoInput() {
     this.errorNoInput.classList.add("hidden");
     this._searchForm.inputAddress.classList.remove("invalid");
+    this._searchForm.inputAddress.setAttribute("aria-invalid", false);
   }
 
   showGeneric() {
