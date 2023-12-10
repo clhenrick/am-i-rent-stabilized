@@ -90,6 +90,7 @@ export class AddressSearchForm extends Component {
       this.inputAddress.value = "";
     } else {
       this.validationErrors.showNoInput();
+      this.inputAddress.focus();
     }
   }
 
@@ -164,6 +165,7 @@ export class AddressSearchForm extends Component {
       this.store.dispatch(goToSlideIdx(2));
     } else {
       this.validationErrors.showNotFound();
+      this.inputAddress.focus();
       logAddressNF(this.inputAddress.value);
     }
   }
@@ -178,6 +180,7 @@ export class AddressSearchForm extends Component {
 
   handleFetchError(error) {
     this.validationErrors.showGeneric();
+    this.inputAddress.focus();
     // TODO: if exceptions are being logged from Redux middleware correctly,
     // then the following logException call may be redundant
     logException(handleErrorObj("AddressSearchForm.handleFetchError", error));
