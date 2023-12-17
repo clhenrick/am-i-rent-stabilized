@@ -87,7 +87,6 @@ export class AddressSearchForm extends Component {
     if (this.inputAddress.value.length) {
       this.searchRentStabilized(this.inputAddress.value);
       logAddressSearch(this.inputAddress.value);
-      this.inputAddress.value = "";
     } else {
       this.validationErrors.hideAll();
       this.validationErrors.showNoInput();
