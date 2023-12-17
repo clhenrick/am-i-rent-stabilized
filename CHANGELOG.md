@@ -1,6 +1,16 @@
 # Am I Rent Stabilized Changelog
 This changelog describes significant changes to the project. It was first created on November 29, 2020 so does not account for the entire project's history.
 
+## 2023-12-16 Improved A11Y of address search form ([#128](https://github.com/clhenrick/am-i-rent-stabilized/pull/128))
+
+Made accessibility enhancements and bug fixes for the address search form on slide two:
+- apply `aria-required="true"` to the `<input>` element to indicate that it is required to users of assistive tech
+- dynamically apply `aria-labelledby` to the `<input>` element when needed to provide an accessible description
+- dynamically apply `aria-invalid="true/false"` to the `<input>` when it is in an invalid state
+- apply focus to the input when the user submits the form when there is an error so that error text is announced
+- cleaned up HTML for error help text
+- removed asteriks from error help text to avoid confusing users of assistive tech
+
 ## 2023-11-27 Fix A11Y of Homepage / Slides ([#125](https://github.com/clhenrick/am-i-rent-stabilized/pull/125))
 
 Improves the accessibility of the home page's slides (main content):
