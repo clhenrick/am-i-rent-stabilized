@@ -1,11 +1,9 @@
-ul.search-validation-errors {
-  padding: 0;
+.search-validation-errors {
   margin-top: 5px;
   height: 125px;
 
-  li {
+  p {
     width: 70%;
-    display: block;
     margin: 12px auto;
     text-align: center;
     padding: 10px;
@@ -14,7 +12,6 @@ ul.search-validation-errors {
     font-weight: 300;
     font-style: italic;
     letter-spacing: 1px;
-    list-style: none;
     background-color: $valError;
 
     &.hidden {
@@ -23,14 +20,14 @@ ul.search-validation-errors {
   }
 
   @include responsive_height(medium-screens) {
-    li.es {
+    p.es {
       font-size: 0.6em;
     }
   }
 
   @include responsive(small-screens) {
-    max-width: 95%;
-    margin: 0 auto;
-    padding: 2px;
+    p {
+      width: auto;
+    }
   }
 }

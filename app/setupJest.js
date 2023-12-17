@@ -40,7 +40,6 @@ function registerHbsPartials() {
     "language_toggle",
     "progress_indicator",
     "address_search_form",
-    "search_validation_errors",
     "search_result_map",
     "add_to_calendar",
     "tenants_rights_modal",

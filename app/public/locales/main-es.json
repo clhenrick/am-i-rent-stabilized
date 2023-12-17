@@ -23,8 +23,8 @@
       "label": "Dirección",
       "placeholder": "Su dirección postal de NYC",
       "val_errors": {
-        "not_found": "* Lo sentimos, no reconocemos ésta dirección, favor de intentar de nuevo.",
-        "address": "* Ingrese el número de su edificio, el nombre de la calle y el distrito.",
+        "not_found": "Lo sentimos, no reconocemos ésta dirección, favor de intentar de nuevo.",
+        "address": "Ingrese el número de su edificio, el nombre de la calle y el distrito.",
         "generic": "Algo salió mal. Por favor, vuelva a intentarlo."
       }
     },
