@@ -1,7 +1,7 @@
 import { Component } from "./_componentBase";
 
 /** HTML id attribute values for validation text */
-const VALIDATION_TEXT_ID = {
+export const VALIDATION_TEXT_ID = {
   NOT_FOUND: "error-not-found",
   NO_INPUT: "error-address",
   GENERIC: "error-generic",

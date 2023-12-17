@@ -1,4 +1,7 @@
-import { SearchValidationErrors } from "./searchValidationErrors";
+import {
+  SearchValidationErrors,
+  VALIDATION_TEXT_ID,
+} from "./searchValidationErrors";
 import { AddressSearchForm } from "./addressSearchForm";
 import { store } from "../store";
 
@@ -79,6 +82,12 @@ describe("SearchValidationErrors", () => {
     expect(
       searchValidationErrors.errorNotFound.classList.contains("hidden")
     ).toBe(false);
+    expect(addressSearchForm.inputAddress.getAttribute("aria-invalid")).toBe(
+      "true"
+    );
+    expect(
+      addressSearchForm.inputAddress.getAttribute("aria-describedby")
+    ).toBe(VALIDATION_TEXT_ID.NOT_FOUND);
   });
 
   test("hideNotFound", () => {
@@ -86,6 +95,12 @@ describe("SearchValidationErrors", () => {
     expect(
       searchValidationErrors.errorNotFound.classList.contains("hidden")
     ).toBe(true);
+    expect(addressSearchForm.inputAddress.getAttribute("aria-invalid")).toBe(
+      "false"
+    );
+    expect(
+      addressSearchForm.inputAddress.getAttribute("aria-describedby")
+    ).toBeNull();
   });
 
   test("showNoInput", () => {
@@ -93,6 +108,12 @@ describe("SearchValidationErrors", () => {
     expect(
       searchValidationErrors.errorNoInput.classList.contains("hidden")
     ).toBe(false);
+    expect(addressSearchForm.inputAddress.getAttribute("aria-invalid")).toBe(
+      "true"
+    );
+    expect(
+      addressSearchForm.inputAddress.getAttribute("aria-describedby")
+    ).toBe(VALIDATION_TEXT_ID.NO_INPUT);
   });
 
   test("hideNoInput", () => {
@@ -100,6 +121,12 @@ describe("SearchValidationErrors", () => {
     expect(
       searchValidationErrors.errorNoInput.classList.contains("hidden")
     ).toBe(true);
+    expect(addressSearchForm.inputAddress.getAttribute("aria-invalid")).toBe(
+      "false"
+    );
+    expect(
+      addressSearchForm.inputAddress.getAttribute("aria-describedby")
+    ).toBeNull();
   });
 
   test("showGeneric", () => {
@@ -107,6 +134,9 @@ describe("SearchValidationErrors", () => {
     expect(
       searchValidationErrors.errorGeneric.classList.contains("hidden")
     ).toBe(false);
+    expect(
+      addressSearchForm.inputAddress.getAttribute("aria-describedby")
+    ).toBe(VALIDATION_TEXT_ID.GENERIC);
   });
 
   test("hideGeneric", () => {
@@ -114,6 +144,9 @@ describe("SearchValidationErrors", () => {
     expect(
       searchValidationErrors.errorGeneric.classList.contains("hidden")
     ).toBe(true);
+    expect(
+      addressSearchForm.inputAddress.getAttribute("aria-describedby")
+    ).toBeNull();
   });
 
   test("showAll", () => {
@@ -128,5 +161,11 @@ describe("SearchValidationErrors", () => {
     expect(spyHideNoInput).toHaveBeenCalledTimes(1);
     expect(spyHideNotFound).toHaveBeenCalledTimes(1);
     expect(spyHideGeneric).toHaveBeenCalledTimes(1);
+    expect(
+      addressSearchForm.inputAddress.getAttribute("aria-describedby")
+    ).toBeNull();
+    expect(addressSearchForm.inputAddress.getAttribute("aria-invalid")).toBe(
+      "false"
+    );
   });
 });
