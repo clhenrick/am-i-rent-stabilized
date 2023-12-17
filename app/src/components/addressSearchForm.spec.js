@@ -332,6 +332,8 @@ describe("AddressSearchForm", () => {
     expect(logAddressNF).toHaveBeenCalledWith(
       "444 Unknown Street, Staten Island"
     );
+    // NOTE: although the searchValidationErrors handles updating the DOM when an error occurs, the addressSearchForm focuses the input so that the error help text is announced to screen readers.
+    expect(document.activeElement).toEqual(addressSearchForm.inputAddress);
   });
 
   test("handleSubmit", () => {
@@ -371,6 +373,8 @@ describe("AddressSearchForm", () => {
     addressSearchForm.element.dispatchEvent(event);
     expect(spy).toHaveBeenCalled();
     expect(spy2).not.toHaveBeenCalled();
+    // NOTE: although the searchValidationErrors handles updating the DOM when an error occurs, the addressSearchForm focuses the input so that the error help text is announced to screen readers.
+    expect(document.activeElement).toEqual(addressSearchForm.inputAddress);
   });
 
   test("searchRentStabilized", () => {
@@ -436,6 +440,8 @@ describe("AddressSearchForm", () => {
     addressSearchForm.handleFetchError(new Error("Something went wrong"));
     expect(spy).toHaveBeenCalled();
     expect(logException).toHaveBeenCalled();
+    // NOTE: although the searchValidationErrors handles updating the DOM when an error occurs, the addressSearchForm focuses the input so that the error help text is announced to screen readers.
+    expect(document.activeElement).toEqual(addressSearchForm.inputAddress);
   });
 
   test("cleanUp", () => {
