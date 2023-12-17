@@ -89,6 +89,7 @@ export class AddressSearchForm extends Component {
       logAddressSearch(this.inputAddress.value);
       this.inputAddress.value = "";
     } else {
+      this.validationErrors.hideAll();
       this.validationErrors.showNoInput();
       this.inputAddress.focus();
     }
