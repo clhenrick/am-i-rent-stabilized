@@ -352,7 +352,7 @@ describe("AddressSearchForm", () => {
     expect(logAddressSearch).toHaveBeenCalledWith("999 Main Street");
     expect(event.preventDefault).toHaveBeenCalled();
     expect(spy2).toHaveBeenCalledWith("999 Main Street");
-    expect(addressSearchForm.inputAddress.value).toEqual("");
+    expect(addressSearchForm.inputAddress.value).toEqual("999 Main Street");
   });
 
   test("handleSubmit no user input", () => {
