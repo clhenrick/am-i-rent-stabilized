@@ -14,17 +14,17 @@
     >
     <datalist id="autosuggest-results"></datalist>
   </div>
-  <ul class="search-validation-errors">
-      <li id="error-not-found" class="val-err hidden">
+  <div class="search-validation-errors">
+      <p id="error-not-found" class="val-err hidden">
         {{slide02.form.val_errors.not_found}}
-      </li>
-      <li id="error-address" class="val-err hidden">
+      </p>
+      <p id="error-address" class="val-err hidden">
         {{slide02.form.val_errors.address}}
-      </li>
-      <li id="error-generic" class="val-err hidden">
+      </p>
+      <p id="error-generic" class="val-err hidden">
         {{slide02.form.val_errors.generic}}
-      </li>
-  </ul>
+      </p>
+  </div>
   <button class="button submit" type="submit">
     {{ slide02.search }}
   </button>

@@ -47,7 +47,7 @@ describe("SearchValidationErrors", () => {
 
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
 
-    element = document.querySelector("#address-form ul");
+    element = document.querySelector(".search-validation-errors");
   });
 
   beforeEach(() => {

@@ -35,7 +35,7 @@ export class AddressSearchForm extends Component {
     this.cached.searchResult = undefined;
 
     this.validationErrors = new SearchValidationErrors({
-      element: this.element.querySelector("ul"),
+      element: this.element.querySelector(".search-validation-errors"),
       searchForm: this,
     });
 
