@@ -149,13 +149,6 @@ describe("SearchValidationErrors", () => {
     ).toBeNull();
   });
 
-  test("showAll", () => {
-    searchValidationErrors.showAll();
-    expect(spyShowNoInput).toHaveBeenCalledTimes(1);
-    expect(spyShowNotFound).toHaveBeenCalledTimes(1);
-    expect(spyShowGeneric).toHaveBeenCalledTimes(1);
-  });
-
   test("hideAll", () => {
     searchValidationErrors.hideAll();
     expect(spyHideNoInput).toHaveBeenCalledTimes(1);

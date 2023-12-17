@@ -21,12 +21,6 @@ export class SearchValidationErrors extends Component {
     );
   }
 
-  showAll() {
-    this.showNotFound();
-    this.showNoInput();
-    this.showGeneric();
-  }
-
   hideAll() {
     this.hideNotFound();
     this.hideNoInput();
