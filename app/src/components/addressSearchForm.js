@@ -20,6 +20,18 @@ import {
 const INPUT_THROTTLE_MS = 350;
 const MIN_SEARCH_TEXT_LENGTH = 1;
 
+// NOTE: this fixes a bug (#131) caused by the virtual keyboard on mobile devices
+const hideOrRevealNonActiveSlides = (hide) => {
+  const slides = [...document.querySelectorAll(".slide")];
+  slides.forEach((slide) => {
+    if (!slide.classList.contains("active")) {
+      // hide all non-active slides so that the address input remains in the visual viewport when the virtual keyboard appears
+      // unhide all non-active slides when ready to resume slide navigation so that things work as normally
+      hide ? slide.classList.add("hidden") : slide.classList.remove("hidden");
+    }
+  });
+};
+
 export class AddressSearchForm extends Component {
   constructor(props) {
     super(props);
@@ -46,6 +58,7 @@ export class AddressSearchForm extends Component {
       INPUT_THROTTLE_MS,
       { leading: true }
     );
+    this.handleFocus = this.handleFocus.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleAGChange = this.handleAGChange.bind(this);
     this.handleRSChange = this.handleRSChange.bind(this);
@@ -72,17 +85,24 @@ export class AddressSearchForm extends Component {
   bindEvents() {
     this.element.addEventListener("submit", this.handleSubmit);
     this.inputAddress.addEventListener("input", this.handleInputChange);
+    this.inputAddress.addEventListener("focus", this.handleFocus);
   }
 
   removeEvents() {
     this.element.removeEventListener("submit", this.handleSubmit);
     this.inputAddress.removeEventListener("input", this.handleInputChange);
+    this.inputAddress.removeEventListener("focus", this.handleFocus);
+  }
+
+  handleFocus() {
+    hideOrRevealNonActiveSlides(true);
   }
 
   handleSubmit(event) {
     event.preventDefault();
     this.handleInputChange.cancel();
     this.clearCachedSearchResult();
+    hideOrRevealNonActiveSlides(false);
 
     if (this.inputAddress.value.length) {
       this.searchRentStabilized(this.inputAddress.value);
