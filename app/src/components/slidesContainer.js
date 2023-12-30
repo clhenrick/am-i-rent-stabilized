@@ -29,7 +29,6 @@ export class SlidesContainer extends Component {
       (state) => state.slides,
       this.handleSlidesUpdate
     );
-    console.log(this.activeSlideIdx);
     this.scrollToActiveSlide();
   }
 
@@ -43,7 +42,6 @@ export class SlidesContainer extends Component {
 
   scrollToActiveSlide() {
     const id = `#slide-${this.activeSlideIdx + 1}`;
-    console.log(id);
     const duration = this.prefersReducedMotion ? 0 : SCROLL_DURATION_SECONDS;
     gsap.to(this.element, {
       duration,
