@@ -17,7 +17,7 @@ export class SlidesContainer extends Component {
 
     this.slides = [...this.element.querySelectorAll(".slide")];
     this.prefersReducedMotion = false;
-    this.activeSlide = this.slides[this.store.getState().slides.curIndex];
+    this.activeSlideIdx = this.store.getState().slides.curIndex;
 
     this.handleSlidesUpdate = this.handleSlidesUpdate.bind(this);
     this.scrollToActiveSlide = this.scrollToActiveSlide.bind(this);
@@ -34,7 +34,6 @@ export class SlidesContainer extends Component {
   }
 
   handleSlidesUpdate() {
-    console.log("handleSlidesUpdate...");
     const { slides } = this.store.getState();
     if (slides.curIndex !== this.activeSlideIdx) {
       this.previousSlideIndex = this.activeSlideIdx;
