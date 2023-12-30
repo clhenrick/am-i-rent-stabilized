@@ -29,6 +29,8 @@ export class SlidesContainer extends Component {
       (state) => state.slides,
       this.handleSlidesUpdate
     );
+    console.log(this.activeSlideIdx);
+    this.scrollToActiveSlide();
   }
 
   handleSlidesUpdate() {
