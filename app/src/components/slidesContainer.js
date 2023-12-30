@@ -40,9 +40,12 @@ export class SlidesContainer extends Component {
   }
 
   scrollToActiveSlide() {
+    const id = `#slide-${this.activeSlideIdx + 1}`;
+    console.log(id);
+    const duration = this.prefersReducedMotion ? 0 : SCROLL_DURATION_SECONDS;
     gsap.to(this.element, {
-      duration: this.prefersReducedMotion ? 0 : SCROLL_DURATION_SECONDS,
-      scrollTo: ".slide.active",
+      duration,
+      scrollTo: id,
       ease: "sine.inOut",
     });
   }
