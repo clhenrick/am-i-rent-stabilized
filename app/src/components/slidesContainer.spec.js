@@ -99,8 +99,19 @@ describe("SlidesContainer", () => {
       },
     }));
     slidesContainer.handleSlidesUpdate();
+    const activeSlideIndex = slidesContainer.activeSlideIdx;
+    const activeSlide = slidesContainer.activeSlide;
+    const nonActiveSlides = slidesContainer.slides.filter(
+      (slide) => !slide.classList.contains("active")
+    );
     expect(spyScrollToActiveSlide).toHaveBeenCalledTimes(1);
-    expect(slidesContainer.activeSlideIdx).toBe(5);
+    expect(activeSlideIndex).toBe(5);
+    expect(activeSlide.getAttribute("inert")).toBeNull();
+    expect(activeSlide.getAttribute("aria-hidden")).toBe("false");
+    nonActiveSlides.forEach((slide) => {
+      expect(slide.getAttribute("inert")).toBe("true");
+      expect(slide.getAttribute("aria-hidden")).toBe("true");
+    });
   });
 
   test("scrollToActiveSlide calls gsap.to with expected params", () => {
