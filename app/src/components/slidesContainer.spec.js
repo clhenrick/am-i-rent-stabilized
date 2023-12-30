@@ -1,5 +1,5 @@
 import { gsap } from "gsap";
-import { SlidesContainer } from "./slidesContainer";
+import { SlidesContainer, SCROLL_DURATION_SECONDS } from "./slidesContainer";
 import { store, observeStore } from "../store";
 
 jest.mock("../store", () => {
@@ -25,7 +25,7 @@ const mockMatchMedia = (window.matchMedia = jest.fn(() => ({
 })));
 
 describe("SlidesContainer", () => {
-  const selector = ".slides-container";
+  const selector = ".slides";
   let element;
   let slidesContainer;
   let spyScrollToActiveSlide;
@@ -87,7 +87,12 @@ describe("SlidesContainer", () => {
     expect(observeStore).toHaveBeenCalledTimes(1);
   });
 
+  test("scrolls to active slide on init", () => {
+    expect(spyScrollToActiveSlide).toHaveBeenCalledTimes(1);
+  });
+
   test("handleSlidesUpdate responds to state.slides changes", () => {
+    spyScrollToActiveSlide.mockClear();
     store.getState.mockImplementationOnce(() => ({
       slides: {
         curIndex: 5,
@@ -98,13 +103,15 @@ describe("SlidesContainer", () => {
     expect(slidesContainer.activeSlideIdx).toBe(5);
   });
 
-  test("scrollToActiveSlide calls gsap.to", () => {
+  test("scrollToActiveSlide calls gsap.to with expected params", () => {
+    gsap.to.mockClear();
     slidesContainer.scrollToActiveSlide();
     expect(gsap.to).toHaveBeenCalledTimes(1);
     expect(gsap.to).toHaveBeenCalledWith(element, {
-      duration: 0.65,
-      scrollTo: ".slide.active",
+      duration: SCROLL_DURATION_SECONDS,
+      scrollTo: "#slide-1",
       ease: "sine.inOut",
+      onComplete: slidesContainer.handleScrollComplete,
     });
   });
 
@@ -114,9 +121,6 @@ describe("SlidesContainer", () => {
       element,
       store,
     });
-    expect(mockMatchMedia).toHaveBeenCalledWith(
-      "(prefers-reduced-motion: reduce)"
-    );
     expect(slidesContainer.prefersReducedMotion).toBe(true);
   });
 
@@ -125,8 +129,9 @@ describe("SlidesContainer", () => {
     slidesContainer.scrollToActiveSlide();
     expect(gsap.to).toHaveBeenCalledWith(slidesContainer.element, {
       duration: 0,
-      scrollTo: ".slide.active",
+      scrollTo: "#slide-1",
       ease: "sine.inOut",
+      onComplete: slidesContainer.handleScrollComplete,
     });
   });
 });

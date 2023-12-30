@@ -5,7 +5,7 @@ import { observeStore } from "../store";
 
 gsap.registerPlugin(ScrollToPlugin);
 
-const SCROLL_DURATION_SECONDS = 0.65;
+export const SCROLL_DURATION_SECONDS = 0.65;
 
 export class SlidesContainer extends Component {
   constructor(props) {
