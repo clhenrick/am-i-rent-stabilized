@@ -126,12 +126,13 @@ describe("SlidesContainer", () => {
     });
   });
 
-  test("a11y: when scroll completes, active slide is focused", () => {
+  test("when scroll completes, active slide is focused", () => {
     slidesContainer.handleScrollComplete();
     expect(document.activeElement).toBe(slidesContainer.activeSlide);
   });
 
   test("checks prefers-reduced-motion media query", () => {
+    expect(slidesContainer.prefersReducedMotion).toBe(false);
     mockMatchMedia.mockImplementation(() => ({ matches: true }));
     slidesContainer = new SlidesContainer({
       element,
