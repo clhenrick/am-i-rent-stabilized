@@ -59,9 +59,9 @@ export class SlidesContainer extends Component {
     }
   }
 
-  set activeSlide(value) {
+  set activeSlide(index) {
     this.slides.forEach((slide) => {
-      if (slide === this.slides[value]) {
+      if (slide === this.slides[index]) {
         slide.classList.add("active");
         slide.removeAttribute("inert");
         slide.setAttribute("aria-hidden", false);
@@ -78,8 +78,8 @@ export class SlidesContainer extends Component {
     return this.slides[this.activeSlideIdx];
   }
 
-  set activeSlideIdx(value) {
-    this.activeSlide = value;
+  set activeSlideIdx(index) {
+    this.activeSlide = index;
   }
 
   get activeSlideIdx() {
