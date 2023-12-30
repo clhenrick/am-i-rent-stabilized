@@ -17,11 +17,12 @@ export class SlidesContainer extends Component {
 
     this.slides = [...this.element.querySelectorAll(".slide")];
     this.prefersReducedMotion = false;
-    this.activeSlide = this.store.getState().slides.curIndex;
+    this.activeSlide = this.slides[this.store.getState().slides.curIndex];
 
     this.handleSlidesUpdate = this.handleSlidesUpdate.bind(this);
     this.scrollToActiveSlide = this.scrollToActiveSlide.bind(this);
     this.handleMotionQuery = this.handleMotionQuery.bind(this);
+    this.handleScrollComplete = this.handleScrollComplete.bind(this);
 
     this.handleMotionQuery();
     this.unsubscribe = observeStore(
@@ -33,8 +34,10 @@ export class SlidesContainer extends Component {
   }
 
   handleSlidesUpdate() {
+    console.log("handleSlidesUpdate...");
     const { slides } = this.store.getState();
     if (slides.curIndex !== this.activeSlideIdx) {
+      this.previousSlideIndex = this.activeSlideIdx;
       this.activeSlide = slides.curIndex;
       this.scrollToActiveSlide();
     }
@@ -47,7 +50,12 @@ export class SlidesContainer extends Component {
       duration,
       scrollTo: id,
       ease: "sine.inOut",
+      onComplete: this.handleScrollComplete,
     });
+  }
+
+  handleScrollComplete() {
+    this.activeSlide.focus();
   }
 
   handleMotionQuery() {
@@ -63,7 +71,6 @@ export class SlidesContainer extends Component {
         slide.classList.add("active");
         slide.removeAttribute("inert");
         slide.setAttribute("aria-hidden", false);
-        slide.focus();
       } else {
         slide.classList.remove("active");
         slide.setAttribute("inert", true);
