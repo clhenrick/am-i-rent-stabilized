@@ -17,7 +17,8 @@ export class SlidesContainer extends Component {
 
     this.slides = [...this.element.querySelectorAll(".slide")];
     this.prefersReducedMotion = false;
-    this.activeSlideIdx = this.store.getState().slides.curIndex;
+    this.activeSlideIndex = this.store.getState().slides.curIndex;
+    this.previousSlideIndex = undefined;
 
     this.handleSlidesUpdate = this.handleSlidesUpdate.bind(this);
     this.scrollToActiveSlide = this.scrollToActiveSlide.bind(this);
@@ -35,22 +36,34 @@ export class SlidesContainer extends Component {
 
   handleSlidesUpdate() {
     const { slides } = this.store.getState();
-    if (slides.curIndex !== this.activeSlideIdx) {
-      this.previousSlideIndex = this.activeSlideIdx;
+    if (slides.curIndex !== this.activeSlideIndex) {
+      this.previousSlideIndex = this.activeSlideIndex;
       this.activeSlide = slides.curIndex;
       this.scrollToActiveSlide();
     }
   }
 
   scrollToActiveSlide() {
-    const id = `#slide-${this.activeSlideIdx + 1}`;
+    const id = `#slide-${this.activeSlideIndex + 1}`;
     const duration = this.prefersReducedMotion ? 0 : SCROLL_DURATION_SECONDS;
-    gsap.to(this.element, {
+    const toOptions = {
       duration,
       scrollTo: id,
       ease: "sine.inOut",
       onComplete: this.handleScrollComplete,
-    });
+    };
+    // NOTE: we call gsap.fromTo when previousSlideIndex exists to avoid unintentionally scrolling from the first slide.
+    // this avoids a side effect from a bugfix for issue #131 where the non-active slides are hidden then revealed to prevent an undesirable layout shift from the soft keyboard on touch screen devices.
+    if (
+      typeof this.previousSlideIndex === "number" &&
+      !isNaN(this.previousSlideIndex)
+    ) {
+      const previousId = `#slide-${this.previousSlideIndex + 1}`;
+      const fromOptions = { scrollTo: previousId };
+      gsap.fromTo(this.element, fromOptions, toOptions);
+    } else {
+      gsap.to(this.element, toOptions);
+    }
   }
 
   handleScrollComplete() {
@@ -79,14 +92,14 @@ export class SlidesContainer extends Component {
   }
 
   get activeSlide() {
-    return this.slides[this.activeSlideIdx];
+    return this.slides[this.activeSlideIndex];
   }
 
-  set activeSlideIdx(index) {
+  set activeSlideIndex(index) {
     this.activeSlide = index;
   }
 
-  get activeSlideIdx() {
+  get activeSlideIndex() {
     return this.slides.findIndex((slide) => slide.classList.contains("active"));
   }
 }
