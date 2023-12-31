@@ -99,7 +99,7 @@ describe("SlidesContainer", () => {
       },
     }));
     slidesContainer.handleSlidesUpdate();
-    const activeSlideIndex = slidesContainer.activeSlideIdx;
+    const activeSlideIndex = slidesContainer.activeSlideIndex;
     const activeSlide = slidesContainer.activeSlide;
     const nonActiveSlides = slidesContainer.slides.filter(
       (slide) => !slide.classList.contains("active")
@@ -114,7 +114,7 @@ describe("SlidesContainer", () => {
     });
   });
 
-  test("scrollToActiveSlide calls gsap.to with expected params", () => {
+  test("scrollToActiveSlide calls gsap.to and gsap.fromTo with expected params", () => {
     gsap.to.mockClear();
     slidesContainer.scrollToActiveSlide();
     expect(gsap.to).toHaveBeenCalledTimes(1);
@@ -124,6 +124,21 @@ describe("SlidesContainer", () => {
       ease: "sine.inOut",
       onComplete: slidesContainer.handleScrollComplete,
     });
+
+    slidesContainer.activeSlideIndex = 2;
+    slidesContainer.previousSlideIndex = 1;
+    slidesContainer.scrollToActiveSlide();
+    expect(gsap.fromTo).toHaveBeenCalledTimes(1);
+    expect(gsap.fromTo).toHaveBeenCalledWith(
+      element,
+      { scrollTo: "#slide-2" },
+      {
+        duration: SCROLL_DURATION_SECONDS,
+        scrollTo: "#slide-3",
+        ease: "sine.inOut",
+        onComplete: slidesContainer.handleScrollComplete,
+      }
+    );
   });
 
   test("when scroll completes, active slide is focused", () => {
