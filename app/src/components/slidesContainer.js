@@ -3,6 +3,7 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { Component } from "./_componentBase";
 import { observeStore } from "../store";
 
+// NOTE: this is required for GSAP plugins to work with module bundlers
 gsap.registerPlugin(ScrollToPlugin);
 
 export const SCROLL_DURATION_SECONDS = 0.65;
@@ -38,7 +39,7 @@ export class SlidesContainer extends Component {
     const { slides } = this.store.getState();
     if (slides.curIndex !== this.activeSlideIndex) {
       this.previousSlideIndex = this.activeSlideIndex;
-      this.activeSlide = slides.curIndex;
+      this.activeSlideIndex = slides.curIndex;
       this.scrollToActiveSlide();
     }
   }
@@ -77,9 +78,10 @@ export class SlidesContainer extends Component {
     }
   }
 
-  set activeSlide(index) {
+  /** updates a slide in the document to be the "active" one and all other slides to be "inactive" */
+  set activeSlide(target) {
     this.slides.forEach((slide) => {
-      if (slide === this.slides[index]) {
+      if (slide === target) {
         slide.classList.add("active");
         slide.removeAttribute("inert");
         slide.setAttribute("aria-hidden", false);
@@ -91,14 +93,17 @@ export class SlidesContainer extends Component {
     });
   }
 
+  /** returns the slide that currently has a class of "active" */
   get activeSlide() {
     return this.slides[this.activeSlideIndex];
   }
 
+  /** alias for setting activeSlide via an index */
   set activeSlideIndex(index) {
-    this.activeSlide = index;
+    this.activeSlide = this.slides[index];
   }
 
+  /** returns the index of the slide with a class of "active" */
   get activeSlideIndex() {
     return this.slides.findIndex((slide) => slide.classList.contains("active"));
   }
