@@ -72,7 +72,7 @@ export default function initApp() {
   registry.add(
     "slidesContainer",
     new SlidesContainer({
-      element: document.querySelector(".slides-container"),
+      element: document.querySelector(".slides"),
       store,
     })
   );
