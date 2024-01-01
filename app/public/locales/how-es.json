@@ -6,13 +6,13 @@
     "resources": "Recursos"
   },
   "nav_side": {
-    "h3": "Ir a un tema:",
+    "h2": "Ir a un tema:",
     "how": "¿Cómo funciona?",
     "code": "Código y Datos",
     "credits": "Créditos"
   },
   "how": {
-    "h1": "Cómo funciona esta página web",
+    "h2": "Cómo funciona esta página web",
     "p01": [
       "Esta página web verifica una dirección residencial e indica si coincide con la lista de propiedades que ",
       "probablemente tienen apartamentos con renta estabilizada. ",
@@ -46,7 +46,7 @@
     "p07": "La base de datos que utiliza esta página web combina las propiedades en la lista del DHCR con aquellas que tienen altas probabilidades de tener unidades con renta estabilizada que no están en la lista con el propósito de tener un estimado de la ubicación de todos los apartamentos con renta estabilizada en la ciudad de Nueva York."
   },
   "code": {
-    "h1": "Código y Datos",
+    "h2": "Código y Datos",
     "p": "Usted puede revisar y descargar el código de ésta página web. Puede descargar un archivo de Excel y los archivos CSV del DHCR con la lista de los edificios con renta estabilizada. Enlaces a continuación.",
     "ul": [
       "Github Repo (código)",
@@ -55,7 +55,7 @@
     ]
   },
   "credits": {
-    "h1": "Créditos",
+    "h2": "Créditos",
     "h3": "Gracias a los usuarios por visitar nuestra página web y verificar su historial de renta.",
     "p01": "Las siguientes personas y organizaciones hicieron este proyecto posible.",
     "ul": [

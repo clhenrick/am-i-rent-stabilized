@@ -6,13 +6,13 @@
     "resources": "Resources"
   },
   "nav_side": {
-    "h3": "Jump to a topic:",
+    "h2": "Jump to a topic:",
     "how": "How it Works",
     "code": "Code &amp; Data",
     "credits": "Credits"
   },
   "how": {
-    "h1": "How This Site Works",
+    "h2": "How This Site Works",
     "p01": [
       "This site checks your building's address and sees if it matches a list of properties that are ",
       "likely to have rent stabilized apartments. ",
@@ -46,7 +46,7 @@
     "p07": "The database used by this site combines the properties on the DHCR list with those that are likely to have rent stabilized units and are not currently on the DHCR list in order to get an estimate of the locations of all rent stabilized apartments in NYC."
   },
   "code": {
-    "h1": "Code and Data",
+    "h2": "Code and Data",
     "p": "You may inspect and download the code for this site, download the data it uses, and download Excel and CSV files of the DHCR rent stabilized building list from the links below.",
     "ul": [
       "Github Repo (code)",
@@ -55,7 +55,7 @@
     ]
   },
   "credits": {
-    "h1": "Credits",
+    "h2": "Credits",
     "h3": "And most of all thanks to you for visiting this site and checking your rent history!",
     "p01": "The following people and organizations helped tremendously to make this project happen.",
     "ul": [

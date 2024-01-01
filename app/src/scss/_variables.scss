@@ -1,3 +1,13 @@
+// typography
+// TODO: change these to rem (requires updating html & body tags' font-size)
+$font-size-header: 5.4em; // 54px;
+$font-size-subhead: 2.8em; // 28px; // (h2's)
+$font-size-pg: 2.2em; // 22px;
+$font-size-btn-slide-nav: 3.5em; // 35px;
+$font-size-btn-translation: 1.8em; // 18px;
+$font-size-btn-nav-side-title: 18px; // also info pages paragraphs & list item text
+$font-size-nav-side-link: 1.5em; // 15px;
+
 // pallette
 $gray: #4a4a4a;
 $medgray: #9b9b9b;

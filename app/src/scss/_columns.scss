@@ -15,6 +15,7 @@
 
   @include responsive_height(medium-screens) {
     width: 650px;
+
     p {
       // margin-top: 30px;
       width: 175px;
@@ -38,7 +39,7 @@
     margin-top: 25px;
     margin-bottom: 10%;
 
-    @include columns($width: 100px, $number: 3, $gap: 10px);
+    @include columns($width: auto, $number: 3, $gap: 10px);
 
     p {
       width: 90%;
@@ -62,19 +63,22 @@
     width: 640px;
     margin-top: 30px;
     height: 300px;
+
     @include columns($width: 300px, $number: 2, $gap: 20px);
   }
 
   @include responsive(tablet-screens) {
     width: 600px;
     margin-top: 15%;
+
     @include columns($width: 255px, $number: 2, $gap: 80px);
   }
 
   @include responsive(small-screens) {
     width: 100%;
     height: 215px;
-    @include columns($width: 125px, $number: 2, $gap: 10px);
+
+    @include columns($width: auto, $number: 2, $gap: 10px);
   }
 
   p {
@@ -120,7 +124,7 @@
     }
   }
 
-  h4 {
+  h3 {
     position: relative;
     margin-top: 0;
     font-family: $header-font;
@@ -128,10 +132,6 @@
     font-weight: 700;
     text-align: center;
     color: $green;
-
-    &:last-child {
-      top: -3px;
-    }
 
     @include responsive(small-screens) {
       font-size: 1.5em;
@@ -144,14 +144,8 @@ input[placeholder] {
   font-family: $body-font !important;
   font-weight: 300 !important;
 }
-input::-webkit-input-placeholder {
-  color: $medgray !important;
-  font-family: $body-font !important;
-  font-weight: 300 !important;
-}
 
-input:-moz-placeholder {
-  /* Firefox 18- */
+input::-webkit-input-placeholder {
   color: $medgray !important;
   font-family: $body-font !important;
   font-weight: 300 !important;
@@ -159,6 +153,13 @@ input:-moz-placeholder {
 
 input::-moz-placeholder {
   /* Firefox 19+ */
+  color: $medgray !important;
+  font-family: $body-font !important;
+  font-weight: 300 !important;
+}
+
+input:-moz-placeholder {
+  /* Firefox 18- */
   color: $medgray !important;
   font-family: $body-font !important;
   font-weight: 300 !important;

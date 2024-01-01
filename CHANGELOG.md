@@ -1,6 +1,42 @@
 # Am I Rent Stabilized Changelog
 This changelog describes significant changes to the project. It was first created on November 29, 2020 so does not account for the entire project's history.
 
+## 2023-12-27 Bug Fix: ([#132](https://github.com/clhenrick/am-i-rent-stabilized/pull/132))
+
+Fixes a significant bug ([#131](https://github.com/clhenrick/am-i-rent-stabilized/issues/131)) on iOS (iphones) where the address search form's input would move out of the visual viewport (be hidden) when focused. Although it would return to the visual viewport when typing,  when the input is blurred the slides layout would get stuck in a state that obscured the search button, thus preventing the user from search for an address. The fix involves temporarily hiding all non-active/visible slides when the input is focused, and then un-hiding them when the search button is clicked in order to prevent the odd layout shift from occuring.
+
+## 2023-12-16 Improved A11Y of address search form ([#128](https://github.com/clhenrick/am-i-rent-stabilized/pull/128))
+
+Made accessibility enhancements and bug fixes for the address search form on slide two:
+- apply `aria-required="true"` to the `<input>` element to indicate that it is required to users of assistive tech
+- dynamically apply `aria-labelledby` to the `<input>` element when needed to provide an accessible description
+- dynamically apply `aria-invalid="true/false"` to the `<input>` when it is in an invalid state
+- apply focus to the input when the user submits the form when there is an error so that error text is announced
+- cleaned up HTML for error help text
+- removed asteriks from error help text to avoid confusing users of assistive tech
+
+## 2023-11-27 Fix A11Y of Homepage / Slides ([#125](https://github.com/clhenrick/am-i-rent-stabilized/pull/125))
+
+Improves the accessibility of the home page's slides (main content):
+- Utilizes the HTML `inert` attribute to remove inactive slide content that is focusable from the tab order.
+- Applies `aria-hidden="true"` to all inactive slides.
+- Programmatically focuses the active slide when transitioning from the previous slide. Note: no focus ring is applied to the active slide since there may only ever be a single slide in view at a time.
+- Partially follows the [WAI APG's Carousel pattern](https://www.w3.org/WAI/ARIA/apg/patterns/carousel/) for making the slides accessible to users of assistive technology. I say "partially" because the homepage's slides pattern does not follow a typical carousel UX in that it does not allow users to go backwards / to a previous slide or jump to any slide using a specific set of controls. The implementation that follows guidance from the Carousel pattern was tested using VoiceOver on Safari with positive results.
+
+Other:
+- Updated dev dependency `caniuse-lite`
+
+## 2023-11-22 A11Y improvements & bug fixes ([#124](https://github.com/clhenrick/am-i-rent-stabilized/pull/124))
+
+Accessibility fixes:
+- Corrected the usage of heading levels (h1-h6) through out the website so that there is one h1 per page and are sequential (see issue #85)
+- Fixes the main navigation's hamburger button (previously was a clickable `<div>`) by making it an actual button.
+
+Other bug fixes & improvements:
+- fixes the "start over" button click handler which was previously not working
+- cleaned up the main navigation CSS
+- removed some unused SCSS partials
+
 ## 2023-02-03 App Dependency updates ([#120](https://github.com/clhenrick/am-i-rent-stabilized/pull/120))
 - Removed `node-sass` in favor of (Dart) `sass`
 - Upgraded `webpack` to latest 4.x version 4.46.0

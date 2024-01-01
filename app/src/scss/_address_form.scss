@@ -26,10 +26,6 @@
       position: center 90%;
     }
 
-    &.es {
-      font-size: 0.75em;
-    }
-
     &.invalid {
       border: 3px dashed $valError;
     }
@@ -62,10 +58,7 @@
     input {
       &.address-input {
         height: 60px;
-
-        &.es {
-          font-size: 0.85em;
-        }
+        font-size: 16px;
       }
     }
 

@@ -120,7 +120,7 @@
 
 // NOTE: for some reason Sass isn't compiling the $name variable in the keyframes mixin
 // @include responsive_height(medium-screens) {
-// 	@include keyframes($name:play, $to:-1280px);
+//   @include keyframes($name:play, $to:-1280px);
 // }
 
 // @include keyframes($name:play, $to:-1920px);

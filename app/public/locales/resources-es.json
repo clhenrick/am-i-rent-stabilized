@@ -6,7 +6,7 @@
     "resources": "Recursos"
   },
   "nav_side": {
-    "h3": "Ir a",
+    "h2": "Ir a",
     "nongov": "Organizaciones de Derechos para Inquilinos",
     "citywide": "En toda la Ciudad",
     "boro": "Por Distrito",
@@ -164,7 +164,7 @@
     }
   },
   "gov": {
-    "h3": "Recursos Gubernamentales",
+    "h2": "Recursos Gubernamentales",
     "p": "Estos son enlaces a páginas web de departamentos que operan dentro del estado a nivel de ciudad que se relacionan con viviendas y propiedades en la ciudad de Nueva York.",
     "ul": [
       {
