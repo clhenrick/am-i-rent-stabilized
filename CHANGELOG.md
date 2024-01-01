@@ -1,7 +1,11 @@
 # Am I Rent Stabilized Changelog
 This changelog describes significant changes to the project. It was first created on November 29, 2020 so does not account for the entire project's history.
 
-## 2023-12-27 Bug Fix: ([#132](https://github.com/clhenrick/am-i-rent-stabilized/pull/132))
+## 2023-12-31 Bug Fix: slides smooth scroll ([#133](https://github.com/clhenrick/am-i-rent-stabilized/pull/133))
+
+Re-implements the smooth scrolling between slides when a user has not enabled "prefers reduced motion" in their device or browser settings. The smooth scrolling had unintentionally stopped working after PR #125 which fixed accessibility issues with the slides.
+
+## 2023-12-27 Bug Fix: address search ([#132](https://github.com/clhenrick/am-i-rent-stabilized/pull/132))
 
 Fixes a significant bug ([#131](https://github.com/clhenrick/am-i-rent-stabilized/issues/131)) on iOS (iphones) where the address search form's input would move out of the visual viewport (be hidden) when focused. Although it would return to the visual viewport when typing,  when the input is blurred the slides layout would get stuck in a state that obscured the search button, thus preventing the user from search for an address. The fix involves temporarily hiding all non-active/visible slides when the input is focused, and then un-hiding them when the search button is clicked in order to prevent the odd layout shift from occuring.
 
