@@ -93,9 +93,11 @@ export class TenantsRightsModal extends Component {
   }
 
   getSearchCoords(feature) {
-    const [lon, lat] = feature?.geometry?.coordinates;
-    if (isFinite(lon) && isFinite(lat)) {
-      return { lon, lat };
+    if (Array.isArray(feature?.geometry?.coordinates)) {
+      const [lon, lat] = feature.geometry.coordinates;
+      if (isFinite(lon) && isFinite(lat)) {
+        return { lon, lat };
+      }
     }
     throw new Error(ERROR_MISSING_COORDS);
   }
