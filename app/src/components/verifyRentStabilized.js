@@ -23,7 +23,11 @@ export class VerifyRentStabilized extends Component {
   }
 
   updateMessage() {
-    if (this.match && this.match.total_rows > 0) {
+    if (
+      this.match &&
+      Array.isArray(this.match.rows) &&
+      this.match.rows.length
+    ) {
       this.msgYes.classList.remove("hidden");
       this.msgNo.classList.add("hidden");
       logAddressRS(this.match.rows[0].bbl);
