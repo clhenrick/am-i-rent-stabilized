@@ -1,6 +1,7 @@
 import {
   rentStabilizedTable,
   cartoV3RentStabilizedTableName,
+  cartoV3TenantsRightsServiceAreasTable,
 } from "../constants/config";
 
 export const rentStabilizedBblSql = (bbl) =>
@@ -18,11 +19,10 @@ export const tenantsRightsGroupsSql = ({ lon, lat }) =>
     description,
     service_area,
     website_url
-  FROM nyc_tenants_rights_service_areas
+  FROM ${cartoV3TenantsRightsServiceAreasTable}
   WHERE ST_Contains(
-    the_geom,
-    ST_GeomFromText(
-      'POINT(' || ${lon} || ' ' || ${lat} ||  ')',
-      4326
+    geom,
+    ST_GeogFromText(
+      'POINT(' || ${lon} || ' ' || ${lat} ||  ')'
     )
   )`;
