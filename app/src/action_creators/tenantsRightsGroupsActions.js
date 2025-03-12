@@ -1,4 +1,3 @@
-import "cross-fetch/polyfill";
 import * as types from "../constants/actionTypes";
 import { cartoAccount } from "../constants/config";
 import { tenantsRightsGroupsSql } from "../utils/sql";

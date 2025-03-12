@@ -1,4 +1,3 @@
-import "cross-fetch/polyfill";
 import * as types from "../constants/actionTypes";
 import { geosearchApiVersion } from "../constants/config";
 

@@ -1,4 +1,3 @@
-import "cross-fetch/polyfill";
 import * as d3Tile from "d3-tile";
 import { mapsApiSql } from "../utils/sql";
 import { cartoAccount } from "../constants/config";
