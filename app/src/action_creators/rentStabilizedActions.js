@@ -1,5 +1,3 @@
-import "cross-fetch/polyfill";
-
 import { cartoAPIv3BaseURL, cartoApiKey } from "../constants/config";
 import { rentStabilizedBblSql } from "../utils/sql";
 import * as types from "../constants/actionTypes";
