@@ -1,4 +1,4 @@
-import { cartoAccount } from "../constants/config";
+import { cartoAPIv3BaseURL, cartoApiKey } from "../constants/config";
 import { rentStabilizedBblSql } from "../utils/sql";
 import * as types from "../constants/actionTypes";
 
@@ -21,11 +21,21 @@ export const rentStabilizedReset = () => ({
 });
 
 export const fetchRentStabilized = (bbl) => (dispatch) => {
+  const headers = new Headers();
+  headers.append("Authorization", `Bearer ${cartoApiKey}`);
+
+  const requestOptions = {
+    method: "GET",
+    headers: headers,
+    redirect: "follow",
+  };
+
   dispatch(rentStabilizedRequest());
   return fetch(
-    `https://${cartoAccount}.cartodb.com/api/v2/sql?q=${window.encodeURIComponent(
+    `${cartoAPIv3BaseURL}/v3/sql/carto_dw/query?q=${window.encodeURIComponent(
       rentStabilizedBblSql(bbl)
-    )}`
+    )}`,
+    requestOptions
   )
     .then((res) => {
       if (res.ok) {
