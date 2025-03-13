@@ -1,6 +1,10 @@
 import * as d3Tile from "d3-tile";
-import { mapsApiSql } from "../utils/sql";
-import { cartoAccount } from "../constants/config";
+import { mapsApiSql, rentStabilizedGeomSql } from "../utils/sql";
+import {
+  cartoAccount,
+  cartoAPIv3BaseURL,
+  cartoApiKey,
+} from "../constants/config";
 import { logException, handleErrorObj } from "../utils/logging";
 
 export class MapTileLayers {
@@ -9,12 +13,14 @@ export class MapTileLayers {
     this.dimensions = searchResultMap.dimensions;
     this.projection = searchResultMap.projection;
     this._cartoTilesSchema = null;
+    this._likelyRsGeoJson = null;
 
     this.renderMapTile = this.renderMapTile.bind(this);
     this.renderMapTiles = this.renderMapTiles.bind(this);
     this.getBasemapTileUrl = this.getBasemapTileUrl.bind(this);
     this.getDataTileUrl = this.getDataTileUrl.bind(this);
     this.fetchCartoTilesSchema = this.fetchCartoTilesSchema.bind(this);
+    this.fetchLikelyRsGeoJson = this.fetchLikelyRsGeoJson.bind(this);
     this.init = this.init.bind(this);
 
     this.init();
@@ -23,6 +29,11 @@ export class MapTileLayers {
   async init() {
     try {
       await this.fetchCartoTilesSchema();
+
+      // TODO: delete these two lines, only a test
+      await this.fetchLikelyRsGeoJson([-73.95757, 40.658]);
+      console.log(this._likelyRsGeoJson);
+
       if (this.cartoTilesSchema) {
         this.searchResultMap.updateProjection();
         this.searchResultMap.renderMap();
@@ -30,6 +41,29 @@ export class MapTileLayers {
     } catch (error) {
       logException(handleErrorObj("MapTileLayers.init", error), true);
     }
+  }
+
+  /**
+   *
+   * @param {[number, number]} coords [lon, lat]
+   */
+  async fetchLikelyRsGeoJson(coords) {
+    const url = `${cartoAPIv3BaseURL}/v3/sql/carto_dw/query`;
+    const headers = new Headers();
+    headers.append("Authorization", `Bearer ${cartoApiKey}`);
+
+    const requestOptions = {
+      method: "GET",
+      headers: headers,
+      redirect: "follow",
+    };
+    const res = await fetch(
+      `${url}?q=${encodeURIComponent(
+        rentStabilizedGeomSql({ lon: coords[0], lat: coords[1] })
+      )}`,
+      requestOptions
+    );
+    this._likelyRsGeoJson = await res.json();
   }
 
   async fetchCartoTilesSchema() {
