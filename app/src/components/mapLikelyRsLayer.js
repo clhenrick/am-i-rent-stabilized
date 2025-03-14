@@ -3,6 +3,11 @@ import { rentStabilizedGeomSql } from "../utils/sql";
 import { cartoAPIv3BaseURL, cartoApiKey } from "../constants/config";
 import { logException, handleErrorObj } from "../utils/logging";
 
+/**
+ * class that handles rendering the SearchResultMap's likely rent-stabilized data layer of SVG path elements
+ * - queries the Carto SQL API for a GeoJSON representation of likely RS properties
+ * - transforms GeoJSON to SVG path elements suitable for rendering in the appropriate map layer
+ */
 export class MapLikelyRsLayer {
   constructor(searchResultMap) {
     this.searchResultMap = searchResultMap;
@@ -28,7 +33,10 @@ export class MapLikelyRsLayer {
     this._pathGenerator = geoPath(this.projection);
   }
 
-  /** handles rendering the SVG map's likely RS polygon map layer */
+  /**
+   * handles rendering the SVG map's likely RS polygon map layer
+   * @returns {Promise<string | undefined>}
+   */
   async renderMapLikelyRsLayer() {
     try {
       await this.fetchLikelyRsGeoJson(this.searchResultMap.center);

@@ -83,7 +83,10 @@ export class SearchResultMap extends Component {
     this.setMapSize();
     this.gBaseTiles.innerHTML = this.mapTileLayers.renderMapTiles("basemap");
     // this.gRsTiles.innerHTML = this.mapTileLayers.renderMapTiles("data");
-    this.gRsTiles.innerHTML = await this.mapLikelyRsLayer.renderMapLikelyRsLayer();
+    const likelyRsLayer = await this.mapLikelyRsLayer.renderMapLikelyRsLayer();
+    if (likelyRsLayer) {
+      this.gRsTiles.innerHTML = likelyRsLayer;
+    }
   }
 
   setMapSize() {
