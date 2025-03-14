@@ -2,6 +2,7 @@ import { geoMercator } from "d3-geo";
 import { Component } from "./_componentBase";
 import { MapTileLayers } from "./mapTileLayers";
 import { MapPopup } from "./mapPopup";
+import { MapLikelyRsLayer } from "./mapLikelyRsLayer";
 import { observeStore } from "../store";
 import {
   MAP_ZOOM,
@@ -32,6 +33,7 @@ export class SearchResultMap extends Component {
     this._projection = geoMercator();
 
     this.mapTileLayers = new MapTileLayers(this);
+    this.mapLikelyRsLayer = new MapLikelyRsLayer(this);
 
     this.updateProjection = this.updateProjection.bind(this);
     this.updateMapView = this.updateMapView.bind(this);
