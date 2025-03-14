@@ -48,7 +48,7 @@ export class SearchResultMap extends Component {
     );
   }
 
-  handleSearchResult() {
+  async handleSearchResult() {
     if (
       this.searchResult &&
       this.searchResult.features &&
@@ -58,7 +58,7 @@ export class SearchResultMap extends Component {
     }
   }
 
-  updateMapView() {
+  async updateMapView() {
     if (!this.searchResultDetails || !this.searchResultDetails.coordinates) {
       return;
     }
@@ -71,7 +71,7 @@ export class SearchResultMap extends Component {
     } = this.searchResultDetails;
     this.zoom = MAP_ZOOM.RESULT;
     this.center = coordinates;
-    this.renderMap();
+    await this.renderMap();
     this.showMarker();
     this.setMarkerPosition();
     this.popup.show();
@@ -79,10 +79,11 @@ export class SearchResultMap extends Component {
     this.popup.setPosition();
   }
 
-  renderMap() {
+  async renderMap() {
     this.setMapSize();
     this.gBaseTiles.innerHTML = this.mapTileLayers.renderMapTiles("basemap");
-    this.gRsTiles.innerHTML = this.mapTileLayers.renderMapTiles("data");
+    // this.gRsTiles.innerHTML = this.mapTileLayers.renderMapTiles("data");
+    this.gRsTiles.innerHTML = await this.mapLikelyRsLayer.renderMapLikelyRsLayer();
   }
 
   setMapSize() {
