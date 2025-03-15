@@ -85,12 +85,12 @@ export class MapLikelyRsLayer {
       ?.map(
         (feature) =>
           `<path
-						stroke=${LAYER_STYLES.strokeColor}
-						stroke-width="${LAYER_STYLES.strokeWidth}"
-						fill=${LAYER_STYLES.fillColor}
-						fill-opacity="${LAYER_STYLES.fillOpacity}"
-						d="${this._pathGenerator(feature)}"
-					/>`
+            stroke=${LAYER_STYLES.strokeColor}
+            stroke-width="${LAYER_STYLES.strokeWidth}"
+            fill=${LAYER_STYLES.fillColor}
+            fill-opacity="${LAYER_STYLES.fillOpacity}"
+            d="${this._pathGenerator(feature)}"
+          />`
       )
       .join("\n");
   }
