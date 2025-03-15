@@ -1,3 +1,4 @@
+import sls from "single-line-string";
 import {
   cartoV3RentStabilizedTableName,
   cartoV3TenantsRightsServiceAreasTable,
@@ -9,12 +10,18 @@ export const rentStabilizedBblSql = (bbl) =>
   `SELECT bbl FROM ${cartoV3RentStabilizedTableName} WHERE bbl = ${bbl}`;
 
 export const rentStabilizedGeomSql = ({ lon, lat }) =>
-  `SELECT ST_ASGEOJSON(geom) as geojson
+  sls`SELECT ST_ASGEOJSON(geom) as geojson
 		FROM ${cartoV3RentStabilizedTableName}
-		WHERE ST_DWithin(geom, ST_GeogFromText('POINT(${lon} ${lat})'), ${searchResultBufferDistance})`;
+		WHERE ST_DWithin(
+      geom,
+      ST_GeogFromText(
+        'POINT(' || ${lon} || ' ' || ${lat} ||')'
+      ),
+      ${searchResultBufferDistance}
+    )`;
 
 export const tenantsRightsGroupsSql = ({ lon, lat }) =>
-  `SELECT
+  sls`SELECT
     name,
     full_address,
     email,
