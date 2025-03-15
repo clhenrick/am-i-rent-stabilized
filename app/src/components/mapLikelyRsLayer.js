@@ -1,4 +1,5 @@
 import { geoPath } from "d3-geo";
+import { rewind } from "@turf/rewind";
 import { rentStabilizedGeomSql } from "../utils/sql";
 import { cartoAPIv3BaseURL, cartoApiKey } from "../constants/config";
 import { logException, handleErrorObj } from "../utils/logging";
@@ -65,14 +66,14 @@ export class MapLikelyRsLayer {
     return features
       ?.map(
         (feature) =>
-          `<path 
-          clip-path="url(#clip-path)"
-          stroke="#000"
-          stroke-width="0.7"
-          fill="none"
-          fill-opacity="0.7"
-          d="${this._pathGenerator(feature)}"
-        />`
+          `<path
+						clip-path="url(#clip-path)"
+						stroke="#fff"
+						stroke-width="0.7"
+						fill="#ff6600"
+						fill-opacity="0.7"
+						d="${this._pathGenerator(feature)}"
+					/>`
       )
       .join("\n");
   }
@@ -83,12 +84,16 @@ export class MapLikelyRsLayer {
    * @returns {any[]}
    */
   processQueryResult(rows) {
-    // TODO "rewind" order of coordinates to fix geojson rendering
-    const features = rows.map((d) => ({
-      type: "Feature",
-      properties: {},
-      geometry: JSON.parse(d?.geojson || "{}"),
-    }));
+    const features = rows.map((d) =>
+      rewind(
+        {
+          type: "Feature",
+          properties: {},
+          geometry: JSON.parse(d?.geojson || "{}"),
+        },
+        { reverse: true }
+      )
+    );
     return features;
   }
 
