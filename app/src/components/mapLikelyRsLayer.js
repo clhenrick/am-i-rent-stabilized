@@ -13,6 +13,18 @@ const LAYER_STYLES = {
 };
 
 /**
+ * @typedef {object} Row
+ * @property {string} geojson
+ */
+
+/**
+ * @typedef {object} Feature
+ * @property {string} type
+ * @property {object} properties
+ * @property {object} geometry
+ */
+
+/**
  * class that handles rendering the SearchResultMap's likely rent-stabilized data layer of SVG path elements
  * - queries the Carto SQL API for a GeoJSON representation of likely RS properties
  * - transforms GeoJSON to SVG path elements suitable for rendering in the appropriate map layer
@@ -23,7 +35,7 @@ export class MapLikelyRsLayer {
     this.dimensions = searchResultMap.dimensions;
     this.projection = searchResultMap.projection;
 
-    /** @type {null | Object} Carto SQL API result of GeoJSON geometries of likely RS properties */
+    /** @type {null | Row[]} Carto SQL API result of GeoJSON geometries of likely RS properties */
     this._likelyRsGeoJson = null;
 
     /** @type {null | ReturnType<geoPath>} d3-geo SVG path generator */
@@ -65,7 +77,7 @@ export class MapLikelyRsLayer {
 
   /**
    * converts GeoJSON features to string representation of SVG path elements
-   * @param {any[]} features - array of GeoJSON features
+   * @param {Feature[]} features - array of GeoJSON features
    * @returns {string}
    */
   renderGeoJsonPaths(features) {
@@ -85,8 +97,8 @@ export class MapLikelyRsLayer {
 
   /**
    * converts Carto SQL API geometries to an array of correctly formatted GeoJSON features
-   * @param {any[]} rows - query rows result
-   * @returns {any[]}
+   * @param {Row[]} rows - query rows result
+   * @returns {Feature[]}
    */
   processQueryResult(rows) {
     const features = rows.map((d) =>
