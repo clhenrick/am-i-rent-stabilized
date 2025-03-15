@@ -2,6 +2,7 @@ import { geoMercator } from "d3-geo";
 import { Component } from "./_componentBase";
 import { MapTileLayers } from "./mapTileLayers";
 import { MapPopup } from "./mapPopup";
+import { MapLikelyRsLayer } from "./mapLikelyRsLayer";
 import { observeStore } from "../store";
 import {
   MAP_ZOOM,
@@ -32,6 +33,7 @@ export class SearchResultMap extends Component {
     this._projection = geoMercator();
 
     this.mapTileLayers = new MapTileLayers(this);
+    this.mapLikelyRsLayer = new MapLikelyRsLayer(this);
 
     this.updateProjection = this.updateProjection.bind(this);
     this.updateMapView = this.updateMapView.bind(this);
@@ -46,7 +48,7 @@ export class SearchResultMap extends Component {
     );
   }
 
-  handleSearchResult() {
+  async handleSearchResult() {
     if (
       this.searchResult &&
       this.searchResult.features &&
@@ -56,7 +58,7 @@ export class SearchResultMap extends Component {
     }
   }
 
-  updateMapView() {
+  async updateMapView() {
     if (!this.searchResultDetails || !this.searchResultDetails.coordinates) {
       return;
     }
@@ -69,7 +71,7 @@ export class SearchResultMap extends Component {
     } = this.searchResultDetails;
     this.zoom = MAP_ZOOM.RESULT;
     this.center = coordinates;
-    this.renderMap();
+    await this.renderMap();
     this.showMarker();
     this.setMarkerPosition();
     this.popup.show();
@@ -77,10 +79,13 @@ export class SearchResultMap extends Component {
     this.popup.setPosition();
   }
 
-  renderMap() {
+  async renderMap() {
     this.setMapSize();
-    this.gBaseTiles.innerHTML = this.mapTileLayers.renderMapTiles("basemap");
-    this.gRsTiles.innerHTML = this.mapTileLayers.renderMapTiles("data");
+    this.gBaseTiles.innerHTML = this.mapTileLayers.renderMapTiles();
+    const likelyRsLayer = await this.mapLikelyRsLayer.renderMapLikelyRsLayer();
+    if (likelyRsLayer) {
+      this.gRsTiles.innerHTML = likelyRsLayer;
+    }
   }
 
   setMapSize() {
