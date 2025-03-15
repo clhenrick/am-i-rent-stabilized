@@ -172,7 +172,7 @@ describe("SearchResultMap", () => {
     expect(spy).not.toHaveBeenCalled();
   });
 
-  test("updateMapView", () => {
+  test("updateMapView", async () => {
     const spy1 = jest.spyOn(MapPopup.prototype, "setContent");
     const spy2 = jest.spyOn(MapPopup.prototype, "show");
     const spy6 = jest.spyOn(MapPopup.prototype, "setPosition");
@@ -208,7 +208,7 @@ describe("SearchResultMap", () => {
         match: null,
       },
     }));
-    instance.updateMapView();
+    await instance.updateMapView();
     expect(instance.zoom).toEqual(MAP_ZOOM.RESULT);
     expect(instance.center).toEqual([0, 0]);
     expect(spy1).toHaveBeenCalledWith({
