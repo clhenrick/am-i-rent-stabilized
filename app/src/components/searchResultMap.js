@@ -81,8 +81,7 @@ export class SearchResultMap extends Component {
 
   async renderMap() {
     this.setMapSize();
-    this.gBaseTiles.innerHTML = this.mapTileLayers.renderMapTiles("basemap");
-    // this.gRsTiles.innerHTML = this.mapTileLayers.renderMapTiles("data");
+    this.gBaseTiles.innerHTML = this.mapTileLayers.renderMapTiles();
     const likelyRsLayer = await this.mapLikelyRsLayer.renderMapLikelyRsLayer();
     if (likelyRsLayer) {
       this.gRsTiles.innerHTML = likelyRsLayer;
