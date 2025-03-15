@@ -4,6 +4,14 @@ import { rentStabilizedGeomSql } from "../utils/sql";
 import { cartoAPIv3BaseURL, cartoApiKey } from "../constants/config";
 import { logException, handleErrorObj } from "../utils/logging";
 
+/** likely rs svg path styles */
+const LAYER_STYLES = {
+  strokeWidth: 0.7,
+  strokeColor: "#fff",
+  fillColor: "#ff6600",
+  fillOpacity: 0.7,
+};
+
 /**
  * class that handles rendering the SearchResultMap's likely rent-stabilized data layer of SVG path elements
  * - queries the Carto SQL API for a GeoJSON representation of likely RS properties
@@ -61,17 +69,14 @@ export class MapLikelyRsLayer {
    * @returns {string}
    */
   renderGeoJsonPaths(features) {
-    // TODO: stroke color = #ffffff
-    // TODO: fill color = #ff6600
     return features
       ?.map(
         (feature) =>
           `<path
-						clip-path="url(#clip-path)"
-						stroke="#fff"
-						stroke-width="0.7"
-						fill="#ff6600"
-						fill-opacity="0.7"
+						stroke=${LAYER_STYLES.strokeColor}
+						stroke-width="${LAYER_STYLES.strokeWidth}"
+						fill=${LAYER_STYLES.fillColor}
+						fill-opacity="${LAYER_STYLES.fillOpacity}"
 						d="${this._pathGenerator(feature)}"
 					/>`
       )
