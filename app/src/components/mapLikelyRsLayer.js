@@ -116,6 +116,7 @@ export class MapLikelyRsLayer {
   }
 
   /**
+   * TODO: move this code to a redux action creator!
    * makes the SQL API call to query GeoJSON geometries of likely RS properties within the proximity of search result coordinates
    * @param {[number, number]} coords [lon, lat]
    */

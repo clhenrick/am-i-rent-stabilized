@@ -21,15 +21,19 @@ export const rentStabilizedReset = () => ({
   type: types.RentStabilizedReset,
 });
 
+/**
+ * Async action creator that makes a GET request the Carto SQL API to query taxlots identified as likely rent-stabilized (RS)
+ * @param {number} bbl the "Borough,Block,Lot" number of the NYC geocoded address to search for
+ * @returns {Promise<Error|object>}
+ */
 export const fetchRentStabilized = (bbl) => (dispatch) => {
+  const url = `${cartoAPIv3BaseURL}/v3/sql/carto_dw/query`;
   const requestOptions = cartoSqlApiAuthOptions();
 
   dispatch(rentStabilizedRequest());
 
   return fetch(
-    `${cartoAPIv3BaseURL}/v3/sql/carto_dw/query?q=${window.encodeURIComponent(
-      rentStabilizedBblSql(bbl)
-    )}`,
+    `${url}?q=${window.encodeURIComponent(rentStabilizedBblSql(bbl))}`,
     requestOptions
   )
     .then((res) => {
