@@ -1,7 +1,8 @@
 import { geoPath } from "d3-geo";
 import { rewind } from "@turf/rewind";
 import { rentStabilizedGeomSql } from "../utils/sql";
-import { cartoAPIv3BaseURL, cartoApiKey } from "../constants/config";
+import { cartoSqlApiAuthOptions } from "../utils/cartoSqlApiAuth";
+import { cartoAPIv3BaseURL } from "../constants/config";
 import { logException, handleErrorObj } from "../utils/logging";
 
 /** likely rs svg path styles */
@@ -120,20 +121,15 @@ export class MapLikelyRsLayer {
    */
   async fetchLikelyRsGeoJson(coords) {
     const url = `${cartoAPIv3BaseURL}/v3/sql/carto_dw/query`;
-    const headers = new Headers();
-    headers.append("Authorization", `Bearer ${cartoApiKey}`);
+    const requestOptions = cartoSqlApiAuthOptions();
 
-    const requestOptions = {
-      method: "GET",
-      headers: headers,
-      redirect: "follow",
-    };
     const res = await fetch(
       `${url}?q=${encodeURIComponent(
         rentStabilizedGeomSql({ lon: coords[0], lat: coords[1] })
       )}`,
       requestOptions
     );
+
     if (res.ok) {
       this._likelyRsGeoJson = await res.json();
     } else {
