@@ -4,6 +4,7 @@ import { MapTileLayers } from "./mapTileLayers";
 import { MapPopup } from "./mapPopup";
 import { MapLikelyRsLayer } from "./mapLikelyRsLayer";
 import { observeStore } from "../store";
+import { fetchRentStabilizedGeoJSON } from "../action_creators/rentStabilizedGeoJsonActions";
 import {
   MAP_ZOOM,
   MAP_CENTER,
@@ -54,7 +55,19 @@ export class SearchResultMap extends Component {
       this.searchResult.features &&
       this.searchResult.features.length
     ) {
-      this.updateMapView();
+      await this.fetchRentStabilizedGeoJson();
+      await this.updateMapView();
+    }
+  }
+
+  async fetchRentStabilizedGeoJson() {
+    const feature = this.searchResult.features[0];
+    if (
+      Array.isArray(feature?.geometry?.coordinates) &&
+      feature.geometry.coordinates.length
+    ) {
+      const [lon, lat] = feature.geometry.coordinates;
+      this.store.dispatch(fetchRentStabilizedGeoJSON({ lon, lat }));
     }
   }
 
