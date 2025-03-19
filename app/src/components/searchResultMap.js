@@ -47,14 +47,27 @@ export class SearchResultMap extends Component {
       (state) => state.addressGeocode.searchResult,
       this.handleSearchResult
     );
+
+    // FIXME: need to update `observeStore` to subscribe to multiple slices of state?
+    // TODO: handle calling `this.unsubscribe2()` in cleanup fn?
+    this.unsubscribe2 = observeStore(
+      this.store,
+      (state) => state.rentStabilizedGeoJson.geojson,
+      this.handleRentStabilizedGeoJson
+    );
+  }
+
+  async handleRentStabilizedGeoJson(geojson) {
+    if (Array.isArray(geojson?.rows) && geojson?.rows.length) {
+      // TODO: handle converting row objects into GeoJSON features with correct polygon coordinate winding order
+      console.log("handleRentStabilizedGeoJson: ", geojson.rows);
+    }
   }
 
   async handleSearchResult() {
-    if (
-      this.searchResult &&
-      this.searchResult.features &&
-      this.searchResult.features.length
-    ) {
+    const hasSearchResult = this.searchResult?.features?.length;
+
+    if (hasSearchResult) {
       await this.fetchRentStabilizedGeoJson();
       await this.updateMapView();
     }
