@@ -1,9 +1,4 @@
 import { geoPath } from "d3-geo";
-import { rewind } from "@turf/rewind";
-import { rentStabilizedGeomSql } from "../utils/sql";
-import { cartoSqlApiAuthOptions } from "../utils/cartoSqlApiAuth";
-import { cartoAPIv3BaseURL } from "../constants/config";
-import { logException, handleErrorObj } from "../utils/logging";
 
 /** likely rs svg path styles */
 const LAYER_STYLES = {
@@ -43,10 +38,8 @@ export class MapLikelyRsLayer {
     this._pathGenerator = null;
 
     this.init = this.init.bind(this);
-    this.fetchLikelyRsGeoJson = this.fetchLikelyRsGeoJson.bind(this);
-    this.processQueryResult = this.processQueryResult.bind(this);
-    this.renderGeoJsonPaths = this.renderGeoJsonPaths.bind(this);
-    this.renderMapLikelyRsLayer = this.renderMapLikelyRsLayer.bind(this);
+    this.getRsPolygonPaths = this.getRsPolygonPaths.bind(this);
+    this.render = this.render.bind(this);
 
     this.init();
   }
@@ -59,19 +52,9 @@ export class MapLikelyRsLayer {
    * handles rendering the SVG map's likely RS polygon map layer
    * @returns {Promise<string | undefined>}
    */
-  async renderMapLikelyRsLayer() {
-    try {
-      await this.fetchLikelyRsGeoJson(this.searchResultMap.center);
-    } catch (error) {
-      logException(handleErrorObj("renderMapLikelyRsLayer", error), true);
-    }
-
-    if (
-      Array.isArray(this._likelyRsGeoJson?.rows) &&
-      this._likelyRsGeoJson.rows.length
-    ) {
-      const features = this.processQueryResult(this._likelyRsGeoJson.rows);
-      const paths = this.renderGeoJsonPaths(features);
+  async render(rsGeoJson) {
+    if (Array.isArray(rsGeoJson) && rsGeoJson.length) {
+      const paths = this.getRsPolygonPaths(rsGeoJson);
       return paths;
     }
   }
@@ -81,7 +64,7 @@ export class MapLikelyRsLayer {
    * @param {Feature[]} features - array of GeoJSON features
    * @returns {string}
    */
-  renderGeoJsonPaths(features) {
+  getRsPolygonPaths(features) {
     return features
       ?.map(
         (feature) =>
@@ -94,47 +77,5 @@ export class MapLikelyRsLayer {
           />`
       )
       .join("\n");
-  }
-
-  /**
-   * converts Carto SQL API geometries to an array of correctly formatted GeoJSON features
-   * @param {Row[]} rows - query rows result
-   * @returns {Feature[]}
-   */
-  processQueryResult(rows) {
-    const features = rows.map((d) =>
-      rewind(
-        {
-          type: "Feature",
-          properties: {},
-          geometry: JSON.parse(d?.geojson || "{}"),
-        },
-        { reverse: true }
-      )
-    );
-    return features;
-  }
-
-  /**
-   * TODO: move this code to a redux action creator!
-   * makes the SQL API call to query GeoJSON geometries of likely RS properties within the proximity of search result coordinates
-   * @param {[number, number]} coords [lon, lat]
-   */
-  async fetchLikelyRsGeoJson(coords) {
-    const url = `${cartoAPIv3BaseURL}/v3/sql/carto_dw/query`;
-    const requestOptions = cartoSqlApiAuthOptions();
-
-    const res = await fetch(
-      `${url}?q=${encodeURIComponent(
-        rentStabilizedGeomSql({ lon: coords[0], lat: coords[1] })
-      )}`,
-      requestOptions
-    );
-
-    if (res.ok) {
-      this._likelyRsGeoJson = await res.json();
-    } else {
-      throw new Error("failed to fetch likely rs geojson");
-    }
   }
 }

@@ -38,6 +38,9 @@ export class SearchResultMap extends Component {
 
     this.updateProjection = this.updateProjection.bind(this);
     this.updateMapView = this.updateMapView.bind(this);
+    this.handleRentStabilizedGeoJson = this.handleRentStabilizedGeoJson.bind(
+      this
+    );
     this.handleSearchResult = this.handleSearchResult.bind(this);
     this.renderMap = this.renderMap.bind(this);
     this.resetMap = this.resetMap.bind(this);
@@ -49,7 +52,6 @@ export class SearchResultMap extends Component {
     );
 
     // FIXME: need to update `observeStore` to subscribe to multiple slices of state?
-    // TODO: handle calling `this.unsubscribe2()` in cleanup fn?
     this.unsubscribe2 = observeStore(
       this.store,
       (state) => state.rentStabilizedGeoJson.geojson,
@@ -57,10 +59,15 @@ export class SearchResultMap extends Component {
     );
   }
 
-  async handleRentStabilizedGeoJson(geojson) {
-    if (Array.isArray(geojson?.rows) && geojson?.rows.length) {
-      // TODO: handle converting row objects into GeoJSON features with correct polygon coordinate winding order
-      console.log("handleRentStabilizedGeoJson: ", geojson.rows);
+  cleanUp() {
+    this.unsubscribe();
+    this.unsubscribe2();
+  }
+
+  async handleRentStabilizedGeoJson() {
+    const hasRsGeoJson = Array.isArray(this.rsGeoJson) && this.rsGeoJson.length;
+    if (hasRsGeoJson) {
+      this.renderMap();
     }
   }
 
@@ -108,8 +115,8 @@ export class SearchResultMap extends Component {
   async renderMap() {
     this.setMapSize();
     this.gBaseTiles.innerHTML = this.mapTileLayers.renderMapTiles();
-    const likelyRsLayer = await this.mapLikelyRsLayer.renderMapLikelyRsLayer();
-    if (likelyRsLayer) {
+    if (this.rsGeoJson) {
+      const likelyRsLayer = await this.mapLikelyRsLayer.render(this.rsGeoJson);
       this.gRsTiles.innerHTML = likelyRsLayer;
     }
   }
@@ -176,6 +183,13 @@ export class SearchResultMap extends Component {
     } catch (error) {
       return false;
     }
+  }
+
+  get rsGeoJson() {
+    const {
+      rentStabilizedGeoJson: { geojson },
+    } = this.store.getState();
+    return geojson;
   }
 
   get searchResult() {
