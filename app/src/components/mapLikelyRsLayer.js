@@ -21,18 +21,13 @@ const LAYER_STYLES = {
  */
 
 /**
- * class that handles rendering the SearchResultMap's likely rent-stabilized data layer of SVG path elements
- * - queries the Carto SQL API for a GeoJSON representation of likely RS properties
- * - transforms GeoJSON to SVG path elements suitable for rendering in the appropriate map layer
+ * class that handles creating the SearchResultMap's likely rent-stabilized data layer of SVG path elements
  */
 export class MapLikelyRsLayer {
   constructor(searchResultMap) {
     this.searchResultMap = searchResultMap;
     this.dimensions = searchResultMap.dimensions;
     this.projection = searchResultMap.projection;
-
-    /** @type {null | Row[]} Carto SQL API result of GeoJSON geometries of likely RS properties */
-    this._likelyRsGeoJson = null;
 
     /** @type {null | ReturnType<geoPath>} d3-geo SVG path generator */
     this._pathGenerator = null;
