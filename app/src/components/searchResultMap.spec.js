@@ -50,6 +50,11 @@ describe("SearchResultMap", () => {
         error: null,
         match: null,
       },
+      rentStabilizedGeoJson: {
+        status: "idle",
+        error: null,
+        geojson: null,
+      },
     }));
 
     fetch.mockResponse(
@@ -116,7 +121,7 @@ describe("SearchResultMap", () => {
   test("uses observeStore to watch for redux state changes", () => {
     const store = require("../store");
     const spy = jest.spyOn(store, "observeStore");
-    expect(spy).toHaveBeenCalledTimes(1);
+    expect(spy).toHaveBeenCalledTimes(2);
     spy.mockRestore();
   });
 
@@ -130,7 +135,7 @@ describe("SearchResultMap", () => {
     expect(spy).toHaveBeenCalledTimes(1);
   });
 
-  test("handleSearchResult", () => {
+  test("handleSearchResult", async () => {
     const spy = jest.spyOn(SearchResultMap.prototype, "updateMapView");
     const instance = new SearchResultMap({ element, store });
     store.getState.mockImplementation(() => ({
@@ -160,8 +165,13 @@ describe("SearchResultMap", () => {
         error: null,
         match: null,
       },
+      rentStabilizedGeoJson: {
+        status: "idle",
+        error: null,
+        geojson: null,
+      },
     }));
-    instance.handleSearchResult();
+    await instance.handleSearchResult();
     expect(spy).toHaveBeenCalledTimes(1);
   });
 
@@ -207,6 +217,11 @@ describe("SearchResultMap", () => {
         error: null,
         match: null,
       },
+      rentStabilizedGeoJson: {
+        status: "idle",
+        error: null,
+        geojson: null,
+      },
     }));
     await instance.updateMapView();
     expect(instance.zoom).toEqual(MAP_ZOOM.RESULT);
@@ -240,12 +255,12 @@ describe("SearchResultMap", () => {
     expect(spy6).not.toHaveBeenCalled();
   });
 
-  test("renderMap", () => {
+  test("renderMap", async () => {
     MapTileLayers.mockRestore();
     const { SearchResultMap } = require("./searchResultMap");
     const spy = jest.spyOn(SearchResultMap.prototype, "setMapSize");
     const instance = new SearchResultMap({ element, store });
-    instance.renderMap();
+    await instance.renderMap();
     expect(spy).toHaveBeenCalledTimes(1);
     expect(instance.gBaseTiles.childNodes).toBeDefined();
     expect(instance.gRsTiles.childNodes).toBeDefined();
@@ -293,12 +308,12 @@ describe("SearchResultMap", () => {
     expect(searchResultMap.marker.getAttribute("opacity")).toBe("0");
   });
 
-  test("resetMap", () => {
+  test("resetMap", async () => {
     const spy1 = jest.spyOn(SearchResultMap.prototype, "hideMarker");
     const spy2 = jest.spyOn(SearchResultMap.prototype, "renderMap");
     const spy3 = jest.spyOn(MapPopup.prototype, "hide");
     const instance = new SearchResultMap({ store, element });
-    instance.resetMap();
+    await instance.resetMap();
     expect(spy1).toHaveBeenCalledTimes(1);
     expect(spy2).toHaveBeenCalledTimes(1);
     expect(spy3).toHaveBeenCalledTimes(1);

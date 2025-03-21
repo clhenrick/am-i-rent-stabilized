@@ -67,7 +67,7 @@ export class SearchResultMap extends Component {
   async handleRentStabilizedGeoJson() {
     const hasRsGeoJson = Array.isArray(this.rsGeoJson) && this.rsGeoJson.length;
     if (hasRsGeoJson) {
-      this.renderMap();
+      await this.renderMap();
     }
   }
 
@@ -112,6 +112,9 @@ export class SearchResultMap extends Component {
     this.popup.setPosition();
   }
 
+  /**
+   * @returns {Promise}
+   */
   async renderMap() {
     this.setMapSize();
     this.gBaseTiles.innerHTML = this.mapTileLayers.renderMapTiles();
@@ -152,12 +155,12 @@ export class SearchResultMap extends Component {
     this.marker.setAttribute("opacity", 0);
   }
 
-  resetMap() {
+  async resetMap() {
     this.zoom = MAP_ZOOM.DEFAULT;
     this.center = MAP_CENTER.DEFAULT;
     this.hideMarker();
     this.popup.hide();
-    this.renderMap();
+    await this.renderMap();
   }
 
   get dimensions() {
