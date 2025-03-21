@@ -3,8 +3,8 @@ import * as types from "../constants/actionTypes";
 /**
  * @typedef {object} State
  * @property {string} status
- * @property {null | object}
- * @property {null | object}
+ * @property {null | []} geojson
+ * @property {null | Error} error
  **/
 
 /** @type {State} */

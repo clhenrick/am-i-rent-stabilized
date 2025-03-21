@@ -2,6 +2,7 @@ import * as types from "../constants/actionTypes";
 import { cartoAPIv3BaseURL } from "../constants/config";
 import { cartoSqlApiAuthOptions } from "../utils/cartoSqlApiAuth";
 import { rentStabilizedGeomSql } from "../utils/sql";
+import { parseTransformRsGeomQueryResult } from "../utils/geoUtils";
 
 export const rentStabilizedGeoJsonRequest = () => ({
   type: types.RentStabilizedGeoJsonRequest,
@@ -43,6 +44,13 @@ export const fetchRentStabilizedGeoJSON = ({ lon, lat }) => (dispatch) => {
         return res.json();
       }
       throw new Error("Problem fetching rent stabilized geojson");
+    })
+    .then((json) => {
+      if (Array.isArray(json?.rows) && json.rows.length) {
+        const transformed = parseTransformRsGeomQueryResult(json.rows);
+        return transformed;
+      }
+      return [];
     })
     .then((json) => {
       dispatch(rentStabilizedGeoJsonSuccess(json));
