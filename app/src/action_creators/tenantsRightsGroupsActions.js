@@ -1,6 +1,6 @@
 import * as types from "../constants/actionTypes";
 import { cartoAPIv3BaseURL } from "../constants/config";
-import { cartoSqlApiAuthOptions } from "../utils/cartoSqlApiAuth";
+import { getCartoSqlApiAuthOptions } from "../utils/cartoSqlApiAuth";
 import { tenantsRightsGroupsSql } from "../utils/sql";
 
 export const tenantsRightsGroupsRequest = () => ({
@@ -22,7 +22,7 @@ export const tenantsRightsGroupsReset = () => ({
 });
 
 export const fetchTenantsRightsGroups = ({ lon, lat }) => (dispatch) => {
-  const requestOptions = cartoSqlApiAuthOptions();
+  const requestOptions = getCartoSqlApiAuthOptions();
 
   dispatch(tenantsRightsGroupsRequest());
 

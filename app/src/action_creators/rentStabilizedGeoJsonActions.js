@@ -1,6 +1,6 @@
 import * as types from "../constants/actionTypes";
 import { cartoAPIv3BaseURL } from "../constants/config";
-import { cartoSqlApiAuthOptions } from "../utils/cartoSqlApiAuth";
+import { getCartoSqlApiAuthOptions } from "../utils/cartoSqlApiAuth";
 import { rentStabilizedGeomSql } from "../utils/sql";
 import { parseTransformRsGeomQueryResult } from "../utils/geoUtils";
 
@@ -31,7 +31,7 @@ export const rentStabilizedGeoJsonReset = () => ({
  */
 export const fetchRentStabilizedGeoJSON = ({ lon, lat }) => (dispatch) => {
   const url = `${cartoAPIv3BaseURL}/v3/sql/carto_dw/query`;
-  const requestOptions = cartoSqlApiAuthOptions();
+  const requestOptions = getCartoSqlApiAuthOptions();
 
   dispatch(rentStabilizedGeoJsonRequest());
 

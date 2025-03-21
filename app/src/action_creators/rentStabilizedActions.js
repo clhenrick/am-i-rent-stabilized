@@ -1,6 +1,6 @@
 import { cartoAPIv3BaseURL } from "../constants/config";
 import { rentStabilizedBblSql } from "../utils/sql";
-import { cartoSqlApiAuthOptions } from "../utils/cartoSqlApiAuth";
+import { getCartoSqlApiAuthOptions } from "../utils/cartoSqlApiAuth";
 import * as types from "../constants/actionTypes";
 
 export const rentStabilizedRequest = () => ({
@@ -28,7 +28,7 @@ export const rentStabilizedReset = () => ({
  */
 export const fetchRentStabilized = (bbl) => (dispatch) => {
   const url = `${cartoAPIv3BaseURL}/v3/sql/carto_dw/query`;
-  const requestOptions = cartoSqlApiAuthOptions();
+  const requestOptions = getCartoSqlApiAuthOptions();
 
   dispatch(rentStabilizedRequest());
 
