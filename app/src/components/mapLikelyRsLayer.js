@@ -39,7 +39,7 @@ export class MapLikelyRsLayer {
     this.init();
   }
 
-  async init() {
+  init() {
     this._pathGenerator = geoPath(this.projection);
   }
 
@@ -47,7 +47,7 @@ export class MapLikelyRsLayer {
    * handles rendering the SVG map's likely RS polygon map layer
    * @returns {Promise<string | undefined>}
    */
-  async render(rsGeoJson) {
+  render(rsGeoJson) {
     if (Array.isArray(rsGeoJson) && rsGeoJson.length) {
       const paths = this.getRsPolygonPaths(rsGeoJson);
       return paths;

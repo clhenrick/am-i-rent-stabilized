@@ -135,7 +135,7 @@ describe("SearchResultMap", () => {
     expect(spy).toHaveBeenCalledTimes(1);
   });
 
-  test("handleSearchResult", async () => {
+  test("handleSearchResult", () => {
     const spy = jest.spyOn(SearchResultMap.prototype, "updateMapView");
     const instance = new SearchResultMap({ element, store });
     store.getState.mockImplementation(() => ({
@@ -171,7 +171,7 @@ describe("SearchResultMap", () => {
         geojson: null,
       },
     }));
-    await instance.handleSearchResult();
+    instance.handleSearchResult();
     expect(spy).toHaveBeenCalledTimes(1);
   });
 
@@ -182,7 +182,7 @@ describe("SearchResultMap", () => {
     expect(spy).not.toHaveBeenCalled();
   });
 
-  test("updateMapView", async () => {
+  test("updateMapView", () => {
     const spy1 = jest.spyOn(MapPopup.prototype, "setContent");
     const spy2 = jest.spyOn(MapPopup.prototype, "show");
     const spy6 = jest.spyOn(MapPopup.prototype, "setPosition");
@@ -223,7 +223,7 @@ describe("SearchResultMap", () => {
         geojson: null,
       },
     }));
-    await instance.updateMapView();
+    instance.updateMapView();
     expect(instance.zoom).toEqual(MAP_ZOOM.RESULT);
     expect(instance.center).toEqual([0, 0]);
     expect(spy1).toHaveBeenCalledWith({
@@ -255,12 +255,12 @@ describe("SearchResultMap", () => {
     expect(spy6).not.toHaveBeenCalled();
   });
 
-  test("renderMap", async () => {
+  test("renderMap", () => {
     MapTileLayers.mockRestore();
     const { SearchResultMap } = require("./searchResultMap");
     const spy = jest.spyOn(SearchResultMap.prototype, "setMapSize");
     const instance = new SearchResultMap({ element, store });
-    await instance.renderMap();
+    instance.renderMap();
     expect(spy).toHaveBeenCalledTimes(2);
     expect(instance.gBaseTiles.childNodes).toBeDefined();
     expect(instance.gRsTiles.childNodes).toBeDefined();
@@ -308,12 +308,12 @@ describe("SearchResultMap", () => {
     expect(searchResultMap.marker.getAttribute("opacity")).toBe("0");
   });
 
-  test("resetMap", async () => {
+  test("resetMap", () => {
     const spy1 = jest.spyOn(SearchResultMap.prototype, "hideMarker");
     const spy2 = jest.spyOn(SearchResultMap.prototype, "renderMap");
     const spy3 = jest.spyOn(MapPopup.prototype, "hide");
     const instance = new SearchResultMap({ store, element });
-    await instance.resetMap();
+    instance.resetMap();
     expect(spy1).toHaveBeenCalledTimes(2);
     expect(spy2).toHaveBeenCalledTimes(3);
     expect(spy3).toHaveBeenCalledTimes(2);

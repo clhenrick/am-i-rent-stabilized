@@ -64,25 +64,24 @@ export class SearchResultMap extends Component {
     this.unsubscribe2();
   }
 
-  async handleRentStabilizedGeoJson() {
+  handleRentStabilizedGeoJson() {
     const hasRsGeoJson = Array.isArray(this.rsGeoJson) && this.rsGeoJson.length;
     if (hasRsGeoJson) {
-      await this.renderMap();
+      this.renderMap();
     }
   }
 
-  async handleSearchResult() {
+  handleSearchResult() {
     const hasSearchResult = this.searchResult?.features?.length;
-
     if (hasSearchResult) {
-      await this.fetchRentStabilizedGeoJson();
-      await this.updateMapView();
+      this.fetchRentStabilizedGeoJson();
+      this.updateMapView();
     } else {
-      await this.resetMap();
+      this.resetMap();
     }
   }
 
-  async fetchRentStabilizedGeoJson() {
+  fetchRentStabilizedGeoJson() {
     const feature = this.searchResult.features[0];
     if (
       Array.isArray(feature?.geometry?.coordinates) &&
@@ -93,7 +92,7 @@ export class SearchResultMap extends Component {
     }
   }
 
-  async updateMapView() {
+  updateMapView() {
     if (!this.searchResultDetails || !this.searchResultDetails.coordinates) {
       return;
     }
@@ -106,7 +105,7 @@ export class SearchResultMap extends Component {
     } = this.searchResultDetails;
     this.zoom = MAP_ZOOM.RESULT;
     this.center = coordinates;
-    await this.renderMap();
+    this.renderMap();
     this.showMarker();
     this.setMarkerPosition();
     this.popup.show();
@@ -114,14 +113,11 @@ export class SearchResultMap extends Component {
     this.popup.setPosition();
   }
 
-  /**
-   * @returns {Promise}
-   */
-  async renderMap() {
+  renderMap() {
     this.setMapSize();
     this.gBaseTiles.innerHTML = this.mapTileLayers.renderMapTiles();
     if (this.rsGeoJson) {
-      const likelyRsLayer = await this.mapLikelyRsLayer.render(this.rsGeoJson);
+      const likelyRsLayer = this.mapLikelyRsLayer.render(this.rsGeoJson);
       this.gRsTiles.innerHTML = likelyRsLayer;
     } else {
       this.gRsTiles.innerHTML = "";
@@ -159,12 +155,12 @@ export class SearchResultMap extends Component {
     this.marker.setAttribute("opacity", 0);
   }
 
-  async resetMap() {
+  resetMap() {
     this.zoom = MAP_ZOOM.DEFAULT;
     this.center = MAP_CENTER.DEFAULT;
     this.hideMarker();
     this.popup.hide();
-    await this.renderMap();
+    this.renderMap();
   }
 
   get dimensions() {
