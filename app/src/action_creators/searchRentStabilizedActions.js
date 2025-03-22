@@ -63,9 +63,11 @@ export const searchRentStabilized = (addressInfo) => async (dispatch) => {
 
     validateSearchResult(searchResult);
 
+    const searchResultFeature = searchResult.features[0];
     const rsResult = await dispatch(
-      fetchRentStabilized(getBBL(searchResult.features[0]))
+      fetchRentStabilized(getBBL(searchResultFeature))
     );
+
     validateRS(rsResult);
 
     await delay(RS_SEARCH_DELAY_MS);

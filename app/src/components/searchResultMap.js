@@ -2,7 +2,9 @@ import { geoMercator } from "d3-geo";
 import { Component } from "./_componentBase";
 import { MapTileLayers } from "./mapTileLayers";
 import { MapPopup } from "./mapPopup";
+import { MapLikelyRsLayer } from "./mapLikelyRsLayer";
 import { observeStore } from "../store";
+import { fetchRentStabilizedGeoJSON } from "../action_creators/rentStabilizedGeoJsonActions";
 import {
   MAP_ZOOM,
   MAP_CENTER,
@@ -32,9 +34,13 @@ export class SearchResultMap extends Component {
     this._projection = geoMercator();
 
     this.mapTileLayers = new MapTileLayers(this);
+    this.mapLikelyRsLayer = new MapLikelyRsLayer(this);
 
     this.updateProjection = this.updateProjection.bind(this);
     this.updateMapView = this.updateMapView.bind(this);
+    this.handleRentStabilizedGeoJson = this.handleRentStabilizedGeoJson.bind(
+      this
+    );
     this.handleSearchResult = this.handleSearchResult.bind(this);
     this.renderMap = this.renderMap.bind(this);
     this.resetMap = this.resetMap.bind(this);
@@ -44,15 +50,45 @@ export class SearchResultMap extends Component {
       (state) => state.addressGeocode.searchResult,
       this.handleSearchResult
     );
+
+    // FIXME: need to update `observeStore` to subscribe to multiple slices of state?
+    this.unsubscribe2 = observeStore(
+      this.store,
+      (state) => state.rentStabilizedGeoJson.geojson,
+      this.handleRentStabilizedGeoJson
+    );
+  }
+
+  cleanUp() {
+    this.unsubscribe();
+    this.unsubscribe2();
+  }
+
+  handleRentStabilizedGeoJson() {
+    const hasRsGeoJson = Array.isArray(this.rsGeoJson) && this.rsGeoJson.length;
+    if (hasRsGeoJson) {
+      this.renderMap();
+    }
   }
 
   handleSearchResult() {
-    if (
-      this.searchResult &&
-      this.searchResult.features &&
-      this.searchResult.features.length
-    ) {
+    const hasSearchResult = this.searchResult?.features?.length;
+    if (hasSearchResult) {
+      this.fetchRentStabilizedGeoJson();
       this.updateMapView();
+    } else {
+      this.resetMap();
+    }
+  }
+
+  fetchRentStabilizedGeoJson() {
+    const feature = this.searchResult.features[0];
+    if (
+      Array.isArray(feature?.geometry?.coordinates) &&
+      feature.geometry.coordinates.length
+    ) {
+      const [lon, lat] = feature.geometry.coordinates;
+      this.store.dispatch(fetchRentStabilizedGeoJSON({ lon, lat }));
     }
   }
 
@@ -79,8 +115,13 @@ export class SearchResultMap extends Component {
 
   renderMap() {
     this.setMapSize();
-    this.gBaseTiles.innerHTML = this.mapTileLayers.renderMapTiles("basemap");
-    this.gRsTiles.innerHTML = this.mapTileLayers.renderMapTiles("data");
+    this.gBaseTiles.innerHTML = this.mapTileLayers.renderMapTiles();
+    if (this.rsGeoJson) {
+      const likelyRsLayer = this.mapLikelyRsLayer.render(this.rsGeoJson);
+      this.gRsTiles.innerHTML = likelyRsLayer;
+    } else {
+      this.gRsTiles.innerHTML = "";
+    }
   }
 
   setMapSize() {
@@ -145,6 +186,13 @@ export class SearchResultMap extends Component {
     } catch (error) {
       return false;
     }
+  }
+
+  get rsGeoJson() {
+    const {
+      rentStabilizedGeoJson: { geojson },
+    } = this.store.getState();
+    return geojson;
   }
 
   get searchResult() {

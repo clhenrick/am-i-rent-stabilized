@@ -5,95 +5,142 @@
  */
 export const preloadedState = {
   slides: {
-    curIndex: 7,
+    curIndex: 3,
+  },
+  addressGeocode: {
+    status: "idle",
+    error: null,
+    searchResult: {
+      type: "FeatureCollection",
+      features: [
+        {
+          type: "Feature",
+          geometry: {
+            type: "Point",
+            coordinates: [-73.95757, 40.658],
+          },
+          properties: {
+            id: "1251947",
+            gid: "nycpad:venue:1251947",
+            layer: "venue",
+            source: "nycpad",
+            source_id: "1251947",
+            country_code: "US",
+            name: "146 FENIMORE STREET",
+            housenumber: "146",
+            street: "FENIMORE STREET",
+            postalcode: "11225",
+            accuracy: "point",
+            country: "United States",
+            country_gid: "whosonfirst:country:85633793",
+            country_a: "USA",
+            region: "New York",
+            region_gid: "whosonfirst:region:85688543",
+            region_a: "NY",
+            county: "Kings County",
+            county_gid: "whosonfirst:county:102082361",
+            county_a: "BK",
+            locality: "New York",
+            locality_gid: "whosonfirst:locality:85977539",
+            locality_a: "NYC",
+            borough: "Brooklyn",
+            borough_gid: "whosonfirst:borough:421205765",
+            neighbourhood: "Prospect",
+            neighbourhood_gid: "whosonfirst:neighbourhood:85892955",
+            label: "146 FENIMORE STREET, Brooklyn, NY, USA",
+            addendum: {
+              pad: {
+                bbl: "3050420047",
+                bin: "3115518",
+                version: "24d",
+              },
+            },
+          },
+        },
+      ],
+    },
   },
   tenantsRights: {
     status: "idle",
     results: {
       rows: [
         {
-          name: "North West Bushwick Community Group",
-          full_address: "",
-          email: "NWBcommunity@gmail.com",
-          phone: "",
-          description: "community group serving Bushwick, Brooklyn, NY",
-          service_area: "Bushwick",
-          website_url: "NWBcommunity.org",
+          name: "Movement to Protect the People",
+          full_address: null,
+          email: "info@mtopp.org",
+          phone: "(718) 703-3086",
+          description: "anti-displacement activist group",
+          service_area: "Prospect Lefferts Gardens",
+          website_url: "http://mtopp.org/",
         },
         {
-          name: "Make The Road New York (Brooklyn)",
-          full_address: "301 Grove Street  BK 11237",
-          email: "",
-          phone: "(718) 418-7690",
+          name: "Prospect Park East Network",
+          full_address: null,
+          email: "ppeastnet@gmail.com",
+          phone: "347 413-9273",
           description:
-            "Make the Road New York (MRNY) builds the power of Latino and working class communities to achieve dignity and justice through organizing, policy innovation, transformative education, and survival services.",
-          service_area: "Bushwick",
-          website_url: "http://www.maketheroad.org/",
-        },
-        {
-          name:
-            "Ridgewood Bushwick Senior Citizens Council Legal Empowerment & Assistance Program (Bushwick Office)",
-          full_address: "1475 Myrtle Ave.  BK 11237",
-          email: "",
-          phone: "(347) 295-3738",
-          description:
-            "homeless prevention, re-housing from shelter, legal services, veteran’s services, adult education, and job training and placement.  We also offer ongoing tenants’ rights and financial literacy trainings for community residents.",
-          service_area: "Bushwick",
-          website_url: "http://www.empowermentcenter.org",
-        },
-        {
-          name: "Bushwick Housing Independence Project",
-          full_address: "",
-          email: "bhipbrooklyn@gmail.com",
-          phone: "",
-          description:
-            "The Bushwick Housing Independence Project helps to preserve existing affordable housing for low and moderate-income families in Bushwick.",
-          service_area: "Bushwick",
-          website_url: "http://www.bhip-brooklyn.org/",
-        },
-        {
-          name: "Ridgewood Bushwick Senior Citizens Council (main office)",
-          full_address: "217 Wyckoff Avenue  BK 11237",
-          email: "<nstanczyk@rbscc.org",
-          phone: "718 366 3800 x1005",
-          description:
-            "homeless prevention, re-housing from shelter, legal services, veteran’s services, adult education, and job training and placement.  We also offer ongoing tenants’ rights and financial literacy trainings for community residents.",
-          service_area: "Bushwick",
-          website_url: "http://www.empowermentcenter.org",
+            "PPEN is an organization of concerned residents formed to address irresponsible development (e.g. 626 Flatbush, 23 floors towing over the Park) and the larger concerns it brings, which include the urgent need for contextual zoning and impact studies on such issues as low income and affordable housing, traffic, subways, parking, schools, safety, sanitation and the Park itself.",
+          service_area: "Prospect Lefferts Gardens",
+          website_url: "http://www.ppen.org/",
         },
       ],
-      time: 0.005,
-      fields: {
-        name: {
+      schema: [
+        {
+          name: "name",
           type: "string",
-          pgtype: "text",
         },
-        full_address: {
+        {
+          name: "full_address",
           type: "string",
-          pgtype: "text",
         },
-        email: {
+        {
+          name: "email",
           type: "string",
-          pgtype: "text",
         },
-        phone: {
+        {
+          name: "phone",
           type: "string",
-          pgtype: "text",
         },
-        description: {
+        {
+          name: "description",
           type: "string",
-          pgtype: "text",
         },
-        service_area: {
+        {
+          name: "service_area",
           type: "string",
-          pgtype: "text",
         },
-        website_url: {
+        {
+          name: "website_url",
           type: "string",
-          pgtype: "text",
         },
+      ],
+      meta: {
+        cacheHit: false,
+        totalBytesProcessed: "486756",
+        location: "US",
       },
-      total_rows: 5,
+    },
+    error: null,
+  },
+  rentStabilized: {
+    status: "idle",
+    match: {
+      rows: [
+        {
+          bbl: 3050420047,
+        },
+      ],
+      schema: [
+        {
+          name: "bbl",
+          type: "number",
+        },
+      ],
+      meta: {
+        cacheHit: false,
+        totalBytesProcessed: "486848",
+        location: "US",
+      },
     },
     error: null,
   },

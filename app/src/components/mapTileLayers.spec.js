@@ -1,7 +1,7 @@
 import { store } from "../store";
 import { MapTileLayers } from "./mapTileLayers";
 import { SearchResultMap } from "./searchResultMap";
-import { logException, handleErrorObj } from "../utils/logging";
+import { handleErrorObj } from "../utils/logging";
 const d3Tile = require("d3-tile");
 
 jest.mock("../store");
@@ -103,55 +103,28 @@ describe("MapTileLayers", () => {
     expect(mapTileLayers).toBeTruthy();
   });
 
-  test("init", async () => {
-    const spy1 = jest.spyOn(MapTileLayers.prototype, "fetchCartoTilesSchema");
-    const spy2 = jest.spyOn(SearchResultMap.prototype, "updateProjection");
-    const spy3 = jest.spyOn(SearchResultMap.prototype, "renderMap");
-    const mapTileLayers = new MapTileLayers(
-      new SearchResultMap({
-        element,
-        store,
-      })
-    );
-    await mapTileLayers.init();
-    expect(spy1).toHaveBeenCalled();
-    expect(spy2).toHaveBeenCalled();
-    expect(spy3).toHaveBeenCalled();
-  });
-
-  test("init handles error", async () => {
-    fetch.mockReject(new Error("Problems"));
-    const mapTileLayers = new MapTileLayers(
-      new SearchResultMap({
-        element,
-        store,
-      })
-    );
-    await mapTileLayers.init();
-    expect(logException).toHaveBeenCalledWith(
-      "MapTileLayers.init; Error; Problems",
-      true
-    );
-  });
-
-  test("fetchCartoTilesSchema", async () => {
-    await mapTileLayers.fetchCartoTilesSchema();
-    expect(mapTileLayers.cartoTilesSchema).toBeTruthy();
-  });
-
   test("renderMapTiles", () => {
     const result = mapTileLayers.renderMapTiles();
-    const expected =
-      '<image xlink:href="https://cartocdn-gusc-d.global.ssl.fastly.net/chenrick/api/v1/map/blablabla/12/1204/1539.png" x="-234" y="-126" width="256" height="256"></image><image xlink:href="https://cartocdn-gusc-a.global.ssl.fastly.net/chenrick/api/v1/map/blablabla/12/1205/1539.png" x="22" y="-126" width="256" height="256"></image><image xlink:href="https://cartocdn-gusc-b.global.ssl.fastly.net/chenrick/api/v1/map/blablabla/12/1206/1539.png" x="278" y="-126" width="256" height="256"></image><image xlink:href="https://cartocdn-gusc-c.global.ssl.fastly.net/chenrick/api/v1/map/blablabla/12/1207/1539.png" x="534" y="-126" width="256" height="256"></image><image xlink:href="https://cartocdn-gusc-a.global.ssl.fastly.net/chenrick/api/v1/map/blablabla/12/1204/1540.png" x="-234" y="130" width="256" height="256"></image><image xlink:href="https://cartocdn-gusc-b.global.ssl.fastly.net/chenrick/api/v1/map/blablabla/12/1205/1540.png" x="22" y="130" width="256" height="256"></image><image xlink:href="https://cartocdn-gusc-c.global.ssl.fastly.net/chenrick/api/v1/map/blablabla/12/1206/1540.png" x="278" y="130" width="256" height="256"></image><image xlink:href="https://cartocdn-gusc-d.global.ssl.fastly.net/chenrick/api/v1/map/blablabla/12/1207/1540.png" x="534" y="130" width="256" height="256"></image>';
+    const expected = `<image xlink:href="https://cartodb-basemaps-b.global.ssl.fastly.net/light_all/12/1204/1539.png" x="-234" y="-126" width="256" height="256"></image>
+        <image xlink:href="https://cartodb-basemaps-c.global.ssl.fastly.net/light_all/12/1205/1539.png" x="22" y="-126" width="256" height="256"></image>
+        <image xlink:href="https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/12/1206/1539.png" x="278" y="-126" width="256" height="256"></image>
+        <image xlink:href="https://cartodb-basemaps-b.global.ssl.fastly.net/light_all/12/1207/1539.png" x="534" y="-126" width="256" height="256"></image>
+        <image xlink:href="https://cartodb-basemaps-c.global.ssl.fastly.net/light_all/12/1204/1540.png" x="-234" y="130" width="256" height="256"></image>
+        <image xlink:href="https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/12/1205/1540.png" x="22" y="130" width="256" height="256"></image>
+        <image xlink:href="https://cartodb-basemaps-b.global.ssl.fastly.net/light_all/12/1206/1540.png" x="278" y="130" width="256" height="256"></image>
+        <image xlink:href="https://cartodb-basemaps-c.global.ssl.fastly.net/light_all/12/1207/1540.png" x="534" y="130" width="256" height="256"></image>
+      `
+      .split("\n")
+      .map((d) => d.trim())
+      .join("");
     expect(result).toEqual(expected);
   });
 
   test("renderMapTile", () => {
-    const result = mapTileLayers.renderMapTile(
-      [19295, 24633, 16],
-      { translate: [-19295.691937688887, -24633.71588863962], scale: 256 },
-      "basemap"
-    );
+    const result = mapTileLayers.renderMapTile([19295, 24633, 16], {
+      translate: [-19295.691937688887, -24633.71588863962],
+      scale: 256,
+    });
     const expected =
       "<image xlink:href=" +
       '"https://cartodb-basemaps-c.global.ssl.fastly.net/light_all/16/19295/24633.png" ' +
@@ -168,36 +141,6 @@ describe("MapTileLayers", () => {
     window.devicePixelRatio = 1;
     expect(mapTileLayers.getBasemapTileUrl(1, 2, 3)).toEqual(
       "https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/3/1/2.png"
-    );
-  });
-
-  test("getDataTileUrl", () => {
-    window.devicePixelRatio = 2;
-    mapTileLayers.cartoTilesSchema = {
-      layergroupid: "blablabla",
-      cdn_url: {
-        templates: {
-          https: {
-            url: "https://cartocdn-gusc-{s}.global.ssl.fastly.net",
-            subdomains: ["a", "b", "c", "d"],
-          },
-        },
-      },
-    };
-
-    expect(mapTileLayers.getDataTileUrl(40, 30, 20)).toEqual(
-      "https://cartocdn-gusc-c.global.ssl.fastly.net/chenrick/api/v1/map/blablabla/20/40/30@2x.png"
-    );
-
-    window.devicePixelRatio = 1;
-    expect(mapTileLayers.getDataTileUrl(1, 2, 3)).toEqual(
-      "https://cartocdn-gusc-d.global.ssl.fastly.net/chenrick/api/v1/map/blablabla/3/1/2.png"
-    );
-  });
-
-  test("cartoTilesSchema should throw when not set correctly", () => {
-    expect(() => (mapTileLayers.cartoTilesSchema = {})).toThrow(
-      "Invalid CARTO tiles schema"
     );
   });
 });

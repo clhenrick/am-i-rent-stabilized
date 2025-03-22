@@ -1,7 +1,7 @@
 import * as sql from "./sql";
 import {
-  rentStabilizedTable,
   cartoV3RentStabilizedTableName,
+  cartoV3TenantsRightsServiceAreasTable,
 } from "../constants/config";
 
 describe("utils/sql", () => {
@@ -12,10 +12,19 @@ describe("utils/sql", () => {
     );
   });
 
-  test("mapsApiSql", () => {
-    const result = sql.mapsApiSql();
+  test("rentStabilizedGeomSql", () => {
+    const [lon, lat] = [-73, 40];
+    const result = sql.rentStabilizedGeomSql({ lon, lat });
     expect(result).toBe(
-      `SELECT the_geom_webmercator FROM ${rentStabilizedTable}`
+      `SELECT ST_AsGeoJSON(geom) as geojson FROM ${cartoV3RentStabilizedTableName} WHERE ST_DWithin( geom, ST_GeogFromText( 'POINT(' || ${lon} || ' ' || ${lat} ||')' ), 500 )`
+    );
+  });
+
+  test("tenantsRightsGroupsSql", () => {
+    const [lon, lat] = [-73, 40];
+    const result = sql.tenantsRightsGroupsSql({ lon, lat });
+    expect(result).toBe(
+      `SELECT name, full_address, email, phone, description, service_area, website_url FROM ${cartoV3TenantsRightsServiceAreasTable} WHERE ST_Contains( geom, ST_GeogFromText( 'POINT(' || ${lon} || ' ' || ${lat} ||  ')' ) )`
     );
   });
 });
