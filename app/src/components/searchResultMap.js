@@ -77,6 +77,8 @@ export class SearchResultMap extends Component {
     if (hasSearchResult) {
       await this.fetchRentStabilizedGeoJson();
       await this.updateMapView();
+    } else {
+      await this.resetMap();
     }
   }
 
@@ -121,6 +123,8 @@ export class SearchResultMap extends Component {
     if (this.rsGeoJson) {
       const likelyRsLayer = await this.mapLikelyRsLayer.render(this.rsGeoJson);
       this.gRsTiles.innerHTML = likelyRsLayer;
+    } else {
+      this.gRsTiles.innerHTML = "";
     }
   }
 

@@ -1,27 +1,13 @@
 import * as d3Tile from "d3-tile";
-import { logException, handleErrorObj } from "../utils/logging";
 
 export class MapTileLayers {
   constructor(searchResultMap) {
     this.searchResultMap = searchResultMap;
     this.dimensions = searchResultMap.dimensions;
     this.projection = searchResultMap.projection;
-
     this.renderMapTile = this.renderMapTile.bind(this);
     this.renderMapTiles = this.renderMapTiles.bind(this);
     this.getBasemapTileUrl = this.getBasemapTileUrl.bind(this);
-    this.init = this.init.bind(this);
-
-    this.init();
-  }
-
-  async init() {
-    try {
-      this.searchResultMap.updateProjection();
-      await this.searchResultMap.renderMap();
-    } catch (error) {
-      logException(handleErrorObj("MapTileLayers.init", error), true);
-    }
   }
 
   renderMapTiles() {

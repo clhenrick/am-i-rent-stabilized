@@ -1,7 +1,7 @@
 import { store } from "../store";
 import { MapTileLayers } from "./mapTileLayers";
 import { SearchResultMap } from "./searchResultMap";
-import { logException, handleErrorObj } from "../utils/logging";
+import { handleErrorObj } from "../utils/logging";
 const d3Tile = require("d3-tile");
 
 jest.mock("../store");
@@ -101,20 +101,6 @@ describe("MapTileLayers", () => {
 
   test("The consumer should be able to call new() on MapTileLayers", () => {
     expect(mapTileLayers).toBeTruthy();
-  });
-
-  test("init", async () => {
-    const spy1 = jest.spyOn(SearchResultMap.prototype, "updateProjection");
-    const spy2 = jest.spyOn(SearchResultMap.prototype, "renderMap");
-    const mapTileLayers = new MapTileLayers(
-      new SearchResultMap({
-        element,
-        store,
-      })
-    );
-    await mapTileLayers.init();
-    expect(spy1).toHaveBeenCalled();
-    expect(spy2).toHaveBeenCalled();
   });
 
   test("renderMapTiles", () => {

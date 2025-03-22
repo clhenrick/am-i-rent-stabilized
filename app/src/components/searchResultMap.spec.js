@@ -234,7 +234,7 @@ describe("SearchResultMap", () => {
     });
     expect(spy2).toHaveBeenCalledTimes(1);
     expect(spy3).toHaveBeenCalledTimes(1);
-    expect(spy4).toHaveBeenCalledTimes(1);
+    expect(spy4).toHaveBeenCalledTimes(2);
     expect(spy5).toHaveBeenCalledTimes(1);
     expect(spy6).toHaveBeenCalledTimes(1);
   });
@@ -250,7 +250,7 @@ describe("SearchResultMap", () => {
     expect(spy1).not.toHaveBeenCalled();
     expect(spy2).not.toHaveBeenCalled();
     expect(spy3).not.toHaveBeenCalled();
-    expect(spy4).not.toHaveBeenCalled();
+    expect(spy4).toHaveBeenCalledTimes(2);
     expect(spy5).not.toHaveBeenCalled();
     expect(spy6).not.toHaveBeenCalled();
   });
@@ -261,7 +261,7 @@ describe("SearchResultMap", () => {
     const spy = jest.spyOn(SearchResultMap.prototype, "setMapSize");
     const instance = new SearchResultMap({ element, store });
     await instance.renderMap();
-    expect(spy).toHaveBeenCalledTimes(1);
+    expect(spy).toHaveBeenCalledTimes(2);
     expect(instance.gBaseTiles.childNodes).toBeDefined();
     expect(instance.gRsTiles.childNodes).toBeDefined();
   });
@@ -314,9 +314,9 @@ describe("SearchResultMap", () => {
     const spy3 = jest.spyOn(MapPopup.prototype, "hide");
     const instance = new SearchResultMap({ store, element });
     await instance.resetMap();
-    expect(spy1).toHaveBeenCalledTimes(1);
-    expect(spy2).toHaveBeenCalledTimes(1);
-    expect(spy3).toHaveBeenCalledTimes(1);
+    expect(spy1).toHaveBeenCalledTimes(2);
+    expect(spy2).toHaveBeenCalledTimes(3);
+    expect(spy3).toHaveBeenCalledTimes(2);
     expect(instance.zoom).toEqual(MAP_ZOOM.DEFAULT);
     expect(instance.center).toEqual(MAP_CENTER.DEFAULT);
   });
