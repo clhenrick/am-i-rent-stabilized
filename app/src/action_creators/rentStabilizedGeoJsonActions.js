@@ -52,9 +52,9 @@ export const fetchRentStabilizedGeoJSON = ({ lon, lat }) => (dispatch) => {
       }
       return [];
     })
-    .then((json) => {
-      dispatch(rentStabilizedGeoJsonSuccess(json));
-      return json;
+    .then((geojson) => {
+      dispatch(rentStabilizedGeoJsonSuccess(geojson));
+      return geojson;
     })
     .catch((error) => {
       dispatch(rentStabilizedGeoJsonFailure(error));
