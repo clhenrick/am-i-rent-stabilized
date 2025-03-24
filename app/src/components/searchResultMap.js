@@ -4,7 +4,6 @@ import { MapTileLayers } from "./mapTileLayers";
 import { MapPopup } from "./mapPopup";
 import { MapLikelyRsLayer } from "./mapLikelyRsLayer";
 import { observeStore } from "../store";
-import { fetchRentStabilizedGeoJSON } from "../action_creators/rentStabilizedGeoJsonActions";
 import {
   MAP_ZOOM,
   MAP_CENTER,
@@ -45,14 +44,13 @@ export class SearchResultMap extends Component {
     this.renderMap = this.renderMap.bind(this);
     this.resetMap = this.resetMap.bind(this);
 
-    this.unsubscribe = observeStore(
+    this.unsubscribeSearchResult = observeStore(
       this.store,
       (state) => state.addressGeocode.searchResult,
       this.handleSearchResult
     );
 
-    // FIXME: need to update `observeStore` to subscribe to multiple slices of state?
-    this.unsubscribe2 = observeStore(
+    this.unsubscribeRsGeoJson = observeStore(
       this.store,
       (state) => state.rentStabilizedGeoJson.geojson,
       this.handleRentStabilizedGeoJson
@@ -60,8 +58,8 @@ export class SearchResultMap extends Component {
   }
 
   cleanUp() {
-    this.unsubscribe();
-    this.unsubscribe2();
+    this.unsubscribeSearchResult();
+    this.unsubscribeRsGeoJson();
   }
 
   handleRentStabilizedGeoJson() {
@@ -74,21 +72,9 @@ export class SearchResultMap extends Component {
   handleSearchResult() {
     const hasSearchResult = this.searchResult?.features?.length;
     if (hasSearchResult) {
-      this.fetchRentStabilizedGeoJson();
       this.updateMapView();
     } else {
       this.resetMap();
-    }
-  }
-
-  fetchRentStabilizedGeoJson() {
-    const feature = this.searchResult.features[0];
-    if (
-      Array.isArray(feature?.geometry?.coordinates) &&
-      feature.geometry.coordinates.length
-    ) {
-      const [lon, lat] = feature.geometry.coordinates;
-      this.store.dispatch(fetchRentStabilizedGeoJSON({ lon, lat }));
     }
   }
 
