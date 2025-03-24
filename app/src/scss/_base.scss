@@ -7,7 +7,8 @@
 
 *:focus-visible {
   // meets 3:1 contrast for WCAG when over a white background
-  outline-color: darken($blue, 10);
+  outline: 3px solid darken($blue, 10);
+  box-shadow: 0 0 0 6px white;
 }
 
 html {
@@ -62,9 +63,9 @@ p {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: underline;
   font-weight: 600;
-  color: $bluegreen;
+  color: darken($bluegreen, 17);
 
   &:hover {
     color: $lightblue;

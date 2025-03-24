@@ -30,6 +30,7 @@
   font-weight: 600;
   text-align: center;
   text-transform: uppercase;
+  text-decoration: none;
   background-color: $darkorange;
   padding: 10px 20px;
   border: none;
@@ -39,13 +40,6 @@
 
   &:hover {
     background-color: $orange;
-    color: #fff;
-  }
-
-  &:focus {
-    outline: none;
-    border: none;
-    box-shadow: 0 0 3px 2px $blue;
   }
 }
 
