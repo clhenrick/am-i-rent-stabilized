@@ -21,7 +21,7 @@ export class SearchResultMap extends Component {
 
     this.svg = this.element.querySelector("svg");
     this.gBaseTiles = this.svg.querySelector("g.tiles-base-map");
-    this.gRsTiles = this.svg.querySelector("g.tiles-rent-stabilized");
+    this.gRsLayer = this.svg.querySelector("g.layer-rent-stabilized");
     this.marker = this.svg.querySelector("g.location-marker");
     this.popup = new MapPopup({
       element: this.element.querySelector("div.map-pop-up"),
@@ -104,9 +104,9 @@ export class SearchResultMap extends Component {
     this.gBaseTiles.innerHTML = this.mapTileLayers.renderMapTiles();
     if (this.rsGeoJson) {
       const likelyRsLayer = this.mapLikelyRsLayer.render(this.rsGeoJson);
-      this.gRsTiles.innerHTML = likelyRsLayer;
+      this.gRsLayer.innerHTML = likelyRsLayer;
     } else {
-      this.gRsTiles.innerHTML = "";
+      this.gRsLayer.innerHTML = "";
     }
   }
 
