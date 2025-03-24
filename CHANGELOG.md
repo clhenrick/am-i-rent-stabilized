@@ -27,7 +27,7 @@ Made accessibility enhancements and bug fixes for the address search form on sli
 - dynamically apply `aria-invalid="true/false"` to the `<input>` when it is in an invalid state
 - apply focus to the input when the user submits the form when there is an error so that error text is announced
 - cleaned up HTML for error help text
-- removed asteriks from error help text to avoid confusing users of assistive tech
+- removed asterisks from error help text to avoid confusing users of assistive tech
 
 ## 2023-11-27 Fix A11Y of Homepage / Slides ([#125](https://github.com/clhenrick/am-i-rent-stabilized/pull/125))
 
