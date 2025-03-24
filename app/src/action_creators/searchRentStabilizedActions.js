@@ -9,6 +9,7 @@ import {
 import { goToSlideIdx } from "./slidesActions";
 import { delay } from "../utils/delay";
 import { RS_SEARCH_DELAY_MS } from "../constants/app";
+import { fetchRentStabilizedGeoJSON } from "./rentStabilizedGeoJsonActions";
 
 export const ERROR_ADDRESS_NOT_FOUND = "Address search result not found";
 export const ERROR_MISSING_BBL =
@@ -42,9 +43,10 @@ export function getBBL(feature) {
  * This is a compound action creator that handles:
  * 1. geocoding an address inputted by the user
  * 2. looking up the result in the rent stabilized data
- * 3. pausing so the cute animation can play
- * 4. going to the "you might/might not be rent stabilized" slide
- * 5. OR going back to the address search slide if an error occurs
+ * 3. querying geojson of rent stabilized properties nearby the search result to display in the map
+ * 4. pausing so the cute animation can play
+ * 5. going to the "you might/might not be rent stabilized" slide
+ * 6. OR going back to the address search slide if an error occurs
  */
 export const searchRentStabilized = (addressInfo) => async (dispatch) => {
   try {
@@ -63,10 +65,20 @@ export const searchRentStabilized = (addressInfo) => async (dispatch) => {
 
     validateSearchResult(searchResult);
 
+    const searchResultFeature = searchResult.features[0];
     const rsResult = await dispatch(
-      fetchRentStabilized(getBBL(searchResult.features[0]))
+      fetchRentStabilized(getBBL(searchResultFeature))
     );
+
     validateRS(rsResult);
+
+    if (
+      Array.isArray(searchResultFeature?.geometry?.coordinates) &&
+      searchResultFeature.geometry.coordinates.length
+    ) {
+      const [lon, lat] = searchResultFeature.geometry.coordinates;
+      await dispatch(fetchRentStabilizedGeoJSON({ lon, lat }));
+    }
 
     await delay(RS_SEARCH_DELAY_MS);
     dispatch(goToSlideIdx(3));

@@ -2,6 +2,7 @@ import { geoMercator } from "d3-geo";
 import { Component } from "./_componentBase";
 import { MapTileLayers } from "./mapTileLayers";
 import { MapPopup } from "./mapPopup";
+import { MapLikelyRsLayer } from "./mapLikelyRsLayer";
 import { observeStore } from "../store";
 import {
   MAP_ZOOM,
@@ -20,7 +21,7 @@ export class SearchResultMap extends Component {
 
     this.svg = this.element.querySelector("svg");
     this.gBaseTiles = this.svg.querySelector("g.tiles-base-map");
-    this.gRsTiles = this.svg.querySelector("g.tiles-rent-stabilized");
+    this.gRsLayer = this.svg.querySelector("g.layer-rent-stabilized");
     this.marker = this.svg.querySelector("g.location-marker");
     this.popup = new MapPopup({
       element: this.element.querySelector("div.map-pop-up"),
@@ -32,27 +33,48 @@ export class SearchResultMap extends Component {
     this._projection = geoMercator();
 
     this.mapTileLayers = new MapTileLayers(this);
+    this.mapLikelyRsLayer = new MapLikelyRsLayer(this);
 
     this.updateProjection = this.updateProjection.bind(this);
     this.updateMapView = this.updateMapView.bind(this);
+    this.handleRentStabilizedGeoJson = this.handleRentStabilizedGeoJson.bind(
+      this
+    );
     this.handleSearchResult = this.handleSearchResult.bind(this);
     this.renderMap = this.renderMap.bind(this);
     this.resetMap = this.resetMap.bind(this);
 
-    this.unsubscribe = observeStore(
+    this.unsubscribeSearchResult = observeStore(
       this.store,
       (state) => state.addressGeocode.searchResult,
       this.handleSearchResult
     );
+
+    this.unsubscribeRsGeoJson = observeStore(
+      this.store,
+      (state) => state.rentStabilizedGeoJson.geojson,
+      this.handleRentStabilizedGeoJson
+    );
+  }
+
+  cleanUp() {
+    this.unsubscribeSearchResult();
+    this.unsubscribeRsGeoJson();
+  }
+
+  handleRentStabilizedGeoJson() {
+    const hasRsGeoJson = Array.isArray(this.rsGeoJson) && this.rsGeoJson.length;
+    if (hasRsGeoJson) {
+      this.renderMap();
+    }
   }
 
   handleSearchResult() {
-    if (
-      this.searchResult &&
-      this.searchResult.features &&
-      this.searchResult.features.length
-    ) {
+    const hasSearchResult = this.searchResult?.features?.length;
+    if (hasSearchResult) {
       this.updateMapView();
+    } else {
+      this.resetMap();
     }
   }
 
@@ -79,8 +101,13 @@ export class SearchResultMap extends Component {
 
   renderMap() {
     this.setMapSize();
-    this.gBaseTiles.innerHTML = this.mapTileLayers.renderMapTiles("basemap");
-    this.gRsTiles.innerHTML = this.mapTileLayers.renderMapTiles("data");
+    this.gBaseTiles.innerHTML = this.mapTileLayers.renderMapTiles();
+    if (this.rsGeoJson) {
+      const likelyRsLayer = this.mapLikelyRsLayer.render(this.rsGeoJson);
+      this.gRsLayer.innerHTML = likelyRsLayer;
+    } else {
+      this.gRsLayer.innerHTML = "";
+    }
   }
 
   setMapSize() {
@@ -145,6 +172,13 @@ export class SearchResultMap extends Component {
     } catch (error) {
       return false;
     }
+  }
+
+  get rsGeoJson() {
+    const {
+      rentStabilizedGeoJson: { geojson },
+    } = this.store.getState();
+    return geojson;
   }
 
   get searchResult() {

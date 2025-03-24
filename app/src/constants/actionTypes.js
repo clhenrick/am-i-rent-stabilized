@@ -22,6 +22,12 @@ export const RentStabilizedSuccess = "RentStabilizedSuccess";
 export const RentStabilizedFailure = "RentStabilizedFailure";
 export const RentStabilizedReset = "RentStabilizedReset";
 
+// rent stabilized geojson boundaries
+export const RentStabilizedGeoJsonRequest = "RentStabilizedGeoJsonRequest";
+export const RentStabilizedGeoJsonSuccess = "RentStabilizedGeoJsonSuccess";
+export const RentStabilizedGeoJsonFailure = "RentStabilizedGeoJsonFailure";
+export const RentStabilizedGeoJsonReset = "RentStabilizedGeoJsonReset";
+
 // tenants rights groups search
 export const TenantsRightsRequest = "TenantsRightsRequest";
 export const TenantsRightsSuccess = "TenantsRightsSuccess";

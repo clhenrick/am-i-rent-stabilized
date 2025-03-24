@@ -1,5 +1,6 @@
 import * as types from "../constants/actionTypes";
-import { cartoApiKey, cartoAPIv3BaseURL } from "../constants/config";
+import { cartoAPIv3BaseURL } from "../constants/config";
+import { getCartoSqlApiAuthOptions } from "../utils/cartoSqlApiAuth";
 import { tenantsRightsGroupsSql } from "../utils/sql";
 
 export const tenantsRightsGroupsRequest = () => ({
@@ -21,16 +22,10 @@ export const tenantsRightsGroupsReset = () => ({
 });
 
 export const fetchTenantsRightsGroups = ({ lon, lat }) => (dispatch) => {
-  const headers = new Headers();
-  headers.append("Authorization", `Bearer ${cartoApiKey}`);
-
-  const requestOptions = {
-    method: "GET",
-    headers: headers,
-    redirect: "follow",
-  };
+  const requestOptions = getCartoSqlApiAuthOptions();
 
   dispatch(tenantsRightsGroupsRequest());
+
   return fetch(
     `${cartoAPIv3BaseURL}/v3/sql/carto_dw/query?q=${window.encodeURIComponent(
       tenantsRightsGroupsSql({ lon, lat })
