@@ -17,10 +17,18 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  padding: 0 3em;
+  padding: 24px;
 
   p {
     text-wrap: balance;
+    margin-inline: auto;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin-inline: auto;
   }
 }
 

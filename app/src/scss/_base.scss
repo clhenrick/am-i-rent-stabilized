@@ -32,18 +32,16 @@ body {
     family: $body-font;
     weight: 400;
   }
-
-  letter-spacing: 0.0625em;
 }
 
 h1,
 h2,
 h3,
 h4 {
-  margin: 0 auto;
   font-weight: 700;
-  line-height: 1;
+  line-height: $heading-text-line-height;
   text-wrap: balance;
+  max-width: $heading-text-max-width;
 }
 
 h3 {
@@ -58,8 +56,17 @@ h4 {
 p {
   font-size: 2.2em;
   color: $green;
-  max-width: 70ch;
-  margin: 0 auto;
+  max-width: $normal-text-max-width;
+  line-height: $normal-text-line-height;
+
+  // TODO: rm in favor of heading margin-block-end?
+  &:first-of-type {
+    margin-block-start: 1em;
+  }
+
+  &:not(:last-of-type) {
+    margin-block-end: 1em;
+  }
 }
 
 a {
@@ -70,6 +77,12 @@ a {
   &:hover {
     color: $lightblue;
   }
+}
+
+li {
+  max-width: $normal-text-max-width;
+  line-height: $normal-text-line-height;
+  text-wrap: balance;
 }
 
 img {

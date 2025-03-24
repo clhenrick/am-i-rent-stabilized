@@ -31,6 +31,12 @@ $header-font: "museo-sans-rounded", "Arial Rounded MT Bold", "Helvetica Rounded"
   arial, sans-serif;
 $body-font: "Oxygen", arial, "Helvetica Neue", helvetica, sans-serif;
 
+$normal-text-max-width: 70ch;
+$heading-text-max-width: 55ch;
+
+$normal-text-line-height: 1.5;
+$heading-text-line-height: 1;
+
 // shared component dimensions
 $nav-main-height: 60px;
 
