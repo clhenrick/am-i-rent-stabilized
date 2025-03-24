@@ -1,0 +1,79 @@
+// base styles for all pages
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+*:focus-visible {
+  // meets 3:1 contrast for WCAG when over a white background
+  outline-color: darken($blue, 10);
+}
+
+html {
+  font-size: 62.5%;
+
+  &[lang="en"] {
+    font-size: 62.5%;
+  }
+
+  &[lang="es"],
+  &[lang="zh"] {
+    font-size: 50%;
+  }
+}
+
+body {
+  color: $gray;
+  background-color: $white;
+
+  font: {
+    family: $body-font;
+    weight: 400;
+  }
+
+  letter-spacing: 0.0625em;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 auto;
+  font-weight: 700;
+  line-height: 1;
+  text-wrap: balance;
+}
+
+h3 {
+  font-size: 4em;
+}
+
+h4 {
+  font-size: 2.4em;
+  color: $orange;
+}
+
+p {
+  font-size: 2.2em;
+  color: $green;
+  max-width: 70ch;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 600;
+  color: $bluegreen;
+
+  &:hover {
+    color: $lightblue;
+  }
+}
+
+img {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  max-width: 100%;
+}

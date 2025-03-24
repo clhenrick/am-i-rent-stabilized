@@ -5,7 +5,7 @@
   margin: 0 auto;
   overflow: hidden;
   z-index: 10;
-  background-color: #fff;
+  background-color: $white;
 
   @include responsive_mobile_landscape() {
     display: none;
@@ -18,6 +18,10 @@
   height: 100%;
   overflow: hidden;
   padding: 0 3em;
+
+  p {
+    text-wrap: balance;
+  }
 }
 
 .centered {
