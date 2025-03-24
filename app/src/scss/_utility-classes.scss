@@ -19,3 +19,166 @@
   width: 1px !important;
   white-space: nowrap !important;
 }
+
+/* TYPOGRAPHY */
+// TODO: clean up these util classes
+// big header / title fonts on the home page
+.font-style-hero {
+  font-family: $header-font;
+  font-size: 5.4em;
+  margin-top: 75px;
+
+  &.landing {
+    margin-top: 0;
+    letter-spacing: 0.05em;
+    font-style: italic;
+    max-width: 95%;
+    width: 75%;
+  }
+
+  &.step {
+    width: 80%;
+  }
+
+  &.checking {
+    margin-top: 0;
+  }
+
+  .yes & {
+    margin-top: 50px;
+  }
+
+  &.end {
+    margin-top: 0;
+  }
+
+  @include responsive_height(medium-screens) {
+    margin-top: 3%;
+    font-size: 3.8em;
+
+    &.landing {
+      margin-top: 0;
+      width: 65%;
+
+      &.es {
+        font-size: 3.2em;
+      }
+    }
+
+    &.step {
+      width: 65%;
+    }
+
+    .yes & {
+      width: 55%;
+      margin-top: 3%;
+    }
+
+    &.news {
+      margin-top: 7%;
+    }
+
+    &.es {
+      font-size: 3.2em;
+    }
+  }
+
+  @include responsive(medium-screens) {
+    font-size: 3.8em;
+    margin-top: 3%;
+
+    &.landing {
+      margin-top: 0;
+      width: 65%;
+      max-width: 75%;
+
+      &.es {
+        font-size: 3.2em;
+        width: 65%;
+      }
+    }
+
+    &.news {
+      margin-top: 7%;
+    }
+  }
+
+  @include responsive(tablet-screens) {
+    margin-top: 15%;
+
+    &.landing {
+      width: 75%;
+    }
+  }
+
+  @include responsive(small-screens) {
+    font-size: 1.8em;
+    line-height: 1.2em;
+    margin-top: 3%;
+
+    &.landing {
+      margin-top: 10px;
+      max-width: 95%;
+      width: 95%;
+    }
+
+    &.step {
+      max-width: 90%;
+      width: 90%;
+    }
+
+    .yes & {
+      width: 95%;
+    }
+
+    &.check-it {
+      width: 80%;
+    }
+
+    &.end {
+      font-size: 2.5em;
+    }
+  }
+}
+
+.font-style-secondary {
+  color: $lightgray;
+  font: {
+    family: $body-font;
+    size: 2.8em;
+    style: italic;
+    weight: bold;
+  }
+
+  &.sub-head {
+    margin-top: 50px;
+  }
+
+  @include responsive_height(medium-screens) {
+    font-size: 2.2em;
+
+    &.sub-head {
+      margin-top: 2%;
+      font-style: italic;
+    }
+  }
+
+  @include responsive(medium-screens) {
+    font-size: 2.2em;
+  }
+
+  @include responsive(tablet-screens) {
+    &.sub-head {
+      width: 75%;
+    }
+  }
+
+  @include responsive(small-screens) {
+    font-size: 1.6em;
+
+    &.sub-head {
+      width: 85%;
+      margin-top: 5%;
+    }
+  }
+}
