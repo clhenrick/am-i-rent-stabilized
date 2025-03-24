@@ -263,7 +263,7 @@ describe("SearchResultMap", () => {
     instance.renderMap();
     expect(spy).toHaveBeenCalledTimes(2);
     expect(instance.gBaseTiles.childNodes).toBeDefined();
-    expect(instance.gRsTiles.childNodes).toBeDefined();
+    expect(instance.gRsLayer.childNodes).toBeDefined();
   });
 
   test("setMapSize", () => {
