@@ -1,21 +1,11 @@
 .slides {
   position: fixed;
-  top: $nav-main-height;
-  bottom: 0;
-  width: 960px;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
+  inset: $nav-main-height 0 0 0;
+  max-width: 960px;
+  margin: 0 auto;
   overflow: hidden;
   z-index: 10;
   background-color: #fff;
-
-  @include responsive(medium-screens) {
-    width: 100%;
-    left: 0;
-    margin: 0;
-  }
 
   @include responsive_mobile_landscape() {
     display: none;

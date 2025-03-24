@@ -1,33 +1,16 @@
 *,
 *::before,
 *::after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-margin-after: 0;
-  -webkit-margin-before: 0;
-  -webkit-padding-start: 0;
-  -webkit-padding-end: 0;
 }
 
 *:focus {
   outline-color: $blue;
 }
 
-html {
-  margin: 0;
-  padding: 0;
-}
-
-body,
-div,
-p {
-  margin: 0;
-  padding: 0;
-}
-
 body {
-  color: #4a4a4a;
+  color: $gray;
+
   font: {
     family: $body-font;
     weight: 400;
@@ -58,12 +41,10 @@ h3,
 .h3,
 h4,
 .h4 {
-  width: 100%;
   margin: 0 auto;
-  margin-bottom: 0;
   font-weight: 700;
   line-height: 1em;
-  color: $gray;
+  text-wrap: balance;
 
   @include responsive(small-screens) {
     max-width: 100%;
@@ -94,7 +75,6 @@ p {
   margin: 0 auto;
   font-size: 2.2em;
   color: $green;
-  text-align: center;
 
   em {
     font-weight: 600;
