@@ -14,7 +14,11 @@ $medgray: #9b9b9b;
 $lightgray: #ababab;
 $green: #417505;
 $orange: #ffc462;
-$darkorange: darken($orange, 20%); //#CE912D;
+$darkorange: darken(
+  $orange,
+  28%
+); // meets WCAG 3:1 color contrast for large text on white backgrounds
+
 // links
 $darkteal: #277159;
 $bluegreen: #4cb9bb;

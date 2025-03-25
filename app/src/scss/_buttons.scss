@@ -39,7 +39,7 @@
 
   @include responsive(small-screens) {
     width: 110px;
-    font-size: 1.3em;
+    font-size: 1.9em;
     padding: 8px 12px;
 
     &.search {
@@ -141,7 +141,7 @@
       bottom: 5%;
 
       .button-text {
-        font-size: 1.6em;
+        font-size: 2em;
       }
 
       .arrow {

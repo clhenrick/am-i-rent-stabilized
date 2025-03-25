@@ -142,7 +142,9 @@
 }
 
 .font-style-secondary {
-  color: $lightgray;
+  // darken $lightgray to meet 4.5:1 color contrast
+  color: darken($lightgray, 21);
+
   font: {
     family: $body-font;
     size: 2.8em;
