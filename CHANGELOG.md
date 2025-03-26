@@ -1,6 +1,16 @@
 # Am I Rent Stabilized Changelog
 This changelog describes significant changes to the project. It was first created on November 29, 2020 so does not account for the entire project's history.
 
+## 2025-03-23 Migrate app to CARTO v3 ([#144](https://github.com/clhenrick/am-i-rent-stabilized/issues/144))
+
+Due to the "legacy" CARTO(DB) platform being shutdown in April of 2025, the website was updated to use the newer "v3" CARTO platform, SQL API, and related services. This included:
+
+- Importing the existing "likely RS" and tenants rights service areas datasets into CARTO v3
+- Recreating the visualization of "likely rent stabilized properties" in CARTO v3 and linking to it from the search results map slide
+- Using the CARTO v3 SQL API for querying the likely RS and tenants rights service areas
+- Adjusting the SQL queries to use Big Query geography functions instead of PostGIS functions
+- Updating the search results map to use a new "likely RS" layer using GeoJSON rendered as SVG paths instead of a raster tile layer
+
 ## 2023-12-31 Bug Fix: slides smooth scroll ([#133](https://github.com/clhenrick/am-i-rent-stabilized/pull/133))
 
 Re-implements the smooth scrolling between slides when a user has not enabled "prefers reduced motion" in their device or browser settings. The smooth scrolling had unintentionally stopped working after PR #125 which fixed accessibility issues with the slides.
@@ -17,7 +27,7 @@ Made accessibility enhancements and bug fixes for the address search form on sli
 - dynamically apply `aria-invalid="true/false"` to the `<input>` when it is in an invalid state
 - apply focus to the input when the user submits the form when there is an error so that error text is announced
 - cleaned up HTML for error help text
-- removed asteriks from error help text to avoid confusing users of assistive tech
+- removed asterisks from error help text to avoid confusing users of assistive tech
 
 ## 2023-11-27 Fix A11Y of Homepage / Slides ([#125](https://github.com/clhenrick/am-i-rent-stabilized/pull/125))
 
