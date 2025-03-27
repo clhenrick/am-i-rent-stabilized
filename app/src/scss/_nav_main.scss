@@ -1,0 +1,146 @@
+// TODO: set up some spacing variables for UI consistency
+$nav-padding-bottom: 20px;
+$nav-padding-inline: 32px;
+
+$nav-padding-bottom-narrow: 8px;
+$nav-padding-inline-narrow: 16px;
+
+// FIXME: why is 1rem == 16px here?
+/* where all navigation child text items almost start to collide on narrower viewports */
+$narrow-breakpoint: 66.25rem; // 1060px
+
+// the site's main / primary navigation
+nav.main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  background-color: $gray;
+  padding: 0 $nav-padding-inline $nav-padding-bottom;
+  // TODO: use a variable for z-index values?
+  z-index: 100;
+  // TODO: set this in _base?
+  letter-spacing: $letter-spacing;
+
+  @media only screen and (width <= $narrow-breakpoint) {
+    padding: 0 $nav-padding-inline-narrow $nav-padding-bottom-narrow;
+  }
+
+  a[href] {
+    // TODO: use font-size variable
+    font-size: 2.2rem;
+    font-weight: 300;
+    text-decoration: none;
+    line-height: 0;
+    color: $white;
+  }
+
+  a[href].home {
+    // TODO: use font-size variable
+    font-size: 2.8rem;
+    font-weight: 500;
+  }
+
+  @media only screen and (width <= $narrow-breakpoint) {
+    a[href].home {
+      // TODO: use font-size variable
+      font-size: 2rem;
+    }
+  }
+
+  a[href]:not(.home):hover {
+    text-decoration: underline;
+    // TODO: use variable
+    text-decoration-thickness: 0.125em;
+    color: $orange;
+  }
+
+  .home-container {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+    justify-self: start;
+    // TODO: use spacing variable
+    gap: 16px;
+  }
+
+  img.logo {
+    position: relative;
+    bottom: calc(-1 * $nav-padding-bottom);
+  }
+
+  ul {
+    display: flex;
+    align-items: baseline;
+    // TODO: use spacing variable
+    gap: 56px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  @media only screen and (width <= $narrow-breakpoint) {
+    ul {
+      display: none;
+    }
+
+    ul.responsive {
+      position: fixed;
+      right: 0;
+      top: $nav-main-height;
+      display: flex;
+      flex-direction: column;
+      // TODO: use spacing variable
+      gap: 44px;
+      background-color: $gray;
+      // TODO: use spacing variables
+      padding: 36px 12px;
+    }
+  }
+
+  li {
+    line-height: 0;
+  }
+}
+
+button.burger {
+  all: unset;
+  display: none;
+  // TODO: use size variable?
+  // NOTE: meets WCAG SC AAA for touch target size
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  cursor: pointer;
+
+  g.open {
+    display: none;
+  }
+
+  g.closed {
+    display: inline;
+  }
+}
+
+button.burger.open {
+  g.open {
+    display: inline;
+  }
+
+  g.closed {
+    display: none;
+  }
+}
+
+@media only screen and (width <= $narrow-breakpoint) {
+  button.burger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    // TODO: use font-size variable
+    font-size: 1rem;
+  }
+}
