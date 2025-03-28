@@ -40,14 +40,12 @@ body {
 h1,
 h2,
 h3 {
+  font-family: $header-font;
   font-weight: 700;
   line-height: $heading-text-line-height;
+  letter-spacing: $letter-spacing;
   text-wrap: balance;
   max-width: $heading-text-max-width;
-}
-
-h3 {
-  font-size: 4em;
 }
 
 p {
@@ -66,10 +64,11 @@ p {
   }
 }
 
-a {
+a[href] {
   text-decoration: underline;
-  font-weight: 600;
   color: darken($bluegreen, 17);
+  text-decoration-thickness: 0.125em;
+  text-underline-offset: 2.5px;
 
   &:hover {
     color: $lightblue;

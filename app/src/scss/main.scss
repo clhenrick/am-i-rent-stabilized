@@ -1,6 +1,8 @@
+// TODO: split up styles into shared, home page, and info pages.
 @use "base";
-@use "utility-classes"; 
+@use "utility-classes";
 @use "nav_main";
+@use "homepage";
 
 // "utility-classes", "add_to_calendar",
 //   "main_tags", "nav_bar_top", "language_toggle", "progress_circles", "slides",

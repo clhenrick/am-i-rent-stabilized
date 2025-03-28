@@ -1,0 +1,125 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+// TODO: fix rent-history
+#rent-history {
+  display: none;
+}
+
+// TODO: fix mobile nav
+.mobile {
+  display: none;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.slides {
+  position: fixed;
+  inset: $nav-main-height 0 0 0;
+  max-width: 960px;
+  margin: 0 auto;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.slide {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 24px;
+
+  h1,
+  h2,
+  h3,
+  p {
+    margin-inline: auto;
+    margin-block: 0;
+    text-wrap: balance;
+    max-width: 45ch;
+  }
+
+  h1,
+  h2,
+  h3 {
+    line-height: 1.2;
+  }
+
+  h1,
+  h2 {
+    font-size: 5.4rem;
+  }
+
+  h3 {
+    font-size: 4rem;
+  }
+
+  h1 {
+    font-style: italic;
+  }
+}
+
+.centered {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1.5lh;
+}
+
+p.sub-head {
+  color: darken($lightgray, 21);
+  font-size: 2.8rem;
+  font-style: italic;
+  font-weight: 700;
+}
+
+// TODO: reuse button mixin or @extend base button styles?
+button.go-next {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .arrow {
+    height: 28px;
+    width: 76px;
+    margin: 0 auto;
+    background-image: url("../../public/assets/png/chevron.png");
+    background-repeat: no-repeat;
+  }
+}
+
+.button-text {
+  color: $darkorange;
+  font-weight: 700;
+  font-size: 3.5em;
+  text-transform: uppercase;
+  text-align: center;
+
+  .es & {
+    font-size: 2.5em;
+  }
+
+  &:hover {
+    color: $orange;
+  }
+}
+
+.button-holder {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+button.start-over,
+a[href].learn-more {
+  @include button;
+}

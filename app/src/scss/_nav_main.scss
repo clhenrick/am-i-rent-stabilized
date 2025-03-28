@@ -24,8 +24,6 @@ nav.main-nav {
   padding: 0 $nav-padding-inline $nav-padding-bottom;
   // TODO: use a variable for z-index values?
   z-index: 100;
-  // TODO: set this in _base?
-  letter-spacing: $letter-spacing;
 
   @media only screen and (width <= $narrow-breakpoint) {
     padding: 0 $nav-padding-inline-narrow $nav-padding-bottom-narrow;
@@ -35,6 +33,8 @@ nav.main-nav {
     // TODO: use font-size variable
     font-size: 2.2rem;
     font-weight: 300;
+    // TODO: set this in _base?
+    letter-spacing: $letter-spacing;
     text-decoration: none;
     line-height: 0;
     color: $white;

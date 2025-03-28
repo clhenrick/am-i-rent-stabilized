@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 // mixins
 // columns
 @mixin columns($width, $number: 2, $gap: 0) {
@@ -22,6 +24,7 @@
 
 // button
 @mixin button {
+  all: unset;
   display: inline-block;
   position: relative;
   min-width: 170px;
@@ -32,7 +35,7 @@
   text-transform: uppercase;
   text-decoration: none;
   background-color: $darkorange;
-  padding: 10px 20px;
+  padding: 12px 18px;
   border: none;
   border-radius: 35px;
   color: #fff;
@@ -117,15 +120,11 @@
     @media only screen and (max-width: $width-md) {
       @content;
     }
-  }
-
-  @else if $width == tablet-screens {
+  } @else if $width == tablet-screens {
     @media only screen and (max-width: $width-sm2) {
       @content;
     }
-  }
-
-  @else if $width == small-screens {
+  } @else if $width == small-screens {
     @media only screen and (max-width: $width-sm) {
       @content;
     }
@@ -138,15 +137,11 @@
     @media only screen and (max-height: $height-lg) {
       @content;
     }
-  }
-
-  @else if $height == medium-screens {
+  } @else if $height == medium-screens {
     @media only screen and (max-height: $height-md) {
       @content;
     }
-  }
-
-  @else if $height == short-screens {
+  } @else if $height == short-screens {
     @media only screen and (max-height: $height-sm) {
       @content;
     }
