@@ -11,12 +11,13 @@
   display: none;
 }
 
-main {
-  max-width: 960px;
-  margin: 0 auto;
+// TODO: fix progress indicators
+#progress-indicator {
+  display: none;
 }
 
 .slides {
+  container-type: inline-size;
   position: fixed;
   inset: $nav-main-height 0 0 0;
   max-width: 960px;
@@ -43,7 +44,7 @@ main {
     margin-inline: auto;
     margin-block: 0;
     text-wrap: balance;
-    max-width: 45ch;
+    overflow-wrap: break-word;
   }
 
   h1,
@@ -78,6 +79,14 @@ p.sub-head {
   font-size: 2.8rem;
   font-style: italic;
   font-weight: 700;
+}
+
+img.triple-s {
+  height: clamp(38px, 8cqi, 60px);
+}
+
+img.building {
+  height: clamp(100px, 20cqi, 275px);
 }
 
 // TODO: reuse button mixin or @extend base button styles?
