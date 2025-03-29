@@ -133,12 +133,25 @@
       >
         <div class="centered v-centered">
           <h2 id="slide-5-title" class="font-style-hero">{{slide05.h2}}</h2>
-          <div class="dhcr-choice">
-            <p><a id="mail-to" href="#">{{slide05.mail}}</a></p>
-            <p>{{slide05.phone}}<br><a href="tel:1-718-739-6400">718 739-6400</a></p>
-            <p>{{slide05.visit}}<br><a href="http://www.nyshcr.org/AboutUs/contact.htm#rent-admin"
-                target="_blank">{{slide05.office}}</a></p>
-          </div>
+          <ul class="dhcr-choice" role="list">
+            <li>
+              <p>
+                <a id="mail-to" href="#">{{slide05.mail}}</a>
+              </p>
+            </li>
+            <li>
+              <p>{{slide05.phone}}
+                <a href="tel:1-718-739-6400">718 739-6400</a>
+              </p>
+            </li>
+            <li>
+              <p>{{slide05.visit}}
+                <a href="http://www.nyshcr.org/AboutUs/contact.htm#rent-admin">
+                  {{slide05.office}}
+                </a>
+              </p>
+            </li>
+          </ul>
           <p class="be-sure">{{slide05.tell_them}}</p>
           <p class="be-sure">{{slide05.mailed}}</p>
         </div>
@@ -216,26 +229,29 @@
         {{!-- TODO: add translations for aria-label --}}
         aria-label="8 of 9"
       >
-        <div class="centered">
+        <div class="centered v-centered">
           <h2 id="slide-8-title" class="font-style-hero">{{slide08.h2}}</h2>
-          <div class="action-choice">
-            <h3>{{slide08.option01}}</h3>
-            <p class="no-local-tr">
-              <a href="info/resources.html" target="_blank">{{slide08.no_local_tr.a}}</a>
-              {{slide08.no_local_tr.p}}
-            </p>
+          <ul role="list" class="action-choice">
+            <li>
+              <h3>{{slide08.option01}}</h3>
+              <p class="no-local-tr">
+                <a href="info/resources.html" target="_blank">{{slide08.no_local_tr.a}}</a>
+                {{slide08.no_local_tr.p}}
+              </p>
+              <p class="yes-local-tr hidden">
+                {{slide08.yes_local_tr.p}}
+                <a href="#open-modal"> {{slide08.yes_local_tr.a}} </a>
+              </p>
+            </li>
 
-            <p class="yes-local-tr hidden">
-              {{slide08.yes_local_tr.p}}
-              <a href="#open-modal"> {{slide08.yes_local_tr.a}} </a>
-            </p>
-
-            <h3>{{slide08.option02}}</h3>
-            <p>{{slide08.p1}}
-              <a href="http://www.nyshcr.org/Forms/Rent/ra89.pdf" target="_blank">{{slide08.a}}</a>
-              {{slide08.p2}}
-            </p>
-          </div>
+            <li>
+              <h3>{{slide08.option02}}</h3>
+              <p>{{slide08.p1}}
+                <a href="http://www.nyshcr.org/Forms/Rent/ra89.pdf" target="_blank">{{slide08.a}}</a>
+                {{slide08.p2}}
+              </p>
+            </li>
+          </ul>
         </div>
         <button class="go-next bottom-arrow">
           <div class="button-text">{{nav_bottom_arrow.next}}</div>

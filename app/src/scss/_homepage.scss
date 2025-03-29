@@ -114,6 +114,51 @@ p.sub-head {
   font-weight: 700;
 }
 
+// TODO: reset list items with [role="list"]
+[role="list"] {
+  padding: 0;
+  list-style: none;
+}
+
+// DHCR contact options (slide 5)
+.dhcr-choice {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 8px;
+  max-width: 80%;
+  margin: 0 auto;
+
+  p {
+    align-self: stretch;
+    padding: 8px 16px;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// Take action options (slide 8)
+.action-choice {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 auto;
+  margin-block-start: 24px;
+
+  li {
+    flex-basis: fit-content;
+  }
+
+  h3 {
+    margin-bottom: 0.65em;
+  }
+
+  p {
+    max-width: 40ch;
+  }
+}
+
+// responsive images
 img.triple-s {
   height: clamp(38px, 8cqi, 47.5px);
   margin-block-end: 12px;
@@ -127,6 +172,7 @@ img.mascot {
   height: clamp(160px, 25cqi, 320px);
 }
 
+// Buttons
 // TODO: reuse button mixin or @extend base button styles?
 button.go-next {
   all: unset;
