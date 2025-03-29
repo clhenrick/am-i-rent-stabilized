@@ -37,8 +37,10 @@
           {{>language_toggle}}
         </div>
         <div class="centered">
-          <img class="triple-s" height="40" src="assets/png/triple-sss.png" alt="">
-          <img class="building intro" height="120" src="assets/png/building.png" alt="">
+          <div>
+            <img class="triple-s" height="40" src="assets/png/triple-sss.png" alt="">
+            <img class="building intro" height="120" src="assets/png/building.png" alt="">
+          </div>
           <h1 id="slide-1-title" class="font-style-hero landing">{{ slide01.h1 }}</h1>
           <p class="font-style-secondary sub-head">{{ slide01.subhead }}</p>
           <p class="go-step4">
@@ -64,7 +66,7 @@
         {{!-- TODO: add translations for aria-label --}}
         aria-label="2 of 9"
       >
-        <div class="centered">
+        <div class="centered v-centered">
           <h2 id="slide-2-title" class="font-style-hero step">{{slide02.h2}}</h2>
           <p class="step">{{slide02.privacy}}</p>
           {{>address_search_form}}
@@ -129,7 +131,7 @@
         {{!-- TODO: add translations for aria-label --}}
         aria-label="5 of 9"
       >
-        <div class="centered">
+        <div class="centered v-centered">
           <h2 id="slide-5-title" class="font-style-hero">{{slide05.h2}}</h2>
           <div class="dhcr-choice">
             <p><a id="mail-to" href="#">{{slide05.mail}}</a></p>
@@ -156,7 +158,7 @@
         {{!-- TODO: add translations for aria-label --}}
         aria-label="6 of 9"
       >
-        <div class="centered">
+        <div class="centered v-centered">
           <h2 id="slide-6-title" class="font-style-hero check-it">{{slide06.h2}}</h2>
           <p class="check-it">
             {{slide06.arrive}}
@@ -182,11 +184,12 @@
         {{!-- TODO: add translations for aria-label --}}
         aria-label="7 of 9"
       >
-        <div class="centered">
+        <div class="centered v-centered">
           <h2 id="slide-7-title" class="font-style-hero">{{slide07.h2}}</h2>
           <a href="#rent-history">
             <img
               class="rent-history"
+              height="190"
               src="assets/png/sample-rent-history-thumb.png"
               {{!-- TODO: add translations for alt text --}}
               loading="lazy"

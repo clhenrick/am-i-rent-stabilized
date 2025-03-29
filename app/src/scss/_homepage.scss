@@ -101,6 +101,11 @@
   gap: 1.5lh;
 }
 
+.v-centered {
+  height: 100%;
+  justify-content: center;
+}
+
 p.sub-head {
   color: darken($lightgray, 21);
   // font-size: 2.8rem;
