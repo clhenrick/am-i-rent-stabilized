@@ -48,7 +48,7 @@
       "eslint --fix",
       "git add"
     ],
-    "src/**/*.{js,vue,json,css,scss,md}": [
+    "src/**/*.{js,vue,json,css,scss,md,hbs}": [
       "prettier --write"
     ]
   },
