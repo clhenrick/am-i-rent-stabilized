@@ -108,6 +108,10 @@ img.building {
   height: clamp(100px, 20cqi, 225px);
 }
 
+img.mascot {
+  height: clamp(160px, 25cqi, 320px);
+}
+
 // TODO: reuse button mixin or @extend base button styles?
 button.go-next {
   all: unset;
