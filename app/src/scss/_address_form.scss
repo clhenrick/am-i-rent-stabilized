@@ -1,3 +1,6 @@
+@use "variables" as *;
+@use "mixins" as *;
+
 // AddressSearchForm styles
 #address-form {
   position: relative;

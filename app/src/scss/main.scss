@@ -2,7 +2,13 @@
 @use "base";
 @use "utility-classes";
 @use "nav_main";
+
+// homepage partials
 @use "homepage";
+@use "map";
+@use "address_form";
+@use "search-validation-errors";
+@use "checking-sprite";
 
 // "utility-classes", "add_to_calendar",
 //   "main_tags", "nav_bar_top", "language_toggle", "progress_circles", "slides",

@@ -1,3 +1,6 @@
+@use "variables" as *;
+@use "mixins" as *;
+
 $map-width-default: 550px;
 $map-height-default: 300px;
 $map-popup-max-width: 275px;

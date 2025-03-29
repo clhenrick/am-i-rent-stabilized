@@ -1,3 +1,6 @@
+@use "variables" as *;
+@use "mixins" as *;
+
 .search-validation-errors {
   margin-top: 5px;
   height: 125px;
@@ -8,7 +11,7 @@
     text-align: center;
     padding: 10px;
     color: $white;
-    font-size: 0.7em;
+    // font-size: 0.7em;
     font-weight: 300;
     font-style: italic;
     letter-spacing: 1px;
