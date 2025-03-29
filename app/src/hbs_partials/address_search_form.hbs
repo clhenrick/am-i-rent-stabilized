@@ -11,21 +11,21 @@
       aria-required="true"
       placeholder="{{slide02.form.placeholder}}"
       autocomplete="off"
-    >
+    />
     <datalist id="autosuggest-results"></datalist>
   </div>
   <div class="search-validation-errors">
-      <p id="error-not-found" class="val-err hidden">
-        {{slide02.form.val_errors.not_found}}
-      </p>
-      <p id="error-address" class="val-err hidden">
-        {{slide02.form.val_errors.address}}
-      </p>
-      <p id="error-generic" class="val-err hidden">
-        {{slide02.form.val_errors.generic}}
-      </p>
+    <p id="error-not-found" class="val-err hidden">
+      {{slide02.form.val_errors.not_found}}
+    </p>
+    <p id="error-address" class="val-err hidden">
+      {{slide02.form.val_errors.address}}
+    </p>
+    <p id="error-generic" class="val-err hidden">
+      {{slide02.form.val_errors.generic}}
+    </p>
   </div>
   <button class="button submit" type="submit">
-    {{ slide02.search }}
+    {{slide02.search}}
   </button>
 </form>
