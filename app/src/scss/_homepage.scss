@@ -1,6 +1,17 @@
 @use "variables" as *;
 @use "mixins" as *;
 
+:root {
+  /* code credit: https://www.fluid-type-scale.com/calculate?minFontSize=18&minWidth=375&minRatio=1.25&maxFontSize=48&maxWidth=1280&maxRatio=1.333&steps=sm%2Cbase%2Cmd%2Clg%2Cxl%2Cxxl%2Cxxxl&baseStep=base&prefix=fs&useContainerWidth=true&includeFallbacks=false&useRems=true&remValue=16&decimals=3&previewFont=Oxygen&previewText=Almost+before+we+knew+it%2C+we+had+left+the+ground&previewWidth=1280 */
+  --fs-sm: clamp(1.1rem, 2.034cqi + 0.623rem, 2.251rem);
+  --fs-base: clamp(1.375rem, 2.873cqi + 0.702rem, 3rem);
+  --fs-md: clamp(1.719rem, 4.031cqi + 0.774rem, 3.999rem);
+  --fs-lg: clamp(2.148rem, 5.626cqi + 0.83rem, 5.331rem);
+  --fs-xl: clamp(2.686rem, 7.815cqi + 0.854rem, 7.106rem);
+  --fs-xxl: clamp(3.357rem, 10.811cqi + 0.823rem, 9.472rem);
+  --fs-xxxl: clamp(4.196rem, 14.904cqi + 0.703rem, 12.626rem);
+}
+
 // TODO: fix rent-history
 #rent-history {
   display: none;
@@ -20,7 +31,7 @@
   container-type: inline-size;
   position: fixed;
   inset: $nav-main-height 0 0 0;
-  max-width: 960px;
+  max-width: 1280px;
   margin: 0 auto;
   overflow: hidden;
   z-index: 10;
@@ -55,15 +66,22 @@
 
   h1,
   h2 {
-    font-size: 5.4rem;
+    // font-size: 5.4rem;
+    font-size: var(--fs-lg);
   }
 
   h3 {
-    font-size: 4rem;
+    // font-size: 4rem;
+    font-size: var(--fs-md);
   }
 
   h1 {
     font-style: italic;
+    max-width: 35ch;
+  }
+
+  p {
+    font-size: var(--fs-base);
   }
 }
 
@@ -76,17 +94,18 @@
 
 p.sub-head {
   color: darken($lightgray, 21);
-  font-size: 2.8rem;
+  // font-size: 2.8rem;
+  font-size: var(--fs-md);
   font-style: italic;
   font-weight: 700;
 }
 
 img.triple-s {
-  height: clamp(38px, 8cqi, 60px);
+  height: clamp(38px, 8cqi, 55px);
 }
 
 img.building {
-  height: clamp(100px, 20cqi, 275px);
+  height: clamp(100px, 20cqi, 225px);
 }
 
 // TODO: reuse button mixin or @extend base button styles?
@@ -109,13 +128,14 @@ button.go-next {
 .button-text {
   color: $darkorange;
   font-weight: 700;
-  font-size: 3.5em;
+  // font-size: 3.5em;
+  font-size: var(--fs-md);
   text-transform: uppercase;
   text-align: center;
 
-  .es & {
-    font-size: 2.5em;
-  }
+  // .es & {
+  //   font-size: 2.5em;
+  // }
 
   &:hover {
     color: $orange;
