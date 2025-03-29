@@ -48,6 +48,11 @@
   overflow: hidden;
   padding: 24px;
 
+  @include responsive_height(medium-screens) {
+    justify-content: space-between;
+    padding: 12px;
+  }
+
   h1,
   h2,
   h3,
@@ -62,6 +67,10 @@
   h2,
   h3 {
     line-height: 1.2;
+
+    @include responsive_height(medium-screens) {
+      line-height: 1;
+    }
   }
 
   h1,
