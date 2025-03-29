@@ -81,7 +81,7 @@
   }
 
   p {
-    font-size: var(--fs-base);
+    font-size: var(--fs-sm);
   }
 }
 
@@ -101,11 +101,12 @@ p.sub-head {
 }
 
 img.triple-s {
-  height: clamp(38px, 8cqi, 55px);
+  height: clamp(38px, 8cqi, 47.5px);
+  margin-block-end: 12px;
 }
 
 img.building {
-  height: clamp(100px, 20cqi, 225px);
+  height: clamp(100px, 20cqi, 135px);
 }
 
 img.mascot {
@@ -133,7 +134,7 @@ button.go-next {
   color: $darkorange;
   font-weight: 700;
   // font-size: 3.5em;
-  font-size: var(--fs-md);
+  font-size: var(--fs-base);
   text-transform: uppercase;
   text-align: center;
 
