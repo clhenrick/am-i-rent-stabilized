@@ -2,6 +2,17 @@
 @import "~normalize.css";
 
 // base styles for all pages
+:root {
+  /* code credit: https://www.fluid-type-scale.com/calculate?minFontSize=18&minWidth=375&minRatio=1.25&maxFontSize=48&maxWidth=1280&maxRatio=1.333&steps=sm%2Cbase%2Cmd%2Clg%2Cxl%2Cxxl%2Cxxxl&baseStep=base&prefix=fs&useContainerWidth=true&includeFallbacks=false&useRems=true&remValue=16&decimals=3&previewFont=Oxygen&previewText=Almost+before+we+knew+it%2C+we+had+left+the+ground&previewWidth=1280 */
+  --fs-sm: clamp(1.1rem, 2.034cqi + 0.623rem, 2.251rem);
+  --fs-base: clamp(1.375rem, 2.873cqi + 0.702rem, 3rem);
+  --fs-md: clamp(1.719rem, 4.031cqi + 0.774rem, 3.999rem);
+  --fs-lg: clamp(2.148rem, 5.626cqi + 0.83rem, 5.331rem);
+  --fs-xl: clamp(2.686rem, 7.815cqi + 0.854rem, 7.106rem);
+  --fs-xxl: clamp(3.357rem, 10.811cqi + 0.823rem, 9.472rem);
+  --fs-xxxl: clamp(4.196rem, 14.904cqi + 0.703rem, 12.626rem);
+}
+
 *,
 *::before,
 *::after {
@@ -73,6 +84,11 @@ body {
   &:hover {
     color: $lightblue;
   }
+}
+
+:where([role="list"]) {
+  padding: 0;
+  list-style: none;
 }
 
 :where(li) {
