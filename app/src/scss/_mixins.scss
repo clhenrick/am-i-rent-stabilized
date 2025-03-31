@@ -22,31 +22,6 @@
   transform: translateY($value);
 }
 
-// button
-@mixin button {
-  all: unset;
-  display: inline-block;
-  position: relative;
-  min-width: 170px;
-  margin: 0 auto;
-  font-size: 2rem;
-  font-weight: 600;
-  text-align: center;
-  text-transform: uppercase;
-  text-decoration: none;
-  letter-spacing: $letter-spacing;
-  background-color: $darkorange;
-  padding: 12px 18px;
-  border: 1px solid transparent;
-  border-radius: 35px;
-  color: $white;
-  cursor: pointer;
-
-  &:hover {
-    background-color: $orange;
-  }
-}
-
 // background size for images
 @mixin background-size($width, $height) {
   -webkit-background-size: $width $height;

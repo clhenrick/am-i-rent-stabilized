@@ -1,150 +1,61 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+// Primary <button> styles
 .button {
-  @include button;
-
-  &.start-over {
-    min-width: 200px;
-    width: auto;
-  }
-
-  &.learn-more {
-    min-width: 200px;
-    margin-left: 50px;
-  }
-
-  @include responsive_height(medium-screens) {
-    width: 180px;
-    font-size: 1.8em;
-    padding: 8px 12px;
-
-    &.search {
-      width: 125px;
-      margin-left: -62.5px;
-    }
-
-    &.start-over {
-      min-width: 200px;
-    }
-  }
-
-  @include responsive(medium-screens) {
-    width: 160px;
-    font-size: 1.8em;
-    padding: 8px 12px;
-
-    &.search {
-      width: 125px;
-      margin-left: -62.5px;
-    }
-  }
-
-  @include responsive(small-screens) {
-    width: 110px;
-    font-size: 1.9em;
-    padding: 8px 12px;
-
-    &.search {
-      width: 110px;
-      margin-left: -55px;
-    }
-
-    &.start-over {
-      min-width: 200px;
-      width: 120px;
-    }
-
-    &.learn-more {
-      width: 125px;
-      margin-top: 10px;
-      margin-left: 10px;
-    }
-  }
-}
-
-.button-holder {
-  width: 100%;
+  all: unset;
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  min-width: 170px;
+  min-height: 44px;
+  margin: 0 auto;
+  font-size: var(--fs-sm);
+  font-weight: 600;
   text-align: center;
-  margin-top: 30px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: $letter-spacing;
+  background-color: $darkorange;
+  padding: 12px 18px;
+  border: 1px solid transparent;
+  border-radius: 35px;
+  color: $white;
+  cursor: pointer;
 
   @include responsive(small-screens) {
-    margin-top: 10px;
-  }
-}
-
-// Buttons that have a navigation arrow
-// FIX ME: duplicated styling with Button Mixin :(
-.go-prev,
-.go-next,
-.go-first,
-.button.search {
-  cursor: pointer;
-}
-
-.go-next {
-  background: transparent;
-  border: none;
-
-  .button-text {
-    font-family: $body-font;
-    color: $darkorange;
-    font-weight: 700;
-    font-size: 3.5em;
-    text-transform: uppercase;
-    text-align: center;
-
-    .es & {
-      font-size: 2.5em;
-    }
+    font-size: var(--fs-base);
   }
 
   &:hover {
-    color: $orange;
+    background-color: $orange;
   }
 
-  &.bottom-arrow {
-    position: absolute;
-    width: 125px;
-    margin: 0 auto;
-    margin-left: -62.5px;
-    left: 50%;
-    bottom: 3%;
+  // the "Next" buttons with the downward facing chevron icon
+  &--go-next {
+    @extend .button;
+    min-width: 44px;
+    padding: 0;
+    color: $darkorange;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 
-    &.es {
-      width: 170px;
-      margin-left: -85px;
-    }
-  }
-
-  .arrow {
-    display: block;
-    position: relative;
-    top: 10px;
-    height: 28px;
-    width: 76px;
-    margin: 0 auto;
-    background-image: url("../../public/assets/png/chevron.png");
-    background-repeat: no-repeat;
-  }
-
-  @include responsive_height(medium-screens) {
-    &.bottom-arrow {
-      bottom: 3%;
-      margin-left: -62.5px;
+    &:hover {
+      color: $orange;
+      background-color: transparent;
     }
 
-    .button-text {
-      font-size: 2.5em;
-    }
-  }
+    // chevron icon
+    .arrow {
+      height: 28px;
+      width: 76px;
+      margin: 0 auto;
+      background-image: url("../../public/assets/png/chevron.png");
+      background-repeat: no-repeat;
 
-  @include responsive(small-screens) {
-    &.bottom-arrow {
-      bottom: 5%;
-
-      .button-text {
-        font-size: 2em;
-      }
-
-      .arrow {
+      @include responsive(small-screens) {
         width: 32px;
         height: 11px;
         background-image: url("../../public/assets/png/chevron-sm.png");

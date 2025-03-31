@@ -172,48 +172,8 @@ img.mascot {
   height: clamp(160px, 25cqi, 320px);
 }
 
-// Buttons
-// TODO: reuse button mixin or @extend base button styles?
-button.go-next {
-  all: unset;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-
-  .arrow {
-    height: 28px;
-    width: 76px;
-    margin: 0 auto;
-    background-image: url("../../public/assets/png/chevron.png");
-    background-repeat: no-repeat;
-  }
-}
-
-.button-text {
-  color: $darkorange;
-  font-weight: 700;
-  // font-size: 3.5em;
-  font-size: var(--fs-base);
-  text-transform: uppercase;
-  text-align: center;
-
-  // .es & {
-  //   font-size: 2.5em;
-  // }
-
-  &:hover {
-    color: $orange;
-  }
-}
-
 .button-holder {
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
-}
-
-button.start-over,
-a[href].learn-more {
-  @include button;
 }

@@ -43,10 +43,6 @@
     }
   }
 
-  button.submit {
-    @include button;
-  }
-
   @include responsive_height(medium-screens) {
     width: 100%;
     height: 230px;
