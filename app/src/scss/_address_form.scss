@@ -44,14 +44,7 @@
   }
 
   button.submit {
-    display: block;
-    width: 150px;
-    margin: 0 auto;
-    border: none;
-    color: #fff;
-    font-weight: 600;
-    font-size: 20px;
-    letter-spacing: 0.625px;
+    @include button;
   }
 
   @include responsive_height(medium-screens) {
