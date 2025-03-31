@@ -1,50 +1,53 @@
 @use "variables" as *;
 @use "mixins" as *;
 
-// Primary <button> styles
+// <button> styles
 .button {
   all: unset;
   box-sizing: border-box;
   display: inline-block;
   position: relative;
-  min-width: 170px;
+  min-width: 44px;
   min-height: 44px;
-  margin: 0 auto;
   font-size: var(--fs-sm);
   font-weight: 600;
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
   letter-spacing: $letter-spacing;
-  background-color: $darkorange;
-  padding: 12px 18px;
-  border: 1px solid transparent;
-  border-radius: 35px;
+  border: 1px solid transparent; // for supporting forced-colors mode
   color: $white;
   cursor: pointer;
 
   @include responsive(small-screens) {
+    // increase font size a bit on super narrow viewports
     font-size: var(--fs-base);
   }
 
-  &:hover {
-    background-color: $orange;
+  // orange rounded buttons
+  &--primary {
+    @extend .button;
+    min-width: 170px;
+    background-color: $darkorange;
+    margin: 0 auto;
+    padding: 12px 24px;
+    border-radius: 35px;
+
+    &:hover {
+      background-color: $orange;
+    }
   }
 
   // the "Next" buttons with the downward facing chevron icon
   &--go-next {
     @extend .button;
-    min-width: 44px;
-    padding: 0;
     color: $darkorange;
-    background-color: transparent;
     display: flex;
     flex-direction: column;
     gap: 12px;
 
     &:hover {
       color: $orange;
-      background-color: transparent;
     }
 
     // chevron icon

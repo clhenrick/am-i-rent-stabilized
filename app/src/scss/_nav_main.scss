@@ -108,15 +108,9 @@ nav.main-nav {
   }
 }
 
+// hamburger menu button
 button.burger {
-  all: unset;
   display: none;
-  // TODO: use size variable?
-  // NOTE: meets WCAG SC AAA for touch target size
-  width: 44px;
-  height: 44px;
-  background: transparent;
-  cursor: pointer;
 
   g.open {
     display: none;
@@ -125,15 +119,15 @@ button.burger {
   g.closed {
     display: inline;
   }
-}
 
-button.burger.open {
-  g.open {
-    display: inline;
-  }
+  &.open {
+    g.open {
+      display: inline;
+    }
 
-  g.closed {
-    display: none;
+    g.closed {
+      display: none;
+    }
   }
 }
 
@@ -142,7 +136,5 @@ button.burger.open {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    // TODO: use font-size variable
-    font-size: 1rem;
   }
 }
