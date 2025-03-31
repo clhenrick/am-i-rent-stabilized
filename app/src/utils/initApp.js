@@ -78,7 +78,7 @@ export default function initApp() {
   );
 
   // "next" slide advance buttons
-  document.querySelectorAll(".go-next").forEach((element, idx) => {
+  document.querySelectorAll(".button--go-next").forEach((element, idx) => {
     registry.add(`advanceSlides${idx}`, new AdvanceSlides({ element, store }));
   });
 
