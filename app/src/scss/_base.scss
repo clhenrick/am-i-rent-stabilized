@@ -37,9 +37,9 @@ body {
   }
 }
 
-h1,
-h2,
-h3 {
+:where(h1),
+:where(h2),
+:where(h3) {
   font-family: $header-font;
   font-weight: 700;
   line-height: $heading-text-line-height;
@@ -48,7 +48,7 @@ h3 {
   max-width: $heading-text-max-width;
 }
 
-p {
+:where(p) {
   font-size: 2.2em;
   color: $green;
   max-width: $normal-text-max-width;
@@ -64,7 +64,7 @@ p {
   }
 }
 
-a[href] {
+:where(a[href]) {
   text-decoration: underline;
   color: darken($bluegreen, 17);
   text-decoration-thickness: 0.125em;
@@ -75,13 +75,13 @@ a[href] {
   }
 }
 
-li {
+:where(li) {
   max-width: $normal-text-max-width;
   line-height: $normal-text-line-height;
   text-wrap: balance;
 }
 
-img {
+:where(img) {
   display: block;
   position: relative;
   margin: 0 auto;
