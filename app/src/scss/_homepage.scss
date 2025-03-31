@@ -12,6 +12,11 @@
   --fs-xxxl: clamp(4.196rem, 14.904cqi + 0.703rem, 12.626rem);
 }
 
+// TODO: fix language toggle
+.lang-toggle {
+  display: none;
+}
+
 // TODO: fix rent-history
 #rent-history {
   display: none;
@@ -24,6 +29,11 @@
 
 // TODO: fix progress indicators
 #progress-indicator {
+  display: none;
+}
+
+// TODO: fix tenants rights modal
+.tr-modal {
   display: none;
 }
 
