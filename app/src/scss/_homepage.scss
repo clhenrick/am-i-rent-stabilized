@@ -179,8 +179,7 @@ img.mascot {
   height: clamp(160px, 25cqi, 320px);
 }
 
-.end-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
+// add to calendar container
+.atc-container {
+  margin-top: 25px;
 }

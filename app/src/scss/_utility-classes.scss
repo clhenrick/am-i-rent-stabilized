@@ -5,11 +5,32 @@
   display: none;
 }
 
-.vis-hidden {
-  visibility: hidden;
+.flex {
+  display: flex;
+  gap: var(--gap, 12px);
 }
 
-.sr-only {
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-justify-center {
+  justify-content: center;
+}
+
+.flex-align-center {
+  align-items: center;
+}
+
+.margin-horizontally-center {
+  margin: 0 auto;
+}
+
+.sr-only:not(:focus, :focus-visible, :target) {
   border: 0 !important;
   clip: rect(1px, 1px, 1px, 1px) !important;
   -webkit-clip-path: inset(50%) !important;
