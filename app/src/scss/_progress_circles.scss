@@ -1,19 +1,26 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+$circle-width: 24px;
+$show-min-width: calc($slides-max-width + $circle-width);
+
 div#progress-indicator {
-  position: fixed;
+  position: absolute;
   z-index: 100;
-  top: 22%;
-  left: 30px;
+  transform: translateY(-50%);
+  top: 50%;
+  left: $circle-width;
 
   ul {
     list-style-type: none;
+    padding: 0;
   }
 
   li {
-    width: 25px;
-    height: 25px;
-    margin-top: 25px;
+    width: $circle-width;
+    height: $circle-width;
     background-image: url("../../public/assets/png/oval_25_blank.png");
-    background-size: 25px;
+    background-size: $circle-width;
     background-repeat: no-repeat;
 
     &.active {
@@ -21,26 +28,7 @@ div#progress-indicator {
     }
   }
 
-  @include responsive_height(medium-screens) {
-    top: 25%;
-
-    li {
-      width: 20px;
-      height: 20px;
-      background-size: 20px;
-      margin-top: 20px;
-
-      &:first-child {
-        margin-top: 0;
-      }
-    }
-  }
-
-  @include responsive(tablet-screens) {
-    display: none;
-  }
-
-  @include responsive(small-screens) {
+  @media only screen and (width <= $show-min-width) {
     display: none;
   }
 }
