@@ -18,20 +18,21 @@
   }
 
   li,
-  button,
+  .button,
   p {
     line-height: 1;
   }
 
-  button,
+  .button,
   p {
     font-weight: 300;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     color: $gray;
   }
 
-  button {
+  .button {
     padding: 0 16px;
+    text-transform: none;
 
     &:hover {
       color: $lightgray;
