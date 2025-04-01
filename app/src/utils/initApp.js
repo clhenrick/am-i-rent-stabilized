@@ -45,7 +45,7 @@ export default function initApp() {
   registry.add(
     "languageToggle",
     new LanguageToggle({
-      element: document.querySelector("div.desktop > div.lang-toggle"),
+      element: document.querySelector("div.desktop > aside.lang-toggle"),
       store,
     })
   );
@@ -54,7 +54,7 @@ export default function initApp() {
   registry.add(
     "languageToggleMobile",
     new LanguageToggle({
-      element: document.querySelector("div.mobile > div.lang-toggle"),
+      element: document.querySelector("div.mobile > aside.lang-toggle"),
       store,
     })
   );

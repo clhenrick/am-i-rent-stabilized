@@ -22,17 +22,17 @@ export class LanguageToggleButton extends Component {
     this.className = `toggle-${this.lang}`;
     this.toggledClassName = `toggle-${LANGS.EN}`;
     this.element.innerHTML = this.label;
-    this.element.className = this.className;
+    this.element.className = `${this.className} button`;
     this.element.lang = this.lang;
   }
 
   toggle() {
     if (this.element.classList.contains(this.className)) {
-      this.element.className = this.toggledClassName;
+      this.element.className = `${this.toggledClassName} button`;
       this.element.innerHTML = IN_LANG.EN;
       this.element.lang = LANGS.EN;
     } else {
-      this.element.className = this.className;
+      this.element.className = `${this.className} button`;
       this.element.innerHTML = this.label;
       this.element.lang = this.lang;
     }

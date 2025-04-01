@@ -1,10 +1,28 @@
 {{! LanguageToggle partial }}
-<div class="lang-toggle">
-  <ul>
-    <li><button class="toggle-es" href="#">en español</button></li>
+<aside class="lang-toggle">
+  {{!-- TODO: add i18n string for title --}}
+  <h2 class="sr-only">Toggle Language</h2>
+  <ul role="list">
     <li>
+      <button
+        type="button"
+        lang="es"
+        class="button toggle-es"
+      >
+        en español
+      </button>
+    </li>
+    <li aria-hidden="true">
       <p>•</p>
     </li>
-    <li><button class="toggle-zh" href="#">中文</button></li>
+    <li>
+      <button
+        type="button"
+        lang="zh"
+        class="button toggle-zh"
+      >
+        中文
+      </button>
+    </li>
   </ul>
-</div>
+</aside>
