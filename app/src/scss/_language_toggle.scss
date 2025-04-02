@@ -1,9 +1,8 @@
 @use "variables" as *;
 @use "mixins" as *;
 
-aside.lang-toggle {
+.lang-toggle {
   position: fixed;
-  display: inline-block;
   top: $nav-main-height;
   left: 8px;
   z-index: 100;
@@ -17,7 +16,8 @@ aside.lang-toggle {
 
   ul {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   li,
@@ -34,6 +34,8 @@ aside.lang-toggle {
   }
 
   .button[lang] {
+    min-width: 120px;
+    text-align: start;
     padding: 0 16px;
     text-transform: none;
 
@@ -48,22 +50,11 @@ aside.lang-toggle {
     }
 
     .mobile & {
-      display: inline-block;
-    }
-
-    ul {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    li:nth-child(2) {
-      display: none;
+      display: block;
     }
 
     .button[lang] {
-      min-width: 120px;
       min-height: 32px;
-      text-align: start;
     }
   }
 }
