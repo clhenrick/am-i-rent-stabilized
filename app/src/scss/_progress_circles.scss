@@ -3,6 +3,7 @@
 
 $circle-width: 24px;
 $show-min-width: calc($slides-max-width + $circle-width);
+$show-min-height: 615px;
 
 div#progress-indicator {
   position: absolute;
@@ -28,7 +29,7 @@ div#progress-indicator {
     }
   }
 
-  @media only screen and (width <= $show-min-width) {
+  @media (width <= $show-min-width) or (height <= $show-min-height) {
     display: none;
   }
 }
