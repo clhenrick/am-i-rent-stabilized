@@ -1,7 +1,7 @@
 @use "variables" as *;
 @use "mixins" as *;
 
-.lang-toggle {
+aside.lang-toggle {
   position: fixed;
   display: inline-block;
   top: $nav-main-height;
@@ -10,6 +10,9 @@
 
   .mobile & {
     display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
   ul {
@@ -18,19 +21,19 @@
   }
 
   li,
-  .button,
+  .button[lang],
   p {
     line-height: 1;
   }
 
-  .button,
+  .button[lang],
   p {
     font-weight: 300;
     font-size: 1.6rem;
     color: $gray;
   }
 
-  .button {
+  .button[lang] {
     padding: 0 16px;
     text-transform: none;
 
@@ -45,10 +48,22 @@
     }
 
     .mobile & {
-      position: absolute;
       display: inline-block;
-      top: 0;
-      left: 0;
+    }
+
+    ul {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    li:nth-child(2) {
+      display: none;
+    }
+
+    .button[lang] {
+      min-width: 120px;
+      min-height: 32px;
+      text-align: start;
     }
   }
 }
