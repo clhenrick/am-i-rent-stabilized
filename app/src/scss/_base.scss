@@ -2,15 +2,44 @@
 @import "~normalize.css";
 
 // base styles for all pages
+
+// Fluid type scale
+// Credit: https://www.fluid-type-scale.com/calculate?minFontSize=18&minWidth=375&minRatio=1.25&maxFontSize=48&maxWidth=1280&maxRatio=1.333&steps=sm%2Cbase%2Cmd%2Clg%2Cxl%2Cxxl%2Cxxxl&baseStep=base&prefix=fs&useContainerWidth=true&includeFallbacks=true&useRems=true&remValue=16&decimals=3&previewFont=Oxygen&previewText=Almost+before+we+knew+it%2C+we+had+left+the+ground&previewWidth=1280
+// TODO: not all font sizes are being used here, so remove unused ones
 :root {
-  /* code credit: https://www.fluid-type-scale.com/calculate?minFontSize=18&minWidth=375&minRatio=1.25&maxFontSize=48&maxWidth=1280&maxRatio=1.333&steps=sm%2Cbase%2Cmd%2Clg%2Cxl%2Cxxl%2Cxxxl&baseStep=base&prefix=fs&useContainerWidth=true&includeFallbacks=false&useRems=true&remValue=16&decimals=3&previewFont=Oxygen&previewText=Almost+before+we+knew+it%2C+we+had+left+the+ground&previewWidth=1280 */
-  --fs-sm: clamp(1.1rem, 2.034cqi + 0.623rem, 2.251rem);
-  --fs-base: clamp(1.375rem, 2.873cqi + 0.702rem, 3rem);
-  --fs-md: clamp(1.719rem, 4.031cqi + 0.774rem, 3.999rem);
-  --fs-lg: clamp(2.148rem, 5.626cqi + 0.83rem, 5.331rem);
-  --fs-xl: clamp(2.686rem, 7.815cqi + 0.854rem, 7.106rem);
-  --fs-xxl: clamp(3.357rem, 10.811cqi + 0.823rem, 9.472rem);
-  --fs-xxxl: clamp(4.196rem, 14.904cqi + 0.703rem, 12.626rem);
+  --fs-sm: clamp(0.9rem, 2.388cqi + 0.34rem, 2.251rem);
+  --fs-base: clamp(1.125rem, 3.315cqi + 0.348rem, 3rem);
+  --fs-md: clamp(1.406rem, 4.584cqi + 0.332rem, 3.999rem);
+  --fs-lg: clamp(1.758rem, 6.317cqi + 0.277rem, 5.331rem);
+  --fs-xl: clamp(2.197rem, 8.678cqi + 0.163rem, 7.106rem);
+  --fs-xxl: clamp(2.747rem, 11.89cqi + -0.04rem, 9.472rem);
+  --fs-xxxl: clamp(3.433rem, 16.253cqi + -0.376rem, 12.626rem);
+}
+
+// Fallback font sizes for browsers that don't support CSS clamp and/or container query units
+@supports not (font-size: clamp(1rem, 1cqi, 1rem)) {
+  // NOTE: these font sizes were manually adjusted and assume 1rem == 10px
+  // This should probably be changed in the future to support WCAG SC Re-size Text
+  :root {
+    --fs-sm: 1.4rem;
+    --fs-base: 1.8rem;
+    --fs-md: 2rem;
+    --fs-lg: 2.25rem;
+    --fs-xl: 2.5rem;
+    --fs-xxl: 3rem;
+    --fs-xxxl: 3.4rem;
+  }
+  @media screen and (min-width: 1280px) {
+    :root {
+      --fs-sm: 2.251rem;
+      --fs-base: 3rem;
+      --fs-md: 3.999rem;
+      --fs-lg: 5.331rem;
+      --fs-xl: 7.106rem;
+      --fs-xxl: 9.472rem;
+      --fs-xxxl: 12.626rem;
+    }
+  }
 }
 
 *,
