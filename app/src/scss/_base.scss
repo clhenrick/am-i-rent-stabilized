@@ -57,6 +57,8 @@
 
 html {
   font-size: 62.5%;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
 
   &[lang="en"] {
     font-size: 62.5%;
