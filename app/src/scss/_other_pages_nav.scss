@@ -16,11 +16,6 @@
     margin-top: 30px;
   }
 
-  @include responsive(small-screens) {
-    // display: none;
-    // margin-top:
-  }
-
   @include responsive_mobile_landscape() {
     width: 100%;
     height: auto;
