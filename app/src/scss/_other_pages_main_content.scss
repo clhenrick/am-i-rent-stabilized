@@ -29,7 +29,7 @@ main {
   flex-basis: 0;
   min-inline-size: 70%;
   position: relative;
-  margin-block-end: 124px;
+  padding-block-end: 124px;
 
   h1,
   h2,
@@ -45,22 +45,11 @@ main {
 
   h3 {
     margin-top: 25px;
-    line-height: 1.2;
-  }
-
-  p {
-    padding-right: 25px;
-  }
-
-  ul {
-    margin-left: 25px;
-    padding-left: 0;
   }
 
   li {
     color: $green;
     list-style-position: outside;
-    padding-left: 0;
   }
 
   a[name] {
@@ -89,14 +78,6 @@ main {
   }
 
   @include responsive(tablet-screens) {
-    h2 {
-      margin-top: 25px;
-    }
-
-    h3 {
-      margin-top: 15px;
-    }
-
     .video {
       margin-top: 25px;
       max-width: 90%;
@@ -109,22 +90,6 @@ main {
   }
 
   @include responsive(small-screens) {
-    h2 {
-      margin-top: 20px;
-    }
-
-    h3 {
-      margin-top: 10px;
-    }
-
-    p {
-      margin-top: 10px;
-    }
-
-    li {
-      margin-top: 10px;
-    }
-
     .video {
       margin-top: 25px;
 

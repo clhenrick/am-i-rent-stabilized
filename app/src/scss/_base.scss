@@ -109,14 +109,10 @@ li {
   color: $green;
   max-width: $normal-text-max-width;
   line-height: $normal-text-line-height;
-
-  // TODO: rm in favor of heading margin-block-end?
-  &:first-of-type {
-    margin-block-start: 1em;
-  }
+  text-wrap: pretty;
 
   &:not(:last-of-type) {
-    margin-block-end: 1em;
+    margin-block-end: 1lh;
   }
 
   @include responsive(small-screens) {
@@ -129,6 +125,7 @@ li {
   color: darken($bluegreen, 17);
   text-decoration-thickness: 0.125em;
   text-underline-offset: 2.5px;
+  text-wrap: pretty;
 
   &:hover {
     color: $lightblue;
@@ -139,6 +136,11 @@ li {
   margin-block: 0;
   padding: 0;
   list-style: none;
+}
+
+:where(ul) {
+  padding-block: 0;
+  padding-inline-start: 2rem;
 }
 
 :where(li) {
