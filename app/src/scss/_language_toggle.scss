@@ -26,6 +26,10 @@
     line-height: 1;
   }
 
+  li {
+    margin-block-end: 0;
+  }
+
   .button[lang],
   p {
     font-weight: 300;

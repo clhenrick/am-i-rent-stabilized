@@ -20,6 +20,7 @@ div#progress-indicator {
   li {
     width: $circle-width;
     height: $circle-width;
+    margin-block-end: 0;
     background-image: url("../../public/assets/png/oval_25_blank.png");
     background-size: $circle-width;
     background-repeat: no-repeat;
