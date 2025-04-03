@@ -1,3 +1,6 @@
+@use "variables" as *;
+@use "mixins" as *;
+
 #left {
   width: 18.75em;
   position: fixed;
