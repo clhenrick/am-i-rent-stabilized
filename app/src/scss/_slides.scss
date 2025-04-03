@@ -59,12 +59,10 @@
 
   h1,
   h2 {
-    // font-size: 5.4rem;
     font-size: var(--fs-lg);
   }
 
   h3 {
-    // font-size: 4rem;
     font-size: var(--fs-md);
   }
 
@@ -133,7 +131,7 @@ p.sub-head {
 .action-choice {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  align-items: baseline;
   gap: 36px;
   margin: 0 auto;
 
@@ -147,6 +145,11 @@ p.sub-head {
 
   p {
     max-width: 40ch;
+    font-size: var(--fs-sm);
+
+    @include responsive(small-screens) {
+      font-size: var(--fs-base);
+    }
   }
 }
 
