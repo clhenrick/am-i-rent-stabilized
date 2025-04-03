@@ -1,37 +1,32 @@
 @use "variables" as *;
 @use "mixins" as *;
 
-#left {
-  width: 18.75em;
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  margin: 0;
+// aside {
+//   width: 18.75em;
+//   position: fixed;
+//   left: 0;
+//   top: 0;
+//   bottom: 0;
+//   margin: 0;
 
-  @include responsive(medium-screens) {
-    position: relative;
-    width: 100%;
-    height: auto;
-    margin-top: 30px;
-  }
+//   @include responsive(medium-screens) {
+//     position: relative;
+//     width: 100%;
+//     height: auto;
+//     margin-top: 30px;
+//   }
 
-  @include responsive_mobile_landscape() {
-    width: 100%;
-    height: auto;
-    position: relative;
-    display: block;
-    margin-left: 0;
-    margin-top: 25px;
-  }
-}
+//   @include responsive_mobile_landscape() {
+//     width: 100%;
+//     height: auto;
+//     position: relative;
+//     display: block;
+//     margin-left: 0;
+//     margin-top: 25px;
+//   }
+// }
 
-nav#side-nav {
-  position: relative;
-  width: 200px;
-  left: 30px;
-  top: 140px;
-
+nav.side-nav {
   h2,
   li,
   a {

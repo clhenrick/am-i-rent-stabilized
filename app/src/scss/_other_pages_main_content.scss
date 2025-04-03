@@ -5,11 +5,24 @@ body {
   padding: 0 16px;
 }
 
+// allows the sidebar & main areas to be side by side and then stack vertically when there is less horizontal space
+#wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 36px;
+  margin-block-start: $nav-main-height;
+}
+
+aside {
+  flex-basis: fit-content;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
 main {
+  flex-grow: 100;
   position: relative;
-  margin-top: 80px;
-  margin-bottom: 100px;
-  margin-left: 25%;
+  margin-block-end: 124px;
 
   h1,
   h2,
@@ -25,7 +38,6 @@ main {
 
   h3 {
     margin-top: 25px;
-    margin-left: 0;
     line-height: 1.2;
   }
 
@@ -40,7 +52,6 @@ main {
 
   li {
     color: $green;
-    margin-top: 20px;
     list-style-position: outside;
     padding-left: 0;
   }
@@ -70,44 +81,13 @@ main {
     }
   }
 
-  @include responsive_height(medium-screens) {
-    margin-left: 22%;
-
-    h2 {
-      margin-left: 0;
-    }
-
-    p,
-    li {
-      margin-top: 1.2em;
-    }
-  }
-
-  @include responsive(medium-screens) {
-    position: relative;
-    display: block;
-    margin-top: 50px;
-    margin-left: 10%;
-  }
-
   @include responsive(tablet-screens) {
-    left: 0;
-
     h2 {
       margin-top: 25px;
     }
 
     h3 {
       margin-top: 15px;
-    }
-
-    p,
-    li {
-      margin-top: 10px;
-    }
-
-    p {
-      padding-right: 10px;
     }
 
     .video {
@@ -122,10 +102,6 @@ main {
   }
 
   @include responsive(small-screens) {
-    position: relative;
-    display: block;
-    margin: 50px auto 50px auto;
-
     h2 {
       margin-top: 20px;
     }
@@ -153,8 +129,6 @@ main {
   }
 
   @include responsive_mobile_landscape() {
-    margin: 55px 0 50px 20px;
-
     .video {
       max-width: 100%;
 

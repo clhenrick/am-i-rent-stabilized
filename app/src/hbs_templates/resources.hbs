@@ -3,18 +3,26 @@
 <aside id="left">
   {{>language_toggle}}
 
-  <nav id="side-nav" aria-labelledby="side-nav-title">
+  <nav class="side-nav" aria-labelledby="side-nav-title">
     <h2 id="side-nav-title">{{nav_side.h2}}</h2>
     <ul>
       <li>
         <a class="responsive-turn-off" href="#non-gov">{{nav_side.nongov}}</a>
         <ul>
-          <li><a href="#city-wide">{{nav_side.citywide}}</a></li>
-          <li><a href="#boro">{{nav_side.boro}}</a></li>
-          <li class="responsive"><a href="#hood">{{nav_side.hood}}</a></li>
+          <li>
+            <a href="#city-wide">{{nav_side.citywide}}</a>
+          </li>
+          <li>
+            <a href="#boro">{{nav_side.boro}}</a>
+          </li>
+          <li class="responsive">
+            <a href="#hood">{{nav_side.hood}}</a>
+          </li>
         </ul>
       </li>
-      <li><a href="#gov">{{nav_side.gov}}</a></li>
+      <li>
+        <a href="#gov">{{nav_side.gov}}</a>
+      </li>
     </ul>
   </nav>
 </aside>
