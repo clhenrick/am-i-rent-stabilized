@@ -7,6 +7,10 @@
   left: 8px;
   z-index: 100;
 
+  aside.info-pages & {
+    position: static;
+  }
+
   .mobile & {
     display: none;
     position: absolute;

@@ -1,119 +1,35 @@
 @use "variables" as *;
 @use "mixins" as *;
 
-// aside {
-//   width: 18.75em;
-//   position: fixed;
-//   left: 0;
-//   top: 0;
-//   bottom: 0;
-//   margin: 0;
-
-//   @include responsive(medium-screens) {
-//     position: relative;
-//     width: 100%;
-//     height: auto;
-//     margin-top: 30px;
-//   }
-
-//   @include responsive_mobile_landscape() {
-//     width: 100%;
-//     height: auto;
-//     position: relative;
-//     display: block;
-//     margin-left: 0;
-//     margin-top: 25px;
-//   }
-// }
-
 nav.side-nav {
   h2,
   li,
   a {
     font-size: var(--fs-sm);
     text-align: left;
+
+    @include responsive(small-screens) {
+      font-size: var(--fs-base);
+    }
   }
 
   h2 {
     margin-block-end: 0.65em;
-    border-bottom: 2px solid $lightgray;
   }
 
-  a {
+  a[href] {
     text-decoration: none;
   }
 
   ul {
-    padding: 0;
-    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 16px 24px;
   }
 
   li {
-    margin-block: 0.65lh;
-
-    ul {
-      margin-left: 10px;
-    }
-
-    li {
-      margin-top: 5px;
-    }
-
-    &:first-child {
-      margin-top: 15px;
-    }
-
-    li:first-child {
-      margin-top: 10px;
-    }
-  }
-
-  @include responsive(medium-screens) {
-    width: 60%;
-    left: 0;
-    top: 20px;
-    margin-left: 28%;
-
-    h3 {
-      display: block;
-      width: 150px;
-      margin-left: 0;
-    }
-
-    ul {
-      display: inline;
-    }
-
-    li {
-      display: inline-block;
-      list-style-type: disc;
-      margin-right: 1em;
-      margin-left: 0;
-      margin-top: 5px;
-
-      &.responsive {
-        margin-right: 0;
-      }
-
-      & a.responsive-turn-off {
-        display: none;
-      }
-
-      & a.responsive-turn-off + ul {
-        margin-left: 0;
-      }
-
-      &:first-child {
-        margin-top: 0;
-      }
-    }
-  }
-
-  @include responsive(small-screens) {
-    display: none;
-  }
-
-  @include responsive_mobile_landscape() {
-    display: none;
+    min-width: 120px;
+    margin-block: 0;
   }
 }
