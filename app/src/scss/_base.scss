@@ -1,4 +1,5 @@
 @use "variables" as *;
+@use "mixins" as *;
 @import "~normalize.css";
 
 // base styles for all pages
@@ -77,9 +78,9 @@ body {
   }
 }
 
-:where(h1),
-:where(h2),
-:where(h3) {
+h1,
+h2,
+h3 {
   font-family: $header-font;
   font-weight: 700;
   line-height: $heading-text-line-height;
@@ -88,8 +89,21 @@ body {
   max-width: $heading-text-max-width;
 }
 
-:where(p) {
-  font-size: 2.2em;
+h1 {
+  font-size: var(--fs-lg);
+}
+
+h2 {
+  font-size: var(--fs-md);
+}
+
+h3 {
+  font-size: var(--fs-base);
+}
+
+p,
+li {
+  font-size: var(--fs-sm);
   color: $green;
   max-width: $normal-text-max-width;
   line-height: $normal-text-line-height;
@@ -101,6 +115,10 @@ body {
 
   &:not(:last-of-type) {
     margin-block-end: 1em;
+  }
+
+  @include responsive(small-screens) {
+    font-size: var(--fs-base);
   }
 }
 

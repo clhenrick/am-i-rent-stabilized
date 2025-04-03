@@ -11,10 +11,13 @@ main {
   margin-bottom: 100px;
   margin-left: 25%;
 
-  h2 {
-    margin-top: 50px;
+  h1,
+  h2,
+  h3 {
     color: $darkorange;
+  }
 
+  h2 {
     &:first-child {
       margin-top: 25px;
     }
@@ -23,14 +26,11 @@ main {
   h3 {
     margin-top: 25px;
     margin-left: 0;
-    font-size: 2.8em;
-    font-weight: bold;
     line-height: 1.2;
   }
 
   p {
     padding-right: 25px;
-    font-size: 1.8em;
   }
 
   ul {
@@ -40,14 +40,9 @@ main {
 
   li {
     color: $green;
-    font-size: 1.8em;
     margin-top: 20px;
     list-style-position: outside;
     padding-left: 0;
-
-    p {
-      font-size: 1em;
-    }
   }
 
   a[name] {
@@ -79,17 +74,11 @@ main {
     margin-left: 22%;
 
     h2 {
-      font-size: 3em;
       margin-left: 0;
-    }
-
-    h3 {
-      font-size: 1.7em;
     }
 
     p,
     li {
-      font-size: 1.7em;
       margin-top: 1.2em;
     }
   }
@@ -99,19 +88,6 @@ main {
     display: block;
     margin-top: 50px;
     margin-left: 10%;
-
-    h2 {
-      font-size: 3em;
-    }
-
-    h3 {
-      font-size: 1.7em;
-    }
-
-    p,
-    li {
-      font-size: 1.7em;
-    }
   }
 
   @include responsive(tablet-screens) {
@@ -119,18 +95,15 @@ main {
 
     h2 {
       margin-top: 25px;
-      font-size: 2em;
     }
 
     h3 {
       margin-top: 15px;
-      font-size: 1.5em;
     }
 
     p,
     li {
       margin-top: 10px;
-      font-size: 1.5em;
     }
 
     p {
@@ -154,19 +127,11 @@ main {
     margin: 50px auto 50px auto;
 
     h2 {
-      font-size: 2.3em;
       margin-top: 20px;
     }
 
     h3 {
-      font-size: 1.8em;
       margin-top: 10px;
-    }
-
-    p,
-    li {
-      font-size: 1.5em;
-      line-height: 1.4em;
     }
 
     p {

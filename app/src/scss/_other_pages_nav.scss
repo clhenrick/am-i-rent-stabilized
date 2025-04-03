@@ -31,10 +31,11 @@
   width: 200px;
   left: 30px;
   top: 140px;
-  font-size: 1.5em;
 
-  h2 {
-    font-size: 1.2em;
+  h2,
+  li,
+  a {
+    font-size: var(--fs-sm);
     text-align: left;
     display: inline;
     padding-bottom: 3px;
