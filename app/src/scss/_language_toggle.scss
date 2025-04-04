@@ -14,8 +14,8 @@
   .mobile & {
     display: none;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 12px;
+    left: 12px;
   }
 
   ul {
@@ -63,6 +63,14 @@
 
     .button[lang] {
       min-height: 32px;
+    }
+
+    ul {
+      flex-direction: row;
+    }
+
+    .button[lang] {
+      padding-inline: 0;
     }
   }
 }

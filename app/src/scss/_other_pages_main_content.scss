@@ -3,8 +3,7 @@
 
 $sidebar-ideal-width: 250px;
 
-// TODO: fix varying margins for text elements
-// TODO: fix video sizes on mobile
+// TODO: use responsive video embeds
 
 body {
   padding: 0 16px;
@@ -25,6 +24,8 @@ aside {
   flex-basis: $sidebar-ideal-width;
   flex-grow: 1;
   align-self: flex-start;
+  // NOTE: so when aside stacks on main, the space between them is reduced (due to large `gap` value in #wrapper)
+  margin-block-end: -24px;
 }
 
 main {
@@ -38,16 +39,6 @@ main {
   h2,
   h3 {
     color: $darkorange;
-  }
-
-  h2 {
-    &:first-child {
-      margin-top: 25px;
-    }
-  }
-
-  h3 {
-    margin-top: 25px;
   }
 
   li {
