@@ -6,7 +6,7 @@
     "resources": "Resources"
   },
   "nav_side": {
-    "h3": "Jump to a topic:",
+    "h2": "Jump to a topic:",
     "why": "Why is it important?",
     "what": "Why else should I care?",
     "under": "Under Attack",
