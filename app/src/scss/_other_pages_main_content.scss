@@ -20,8 +20,11 @@ body {
 }
 
 aside {
+  position: sticky;
+  top: $nav-main-height;
   flex-basis: $sidebar-ideal-width;
   flex-grow: 1;
+  align-self: flex-start;
 }
 
 main {
