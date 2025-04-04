@@ -1,16 +1,23 @@
 @use "variables" as *;
 @use "mixins" as *;
 
+// NOTE: button layout & sizes differ somewhat between homepage & info pages
+// - info pages buttons are horizontally aligned
+// - homepage buttons are vertically aligned
+// - additionally on the homepage there are two sets of buttons, one for "desktop" (wider viewports) and one for "mobile" (very narrow viewports)
+
 .lang-toggle {
   position: fixed;
   top: $nav-main-height;
   left: 8px;
   z-index: 100;
 
+  // sidebar on info pages
   aside.info-pages & {
     position: static;
   }
 
+  // buttons for "mobile" width viewports on homepage
   .mobile & {
     display: none;
     position: absolute;
@@ -22,6 +29,12 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  aside.info-pages & {
+    ul {
+      flex-direction: row;
+    }
   }
 
   li,
@@ -52,7 +65,14 @@
     }
   }
 
+  aside.info-pages & {
+    .button[lang] {
+      padding-inline: 0;
+    }
+  }
+
   @include responsive(small-screens) {
+    // buttons for wide viewports on homepage
     .desktop & {
       display: none;
     }
@@ -63,14 +83,6 @@
 
     .button[lang] {
       min-height: 32px;
-    }
-
-    ul {
-      flex-direction: row;
-    }
-
-    .button[lang] {
-      padding-inline: 0;
     }
   }
 }
