@@ -279,12 +279,12 @@ module.exports = (env, argv) => {
       }),
 
       // Use stylelint (https://stylelint.io/) to lint Sass (.scss) files
-      new StylelintPlugin({
-        fix: true,
-        lintDirtyModulesOnly: true,
-        emitErrors: true,
-        emitWarning: true,
-      }),
+      // new StylelintPlugin({
+      //   fix: true,
+      //   lintDirtyModulesOnly: true,
+      //   emitErrors: true,
+      //   emitWarning: true,
+      // }),
 
       // allows for variables to be available in our app code
       // helpful for enabling certain things when in development that you might not

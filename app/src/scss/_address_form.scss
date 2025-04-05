@@ -1,3 +1,6 @@
+@use "variables" as *;
+@use "mixins" as *;
+
 // AddressSearchForm styles
 #address-form {
   position: relative;
@@ -38,17 +41,6 @@
       border: none;
       box-shadow: 0 0 3px 2px $blue;
     }
-  }
-
-  button.submit {
-    display: block;
-    width: 150px;
-    margin: 0 auto;
-    border: none;
-    color: #fff;
-    font-weight: 600;
-    font-size: 20px;
-    letter-spacing: 0.625px;
   }
 
   @include responsive_height(medium-screens) {

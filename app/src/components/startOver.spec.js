@@ -11,7 +11,7 @@ describe("StartOver", () => {
 
   beforeAll(() => {
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
-    element = document.querySelector(".button.start-over");
+    element = document.querySelector(".button--primary.start-over");
     spyBindEvents = jest.spyOn(StartOver.prototype, "bindEvents");
     spyHandleClick = jest.spyOn(StartOver.prototype, "handleClick");
   });

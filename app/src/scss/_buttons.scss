@@ -1,156 +1,64 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+// <button> styles
 .button {
-  @include button;
-
-  &.start-over {
-    min-width: 200px;
-    width: auto;
-  }
-
-  &.learn-more {
-    min-width: 200px;
-    margin-left: 50px;
-  }
-
-  @include responsive_height(medium-screens) {
-    width: 180px;
-    font-size: 1.8em;
-    padding: 8px 12px;
-
-    &.search {
-      width: 125px;
-      margin-left: -62.5px;
-    }
-
-    &.start-over {
-      min-width: 200px;
-    }
-  }
-
-  @include responsive(medium-screens) {
-    width: 160px;
-    font-size: 1.8em;
-    padding: 8px 12px;
-
-    &.search {
-      width: 125px;
-      margin-left: -62.5px;
-    }
-  }
-
-  @include responsive(small-screens) {
-    width: 110px;
-    font-size: 1.3em;
-    padding: 8px 12px;
-
-    &.search {
-      width: 110px;
-      margin-left: -55px;
-    }
-
-    &.start-over {
-      min-width: 200px;
-      width: 120px;
-    }
-
-    &.learn-more {
-      width: 125px;
-      margin-top: 10px;
-      margin-left: 10px;
-    }
-  }
-}
-
-.button-holder {
-  width: 100%;
+  all: unset;
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  min-width: 44px;
+  min-height: 44px;
+  font-size: var(--fs-sm);
+  font-weight: 600;
   text-align: center;
-  margin-top: 30px;
-
-  @include responsive(small-screens) {
-    margin-top: 10px;
-  }
-}
-
-// Buttons that have a navigation arrow
-// FIX ME: duplicated styling with Button Mixin :(
-.go-prev,
-.go-next,
-.go-first,
-.button.search {
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: $letter-spacing;
+  border: 1px solid transparent; // for supporting forced-colors mode
+  color: $white;
   cursor: pointer;
-}
-
-.go-next {
-  background: transparent;
-  border: none;
-
-  .button-text {
-    font-family: $body-font;
-    color: $darkorange;
-    font-weight: 700;
-    font-size: 3.5em;
-    text-transform: uppercase;
-    text-align: center;
-
-    .es & {
-      font-size: 2.5em;
-    }
-  }
-
-  &:focus {
-    outline: none;
-    border: none;
-    box-shadow: 0 0 3px 2px $blue;
-  }
-
-  &:hover {
-    color: $orange;
-  }
-
-  &.bottom-arrow {
-    position: absolute;
-    width: 125px;
-    margin: 0 auto;
-    margin-left: -62.5px;
-    left: 50%;
-    bottom: 3%;
-
-    &.es {
-      width: 170px;
-      margin-left: -85px;
-    }
-  }
-
-  .arrow {
-    display: block;
-    position: relative;
-    top: 10px;
-    height: 28px;
-    width: 76px;
-    margin: 0 auto;
-    background-image: url("../../public/assets/png/chevron.png");
-    background-repeat: no-repeat;
-  }
-
-  @include responsive_height(medium-screens) {
-    &.bottom-arrow {
-      bottom: 3%;
-      margin-left: -62.5px;
-    }
-
-    .button-text {
-      font-size: 2.5em;
-    }
-  }
 
   @include responsive(small-screens) {
-    &.bottom-arrow {
-      bottom: 5%;
+    // increase font size a bit on super narrow viewports
+    font-size: var(--fs-base);
+  }
 
-      .button-text {
-        font-size: 1.6em;
-      }
+  // orange rounded buttons
+  &--primary {
+    @extend .button;
+    min-width: 170px;
+    background-color: $darkorange;
+    margin: 0 auto;
+    padding: 12px 24px;
+    border-radius: 35px;
 
-      .arrow {
+    &:hover {
+      background-color: $orange;
+    }
+  }
+
+  // the "Next" buttons with the downward facing chevron icon
+  &--go-next {
+    @extend .button;
+    color: $darkorange;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    &:hover {
+      color: $orange;
+    }
+
+    // chevron icon
+    .arrow {
+      height: 28px;
+      width: 76px;
+      margin: 0 auto;
+      background-image: url("../../public/assets/png/chevron.png");
+      background-repeat: no-repeat;
+
+      @include responsive(small-screens) {
         width: 32px;
         height: 11px;
         background-image: url("../../public/assets/png/chevron-sm.png");

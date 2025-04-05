@@ -1,142 +1,88 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+// NOTE: button layout & sizes differ somewhat between homepage & info pages
+// - info pages buttons are horizontally aligned
+// - homepage buttons are vertically aligned
+// - additionally on the homepage there are two sets of buttons, one for "desktop" (wider viewports) and one for "mobile" (very narrow viewports)
+
 .lang-toggle {
   position: fixed;
-  display: inline-block;
-  top: 90px;
-  left: 30px;
-  z-index: 11;
+  top: $nav-main-height;
+  left: 8px;
+  z-index: 100;
 
+  // sidebar on info pages
+  aside.info-pages & {
+    position: static;
+  }
+
+  // buttons for "mobile" width viewports on homepage
   .mobile & {
     display: none;
+    position: absolute;
+    top: 12px;
+    left: 12px;
   }
 
   ul {
-    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  aside.info-pages & {
+    ul {
+      flex-direction: row;
+    }
+  }
+
+  li,
+  .button[lang],
+  p {
+    line-height: 1;
   }
 
   li {
-    list-style: none;
-    display: inline-block;
+    margin-block-end: 0;
   }
 
-  li:last-child {
-    list-style: disc;
-    list-style-position: inside;
-  }
-
-  button,
+  .button[lang],
   p {
-    text-decoration: none;
-    font-family: $body-font;
     font-weight: 300;
-    font-size: 1.8em;
-    color: $lightgray;
+    font-size: 1.6rem;
+    color: $gray;
   }
 
-  button {
-    border: none;
-    background: none;
-    margin: 0;
-    padding: 0;
+  .button[lang] {
+    min-width: 120px;
+    text-align: start;
+    padding: 0 16px;
+    text-transform: none;
 
     &:hover {
-      color: $gray;
-    }
-
-    &:focus {
-      outline: none;
-      border: none;
-      box-shadow: 0 0 3px 2px $blue;
+      color: $lightgray;
     }
   }
 
-  #left & {
-    top: 80px;
-    left: 30px;
-  }
-
-  @include responsive(medium-screens) {
-    .desktop &,
-    #left & {
-      li {
-        display: block;
-
-        &:nth-child(2) {
-          display: none;
-        }
-      }
-    }
-
-    li {
-      display: inline-block;
-
-      &:nth-child(2) {
-        display: inline-block;
-      }
-    }
-
-    #left & {
-      position: relative;
-      top: 45px;
-      left: 20px;
+  aside.info-pages & {
+    .button[lang] {
+      padding-inline: 0;
     }
   }
 
   @include responsive(small-screens) {
-    font-size: 0.8em;
-
+    // buttons for wide viewports on homepage
     .desktop & {
       display: none;
     }
 
     .mobile & {
-      display: inline-block;
+      display: block;
     }
 
-    #left & {
-      position: relative;
-      top: 45px;
-      left: 20px;
-    }
-
-    #slide-1 & {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      line-height: 2.5em;
-
-      li {
-        display: block;
-
-        &:nth-child(2) {
-          display: none;
-        }
-      }
-    }
-  }
-
-  @include responsive_mobile_landscape() {
-    position: relative;
-    top: 0;
-    left: 0;
-
-    #left & {
-      position: relative;
-      top: 45px;
-      left: 20px;
-
-      li {
-        list-style: none;
-        display: inline-block;
-
-        &:nth-child(2) {
-          display: inline-block;
-        }
-
-        &:last-child {
-          list-style: disc;
-          list-style-position: inside;
-        }
-      }
+    .button[lang] {
+      min-height: 32px;
     }
   }
 }

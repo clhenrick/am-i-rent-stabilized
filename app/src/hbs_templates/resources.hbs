@@ -1,30 +1,33 @@
 {{>navigation_info}}
 
-<div id="left">
+<aside class="info-pages">
   {{>language_toggle}}
 
-  <nav id="side-nav" aria-labelledby="side-nav-title">
+  <nav class="side-nav" aria-labelledby="side-nav-title">
     <h2 id="side-nav-title">{{nav_side.h2}}</h2>
-    <ul>
+    <ul role="list">
       <li>
-        <a class="responsive-turn-off" href="#non-gov">{{nav_side.nongov}}</a>
-        <ul>
-          <li><a href="#city-wide">{{nav_side.citywide}}</a></li>
-          <li><a href="#boro">{{nav_side.boro}}</a></li>
-          <li class="responsive"><a href="#hood">{{nav_side.hood}}</a></li>
-        </ul>
+        <a href="#city-wide">{{nav_side.citywide}}</a>
       </li>
-      <li><a href="#gov">{{nav_side.gov}}</a></li>
+      <li>
+        <a href="#boro">{{nav_side.boro}}</a>
+      </li>
+      <li class="responsive">
+        <a href="#hood">{{nav_side.hood}}</a>
+      </li>
+      <li>
+        <a href="#gov">{{nav_side.gov}}</a>
+      </li>
     </ul>
   </nav>
-</div>
+</aside>
 
-<div id="main">
+<main id="main">
   <a name="non-gov"></a>
-  <h1 class="font-style-hero">{{nongov.h1}}</h1>
+  <h1>{{nongov.h1}}</h1>
   <p>{{nongov.h3}}</p>
   <a name="city-wide"></a>
-  <h2 class="font-style-hero">{{nongov.citywide.h3}}</h2>
+  <h2>{{nongov.citywide.h3}}</h2>
   <p>{{nongov.citywide.p01}}</p>
   <ul>
     <li>
@@ -108,7 +111,7 @@
   </ul>
 
   <a name="boro"></a>
-  <h3>{{nongov.boro.h3}}</h3>
+  <h2>{{nongov.boro.h3}}</h2>
   <p>{{nongov.boro.p}}</p>
   <ul>
     <li>
@@ -143,7 +146,7 @@
   </ul>
 
   <a name="hood"></a>
-  <h3>{{nongov.hood.h3}}</h3>
+  <h2>{{nongov.hood.h3}}</h2>
   <p>{{nongov.hood.p}}</p>
   <ul>
     <li>
@@ -233,7 +236,7 @@
   </ul>
 
   <a name="gov"></a>
-  <h2 class="font-style-hero">{{gov.h2}}</h2>
+  <h2>{{gov.h2}}</h2>
   <p>{{gov.p}}</p>
   <ul>
     <li>
@@ -296,4 +299,4 @@
       <p>{{gov.ul.[7].desc}}</p>
     </li>
   </ul>
-</div>
+</main>

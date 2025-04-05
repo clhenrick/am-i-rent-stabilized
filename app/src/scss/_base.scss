@@ -1,0 +1,167 @@
+@use "variables" as *;
+@use "mixins" as *;
+@import "~normalize.css";
+
+// base styles for all pages
+
+// Fluid type scale
+// TODO: not all font sizes are being used here, so remove unused ones
+:root {
+  --fs-sm: #{$fs-fluid-sm};
+  --fs-base: #{$fs-fluid-base};
+  --fs-md: #{$fs-fluid-md};
+  --fs-lg: #{$fs-fluid-lg};
+  --fs-xl: #{$fs-fluid-xl};
+  --fs-xxl: #{$fs-fluid-xxl};
+  --fs-xxxl: #{$fs-fluid-xxxl};
+}
+
+// Fallback font sizes for browsers that don't support CSS clamp and/or container query units
+@supports not (font-size: clamp(1rem, 1cqi, 1rem)) {
+  :root {
+    --fs-sm: #{$fs-mobile-sm};
+    --fs-base: #{$fs-mobile-base};
+    --fs-md: #{$fs-mobile-md};
+    --fs-lg: #{$fs-mobile-lg};
+    --fs-xl: #{$fs-mobile-xl};
+    --fs-xxl: #{$fs-mobile-xxl};
+    --fs-xxxl: #{$fs-mobile-xxxl};
+  }
+  @media screen and (min-width: 1280px) {
+    :root {
+      --fs-sm: #{$fs-sm};
+      --fs-base: #{$fs-base};
+      --fs-md: #{$fs-md};
+      --fs-lg: #{$fs-lg};
+      --fs-xl: #{$fs-xl};
+      --fs-xxl: #{$fs-xxl};
+      --fs-xxxl: #{$fs-xxxl};
+    }
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+*:focus-visible {
+  // meets 3:1 contrast for WCAG when over a white background
+  outline: 3px solid darken($blue, 10);
+  box-shadow: 0 0 0 6px white;
+}
+
+html {
+  // FIXME: setting 1rem to equal 10px is a bad practice in terms of not supporting WCAG SC 1.4.4 Resize Text, but then again the homepage design doesn't support this to begin with so that should be addressed first.
+  font-size: 62.5%;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+
+  &[lang="en"] {
+    font-size: 62.5%;
+  }
+
+  &[lang="es"],
+  &[lang="zh"] {
+    font-size: 50%;
+  }
+}
+
+body {
+  color: $gray;
+  background-color: $white;
+
+  font: {
+    family: $body-font;
+    weight: 400;
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-family: $header-font;
+  font-weight: 700;
+  line-height: $heading-text-line-height;
+  letter-spacing: $letter-spacing;
+  text-wrap: balance;
+  max-width: $heading-text-max-width;
+}
+
+h1 {
+  font-size: var(--fs-lg);
+
+  @include responsive(small-screens) {
+    font-size: var(--fs-xl);
+  }
+}
+
+h2 {
+  font-size: var(--fs-md);
+
+  @include responsive(small-screens) {
+    font-size: var(--fs-lg);
+  }
+}
+
+h3 {
+  font-size: var(--fs-base);
+
+  @include responsive(small-screens) {
+    font-size: var(--fs-md);
+  }
+}
+
+p,
+li {
+  font-size: var(--fs-sm);
+  color: $green;
+  max-width: $normal-text-max-width;
+  line-height: $normal-text-line-height;
+  text-wrap: pretty;
+
+  &:not(:last-of-type) {
+    margin-block-end: 1lh;
+  }
+
+  @include responsive(small-screens) {
+    font-size: var(--fs-base);
+  }
+}
+
+:where(a[href]) {
+  text-decoration: underline;
+  color: darken($bluegreen, 17);
+  text-decoration-thickness: 0.125em;
+  text-underline-offset: 2.5px;
+  text-wrap: pretty;
+
+  &:hover {
+    color: $lightblue;
+  }
+}
+
+:where(ul) {
+  padding-block: 0;
+  padding-inline-start: 2rem;
+}
+
+:where([role="list"]) {
+  margin-block: 0;
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+:where(li) {
+  max-width: $normal-text-max-width;
+  line-height: $normal-text-line-height;
+  text-wrap: balance;
+}
+
+:where(img) {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  max-width: 100%;
+}
