@@ -16,6 +16,8 @@ body {
   flex-wrap: wrap;
   gap: 36px;
   margin-block-start: $nav-main-height;
+  // NOTE: container query used for fluid type scale
+  container-type: inline-size;
 }
 
 aside.info-pages {
