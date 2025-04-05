@@ -125,7 +125,7 @@
 }
 
 @mixin responsive_mobile_landscape() {
-  @media only screen and (max-height: 320px) and (min-width: 320px) {
+  @media only screen and (orientation: landscape) and (height <= $height-sm) {
     @content;
   }
 }
