@@ -91,14 +91,26 @@ h3 {
 
 h1 {
   font-size: var(--fs-lg);
+
+  @include responsive(small-screens) {
+    font-size: var(--fs-xl);
+  }
 }
 
 h2 {
   font-size: var(--fs-md);
+
+  @include responsive(small-screens) {
+    font-size: var(--fs-lg);
+  }
 }
 
 h3 {
   font-size: var(--fs-base);
+
+  @include responsive(small-screens) {
+    font-size: var(--fs-md);
+  }
 }
 
 p,
