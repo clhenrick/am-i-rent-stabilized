@@ -18,7 +18,7 @@ body {
   margin-block-start: $nav-main-height;
 }
 
-aside {
+aside.info-pages {
   position: sticky;
   top: $nav-main-height;
   flex-basis: $sidebar-ideal-width;
@@ -26,6 +26,8 @@ aside {
   align-self: flex-start;
   // NOTE: so when aside stacks on main, the space between them is reduced (due to large `gap` value in #wrapper)
   margin-block-end: -24px;
+  background-color: $white;
+  z-index: 90;
 }
 
 main {
