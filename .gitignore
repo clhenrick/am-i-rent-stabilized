@@ -4,3 +4,5 @@
 **/dist/
 **/coverage/
 tmp/
+# Local Netlify folder
+.netlify
