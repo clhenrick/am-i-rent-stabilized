@@ -3,13 +3,7 @@
 
 $sidebar-ideal-width: 250px;
 
-// TODO: use responsive video embeds
-
-body {
-  padding: 0 16px;
-}
-
-#wrapper {
+.sidebar-main-wrapper {
   // NOTE: flex-wrap usage & flex child properties allows the sidebar & main areas to be side by side and then stack vertically when there is less horizontal space
   // code credit: https://every-layout.dev/layouts/sidebar/
   display: flex;
@@ -18,6 +12,7 @@ body {
   margin-block-start: $nav-main-height;
   // NOTE: container query used for fluid type scale
   container-type: inline-size;
+  padding: 0 16px;
 }
 
 aside.info-pages {
