@@ -7,7 +7,7 @@ $show-min-height: 615px;
 
 div#progress-indicator {
   position: absolute;
-  z-index: 100;
+  z-index: $z-index-min;
   transform: translateY(-50%);
   top: 50%;
   left: $circle-width;

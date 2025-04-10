@@ -1,6 +1,5 @@
 .tr-modal {
   position: fixed;
-  z-index: 50;
   top: 0;
   bottom: 0;
   left: 0;
@@ -15,7 +14,7 @@
     pointer-events: auto;
     outline: none;
     display: block;
-    z-index: 21;
+    z-index: $z-index-mid;
   }
 }
 

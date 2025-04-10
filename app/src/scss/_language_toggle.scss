@@ -10,7 +10,7 @@
   position: fixed;
   top: $nav-main-height;
   left: 8px;
-  z-index: 100;
+  z-index: $z-index-min;
 
   // sidebar on info pages
   aside.info-pages & {

@@ -24,7 +24,7 @@ aside.info-pages {
   // NOTE: so when aside stacks on main, the space between them is reduced (due to large `gap` value in #wrapper)
   margin-block-end: -24px;
   background-color: $white;
-  z-index: 90;
+  z-index: $z-index-mid;
 }
 
 main {

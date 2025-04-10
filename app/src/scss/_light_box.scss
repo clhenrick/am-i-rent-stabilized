@@ -1,7 +1,6 @@
 /* Lightbox for sample rent history */
 a.lightbox {
   position: fixed;
-  z-index: 49;
   top: 0;
   left: 0;
   bottom: 0;
@@ -27,7 +26,7 @@ a.lightbox {
     pointer-events: auto;
     outline: none;
     display: block;
-    z-index: 20;
+    z-index: $z-index-mid;
   }
 
   &:target img {
