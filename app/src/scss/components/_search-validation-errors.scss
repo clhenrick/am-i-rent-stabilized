@@ -1,5 +1,4 @@
-@use "variables" as *;
-@use "mixins" as *;
+@use "../abstracts/" as *;
 
 .search-validation-errors {
   margin-top: 5px;

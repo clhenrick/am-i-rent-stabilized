@@ -1,14 +1,11 @@
-@use "variables" as *;
-@use "mixins" as *;
+@use "../abstracts/" as *;
 
 #sprite {
   position: relative;
-  // left: -15px;
   width: 192px;
   height: 424px;
   margin: 0 auto;
-  // margin-top: 75px;
-  background: url("../../public/assets/png/checking-sprite.png") left center;
+  background: url("../../../public/assets/png/checking-sprite.png") left center;
 
   @include animation($name: play);
 
@@ -63,8 +60,7 @@
   }
 
   @include responsive_height(medium-screens) {
-    // margin-top: 5%;
-    background: url("../../public/assets/png/checking-sprite-sm.png");
+    background: url("../../../public/assets/png/checking-sprite-sm.png");
     width: 128px;
     height: 288px;
     left: 0;

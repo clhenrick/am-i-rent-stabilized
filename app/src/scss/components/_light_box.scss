@@ -1,5 +1,4 @@
-@use "mixins" as *;
-@use "variables" as *;
+@use "../abstracts/" as *;
 
 // sample rent history modal
 a.lightbox {

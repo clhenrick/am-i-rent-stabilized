@@ -1,5 +1,4 @@
-@use "variables" as *;
-@use "mixins" as *;
+@use "../abstracts/" as *;
 
 // AddressSearchForm styles
 #address-form {
@@ -24,7 +23,7 @@
     display: block;
     border: none;
     background: {
-      image: url("../../public/assets/png/address-enter-line.png");
+      image: url("../../../public/assets/png/address-enter-line.png");
       repeat: no-repeat;
       position: center 90%;
     }
