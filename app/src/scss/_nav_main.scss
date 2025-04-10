@@ -27,8 +27,7 @@ nav.main-nav {
   }
 
   a[href] {
-    // TODO: use font-size variable
-    font-size: 2.2rem;
+    font-size: $fs-sm;
     font-weight: 300;
     letter-spacing: $letter-spacing;
     text-decoration: none;
@@ -37,22 +36,18 @@ nav.main-nav {
   }
 
   a[href].home {
-    // TODO: use font-size variable
-    font-size: 2.8rem;
+    font-size: $fs-mobile-xxl;
     font-weight: 500;
   }
 
   @media only screen and (width <= $narrow-breakpoint) {
     a[href].home {
-      // TODO: use font-size variable
-      font-size: 2rem;
+      font-size: $fs-mobile-md;
     }
   }
 
   a[href]:not(.home):hover {
     text-decoration: underline;
-    // TODO: use variable
-    text-decoration-thickness: 0.125em;
     color: $orange;
   }
 
