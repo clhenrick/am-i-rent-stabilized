@@ -1,11 +1,6 @@
 @use "variables" as *;
 @use "mixins" as *;
 
-// TODO: fix tenants rights modal
-.tr-modal {
-  display: none;
-}
-
 .slides {
   container-type: inline-size;
   position: fixed;
@@ -116,6 +111,7 @@ p.sub-head {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
+  justify-content: center;
   gap: 36px;
   margin: 0 auto;
 
