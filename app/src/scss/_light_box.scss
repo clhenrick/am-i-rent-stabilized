@@ -1,4 +1,7 @@
-/* Lightbox for sample rent history */
+@use "mixins" as *;
+@use "variables" as *;
+
+// sample rent history modal
 a.lightbox {
   position: fixed;
   top: 0;
