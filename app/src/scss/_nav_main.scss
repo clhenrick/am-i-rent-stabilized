@@ -1,10 +1,7 @@
 @use "variables" as *;
 
 // TODO: set up some spacing variables for UI consistency
-$nav-padding-bottom: 20px;
 $nav-padding-inline: 32px;
-
-$nav-padding-bottom-narrow: 8px;
 $nav-padding-inline-narrow: 16px;
 
 // FIXME: why is 1rem == 16px here?
@@ -18,22 +15,21 @@ nav.main-nav {
   left: 0;
   right: 0;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   min-height: $nav-main-height;
   background-color: $gray;
-  padding: 0 $nav-padding-inline $nav-padding-bottom;
+  padding: 0 $nav-padding-inline;
   z-index: $z-index-max;
 
   @media only screen and (width <= $narrow-breakpoint) {
-    padding: 0 $nav-padding-inline-narrow $nav-padding-bottom-narrow;
+    padding: 0 $nav-padding-inline-narrow;
   }
 
   a[href] {
     // TODO: use font-size variable
     font-size: 2.2rem;
     font-weight: 300;
-    // TODO: set this in _base?
     letter-spacing: $letter-spacing;
     text-decoration: none;
     line-height: 0;
@@ -62,22 +58,20 @@ nav.main-nav {
 
   .home-container {
     position: relative;
+    min-height: $nav-main-height;
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-self: start;
-    // TODO: use spacing variable
     gap: 16px;
   }
 
   img.logo {
-    position: relative;
-    bottom: calc(-1 * $nav-padding-bottom - 2px);
+    align-self: flex-end;
   }
 
   ul {
     display: flex;
-    align-items: baseline;
-    // TODO: use spacing variable
+    align-items: center;
     gap: 56px;
     list-style: none;
     padding: 0;
@@ -99,10 +93,8 @@ nav.main-nav {
       top: $nav-main-height;
       display: flex;
       flex-direction: column;
-      // TODO: use spacing variable
       gap: 44px;
       background-color: $gray;
-      // TODO: use spacing variables
       padding: 36px 12px;
     }
   }
