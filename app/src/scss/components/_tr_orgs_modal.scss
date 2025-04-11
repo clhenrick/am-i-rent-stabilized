@@ -29,7 +29,7 @@
   position: relative;
   margin: 0 auto;
   border-radius: map.get($border-radius, "md");
-  background: $white;
+  background: map.get($palette, "white");
 }
 
 .org-content {
@@ -61,12 +61,12 @@
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  background: $darkorange;
-  color: $white;
+  background: map.get($palette, "darkorange");
+  color: map.get($palette, "white");
   border-radius: map.get($border-radius, "circle");
 
   &:hover {
-    background: $orange;
+    background: map.get($palette, "orange");
   }
 }
 

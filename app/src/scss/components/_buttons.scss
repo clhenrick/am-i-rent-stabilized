@@ -16,7 +16,7 @@
   text-decoration: none;
   letter-spacing: $letter-spacing;
   border: 1px solid transparent; // for supporting forced-colors mode
-  color: $white;
+  color: map.get($palette, "white");
   cursor: pointer;
 
   &:focus-visible {
@@ -32,26 +32,26 @@
   &--primary {
     @extend .button;
     min-width: 170px;
-    background-color: $darkorange;
+    background-color: map.get($palette, "darkorange");
     margin: 0 auto;
     padding: map.get($spacing, "sm") map.get($spacing, "med2");
     border-radius: map.get($border-radius, "xl");
 
     &:hover {
-      background-color: $orange;
+      background-color: map.get($palette, "orange");
     }
   }
 
   // the "Next" buttons with the downward facing chevron icon
   &--go-next {
     @extend .button;
-    color: $darkorange;
+    color: map.get($palette, "darkorange");
     display: flex;
     flex-direction: column;
     gap: map.get($spacing, "sm");
 
     &:hover {
-      color: $orange;
+      color: map.get($palette, "orange");
     }
 
     // chevron icon

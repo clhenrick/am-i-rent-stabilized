@@ -49,26 +49,25 @@ $fs-xxl: 9.472rem;
 $fs-xxxl: 12.626rem;
 
 // COLOR PALLETTE
-$gray: #4a4a4a;
-$medgray: #9b9b9b;
-$lightgray: #ababab;
-$green: #417505;
-$orange: #ffc462;
-$darkorange: color.adjust(
-  $orange,
-  $lightness: -28%
-); // meets WCAG 3:1 color contrast for large text on white backgrounds
-
-// links
-$darkteal: #277159;
-$bluegreen: #4cb9bb;
-$bluegray: #427c97;
-
-$purple: #7a5de8;
-$lightblue: #9cddf0;
-$blue: #45acff;
-$valError: #ee0a0a; //#d98c8c;
-$white: #fff;
+$palette: (
+  "gray": #4a4a4a,
+  "grey": #4a4a4a,
+  "medium-grey": #9b9b9b,
+  "light-grey": #ababab,
+  "green": #417505,
+  "orange": #ffc462,
+  // NOTE: meets WCAG 3:1 color contrast for large text on white backgrounds
+  "darkorange": color.adjust(#ffc462, $lightness: -28%),
+  "dark-teal": #277159,
+  "blue-green": #4cb9bb,
+  "blue-gray": #427c97,
+  "purple": #7a5de8,
+  "light-blue": #9cddf0,
+  "blue": #45acff,
+  "red": #ee0a0a,
+  // for error messages
+  "white": #fff,
+);
 
 // SPACING VARIABLES
 $spacing: (

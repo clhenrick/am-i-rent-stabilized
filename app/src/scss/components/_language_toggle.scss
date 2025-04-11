@@ -51,7 +51,7 @@
   p {
     font-weight: 300;
     font-size: 1.6rem;
-    color: $gray;
+    color: map.get($palette, "gray");
   }
 
   .button[lang] {
@@ -61,7 +61,7 @@
     text-transform: none;
 
     &:hover {
-      color: $lightgray;
+      color: map.get($palette, "light-grey");
     }
   }
 

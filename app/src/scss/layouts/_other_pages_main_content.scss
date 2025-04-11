@@ -23,7 +23,7 @@ aside.info-pages {
   align-self: flex-start;
   // NOTE: so when aside stacks on main, the space between them is reduced (due to large `gap` value in #wrapper)
   margin-block-end: calc(-1 * #{map.get($spacing, "med2")});
-  background-color: $white;
+  background-color: map.get($palette, "white");
   z-index: $z-index-mid;
 }
 
@@ -37,11 +37,11 @@ main {
   h1,
   h2,
   h3 {
-    color: $darkorange;
+    color: map.get($palette, "darkorange");
   }
 
   li {
-    color: $green;
+    color: map.get($palette, "green");
     list-style-position: outside;
   }
 

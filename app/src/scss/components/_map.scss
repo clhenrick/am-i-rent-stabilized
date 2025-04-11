@@ -15,7 +15,7 @@ $map-popup-max-width: 275px;
   max-height: $map-height-default;
 
   svg {
-    border: 3px solid $medgray;
+    border: 3px solid map.get($palette, "medium-grey");
   }
 
   p {

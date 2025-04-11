@@ -1,12 +1,13 @@
+@use "sass:map";
 @use "sass:color";
 @use "variables" as *;
 
 @mixin focus-indicator($inverted: false) {
-  $darkblue: color.adjust($blue, $lightness: -10%);
+  $darkblue: color.adjust(map.get($palette, "blue"), $lightness: -10%);
   $inner-color: $darkblue;
-  $outer-color: $white;
+  $outer-color: map.get($palette, "white");
   @if $inverted {
-    $inner-color: $white;
+    $inner-color: map.get($palette, "white");
     $outer-color: $darkblue;
   }
   // meets 3:1 contrast for WCAG when over a white background
@@ -14,8 +15,6 @@
   box-shadow: 0 0 0 6px $outer-color;
 }
 
-// mixins
-// columns
 @mixin columns($width, $number: 2, $gap: 0) {
   -webkit-columns: $width $number;
   -moz-columns: $width $number;
@@ -23,9 +22,9 @@
   -webkit-column-gap: $gap;
   -moz-column-gap: $gap;
   column-gap: $gap;
-  -webkit-column-rule: 1px solid $lightgray;
-  -moz-column-rule: 1px solid $lightgray;
-  column-rule: 1px solid $lightgray;
+  -webkit-column-rule: 1px solid map.get($palette, "light-grey");
+  -moz-column-rule: 1px solid map.get($palette, "light-grey");
+  column-rule: 1px solid map.get($palette, "light-grey");
 }
 
 @mixin translateY($value) {

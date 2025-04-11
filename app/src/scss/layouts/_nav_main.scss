@@ -18,7 +18,7 @@ nav.main-nav {
   align-items: center;
   justify-content: space-between;
   min-height: $nav-main-height;
-  background-color: $gray;
+  background-color: map.get($palette, "gray");
   padding: 0 $nav-padding-inline;
   z-index: $z-index-max;
 
@@ -32,7 +32,7 @@ nav.main-nav {
     letter-spacing: $letter-spacing;
     text-decoration: none;
     line-height: 0;
-    color: $white;
+    color: map.get($palette, "white");
   }
 
   a[href].home {
@@ -48,7 +48,7 @@ nav.main-nav {
 
   a[href]:not(.home):hover {
     text-decoration: underline;
-    color: $orange;
+    color: map.get($palette, "orange");
   }
 
   .home-container {
@@ -89,7 +89,7 @@ nav.main-nav {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      background-color: $gray;
+      background-color: map.get($palette, "gray");
       padding: map.get($spacing, "lg") map.get($spacing, "sm");
     }
   }
