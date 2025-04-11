@@ -59,6 +59,7 @@
   flex-direction: column;
   text-align: center;
   gap: 2.5lh;
+  max-width: 100%;
 
   @include responsive(small-screens) {
     gap: 1.5lh;

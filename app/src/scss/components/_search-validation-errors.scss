@@ -1,35 +1,23 @@
 @use "../abstracts/" as *;
 
 .search-validation-errors {
-  margin-top: 5px;
-  height: 125px;
+  margin-top: 12px;
+  min-height: 125px;
 
   p {
-    width: 70%;
     margin: 12px auto;
     text-align: center;
-    padding: 10px;
+    padding: 12px;
     color: $white;
-    // font-size: 0.7em;
+    font-size: var(--fs-sm);
     font-weight: 300;
     font-style: italic;
     letter-spacing: 1px;
     background-color: $valError;
+    border-radius: 10px;
 
-    &.hidden {
-      display: none;
-    }
-  }
-
-  @include responsive_height(medium-screens) {
-    p.es {
-      font-size: 0.6em;
-    }
-  }
-
-  @include responsive(small-screens) {
-    p {
-      width: auto;
+    @include responsive(small-screens) {
+      font-size: var(--fs-base);
     }
   }
 }

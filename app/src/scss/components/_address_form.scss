@@ -1,99 +1,48 @@
 @use "../abstracts/" as *;
 
+$input-border-width: 3px;
+
 // AddressSearchForm styles
 #address-form {
   position: relative;
-  margin-top: 24px;
   width: 100%;
-  font-size: 2.5em;
+  font-size: var(--fs-base);
 
   div.user-data.street-address {
+    max-width: 960px;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: baseline;
+    flex-wrap: wrap;
+    gap: 16px;
   }
 
   label {
-    padding-right: 12px;
+    flex-grow: 1;
   }
 
   input.address-input {
-    width: 400px;
-    height: 50px;
-    display: block;
-    border: none;
-    background: {
-      image: url("../../../public/assets/png/address-enter-line.png");
-      repeat: no-repeat;
-      position: center 90%;
+    flex-basis: 0;
+    flex-grow: 999;
+    min-inline-size: 75%;
+    font: inherit;
+    color: inherit;
+    letter-spacing: inherit;
+    word-spacing: inherit;
+    border: $input-border-width solid $gray;
+    padding: 0 4px;
+
+    &:focus-visible {
+      outline-offset: 0;
     }
 
     &.invalid {
-      border: 3px dashed $valError;
+      border: $input-border-width dashed $valError;
     }
 
     &.valid {
-      border: 3px solid lighten($bluegreen, 10%);
-    }
-
-    &:focus {
-      border: none;
-      box-shadow: 0 0 3px 2px $blue;
+      border: $input-border-width solid lighten($bluegreen, 10%);
     }
   }
-
-  @include responsive_height(medium-screens) {
-    width: 100%;
-    height: 230px;
-
-    input {
-      &.address-input {
-        height: 60px;
-        font-size: 16px;
-      }
-    }
-
-    div.user-data {
-      font-size: 0.9em;
-      height: 60px;
-      margin: 0 auto;
-      display: block;
-    }
-  }
-
-  @include responsive(medium-screens) {
-    input {
-      &.address-input {
-        height: 60px;
-      }
-    }
-
-    div.user-data {
-      font-size: 0.9em;
-      height: 60px;
-      margin: 0 auto;
-      display: block;
-      top: 0;
-    }
-  }
-
-  @include responsive(small-screens) {
-    height: 204px;
-
-    div.user-data {
-      flex-direction: column;
-      justify-content: initial;
-      width: 240px;
-      top: 0;
-      font-size: 0.6em;
-    }
-
-    input {
-      &.address-input {
-        width: 240px;
-        height: 50px;
-        margin-top: 3px;
-      }
-    }
-  }
-} // end address form
+}
