@@ -7,35 +7,35 @@
 // Fluid type scale
 // TODO: not all font sizes are being used here, so remove unused ones
 :root {
-  --fs-sm: #{$fs-fluid-sm};
-  --fs-base: #{$fs-fluid-base};
-  --fs-md: #{$fs-fluid-md};
-  --fs-lg: #{$fs-fluid-lg};
-  --fs-xl: #{$fs-fluid-xl};
-  --fs-xxl: #{$fs-fluid-xxl};
-  --fs-xxxl: #{$fs-fluid-xxxl};
+  --fs-sm: #{map.get($fs, "fluid-sm")};
+  --fs-base: #{map.get($fs, "fluid-base")};
+  --fs-md: #{map.get($fs, "fluid-md")};
+  --fs-lg: #{map.get($fs, "fluid-lg")};
+  --fs-xl: #{map.get($fs, "fluid-xl")};
+  --fs-xxl: #{map.get($fs, "fluid-xxl")};
+  --fs-xxxl: #{map.get($fs, "fluid-xxxl")};
 }
 
 // Fallback font sizes for browsers that don't support CSS clamp and/or container query units
 @supports not (font-size: clamp(1rem, 1cqi, 1rem)) {
   :root {
-    --fs-sm: #{$fs-mobile-sm};
-    --fs-base: #{$fs-mobile-base};
-    --fs-md: #{$fs-mobile-md};
-    --fs-lg: #{$fs-mobile-lg};
-    --fs-xl: #{$fs-mobile-xl};
-    --fs-xxl: #{$fs-mobile-xxl};
-    --fs-xxxl: #{$fs-mobile-xxxl};
+    --fs-sm: #{map.get($fs, "mobile-sm")};
+    --fs-base: #{map.get($fs, "mobile-base")};
+    --fs-md: #{map.get($fs, "mobile-md")};
+    --fs-lg: #{map.get($fs, "mobile-lg")};
+    --fs-xl: #{map.get($fs, "mobile-xl")};
+    --fs-xxl: #{map.get($fs, "mobile-xxl")};
+    --fs-xxxl: #{map.get($fs, "mobile-xxxl")};
   }
   @media screen and (min-width: 1280px) {
     :root {
-      --fs-sm: #{$fs-sm};
-      --fs-base: #{$fs-base};
-      --fs-md: #{$fs-md};
-      --fs-lg: #{$fs-lg};
-      --fs-xl: #{$fs-xl};
-      --fs-xxl: #{$fs-xxl};
-      --fs-xxxl: #{$fs-xxxl};
+      --fs-sm: #{map.get($fs, "sm")};
+      --fs-base: #{map.get($fs, "base")};
+      --fs-md: #{map.get($fs, "md")};
+      --fs-lg: #{map.get($fs, "lg")};
+      --fs-xl: #{map.get($fs, "xl")};
+      --fs-xxl: #{map.get($fs, "xxl")};
+      --fs-xxxl: #{map.get($fs, "xxxl")};
     }
   }
 }

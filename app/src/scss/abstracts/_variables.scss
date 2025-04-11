@@ -17,36 +17,37 @@ $heading-text-max-width: 55ch;
 $normal-text-line-height: 1.5;
 $heading-text-line-height: 1.2;
 
-// fluid type scale
-// Credit: https://www.fluid-type-scale.com/calculate?minFontSize=18&minWidth=375&minRatio=1.25&maxFontSize=48&maxWidth=1280&maxRatio=1.333&steps=sm%2Cbase%2Cmd%2Clg%2Cxl%2Cxxl%2Cxxxl&baseStep=base&prefix=fs&useContainerWidth=true&includeFallbacks=true&useRems=true&remValue=16&decimals=3&previewFont=Oxygen&previewText=Almost+before+we+knew+it%2C+we+had+left+the+ground&previewWidth=1280
-// TODO: not all font sizes are being used here, so remove unused ones
-$fs-fluid-sm: clamp(0.9rem, 2.388cqi + 0.34rem, 2.251rem);
-$fs-fluid-base: clamp(1.125rem, 3.315cqi + 0.348rem, 3rem);
-$fs-fluid-md: clamp(1.406rem, 4.584cqi + 0.332rem, 3.999rem);
-$fs-fluid-lg: clamp(1.758rem, 6.317cqi + 0.277rem, 5.331rem);
-$fs-fluid-xl: clamp(2.197rem, 8.678cqi + 0.163rem, 7.106rem);
-$fs-fluid-xxl: clamp(2.747rem, 11.89cqi + -0.04rem, 9.472rem);
-$fs-fluid-xxxl: clamp(3.433rem, 16.253cqi + -0.376rem, 12.626rem);
-
-// fallback type scale for browsers that don't support clamp and/or container queries
-// NOTE: these font sizes were manually adjusted and assume 1rem == 10px
-// This should probably be changed in the future to support WCAG SC Re-size Text
-$fs-mobile-sm: 1.4rem;
-$fs-mobile-base: 1.8rem;
-$fs-mobile-md: 2rem;
-$fs-mobile-lg: 2.25rem;
-$fs-mobile-xl: 2.5rem;
-$fs-mobile-xxl: 3rem;
-$fs-mobile-xxxl: 3.4rem;
-
-// fallback type scale for larger viewports
-$fs-sm: 2.251rem;
-$fs-base: 3rem;
-$fs-md: 3.999rem;
-$fs-lg: 5.331rem;
-$fs-xl: 7.106rem;
-$fs-xxl: 9.472rem;
-$fs-xxxl: 12.626rem;
+// FONT SIZES
+$fs: (
+  // Fluid type scale
+  // Credit: https://www.fluid-type-scale.com/calculate?minFontSize=18&minWidth=375&minRatio=1.25&maxFontSize=48&maxWidth=1280&maxRatio=1.333&steps=sm%2Cbase%2Cmd%2Clg%2Cxl%2Cxxl%2Cxxxl&baseStep=base&prefix=fs&useContainerWidth=true&includeFallbacks=true&useRems=true&remValue=16&decimals=3&previewFont=Oxygen&previewText=Almost+before+we+knew+it%2C+we+had+left+the+ground&previewWidth=1280
+  // TODO: not all font sizes are being used here, so remove unused ones
+  "fluid-sm": clamp(0.9rem, 2.388cqi + 0.34rem, 2.251rem),
+  "fluid-base": clamp(1.125rem, 3.315cqi + 0.348rem, 3rem),
+  "fluid-md": clamp(1.406rem, 4.584cqi + 0.332rem, 3.999rem),
+  "fluid-lg": clamp(1.758rem, 6.317cqi + 0.277rem, 5.331rem),
+  "fluid-xl": clamp(2.197rem, 8.678cqi + 0.163rem, 7.106rem),
+  "fluid-xxl": clamp(2.747rem, 11.89cqi + -0.04rem, 9.472rem),
+  "fluid-xxxl": clamp(3.433rem, 16.253cqi + -0.376rem, 12.626rem),
+  // fallback type scale for browsers that don't support clamp and/or container queries
+  // NOTE: these font sizes were manually adjusted and assume 1rem == 10px
+  // This should probably be changed in the future to support WCAG SC Re-size Text
+  "mobile-sm": 1.4rem,
+  "mobile-base": 1.8rem,
+  "mobile-md": 2rem,
+  "mobile-lg": 2.25rem,
+  "mobile-xl": 2.5rem,
+  "mobile-xxl": 3rem,
+  "mobile-xxxl": 3.4rem,
+  // fallback type scale for larger viewports
+  "sm": 2.251rem,
+  "base": 3rem,
+  "md": 3.999rem,
+  "lg": 5.331rem,
+  "xl": 7.106rem,
+  "xxl": 9.472rem,
+  "xxxl": 12.626rem
+);
 
 // COLOR PALLETTE
 $palette: (

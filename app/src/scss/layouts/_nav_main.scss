@@ -27,7 +27,7 @@ nav.main-nav {
   }
 
   a[href] {
-    font-size: $fs-sm;
+    font-size: map.get($fs, "sm");
     font-weight: 300;
     letter-spacing: $letter-spacing;
     text-decoration: none;
@@ -36,13 +36,13 @@ nav.main-nav {
   }
 
   a[href].home {
-    font-size: $fs-mobile-xxl;
+    font-size: map.get($fs, "base");
     font-weight: 500;
   }
 
   @media only screen and (width <= $narrow-breakpoint) {
     a[href].home {
-      font-size: $fs-mobile-md;
+      font-size: map.get($fs, "mobile-md");
     }
   }
 
