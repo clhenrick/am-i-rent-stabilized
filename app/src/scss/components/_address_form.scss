@@ -34,6 +34,7 @@ $input-border-width: 3px;
     padding: 0 4px;
 
     &:focus-visible {
+      @include focus-indicator(true);
       outline-offset: 0;
     }
 

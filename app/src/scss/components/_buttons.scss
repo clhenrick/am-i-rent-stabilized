@@ -18,6 +18,10 @@
   color: $white;
   cursor: pointer;
 
+  &:focus-visible {
+    @include focus-indicator(true);
+  }
+
   @include responsive(small-screens) {
     // increase font size a bit on super narrow viewports
     font-size: var(--fs-base);

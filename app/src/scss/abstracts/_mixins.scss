@@ -1,5 +1,17 @@
 @use "variables" as *;
 
+@mixin focus-indicator($inverted: false) {
+  $inner-color: darken($blue, 10);
+  $outer-color: $white;
+  @if $inverted {
+    $inner-color: $white;
+    $outer-color: darken($blue, 10);
+  }
+  // meets 3:1 contrast for WCAG when over a white background
+  outline: 3px solid $inner-color;
+  box-shadow: 0 0 0 6px $outer-color;
+}
+
 // mixins
 // columns
 @mixin columns($width, $number: 2, $gap: 0) {
