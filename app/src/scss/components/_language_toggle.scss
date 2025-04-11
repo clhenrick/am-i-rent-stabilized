@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "../abstracts/" as *;
 
 // NOTE: button layout & sizes differ somewhat between homepage & info pages
@@ -8,7 +9,7 @@
 .lang-toggle {
   position: fixed;
   top: $nav-main-height;
-  left: 8px;
+  left: map.get($spacing, "xs");
   z-index: $z-index-min;
 
   // sidebar on info pages
@@ -20,8 +21,8 @@
   .mobile & {
     display: none;
     position: absolute;
-    top: 12px;
-    left: 12px;
+    top: map.get($spacing, "sm");
+    left: map.get($spacing, "sm");
   }
 
   ul {
@@ -56,7 +57,7 @@
   .button[lang] {
     min-width: 120px;
     text-align: start;
-    padding: 0 16px;
+    padding: 0 map.get($spacing, "base");
     text-transform: none;
 
     &:hover {

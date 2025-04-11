@@ -1,8 +1,8 @@
+@use "sass:map";
 @use "../abstracts/" as *;
 
-// TODO: set up some spacing variables for UI consistency
-$nav-padding-inline: 32px;
-$nav-padding-inline-narrow: 16px;
+$nav-padding-inline: map.get($spacing, "lg");
+$nav-padding-inline-narrow: map.get($spacing, "base");
 
 // FIXME: why is 1rem == 16px here?
 /* where all navigation child text items almost start to collide on narrower viewports */
@@ -67,7 +67,7 @@ nav.main-nav {
   ul {
     display: flex;
     align-items: center;
-    gap: 56px;
+    gap: map.get($spacing, "xl");
     list-style: none;
     padding: 0;
     margin: 0;
@@ -88,9 +88,9 @@ nav.main-nav {
       top: $nav-main-height;
       display: flex;
       flex-direction: column;
-      gap: 44px;
+      align-items: flex-start;
       background-color: $gray;
-      padding: 36px 12px;
+      padding: map.get($spacing, "lg") map.get($spacing, "sm");
     }
   }
 

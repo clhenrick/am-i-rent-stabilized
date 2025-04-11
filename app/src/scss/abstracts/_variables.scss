@@ -70,6 +70,20 @@ $blue: #45acff;
 $valError: #ee0a0a; //#d98c8c;
 $white: #fff;
 
+// SPACING VARIABLES
+$spacing: (
+  "xxxs": 2px,
+  "xxs": 4px,
+  "xs": 8px,
+  "sm": 12px,
+  "base": 16px,
+  "med": 20px,
+  "med2": 24px,
+  "lg": 32px,
+  "xl": 48px,
+  "xxl": 64px,
+);
+
 // shared component dimensions
 $nav-main-height: 60px;
 $slides-max-width: 1280px;

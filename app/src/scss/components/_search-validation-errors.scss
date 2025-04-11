@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "../abstracts/" as *;
 
 .search-validation-errors {
@@ -7,7 +8,7 @@
   p {
     margin: 12px auto;
     text-align: center;
-    padding: 12px;
+    padding: map.get($spacing, "sm");
     color: $white;
     font-size: var(--fs-sm);
     font-weight: 300;

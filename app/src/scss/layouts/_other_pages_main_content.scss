@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "../abstracts/" as *;
 
 $sidebar-ideal-width: 250px;
@@ -7,11 +8,11 @@ $sidebar-ideal-width: 250px;
   // code credit: https://every-layout.dev/layouts/sidebar/
   display: flex;
   flex-wrap: wrap;
-  gap: 36px;
+  gap: map.get($spacing, "lg");
   margin-block-start: $nav-main-height;
   // NOTE: container query used for fluid type scale
   container-type: inline-size;
-  padding: 0 16px;
+  padding: 0 map.get($spacing, "base");
 }
 
 aside.info-pages {
@@ -21,7 +22,7 @@ aside.info-pages {
   flex-grow: 1;
   align-self: flex-start;
   // NOTE: so when aside stacks on main, the space between them is reduced (due to large `gap` value in #wrapper)
-  margin-block-end: -24px;
+  margin-block-end: calc(-1 * #{map.get($spacing, "med2")});
   background-color: $white;
   z-index: $z-index-mid;
 }
@@ -31,7 +32,7 @@ main {
   flex-basis: 0;
   min-inline-size: 70%;
   position: relative;
-  padding-block-end: 124px;
+  padding-block-end: map.get($spacing, "xxl");
 
   h1,
   h2,
@@ -60,6 +61,6 @@ main {
 
   .video {
     max-width: 960px;
-    margin-block-end: 48px;
+    margin-block-end: map.get($spacing, "xl");
   }
 }

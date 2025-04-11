@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "../abstracts/" as *;
 
 nav.side-nav {
@@ -25,7 +26,7 @@ nav.side-nav {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
-    gap: 12px;
+    gap: map.get($spacing, "sm");
   }
 
   li {

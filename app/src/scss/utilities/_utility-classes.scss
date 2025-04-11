@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "../abstracts/" as *;
 
 .hidden {
@@ -6,7 +7,7 @@
 
 .flex {
   display: flex;
-  gap: var(--gap, 12px);
+  gap: var(--gap, #{map.get($spacing, "sm")});
 }
 
 .flex-column {

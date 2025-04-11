@@ -1,4 +1,5 @@
 @use "sass:color";
+@use "sass:map";
 @use "../abstracts/" as *;
 
 $input-border-width: 3px;
@@ -16,7 +17,7 @@ $input-border-width: 3px;
     justify-content: center;
     align-items: baseline;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: map.get($spacing, "base");
   }
 
   label {
@@ -32,7 +33,7 @@ $input-border-width: 3px;
     letter-spacing: inherit;
     word-spacing: inherit;
     border: $input-border-width solid $gray;
-    padding: 0 4px;
+    padding: 0 map.get($spacing, "xxs");
 
     &:focus-visible {
       @include focus-indicator(true);

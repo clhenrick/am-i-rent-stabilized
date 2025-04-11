@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "../abstracts/" as *;
 
 $map-width-default: 550px;
@@ -7,7 +8,7 @@ $map-popup-max-width: 275px;
 #map {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: map.get($spacing, "base");
   position: relative;
   margin: 0 auto;
   max-width: $map-width-default;
@@ -34,7 +35,7 @@ $map-popup-max-width: 275px;
     .map-pop-up--content {
       background-color: #fff;
       border-radius: 6px;
-      padding: 8px;
+      padding: map.get($spacing, "xs");
       box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
     }
 

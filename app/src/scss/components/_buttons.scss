@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "../abstracts/" as *;
 
 // <button> styles
@@ -33,7 +34,7 @@
     min-width: 170px;
     background-color: $darkorange;
     margin: 0 auto;
-    padding: 12px 24px;
+    padding: map.get($spacing, "sm") map.get($spacing, "med2");
     border-radius: 35px;
 
     &:hover {
@@ -47,7 +48,7 @@
     color: $darkorange;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: map.get($spacing, "sm");
 
     &:hover {
       color: $orange;
