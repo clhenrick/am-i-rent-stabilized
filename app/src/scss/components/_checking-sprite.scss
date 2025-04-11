@@ -7,15 +7,17 @@
   margin: 0 auto;
   background: url("../../../public/assets/png/checking-sprite.png") left center;
 
-  @include animation($name: play);
+  @media (prefers-reduced-motion: no-preference) {
+    @include animation($name: play);
 
-  @keyframes play {
-    from {
-      background-position: 0;
-    }
+    @keyframes play {
+      from {
+        background-position: 0;
+      }
 
-    to {
-      background-position: -1920px;
+      to {
+        background-position: -1920px;
+      }
     }
   }
 
@@ -25,13 +27,15 @@
     height: 288px;
     left: 0;
 
-    @keyframes play {
-      from {
-        background-position: 0;
-      }
+    @media (prefers-reduced-motion: no-preference) {
+      @keyframes play {
+        from {
+          background-position: 0;
+        }
 
-      to {
-        background-position: -1280px;
+        to {
+          background-position: -1280px;
+        }
       }
     }
   }
