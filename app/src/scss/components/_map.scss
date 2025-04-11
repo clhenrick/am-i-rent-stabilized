@@ -1,14 +1,26 @@
+@use "sass:map";
+@use "../abstracts/" as *;
+
 $map-width-default: 550px;
-$map-height-default: 300px;
+$map-height-default: 48vh;
 $map-popup-max-width: 275px;
 
 #map {
+  display: flex;
+  flex-direction: column;
+  gap: map.get($spacing, "base");
   position: relative;
   margin: 0 auto;
-  margin-top: 30px;
-  width: $map-width-default;
-  height: $map-height-default;
-  border: 3px solid $medgray;
+  max-width: $map-width-default;
+  max-height: $map-height-default;
+
+  svg {
+    border: 3px solid map.get($palette, "medium-grey");
+  }
+
+  p {
+    font-size: var(--fs-sm);
+  }
 
   .map-pop-up {
     position: absolute;
@@ -22,8 +34,8 @@ $map-popup-max-width: 275px;
 
     .map-pop-up--content {
       background-color: #fff;
-      border-radius: 6px;
-      padding: 8px;
+      border-radius: map.get($border-radius, "sm");
+      padding: map.get($spacing, "xs");
       box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
     }
 
@@ -60,32 +72,5 @@ $map-popup-max-width: 275px;
         font-size: 12px;
       }
     }
-  }
-
-  @include responsive_height(medium-screens) {
-    margin-top: 2%;
-    height: 275px;
-  }
-
-  @include responsive(small-screens) {
-    width: 90%;
-    height: 200px;
-    margin-top: 3%;
-  }
-}
-
-p.map-message {
-  margin-top: 25px;
-
-  @include responsive_height(medium-screens) {
-    font-size: 1.5em;
-    width: 85%;
-    margin-top: 6px;
-  }
-
-  @include responsive(small-screens) {
-    width: 90%;
-    font-size: 1.3em;
-    margin-top: 1%;
   }
 }

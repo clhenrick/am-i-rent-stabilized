@@ -1,299 +1,318 @@
 {{>navigation_info}}
+<div class="sidebar-main-wrapper">
+  <aside class="info-pages">
+    {{>language_toggle}}
+    <nav class="side-nav" aria-labelledby="side-nav-title">
+      <h2 id="side-nav-title">{{nav_side.h2}}</h2>
+      <ul role="list">
+        <li>
+          <a href="#city-wide">{{nav_side.citywide}}</a>
+        </li>
+        <li>
+          <a href="#boro">{{nav_side.boro}}</a>
+        </li>
+        <li class="responsive">
+          <a href="#hood">{{nav_side.hood}}</a>
+        </li>
+        <li>
+          <a href="#gov">{{nav_side.gov}}</a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
 
-<div id="left">
-  {{>language_toggle}}
-
-  <nav id="side-nav" aria-labelledby="side-nav-title">
-    <h2 id="side-nav-title">{{nav_side.h2}}</h2>
+  <main id="main">
+    <a name="non-gov"></a>
+    <h1>{{nongov.h1}}</h1>
+    <p>{{nongov.h3}}</p>
+    <a name="city-wide"></a>
+    <h2>{{nongov.citywide.h3}}</h2>
+    <p>{{nongov.citywide.p01}}</p>
     <ul>
       <li>
-        <a class="responsive-turn-off" href="#non-gov">{{nav_side.nongov}}</a>
-        <ul>
-          <li><a href="#city-wide">{{nav_side.citywide}}</a></li>
-          <li><a href="#boro">{{nav_side.boro}}</a></li>
-          <li class="responsive"><a href="#hood">{{nav_side.hood}}</a></li>
-        </ul>
+        <a target="_blank" href="http://www.aafe.org">
+          {{nongov.citywide.ul.0.org}}
+        </a>
+        <p>{{nongov.citywide.ul.0.desc}}</p>
       </li>
-      <li><a href="#gov">{{nav_side.gov}}</a></li>
+      <li>
+        <a target="_blank" href="http://www.anhd.org">
+          {{nongov.citywide.ul.1.org}}
+        </a>
+        <p>{{nongov.citywide.ul.1.desc}}</p>
+      </li>
+      <li>
+        <a target="_blank" href="http://cuffh.org/">
+          {{nongov.citywide.ul.2.org}}
+        </a>
+        <p>{{nongov.citywide.ul.2.desc}}</p>
+      </li>
+      <li>
+        <a target="_blank" href="http://www.eisny.org">
+          {{nongov.citywide.ul.3.org}}
+        </a>
+        <p>{{nongov.citywide.ul.3.desc}}</p>
+      </li>
+      <li>
+        <a target="_blank" href="http://www.maketheroadny.org/">
+          {{nongov.citywide.ul.4.org}}
+        </a>
+        <p>{{nongov.citywide.ul.4.desc}}</p>
+      </li>
+      <li>
+        <a target="_blank" href="http://metcouncilonhousing.org/">
+          {{nongov.citywide.ul.5.org}}
+        </a>
+        <p>{{nongov.citywide.ul.5.desc}}</p>
+      </li>
+      <li>
+        <a target="_blank" href="http://www.mfy.org/projects">
+          {{nongov.citywide.ul.6.org}}
+        </a>
+        <p>{{nongov.citywide.ul.6.desc}}</p>
+      </li>
+      <li>
+        <a target="_blank" href="http://www.picturethehomeless.org/">
+          {{nongov.citywide.ul.7.org}}
+        </a>
+        <p>{{nongov.citywide.ul.7.desc}}</p>
+      </li>
+      <li>
+        <a target="_blank" href="https://rentlogic.com/">
+          {{nongov.citywide.ul.8.org}}
+        </a>
+        <p>{{nongov.citywide.ul.8.desc}}</p>
+      </li>
+      <li>
+        <a target="_blank" href="http://righttothecity.org/">
+          {{nongov.citywide.ul.9.org}}
+        </a>
+        <p>{{nongov.citywide.ul.9.desc}}</p>
+      </li>
+      <li>
+        <a target="_blank" href="http://stabilizingnyc.org/">
+          {{nongov.citywide.ul.10.org}}
+        </a>
+        <p>{{nongov.citywide.ul.10.desc}}</p>
+      </li>
+      <li>
+        <a target="_blank" href="http://www.tenantsandneighbors.org/">
+          {{nongov.citywide.ul.11.org}}
+        </a>
+        <p>{{nongov.citywide.ul.11.desc}}</p>
+      </li>
+      <li>
+        <a target="_blank" href="http://www.uhab.org">
+          {{nongov.citywide.ul.12.org}}
+        </a>
+        <p>{{nongov.citywide.ul.12.desc}}</p>
+      </li>
     </ul>
-  </nav>
-</div>
 
-<div id="main">
-  <a name="non-gov"></a>
-  <h1 class="font-style-hero">{{nongov.h1}}</h1>
-  <p>{{nongov.h3}}</p>
-  <a name="city-wide"></a>
-  <h2 class="font-style-hero">{{nongov.citywide.h3}}</h2>
-  <p>{{nongov.citywide.p01}}</p>
-  <ul>
-    <li>
-      <a target="_blank" href="http://www.aafe.org">
-        {{nongov.citywide.ul.[0].org}}
-      </a>
-      <p>{{nongov.citywide.ul.[0].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="http://www.anhd.org">
-        {{nongov.citywide.ul.[1].org}}
-      </a>
-      <p>{{nongov.citywide.ul.[1].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="http://cuffh.org/">
-        {{nongov.citywide.ul.[2].org}}
-      </a>
-      <p>{{nongov.citywide.ul.[2].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="http://www.eisny.org">
-        {{nongov.citywide.ul.[3].org}}
-      </a>
-      <p>{{nongov.citywide.ul.[3].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="http://www.maketheroadny.org/">
-        {{nongov.citywide.ul.[4].org}}
-      </a>
-      <p>{{nongov.citywide.ul.[4].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="http://metcouncilonhousing.org/">
-        {{nongov.citywide.ul.[5].org}}
-      </a>
-      <p>{{nongov.citywide.ul.[5].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="http://www.mfy.org/projects">
-        {{nongov.citywide.ul.[6].org}}
-      </a>
-      <p>{{nongov.citywide.ul.[6].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="http://www.picturethehomeless.org/">
-        {{nongov.citywide.ul.[7].org}}
-      </a>
-      <p>{{nongov.citywide.ul.[7].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="https://rentlogic.com/">
-        {{nongov.citywide.ul.[8].org}}
-      </a>
-      <p>{{nongov.citywide.ul.[8].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="http://righttothecity.org/">
-        {{nongov.citywide.ul.[9].org}}
-      </a>
-      <p>{{nongov.citywide.ul.[9].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="http://stabilizingnyc.org/">
-        {{nongov.citywide.ul.[10].org}}
-      </a>
-      <p>{{nongov.citywide.ul.[10].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="http://www.tenantsandneighbors.org/">
-        {{nongov.citywide.ul.[11].org}}
-      </a>
-      <p>{{nongov.citywide.ul.[11].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="http://www.uhab.org">
-        {{nongov.citywide.ul.[12].org}}
-      </a>
-      <p>{{nongov.citywide.ul.[12].desc}}</p>
-    </li>
-  </ul>
-
-  <a name="boro"></a>
-  <h3>{{nongov.boro.h3}}</h3>
-  <p>{{nongov.boro.p}}</p>
-  <ul>
-    <li>
-      <a target="_blank" href="http://brooklynhousing.org">
-        {{nongov.boro.ul.[0].org}}
-      </a>
-      <p>{{nongov.boro.ul.[0].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="http://www.bronxshepherds.org/">
-        {{nongov.boro.ul.[1].org}}
-      </a>
-      <p>{{nongov.boro.ul.[1].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="http://www.bka.org">
-        {{nongov.boro.ul.[2].org}}
-      </a>
-      <p>{{nongov.boro.ul.[2].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="http://queenscommunityhouse.org">
-        {{nongov.boro.ul.[3].org}}
-      </a>
-      <p>{{nongov.boro.ul.[3].desc}}</p>
-    </li>
-    <li><a target="_blank" href="www.nhsofsi.org">
-        {{nongov.boro.ul.[4].org}}
-      </a>
-      <p>{{nongov.boro.ul.[4].desc}}</p>
-    </li>
-  </ul>
-
-  <a name="hood"></a>
-  <h3>{{nongov.hood.h3}}</h3>
-  <p>{{nongov.hood.p}}</p>
-  <ul>
-    <li>
-      <a target="_blank" href="http://www.carrollgardensassociation.com/">
-        {{nongov.hood.ul.[0].org}}
-      </a>
-      <p>{{nongov.hood.ul.[0].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="https://coopersquare.org/">
-        {{nongov.hood.ul.[1].org}}
-      </a>
-      <p>{{nongov.hood.ul.[1].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="http://crownheightstenantunion.org/">
-        {{nongov.hood.ul.[2].org}}
-      </a>
-      <p>{{nongov.hood.ul.[2].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="http://www.enyuyc.net">
-        {{nongov.hood.ul.[3].org}}
-      </a>
-      <p>{{nongov.hood.ul.[3].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="http://www.ebofb.org">
-        {{nongov.hood.ul.[4].org}}
-      </a>
-      <p>{{nongov.hood.ul.[4].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="http://www.fifthave.org/">
-        {{nongov.hood.ul.[5].org}}
-      </a>
-      <p>{{nongov.hood.ul.[5].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="http://www.fdconline.org/">
-        {{nongov.hood.ul.[6].org}}
-      </a>
-      <p>{{nongov.hood.ul.[6].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="http://mvdc.org/">
-        {{nongov.hood.ul.[7].org}}
-      </a>
-      <p>{{nongov.hood.ul.[7].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="http://www.nhsnyc.org">
-        {{nongov.hood.ul.[8].org}}
-      </a>
-      <p>{{nongov.hood.ul.[8].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="http://NWBcommunity.org">
-        {{nongov.hood.ul.[9].org}}
-      </a>
-      <p>{{nongov.hood.ul.[9].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="www.prattarea.org">
-        {{nongov.hood.ul.[10].org}}
-      </a>
-      <p>{{nongov.hood.ul.[10].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="http://stnicksalliance.org/SNA/#">
-        {{nongov.hood.ul.[11].org}}
-      </a>
-      <p>{{nongov.hood.ul.[11].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="http://www.unhp.org/">
-        {{nongov.hood.ul.[12].org}}
-      </a>
-      <p>{{nongov.hood.ul.[12].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="http://www.whedco.org">
-        {{nongov.hood.ul.[13].org}}
-      </a>
-      <p>{{nongov.hood.ul.[13].desc}}</p>
-    </li>
-  </ul>
-
-  <a name="gov"></a>
-  <h2 class="font-style-hero">{{gov.h2}}</h2>
-  <p>{{gov.p}}</p>
-  <ul>
-    <li>
-      <a target="_blank" href="http://www.nyshcr.org">
-        {{gov.ul.[0].org}}
-      </a>
-      <p>
-        {{gov.ul.[0].desc}}
-        <a href="http://www.nyshcr.org/AboutUs/contact.htm#rent-admin">
-          {{gov.ul.[0].a}}
+    <a name="boro"></a>
+    <h2>{{nongov.boro.h3}}</h2>
+    <p>{{nongov.boro.p}}</p>
+    <ul>
+      <li>
+        <a target="_blank" href="http://brooklynhousing.org">
+          {{nongov.boro.ul.0.org}}
         </a>
-      </p>
-    </li>
-    <li>
-      <a target="_blank" href="http://a836-acris.nyc.gov/CP/">
-        {{gov.ul.[1].org}}
-      </a>
-      <p>{{gov.ul.[1].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="http://www.nyc.gov/html/dob/html/bis/bis.shtml">
-        {{gov.ul.[2].org}}
-      </a>
-      <p>{{gov.ul.[2].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank"
-        href="http://www1.nyc.gov/nyc-resources/service/1522/disability-rent-increase-exemption-drie-program">
-        {{gov.ul.[3].org}}
-      </a>
-      <p>{{gov.ul.[3].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="https://a806-housingconnect.nyc.gov/nyclottery/lottery.html#home">
-        {{gov.ul.[4].org}}
-      </a>
-      <p>{{gov.ul.[4].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank" href="http://www1.nyc.gov/site/hpd/index.page">
-        {{gov.ul.[5].org}}
-      </a>
-      <p>{{gov.ul.[5].desc}}
-        <a target="_blank" href="https://hpdonline.hpdnyc.org/HPDonline/provide_address.aspx">
-          {{gov.ul.[5].a}}
+        <p>{{nongov.boro.ul.0.desc}}</p>
+      </li>
+      <li>
+        <a target="_blank" href="http://www.bronxshepherds.org/">
+          {{nongov.boro.ul.1.org}}
         </a>
-      </p>
-    </li>
-    <li>
-      <a target="_blank" href="http://nycrgb.org/html/resources/resources.html">
-        {{gov.ul.[6].org}}
-      </a>
-      <p>{{gov.ul.[6].desc}}</p>
-    </li>
-    <li>
-      <a target="_blank"
-        href="http://www1.nyc.gov/nyc-resources/service/2424/senior-citizen-rent-increase-exemption-scrie">
-        {{gov.ul.[7].org}}
-      </a>
-      <p>{{gov.ul.[7].desc}}</p>
-    </li>
-  </ul>
+        <p>{{nongov.boro.ul.1.desc}}</p>
+      </li>
+      <li>
+        <a target="_blank" href="http://www.bka.org">
+          {{nongov.boro.ul.2.org}}
+        </a>
+        <p>{{nongov.boro.ul.2.desc}}</p>
+      </li>
+      <li>
+        <a target="_blank" href="http://queenscommunityhouse.org">
+          {{nongov.boro.ul.3.org}}
+        </a>
+        <p>{{nongov.boro.ul.3.desc}}</p>
+      </li>
+      <li><a target="_blank" href="www.nhsofsi.org">
+          {{nongov.boro.ul.4.org}}
+        </a>
+        <p>{{nongov.boro.ul.4.desc}}</p>
+      </li>
+    </ul>
+
+    <a name="hood"></a>
+    <h2>{{nongov.hood.h3}}</h2>
+    <p>{{nongov.hood.p}}</p>
+    <ul>
+      <li>
+        <a target="_blank" href="http://www.carrollgardensassociation.com/">
+          {{nongov.hood.ul.0.org}}
+        </a>
+        <p>{{nongov.hood.ul.0.desc}}</p>
+      </li>
+      <li>
+        <a target="_blank" href="https://coopersquare.org/">
+          {{nongov.hood.ul.1.org}}
+        </a>
+        <p>{{nongov.hood.ul.1.desc}}</p>
+      </li>
+      <li>
+        <a target="_blank" href="http://crownheightstenantunion.org/">
+          {{nongov.hood.ul.2.org}}
+        </a>
+        <p>{{nongov.hood.ul.2.desc}}</p>
+      </li>
+      <li>
+        <a target="_blank" href="http://www.enyuyc.net">
+          {{nongov.hood.ul.3.org}}
+        </a>
+        <p>{{nongov.hood.ul.3.desc}}</p>
+      </li>
+      <li>
+        <a target="_blank" href="http://www.ebofb.org">
+          {{nongov.hood.ul.4.org}}
+        </a>
+        <p>{{nongov.hood.ul.4.desc}}</p>
+      </li>
+      <li>
+        <a target="_blank" href="http://www.fifthave.org/">
+          {{nongov.hood.ul.5.org}}
+        </a>
+        <p>{{nongov.hood.ul.5.desc}}</p>
+      </li>
+      <li>
+        <a target="_blank" href="http://www.fdconline.org/">
+          {{nongov.hood.ul.6.org}}
+        </a>
+        <p>{{nongov.hood.ul.6.desc}}</p>
+      </li>
+      <li>
+        <a target="_blank" href="http://mvdc.org/">
+          {{nongov.hood.ul.7.org}}
+        </a>
+        <p>{{nongov.hood.ul.7.desc}}</p>
+      </li>
+      <li>
+        <a target="_blank" href="http://www.nhsnyc.org">
+          {{nongov.hood.ul.8.org}}
+        </a>
+        <p>{{nongov.hood.ul.8.desc}}</p>
+      </li>
+      <li>
+        <a target="_blank" href="http://NWBcommunity.org">
+          {{nongov.hood.ul.9.org}}
+        </a>
+        <p>{{nongov.hood.ul.9.desc}}</p>
+      </li>
+      <li>
+        <a target="_blank" href="www.prattarea.org">
+          {{nongov.hood.ul.10.org}}
+        </a>
+        <p>{{nongov.hood.ul.10.desc}}</p>
+      </li>
+      <li>
+        <a target="_blank" href="http://stnicksalliance.org/SNA/#">
+          {{nongov.hood.ul.11.org}}
+        </a>
+        <p>{{nongov.hood.ul.11.desc}}</p>
+      </li>
+      <li>
+        <a target="_blank" href="http://www.unhp.org/">
+          {{nongov.hood.ul.12.org}}
+        </a>
+        <p>{{nongov.hood.ul.12.desc}}</p>
+      </li>
+      <li>
+        <a target="_blank" href="http://www.whedco.org">
+          {{nongov.hood.ul.13.org}}
+        </a>
+        <p>{{nongov.hood.ul.13.desc}}</p>
+      </li>
+    </ul>
+
+    <a name="gov"></a>
+    <h2>{{gov.h2}}</h2>
+    <p>{{gov.p}}</p>
+    <ul>
+      <li>
+        <a target="_blank" href="http://www.nyshcr.org">
+          {{gov.ul.0.org}}
+        </a>
+        <p>
+          {{gov.ul.0.desc}}
+          <a href="http://www.nyshcr.org/AboutUs/contact.htm#rent-admin">
+            {{gov.ul.0.a}}
+          </a>
+        </p>
+      </li>
+      <li>
+        <a target="_blank" href="http://a836-acris.nyc.gov/CP/">
+          {{gov.ul.1.org}}
+        </a>
+        <p>{{gov.ul.1.desc}}</p>
+      </li>
+      <li>
+        <a
+          target="_blank"
+          href="http://www.nyc.gov/html/dob/html/bis/bis.shtml"
+        >
+          {{gov.ul.2.org}}
+        </a>
+        <p>{{gov.ul.2.desc}}</p>
+      </li>
+      <li>
+        <a
+          target="_blank"
+          href="http://www1.nyc.gov/nyc-resources/service/1522/disability-rent-increase-exemption-drie-program"
+        >
+          {{gov.ul.3.org}}
+        </a>
+        <p>{{gov.ul.3.desc}}</p>
+      </li>
+      <li>
+        <a
+          target="_blank"
+          href="https://a806-housingconnect.nyc.gov/nyclottery/lottery.html#home"
+        >
+          {{gov.ul.4.org}}
+        </a>
+        <p>{{gov.ul.4.desc}}</p>
+      </li>
+      <li>
+        <a target="_blank" href="http://www1.nyc.gov/site/hpd/index.page">
+          {{gov.ul.5.org}}
+        </a>
+        <p>{{gov.ul.5.desc}}
+          <a
+            target="_blank"
+            href="https://hpdonline.hpdnyc.org/HPDonline/provide_address.aspx"
+          >
+            {{gov.ul.5.a}}
+          </a>
+        </p>
+      </li>
+      <li>
+        <a
+          target="_blank"
+          href="http://nycrgb.org/html/resources/resources.html"
+        >
+          {{gov.ul.6.org}}
+        </a>
+        <p>{{gov.ul.6.desc}}</p>
+      </li>
+      <li>
+        <a
+          target="_blank"
+          href="http://www1.nyc.gov/nyc-resources/service/2424/senior-citizen-rent-increase-exemption-scrie"
+        >
+          {{gov.ul.7.org}}
+        </a>
+        <p>{{gov.ul.7.desc}}</p>
+      </li>
+    </ul>
+  </main>
 </div>

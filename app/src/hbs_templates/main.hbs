@@ -1,270 +1,291 @@
 {{>navigation}}
 
-<div id="mobile-message">
-  <img alt="" src="assets/png/rotate.png">
-  <p>{{mobile_msg}}</p>
-</div>
-
-<div class="desktop">
-  {{! LanguageToggle desktop only }}
+<aside class="desktop">
+  {{! NOTE: LanguageToggle for "desktop" viewports only }}
   {{>language_toggle}}
-</div>
+</aside>
 
 {{>progress_indicator}}
 
-<section
-  class="slides-container"
-  {{!-- TODO: add translations for aria-label --}}
-  aria-label="A step by step guide to Rent Stabilization in New York City"
-  {{!-- TODO: add translations for aria-roledescription --}}
-  aria-roledescription="carousel"
->
-  {{!-- NOTE: aria-live is used here so that when the next slide becomes active the assistive tech (e.g. screen reader) notifies the user of the change --}}
-  <div class="slides" aria-live="polite">
-    <div
-      class="slide"
-      tabindex="-1"
-      role="group"
-      {{!-- TODO: add translations for aria-roledescription --}}
-      aria-roledescription="slide"
-      {{!-- TODO: add translations for aria-label --}}
-      aria-label="1 of 9"
-      id="slide-1"
-    >
-      <div class="mobile">
-        {{! LanguageToggle mobile / tablet only }}
-        {{>language_toggle}}
+<main>
+  <section
+    class="slides-container"
+    {{!-- TODO: add translations for aria-label --}}
+    aria-label="A step by step guide to Rent Stabilization in New York City"
+    {{!-- TODO: add translations for aria-roledescription --}}
+    aria-roledescription="carousel"
+  >
+    {{!-- NOTE: aria-live is used here so that when the next slide becomes active the assistive tech (e.g. screen reader) notifies the user of the change --}}
+    <div class="slides" aria-live="polite">
+      <div
+        class="slide"
+        tabindex="-1"
+        role="group"
+        {{!-- TODO: add translations for aria-roledescription --}}
+        aria-roledescription="slide"
+        {{!-- TODO: add translations for aria-label --}}
+        aria-label="1 of 9"
+        id="slide-1"
+      >
+        <aside class="mobile">
+          {{! NOTE: LanguageToggle for "mobile" / "tablet" viewports only }}
+          {{>language_toggle}}
+        </aside>
+        <div class="centered">
+          <div>
+            <img class="triple-s" height="40" src="assets/png/triple-sss.png" alt="">
+            <img class="building intro" height="120" src="assets/png/building.png" alt="">
+          </div>
+          <h1 id="slide-1-title" class="font-style-hero landing">{{ slide01.h1 }}</h1>
+          <p class="font-style-secondary sub-head">{{ slide01.subhead }}</p>
+          <p class="go-step4">
+            {{ slide01.landing }}
+            <a class="go-step4" href="#slide-7">
+              {{ slide01.go_step_4 }}
+            </a>
+          </p>
+        </div>
+        <button type="button" class="button--go-next">
+          <div>{{nav_bottom_arrow.begin}}</div>
+          <div class="arrow"></div>
+        </button>
       </div>
-      <div class="centered">
-        <img class="triple-s" src="assets/png/triple-sss.png" alt="">
-        <img class="building intro" src="assets/png/building.png" alt="">
-        <h1 id="slide-1-title" class="font-style-hero landing">{{ slide01.h1 }}</h1>
-        <p class="font-style-secondary sub-head">{{ slide01.subhead }}</p>
-        <p class="landing">{{ slide01.landing }}</p>
-        <p class="go-step4">
-          <a class="go-step4" href="#slide-7">
-            {{ slide01.go_step_4 }}
+
+      <div
+        class="slide"
+        tabindex="-1"
+        id="slide-2"
+        role="group"
+        {{!-- TODO: add translations for aria-roledescription --}}
+        aria-roledescription="slide"
+        {{!-- TODO: add translations for aria-label --}}
+        aria-label="2 of 9"
+      >
+        <div class="centered v-centered">
+          <h2 id="slide-2-title" class="font-style-hero step">{{slide02.h2}}</h2>
+          <p class="step">{{slide02.privacy}}</p>
+          {{>address_search_form}}
+        </div>
+      </div>
+
+      <div
+        class="slide"
+        tabindex="-1"
+        id="slide-3"
+        role="group"
+        {{!-- TODO: add translations for aria-roledescription --}}
+        aria-roledescription="slide"
+        {{!-- TODO: add translations for aria-label --}}
+        aria-label="3 of 9"
+      >
+        <div class="centered v-centered">
+          <h2 id="slide-3-title" class="font-style-hero checking"> {{slide03.checking }} </h2>
+          <p> {{slide03.p}} </p>
+          <div id="sprite"></div>
+        </div>
+      </div>
+
+      <div
+        class="slide"
+        tabindex="-1"
+        id="slide-4"
+        role="group"
+        {{!-- TODO: add translations for aria-roledescription --}}
+        aria-roledescription="slide"
+        {{!-- TODO: add translations for aria-label --}}
+        aria-label="4 of 9"
+      >
+        <div class="centered">
+          <div class="yes hidden">
+            <h2>{{{slide04.yes.h2}}}</h2>
+            <p>{{{slide04.yes.p}}}</p>
+          </div>
+
+          <div class="no">
+            <p>{{{slide04.no.p}}}</p>
+          </div>
+
+          <div id="map-container">
+            {{>search_result_map}}
+          </div>
+        </div>
+
+        <button type="button" class="button--go-next">
+          <div>{{nav_bottom_arrow.next}}</div>
+          <div class="arrow"></div>
+        </button>
+      </div>
+
+      <div
+        class="slide"
+        tabindex="-1"
+        id="slide-5"
+        role="group"
+        {{!-- TODO: add translations for aria-roledescription --}}
+        aria-roledescription="slide"
+        {{!-- TODO: add translations for aria-label --}}
+        aria-label="5 of 9"
+      >
+        <div class="centered v-centered">
+          <h2 id="slide-5-title">{{slide05.h2}}</h2>
+          <ul class="dhcr-choice" role="list">
+            <li>
+              <p>
+                <a id="mail-to" href="#">{{slide05.mail}}</a>
+              </p>
+            </li>
+            <li>
+              <p>{{slide05.phone}}
+                <a href="tel:1-718-739-6400">718 739-6400</a>
+              </p>
+            </li>
+            <li>
+              <p>{{slide05.visit}}
+                <a href="http://www.nyshcr.org/AboutUs/contact.htm#rent-admin">
+                  {{slide05.office}}
+                </a>
+              </p>
+            </li>
+          </ul>
+          <p class="be-sure">
+            {{slide05.tell_them}}
+            {{slide05.mailed}}
+          </p>
+        </div>
+        <button type="button" class="button--go-next">
+          <div>{{nav_bottom_arrow.next}}</div>
+          <div class="arrow"></div>
+        </button>
+      </div>
+
+      <div
+        class="slide"
+        tabindex="-1"
+        id="slide-6"
+        role="group"
+        {{!-- TODO: add translations for aria-roledescription --}}
+        aria-roledescription="slide"
+        {{!-- TODO: add translations for aria-label --}}
+        aria-label="6 of 9"
+      >
+        <div class="centered v-centered">
+          <h2 id="slide-6-title" class="font-style-hero check-it">{{slide06.h2}}</h2>
+          <p class="check-it">
+            {{slide06.arrive}}
+          </p>
+          <p class="check-it">
+            {{slide06.friends}}
+          </p>
+          {{>add_to_calendar}}
+        </div>
+        <button type="button" class="button--go-next">
+          <div>{{nav_bottom_arrow.next}}</div>
+          <div class="arrow"></div>
+        </button>
+      </div>
+
+      <div
+        class="slide"
+        tabindex="-1"
+        id="slide-7"
+        role="group"
+        {{!-- TODO: add translations for aria-roledescription --}}
+        aria-roledescription="slide"
+        {{!-- TODO: add translations for aria-label --}}
+        aria-label="7 of 9"
+      >
+        <div class="centered v-centered">
+          <h2 id="slide-7-title">{{slide07.h2}}</h2>
+          <a href="#rent-history">
+            <img
+              class="rent-history"
+              height="190"
+              src="assets/png/sample-rent-history-thumb.png"
+              loading="lazy"
+              {{!-- TODO: add translations for alt text --}}
+              alt="Sample rent history provided by the NY DHCR. The letters RS under the Apartment Status column means rent stabilized."
+            >
           </a>
-        </p>
-      </div>
-      <button class="go-next bottom-arrow">
-        <div class="button-text">{{nav_bottom_arrow.begin}}</div>
-        <div class="arrow"></div>
-      </button>
-    </div>
-
-    <div
-      class="slide"
-      tabindex="-1"
-      id="slide-2"
-      role="group"
-      {{!-- TODO: add translations for aria-roledescription --}}
-      aria-roledescription="slide"
-      {{!-- TODO: add translations for aria-label --}}
-      aria-label="2 of 9"
-    >
-      <div class="centered">
-        <h2 id="slide-2-title" class="font-style-hero step">{{slide02.h2}}</h2>
-        <p class="step">{{slide02.privacy}}</p>
-        {{>address_search_form}}
-      </div>
-    </div>
-
-    <div
-      class="slide"
-      tabindex="-1"
-      id="slide-3"
-      role="group"
-      {{!-- TODO: add translations for aria-roledescription --}}
-      aria-roledescription="slide"
-      {{!-- TODO: add translations for aria-label --}}
-      aria-label="3 of 9"
-    >
-      <div class="centered v-centered">
-        <h2 id="slide-3-title" class="font-style-hero checking"> {{slide03.checking }} </h2>
-        <p> {{slide03.p}} </p>
-        <div id="sprite"></div>
-      </div>
-    </div>
-
-    <div
-      class="slide"
-      tabindex="-1"
-      id="slide-4"
-      role="group"
-      {{!-- TODO: add translations for aria-roledescription --}}
-      aria-roledescription="slide"
-      {{!-- TODO: add translations for aria-label --}}
-      aria-label="4 of 9"
-    >
-      <div class="centered">
-        <div class="yes hidden">
-          <h2 class="font-style-hero">{{{slide04.yes.h2}}}</h2>
-          <p>{{{slide04.yes.p}}}</p>
-        </div>
-
-        <div class="no">
-          <p>{{{slide04.no.p}}}</p>
-        </div>
-
-        <div id="map-container">
-          {{>search_result_map}}
-        </div>
-      </div>
-
-      <button class="go-next bottom-arrow">
-        <div class="button-text">{{nav_bottom_arrow.next}}</div>
-        <div class="arrow"></div>
-      </button>
-    </div>
-
-    <div
-      class="slide"
-      tabindex="-1"
-      id="slide-5"
-      role="group"
-      {{!-- TODO: add translations for aria-roledescription --}}
-      aria-roledescription="slide"
-      {{!-- TODO: add translations for aria-label --}}
-      aria-label="5 of 9"
-    >
-      <div class="centered">
-        <h2 id="slide-5-title" class="font-style-hero">{{slide05.h2}}</h2>
-        <div class="dhcr-choice">
-          <p><a id="mail-to" href="#">{{slide05.mail}}</a></p>
-          <p>{{slide05.phone}}<br><a href="tel:1-718-739-6400">718 739-6400</a></p>
-          <p>{{slide05.visit}}<br><a href="http://www.nyshcr.org/AboutUs/contact.htm#rent-admin"
-              target="_blank">{{slide05.office}}</a></p>
-        </div>
-        <p class="be-sure">{{slide05.tell_them}}</p>
-        <p class="be-sure">{{slide05.mailed}}</p>
-      </div>
-      <button class="go-next bottom-arrow">
-        <div class="button-text">{{nav_bottom_arrow.next}}</div>
-        <div class="arrow"></div>
-      </button>
-    </div>
-
-    <div
-      class="slide"
-      tabindex="-1"
-      id="slide-6"
-      role="group"
-      {{!-- TODO: add translations for aria-roledescription --}}
-      aria-roledescription="slide"
-      {{!-- TODO: add translations for aria-label --}}
-      aria-label="6 of 9"
-    >
-      <div class="centered">
-        <h2 id="slide-6-title" class="font-style-hero check-it">{{slide06.h2}}</h2>
-        <p class="check-it">
-          {{slide06.arrive}}
-        </p>
-        <p class="check-it">
-          {{slide06.friends}}
-        </p>
-        {{>add_to_calendar}}
-      </div>
-      <button class="go-next bottom-arrow">
-        <div class="button-text">{{nav_bottom_arrow.next}}</div>
-        <div class="arrow"></div>
-      </button>
-    </div>
-
-    <div
-      class="slide"
-      tabindex="-1"
-      id="slide-7"
-      role="group"
-      {{!-- TODO: add translations for aria-roledescription --}}
-      aria-roledescription="slide"
-      {{!-- TODO: add translations for aria-label --}}
-      aria-label="7 of 9"
-    >
-      <div class="centered">
-        <h2 id="slide-7-title" class="font-style-hero">{{slide07.h2}}</h2>
-        <a href="#rent-history">
-          <img
-            class="rent-history"
-            src="assets/png/sample-rent-history-thumb.png"
-            {{!-- TODO: add translations for alt text --}}
-            alt="Sample rent history provided by the NY DHCR. The letters RS under the Apartment Status column means rent stabilized."
-          >
-        </a>
-        <p class="view-sample"><a href="#rent-history">
-            {{slide07.p}}
-          </a></p>
-      </div>
-      <button class="go-next bottom-arrow">
-        <div class="button-text">{{nav_bottom_arrow.next}}</div>
-        <div class="arrow"></div>
-      </button>
-    </div>
-
-    <div
-      class="slide"
-      tabindex="-1"
-      id="slide-8"
-      role="group"
-      {{!-- TODO: add translations for aria-roledescription --}}
-      aria-roledescription="slide"
-      {{!-- TODO: add translations for aria-label --}}
-      aria-label="8 of 9"
-    >
-      <div class="centered">
-        <h2 id="slide-8-title" class="font-style-hero">{{slide08.h2}}</h2>
-        <div class="action-choice">
-          <h3>{{slide08.option01}}</h3>
-          <p class="no-local-tr">
-            <a href="info/resources.html" target="_blank">{{slide08.no_local_tr.a}}</a>
-            {{slide08.no_local_tr.p}}
-          </p>
-
-          <p class="yes-local-tr hidden">
-            {{slide08.yes_local_tr.p}}
-            <a href="#open-modal"> {{slide08.yes_local_tr.a}} </a>
-          </p>
-
-          <h3>{{slide08.option02}}</h3>
-          <p>{{slide08.p1}}
-            <a href="http://www.nyshcr.org/Forms/Rent/ra89.pdf" target="_blank">{{slide08.a}}</a>
-            {{slide08.p2}}
+          <p class="view-sample">
+            <a href="#rent-history">
+              {{slide07.p}}
+            </a>
           </p>
         </div>
+        <button type="button" class="button--go-next">
+          <div>{{nav_bottom_arrow.next}}</div>
+          <div class="arrow"></div>
+        </button>
       </div>
-      <button class="go-next bottom-arrow">
-        <div class="button-text">{{nav_bottom_arrow.next}}</div>
-        <div class="arrow"></div>
-      </button>
-    </div>
 
-    <div
-      class="slide"
-      tabindex="-1"
-      id="slide-9"
-      role="group"
-      {{!-- TODO: add translations for aria-roledescription --}}
-      aria-roledescription="slide"
-      {{!-- TODO: add translations for aria-label --}}
-      aria-label="9 of 9"
-    >
-      <div class="centered v-centered">
-        <h2 id="slide-9-title" class="font-style-hero end">{{slide09.h2}}</h2>
-        <img class="mascot" src="assets/png/yes.png" alt="">
-        <div class="button-holder">
-          <button class="button start-over go-first">
-            {{slide09.start}}
-          </button>
-          <a class="button learn-more" href="info/why.html">
-            {{slide09.learn}}
-          </a>
+      <div
+        class="slide"
+        tabindex="-1"
+        id="slide-8"
+        role="group"
+        {{!-- TODO: add translations for aria-roledescription --}}
+        aria-roledescription="slide"
+        {{!-- TODO: add translations for aria-label --}}
+        aria-label="8 of 9"
+      >
+        <div class="centered v-centered">
+          <h2 id="slide-8-title">{{slide08.h2}}</h2>
+          <ul role="list" class="action-choice">
+            <li>
+              <h3>{{slide08.option01}}</h3>
+              <p class="no-local-tr">
+                <a href="info/resources.html" target="_blank">{{slide08.no_local_tr.a}}</a>
+                {{slide08.no_local_tr.p}}
+              </p>
+              <p class="yes-local-tr hidden">
+                {{slide08.yes_local_tr.p}}
+                <a href="#open-modal"> {{slide08.yes_local_tr.a}} </a>
+              </p>
+            </li>
+
+            <li>
+              <h3>{{slide08.option02}}</h3>
+              <p>{{slide08.p1}}
+                <a href="http://www.nyshcr.org/Forms/Rent/ra89.pdf" target="_blank">{{slide08.a}}</a>
+                {{slide08.p2}}
+              </p>
+            </li>
+          </ul>
         </div>
-        <div class="share-box-end">
-          <p class="share-it">{{slide09.share}}</p>
-          <div class="addthis_sharing_toolbox"></div>
+        <button type="button" class="button--go-next">
+          <div>{{nav_bottom_arrow.next}}</div>
+          <div class="arrow"></div>
+        </button>
+      </div>
+
+      <div
+        class="slide"
+        tabindex="-1"
+        id="slide-9"
+        role="group"
+        {{!-- TODO: add translations for aria-roledescription --}}
+        aria-roledescription="slide"
+        {{!-- TODO: add translations for aria-label --}}
+        aria-label="9 of 9"
+      >
+        <div class="centered v-centered">
+          <h2 id="slide-9-title" class="font-style-hero end">{{slide09.h2}}</h2>
+          <img class="mascot" height="360" loading="lazy" src="assets/png/yes.png" alt="">
+          <div class="flex flex-wrap" style="--gap:24px">
+            <button type="button" class="button--primary start-over go-first">
+              {{slide09.start}}
+            </button>
+            <a class="button--primary learn-more" href="info/why.html">
+              {{slide09.learn}}
+            </a>
+          </div>
+          <div class="share-box-end">
+            <p class="share-it">{{slide09.share}}</p>
+            <div class="addthis_sharing_toolbox"></div>
+          </div>
         </div>
       </div>
-    </div>
 
-  </div>
-</section>
+    </div>
+  </section>
+</main>

@@ -16,6 +16,8 @@ jest.mock("../store", () => {
   };
 });
 
+const selector = ".button--go-next";
+
 describe("AdvanceSlides", () => {
   let advanceSlides;
   let spyButton;
@@ -25,7 +27,7 @@ describe("AdvanceSlides", () => {
 
   beforeAll(() => {
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
-    element = document.querySelector(".go-next.bottom-arrow");
+    element = document.querySelector(selector);
     spyButton = jest.spyOn(AdvanceSlides.prototype, "handleClick");
     spyAdvanceToSlide = jest.spyOn(AdvanceSlides.prototype, "advanceToSlide");
   });
@@ -47,9 +49,7 @@ describe("AdvanceSlides", () => {
   });
 
   test("The component's HTML exists", () => {
-    expect([
-      ...document.querySelectorAll(".go-next.bottom-arrow"),
-    ]).toHaveLength(6);
+    expect([...document.querySelectorAll(selector)]).toHaveLength(6);
   });
 
   test("The consumer should be able to call new() on AdvanceSlides class", () => {
@@ -73,7 +73,7 @@ describe("AdvanceSlides", () => {
   });
 
   test("The component's button handles a click event", () => {
-    document.querySelector(".go-next.bottom-arrow").click();
+    document.querySelector(selector).click();
     expect(spyButton).toHaveBeenCalled();
   });
 

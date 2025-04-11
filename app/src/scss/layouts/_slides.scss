@@ -1,0 +1,156 @@
+@use "sass:map";
+@use "sass:color";
+@use "../abstracts/" as *;
+
+.slides {
+  container-type: inline-size;
+  position: fixed;
+  inset: $nav-main-height 0 0 0;
+  max-width: $slides-max-width;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slide {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: map.get($spacing, "med2");
+
+  @include responsive_height(medium-screens) {
+    justify-content: space-between;
+    padding: map.get($spacing, "sm");
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    margin-inline: auto;
+    margin-block: 0;
+    overflow-wrap: break-word;
+  }
+
+  h1,
+  h2 {
+    font-size: var(--fs-lg);
+  }
+
+  h3 {
+    font-size: var(--fs-md);
+  }
+
+  h1 {
+    font-style: italic;
+    max-width: 35ch;
+  }
+
+  p {
+    font-size: var(--fs-base);
+    text-wrap: balance;
+  }
+}
+
+.centered {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 2.5lh;
+  max-width: 100%;
+
+  @include responsive(small-screens) {
+    gap: 1.5lh;
+  }
+}
+
+.v-centered {
+  // TODO: code smell; maybe there's a better way to vertically center or space the slide content then this?
+  // approximate height of slide minus "next" button
+  height: calc(100% - 6.5rem);
+  justify-content: center;
+
+  // approximate height of slide minus "next" button on mobile
+  @include responsive(small-screens) {
+    height: calc(100% - 4.5rem);
+  }
+}
+
+p.sub-head {
+  color: color.adjust(map.get($palette, "light-grey"), $lightness: -21%);
+  // font-size: 2.8rem;
+  font-size: var(--fs-md);
+  font-style: italic;
+  font-weight: 700;
+}
+
+// DHCR contact options (slide 5)
+.dhcr-choice {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: map.get($spacing, "xs");
+  max-width: 80%;
+  margin: 0 auto;
+
+  @include responsive(small-screens) {
+    gap: 0;
+  }
+
+  p {
+    align-self: stretch;
+    padding: map.get($spacing, "xs") map.get($spacing, "base");
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// Take action options (slide 8)
+.action-choice {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: map.get($spacing, "lg");
+  margin: 0 auto;
+
+  h3,
+  li {
+    margin-block-end: 0.65em;
+  }
+
+  li {
+    flex-basis: fit-content;
+  }
+
+  p {
+    max-width: 40ch;
+    font-size: var(--fs-sm);
+
+    @include responsive(small-screens) {
+      font-size: var(--fs-base);
+    }
+  }
+}
+
+// responsive images
+img.triple-s {
+  height: clamp(38px, 8cqi, 47.5px);
+  margin-block-end: map.get($spacing, "sm");
+}
+
+img.building {
+  height: clamp(100px, 20cqi, 135px);
+}
+
+img.mascot {
+  height: clamp(160px, 25cqi, 320px);
+}
+
+// add to calendar container
+.atc-container {
+  margin-top: map.get($spacing, "med2");
+}

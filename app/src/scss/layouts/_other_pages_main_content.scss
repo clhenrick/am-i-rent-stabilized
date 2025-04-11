@@ -1,0 +1,66 @@
+@use "sass:map";
+@use "../abstracts/" as *;
+
+$sidebar-ideal-width: 250px;
+
+.sidebar-main-wrapper {
+  // NOTE: flex-wrap usage & flex child properties allows the sidebar & main areas to be side by side and then stack vertically when there is less horizontal space
+  // code credit: https://every-layout.dev/layouts/sidebar/
+  display: flex;
+  flex-wrap: wrap;
+  gap: map.get($spacing, "lg");
+  margin-block-start: $nav-main-height;
+  // NOTE: container query used for fluid type scale
+  container-type: inline-size;
+  padding: 0 map.get($spacing, "base");
+}
+
+aside.info-pages {
+  position: sticky;
+  top: $nav-main-height;
+  flex-basis: $sidebar-ideal-width;
+  flex-grow: 1;
+  align-self: flex-start;
+  // NOTE: so when aside stacks on main, the space between them is reduced (due to large `gap` value in #wrapper)
+  margin-block-end: calc(-1 * #{map.get($spacing, "med2")});
+  background-color: map.get($palette, "white");
+  z-index: $z-index-mid;
+}
+
+main {
+  flex-grow: 999;
+  flex-basis: 0;
+  min-inline-size: 70%;
+  position: relative;
+  padding-block-end: map.get($spacing, "xxl");
+
+  h1,
+  h2,
+  h3 {
+    color: map.get($palette, "darkorange");
+  }
+
+  li {
+    color: map.get($palette, "green");
+    list-style-position: outside;
+  }
+
+  a[name] {
+    position: relative;
+    display: block;
+    top: -40px;
+    visibility: hidden;
+  }
+
+  a[name="videos"],
+  a[name="why"],
+  a[name="how"],
+  a[name="non-gov"] {
+    top: -80px;
+  }
+
+  .video {
+    max-width: 960px;
+    margin-block-end: map.get($spacing, "xl");
+  }
+}

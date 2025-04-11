@@ -1,0 +1,7 @@
+// styles shared between the homepage and info pages
+@use "../vendor/index";
+@use "../base/base";
+@use "../utilities/utility-classes";
+@use "../layouts/nav_main";
+@use "../components/buttons"; // used by primary navigation
+@use "../components/language_toggle";

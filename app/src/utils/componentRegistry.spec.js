@@ -13,7 +13,7 @@ describe("ComponentRegistry", () => {
 
   beforeEach(() => {
     one = new Component({
-      element: document.querySelector("div.desktop .lang-toggle"),
+      element: document.querySelector("aside.desktop .lang-toggle"),
     });
     two = new Component({ element: document.querySelector(".lang-toggle") });
     registry = new ComponentRegistry();

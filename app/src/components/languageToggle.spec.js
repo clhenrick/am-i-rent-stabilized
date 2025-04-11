@@ -22,7 +22,7 @@ describe("LanguageToggle", () => {
 
   beforeAll(async () => {
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
-    element = document.querySelector("div.desktop .lang-toggle");
+    element = document.querySelector("aside.desktop .lang-toggle");
   });
 
   beforeEach(() => {
@@ -85,14 +85,14 @@ describe("LanguageToggle", () => {
     languageToggle = new LanguageToggle({ element, store });
 
     document
-      .querySelector("div.desktop .lang-toggle button[lang='es']")
+      .querySelector("aside.desktop .lang-toggle button[lang='es']")
       .click();
     expect(spyHandleClick).toHaveBeenCalledTimes(1);
 
     spyHandleClick.mockClear();
 
     document
-      .querySelector("div.desktop .lang-toggle button[lang='zh']")
+      .querySelector("aside.desktop .lang-toggle button[lang='zh']")
       .click();
     expect(spyHandleClick).toHaveBeenCalledTimes(1);
   });
