@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "../abstracts/" as *;
 
 // base styles for all pages
@@ -128,7 +129,7 @@ li {
 
 :where(a[href]) {
   text-decoration: underline;
-  color: darken($bluegreen, 17);
+  color: color.adjust($bluegreen, $lightness: -17%);
   text-decoration-thickness: 0.125em;
   text-underline-offset: 2.5px;
   text-wrap: pretty;

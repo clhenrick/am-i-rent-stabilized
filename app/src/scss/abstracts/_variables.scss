@@ -1,3 +1,5 @@
+@use "sass:color";
+
 // TYPOGRAPHY
 // fonts
 $header-font: "museo-sans-rounded", "Arial Rounded MT Bold", "Helvetica Rounded",
@@ -52,9 +54,9 @@ $medgray: #9b9b9b;
 $lightgray: #ababab;
 $green: #417505;
 $orange: #ffc462;
-$darkorange: darken(
+$darkorange: color.adjust(
   $orange,
-  28%
+  $lightness: -28%
 ); // meets WCAG 3:1 color contrast for large text on white backgrounds
 
 // links

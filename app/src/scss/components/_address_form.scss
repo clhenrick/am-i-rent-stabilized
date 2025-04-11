@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "../abstracts/" as *;
 
 $input-border-width: 3px;
@@ -43,7 +44,8 @@ $input-border-width: 3px;
     }
 
     &.valid {
-      border: $input-border-width solid lighten($bluegreen, 10%);
+      border: $input-border-width solid
+        color.adjust($bluegreen, $lightness: 10%);
     }
   }
 }
