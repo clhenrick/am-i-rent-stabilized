@@ -9,46 +9,6 @@
 
   @include animation($name: play);
 
-  @-webkit-keyframes play {
-    from {
-      background-position: 0;
-    }
-
-    to {
-      background-position: -1920px;
-    }
-  }
-
-  @-moz-keyframes play {
-    from {
-      background-position: 0;
-    }
-
-    to {
-      background-position: -1920px;
-    }
-  }
-
-  @-ms-keyframes play {
-    from {
-      background-position: 0;
-    }
-
-    to {
-      background-position: -1920px;
-    }
-  }
-
-  @-o-keyframes play {
-    from {
-      background-position: 0;
-    }
-
-    to {
-      background-position: -1920px;
-    }
-  }
-
   @keyframes play {
     from {
       background-position: 0;
@@ -65,46 +25,6 @@
     height: 288px;
     left: 0;
 
-    @-webkit-keyframes play {
-      from {
-        background-position: 0;
-      }
-
-      to {
-        background-position: -1280px;
-      }
-    }
-
-    @-moz-keyframes play {
-      from {
-        background-position: 0;
-      }
-
-      to {
-        background-position: -1280px;
-      }
-    }
-
-    @-ms-keyframes play {
-      from {
-        background-position: 0;
-      }
-
-      to {
-        background-position: -1280px;
-      }
-    }
-
-    @-o-keyframes play {
-      from {
-        background-position: 0;
-      }
-
-      to {
-        background-position: -1280px;
-      }
-    }
-
     @keyframes play {
       from {
         background-position: 0;
@@ -116,10 +36,3 @@
     }
   }
 }
-
-// NOTE: for some reason Sass isn't compiling the $name variable in the keyframes mixin
-// @include responsive_height(medium-screens) {
-//   @include keyframes($name:play, $to:-1280px);
-// }
-
-// @include keyframes($name:play, $to:-1920px);
