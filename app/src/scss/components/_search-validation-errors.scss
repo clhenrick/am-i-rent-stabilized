@@ -15,7 +15,7 @@
     font-style: italic;
     letter-spacing: 1px;
     background-color: $valError;
-    border-radius: 10px;
+    border-radius: map.get($border-radius, "md");
 
     @include responsive(small-screens) {
       font-size: var(--fs-base);

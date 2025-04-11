@@ -35,7 +35,7 @@
     background-color: $darkorange;
     margin: 0 auto;
     padding: map.get($spacing, "sm") map.get($spacing, "med2");
-    border-radius: 35px;
+    border-radius: map.get($border-radius, "xl");
 
     &:hover {
       background-color: $orange;

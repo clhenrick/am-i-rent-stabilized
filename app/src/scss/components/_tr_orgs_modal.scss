@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "../abstracts/" as *;
 
 // tenants rights modal on homepage
@@ -27,7 +28,7 @@
   top: calc(#{$nav-main-height} + 24px);
   position: relative;
   margin: 0 auto;
-  border-radius: 10px;
+  border-radius: map.get($border-radius, "md");
   background: $white;
 }
 
@@ -62,7 +63,7 @@
   text-decoration: none;
   background: $darkorange;
   color: $white;
-  border-radius: 50%;
+  border-radius: map.get($border-radius, "circle");
 
   &:hover {
     background: $orange;

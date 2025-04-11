@@ -84,6 +84,14 @@ $spacing: (
   "xxl": 64px,
 );
 
+// BORDER RADII
+$border-radius: (
+  "sm": 6px,
+  "md": 12px,
+  "xl": 36px,
+  "circle": 50%,
+);
+
 // shared component dimensions
 $nav-main-height: 60px;
 $slides-max-width: 1280px;

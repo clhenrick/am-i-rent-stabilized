@@ -34,7 +34,7 @@ $map-popup-max-width: 275px;
 
     .map-pop-up--content {
       background-color: #fff;
-      border-radius: 6px;
+      border-radius: map.get($border-radius, "sm");
       padding: map.get($spacing, "xs");
       box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
     }

@@ -28,11 +28,13 @@ $input-border-width: 3px;
     flex-basis: 0;
     flex-grow: 999;
     min-inline-size: 75%;
+    min-block-size: 50px;
     font: inherit;
     color: inherit;
     letter-spacing: inherit;
     word-spacing: inherit;
     border: $input-border-width solid $gray;
+    border-radius: map.get($border-radius, "md");
     padding: 0 map.get($spacing, "xxs");
 
     &:focus-visible {
