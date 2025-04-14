@@ -2,11 +2,11 @@
 @use "../abstracts/" as *;
 
 .search-validation-errors {
-  margin-top: 12px;
+  margin-top: map.get($spacing, "sm");
   min-height: 125px;
 
   p {
-    margin: 12px auto;
+    margin: map.get($spacing, "sm") auto;
     text-align: center;
     padding: map.get($spacing, "sm");
     color: map.get($palette, "white");
