@@ -40,12 +40,6 @@
   }
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 *:focus-visible {
   @include focus-indicator();
 }
@@ -53,13 +47,12 @@
 html {
   // FIXME: setting 1rem to equal 10px is a bad practice in terms of not supporting WCAG SC 1.4.4 Resize Text, but then again the homepage design doesn't support this to begin with so that should be addressed first.
   font-size: 62.5%;
-  -webkit-text-size-adjust: none;
-  text-size-adjust: none;
 
   &[lang="en"] {
     font-size: 62.5%;
   }
 
+  // NOTE: we reduce the size of zh & es type to help it not overflow the slide's vertical space (aside: this is a bad design decision and should be revisited).
   &[lang="es"],
   &[lang="zh"] {
     font-size: 50%;
@@ -81,10 +74,9 @@ h2,
 h3 {
   font-family: $header-font;
   font-weight: 700;
-  line-height: $heading-text-line-height;
   letter-spacing: $letter-spacing;
-  text-wrap: balance;
   max-width: $heading-text-max-width;
+  margin-block: 0;
 }
 
 h1 {
@@ -116,12 +108,8 @@ li {
   font-size: var(--fs-sm);
   color: map.get($palette, "green");
   max-width: $normal-text-max-width;
-  line-height: $normal-text-line-height;
   text-wrap: pretty;
-
-  &:not(:last-of-type) {
-    margin-block-end: 1lh;
-  }
+  margin-block-end: 1lh;
 
   @include responsive(small-screens) {
     font-size: var(--fs-base);
@@ -141,7 +129,6 @@ li {
 }
 
 :where(ul) {
-  padding-block: 0;
   padding-inline-start: 2rem;
 }
 
@@ -158,8 +145,6 @@ li {
 }
 
 :where(img) {
-  display: block;
   position: relative;
   margin: 0 auto;
-  max-width: 100%;
 }
