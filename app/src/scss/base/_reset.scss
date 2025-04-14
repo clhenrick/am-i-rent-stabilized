@@ -97,13 +97,14 @@
     display: block;
   }
 
-  // Inherit fonts for inputs and buttons
+  // Inherit font properties for inputs and buttons
   input,
   button,
   textarea,
   select {
-    font-family: inherit;
-    font-size: inherit;
+    font: inherit;
+    letter-spacing: inherit;
+    word-spacing: inherit;
   }
 
   // Anything that has been anchored to should have extra scroll margin
