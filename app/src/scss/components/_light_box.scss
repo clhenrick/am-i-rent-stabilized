@@ -1,33 +1,31 @@
-/* Lightbox for sample rent history */
+@use "sass:map";
+@use "../abstracts/" as *;
+
+// sample rent history modal
 a.lightbox {
   position: fixed;
-  z-index: 49;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.8);
   opacity: 0;
-  -webkit-transition: opacity 400ms ease-in;
-  -moz-transition: opacity 400ms ease-in;
   transition: opacity 400ms ease-in;
   pointer-events: none;
 
   img {
     display: none;
     position: relative;
-    left: 30px;
     max-height: 680px;
     max-width: 530px;
-    margin-top: 80px;
+    margin-top: calc($nav-main-height + #{map.get($spacing, "med")});
   }
 
   &:target {
     opacity: 1;
     pointer-events: auto;
-    outline: none;
     display: block;
-    z-index: 20;
+    z-index: $z-index-mid;
   }
 
   &:target img {

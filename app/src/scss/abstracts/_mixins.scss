@@ -1,5 +1,20 @@
-// mixins
-// columns
+@use "sass:map";
+@use "sass:color";
+@use "variables" as *;
+
+@mixin focus-indicator($inverted: false) {
+  $darkblue: color.adjust(map.get($palette, "blue"), $lightness: -10%);
+  $inner-color: $darkblue;
+  $outer-color: map.get($palette, "white");
+  @if $inverted {
+    $inner-color: map.get($palette, "white");
+    $outer-color: $darkblue;
+  }
+  // meets 3:1 contrast for WCAG when over a white background
+  outline: 3px solid $inner-color;
+  box-shadow: 0 0 0 6px $outer-color;
+}
+
 @mixin columns($width, $number: 2, $gap: 0) {
   -webkit-columns: $width $number;
   -moz-columns: $width $number;
@@ -7,9 +22,9 @@
   -webkit-column-gap: $gap;
   -moz-column-gap: $gap;
   column-gap: $gap;
-  -webkit-column-rule: 1px solid $lightgray;
-  -moz-column-rule: 1px solid $lightgray;
-  column-rule: 1px solid $lightgray;
+  -webkit-column-rule: 1px solid map.get($palette, "light-grey");
+  -moz-column-rule: 1px solid map.get($palette, "light-grey");
+  column-rule: 1px solid map.get($palette, "light-grey");
 }
 
 @mixin translateY($value) {
@@ -18,35 +33,6 @@
   -moz-transform: translateY($value);
   -o-transform: translateY($value);
   transform: translateY($value);
-}
-
-// button
-@mixin button {
-  display: inline-block;
-  position: relative;
-  min-width: 170px;
-  margin: 0 auto;
-  font-size: 2em;
-  font-weight: 600;
-  text-align: center;
-  text-transform: uppercase;
-  background-color: $darkorange;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 35px;
-  color: #fff;
-  cursor: pointer;
-
-  &:hover {
-    background-color: $orange;
-    color: #fff;
-  }
-
-  &:focus {
-    outline: none;
-    border: none;
-    box-shadow: 0 0 3px 2px $blue;
-  }
 }
 
 // background size for images
@@ -152,7 +138,7 @@
 }
 
 @mixin responsive_mobile_landscape() {
-  @media only screen and (max-height: 320px) and (min-width: 320px) {
+  @media only screen and (orientation: landscape) and (height <= $height-sm) {
     @content;
   }
 }

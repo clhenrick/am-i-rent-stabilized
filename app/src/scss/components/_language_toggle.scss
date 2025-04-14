@@ -1,0 +1,88 @@
+@use "sass:map";
+@use "../abstracts/" as *;
+
+// NOTE: button layout & sizes differ somewhat between homepage & info pages
+// - info pages buttons are horizontally aligned
+// - homepage buttons are vertically aligned
+// - additionally on the homepage there are two sets of buttons, one for "desktop" (wider viewports) and one for "mobile" (very narrow viewports)
+
+.lang-toggle {
+  position: fixed;
+  top: $nav-main-height;
+  left: map.get($spacing, "xs");
+  z-index: $z-index-min;
+
+  // sidebar on info pages
+  aside.info-pages & {
+    position: static;
+  }
+
+  // buttons for "mobile" width viewports on homepage
+  .mobile & {
+    display: none;
+    position: absolute;
+    top: map.get($spacing, "sm");
+    left: map.get($spacing, "sm");
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  aside.info-pages & {
+    ul {
+      flex-direction: row;
+    }
+  }
+
+  li,
+  .button[lang],
+  p {
+    line-height: 1;
+  }
+
+  li {
+    margin-block-end: 0;
+  }
+
+  .button[lang],
+  p {
+    font-weight: 300;
+    font-size: 1.6rem;
+    color: map.get($palette, "gray");
+  }
+
+  .button[lang] {
+    min-width: 120px;
+    text-align: start;
+    padding: 0 map.get($spacing, "base");
+    text-transform: none;
+
+    &:hover {
+      color: map.get($palette, "light-grey");
+    }
+  }
+
+  aside.info-pages & {
+    .button[lang] {
+      padding-inline: 0;
+    }
+  }
+
+  @include responsive(small-screens) {
+    // buttons for wide viewports on homepage
+    .desktop & {
+      display: none;
+    }
+
+    .mobile & {
+      display: block;
+    }
+
+    .button[lang] {
+      min-height: 32px;
+    }
+  }
+}

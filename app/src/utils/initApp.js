@@ -45,7 +45,7 @@ export default function initApp() {
   registry.add(
     "languageToggle",
     new LanguageToggle({
-      element: document.querySelector("div.desktop > div.lang-toggle"),
+      element: document.querySelector("aside.desktop > .lang-toggle"),
       store,
     })
   );
@@ -54,7 +54,7 @@ export default function initApp() {
   registry.add(
     "languageToggleMobile",
     new LanguageToggle({
-      element: document.querySelector("div.mobile > div.lang-toggle"),
+      element: document.querySelector("aside.mobile > .lang-toggle"),
       store,
     })
   );
@@ -78,7 +78,7 @@ export default function initApp() {
   );
 
   // "next" slide advance buttons
-  document.querySelectorAll(".go-next").forEach((element, idx) => {
+  document.querySelectorAll(".button--go-next").forEach((element, idx) => {
     registry.add(`advanceSlides${idx}`, new AdvanceSlides({ element, store }));
   });
 
