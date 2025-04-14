@@ -37,12 +37,15 @@ export class SearchResultMap extends Component {
 
     this.updateProjection = this.updateProjection.bind(this);
     this.updateMapView = this.updateMapView.bind(this);
-    this.handleRentStabilizedGeoJson = this.handleRentStabilizedGeoJson.bind(
-      this
-    );
+    this.handleRentStabilizedGeoJson =
+      this.handleRentStabilizedGeoJson.bind(this);
     this.handleSearchResult = this.handleSearchResult.bind(this);
     this.renderMap = this.renderMap.bind(this);
     this.resetMap = this.resetMap.bind(this);
+
+    this.observer = null;
+    this.handleSvgResize = this.handleSvgResize.bind(this);
+    this.handleSvgResize();
 
     this.unsubscribeSearchResult = observeStore(
       this.store,
@@ -60,6 +63,18 @@ export class SearchResultMap extends Component {
   cleanUp() {
     this.unsubscribeSearchResult();
     this.unsubscribeRsGeoJson();
+    this.observer?.disconnect?.();
+  }
+
+  handleSvgResize() {
+    this.observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.contentBoxSize) {
+          this.updateMapView();
+        }
+      }
+    });
+    this.observer.observe(this.svg);
   }
 
   handleRentStabilizedGeoJson() {
@@ -82,13 +97,8 @@ export class SearchResultMap extends Component {
     if (!this.searchResultDetails || !this.searchResultDetails.coordinates) {
       return;
     }
-    const {
-      coordinates,
-      name,
-      borough,
-      state,
-      zipcode,
-    } = this.searchResultDetails;
+    const { coordinates, name, borough, state, zipcode } =
+      this.searchResultDetails;
     this.zoom = MAP_ZOOM.RESULT;
     this.center = coordinates;
     this.renderMap();
@@ -117,6 +127,7 @@ export class SearchResultMap extends Component {
 
   setMarkerPosition() {
     const { width, height } = this.dimensions;
+    this.updateProjection();
     this.marker.setAttribute(
       "transform",
       `translate(${width / 2 - MAP_MARKER.WIDTH / 2}, ${
@@ -149,8 +160,9 @@ export class SearchResultMap extends Component {
     this.renderMap();
   }
 
+  /** width and height of the figure#map's svg element */
   get dimensions() {
-    let { width, height } = this.element.getBoundingClientRect();
+    let { width, height } = this.svg.getBoundingClientRect();
     width -= MAP_BORDER_WIDTH * 2;
     height -= MAP_BORDER_WIDTH * 2;
     return { width, height };
