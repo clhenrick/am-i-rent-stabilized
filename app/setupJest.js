@@ -21,6 +21,12 @@ global.getMainHtml = () => {
   return template(localeData);
 };
 
+global.ResizeObserver = jest.fn().mockImplementation(() => ({
+  observe: jest.fn(),
+  unobserve: jest.fn(),
+  disconnect: jest.fn(),
+}));
+
 window.addeventatc = {
   refresh: jest.fn(),
 };
