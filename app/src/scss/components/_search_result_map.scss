@@ -3,6 +3,7 @@
 @use "../abstracts/" as *;
 
 $map-width-default: 550px;
+$map-max-height: 58vh;
 $map-popup-max-width: 275px;
 $map-aspect-ratio: math.div(16, 9);
 $map-aspect-ratio-mobile: math.div(
@@ -24,7 +25,8 @@ figure#map {
   }
 
   svg {
-    min-width: min(calc(100vw - 32px), $map-width-default);
+    min-width: min(calc(100vw - 24px), $map-width-default);
+    max-height: $map-max-height;
     aspect-ratio: $map-aspect-ratio;
     border: 2px solid map.get($palette, "medium-grey");
 
