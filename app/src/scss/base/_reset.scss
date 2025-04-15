@@ -52,6 +52,7 @@
   // Set core body defaults
   body {
     min-height: 100vh;
+    min-height: -webkit-fill-available;
     line-height: $normal-text-line-height;
   }
 
