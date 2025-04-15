@@ -191,7 +191,13 @@ module.exports = (env, argv) => {
           extractComments: true,
           sourceMap: true,
         }),
-        new OptimizeCSSAssetsPlugin({}),
+        new OptimizeCSSAssetsPlugin({
+          cssProcessorPluginOptions: {
+            // disable calc optimization as it incorrectly removes parenthesis around css custom properties
+            // this happens in _embed.scss with `calc(100% / (var(--aspect-ratio)))`
+            preset: ["default", { calc: false }],
+          },
+        }),
       ],
 
       // how webpack should split our code compiled into separate files for production
