@@ -122,12 +122,12 @@ export class SearchResultMap extends Component {
 
   setMapSize() {
     const { width, height } = this.dimensions;
+    this.updateProjection();
     this.svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
   }
 
   setMarkerPosition() {
     const { width, height } = this.dimensions;
-    this.updateProjection();
     this.marker.setAttribute(
       "transform",
       `translate(${width / 2 - MAP_MARKER.WIDTH / 2}, ${
