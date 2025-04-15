@@ -26,8 +26,6 @@ const LAYER_STYLES = {
 export class MapLikelyRsLayer {
   constructor(searchResultMap) {
     this.searchResultMap = searchResultMap;
-    this.dimensions = searchResultMap.dimensions;
-    this.projection = searchResultMap.projection;
 
     /** @type {null | ReturnType<geoPath>} d3-geo SVG path generator */
     this._pathGenerator = null;
@@ -72,5 +70,13 @@ export class MapLikelyRsLayer {
           />`
       )
       .join("\n");
+  }
+
+  get dimensions() {
+    return this.searchResultMap.dimensions;
+  }
+
+  get projection() {
+    return this.searchResultMap.projection;
   }
 }

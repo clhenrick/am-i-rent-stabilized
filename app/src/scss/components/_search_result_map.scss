@@ -1,21 +1,34 @@
 @use "sass:map";
+@use "sass:math";
 @use "../abstracts/" as *;
 
 $map-width-default: 550px;
-$map-height-default: 48vh;
 $map-popup-max-width: 275px;
+$map-aspect-ratio: math.div(16, 9);
+$map-aspect-ratio-mobile: math.div(
+  8,
+  5
+); // gives a bit more vertical space for popup
+$pop-up-box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
 
-#map {
+figure#map {
   display: flex;
   flex-direction: column;
   gap: map.get($spacing, "base");
-  position: relative;
-  margin: 0 auto;
-  max-width: $map-width-default;
-  max-height: $map-height-default;
+
+  .map-graphic-container {
+    position: relative;
+    margin: 0 auto;
+  }
 
   svg {
-    border: 3px solid map.get($palette, "medium-grey");
+    min-width: min(calc(100vw - 24px), $map-width-default);
+    aspect-ratio: $map-aspect-ratio;
+    border: 2px solid map.get($palette, "medium-grey");
+
+    @include responsive(small-screens) {
+      aspect-ratio: $map-aspect-ratio-mobile;
+    }
   }
 
   p {
@@ -28,21 +41,17 @@ $map-popup-max-width: 275px;
     top: 0;
     left: 0;
 
-    &.hidden {
-      opacity: 0;
-    }
-
     .map-pop-up--content {
       background-color: #fff;
       border-radius: map.get($border-radius, "sm");
       padding: map.get($spacing, "xs");
-      box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
+      box-shadow: $pop-up-box-shadow;
     }
 
     .map-pop-up--content p {
       width: 100%;
       max-width: 100%;
-      font-size: 1.6em;
+      font-size: map.get($fs, "sm");
       text-align: center;
       margin: 0;
     }
@@ -59,7 +68,7 @@ $map-popup-max-width: 275px;
 
     .map-pop-up--arrow {
       background-color: #fff;
-      box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
+      box-shadow: $pop-up-box-shadow;
       width: 17px;
       height: 17px;
       padding: 1px;
@@ -69,7 +78,7 @@ $map-popup-max-width: 275px;
 
     @include responsive(small-screens) {
       .map-pop-up--content p {
-        font-size: 12px;
+        font-size: map.get($fs, "mobile-base");
       }
     }
   }

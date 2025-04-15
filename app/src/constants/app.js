@@ -8,7 +8,8 @@ export const MAP_CENTER = {
   DEFAULT: [-74.006, 40.7128],
 };
 export const MAP_MARKER = {
-  WIDTH: 16 * 2,
-  HEIGHT: 20 * 2,
+  WIDTH: 32,
+  HEIGHT: 40,
+  TRIANGLE_OFFSET: 5,
 };
-export const MAP_BORDER_WIDTH = 3;
+export const MAP_BORDER_WIDTH = 2;

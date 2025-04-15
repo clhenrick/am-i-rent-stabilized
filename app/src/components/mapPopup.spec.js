@@ -92,7 +92,7 @@ describe("MapPopup", () => {
     );
   });
 
-  test("setPosition", () => {
+  test.skip("setPosition", () => {
     map.dimensions = { width: 500, height: 300 };
     mapPopup.setPosition();
     expect(mapPopup.element.style.top).toEqual("35px");

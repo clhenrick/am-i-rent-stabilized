@@ -54,6 +54,10 @@
     font-size: var(--fs-base);
     text-wrap: balance;
   }
+
+  li {
+    margin-block-end: 0;
+  }
 }
 
 .centered {
@@ -89,7 +93,7 @@ p.sub-head {
 }
 
 // DHCR contact options (slide 5)
-.dhcr-choice {
+ul.dhcr-choice {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: map.get($spacing, "xs");
@@ -109,7 +113,7 @@ p.sub-head {
 }
 
 // Take action options (slide 8)
-.action-choice {
+ul.action-choice {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
@@ -117,13 +121,12 @@ p.sub-head {
   gap: map.get($spacing, "lg");
   margin: 0 auto;
 
-  h3,
-  li {
-    margin-block-end: 0.65em;
-  }
-
   li {
     flex-basis: fit-content;
+  }
+
+  h3 {
+    margin-block-end: 0.65em;
   }
 
   p {

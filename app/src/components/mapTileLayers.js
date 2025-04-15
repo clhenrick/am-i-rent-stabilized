@@ -3,8 +3,6 @@ import * as d3Tile from "d3-tile";
 export class MapTileLayers {
   constructor(searchResultMap) {
     this.searchResultMap = searchResultMap;
-    this.dimensions = searchResultMap.dimensions;
-    this.projection = searchResultMap.projection;
     this.renderMapTile = this.renderMapTile.bind(this);
     this.renderMapTiles = this.renderMapTiles.bind(this);
     this.getBasemapTileUrl = this.getBasemapTileUrl.bind(this);
@@ -50,5 +48,13 @@ export class MapTileLayers {
 
   get tiles() {
     return this.tileSchema();
+  }
+
+  get dimensions() {
+    return this.searchResultMap.dimensions;
+  }
+
+  get projection() {
+    return this.searchResultMap.projection;
   }
 }
