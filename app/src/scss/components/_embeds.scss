@@ -1,5 +1,8 @@
-// responsive iframe embeds
-// code credit, CSS Tricks: https://css-tricks.com/responsive-iframes/
+// responsive container via CSS aspect-ratio
+// useful for media that needs to scale to its container, e.g. iframe, video, image, etc.
+[style*="--aspect-ratio"] {
+  aspect-ratio: var(--aspect-ratio);
+}
 
 [style*="--aspect-ratio"] > :first-child {
   width: 100%;
@@ -7,24 +10,4 @@
 
 [style*="--aspect-ratio"] > img {
   height: auto;
-}
-
-@supports (--custom: property) {
-  [style*="--aspect-ratio"] {
-    position: relative;
-    margin-block-end: 36px;
-  }
-
-  [style*="--aspect-ratio"]::before {
-    content: "";
-    display: block;
-    padding-block-end: calc(100% / (var(--aspect-ratio)));
-  }
-
-  [style*="--aspect-ratio"] > :first-child {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-  }
 }
