@@ -192,11 +192,7 @@ module.exports = (env, argv) => {
           sourceMap: true,
         }),
         new OptimizeCSSAssetsPlugin({
-          cssProcessorPluginOptions: {
-            // disable calc optimization as it incorrectly removes parenthesis around css custom properties
-            // this happens in _embed.scss with `calc(100% / (var(--aspect-ratio)))`
-            preset: ["default", { calc: false }],
-          },
+          cssProcessorPluginOptions: {},
         }),
       ],
 
