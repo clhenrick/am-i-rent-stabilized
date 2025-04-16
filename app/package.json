@@ -132,9 +132,9 @@
     "regenerator-runtime": "^0.13.5",
     "single-line-string": "^0.0.2"
   },
-  "packageManager": "yarn@1.22.22",
+  "packageManager": "yarn@4.9.1",
   "engines": {
-    "node": ">=16",
-    "yarn": ">=1.22"
+    "node": ">=22.14.0",
+    "yarn": ">=4.9.1"
   }
 }
