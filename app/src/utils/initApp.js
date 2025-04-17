@@ -14,6 +14,7 @@ import { AddToCalendar } from "../components/addToCalendar";
 import { StartOver } from "../components/startOver";
 import { TenantsRightsModal } from "../components/tenantsRightsModal";
 import { initLang } from "./translate";
+import { ModalDialog } from "../components/modalDialog";
 
 const registry = new ComponentRegistry();
 
@@ -145,6 +146,14 @@ export default function initApp() {
     "addToCalendar",
     new AddToCalendar({
       element: document.querySelector(".atc-container"),
+    })
+  );
+
+  registry.add(
+    "modalDialog",
+    new ModalDialog({
+      element: document.querySelector(".modal--rent-history"),
+      trigger: document.querySelector(".js-rent-history"),
     })
   );
 }

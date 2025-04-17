@@ -196,20 +196,18 @@
       >
         <div class="centered v-centered">
           <h2 id="slide-7-title">{{slide07.h2}}</h2>
-          <a href="#rent-history">
-            <img
-              class="rent-history"
-              height="190"
-              src="assets/png/sample-rent-history-thumb.png"
-              loading="lazy"
-              {{!-- TODO: add translations for alt text --}}
-              alt="Sample rent history provided by the NY DHCR. The letters RS under the Apartment Status column means rent stabilized."
-            >
-          </a>
+          <img
+            class="rent-history"
+            height="190"
+            src="assets/png/sample-rent-history-thumb.png"
+            loading="lazy"
+            {{!-- TODO: add translations for alt text --}}
+            alt="Sample rent history provided by the NY DHCR. The letters RS under the Apartment Status column means rent stabilized."
+          >
           <p class="view-sample">
-            <a href="#rent-history">
+            <button type="button" class="button js-rent-history" style="color:inherit">
               {{slide07.p}}
-            </a>
+            </button>
           </p>
         </div>
         <button type="button" class="button--go-next">
@@ -288,4 +286,25 @@
 
     </div>
   </section>
+
+  <dialog class="modal modal--rent-history">
+    <div class="modal--body">
+      <button class="button modal--close" aria-label="close">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#fff"
+          stroke-width="4"
+          stroke-linecap="round"
+          aria-hidden="true"
+        >
+          <line x1="2" y1="2" x2="22" y2="22"/>
+          <line x1="2" y1="22" x2="22" y2="2"/>
+        </svg>
+      </button>
+      <div class="modal--content">
+        <img class="modal--rent-history-img" src="assets/png/sample-rent-history.png">
+      </div>
+    </div>
+  </dialog>
 </main>

@@ -1,0 +1,89 @@
+@use "sass:map";
+@use "../abstracts/" as *;
+
+dialog {
+  --backdrop-bg-color-open: rgb(0 0 0 / 75%);
+  --backdrop-bg-color-closed: rgb(0 0 0 / 0%);
+  --animation-duration: 150ms;
+  --animation-easing: ease-in-out;
+  padding: 0;
+  margin: 0 auto;
+
+  .modal--body {
+    position: relative;
+  }
+
+  .modal--content {
+    max-width: fit-content;
+    background: map.get($palette, "white");
+    padding: map.get($spacing, "base");
+  }
+
+  button.modal--close {
+    z-index: 1;
+    position: absolute;
+    top: map.get($spacing, "sm");
+    right: map.get($spacing, "sm");
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: map.get($palette, "darkorange");
+    border-radius: map.get($border-radius, "circle");
+    padding: map.get($spacing, "xs");
+
+    &:hover {
+      background: map.get($palette, "orange");
+    }
+  }
+
+  // specific to rent-history modal
+  img.modal--rent-history-img {
+    max-width: 500px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  dialog {
+    opacity: 0;
+    transition:
+      // NOTE: use of position 0 fixes a bug in Safari where then dialog position jumps on close / fade out. However, this comes at the expense of disabling the close / fade out transition. This could be undone once the bug in Safari has been fixed. See: https://bugs.webkit.org/show_bug.cgi?id=275184
+      position 0,
+      overlay var(--animation-duration) var(--animation-easing) allow-discrete,
+      opacity var(--animation-duration) var(--animation-easing),
+      display var(--animation-duration) var(--animation-easing) allow-discrete;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  dialog[open] {
+    opacity: 1;
+  }
+}
+
+dialog::backdrop {
+  background-color: var(--backdrop-bg-color-closed);
+}
+
+dialog[open]::backdrop {
+  background-color: var(--backdrop-bg-color-open);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  dialog::backdrop {
+    transition: display var(--animation-duration) allow-discrete,
+      overlay var(--animation-duration) allow-discrete,
+      background-color var(--animation-duration);
+  }
+}
+
+@starting-style {
+  dialog[open] {
+    opacity: 0;
+  }
+}
+
+@starting-style {
+  dialog[open]::backdrop {
+    background-color: var(--backdrop-bg-color-closed);
+  }
+}
