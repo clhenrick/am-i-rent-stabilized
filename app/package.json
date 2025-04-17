@@ -11,11 +11,11 @@
   "license": "MIT",
   "main": "src/index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode=development --env.NODE_ENV=development",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider webpack-dev-server --mode=development --env.NODE_ENV=development",
     "start:preloaded-state": "npm start -- --env.USE_PRELOADED_STATE=true --env.USE_REDUX_LOGGER=true",
     "start:prod": "serve dist",
-    "webpack:debug": "webpack --debug=true --display-error-details=true --verbose=true --mode=development --env.NODE_ENV=development --env.USE_REDUX_LOGGER=true",
-    "prod": "webpack --mode=production --env.NODE_ENV=production",
+    "webpack:debug": "NODE_OPTIONS=--openssl-legacy-provider webpack --debug=true --display-error-details=true --verbose=true --mode=development --env.NODE_ENV=development --env.USE_REDUX_LOGGER=true",
+    "prod": "NODE_OPTIONS=--openssl-legacy-provider webpack --mode=production --env.NODE_ENV=production",
     "lint:js": "eslint 'src/**/*.js' --ext .js",
     "lint:js:fix": "npm run lint:js -- --fix",
     "test": "jest",
@@ -132,9 +132,9 @@
     "regenerator-runtime": "^0.13.5",
     "single-line-string": "^0.0.2"
   },
-  "packageManager": "yarn@1.22.22",
+  "packageManager": "yarn@4.9.1",
   "engines": {
-    "node": ">=16",
-    "yarn": ">=1.22"
+    "node": ">=22.14.0",
+    "yarn": ">=4.9.1"
   }
 }
