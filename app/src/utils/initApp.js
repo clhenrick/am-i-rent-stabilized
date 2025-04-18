@@ -143,17 +143,18 @@ export default function initApp() {
   );
 
   registry.add(
-    "addToCalendar",
-    new AddToCalendar({
-      element: document.querySelector(".atc-container"),
-    })
-  );
-
-  registry.add(
-    "modalDialog",
+    "modalDialogRentHistory",
     new ModalDialog({
       element: document.querySelector(".modal--rent-history"),
       trigger: document.querySelector(".js-rent-history"),
+    })
+  );
+
+  // NOTE: instantiate this component last as it does something async which sometimes prevents components instantiated after it from initializing correctly
+  registry.add(
+    "addToCalendar",
+    new AddToCalendar({
+      element: document.querySelector(".atc-container"),
     })
   );
 }
