@@ -139,6 +139,10 @@ ul.action-choice {
   }
 }
 
+img.rent-history {
+  border: 1px solid map.get($palette, "grey");
+}
+
 // responsive images
 img.triple-s {
   height: clamp(38px, 8cqi, 47.5px);
