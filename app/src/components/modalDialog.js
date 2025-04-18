@@ -1,5 +1,10 @@
 import { Component } from "./_componentBase";
 
+/** does the user not care if animations are enabled on their device? */
+const reduceMotionNoPreference = window.matchMedia(
+  "prefers-reduced-motion: no-preference"
+);
+
 /** handles modal dialogs for the tenants rights and rent history modals */
 export class ModalDialog extends Component {
   constructor(props) {
@@ -20,6 +25,7 @@ export class ModalDialog extends Component {
 
     this.handleOpen = this.handleOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
     this.handleLightDismiss = this.handleLightDismiss.bind(this);
     this.bindEvents = this.bindEvents.bind(this);
     this.removeEvents = this.removeEvents.bind(this);
@@ -43,6 +49,7 @@ export class ModalDialog extends Component {
 
   handleKeyDown(event) {
     if (event.code === "Escape") {
+      event.preventDefault();
       this.handleClose();
     }
   }
@@ -57,12 +64,29 @@ export class ModalDialog extends Component {
     }
   }
 
+  /**
+   * closes the dialog with an animation if the user has no reduced motion preference, otherwise closes without animation
+   */
   handleClose() {
-    this.dialog.close();
+    if (reduceMotionNoPreference.matches) {
+      this.dialog
+        .animate([{ opacity: 0 }], { duration: 500 })
+        .finished.then((animation) => {
+          animation.commitStyles();
+          this.dialog.close();
+        });
+    } else {
+      this.dialog.close();
+    }
   }
 
+  /**
+   * safely opens (without throwing) the dialog as a modal dialog
+   */
   handleOpen() {
     if (!this.dialog.open) {
+      // in case close animation sets `opacity:0` on `dialog.style`
+      this.dialog.style.opacity = 1;
       this.dialog.showModal();
     }
   }
