@@ -5,6 +5,9 @@ const reduceMotionNoPreference = window.matchMedia(
   "prefers-reduced-motion: no-preference"
 );
 
+/** the dialog's close animation duration in milliseconds */
+const closeAnimationDurationMs = 500;
+
 /** handles modal dialogs for the tenants rights and rent history modals */
 export class ModalDialog extends Component {
   constructor(props) {
@@ -70,7 +73,7 @@ export class ModalDialog extends Component {
   handleClose() {
     if (reduceMotionNoPreference.matches) {
       this.dialog
-        .animate([{ opacity: 0 }], { duration: 500 })
+        .animate([{ opacity: 0 }], { duration: closeAnimationDurationMs })
         .finished.then((animation) => {
           animation.commitStyles();
           this.dialog.close();

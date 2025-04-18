@@ -1,10 +1,11 @@
 @use "sass:map";
 @use "../abstracts/" as *;
 
+// base ModalDialog component styles
 dialog {
   --backdrop-bg-color-open: rgb(0 0 0 / 75%);
   --backdrop-bg-color-closed: rgb(0 0 0 / 0%);
-  --animation-duration: 150ms;
+  --animation-duration: 500ms; // NOTE: matches animation time in ModalDialog component
   --animation-easing: ease-in-out;
   padding: 0;
   top: 50%;
