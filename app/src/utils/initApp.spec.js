@@ -13,6 +13,7 @@ import { RentHistoryEmail } from "../components/rentHistoryEmail";
 import { AddToCalendar } from "../components/addToCalendar";
 import { StartOver } from "../components/startOver";
 import { TenantsRightsModal } from "../components/tenantsRightsModal";
+import { ModalDialog } from "../components/modalDialog";
 
 jest.mock("./translate");
 jest.mock("./componentRegistry");
@@ -28,9 +29,10 @@ jest.mock("../components/rentHistoryEmail");
 jest.mock("../components/addToCalendar");
 jest.mock("../components/startOver");
 jest.mock("../components/tenantsRightsModal");
+jest.mock("../components/modalDialog");
 
 describe("initApp", () => {
-  const NUMBER_OF_COMPONENT_INSTANCES = 19; // not including KeyboardNavigation
+  const NUMBER_OF_COMPONENT_INSTANCES = 20; // not including KeyboardNavigation
 
   beforeAll(() => {
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
@@ -59,6 +61,7 @@ describe("initApp", () => {
     expect(AddToCalendar).toHaveBeenCalled();
     expect(StartOver).toHaveBeenCalled();
     expect(TenantsRightsModal).toHaveBeenCalled();
+    expect(ModalDialog).toHaveBeenCalled();
   });
 
   test("all component instances are added to the registry", () => {
