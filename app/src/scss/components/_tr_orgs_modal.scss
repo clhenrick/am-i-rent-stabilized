@@ -1,42 +1,8 @@
 @use "sass:map";
 @use "../abstracts/" as *;
 
-// tenants rights modal on homepage
-.tr-modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.8);
-  opacity: 0;
-  transition: opacity 400ms ease-in;
-  pointer-events: none;
-
-  &:target {
-    opacity: 1;
-    pointer-events: auto;
-    outline: none;
-    display: block;
-    z-index: $z-index-mid;
-  }
-}
-
-.org-container {
-  max-width: max(475px, 70vw);
-  height: 80%;
-  top: calc(#{$nav-main-height} + 24px);
-  position: relative;
-  margin: 0 auto;
-  border-radius: map.get($border-radius, "md");
-  background: map.get($palette, "white");
-}
-
-.org-content {
-  height: 100%;
-  overflow-y: auto;
-  padding: 24px;
-
-  &:first-child {
-    margin-top: 10px;
-  }
+.modal--tenants-rights {
+  max-width: 650px;
 
   h2,
   h3,
@@ -45,32 +11,12 @@
     margin-block-start: 0;
     margin-block-end: 0.65em;
   }
-}
 
-.close {
-  width: 44px;
-  height: 44px;
-  padding: 8px;
-  position: absolute;
-  right: 18px;
-  top: 12px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  background: map.get($palette, "darkorange");
-  color: map.get($palette, "white");
-  border-radius: map.get($border-radius, "circle");
+  .tr-org-info {
+    margin-block-start: map.get($spacing, "lg");
 
-  &:hover {
-    background: map.get($palette, "orange");
-  }
-}
-
-.tr-org-info {
-  margin-block-start: 24px;
-
-  &:last-of-type {
-    margin-block-end: 24px;
+    &:last-of-type {
+      margin-block-end: map.get($spacing, "lg");
+    }
   }
 }
