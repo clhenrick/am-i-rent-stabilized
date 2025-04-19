@@ -137,15 +137,25 @@ export default function initApp() {
   registry.add(
     "tenantsRightsModal",
     new TenantsRightsModal({
-      element: document.querySelector("div.tr-modal"),
+      element: document.querySelector(
+        "dialog.modal--tenants-rights .modal--content"
+      ),
       store,
+    })
+  );
+
+  registry.add(
+    "modalDialogTenantsRightsGroups",
+    new ModalDialog({
+      element: document.querySelector("dialog.modal--tenants-rights"),
+      trigger: document.querySelector(".js-open-tr-modal"),
     })
   );
 
   registry.add(
     "modalDialogRentHistory",
     new ModalDialog({
-      element: document.querySelector(".modal--rent-history"),
+      element: document.querySelector("dialog.modal--rent-history"),
       trigger: document.querySelector(".js-rent-history"),
     })
   );
