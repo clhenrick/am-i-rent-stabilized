@@ -42,6 +42,21 @@
     }
   }
 
+  // secondary rounded buttons
+  &--secondary {
+    @extend .button;
+    padding: map.get($spacing, "sm") map.get($spacing, "med2");
+    border-radius: map.get($border-radius, "xl");
+    border: 2px solid map.get($palette, "green");
+    text-transform: none;
+    color: map.get($palette, "green");
+
+    &:hover {
+      color: map.get($palette, "blue-green");
+      border-color: map.get($palette, "blue-green");
+    }
+  }
+
   // the "Next" buttons with the downward facing chevron icon
   &--go-next {
     @extend .button;

@@ -14,6 +14,7 @@ import { AddToCalendar } from "../components/addToCalendar";
 import { StartOver } from "../components/startOver";
 import { TenantsRightsModal } from "../components/tenantsRightsModal";
 import { initLang } from "./translate";
+import { ModalDialog } from "../components/modalDialog";
 
 const registry = new ComponentRegistry();
 
@@ -141,6 +142,15 @@ export default function initApp() {
     })
   );
 
+  registry.add(
+    "modalDialogRentHistory",
+    new ModalDialog({
+      element: document.querySelector(".modal--rent-history"),
+      trigger: document.querySelector(".js-rent-history"),
+    })
+  );
+
+  // NOTE: instantiate this component last as it does something async which sometimes prevents components instantiated after it from initializing correctly
   registry.add(
     "addToCalendar",
     new AddToCalendar({
