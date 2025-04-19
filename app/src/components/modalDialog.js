@@ -15,8 +15,9 @@ export class ModalDialog extends Component {
   }
 
   init(props) {
+    // NOTE: the trigger (typically a <button> element) should be provided in most cases, but it's also possible to use a modal dialog without one
     if ("trigger" in props && props.trigger instanceof HTMLElement) {
-      /** @type {HTMLButtonElement} */
+      /** @type {HTMLButtonElement | undefined} */
       this.trigger = props.trigger;
     }
 
@@ -39,14 +40,14 @@ export class ModalDialog extends Component {
   bindEvents() {
     document.addEventListener("keydown", this.handleKeyDown);
     this.closeButton.addEventListener("click", this.handleClose);
-    this.trigger.addEventListener("click", this.handleOpen);
+    this.trigger?.addEventListener("click", this.handleOpen);
     this.dialog.addEventListener("click", this.handleLightDismiss);
   }
 
   removeEvents() {
     document.removeEventListener("keydown", this.handleKeyDown);
     this.closeButton.removeEventListener("click", this.handleClose);
-    this.trigger.removeEventListener("click", this.handleOpen);
+    this.trigger?.removeEventListener("click", this.handleOpen);
     this.dialog.removeEventListener("click", this.handleLightDismiss);
   }
 
@@ -88,7 +89,7 @@ export class ModalDialog extends Component {
    */
   handleOpen() {
     if (!this.dialog.open) {
-      // in case close animation sets `opacity:0` on `dialog.style`
+      // in case the close animation sets `opacity:0` on `dialog.style`
       this.dialog.style.opacity = 1;
       this.dialog.showModal();
     }
