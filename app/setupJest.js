@@ -43,6 +43,7 @@ function registerHbsPartials() {
   const partials = [
     "navigation",
     "navigation_info",
+    "modal_dialog",
     "language_toggle",
     "progress_indicator",
     "address_search_form",

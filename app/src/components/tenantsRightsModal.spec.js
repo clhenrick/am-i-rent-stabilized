@@ -1,33 +1,17 @@
-import Handlebars from "handlebars";
 import { TenantsRightsModal, ERROR_MISSING_COORDS } from "./tenantsRightsModal";
 import { store } from "../store";
-import template from "../hbs_partials/tenants_rights_modal.hbs";
 
 jest.mock("../store");
-
-Handlebars.registerPartial("trGroups", template);
 
 describe("TenantsRightsModal", () => {
   let element;
   let tenantsRightsModal;
-  let spyBindEvents;
-  let spyHandleKeyDown;
-  let spyMaybeClearWindowHash;
   let spyRenderModalContents;
 
   beforeAll(() => {
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
-    element = document.createElement("div");
-    element.classList.add("tr-modal");
-    element.setAttribute("id", "open-modal");
-    spyBindEvents = jest.spyOn(TenantsRightsModal.prototype, "bindEvents");
-    spyHandleKeyDown = jest.spyOn(
-      TenantsRightsModal.prototype,
-      "handleKeyDown"
-    );
-    spyMaybeClearWindowHash = jest.spyOn(
-      TenantsRightsModal.prototype,
-      "maybeClearWindowHash"
+    element = document.querySelector(
+      "dialog.modal--tenants-rights .modal--content"
     );
     spyRenderModalContents = jest.spyOn(
       TenantsRightsModal.prototype,
@@ -36,9 +20,6 @@ describe("TenantsRightsModal", () => {
   });
 
   beforeEach(() => {
-    if (tenantsRightsModal) {
-      tenantsRightsModal.removeEvents();
-    }
     tenantsRightsModal = new TenantsRightsModal({ store, element });
   });
 
@@ -54,30 +35,6 @@ describe("TenantsRightsModal", () => {
     expect(tenantsRightsModal).toBeTruthy();
   });
 
-  test("init", () => {
-    expect(spyBindEvents).toHaveBeenCalledTimes(1);
-    expect(spyMaybeClearWindowHash).toHaveBeenCalledTimes(1);
-  });
-
-  test("bindEvents", () => {
-    const event = new Event("keydown");
-    document.dispatchEvent(event);
-    expect(spyHandleKeyDown).toHaveBeenCalledTimes(1);
-  });
-
-  test("removeEvents", () => {
-    tenantsRightsModal.removeEvents();
-    const event = new Event("keydown");
-    document.dispatchEvent(event);
-    expect(spyHandleKeyDown).not.toHaveBeenCalled();
-  });
-
-  test("handleKeyDown", () => {
-    tenantsRightsModal.handleKeyDown({ code: "Escape" });
-    // already called 1x from init method
-    expect(spyMaybeClearWindowHash).toHaveBeenCalledTimes(2);
-  });
-
   test("getSearchCoords", () => {
     const feature = {
       geometry: {
@@ -89,12 +46,6 @@ describe("TenantsRightsModal", () => {
     expect(() =>
       tenantsRightsModal.getSearchCoords({ geometry: { coordinates: [] } })
     ).toThrow(new Error(ERROR_MISSING_COORDS));
-  });
-
-  test("maybeClearWindowHash", () => {
-    window.location.hash = "open-modal";
-    tenantsRightsModal.maybeClearWindowHash();
-    expect(window.location.hash).toBe("");
   });
 
   test("renderModalContents", () => {

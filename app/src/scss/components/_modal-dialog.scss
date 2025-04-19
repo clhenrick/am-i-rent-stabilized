@@ -13,6 +13,7 @@ dialog {
   transform: translate(-50%, -50%);
   width: calc(100% - #{map.get($spacing, "sm")} * 2);
   max-width: 550px;
+  max-height: 90vh;
   border: none;
 
   .modal--body {
