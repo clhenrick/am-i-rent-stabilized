@@ -10,7 +10,9 @@ Handlebars.registerPartial("trGroups", template);
 export const ERROR_MISSING_COORDS =
   "Missing coordinates from address search result";
 
-/** Handles rendering the tenants rights group content in the corresponding modal dialog instance
+/** Handles
+ * - rendering the tenants rights group content in the corresponding modal dialog instance
+ * - toggling whether slide 8 says there are tenants rights groups in the search result area
  * NOTE: modal dialog functionality handled by ModalDialog component
  */
 export class TenantsRightsModal extends Component {
