@@ -1,6 +1,33 @@
 # Am I Rent Stabilized Changelog
 This changelog describes significant changes to the project. It was first created on November 29, 2020 so does not account for the entire project's history.
 
+## 2025-04-18 Accessibility fixes for sample rent history modal ([#164](https://github.com/clhenrick/am-i-rent-stabilized/pull/164))
+
+Added a proper (accessible) `ModalDialog` component that utilizes the HTML `<dialog>` element to show the sample rent history image in slide seven. This fixes multiple accessibility issues with the previous "light box" implementation.
+
+## 2025-04-16 Upgrade NodeJS and Yarn ([#162](https://github.com/clhenrick/am-i-rent-stabilized/pull/162))
+
+Upgraded dependency NodeJS and with it use Corepack for utilizing the latest version of the Yarn package manager.
+
+- upgraded NodeJS to LTS v22.14.0
+- upgraded Yarn to v4.9.1
+- updated webpack npm scripts to fix an issue with OpenSSL being incompatible with Webpack v4
+
+## 2025-04-14 Search Result Map component fixes ([#160](https://github.com/clhenrick/am-i-rent-stabilized/pull/160))
+
+Fixed some issues with the `SearchResultMap` component's SVG rendering & pop-up positioning that were left over from [PR #153](https://github.com/clhenrick/am-i-rent-stabilized/pull/153).
+
+## 2025-04-13 Refactor app (S)CSS ([#159](https://github.com/clhenrick/am-i-rent-stabilized/pull/159))
+
+Refactored the app's Sass to be more DRY, maintainable, make better use of the cascade, and use modern Sass features like `@use` instead of the deprecated `@import`. This should make it easier to update the app's UI in the future then with the previous tangled and messy CSS (that was mostly over ten years old!).
+
+Additionally:
+
+- Fixed incorrect usage of heading level elements in the info pages
+- Implemented a fluid type scale via container queries to improve the handling of type sizing in the homepage's slides (s/o to [Aleksandr Hovhannisyan](https://www.aleksandrhovhannisyan.com/blog/fluid-type-scale-with-css-clamp/)!)
+- Removed `normalize.css` in favor of a custom CSS reset
+- Upgraded dependencies Sass and Prettier
+
 ## 2025-03-23 Migrate app to CARTO v3 ([#144](https://github.com/clhenrick/am-i-rent-stabilized/issues/144))
 
 Due to the "legacy" CARTO(DB) platform being shutdown in April of 2025, the website was updated to use the newer "v3" CARTO platform, SQL API, and related services. This included:
