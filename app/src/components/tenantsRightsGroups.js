@@ -11,11 +11,11 @@ export const ERROR_MISSING_COORDS =
   "Missing coordinates from address search result";
 
 /** Handles
- * - rendering the tenants rights group content in the corresponding modal dialog instance
+ * - If tenants rights groups exists, this component handles rendering the tenants rights group content in the corresponding dialog.modal--tenants-rights
  * - toggling whether slide 8 says there are tenants rights groups in the search result area
  * NOTE: modal dialog functionality handled by ModalDialog component
  */
-export class TenantsRightsModal extends Component {
+export class TenantsRightsGroups extends Component {
   constructor(props) {
     super(props);
   }

@@ -1,11 +1,14 @@
-import { TenantsRightsModal, ERROR_MISSING_COORDS } from "./tenantsRightsModal";
+import {
+  TenantsRightsGroups,
+  ERROR_MISSING_COORDS,
+} from "./tenantsRightsGroups";
 import { store } from "../store";
 
 jest.mock("../store");
 
-describe("TenantsRightsModal", () => {
+describe("TenantsRightsGroups", () => {
   let element;
-  let tenantsRightsModal;
+  let tenantsRightsGroups;
   let spyRenderModalContents;
 
   beforeAll(() => {
@@ -14,13 +17,13 @@ describe("TenantsRightsModal", () => {
       "dialog.modal--tenants-rights .modal--content"
     );
     spyRenderModalContents = jest.spyOn(
-      TenantsRightsModal.prototype,
+      TenantsRightsGroups.prototype,
       "renderModalContents"
     );
   });
 
   beforeEach(() => {
-    tenantsRightsModal = new TenantsRightsModal({ store, element });
+    tenantsRightsGroups = new TenantsRightsGroups({ store, element });
   });
 
   afterEach(() => {
@@ -31,8 +34,8 @@ describe("TenantsRightsModal", () => {
     expect(element).not.toBeNull();
   });
 
-  test("The consumer should be able to call new on TenantsRightsModal", () => {
-    expect(tenantsRightsModal).toBeTruthy();
+  test("The consumer should be able to call new on TenantsRightsGroups", () => {
+    expect(tenantsRightsGroups).toBeTruthy();
   });
 
   test("getSearchCoords", () => {
@@ -41,16 +44,16 @@ describe("TenantsRightsModal", () => {
         coordinates: [-79, 41],
       },
     };
-    const result = tenantsRightsModal.getSearchCoords(feature);
+    const result = tenantsRightsGroups.getSearchCoords(feature);
     expect(result).toEqual({ lon: -79, lat: 41 });
     expect(() =>
-      tenantsRightsModal.getSearchCoords({ geometry: { coordinates: [] } })
+      tenantsRightsGroups.getSearchCoords({ geometry: { coordinates: [] } })
     ).toThrow(new Error(ERROR_MISSING_COORDS));
   });
 
   test("renderModalContents", () => {
     const data = [{}, {}];
-    tenantsRightsModal.renderModalContents(data);
+    tenantsRightsGroups.renderModalContents(data);
     expect(element.innerHTML).toBeTruthy();
   });
 
@@ -64,7 +67,7 @@ describe("TenantsRightsModal", () => {
         },
       ],
     };
-    tenantsRightsModal.handleSearchResultChange(data);
+    tenantsRightsGroups.handleSearchResultChange(data);
     expect(store.dispatch).toHaveBeenCalledWith(expect.any(Function));
   });
 
@@ -73,11 +76,11 @@ describe("TenantsRightsModal", () => {
       results: { rows: [{}, {}] },
       status: "idle",
     };
-    tenantsRightsModal.handleTenantsRightsChange(params);
-    expect(tenantsRightsModal.containerYes.classList.contains("hidden")).toBe(
+    tenantsRightsGroups.handleTenantsRightsChange(params);
+    expect(tenantsRightsGroups.containerYes.classList.contains("hidden")).toBe(
       false
     );
-    expect(tenantsRightsModal.containerNo.classList.contains("hidden")).toBe(
+    expect(tenantsRightsGroups.containerNo.classList.contains("hidden")).toBe(
       true
     );
     expect(spyRenderModalContents).toHaveBeenCalledWith([{}, {}]);
@@ -88,11 +91,11 @@ describe("TenantsRightsModal", () => {
       results: { rows: [] },
       status: "idle",
     };
-    tenantsRightsModal.handleTenantsRightsChange(params);
-    expect(tenantsRightsModal.containerYes.classList.contains("hidden")).toBe(
+    tenantsRightsGroups.handleTenantsRightsChange(params);
+    expect(tenantsRightsGroups.containerYes.classList.contains("hidden")).toBe(
       true
     );
-    expect(tenantsRightsModal.containerNo.classList.contains("hidden")).toBe(
+    expect(tenantsRightsGroups.containerNo.classList.contains("hidden")).toBe(
       false
     );
     expect(spyRenderModalContents).not.toHaveBeenCalled();
