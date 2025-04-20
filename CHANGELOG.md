@@ -1,9 +1,9 @@
 # Am I Rent Stabilized Changelog
 This changelog describes significant changes to the project. It was first created on November 29, 2020 so does not account for the entire project's history.
 
-## 2025-04-18 Accessibility fixes for sample rent history modal ([#164](https://github.com/clhenrick/am-i-rent-stabilized/pull/164))
+## 2025-04-20 Accessibility fixes for modal dialogs ([#164](https://github.com/clhenrick/am-i-rent-stabilized/pull/164) & [#167](https://github.com/clhenrick/am-i-rent-stabilized/pull/167))
 
-Added a proper (accessible) `ModalDialog` component that utilizes the HTML `<dialog>` element to show the sample rent history image in slide seven. This fixes multiple accessibility issues with the previous "light box" implementation.
+Added a proper (e.g. accessible) `ModalDialog` component that utilizes the HTML `<dialog>` element to show the sample rent history image in slide seven and tenants rights groups in slide eight. This fixes multiple accessibility issues with the previous modal implementations such as focus management, making the non-modal UI inert, using appropriate semantics, etc.
 
 ## 2025-04-16 Upgrade NodeJS and Yarn ([#162](https://github.com/clhenrick/am-i-rent-stabilized/pull/162))
 
