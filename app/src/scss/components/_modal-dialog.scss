@@ -23,7 +23,7 @@ dialog {
   .modal--content {
     max-width: fit-content;
     background: map.get($palette, "white");
-    padding: map.get($spacing, "base");
+    padding: map.get($spacing, "med2");
   }
 
   button.modal--close {
