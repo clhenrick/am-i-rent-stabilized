@@ -1,47 +1,25 @@
-<div class="org-container">
-  <a
-    href="#close"
-    title="Close"
-    class="close"
-    aria-label="Close"
-  >
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="#fff"
-      stroke-width="4"
-      stroke-linecap="round"
-      aria-hidden="true"
-    >
-      <line x1="2" y1="2" x2="22" y2="22" />
-      <line x1="2" y1="22" x2="22" y2="2" />
-    </svg>
-  </a>
-  <div class="org-content">
-    <h2>Tenants Rights Organizations in Your Neighborhood</h2>
-    {{#each trGroups}}
-      <div class="tr-org-info">
-        <h3>{{this.name}}</h3>
-        {{#if this.website}}
-          <p class="website-url"><strong>Website: </strong><a
-              target="_blank"
-              href="{{this.website}}"
-            >{{this.website}}</a></p>
-        {{/if}}
-        {{#if this.phone}}
-          <p class="phone-no"><strong>Phone: </strong>{{this.phone}}</p>
-        {{/if}}
-        {{#if this.address}}
-          <p class="address"><strong>Address: </strong>{{this.address}}</p>
-        {{/if}}
-        {{#if this.email}}
-          <p class="email"><strong>Email: </strong>{{this.email}}</p>
-        {{/if}}
-        {{#if this.description}}
-          <p class="description"><strong>Description: </strong><br
-            />{{this.description}}</p>
-        {{/if}}
-      </div>
-    {{/each}}
+{{!-- TODO: add translation string for heading --}}
+<h2>Tenants Rights Organizations in Your Neighborhood</h2>
+{{#each trGroups}}
+  <div class="tr-org-info">
+    <h3>{{this.name}}</h3>
+    {{#if this.website}}
+      <p class="website-url"><strong>Website: </strong><a
+          target="_blank"
+          href="{{this.website}}"
+        >{{this.website}}</a></p>
+    {{/if}}
+    {{#if this.phone}}
+      <p class="phone-no"><strong>Phone: </strong>{{this.phone}}</p>
+    {{/if}}
+    {{#if this.address}}
+      <p class="address"><strong>Address: </strong>{{this.address}}</p>
+    {{/if}}
+    {{#if this.email}}
+      <p class="email"><strong>Email: </strong>{{this.email}}</p>
+    {{/if}}
+    {{#if this.description}}
+      <p class="description"><strong>Description: </strong>{{this.description}}</p>
+    {{/if}}
   </div>
-</div>
+{{/each}}

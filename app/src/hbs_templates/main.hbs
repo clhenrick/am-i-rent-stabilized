@@ -1,11 +1,24 @@
 {{>navigation}}
 
 <aside class="desktop">
-  {{! NOTE: LanguageToggle for "desktop" viewports only }}
+  {{! NOTE: this LanguageToggle for "desktop" viewports only }}
   {{>language_toggle}}
 </aside>
 
+{{!-- progress indicators shown only on wide viewports --}}
 {{>progress_indicator}}
+
+{{!-- rent history modal dialog --}}
+{{#>modal_dialog className="modal--rent-history"}}
+  <div class="modal--content">
+    <img class="modal--rent-history-img" src="assets/png/sample-rent-history.png">
+  </div>
+{{/modal_dialog}}
+
+{{!-- tenants rights modal dialog --}}
+{{#>modal_dialog className="modal--tenants-rights"}}
+{{!-- NOTE: content added dynamically --}}
+{{/modal_dialog}}
 
 <main>
   <section
@@ -28,7 +41,7 @@
         id="slide-1"
       >
         <aside class="mobile">
-          {{! NOTE: LanguageToggle for "mobile" / "tablet" viewports only }}
+          {{! NOTE: this LanguageToggle for "mobile" / "tablet" viewports only }}
           {{>language_toggle}}
         </aside>
         <div class="centered">
@@ -207,7 +220,7 @@
           <p class="view-sample">
             <button
               type="button"
-              class="button--secondary js-rent-history"
+              class="button--secondary js-rh-modal-trigger"
             >
               {{slide07.p}}
             </button>
@@ -240,8 +253,14 @@
               </p>
               <p class="yes-local-tr hidden">
                 {{slide08.yes_local_tr.p}}
-                <a href="#open-modal"> {{slide08.yes_local_tr.a}} </a>
               </p>
+              <button
+                type="button"
+                class="button js-tr-modal-trigger"
+                style="text-transform:none;color:inherit;"
+              >
+                {{slide08.yes_local_tr.a}}
+              </button>
             </li>
 
             <li>
@@ -289,25 +308,4 @@
 
     </div>
   </section>
-
-  <dialog class="modal modal--rent-history">
-    <div class="modal--body">
-      <button class="button modal--close" aria-label="close">
-        <svg
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          stroke-width="4"
-          stroke-linecap="round"
-          aria-hidden="true"
-        >
-          <line x1="2" y1="2" x2="22" y2="22" stroke="currentColor" />
-          <line x1="2" y1="22" x2="22" y2="2" stroke="currentColor" />
-        </svg>
-      </button>
-      <div class="modal--content">
-        <img class="modal--rent-history-img" src="assets/png/sample-rent-history.png">
-      </div>
-    </div>
-  </dialog>
 </main>

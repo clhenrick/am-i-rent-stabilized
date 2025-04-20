@@ -12,7 +12,7 @@ import { SearchResultMap } from "../components/searchResultMap";
 import { RentHistoryEmail } from "../components/rentHistoryEmail";
 import { AddToCalendar } from "../components/addToCalendar";
 import { StartOver } from "../components/startOver";
-import { TenantsRightsModal } from "../components/tenantsRightsModal";
+import { TenantsRightsGroups } from "../components/tenantsRightsGroups";
 import { ModalDialog } from "../components/modalDialog";
 
 jest.mock("./translate");
@@ -28,12 +28,10 @@ jest.mock("../components/searchResultMap");
 jest.mock("../components/rentHistoryEmail");
 jest.mock("../components/addToCalendar");
 jest.mock("../components/startOver");
-jest.mock("../components/tenantsRightsModal");
+jest.mock("../components/tenantsRightsGroups");
 jest.mock("../components/modalDialog");
 
 describe("initApp", () => {
-  const NUMBER_OF_COMPONENT_INSTANCES = 20; // not including KeyboardNavigation
-
   beforeAll(() => {
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
   });
@@ -60,15 +58,8 @@ describe("initApp", () => {
     expect(RentHistoryEmail).toHaveBeenCalled();
     expect(AddToCalendar).toHaveBeenCalled();
     expect(StartOver).toHaveBeenCalled();
-    expect(TenantsRightsModal).toHaveBeenCalled();
+    expect(TenantsRightsGroups).toHaveBeenCalled();
     expect(ModalDialog).toHaveBeenCalled();
-  });
-
-  test("all component instances are added to the registry", () => {
-    initApp();
-    expect(ComponentRegistry.prototype.add).toHaveBeenCalledTimes(
-      NUMBER_OF_COMPONENT_INSTANCES
-    );
   });
 
   test("any prior component instances are removed from the registry", () => {

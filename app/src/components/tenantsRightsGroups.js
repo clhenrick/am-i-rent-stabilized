@@ -10,7 +10,12 @@ Handlebars.registerPartial("trGroups", template);
 export const ERROR_MISSING_COORDS =
   "Missing coordinates from address search result";
 
-export class TenantsRightsModal extends Component {
+/** Handles
+ * - If tenants rights groups exists, this component handles rendering the tenants rights group content in the corresponding dialog.modal--tenants-rights
+ * - toggling whether slide 8 says there are tenants rights groups in the search result area
+ * NOTE: modal dialog functionality handled by ModalDialog component
+ */
+export class TenantsRightsGroups extends Component {
   constructor(props) {
     super(props);
   }
@@ -25,7 +30,6 @@ export class TenantsRightsModal extends Component {
     this.handleSearchResultChange = this.handleSearchResultChange.bind(this);
     this.renderModalContents = this.renderModalContents.bind(this);
     this.getSearchCoords = this.getSearchCoords.bind(this);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
 
     this.unsubscribeSearchResult = observeStore(
       this.store,
@@ -38,23 +42,6 @@ export class TenantsRightsModal extends Component {
       (state) => state.tenantsRights,
       this.handleTenantsRightsChange
     );
-
-    this.bindEvents();
-    this.maybeClearWindowHash();
-  }
-
-  bindEvents() {
-    document.addEventListener("keydown", this.handleKeyDown);
-  }
-
-  removeEvents() {
-    document.removeEventListener("keydown", this.handleKeyDown);
-  }
-
-  handleKeyDown(event) {
-    if (event.code === "Escape") {
-      this.maybeClearWindowHash();
-    }
   }
 
   handleSearchResultChange(result) {
@@ -100,16 +87,9 @@ export class TenantsRightsModal extends Component {
     throw new Error(ERROR_MISSING_COORDS);
   }
 
-  maybeClearWindowHash() {
-    if (/open-modal/.exec(window.location.hash)) {
-      window.location.hash = "";
-    }
-  }
-
   cleanUp() {
     this.unsubscribeTenantsRights();
     this.unsubscribeSearchResult();
-    this.removeEvents();
     this.element = null;
   }
 }

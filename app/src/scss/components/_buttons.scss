@@ -9,6 +9,7 @@
   position: relative;
   min-width: 44px;
   min-height: 44px;
+  max-width: 35ch; // limits width of tr-modal trigger
   font-size: var(--fs-sm);
   font-weight: 600;
   text-align: center;

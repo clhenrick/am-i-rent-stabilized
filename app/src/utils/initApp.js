@@ -12,7 +12,7 @@ import { SearchResultMap } from "../components/searchResultMap";
 import { RentHistoryEmail } from "../components/rentHistoryEmail";
 import { AddToCalendar } from "../components/addToCalendar";
 import { StartOver } from "../components/startOver";
-import { TenantsRightsModal } from "../components/tenantsRightsModal";
+import { TenantsRightsGroups } from "../components/tenantsRightsGroups";
 import { initLang } from "./translate";
 import { ModalDialog } from "../components/modalDialog";
 
@@ -135,18 +135,28 @@ export default function initApp() {
   );
 
   registry.add(
-    "tenantsRightsModal",
-    new TenantsRightsModal({
-      element: document.querySelector("div.tr-modal"),
+    "tenantsRightsGroups",
+    new TenantsRightsGroups({
+      element: document.querySelector(
+        "dialog.modal--tenants-rights .modal--content"
+      ),
       store,
+    })
+  );
+
+  registry.add(
+    "modalDialogTenantsRightsGroups",
+    new ModalDialog({
+      element: document.querySelector("dialog.modal--tenants-rights"),
+      trigger: document.querySelector(".js-tr-modal-trigger"),
     })
   );
 
   registry.add(
     "modalDialogRentHistory",
     new ModalDialog({
-      element: document.querySelector(".modal--rent-history"),
-      trigger: document.querySelector(".js-rent-history"),
+      element: document.querySelector("dialog.modal--rent-history"),
+      trigger: document.querySelector(".js-rh-modal-trigger"),
     })
   );
 
