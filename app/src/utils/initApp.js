@@ -148,7 +148,7 @@ export default function initApp() {
     "modalDialogTenantsRightsGroups",
     new ModalDialog({
       element: document.querySelector("dialog.modal--tenants-rights"),
-      trigger: document.querySelector(".js-open-tr-modal"),
+      trigger: document.querySelector(".js-tr-modal-trigger"),
     })
   );
 
@@ -156,7 +156,7 @@ export default function initApp() {
     "modalDialogRentHistory",
     new ModalDialog({
       element: document.querySelector("dialog.modal--rent-history"),
-      trigger: document.querySelector(".js-rent-history"),
+      trigger: document.querySelector(".js-rh-modal-trigger"),
     })
   );
 
