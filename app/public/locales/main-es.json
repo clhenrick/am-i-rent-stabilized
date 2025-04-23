@@ -1,7 +1,7 @@
 {
   "nav_main": {
     "accName": "principal",
-    "title": "¿Tengo Renta Estabilizada?",
+    "title": "Am I Rent Stabilized?",
     "why": "¿Porqué es importante?",
     "how": "¿Cómo funciona?",
     "resources": "Recursos"
@@ -10,7 +10,6 @@
     "begin": "Inicio",
     "next": "Siguiente"
   },
-  "mobile_msg": "Favor de rotar su celular.",
   "slide01": {
     "h1": "La Mitad de Todos Los Apartamentos en la Ciudad de Nueva York Tienen Renta Estabilizada.",
     "subhead": "Descubra si el suyo es uno de ellos.",
