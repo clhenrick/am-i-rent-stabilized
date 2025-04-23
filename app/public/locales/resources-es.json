@@ -22,54 +22,67 @@
       "ul": [
         {
           "org": "Asian Americans For Equality",
+          "link": "http://www.aafe.org/",
           "desc": "La AFE está comprometida en preservar viviendas accesibles por todo Nueva York y de proveer nuevas oportunidades a las diversas comunidades de inmigrantes. Asociación para el desarrollo de viviendas y comunidades."
         },
         {
           "org": "Association for Neighborhood and Housing Development",
+          "link": "http://www.anhd.org/",
           "desc": "Opera programas de entrenamiento en derechos de inquilinos."
         },
         {
           "org": "Churches United For Fair Housing",
+          "link": "http://cuffh.org/",
           "desc": "Organización radicada en Brooklyn que organiza la creación y preservación de comunidades dinámicas accesibles a familias trabajadoras en la ciudad de Nueva York."
         },
         {
           "org": "Eviction Intervention Services",
+          "link": "http://www.eisny.org/",
           "desc": "Lleva a cabo la prevención de personas sin hogar al mantener a residentes en sus comunidades, preservando viviendas económicas, y promoviendo y sustentando la construcción de viviendas económicas para dueños de viviendas con con bajo a moderado ingreso."
         },
         {
           "org": "Make The Road New York",
-          "desc": "Trabajan con el propósito de alcanzar dignidad y justicia para las comunidades latinas y la clase trabajadora mediante la organización, la innovación de leyes, la  educación, y servicios de sobrevivencia. "
+          "link": "http://www.maketheroadny.org/",
+          "desc": "Trabajan con el propósito de alcanzar dignidad y justicia para las comunidades latinas y la clase trabajadora mediante la organización, la innovación de leyes, la educación, y servicios de sobrevivencia."
         },
         {
           "org": "Metropolitan Council on Housing",
+          "link": "http://metcouncilonhousing.org/",
           "desc": "Operan varios programas de asistencia a inquilinos incluyendo una línea telefónica dedicada a los derechos de inquilinos y una clínica de atención médica sin turno previo, la cual atiende a miles de personas al año, es gratis y abierta para cualquier inquilino de Nueva York."
         },
         {
           "org": "MFY Legal Services Inc.",
+          "link": "http://www.mfy.org/projects",
           "desc": "Promueven asistencia legal gratuita a los residentes de Nueva York en una amplia gama de problemas legales civiles, dándole prioridad a los servicios necesitados por poblaciones vulnerables que no tienen acceso a estos servicios."
         },
         {
           "org": "Picture the Homeless",
+          "link": "http://www.picturethehomeless.org/",
           "desc": "Trabajan defendiendo viviendas económicamente accesibles y ayudan a personas sin hogares en la ciudad de Nueva York."
         },
         {
           "org": "Rent Logic",
+          "link": "https://rentlogic.com/",
           "desc": "Rentlogic ayuda a la gente a encontrar todo lo necesario sobre un apartamento antes de firmar un contrato de arrendamiento incluyendo información sobre moho, chinches, bichos o si el propietario tiene una historia de acoso al inquilino."
         },
         {
           "org": "Right To The City Alliance",
+          "link": "http://righttothecity.org/",
           "desc": "Su trabajo se enfoca en la prevención del desplazamiento de personas con bajos ingresos, de color, y de lesbianas, homosexuales, y transexuales. Operan en todo el país."
         },
         {
           "org": "Stabilizing NYC",
+          "link": "http://stabilizingnyc.org/",
           "desc": "La estabilización de Nueva York es una coalición formada por catorce organizaciones basadas en el vecindario de base, un proveedor de servicios legales en toda la ciudad y una organización de defensa de la vivienda en toda la ciudad que se han unido para combatir el acoso inquilino y preservar la vivienda asequible para los neoyorquinos que más la necesitan. Este proyecto combina legal, la promoción y la organización de los recursos en una red en toda la ciudad para ayudar a los inquilinos llevan a sus propietarios de acciones depredadoras a la tarea para la reparación del remiendo, los casos de desalojo falsos, y el acoso afirmativa."
         },
         {
           "org": "Tenants and Neighbors",
+          "link": "http://www.tenantsandneighbors.org/",
           "desc": "Ayudan a los inquilinos, por edificios o comunidades, a preservar viviendas económicamente accesibles en riesgo."
         },
         {
           "org": "Urban Homesteading Assistance Board",
+          "link": "http://www.uhab.org/",
           "desc": "Ayudan a residentes de bajo y mediano ingreso a tomar control de sus viviendas y mejorar sus comunidades mediante la creación de asociaciones de inquilinos con base sólida y la creación de cooperativas."
         }
       ]

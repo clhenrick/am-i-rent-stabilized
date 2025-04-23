@@ -19,57 +19,85 @@
     "citywide": {
       "h3": "City Wide",
       "p01": "These organizations operate on a city-wide level.",
+      "links": [
+        "http://www.aafe.org/",
+        "http://www.anhd.org/",
+        "http://cuffh.org/",
+        "http://www.eisny.org/",
+        "http://www.maketheroadny.org/",
+        "http://metcouncilonhousing.org/",
+        "http://www.mfy.org/projects",
+        "http://www.picturethehomeless.org/",
+        "https://rentlogic.com/",
+        "http://righttothecity.org/",
+        "http://stabilizingnyc.org/",
+        "http://www.tenantsandneighbors.org/",
+        "http://www.uhab.org/"
+      ],
       "ul": [
         {
           "org": "Asian Americans For Equality",
+          "link": "http://www.aafe.org/",
           "desc": "AFE is committed to preserving affordable housing throughout New York and to providing new opportunities for the city’s diverse immigrant communities."
         },
         {
           "org": "Association for Neighborhood and Housing Development",
+          "link": "http://www.anhd.org/",
           "desc": "Affordable Housing and Community Development organization. Runs trainings on tenants rights."
         },
         {
           "org": "Churches United For Fair Housing",
+          "link": "http://cuffh.org/",
           "desc": "Brooklyn based organization that organizes towards preserving and creating vibrant communities that are not exclusive and are really affordable to working families in New York City."
         },
         {
           "org": "Eviction Intervention Services",
+          "link": "http://www.eisny.org/",
           "desc": "Performs homelessness prevention by keeping residents in their communities, preserving existing affordable housing, and promoting and supporting the construction of affordable housing for low, moderate and middle-income households in NYC."
         },
         {
           "org": "Make The Road New York",
+          "link": "http://www.maketheroadny.org/",
           "desc": "Works with Latino and working class communities to achieve dignity and justice through organizing, policy innovation, transformative education, and survival services."
         },
         {
           "org": "Metropolitan Council on Housing",
+          "link": "http://metcouncilonhousing.org/",
           "desc": "Operates a number of tenant-assistance programs including a tenants' rights telephone hotline and a walk-in clinic, which serve thousands per year and are free and open to any New York City tenant."
         },
         {
           "org": "MFY Legal Services Inc.",
+          "link": "http://www.mfy.org/projects",
           "desc": "Provides free legal assistance to residents of New York City on a wide range of civil legal issues, prioritizing services to vulnerable and under-served populations."
         },
         {
           "org": "Picture the Homeless",
+          "link": "http://www.picturethehomeless.org/",
           "desc": "Works to advocate for affordable housing and performs outreach for homeless NYC residents."
         },
         {
           "org": "Rent Logic",
+          "link": "https://rentlogic.com/",
           "desc": "Rentlogic helps people find out everything about an apartment before they sign a lease, including mold, bedbugs, vermin or if the landlord has a history of tenant harassment."
         },
         {
           "org": "Right To The City Alliance",
+          "link": "http://righttothecity.org/",
           "desc": "Works to prevent the displacement of low-income people, people of color, and LGBTQ persons. Operates nationally."
         },
         {
           "org": "Stabilizing NYC",
+          "link": "http://stabilizingnyc.org/",
           "desc": "Stabilizing NYC is a coalition comprised of fourteen grassroots neighborhood-based organizations, a citywide legal service provider and a citywide housing advocacy organization who have come together to combat tenant harassment and preserve affordable housing for the New Yorkers who need it most. This project combines legal, advocacy and organizing resources into a citywide network to help tenants take their predatory equity landlords to task for patchwork repairs, bogus eviction cases, and affirmative harassment."
         },
         {
           "org": "Tenants and Neighbors",
+          "link": "http://www.tenantsandneighbors.org/",
           "desc": "Helps tenants organize at the building and community level to preserve at-risk affordable housing."
         },
         {
           "org": "Urban Homesteading Assistance Board",
+          "link": "http://www.uhab.org/",
           "desc": "Helps low to moderate income residents to take control of their housing and enhance their communities by creating strong tenant associations and lasting affordable co-ops."
         }
       ]

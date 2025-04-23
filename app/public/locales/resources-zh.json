@@ -22,54 +22,67 @@
       "ul": [
         {
           "org": "美籍华人平等机构 (Asian Americans For Equality)",
+          "link": "http://www.aafe.org/",
           "desc": "致力于维护整个纽约的经济适用房，并为城市的不同移民社区提供新的机会。"
         },
         {
           "org": "街区住房发展协会 (Association for Neighborhood and Housing Development)",
+          "link": "http://www.anhd.org/",
           "desc": "致力于保持住房经济性和社区发展。普及住客权利知识。"
         },
         {
           "org": "公平住房联合教会 （Churches United For Fair Housing）",
+          "link": "http://cuffh.org/",
           "desc": "本机构基于布鲁克林，但致力于保护和组织全纽约多样化，不排斥，价格合理的社区。"
         },
         {
           "org": "驱逐干预服务 （Eviction Intervention Services）",
+          "link": "http://www.eisny.org/",
           "desc": "保持居民在自己的社区，保留现有的经济适用房，促进和支持纽约的低，中，中等收入家庭经济住房建设。预防居民无家可归。"
         },
         {
           "org": "为纽约铺路 （Make The Road New York）",
+          "link": "http://www.maketheroadny.org/",
           "desc": "通过动员，推动政策，教育改革，以及生存服务，来帮助拉美移民以及工人阶级的社区取得尊严和公道。"
         },
         {
           "org": "大都会住房评议会（Metropolitan Council on Housing）",
+          "link": "http://metcouncilonhousing.org/",
           "desc": "提供一系列住客援助项目，包括免费的住客热线电话以及当面咨询。这个组织每年帮助上千纽约住户。"
         },
         {
           "org": "MFY 法律咨询 （MFY Legal Services Inc.）",
+          "link": "http://www.mfy.org/projects",
           "desc": "为纽约住客提供免费法律援助，尤其是与公民权利有关的话题。优先服务弱势群体。"
         },
         {
           "org": "为无家可归着想（Picture the Homeless）",
+          "link": "http://www.picturethehomeless.org/",
           "desc": "为纽约无家可归者推广经济住房。"
         },
         {
           "org": "Rent Logic",
+          "link": "https://rentlogic.com/",
           "desc": "Rentlogic可以在租客签订租约前帮助他们全面了解房屋，包括房间是否发霉、有臭虫、有寄生虫、或者是房东是否曾经骚扰过房客。"
         },
         {
           "org": "人人有权协会（Right To The City Alliance）",
+          "link": "http://righttothecity.org/",
           "desc": "预防低收入者，有色人群，LGBTQ人群的流离失所。全国运营。"
         },
         {
           "org": "稳定纽约租金（Stabilizing NYC）",
+          "link": "http://stabilizingnyc.org/",
           "desc": "稳定纽约租金是一个以十四个社区为基础的组织所组成的联盟，提供全市法律服务以及推广相关组织并打击居/住户经骚，保留经济住房给最需要的纽约客。这个项目结合了法律丶推广以及组织资源进入城市网络并帮助居/住户向掠夺者房东对抗装修为由或其他非法驱逐等途径以及骚扰。"
         },
         {
           "org": "住客邻里（Tenants and Neighbors）",
+          "link": "http://www.tenantsandneighbors.org/",
           "desc": "帮助住客在自己的楼房或社区里组织起来，来保护经济住房。"
         },
         {
           "org": "建造城市家园（Urban Homesteading Assistance Board）",
+          "link": "http://www.uhab.org/",
           "desc": "帮助低收入人群获取他们的自己的住房，通过创建强大的租户协会和持久的实惠合作社提高他们的社区质量。"
         }
       ]
