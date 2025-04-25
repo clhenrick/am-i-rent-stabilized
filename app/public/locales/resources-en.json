@@ -19,21 +19,6 @@
     "citywide": {
       "h3": "City Wide",
       "p01": "These organizations operate on a city-wide level.",
-      "links": [
-        "http://www.aafe.org/",
-        "http://www.anhd.org/",
-        "http://cuffh.org/",
-        "http://www.eisny.org/",
-        "http://www.maketheroadny.org/",
-        "http://metcouncilonhousing.org/",
-        "http://www.mfy.org/projects",
-        "http://www.picturethehomeless.org/",
-        "https://rentlogic.com/",
-        "http://righttothecity.org/",
-        "http://stabilizingnyc.org/",
-        "http://www.tenantsandneighbors.org/",
-        "http://www.uhab.org/"
-      ],
       "ul": [
         {
           "org": "Asian Americans For Equality",
