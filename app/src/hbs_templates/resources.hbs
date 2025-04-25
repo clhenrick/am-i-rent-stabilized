@@ -1,11 +1,22 @@
 {{!-- used to render each of the org list items --}}
 {{#*inline "orgListItem"}}
-  <li>
-    <a href="{{link}}">
-      {{org}}
-    </a>
-    <p>{{desc}}</p>
-  </li>
+<li>
+  <a href="{{link}}">
+    {{org}}
+  </a>
+  <p>{{desc}}</p>
+</li>
+{{/inline}}
+
+{{!-- each list of orgs by their corresponding level geography --}}
+{{#*inline "resourcesByGeog"}}
+<h2 id="{{anchor}}">{{title}}</h2>
+<p>{{description}}</p>
+  <ul>
+  {{#each orgs}}
+    {{> orgListItem }}
+  {{/each}}
+</ul>
 {{/inline}}
 
 {{>navigation_info}}
@@ -36,40 +47,37 @@
     <h1>{{nongov.h1}}</h1>
     <p>{{nongov.h3}}</p>
 
-    <a name="city-wide"></a>
-    <h2>{{nongov.citywide.h3}}</h2>
-    <p>{{nongov.citywide.p01}}</p>
-    <ul>
-    {{#each nongov.citywide.ul}}
-      {{> orgListItem }}
-    {{/each}}
-    </ul>
+    {{!-- city wide orgs --}}
+    {{> resourcesByGeog
+      anchor="city-wide"
+      title=nongov.citywide.h3
+      description=nongov.citywide.p01
+      orgs=nongov.citywide.ul
+    }}
 
-    <a name="boro"></a>
-    <h2>{{nongov.boro.h3}}</h2>
-    <p>{{nongov.boro.p}}</p>
-    <ul data-group="boro">
-    {{#each nongov.boro.ul}}
-      {{> orgListItem }}
-    {{/each}}
-    </ul>
+    {{!-- borough wide orgs --}}
+    {{> resourcesByGeog
+      anchor="boro"
+      title=nongov.boro.h3
+      description=nongov.boro.p
+      orgs=nongov.boro.ul
+    }}
 
-    <a name="hood"></a>
-    <h2>{{nongov.hood.h3}}</h2>
-    <p>{{nongov.hood.p}}</p>
-    <ul>
-    {{#each nongov.hood.ul}}
-      {{> orgListItem }}
-    {{/each}}
-    </ul>
+    {{!-- neighborhood level orgs --}}
+    {{> resourcesByGeog
+      anchor="hood"
+      title=nongov.hood.h3
+      description=nongov.hood.p
+      orgs=nongov.hood.ul
+    }}
 
-    <a name="gov"></a>
-    <h2>{{gov.h2}}</h2>
-    <p>{{gov.p}}</p>
-    <ul>
-    {{#each gov.ul}}
-      {{> orgListItem }}
-    {{/each}}
-    </ul>
+    {{!-- state & city government orgs --}}
+    {{> resourcesByGeog
+      anchor="gov"
+      title=gov.h2
+      description=gov.p
+      orgs=gov.ul
+    }}
+
   </main>
 </div>
