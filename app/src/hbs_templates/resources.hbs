@@ -1,3 +1,13 @@
+{{!-- used to render each of the org list items --}}
+{{#*inline "orgListItem"}}
+  <li>
+    <a href="{{link}}">
+      {{org}}
+    </a>
+    <p>{{desc}}</p>
+  </li>
+{{/inline}}
+
 {{>navigation_info}}
 <div class="sidebar-main-wrapper">
   <aside class="info-pages">
@@ -31,219 +41,35 @@
     <p>{{nongov.citywide.p01}}</p>
     <ul>
     {{#each nongov.citywide.ul}}
-      <li>
-        <a href="{{this.link}}">
-          {{this.org}}
-        </a>
-        <p>{{this.desc}}</p>
-      </li>
+      {{> orgListItem }}
     {{/each}}
     </ul>
 
     <a name="boro"></a>
     <h2>{{nongov.boro.h3}}</h2>
     <p>{{nongov.boro.p}}</p>
-    <ul>
-      <li>
-        <a target="_blank" href="http://brooklynhousing.org">
-          {{nongov.boro.ul.0.org}}
-        </a>
-        <p>{{nongov.boro.ul.0.desc}}</p>
-      </li>
-      <li>
-        <a target="_blank" href="http://www.bronxshepherds.org/">
-          {{nongov.boro.ul.1.org}}
-        </a>
-        <p>{{nongov.boro.ul.1.desc}}</p>
-      </li>
-      <li>
-        <a target="_blank" href="http://www.bka.org">
-          {{nongov.boro.ul.2.org}}
-        </a>
-        <p>{{nongov.boro.ul.2.desc}}</p>
-      </li>
-      <li>
-        <a target="_blank" href="http://queenscommunityhouse.org">
-          {{nongov.boro.ul.3.org}}
-        </a>
-        <p>{{nongov.boro.ul.3.desc}}</p>
-      </li>
-      <li><a target="_blank" href="www.nhsofsi.org">
-          {{nongov.boro.ul.4.org}}
-        </a>
-        <p>{{nongov.boro.ul.4.desc}}</p>
-      </li>
+    <ul data-group="boro">
+    {{#each nongov.boro.ul}}
+      {{> orgListItem }}
+    {{/each}}
     </ul>
 
     <a name="hood"></a>
     <h2>{{nongov.hood.h3}}</h2>
     <p>{{nongov.hood.p}}</p>
     <ul>
-      <li>
-        <a target="_blank" href="http://www.carrollgardensassociation.com/">
-          {{nongov.hood.ul.0.org}}
-        </a>
-        <p>{{nongov.hood.ul.0.desc}}</p>
-      </li>
-      <li>
-        <a target="_blank" href="https://coopersquare.org/">
-          {{nongov.hood.ul.1.org}}
-        </a>
-        <p>{{nongov.hood.ul.1.desc}}</p>
-      </li>
-      <li>
-        <a target="_blank" href="http://crownheightstenantunion.org/">
-          {{nongov.hood.ul.2.org}}
-        </a>
-        <p>{{nongov.hood.ul.2.desc}}</p>
-      </li>
-      <li>
-        <a target="_blank" href="http://www.enyuyc.net">
-          {{nongov.hood.ul.3.org}}
-        </a>
-        <p>{{nongov.hood.ul.3.desc}}</p>
-      </li>
-      <li>
-        <a target="_blank" href="http://www.ebofb.org">
-          {{nongov.hood.ul.4.org}}
-        </a>
-        <p>{{nongov.hood.ul.4.desc}}</p>
-      </li>
-      <li>
-        <a target="_blank" href="http://www.fifthave.org/">
-          {{nongov.hood.ul.5.org}}
-        </a>
-        <p>{{nongov.hood.ul.5.desc}}</p>
-      </li>
-      <li>
-        <a target="_blank" href="http://www.fdconline.org/">
-          {{nongov.hood.ul.6.org}}
-        </a>
-        <p>{{nongov.hood.ul.6.desc}}</p>
-      </li>
-      <li>
-        <a target="_blank" href="http://mvdc.org/">
-          {{nongov.hood.ul.7.org}}
-        </a>
-        <p>{{nongov.hood.ul.7.desc}}</p>
-      </li>
-      <li>
-        <a target="_blank" href="http://www.nhsnyc.org">
-          {{nongov.hood.ul.8.org}}
-        </a>
-        <p>{{nongov.hood.ul.8.desc}}</p>
-      </li>
-      <li>
-        <a target="_blank" href="http://NWBcommunity.org">
-          {{nongov.hood.ul.9.org}}
-        </a>
-        <p>{{nongov.hood.ul.9.desc}}</p>
-      </li>
-      <li>
-        <a target="_blank" href="www.prattarea.org">
-          {{nongov.hood.ul.10.org}}
-        </a>
-        <p>{{nongov.hood.ul.10.desc}}</p>
-      </li>
-      <li>
-        <a target="_blank" href="http://stnicksalliance.org/SNA/#">
-          {{nongov.hood.ul.11.org}}
-        </a>
-        <p>{{nongov.hood.ul.11.desc}}</p>
-      </li>
-      <li>
-        <a target="_blank" href="http://www.unhp.org/">
-          {{nongov.hood.ul.12.org}}
-        </a>
-        <p>{{nongov.hood.ul.12.desc}}</p>
-      </li>
-      <li>
-        <a target="_blank" href="http://www.whedco.org">
-          {{nongov.hood.ul.13.org}}
-        </a>
-        <p>{{nongov.hood.ul.13.desc}}</p>
-      </li>
+    {{#each nongov.hood.ul}}
+      {{> orgListItem }}
+    {{/each}}
     </ul>
 
     <a name="gov"></a>
     <h2>{{gov.h2}}</h2>
     <p>{{gov.p}}</p>
     <ul>
-      <li>
-        <a target="_blank" href="http://www.nyshcr.org">
-          {{gov.ul.0.org}}
-        </a>
-        <p>
-          {{gov.ul.0.desc}}
-          <a href="http://www.nyshcr.org/AboutUs/contact.htm#rent-admin">
-            {{gov.ul.0.a}}
-          </a>
-        </p>
-      </li>
-      <li>
-        <a target="_blank" href="http://a836-acris.nyc.gov/CP/">
-          {{gov.ul.1.org}}
-        </a>
-        <p>{{gov.ul.1.desc}}</p>
-      </li>
-      <li>
-        <a
-          target="_blank"
-          href="http://www.nyc.gov/html/dob/html/bis/bis.shtml"
-        >
-          {{gov.ul.2.org}}
-        </a>
-        <p>{{gov.ul.2.desc}}</p>
-      </li>
-      <li>
-        <a
-          target="_blank"
-          href="http://www1.nyc.gov/nyc-resources/service/1522/disability-rent-increase-exemption-drie-program"
-        >
-          {{gov.ul.3.org}}
-        </a>
-        <p>{{gov.ul.3.desc}}</p>
-      </li>
-      <li>
-        <a
-          target="_blank"
-          href="https://a806-housingconnect.nyc.gov/nyclottery/lottery.html#home"
-        >
-          {{gov.ul.4.org}}
-        </a>
-        <p>{{gov.ul.4.desc}}</p>
-      </li>
-      <li>
-        <a target="_blank" href="http://www1.nyc.gov/site/hpd/index.page">
-          {{gov.ul.5.org}}
-        </a>
-        <p>{{gov.ul.5.desc}}
-          <a
-            target="_blank"
-            href="https://hpdonline.hpdnyc.org/HPDonline/provide_address.aspx"
-          >
-            {{gov.ul.5.a}}
-          </a>
-        </p>
-      </li>
-      <li>
-        <a
-          target="_blank"
-          href="http://nycrgb.org/html/resources/resources.html"
-        >
-          {{gov.ul.6.org}}
-        </a>
-        <p>{{gov.ul.6.desc}}</p>
-      </li>
-      <li>
-        <a
-          target="_blank"
-          href="http://www1.nyc.gov/nyc-resources/service/2424/senior-citizen-rent-increase-exemption-scrie"
-        >
-          {{gov.ul.7.org}}
-        </a>
-        <p>{{gov.ul.7.desc}}</p>
-      </li>
+    {{#each gov.ul}}
+      {{> orgListItem }}
+    {{/each}}
     </ul>
   </main>
 </div>
