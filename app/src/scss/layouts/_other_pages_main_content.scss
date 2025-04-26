@@ -53,6 +53,19 @@ main {
     margin-block: 0.65em;
   }
 
+  h1[id],
+  h2[id] {
+    display: inline-block;
+    padding: map.get($spacing, "sm");
+    border-radius: map.get($border-radius, "md");
+
+    &:target {
+      scroll-margin-block: 10ex;
+      background-color: map.get($palette, "darkorange");
+      color: map.get($palette, "white");
+    }
+  }
+
   // paragraphs that follow links in list items in the resources page
   a[href] ~ p {
     margin-block-start: 0.65em;
@@ -61,20 +74,6 @@ main {
   li {
     color: map.get($palette, "green");
     list-style-position: outside;
-  }
-
-  a[name] {
-    position: relative;
-    display: block;
-    top: -40px;
-    visibility: hidden;
-  }
-
-  a[name="videos"],
-  a[name="why"],
-  a[name="how"],
-  a[name="non-gov"] {
-    top: -80px;
   }
 
   .video {
