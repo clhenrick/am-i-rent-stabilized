@@ -9,7 +9,6 @@ import { AddressSearchForm } from "../components/addressSearchForm";
 import { ProgressIndicator } from "../components/progressIndicator";
 import { VerifyRentStabilized } from "../components/verifyRentStabilized";
 import { SearchResultMap } from "../components/searchResultMap";
-import { RentHistoryEmail } from "../components/rentHistoryEmail";
 import { AddToCalendar } from "../components/addToCalendar";
 import { StartOver } from "../components/startOver";
 import { TenantsRightsGroups } from "../components/tenantsRightsGroups";
@@ -116,13 +115,6 @@ export default function initApp() {
     new SearchResultMap({
       element: document.getElementById("map"),
       store,
-    })
-  );
-
-  registry.add(
-    "rentHistoryEmail",
-    new RentHistoryEmail({
-      element: document.getElementById("mail-to"),
     })
   );
 
