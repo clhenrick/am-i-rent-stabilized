@@ -10,7 +10,6 @@
     "begin": "Begin",
     "next": "Next"
   },
-  "mobile_msg": "Please rotate your device or make your browser window taller.",
   "slide01": {
     "h1": "Half of All Apartments in NYC Are Rent Stabilized.",
     "subhead": "Find out if yours is one of them.",
@@ -19,7 +18,7 @@
   },
   "slide02": {
     "h2": "First, let's have your building address and borough.",
-    "privacy": "We won't share this information or use it commericially.",
+    "privacy": "We won't share this information or use it commercially.",
     "form": {
       "label": "Street Address",
       "placeholder": "Your NYC street address",
