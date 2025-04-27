@@ -49,7 +49,8 @@
   },
   "slide05": {
     "h2": "Request your rent history from the NY Department of Homes and Community Renewal.",
-    "mail": "Request it by email",
+    "online": "Online at",
+    "rent_connect": "RentConnect",
     "phone": "Call them at ",
     "visit": "You can also visit a",
     "office": "DHCR office",
