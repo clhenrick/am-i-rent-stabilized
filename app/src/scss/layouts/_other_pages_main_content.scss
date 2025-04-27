@@ -46,6 +46,10 @@ main {
   position: relative;
   padding-block-end: map.get($spacing, "xxl");
 
+  h1 {
+    max-width: 20ch;
+  }
+
   h1,
   h2,
   h3 {
@@ -56,13 +60,11 @@ main {
   h1[id],
   h2[id] {
     display: inline-block;
-    padding: map.get($spacing, "sm");
-    border-radius: map.get($border-radius, "md");
+    padding: map.get($spacing, "xxs");
 
     &:target {
       scroll-margin-block: 10ex;
-      background-color: map.get($palette, "darkorange");
-      color: map.get($palette, "white");
+      border: 5px dotted map.get($palette, "blue");
     }
   }
 
