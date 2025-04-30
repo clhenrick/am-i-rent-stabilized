@@ -29,5 +29,6 @@ export const config = {
     input: "content",
     output: "dist",
     includes: "../_includes",
+    layouts: "../_layouts",
   },
 };
