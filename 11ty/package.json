@@ -1,0 +1,31 @@
+{
+  "name": "am-i-rent-stabilized",
+  "version": "1.0.0",
+  "description": "Web app to inform New York City residents about Rent Stabilization",
+  "repository": {
+    "type": "git",
+    "url": "github.com/clhenrick/am-i-rent-stabilized"
+  },
+  "author": {
+    "name": "Chris Henrick",
+    "email": "chrishenrick@gmail.com",
+    "url": "http://clhenrick.io"
+  },
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "npx @11ty/eleventy --serve --incremental --port=8080 --quiet",
+    "build": "yarn exec eleventy",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "packageManager": "yarn@4.9.1",
+  "engines": {
+    "node": ">=22.14.0",
+    "yarn": ">=4.9.1"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-plugin-handlebars": "^1.0.0",
+    "handlebars": "^4.7.8"
+  }
+}
