@@ -12,6 +12,12 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(I18nPlugin, {
     defaultLanguage: "en",
   });
+
+  // Set global permalinks to resource.html style
+  eleventyConfig.addGlobalData("permalink", () => {
+    return (data) =>
+      `${data.page.filePathStem}.${data.page.outputFileExtension}`;
+  });
 }
 
 export const config = {
