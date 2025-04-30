@@ -1,0 +1,41 @@
+{{! Navigation partial for index.html page }}
+<nav class="main-nav" aria-labelledby="main-nav-title">
+  <h2 id="main-nav-title" class="sr-only">{{nav_main.accName}}</h2>
+  <div class="home-container">
+    <img height="38" class="logo" src="assets/png/logo.png" alt="" />
+    <a
+      class="home"
+      aria-current="page"
+      href="./index.html"
+    >{{nav_main.title}}</a>
+  </div>
+  <button class="button burger" aria-label="menu" aria-pressed="false">
+    <svg
+      role="img"
+      aria-hidden="true"
+      viewBox="0 0 32 20"
+      stroke-linecap="round"
+      stroke-width="4"
+      stroke="#fff"
+      width="32"
+      height="20"
+    >
+      <g class="closed">
+        <line x1="2" y1="2" x2="30" y2="2" />
+        <line x1="2" y1="10" x2="30" y2="10" />
+        <line x1="2" y1="18" x2="30" y2="18" />
+      </g>
+      <g class="open">
+        <line x1="6" y1="2" x2="26" y2="18" />
+        <line x1="6" y1="18" x2="26" y2="2" />
+      </g>
+    </svg>
+  </button>
+  <ul>
+    <li class="nav"><a href="info/why.html">{{nav_main.why}}</a></li>
+    <li class="nav"><a href="info/how.html">{{nav_main.how}}</a></li>
+    <li class="nav"><a
+        href="info/resources.html"
+      >{{nav_main.resources}}</a></li>
+  </ul>
+</nav>
