@@ -30,5 +30,6 @@ export const config = {
     output: "dist",
     includes: "../_includes",
     layouts: "../_layouts",
+    data: "../_data",
   },
 };

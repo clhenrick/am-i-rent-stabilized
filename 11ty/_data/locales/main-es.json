@@ -1,0 +1,91 @@
+{
+  "nav_main": {
+    "accName": "principal",
+    "title": "Am I Rent Stabilized?",
+    "why": "¿Porqué es importante?",
+    "how": "¿Cómo funciona?",
+    "resources": "Recursos"
+  },
+  "nav_bottom_arrow": {
+    "begin": "Inicio",
+    "next": "Siguiente"
+  },
+  "slide01": {
+    "h1": "La Mitad de Todos Los Apartamentos en la Ciudad de Nueva York Tienen Renta Estabilizada.",
+    "subhead": "Descubra si el suyo es uno de ellos.",
+    "landing": "O salte este paso hasta",
+    "go_step_4": "Una vez recibido el historial de renta"
+  },
+  "slide02": {
+    "h2": "Primero, escriba la dirección del edificio y el distrito donde se encuentra.",
+    "privacy": "No compartiremos su información, tampoco será usada con propósitos comerciales.",
+    "form": {
+      "label": "Dirección",
+      "placeholder": "Su dirección postal de NYC",
+      "val_errors": {
+        "not_found": "Lo sentimos, no reconocemos ésta dirección, favor de intentar de nuevo.",
+        "address": "Ingrese el número de su edificio, el nombre de la calle y el distrito.",
+        "generic": "Algo salió mal. Por favor, vuelva a intentarlo."
+      }
+    },
+    "search": "Búsqueda"
+  },
+  "slide03": {
+    "checking": "Verificando...",
+    "p": "Esto tomará unos momentos."
+  },
+  "slide04": {
+    "yes": {
+      "h2": "¡El apartamento <em>podría</em> tener renta estabilizada!",
+      "p": "Pero, hay solo una manera de asegurarse, siga leyendo."
+    },
+    "no": {
+      "p": "Aunque no encontremos su dirección en nuestra base de datos, no podemos estar 100&#37; seguros que esta renta no se encuentre estabilizada. Sigamos..."
+    },
+    "map": {
+      "caption": "El color anaranjado significa que la propiedad podría tener apartamentos con renta estabilizada.",
+      "view_map": "Se abrirá una nueva ventana para ver este mapa."
+    }
+  },
+  "slide05": {
+    "h2": "Para solicitar el historial de renta de su apartamento al Departamento de Viviendas y Renovación de Comunidades de Nueva York.",
+    "online": "En línea en",
+    "hcr_ny_gov": "HCR.NY.Gov",
+    "phone": "Llamando a las oficinas al ",
+    "visit": "También se puede visitar",
+    "office": "estas oficinas.",
+    "tell_them": "Asegúrese de decirle su nombre, dirección, número de apartamento y que le gustaría solicitar el historial de renta de su apartamento.",
+    "mailed": "El historial llegará por correo."
+  },
+  "slide06": {
+    "h2": "Después de solicitar el historial de renta añada un recordatorio a su calendario.",
+    "arrive": "Crear un recordatorio en su calendario.",
+    "friends": "El historial debe llegar en menos de una semana. Mientras tanto, haga que sus amigos y vecinos soliciten uno también."
+  },
+  "slide07": {
+    "h2": "Una vez recibido el historial, se puede leer lo que inquilinos anteriores pagaban y si la renta se encontraba estabilizada anteriormente.",
+    "p": "Ver un ejemplo de historial de renta."
+  },
+  "slide08": {
+    "h2": "Si los inquilinos anteriores pagaban mucho menos de lo que se paga ahora, seguir estos pasos:",
+    "option01": "Opción 1:",
+    "no_local_tr": {
+      "a": "Contactar un grupo de derechos para inquilinos para recibir consejo.",
+      "p": "Estos grupos pueden ofrecer información útil y ayudar a tomar el mejor curso de acción."
+    },
+    "yes_local_tr": {
+      "p": "Contactar un grupo de derechos para inquilinos para recibir consejo.",
+      "a": "Aquí se puede ver una lista de grupos de derechos para inquilinos en su comunidad."
+    },
+    "option02": "Opción 2:",
+    "p1": "Presentar una denuncia al DHCR llenando y enviando por correo ",
+    "a": "la forma de sobre-cobro de renta (rent overcharge form). ",
+    "p2": "Importante: El propietario de su apartamento será notificado que usted tomó dicha acción. "
+  },
+  "slide09": {
+    "h2": "¡Buen Trabajo!",
+    "start": "Empezar de nuevo",
+    "learn": "Aprenda más",
+    "share": "¡Compartalo!"
+  }
+}
