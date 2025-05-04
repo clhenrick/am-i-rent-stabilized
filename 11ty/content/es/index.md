@@ -1,5 +1,5 @@
 ---
-layout: base.hbs
+layout: home.hbs
 title: Am I Rent Stabilized?
 description: "¡Descubra si su apartamento en Nueva York tiene alquiler estabilizado!"
 ---

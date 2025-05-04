@@ -1,4 +1,4 @@
 ---
-layout: base.hbs
+layout: resources.hbs
 title: "Recursos – Am I Rent Stabilized?"
 ---
