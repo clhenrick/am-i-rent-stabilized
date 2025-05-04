@@ -1,0 +1,175 @@
+---
+layout: base.hbs
+---
+
+{{>navigation_info}}
+<div class="sidebar-main-wrapper">
+  <aside class="info-pages">
+    {{>language_toggle}}
+    <nav class="side-nav" aria-labelledby="side-nav-title">
+      <h2 id="side-nav-title">{{nav_side.h2}}</h2>
+      <ul role="list">
+        <li><a href="#why">{{nav_side.why}}</a></li>
+        <li><a href="#what">{{nav_side.what}}</a></li>
+        <li><a href="#under-attack">{{nav_side.under}}</a></li>
+        <li><a href="#messed-up">{{nav_side.messed}}</a></li>
+        <li><a href="#videos">{{nav_side.videos}}</a></li>
+        <li><a href="#get-involved">{{nav_side.involved}}</a></li>
+        <li><a href="#not-rs">{{nav_side.not}}</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main id="main">
+    <h1 id="why">{{why.h2}}</h1>
+    <p class="h3">{{why.h3}}</p>
+    <p><em>{{why.facts}}</em></p>
+
+    <ul>
+      <li>{{why.one}}</li>
+      <li>{{{why.two}}}</li>
+      <li>{{why.three}}</li>
+      <li>{{why.four}}</li>
+    </ul>
+
+    <h2 id="what">{{what.h2}}</h2>
+    <p class="h3">{{what.h3}}</p>
+    <p>{{what.p1}}
+      <a
+        href="http://www.dnainfo.com/new-york/20150302/hamilton-heights/landlord-owes-tenant-112000-after-overcharging-him-for-years"
+      >
+        {{what.a}}
+      </a>
+    </p>
+
+    <h2 id="under-attack">{{under.h2}}</h2>
+    <p class="h3">{{under.h3}}</p>
+    <p>{{under.p}}</p>
+
+    <h3>{{under.methods}}</h3>
+    <ul>
+      <li>{{under.one}}</li>
+      <li>{{under.two}}</li>
+      <li>{{under.three}}</li>
+    </ul>
+
+    <h2 id="messed-up">{{messed.h2}}</h2>
+    <p class="h3">{{messed.h3}}</p>
+    <p>
+      {{messed.p1}}
+      <strong>{{messed.p1_s}}</strong>
+    </p>
+
+    <h2 id="videos">{{videos.title}}</h2>
+    <p>{{messed.p2}}
+      <a href="http://projects.studio20nyu.org/ny-tenants/">
+        {{messed.a}}
+      </a>
+      {{messed.p3}}
+    </p>
+
+    <h3>{{videos.how}}</h3>
+    <div class="video" style="--aspect-ratio: 16/9;">
+      <iframe
+        src="https://www.youtube.com/embed/uvZWZy9uZqA"
+        {{!-- TODO: add translation for title attribute --}}
+        title="Video: How Did We Get Here?"
+        frameborder="0"
+        width="960"
+        height="540"
+        loading="lazy"
+        allowfullscreen
+      >
+      </iframe>
+    </div>
+
+    <h3>{{videos.what}}</h3>
+    <div class="video" style="--aspect-ratio: 16/9;">
+      <iframe
+        src="https://www.youtube.com/embed/9MB-BhoUXg4"
+        {{!-- TODO: add translation for title attribute --}}
+        title="Video: What's Vacancy Decontrol"
+        frameborder="0"
+        width="960"
+        height="540"
+        loading="lazy"
+        allowfullscreen
+      >
+      </iframe>
+    </div>
+
+    <h3>{{videos.bronx}}</h3>
+    <div class="video" style="--aspect-ratio: 16/9;">
+      <iframe
+        src="https://www.youtube.com/embed/Yn8tj-8-TeE"
+        {{!-- TODO: add translation for title attribute --}}
+        title="Video: Tenant's project, The Bronx"
+        frameborder="0"
+        width="960"
+        height="540"
+        loading="lazy"
+        allowfullscreen
+      >
+      </iframe>
+    </div>
+
+    <h3>{{videos.bushwick}}</h3>
+    <div class="video" style="--aspect-ratio: 16/9;">
+      <iframe
+        src="https://www.youtube.com/embed/6oSbEpdL968"
+        {{!-- TODO: add translation for title attribute --}}
+        title="Video: Tenant's project, Bushwick"
+        frameborder="0"
+        width="960"
+        height="540"
+        loading="lazy"
+        allowfullscreen
+      >
+      </iframe>
+    </div>
+
+    <h3>{{videos.chinatown}}</h3>
+    <div class="video" style="--aspect-ratio: 16/9;">
+      <iframe
+        src="https://www.youtube.com/embed/TtZmANXveXg"
+        {{!-- TODO: add translation for title attribute --}}
+        title="Video: Tenant's project, Chinatown"
+        frameborder="0"
+        width="960"
+        height="540"
+        loading="lazy"
+        allowfullscreen
+      >
+      </iframe>
+    </div>
+
+
+    <h2 id="get-involved">{{get_involved.h2}}</h2>
+    <p class="h3">{{get_involved.h3}}</p>
+    <ul>
+      <li>{{get_involved.first}}
+        <a href="./resources.html">{{get_involved.a}}</a>
+      </li>
+      <li>{{get_involved.second}}</li>
+      <li>{{get_involved.third}}</li>
+    </ul>
+
+    <h2 id="not-rs">{{not_rs.h2}}</h2>
+    <p class="h3">{{not_rs.h3}}</p>
+    <p>
+      {{not_rs.p1.one}}
+      <a
+        href="http://thebillfold.com/2012/08/how-to-negotiate-a-lease-renewal/"
+      >{{not_rs.p1.a}}</a>
+      {{not_rs.p1.two}}
+    </p>
+
+    <p>
+      <strong>{{not_rs.p2.s}}</strong>
+      <a href="http://www1.nyc.gov/311/index.page">{{not_rs.p2.a1}}</a>
+      {{not_rs.p2.two}}
+      <a href="./resources.html">{{not_rs.p2.a2}}</a>
+      {{not_rs.p2.three}}
+    </p>
+  </main>
+</div>

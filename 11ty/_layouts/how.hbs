@@ -1,0 +1,144 @@
+---
+layout: base.hbs
+---
+
+<pre>{{data}}</pre>
+
+{{>navigation_info}}
+
+<div class="sidebar-main-wrapper">
+  <aside class="info-pages">
+    {{>language_toggle}}
+
+    <nav class="side-nav" aria-labelledby="side-nav-title">
+      <h2 id="side-nav-title">{{nav_side.h2}}</h2>
+      <ul role="list">
+        <li><a href="#how">{{nav_side.how}}</a></li>
+        <li><a href="#code-data">{{{nav_side.code}}}</a></li>
+        <li><a href="#credits">{{nav_side.credits}}</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main id="main">
+    <h1 id="how">{{how.h2}}</h1>
+    <p>
+      {{how.p01.[0]}}
+      <strong>{{how.p01.[1]}}</strong>
+      {{how.p01.[2]}}
+    </p>
+
+    <p>
+      {{how.p02.[0]}}
+      <strong>{{how.p02.[1]}}</strong>
+    </p>
+
+    <p>
+      <strong>
+      {{credits.kofi.a}}
+      <a href="https://ko-fi.com/chrislhenrick"  rel="noopener">{{credits.kofi.b}}</a>
+      {{credits.kofi.c}}
+      </strong>
+    </p>
+
+    <h2>{{how.h3.[0]}}</h2>
+    <p>
+      {{how.p03.[0]}}
+      <strong>{{how.p03.[1]}}</strong>
+      {{how.p03.[2]}}
+    </p>
+
+    <h2>{{how.h3.[1]}}</h2>
+    <p>
+      {{how.p04.[0]}}
+      <a href="http://www.nyshcr.org/">
+        {{how.p04.[1]}}
+      </a>
+      {{how.p04.[2]}}
+    </p>
+    <p>
+      {{how.p05}}
+    </p>
+    <p>
+      {{how.p06.[0]}}
+      <a href="https://www.nyc.gov/content/planning/pages/resources/datasets/mappluto-pluto-change">
+        {{how.p06.[1]}}
+      </a>
+      {{how.p06.[2]}}
+      <a href="https://blog.johnkrauss.com/where-is-decontrol/">
+        {{how.p06.[3]}}
+      </a>
+    </p>
+
+    <p>
+      {{how.p07}}
+    </p>
+
+    <h2 id="code-data">{{{code.h2}}}</h2>
+    <p>
+      {{code.p}}
+    </p>
+    <ul>
+      <li>
+        <a href="https://github.com/clhenrick/am-i-rent-stabilized">
+          {{code.ul.[0]}}
+        </a>
+      </li>
+      <li>
+        <a href="https://www.dropbox.com/scl/fi/x8gdmve5hmw2x9gfpqepx/ny_likely_rs_2020.csv?rlkey=hzrl32sjldwouicux1lr1e5xc&dl=0">
+          {{code.ul.[1]}}
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/clhenrick/dhcr-rent-stabilized-data">
+          {{code.ul.[2]}}
+        </a>
+      </li>
+    </ul>
+
+    <h2 id="credits">{{credits.h2}}</h2>
+    <p>
+      {{credits.p01}}
+    </p>
+    <ul>
+      <li>
+        <a href="http://carolinewoolard.com/">{{credits.ul.[0]}}</a>
+        {{credits.ul.[1]}}
+      </li>
+      <li>
+        <a href="http://radishlab.com/">{{credits.ul.[2]}}</a>
+        {{credits.ul.[3]}}
+      </li>
+      <li>
+        <a href="http://goodlemons.com/">{{credits.ul.[4]}}</a>
+        {{credits.ul.[5]}}
+      </li>
+      <li>
+        <a href="http://betanyc.us">{{credits.ul.[6]}}</a>
+        {{{credits.ul.[7]}}}
+      </li>
+      <li>
+        <a href="http://carto.com">{{credits.ul.[8]}}</a>
+        {{credits.ul.[9]}}
+      </li>
+    </ul>
+
+    <h2>{{credits.h3}}</h2>
+    <p>
+      {{credits.p02.[0]}}
+      <a href="mailto:amirentstabilized@gmail.com">
+        {{credits.p02.[1]}}
+      </a>
+    </p>
+    <p>
+      <strong>
+      {{credits.kofi.a}}
+      <a href="https://ko-fi.com/chrislhenrick"  rel="noopener">{{credits.kofi.b}}</a>
+      {{credits.kofi.c}}
+      </strong>
+    </p>
+    <p>
+      {{credits.p03}}
+    </p>
+  </main>
+</div>
