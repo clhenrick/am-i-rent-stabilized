@@ -13,6 +13,8 @@ export default async function (eleventyConfig) {
     defaultLanguage: "en",
   });
 
+  eleventyConfig.addWatchTarget("./assets/");
+
   // Set global permalinks to resource.html style
   eleventyConfig.addGlobalData("permalink", () => {
     return (data) =>
@@ -22,8 +24,6 @@ export default async function (eleventyConfig) {
 
 export const config = {
   templateFormats: ["md", "hbs"],
-
-  markdownTemplateEngine: "hbs",
 
   dir: {
     input: "content",
