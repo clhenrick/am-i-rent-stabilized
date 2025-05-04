@@ -15,6 +15,8 @@ export default async function (eleventyConfig) {
 
   eleventyConfig.addWatchTarget("./assets/");
 
+  eleventyConfig.addPassthroughCopy("assets/png");
+
   // Set global permalinks to resource.html style
   eleventyConfig.addGlobalData("permalink", () => {
     return (data) =>
