@@ -28,7 +28,7 @@ export const config = {
   templateFormats: ["md", "hbs"],
 
   dir: {
-    input: "content",
+    input: "src/content",
     output: "dist",
     includes: "../_includes",
     layouts: "../_layouts",
