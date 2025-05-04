@@ -14,8 +14,13 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": "npx @11ty/eleventy --serve --incremental --port=8080 --quiet",
-    "build": "yarn exec eleventy",
+    "start": "run-p -l clean sass:build sass:watch eleventy:serve",
+    "build": "run-s -l eleventy:build sass:build",
+    "clean": "rm -rf dist",
+    "eleventy:serve": "yarn exec eleventy --serve --incremental --port=8080 --quiet",
+    "eleventy:build": "yarn exec eleventy",
+    "sass:watch": "sass --watch --update --color assets/scss:dist/styles",
+    "sass:build": "sass --no-source-map --style=compressed assets/scss:dist/styles",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "packageManager": "yarn@4.9.1",
