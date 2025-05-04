@@ -1,0 +1,144 @@
+@use "sass:map";
+@use "sass:color";
+@use "variables" as *;
+
+@mixin focus-indicator($inverted: false) {
+  $darkblue: color.adjust(map.get($palette, "blue"), $lightness: -10%);
+  $inner-color: $darkblue;
+  $outer-color: map.get($palette, "white");
+  @if $inverted {
+    $inner-color: map.get($palette, "white");
+    $outer-color: $darkblue;
+  }
+  // meets 3:1 contrast for WCAG when over a white background
+  outline: 3px solid $inner-color;
+  box-shadow: 0 0 0 6px $outer-color;
+}
+
+@mixin columns($width, $number: 2, $gap: 0) {
+  -webkit-columns: $width $number;
+  -moz-columns: $width $number;
+  columns: $width $number;
+  -webkit-column-gap: $gap;
+  -moz-column-gap: $gap;
+  column-gap: $gap;
+  -webkit-column-rule: 1px solid map.get($palette, "light-grey");
+  -moz-column-rule: 1px solid map.get($palette, "light-grey");
+  column-rule: 1px solid map.get($palette, "light-grey");
+}
+
+@mixin translateY($value) {
+  -ms-transform: translateY($value);
+  -webkit-transform: translateY($value);
+  -moz-transform: translateY($value);
+  -o-transform: translateY($value);
+  transform: translateY($value);
+}
+
+// background size for images
+@mixin background-size($width, $height) {
+  -webkit-background-size: $width $height;
+  -moz-background-size: $width $height;
+  background-size: $width $height;
+}
+
+// animations
+@mixin animation($name, $interval: 0.8s, $steps: 10, $length: infinite) {
+  -webkit-animation: $name $interval steps($steps) $length;
+  -moz-animation: $name $interval steps($steps) $length;
+  -ms-animation: $name $interval steps($steps) $length;
+  -o-animation: $name $interval steps($steps) $length;
+  animation: $name $interval steps($steps) $length;
+}
+
+@mixin keyframes($name, $to, $from: 0) {
+  @-webkit-keyframes $name {
+    from {
+      background-position: $from;
+    }
+
+    to {
+      background-position: $to;
+    }
+  }
+
+  @-moz-keyframes $name {
+    from {
+      background-position: $from;
+    }
+
+    to {
+      background-position: $to;
+    }
+  }
+
+  @-ms-keyframes $name {
+    from {
+      background-position: $from;
+    }
+
+    to {
+      background-position: $to;
+    }
+  }
+
+  @-o-keyframes $name {
+    from {
+      background-position: $from;
+    }
+
+    to {
+      background-position: $to;
+    }
+  }
+
+  @keyframes $name {
+    from {
+      background-position: $from;
+    }
+
+    to {
+      background-position: $to;
+    }
+  }
+}
+
+// media queries for screen width
+@mixin responsive($width) {
+  @if $width == medium-screens {
+    @media only screen and (max-width: $width-md) {
+      @content;
+    }
+  } @else if $width == tablet-screens {
+    @media only screen and (max-width: $width-sm2) {
+      @content;
+    }
+  } @else if $width == small-screens {
+    @media only screen and (max-width: $width-sm) {
+      @content;
+    }
+  }
+}
+
+// media queries for screen height
+@mixin responsive_height($height) {
+  @if $height == tall-screens {
+    @media only screen and (max-height: $height-lg) {
+      @content;
+    }
+  } @else if $height == medium-screens {
+    @media only screen and (max-height: $height-md) {
+      @content;
+    }
+  } @else if $height == short-screens {
+    @media only screen and (max-height: $height-sm) {
+      @content;
+    }
+  }
+}
+
+@mixin responsive_mobile_landscape() {
+  @media only screen and (orientation: landscape) and (height <= $height-sm) {
+    @content;
+  }
+}
