@@ -5,7 +5,7 @@
   width: 192px;
   height: 424px;
   margin: 0 auto;
-  background: url("../../../public/assets/png/checking-sprite.png") left center;
+  background: url("../../../assets/png/checking-sprite.png") left center;
 
   @media (prefers-reduced-motion: no-preference) {
     @include animation($name: play);
@@ -22,7 +22,7 @@
   }
 
   @include responsive_height(medium-screens) {
-    background: url("../../../public/assets/png/checking-sprite-sm.png");
+    background: url("../../../assets/png/checking-sprite-sm.png");
     width: 128px;
     height: 288px;
     left: 0;

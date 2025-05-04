@@ -75,13 +75,13 @@
       height: 28px;
       width: 76px;
       margin: 0 auto;
-      background-image: url("../../../public/assets/png/chevron.png");
+      background-image: url("../../../assets/png/chevron.png");
       background-repeat: no-repeat;
 
       @include responsive(small-screens) {
         width: 32px;
         height: 11px;
-        background-image: url("../../../public/assets/png/chevron-sm.png");
+        background-image: url("../../../assets/png/chevron-sm.png");
       }
     }
   }
