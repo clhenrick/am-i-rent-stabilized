@@ -4,9 +4,13 @@ const keys = ["main", "how", "why", "resources"];
 /** creates an object containing the locales json data for each page keyed by language code */
 function getLocalesByLang(locales, lang) {
   const keysByLocale = keys.map((key) => `${key}-${lang}`);
+  const commonLocaleKey = `common-${lang}`;
   return keys.reduce((acc, cur, index) => {
     const localeKey = keysByLocale[index];
-    acc[cur] = locales[localeKey];
+    acc[cur] = {
+      ...locales[commonLocaleKey],
+      ...locales[localeKey],
+    };
     return acc;
   }, {});
 }
