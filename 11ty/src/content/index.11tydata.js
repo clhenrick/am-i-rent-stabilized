@@ -1,2 +1,7 @@
 import locale from '../_data/locales/main-en.json' with { type: 'json' };
-export default locale;
+import common from '../_data/locales/common-en.json' with { type: 'json' };
+
+export default {
+  ...common,
+  ...locale,
+};
