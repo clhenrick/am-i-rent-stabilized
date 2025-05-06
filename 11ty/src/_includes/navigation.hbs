@@ -1,4 +1,4 @@
-{{! Navigation partial for index.html page }}
+{{! primary navigation }}
 <nav class="main-nav" aria-labelledby="main-nav-title">
   <h2 id="main-nav-title" class="sr-only">{{nav_main.accName}}</h2>
   <div class="home-container">
@@ -6,8 +6,8 @@
     <a
       class="home"
       aria-current="page"
-      href="./index.html"
-    >{{nav_main.title}}</a>
+      href="{{nav_main.home.path}}"
+    >{{nav_main.home.label}}</a>
   </div>
   <button class="button burger" aria-label="menu" aria-pressed="false">
     <svg
@@ -32,10 +32,10 @@
     </svg>
   </button>
   <ul>
-    <li class="nav"><a href="info/why.html">{{nav_main.why}}</a></li>
-    <li class="nav"><a href="info/how.html">{{nav_main.how}}</a></li>
-    <li class="nav"><a
-        href="info/resources.html"
-      >{{nav_main.resources}}</a></li>
+    {{#each nav_main.info_pages}}
+    <li class="nav">
+      <a href="{{this.path}}">{{this.label}}</a>
+    </li>
+    {{/each}}
   </ul>
 </nav>
