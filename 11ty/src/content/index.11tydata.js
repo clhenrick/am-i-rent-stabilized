@@ -1,7 +1,6 @@
-import locale from '../_data/locales/main-en.json' with { type: 'json' };
-import common from '../_data/locales/common-en.json' with { type: 'json' };
-
 export default {
-  ...common,
-  ...locale,
+  eleventyComputed: {
+    main: (data) => data.en.main,
+    nav_main: (data) => data.en.main?.nav_main,
+  }
 };
