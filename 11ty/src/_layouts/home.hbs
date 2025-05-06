@@ -52,17 +52,17 @@ isHomepage: true
             <img class="triple-s" height="40" src="assets/png/triple-sss.png" alt="">
             <img class="building intro" height="120" src="assets/png/building.png" alt="">
           </div>
-          <h1 id="slide-1-title" class="font-style-hero landing">{{ slide01.h1 }}</h1>
-          <p class="font-style-secondary sub-head">{{ slide01.subhead }}</p>
+          <h1 id="slide-1-title" class="font-style-hero landing">{{ main.slide01.h1 }}</h1>
+          <p class="font-style-secondary sub-head">{{ main.slide01.subhead }}</p>
           <p class="go-step4">
-            {{ slide01.landing }}
+            {{ main.slide01.landing }}
             <a class="go-step4" href="#slide-7">
-              {{ slide01.go_step_4 }}
+              {{ main.slide01.go_step_4 }}
             </a>
           </p>
         </div>
         <button type="button" class="button--go-next">
-          <div>{{nav_bottom_arrow.begin}}</div>
+          <div>{{ main.nav_bottom_arrow.begin }}</div>
           <div class="arrow"></div>
         </button>
       </div>
@@ -78,8 +78,8 @@ isHomepage: true
         aria-label="2 of 9"
       >
         <div class="centered v-centered">
-          <h2 id="slide-2-title" class="font-style-hero step">{{slide02.h2}}</h2>
-          <p class="step">{{slide02.privacy}}</p>
+          <h2 id="slide-2-title" class="font-style-hero step">{{ main.slide02.h2 }}</h2>
+          <p class="step">{{ main.slide02.privacy }}</p>
           {{>address_search_form}}
         </div>
       </div>
@@ -95,8 +95,8 @@ isHomepage: true
         aria-label="3 of 9"
       >
         <div class="centered v-centered">
-          <h2 id="slide-3-title" class="font-style-hero checking"> {{slide03.checking }} </h2>
-          <p> {{slide03.p}} </p>
+          <h2 id="slide-3-title" class="font-style-hero checking"> {{ main.slide03.checking }} </h2>
+          <p> {{ main.slide03.p }} </p>
           <div id="sprite"></div>
         </div>
       </div>
@@ -113,12 +113,12 @@ isHomepage: true
       >
         <div class="centered v-centered">
           <div class="yes hidden">
-            <h2>{{{slide04.yes.h2}}}</h2>
-            <p>{{{slide04.yes.p}}}</p>
+            <h2>{{{ main.slide04.yes.h2 }}}</h2>
+            <p>{{{ main.slide04.yes.p }}}</p>
           </div>
 
           <div class="no">
-            <p>{{{slide04.no.p}}}</p>
+            <p>{{{ main.slide04.no.p }}}</p>
           </div>
 
           <div id="map-container">
@@ -127,7 +127,7 @@ isHomepage: true
         </div>
 
         <button type="button" class="button--go-next">
-          <div>{{nav_bottom_arrow.next}}</div>
+          <div>{{ main.nav_bottom_arrow.next }}</div>
           <div class="arrow"></div>
         </button>
       </div>
@@ -143,36 +143,36 @@ isHomepage: true
         aria-label="5 of 9"
       >
         <div class="centered v-centered">
-          <h2 id="slide-5-title">{{slide05.h2}}</h2>
+          <h2 id="slide-5-title">{{main.slide05.h2}}</h2>
           <ul class="dhcr-choice" role="list">
             <li>
               <p>
-                {{slide05.online}}
+                {{main.slide05.online}}
                 <a href="https://portal.hcr.ny.gov/app/ask" target="_blank">
-                  {{slide05.hcr_ny_gov}}
+                  {{main.slide05.hcr_ny_gov}}
                 </a>
               </p>
             </li>
             <li>
-              <p>{{slide05.phone}}
+              <p>{{main.slide05.phone}}
                 <a href="tel:1-718-739-6400">718 739-6400</a>
               </p>
             </li>
             <li>
-              <p>{{slide05.visit}}
+              <p>{{main.slide05.visit}}
                 <a href="http://www.nyshcr.org/AboutUs/contact.htm#rent-admin">
-                  {{slide05.office}}
+                  {{main.slide05.office}}
                 </a>
               </p>
             </li>
           </ul>
           <p class="be-sure">
-            {{slide05.tell_them}}
-            {{slide05.mailed}}
+            {{main.slide05.tell_them}}
+            {{main.slide05.mailed}}
           </p>
         </div>
         <button type="button" class="button--go-next">
-          <div>{{nav_bottom_arrow.next}}</div>
+          <div>{{main.nav_bottom_arrow.next}}</div>
           <div class="arrow"></div>
         </button>
       </div>
@@ -188,17 +188,17 @@ isHomepage: true
         aria-label="6 of 9"
       >
         <div class="centered v-centered">
-          <h2 id="slide-6-title" class="font-style-hero check-it">{{slide06.h2}}</h2>
+          <h2 id="slide-6-title" class="font-style-hero check-it">{{main.slide06.h2}}</h2>
           <p class="check-it">
-            {{slide06.arrive}}
+            {{main.slide06.arrive}}
           </p>
           <p class="check-it">
-            {{slide06.friends}}
+            {{main.slide06.friends}}
           </p>
           {{>add_to_calendar}}
         </div>
         <button type="button" class="button--go-next">
-          <div>{{nav_bottom_arrow.next}}</div>
+          <div>{{main.nav_bottom_arrow.next}}</div>
           <div class="arrow"></div>
         </button>
       </div>
@@ -214,12 +214,11 @@ isHomepage: true
         aria-label="7 of 9"
       >
         <div class="centered v-centered">
-          <h2 id="slide-7-title">{{slide07.h2}}</h2>
+          <h2 id="slide-7-title">{{main.slide07.h2}}</h2>
           <img
             class="rent-history"
             height="190"
             src="assets/png/sample-rent-history-thumb.png"
-            loading="lazy"
             {{!-- TODO: add translations for alt text --}}
             alt="Sample rent history provided by the NY DHCR. The letters RS under the Apartment Status column means rent stabilized."
           >
@@ -228,12 +227,12 @@ isHomepage: true
               type="button"
               class="button--secondary js-rh-modal-trigger"
             >
-              {{slide07.p}}
+              {{main.slide07.p}}
             </button>
           </p>
         </div>
         <button type="button" class="button--go-next">
-          <div>{{nav_bottom_arrow.next}}</div>
+          <div>{{main.nav_bottom_arrow.next}}</div>
           <div class="arrow"></div>
         </button>
       </div>
@@ -249,37 +248,37 @@ isHomepage: true
         aria-label="8 of 9"
       >
         <div class="centered v-centered">
-          <h2 id="slide-8-title">{{slide08.h2}}</h2>
+          <h2 id="slide-8-title">{{main.slide08.h2}}</h2>
           <ul role="list" class="action-choice">
             <li>
-              <h3>{{slide08.option01}}</h3>
+              <h3>{{main.slide08.option01}}</h3>
               <p class="no-local-tr">
-                <a href="info/resources.html" target="_blank">{{slide08.no_local_tr.a}}</a>
-                {{slide08.no_local_tr.p}}
+                <a href="info/resources.html" target="_blank">{{main.slide08.no_local_tr.a}}</a>
+                {{main.slide08.no_local_tr.p}}
               </p>
               <p class="yes-local-tr hidden">
-                {{slide08.yes_local_tr.p}}
+                {{main.slide08.yes_local_tr.p}}
               </p>
               <button
                 type="button"
                 class="button js-tr-modal-trigger"
                 style="text-transform:none;color:inherit;"
               >
-                {{slide08.yes_local_tr.a}}
+                {{main.slide08.yes_local_tr.a}}
               </button>
             </li>
 
             <li>
-              <h3>{{slide08.option02}}</h3>
-              <p>{{slide08.p1}}
-                <a href="http://www.nyshcr.org/Forms/Rent/ra89.pdf" target="_blank">{{slide08.a}}</a>
-                {{slide08.p2}}
+              <h3>{{main.slide08.option02}}</h3>
+              <p>{{main.slide08.p1}}
+                <a href="http://www.nyshcr.org/Forms/Rent/ra89.pdf" target="_blank">{{main.slide08.a}}</a>
+                {{main.slide08.p2}}
               </p>
             </li>
           </ul>
         </div>
         <button type="button" class="button--go-next">
-          <div>{{nav_bottom_arrow.next}}</div>
+          <div>{{main.nav_bottom_arrow.next}}</div>
           <div class="arrow"></div>
         </button>
       </div>
@@ -295,18 +294,18 @@ isHomepage: true
         aria-label="9 of 9"
       >
         <div class="centered v-centered">
-          <h2 id="slide-9-title" class="font-style-hero end">{{slide09.h2}}</h2>
+          <h2 id="slide-9-title" class="font-style-hero end">{{main.slide09.h2}}</h2>
           <img class="mascot" height="360" loading="lazy" src="assets/png/yes.png" alt="">
           <div class="flex flex-wrap" style="--gap:24px">
             <button type="button" class="button--primary start-over go-first">
-              {{slide09.start}}
+              {{main.slide09.start}}
             </button>
             <a class="button--primary learn-more" href="info/why.html">
-              {{slide09.learn}}
+              {{main.slide09.learn}}
             </a>
           </div>
           <div class="share-box-end">
-            <p class="share-it">{{slide09.share}}</p>
+            <p class="share-it">{{main.slide09.share}}</p>
             <div class="addthis_sharing_toolbox"></div>
           </div>
         </div>
