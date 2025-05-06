@@ -1,0 +1,24 @@
+{
+  "nav_main": {
+    "accName": "主要的",
+    "home": {
+      "path": "/zh/",
+      "label": "Am I Rent Stabilized?"
+    },
+    "info_pages": [
+      {
+        "path": "/zh/why",
+        "label": "为什么了租金稳定与否很重要?"
+      },
+      {
+        "path": "/zh/how",
+        "label": "租金稳定是怎么一回事？"
+      },
+      {
+        "path": "/zh/resources",
+        "label": "相关资料"
+      }
+    ]
+  }
+  }
+}

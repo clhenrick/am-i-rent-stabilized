@@ -1,11 +1,4 @@
 {
-  "nav_main": {
-    "accName": "principal",
-    "title": "Am I Rent Stabilized?",
-    "why": "¿Porqué es importante?",
-    "how": "¿Cómo funciona?",
-    "resources": "Recursos"
-  },
   "nav_bottom_arrow": {
     "begin": "Inicio",
     "next": "Siguiente"

@@ -1,11 +1,4 @@
 {
-  "nav_main": {
-    "accName": "主要的",
-    "title": "Am I Rent Stabilized?",
-    "why": "为什么了租金稳定与否很重要?",
-    "how": "租金稳定是怎么一回事？",
-    "resources": "相关资料"
-  },
   "nav_bottom_arrow": {
     "begin": "开始",
     "next": "下一页"

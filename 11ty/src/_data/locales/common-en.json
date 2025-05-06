@@ -1,0 +1,23 @@
+{
+  "nav_main": {
+    "accName": "primary",
+    "home": {
+      "path": "/",
+      "label": "Am I Rent Stabilized?"
+    },
+    "info_pages": [
+      {
+        "path": "/en/why",
+        "label": "Why it Matters"
+      },
+      {
+        "path": "/en/how",
+        "label": "How it Works"
+      },
+      {
+        "path": "/en/resources",
+        "label": "Resources"
+      }
+    ]
+  }
+}
