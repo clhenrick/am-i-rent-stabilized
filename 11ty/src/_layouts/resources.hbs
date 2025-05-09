@@ -27,19 +27,19 @@ layout: base.hbs
   <aside class="info-pages">
     {{>language_toggle}}
     <nav class="side-nav" aria-labelledby="side-nav-title">
-      <h2 id="side-nav-title">{{nav_side.h2}}</h2>
+      <h2 id="side-nav-title">{{resources.nav_side.h2}}</h2>
       <ul role="list">
         <li>
-          <a href="#city-wide">{{nav_side.citywide}}</a>
+          <a href="#city-wide">{{resources.nav_side.citywide}}</a>
         </li>
         <li>
-          <a href="#boro">{{nav_side.boro}}</a>
+          <a href="#boro">{{resources.nav_side.boro}}</a>
         </li>
         <li class="responsive">
-          <a href="#hood">{{nav_side.hood}}</a>
+          <a href="#hood">{{resources.nav_side.hood}}</a>
         </li>
         <li>
-          <a href="#gov">{{nav_side.gov}}</a>
+          <a href="#gov">{{resources.nav_side.gov}}</a>
         </li>
       </ul>
     </nav>
@@ -47,39 +47,39 @@ layout: base.hbs
 
   <main id="main">
     <a name="non-gov"></a>
-    <h1>{{nongov.h1}}</h1>
-    <p>{{nongov.h3}}</p>
+    <h1>{{resources.nongov.h1}}</h1>
+    <p>{{resources.nongov.h3}}</p>
 
     {{!-- city wide orgs --}}
     {{> resourcesByGeog
       anchor="city-wide"
-      title=nongov.citywide.h3
-      description=nongov.citywide.p01
-      orgs=nongov.citywide.ul
+      title=resources.nongov.citywide.h3
+      description=resources.nongov.citywide.p01
+      orgs=resources.nongov.citywide.ul
     }}
 
     {{!-- borough wide orgs --}}
     {{> resourcesByGeog
       anchor="boro"
-      title=nongov.boro.h3
-      description=nongov.boro.p
-      orgs=nongov.boro.ul
+      title=resources.nongov.boro.h3
+      description=resources.nongov.boro.p
+      orgs=resources.nongov.boro.ul
     }}
 
     {{!-- neighborhood level orgs --}}
     {{> resourcesByGeog
       anchor="hood"
-      title=nongov.hood.h3
-      description=nongov.hood.p
-      orgs=nongov.hood.ul
+      title=resources.nongov.hood.h3
+      description=resources.nongov.hood.p
+      orgs=resources.nongov.hood.ul
     }}
 
     {{!-- state & city government orgs --}}
     {{> resourcesByGeog
       anchor="gov"
-      title=gov.h2
-      description=gov.p
-      orgs=gov.ul
+      title=resources.gov.h2
+      description=resources.gov.p
+      orgs=resources.gov.ul
     }}
 
   </main>
