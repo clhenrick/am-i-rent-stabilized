@@ -2,7 +2,7 @@
   "nav_side": {
     "h2": "Jump to a topic:",
     "how": "How it Works",
-    "code": "Code &amp; Data",
+    "code": "Code & Data",
     "credits": "Credits"
   },
   "how": {
@@ -60,7 +60,7 @@
       "Jue Yang",
       " contributed kick-ass art work.",
       "BetaNYC",
-      " and its members provided much needed technical &amp; motivational support.",
+      " and its members provided much needed technical & motivational support.",
       "CARTO",
       "hosts the data as well as provides the technology necessary for querying the data and rendering it on a map."
     ],
