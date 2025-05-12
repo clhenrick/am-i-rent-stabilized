@@ -14,6 +14,7 @@ export default async function (eleventyConfig) {
   });
 
   eleventyConfig.addWatchTarget("./assets/");
+  eleventyConfig.addWatchTarget("./src/_utils/");
 
   eleventyConfig.addPassthroughCopy("assets/png");
 
@@ -33,5 +34,6 @@ export const config = {
     includes: "../_includes",
     layouts: "../_layouts",
     data: "../_data",
+    utils: "../_utils",
   },
 };
