@@ -2,24 +2,12 @@
 <div class="lang-toggle">
   {{!-- TODO: add i18n string for title --}}
   <h2 class="sr-only">Toggle Language</h2>
+  {{!-- {{>language_toggle}} --}}
   <ul role="list">
+  {{#each localeLinks}}
     <li>
-      <button
-        type="button"
-        lang="es"
-        class="button toggle-es"
-      >
-        en español
-      </button>
+      <a class="button toggle-{{this.lang}}" href="{{this.path}}" lang="{{this.lang}}">{{this.label}}</a>
     </li>
-    <li>
-      <button
-        type="button"
-        lang="zh"
-        class="button toggle-zh"
-      >
-        中文
-      </button>
-    </li>
+  {{/each}}
   </ul>
 </div>

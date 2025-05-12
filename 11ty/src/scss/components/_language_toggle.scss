@@ -37,28 +37,21 @@
     }
   }
 
-  li,
-  .button[lang],
-  p {
-    line-height: 1;
-  }
-
   li {
     margin-block-end: 0;
   }
 
-  .button[lang],
-  p {
+  a[lang] {
+    display: inline-block;
     font-weight: 300;
     font-size: 1.6rem;
     color: map.get($palette, "gray");
-  }
-
-  .button[lang] {
     min-width: 120px;
     text-align: start;
+    line-height: 3;
     padding: 0 map.get($spacing, "base");
     text-transform: none;
+    text-decoration: none;
 
     &:hover {
       color: map.get($palette, "light-grey");
@@ -66,7 +59,7 @@
   }
 
   aside.info-pages & {
-    .button[lang] {
+    a[lang] {
       padding-inline: 0;
     }
   }
@@ -81,7 +74,7 @@
       display: block;
     }
 
-    .button[lang] {
+    a[lang] {
       min-height: 32px;
     }
   }
