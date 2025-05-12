@@ -1,4 +1,5 @@
 export default {
+  lang: "en",
   eleventyComputed: {
     nav_main: (data) => data.en.main?.nav_main,
     resources: (data) => data.en.resources,

@@ -1,4 +1,5 @@
 export default {
+  lang: "zh",
   eleventyComputed: {
     nav_main: (data) => data.zh.main?.nav_main,
     index: (data) => data.zh.main,
