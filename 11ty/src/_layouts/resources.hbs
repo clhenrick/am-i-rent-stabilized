@@ -1,5 +1,5 @@
 ---
-layout: base.hbs
+layout: infopages.hbs
 ---
 
 {{!-- used to render each of the org list items --}}
@@ -20,67 +20,40 @@ layout: base.hbs
   {{#each orgs}}
     {{> orgListItem }}
   {{/each}}
-</ul>
+  </ul>
 {{/inline}}
 
-<div class="sidebar-main-wrapper">
-  <aside class="info-pages">
-    {{>language_toggle}}
-    <nav class="side-nav" aria-labelledby="side-nav-title">
-      <h2 id="side-nav-title">{{resources.nav_side.h2}}</h2>
-      <ul role="list">
-        <li>
-          <a href="#city-wide">{{resources.nav_side.citywide}}</a>
-        </li>
-        <li>
-          <a href="#boro">{{resources.nav_side.boro}}</a>
-        </li>
-        <li class="responsive">
-          <a href="#hood">{{resources.nav_side.hood}}</a>
-        </li>
-        <li>
-          <a href="#gov">{{resources.nav_side.gov}}</a>
-        </li>
-      </ul>
-    </nav>
-  </aside>
+<h1>{{resources.nongov.h1}}</h1>
+<p>{{resources.nongov.h3}}</p>
 
-  <main id="main">
-    <a name="non-gov"></a>
-    <h1>{{resources.nongov.h1}}</h1>
-    <p>{{resources.nongov.h3}}</p>
+{{!-- city wide orgs --}}
+{{> resourcesByGeog
+  anchor="city-wide"
+  title=resources.nongov.citywide.h3
+  description=resources.nongov.citywide.p01
+  orgs=resources.nongov.citywide.ul
+}}
 
-    {{!-- city wide orgs --}}
-    {{> resourcesByGeog
-      anchor="city-wide"
-      title=resources.nongov.citywide.h3
-      description=resources.nongov.citywide.p01
-      orgs=resources.nongov.citywide.ul
-    }}
+{{!-- borough wide orgs --}}
+{{> resourcesByGeog
+  anchor="boro"
+  title=resources.nongov.boro.h3
+  description=resources.nongov.boro.p
+  orgs=resources.nongov.boro.ul
+}}
 
-    {{!-- borough wide orgs --}}
-    {{> resourcesByGeog
-      anchor="boro"
-      title=resources.nongov.boro.h3
-      description=resources.nongov.boro.p
-      orgs=resources.nongov.boro.ul
-    }}
+{{!-- neighborhood level orgs --}}
+{{> resourcesByGeog
+  anchor="hood"
+  title=resources.nongov.hood.h3
+  description=resources.nongov.hood.p
+  orgs=resources.nongov.hood.ul
+}}
 
-    {{!-- neighborhood level orgs --}}
-    {{> resourcesByGeog
-      anchor="hood"
-      title=resources.nongov.hood.h3
-      description=resources.nongov.hood.p
-      orgs=resources.nongov.hood.ul
-    }}
-
-    {{!-- state & city government orgs --}}
-    {{> resourcesByGeog
-      anchor="gov"
-      title=resources.gov.h2
-      description=resources.gov.p
-      orgs=resources.gov.ul
-    }}
-
-  </main>
-</div>
+{{!-- state & city government orgs --}}
+{{> resourcesByGeog
+  anchor="gov"
+  title=resources.gov.h2
+  description=resources.gov.p
+  orgs=resources.gov.ul
+}}
