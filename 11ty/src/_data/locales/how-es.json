@@ -1,9 +1,11 @@
 {
   "nav_side": {
-    "h2": "Ir a un tema:",
-    "how": "¿Cómo funciona?",
-    "code": "Código y Datos",
-    "credits": "Créditos"
+    "title": "Ir a un tema:",
+    "anchors": {
+      "how": "¿Cómo funciona?",
+      "code-data": "Código y Datos",
+      "credits": "Créditos"
+    }
   },
   "how": {
     "h2": "Cómo funciona esta página web",

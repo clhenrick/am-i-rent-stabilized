@@ -1,9 +1,11 @@
 {
   "nav_side": {
-    "h2": "Jump to a topic:",
-    "how": "How it Works",
-    "code": "Code & Data",
-    "credits": "Credits"
+    "title": "Jump to a topic:",
+    "anchors": {
+      "how": "How it Works",
+      "code-data": "Code & Data",
+      "credits": "Credits"
+    }
   },
   "how": {
     "h2": "How This Site Works",
