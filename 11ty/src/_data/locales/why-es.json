@@ -1,13 +1,15 @@
 {
   "nav_side": {
-    "h2": "Ir a un tópico",
-    "why": "¿Por qué es importante?",
-    "what": "¿Por qué otra razón debe importarme? ",
-    "under": "Bajo Ataque",
-    "messed": "¡Esto es un desastre!",
-    "videos": "Videos",
-    "involved": "Involucrarse",
-    "not": "Si no tienen renta estabilizada"
+    "title": "Ir a un tópico",
+    "anchors": {
+      "why": "¿Por qué es importante?",
+      "what": "¿Por qué otra razón debe importarme? ",
+      "under-attack": "Bajo Ataque",
+      "messed-up": "¡Esto es un desastre!",
+      "videos": "Videos",
+      "get-involved": "Involucrarse",
+      "not-rs": "Si no tienen renta estabilizada"
+    }
   },
   "why": {
     "h2": "¿Por qué la renta estabilizada es buena para la ciudad de Nueva York?",

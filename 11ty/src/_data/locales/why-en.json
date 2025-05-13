@@ -1,13 +1,15 @@
 {
   "nav_side": {
-    "h2": "Jump to a topic:",
-    "why": "Why is it important?",
-    "what": "Why else should I care?",
-    "under": "Under Attack",
-    "messed": "This is Messed Up!",
-    "videos": "Videos",
-    "involved": "Get Involved",
-    "not": "If You're Not Rent Stabilized"
+    "title": "Jump to a topic:",
+    "anchors": {
+      "why": "Why is it important?",
+      "what": "Why else should I care?",
+      "under-attack": "Under Attack",
+      "messed-up": "This is Messed Up!",
+      "videos": "Videos",
+      "get-involved": "Get Involved",
+      "not-rs": "If You're Not Rent Stabilized"
+    }
   },
   "why": {
     "h2": "Why is Rent Stabilization so Good For NYC?",
