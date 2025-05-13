@@ -1,11 +1,12 @@
 {
   "nav_side": {
-    "h2": "Ir a",
-    "nongov": "Organizaciones de Derechos para Inquilinos",
-    "citywide": "En toda la Ciudad",
-    "boro": "Por Distrito",
-    "hood": "Por Vecindario",
-    "gov": "Recursos Gubernamentales"
+    "title": "Ir a",
+    "anchors": {
+      "city-wide": "En toda la Ciudad",
+      "boro": "Por Distrito",
+      "hood": "Por Vecindario",
+      "gov": "Recursos Gubernamentales"
+    }
   },
   "nongov": {
     "h1": "Recursos de Derechos para Inquilinos",
