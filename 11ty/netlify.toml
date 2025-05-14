@@ -1,0 +1,53 @@
+[[redirects]]
+  from = "/info/why"
+  to = "/en/why"
+  force = true
+
+[[redirects]]
+  from = "/info/how"
+  to = "/en/how"
+  force = true
+
+[[redirects]]
+  from = "/info/resources"
+  to = "/en/resources"
+  force = true
+
+# Content negotiation for home page (spanish)
+[[redirects]]
+  from = "/"
+  to = "/es/"
+  status = 200
+  conditions = {Language = ["es"]}
+
+# Content negotiation for home page (chinese)
+[[redirects]]
+  from = "/"
+  to = "/zh/"
+  status = 200
+  conditions = {Language = ["zh"]}
+
+# Content negotiation for home page (english)
+[[redirects]]
+  from = "/"
+  to = "/en/"
+  status = 200
+
+# Redirect for end-user’s browser preference override
+[[redirects]]
+  from = "/*"
+  to = "/es/:splat"
+  status = 302
+  conditions = {Language = ["es"]}
+
+[[redirects]]
+  from = "/*"
+  to = "/zh/:splat"
+  status = 302
+  conditions = {Language = ["zh"]}
+
+# Default
+[[redirects]]
+  from = "/*"
+  to = "/en/:splat"
+  status = 302

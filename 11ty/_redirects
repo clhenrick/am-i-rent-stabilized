@@ -1,7 +1,0 @@
-# follows guidance from: https://www.11ty.dev/docs/i18n/#content-negotiation-on-only
-/   /es/        200   Language=es
-/   /zh/        200   Language=zh
-/   /en/        200
-/*  /es/:splat  302   Language=es
-/*  /zh/:splat  302   Language=zh
-/*  /en/:splat  302
