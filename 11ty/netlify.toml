@@ -13,25 +13,16 @@
   to = "/en/resources"
   force = true
 
-# Content negotiation for home page (spanish)
+# Redirect any URLs with the language code in them already
 [[redirects]]
-  from = "/"
-  to = "/es/"
-  status = 200
-  conditions = {Language = ["es"]}
+  from = "/en/*"
+  to = "/:splat"
+  status = 301
+  force = true
 
-# Content negotiation for home page (chinese)
-[[redirects]]
-  from = "/"
-  to = "/zh/"
-  status = 200
-  conditions = {Language = ["zh"]}
-
-# Content negotiation for home page (english)
-[[redirects]]
-  from = "/"
-  to = "/en/"
-  status = 200
+# Important: Per shadowing rules, URLs for the
+# _non-default_ language-specific content files
+# are served without redirects.
 
 # Redirect for end-user’s browser preference override
 [[redirects]]
@@ -40,6 +31,7 @@
   status = 302
   conditions = {Language = ["es"]}
 
+# Redirect for end-user’s browser preference override
 [[redirects]]
   from = "/*"
   to = "/zh/:splat"
@@ -50,4 +42,4 @@
 [[redirects]]
   from = "/*"
   to = "/en/:splat"
-  status = 302
+  status = 200
