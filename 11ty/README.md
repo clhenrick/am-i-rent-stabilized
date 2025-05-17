@@ -76,15 +76,17 @@ Utility / helper function junk drawer.
 
 ### content/
 
-The site's pages, referred to as "templates" in Eleventy. While these pages have a markdown extension, they are mainly referencing their corresponding Handlebars template in the `src/_layouts/` directory.
+The site's pages, referred to as "templates" in Eleventy. While these pages have a markdown extension, they are mainly referencing their corresponding Handlebars layout template from the `src/_layouts/` directory.
 
-The site's pages are organized by language (e.g. `en/*.html`, `es/*.html`, `zh/*.html`), with the exception of the English homepage which resides at the site's root directory (`/index.html`).
+The site's pages are organized by language, with English pages being the default language at the root directory level (`/index.html`, `/why.html`, `/how.html`, etc.) and supported languages being in their own sub-directory by locale (e.g. `es/*.html`, `zh/*.html`). This structure follow's Eleventy's guidance for i18n using the ["Distinct URLs using Implied Default Language"](https://www.11ty.dev/docs/i18n/#distinct-urls-using-implied-default-language) technique. This works in tandem with locale based redirects, see the [`netlify.toml`](./netlify.toml) configuration file.
 
-### content/[slug].11tydata.js
+Template data is configured via `*.11tydata.js` files so that each of the site's pages may share the same markup while being rendered using the appropriate locale from `src/_data/locales/`.
 
-These are Eleventy data files which configure the data for each page template. They use "computed data" to direct the locales JSON data from `src/_data` to the correct page in the correct language.
+### content/*.11tydata.js
 
-In addition to the pages, these files delegate the data for the primary navigation (`nav_main`), in page navigation links (`nav_side`), and translation links (`localeLinks`).
+These are Eleventy data files which configure the data for each page template. They use "computed data" to direct the locales JSON data from `src/_data/` to the correct page in the correct language.
+
+In addition to the pages, these files delegate the data for the primary navigation (`nav_main`), in-page navigation links (`nav_side`), and same page translation links (`localeLinks`).
 
 ### scss/
 
@@ -92,9 +94,9 @@ The website's styles. These are sass files (`*.scss`) which compile to CSS via D
 
 ### Misc Files
 
-#### _redirects
+#### netlify.toml
 
-Netlify redirects file that mainly handles part of the translation / i18n stuff.
+Netlify configuration file that mainly handles redirects for i18n. If a user's language is recognized and supported then they will be redirected to the corresponding page.
 
 #### eleventy.config.js
 
