@@ -7,15 +7,15 @@
     },
     "info_pages": [
       {
-        "path": "/en/why",
+        "path": "/why",
         "label": "Why it Matters"
       },
       {
-        "path": "/en/how",
+        "path": "/how",
         "label": "How it Works"
       },
       {
-        "path": "/en/resources",
+        "path": "/resources",
         "label": "Resources"
       }
     ]
