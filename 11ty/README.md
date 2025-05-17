@@ -72,7 +72,7 @@ Handlebars.js layouts. Think of these as the page structure for the various page
 
 ### _utils/
 
-Utility / helper function junk drawer.
+Eleventy specific utility / helper function junk drawer.
 
 ### content/
 
@@ -87,6 +87,10 @@ Template data is configured via `*.11tydata.js` files so that each of the site's
 These are Eleventy data files which configure the data for each page template. They use "computed data" to direct the locales JSON data from `src/_data/` to the correct page in the correct language.
 
 In addition to the pages, these files delegate the data for the primary navigation (`nav_main`), in-page navigation links (`nav_side`), and same page translation links (`localeLinks`).
+
+### js/
+
+The website's client side JavaScript. Most of the JS is for use with the homepage, although there is a separate entry point for the "info" pages.
 
 ### scss/
 
