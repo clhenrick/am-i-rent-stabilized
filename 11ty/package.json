@@ -21,8 +21,8 @@
     "eleventy:build": "yarn exec eleventy",
     "sass:watch": "sass --watch --update --color src/scss:dist/styles",
     "sass:build": "sass --style=compressed src/scss:dist/styles",
-    "js:build": "node esbuild.config.prod.js",
-    "js:watch": "node esbuild.config.dev.js",
+    "js:build": "node esbuild.config.js prod",
+    "js:watch": "node esbuild.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "packageManager": "yarn@4.9.1",
