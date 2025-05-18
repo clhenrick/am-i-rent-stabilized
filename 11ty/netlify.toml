@@ -1,16 +1,17 @@
+# Redirects from previous site "info pages" url structure
 [[redirects]]
   from = "/info/why"
-  to = "/en/why"
+  to = "/why"
   force = true
 
 [[redirects]]
   from = "/info/how"
-  to = "/en/how"
+  to = "/how"
   force = true
 
 [[redirects]]
   from = "/info/resources"
-  to = "/en/resources"
+  to = "/resources"
   force = true
 
 # Redirect any URLs with the language code in them already
