@@ -3,7 +3,7 @@ import { observeStore } from "../store";
 import { Component } from "./_componentBase";
 import { fetchTenantsRightsGroups } from "../action_creators/tenantsRightsGroupsActions";
 import { logException, handleErrorObj } from "../utils/logging";
-import template from "../hbs_partials/tenants_rights_modal.hbs";
+import template from "../../_includes/tenants_rights_modal.hbs";
 
 Handlebars.registerPartial("trGroups", template);
 
