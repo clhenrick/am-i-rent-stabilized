@@ -15,6 +15,8 @@ export default async function (eleventyConfig) {
 
   eleventyConfig.addWatchTarget("./assets/");
   eleventyConfig.addWatchTarget("./src/_utils/");
+  eleventyConfig.addWatchTarget("./src/js/");
+  eleventyConfig.addWatchTarget("./src/scss/");
 
   eleventyConfig.addPassthroughCopy("assets/png");
 
