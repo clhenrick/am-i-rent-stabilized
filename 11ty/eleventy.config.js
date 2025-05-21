@@ -36,6 +36,5 @@ export const config = {
     includes: "../_includes",
     layouts: "../_layouts",
     data: "../_data",
-    utils: "../_utils",
   },
 };
