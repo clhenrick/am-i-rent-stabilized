@@ -1,12 +1,18 @@
 import * as esbuild from "esbuild";
 import handlebarsPlugin from "esbuild-plugin-handlebars";
+import browserslistToEsbuild from 'browserslist-to-esbuild'
 import { argv } from 'node:process';
+import packageJson from './package.json' with { type: 'json' };
+
+const { browserslist } = packageJson;
 
 /** first cli argument is for the mode ("dev" or "prod"); */
 const mode = argv[2];
 
 /** whether we are creating a production build */
 const isProdMode = mode === "prod";
+
+const targets = isProdMode ? browserslist.production : browserslist.development;
 
 /** options shared by both .build() and .context() */
 const options = {
@@ -15,6 +21,7 @@ const options = {
     'process.env.USE_PRELOADED_STATE': JSON.stringify(process.env.USE_PRELOADED_STATE) ?? 'false',
     'process.env.USE_REDUX_LOGGER': JSON.stringify(process.env.USE_REDUX_LOGGER) ?? 'false'
   },
+  target: browserslistToEsbuild(targets),
   drop: isProdMode ? ['console'] : undefined,
   entryPoints: ["src/js/index.js", "src/js/infoPages.js"],
   format: 'esm',
