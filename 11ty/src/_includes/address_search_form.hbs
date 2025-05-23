@@ -1,0 +1,30 @@
+{{! Address search on slide 2 }}
+<form id="address-form">
+  <div class="user-data street-address">
+    <label for="address-search-input">{{main.slide02.form.label}}:</label>
+    <input
+      id="address-search-input"
+      class="address-input"
+      name="address-input"
+      type="search"
+      list="autosuggest-results"
+      aria-required="true"
+      autocomplete="street-address"
+    />
+    <datalist id="autosuggest-results"></datalist>
+  </div>
+  <div class="search-validation-errors">
+    <p id="error-not-found" class="val-err hidden">
+      {{main.slide02.form.val_errors.not_found}}
+    </p>
+    <p id="error-address" class="val-err hidden">
+      {{main.slide02.form.val_errors.address}}
+    </p>
+    <p id="error-generic" class="val-err hidden">
+      {{main.slide02.form.val_errors.generic}}
+    </p>
+  </div>
+  <button class="button--primary submit" type="submit">
+    {{main.slide02.search}}
+  </button>
+</form>

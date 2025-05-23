@@ -1,0 +1,150 @@
+@use "sass:map";
+@use "sass:color";
+@use "../abstracts/" as *;
+
+// base styles for all pages
+
+// Fluid type scale
+// TODO: not all font sizes are being used here, so remove unused ones
+:root {
+  --fs-sm: #{map.get($fs, "fluid-sm")};
+  --fs-base: #{map.get($fs, "fluid-base")};
+  --fs-md: #{map.get($fs, "fluid-md")};
+  --fs-lg: #{map.get($fs, "fluid-lg")};
+  --fs-xl: #{map.get($fs, "fluid-xl")};
+  --fs-xxl: #{map.get($fs, "fluid-xxl")};
+  --fs-xxxl: #{map.get($fs, "fluid-xxxl")};
+}
+
+// Fallback font sizes for browsers that don't support CSS clamp and/or container query units
+@supports not (font-size: clamp(1rem, 1cqi, 1rem)) {
+  :root {
+    --fs-sm: #{map.get($fs, "mobile-sm")};
+    --fs-base: #{map.get($fs, "mobile-base")};
+    --fs-md: #{map.get($fs, "mobile-md")};
+    --fs-lg: #{map.get($fs, "mobile-lg")};
+    --fs-xl: #{map.get($fs, "mobile-xl")};
+    --fs-xxl: #{map.get($fs, "mobile-xxl")};
+    --fs-xxxl: #{map.get($fs, "mobile-xxxl")};
+  }
+  @media screen and (min-width: 1280px) {
+    :root {
+      --fs-sm: #{map.get($fs, "sm")};
+      --fs-base: #{map.get($fs, "base")};
+      --fs-md: #{map.get($fs, "md")};
+      --fs-lg: #{map.get($fs, "lg")};
+      --fs-xl: #{map.get($fs, "xl")};
+      --fs-xxl: #{map.get($fs, "xxl")};
+      --fs-xxxl: #{map.get($fs, "xxxl")};
+    }
+  }
+}
+
+*:focus-visible {
+  @include focus-indicator();
+}
+
+html {
+  // FIXME: setting 1rem to equal 10px is a bad practice in terms of not supporting WCAG SC 1.4.4 Resize Text, but then again the homepage design doesn't support this to begin with so that should be addressed first.
+  font-size: 62.5%;
+
+  &[lang="en"] {
+    font-size: 62.5%;
+  }
+
+  // NOTE: we reduce the size of zh & es type to help it not overflow the slide's vertical space (aside: this is a bad design decision and should be revisited).
+  &[lang="es"],
+  &[lang="zh"] {
+    font-size: 50%;
+  }
+}
+
+body {
+  color: map.get($palette, "gray");
+  background-color: map.get($palette, "white");
+
+  font: {
+    family: $body-font;
+    weight: 400;
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-family: $header-font;
+  font-weight: 700;
+  letter-spacing: $letter-spacing;
+  max-width: $heading-text-max-width;
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--fs-lg);
+
+  @include responsive(small-screens) {
+    font-size: var(--fs-xl);
+  }
+}
+
+h2 {
+  font-size: var(--fs-md);
+
+  @include responsive(small-screens) {
+    font-size: var(--fs-lg);
+  }
+}
+
+h3 {
+  font-size: var(--fs-base);
+
+  @include responsive(small-screens) {
+    font-size: var(--fs-md);
+  }
+}
+
+p,
+li {
+  font-size: var(--fs-sm);
+  color: map.get($palette, "green");
+  max-width: $normal-text-max-width;
+  text-wrap: pretty;
+  margin-block-end: 1lh;
+
+  @include responsive(small-screens) {
+    font-size: var(--fs-base);
+  }
+}
+
+:where(a[href]) {
+  text-decoration: underline;
+  color: color.adjust(map.get($palette, "blue-green"), $lightness: -17%);
+  text-decoration-thickness: 0.125em;
+  text-underline-offset: 2.5px;
+  text-wrap: pretty;
+
+  &:hover {
+    color: map.get($palette, "light-blue");
+  }
+}
+
+:where(ul) {
+  padding-inline-start: 2rem;
+}
+
+:where([role="list"]) {
+  margin-block: 0;
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+:where(li) {
+  max-width: $normal-text-max-width;
+  line-height: $normal-text-line-height;
+  text-wrap: balance;
+}
+
+:where(img) {
+  position: relative;
+  margin: 0 auto;
+}

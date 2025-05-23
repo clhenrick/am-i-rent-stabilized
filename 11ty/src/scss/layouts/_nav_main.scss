@@ -1,0 +1,131 @@
+@use "sass:map";
+@use "../abstracts/" as *;
+
+$nav-padding-inline: map.get($spacing, "lg");
+$nav-padding-inline-narrow: map.get($spacing, "base");
+
+// FIXME: why is 1rem == 16px here?
+/* where all navigation child text items almost start to collide on narrower viewports */
+$narrow-breakpoint: 73.125rem; // 1170px
+
+// the site's main / primary navigation
+nav.main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: $nav-main-height;
+  background-color: map.get($palette, "gray");
+  padding: 0 $nav-padding-inline;
+  z-index: $z-index-max;
+
+  @media only screen and (width <= $narrow-breakpoint) {
+    padding: 0 $nav-padding-inline-narrow;
+  }
+
+  a[href] {
+    font-size: map.get($fs, "sm");
+    font-weight: 300;
+    letter-spacing: $letter-spacing;
+    text-decoration: none;
+    line-height: 0;
+    color: map.get($palette, "white");
+  }
+
+  a[href].home {
+    font-size: map.get($fs, "base");
+    font-weight: 500;
+  }
+
+  @media only screen and (width <= $narrow-breakpoint) {
+    a[href].home {
+      font-size: map.get($fs, "mobile-md");
+    }
+  }
+
+  a[href]:not(.home):hover {
+    text-decoration: underline;
+    color: map.get($palette, "orange");
+  }
+
+  .home-container {
+    position: relative;
+    min-height: $nav-main-height;
+    display: flex;
+    align-items: center;
+    justify-self: start;
+    gap: 16px;
+  }
+
+  img.logo {
+    align-self: flex-end;
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    gap: map.get($spacing, "xl");
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    margin-block: 0;
+  }
+
+  @media only screen and (width <= $narrow-breakpoint) {
+    ul {
+      display: none;
+    }
+
+    ul.responsive {
+      position: fixed;
+      right: 0;
+      top: $nav-main-height;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      background-color: map.get($palette, "gray");
+      padding: map.get($spacing, "lg") map.get($spacing, "sm");
+    }
+  }
+
+  li {
+    line-height: 0;
+  }
+}
+
+// hamburger menu button
+button.burger {
+  display: none;
+
+  g.open {
+    display: none;
+  }
+
+  g.closed {
+    display: inline;
+  }
+
+  &.open {
+    g.open {
+      display: inline;
+    }
+
+    g.closed {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (width <= $narrow-breakpoint) {
+  button.burger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

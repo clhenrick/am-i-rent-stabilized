@@ -1,0 +1,85 @@
+@use "sass:map";
+@use "../abstracts/" as *;
+
+$sidebar-ideal-width: 250px;
+
+html {
+  // FIXME: setting 1rem to equal 10px is a bad practice in terms of not supporting WCAG SC 1.4.4 Resize Text, but then again the homepage design doesn't support this to begin with so that should be addressed first.
+  font-size: 62.5%;
+
+  // NOTE: in the homepage slides we reduce the size of zh & es type to help it not overflow the slide's vertical space (aside: this is a bad design decision and should be revisited). We undo that here since it's not necessary.
+  &[lang="en"],
+  &[lang="es"],
+  &[lang="zh"] {
+    font-size: 62.5%;
+  }
+}
+
+.sidebar-main-wrapper {
+  // NOTE: flex-wrap usage & flex child properties allows the sidebar & main areas to be side by side and then stack vertically when there is less horizontal space
+  // code credit: https://every-layout.dev/layouts/sidebar/
+  display: flex;
+  flex-wrap: wrap;
+  gap: map.get($spacing, "lg");
+  margin-block-start: $nav-main-height;
+  // NOTE: container query used for fluid type scale
+  container-type: inline-size;
+  padding: 0 map.get($spacing, "base");
+}
+
+aside.info-pages {
+  position: sticky;
+  top: $nav-main-height;
+  flex-basis: $sidebar-ideal-width;
+  flex-grow: 1;
+  align-self: flex-start;
+  // NOTE: so when aside stacks on main, the space between them is reduced (due to large `gap` value in #wrapper)
+  margin-block-end: calc(-1 * #{map.get($spacing, "med2")});
+  background-color: map.get($palette, "white");
+  z-index: $z-index-mid;
+}
+
+main {
+  flex-grow: 999;
+  flex-basis: 0;
+  min-inline-size: 70%;
+  position: relative;
+  padding-block-end: map.get($spacing, "xxl");
+
+  h1 {
+    max-width: 20ch;
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: map.get($palette, "darkorange");
+    margin-block: 0.65em;
+  }
+
+  h1[id],
+  h2[id] {
+    display: inline-block;
+    padding: map.get($spacing, "xxs");
+
+    &:target {
+      scroll-margin-block: 10ex;
+      border: 5px dotted map.get($palette, "blue");
+    }
+  }
+
+  // paragraphs that follow links in list items in the resources page
+  a[href] ~ p {
+    margin-block-start: 0.65em;
+  }
+
+  li {
+    color: map.get($palette, "green");
+    list-style-position: outside;
+  }
+
+  .video {
+    max-width: 960px;
+    margin-block-end: map.get($spacing, "xl");
+  }
+}

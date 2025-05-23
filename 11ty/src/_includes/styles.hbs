@@ -1,0 +1,7 @@
+{{!-- handles loading the compiled scss in the base layout --}}
+<link rel="stylesheet" href="/styles/pages/shared.css" />
+{{#if isHomepage}}
+  <link rel="stylesheet" href="/styles/pages/homepage.css" />
+{{else}}
+  <link rel="stylesheet" href="/styles/pages/info_pages.css" />
+{{/if}}

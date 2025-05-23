@@ -1,0 +1,54 @@
+@use "sass:color";
+@use "sass:map";
+@use "../abstracts/" as *;
+
+$input-border-width: 3px;
+
+// AddressSearchForm styles
+#address-form {
+  position: relative;
+  width: 100%;
+  font-size: var(--fs-base);
+
+  div.user-data.street-address {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: map.get($spacing, "base");
+  }
+
+  label {
+    flex-grow: 1;
+  }
+
+  input.address-input {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-inline-size: 75%;
+    min-block-size: 50px;
+    font: inherit;
+    color: inherit;
+    letter-spacing: inherit;
+    word-spacing: inherit;
+    border: $input-border-width solid map.get($palette, "gray");
+    border-radius: map.get($border-radius, "md");
+    padding: 0 map.get($spacing, "xxs");
+
+    &:focus-visible {
+      @include focus-indicator(true);
+      outline-offset: 0;
+    }
+
+    &.invalid {
+      border: $input-border-width dashed map.get($palette, "red");
+    }
+
+    &.valid {
+      border: $input-border-width solid
+        color.adjust(map.get($palette, "blue-green"), $lightness: 10%);
+    }
+  }
+}
