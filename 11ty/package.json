@@ -46,9 +46,24 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
     "@11ty/eleventy-plugin-handlebars": "^1.0.0",
+    "browserslist": "^4.24.5",
+    "browserslist-to-esbuild": "^2.1.1",
     "esbuild": "^0.25.4",
     "esbuild-plugin-handlebars": "^1.0.3",
     "npm-run-all": "^4.1.5",
     "sass": "^1.87.0"
+  },
+  "browserslist": {
+    "production": [
+      "> 0.25%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      "last 1 edge version"
+    ]
   }
 }
