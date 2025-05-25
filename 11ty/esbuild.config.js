@@ -12,6 +12,7 @@ const mode = argv[2];
 /** whether we are creating a production build */
 const isProdMode = mode === "prod";
 
+/** for configuring esbuild target: https://esbuild.github.io/api/#target */
 const targets = isProdMode ? browserslist.production : browserslist.development;
 
 /** options shared by both .build() and .context() */
