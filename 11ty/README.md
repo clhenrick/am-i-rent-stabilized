@@ -2,11 +2,14 @@
 
 The website for *Am I Rent Stabilized* is assembled using the following technologies:
 
-- [NodeJS]()
-- [Eleventy.JS (11ty)]() static site generator
-- [Handlebars.jS]() HTML templating library
-- [Dart Sass]() for assembling the CSS
-- *TODO: JS*
+- [NodeJS](https://nodejs.org/en) JavaScript runtime for compiling the website
+- [Eleventy.JS (11ty)](https://www.11ty.dev) static site generator for generating HTML
+- [Handlebars.jS](https://handlebarsjs.com) HTML templating library
+- [Dart Sass](https://sass-lang.com) for assembling the CSS
+- [esbuild](https://esbuild.github.io) for compiling JavaScript
+- [ReduxJS](https://redux.js.org) for state management
+- [GSAP](https://gsap.com) for animations
+- [d3-geo](https://d3js.org/d3-geo) & [d3-tile](https://github.com/d3/d3-tile) for geographic mapping
 
 ## Local development
 
@@ -46,7 +49,9 @@ yarn build
 
 ## Website architecture
 
-This project uses 100% ESM, no common JS! Code resides in the `src/` directory (in case that isn't obvious).
+This project uses ESM, with the exception of component and unit tests that utilize the Jest testing framework. These files use a mix of ESM and CJS, an artifact of Jest unfortunately having never fully migrated to ESM.
+
+Source code resides in the `src/` directory (in case that isn't obvious). The following directories assume `src/` as the parent directory (e.g. `_data/` is `src/_data/`).
 
 ### _data/
 
@@ -54,7 +59,7 @@ Contains "global data" available for use throughout all Eleventy templates (in `
 
 #### _data/eleventyComputed.js
 
-Global "computed" data. Mainly used to organize the `locales` JSON data by their respective language code (e.g. `en`, `es`, `zh`).
+Global "computed" data. Mainly used to group the `locales` JSON data by their respective language code (e.g. `en`, `es`, `zh`).
 
 #### _data/locales/
 
@@ -64,7 +69,7 @@ For example, `main-en.json` corresponds to the homepage in English, `why-es.json
 
 ### _includes/
 
-Handlebars.js partials. Think of these as "components". They are often tightly coupled to locales JSON file data structure.
+Handlebars.js partials. Think of these as "components". They are often tightly coupled to locales JSON file data structure and typically have an equivalent Sass (CSS) partial.
 
 ### _layouts/
 
@@ -100,7 +105,7 @@ The website's styles. These are sass files (`*.scss`) which compile to CSS via D
 
 #### netlify.toml
 
-Netlify configuration file that mainly handles redirects for i18n. If a user's language is recognized and supported then they will be redirected to the corresponding page.
+Netlify configuration file that mainly handles redirects for i18n. If a user's language is recognized and supported then they should be redirected to the corresponding page.
 
 #### eleventy.config.js
 
