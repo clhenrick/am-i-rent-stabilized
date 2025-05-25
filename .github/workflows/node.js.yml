@@ -23,5 +23,5 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 22.14.0
-    - run: npm install
-    - run: npm run prod
+    - run: yarn install
+    - run: yarn run build
