@@ -10,7 +10,7 @@ on:
 
 defaults:
   run:
-    working-directory: app
+    working-directory: website
 
 jobs:
   build:
