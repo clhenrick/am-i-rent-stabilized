@@ -7,9 +7,14 @@ The website for *Am I Rent Stabilized* is assembled using the following technolo
 - [Handlebars.jS](https://handlebarsjs.com) HTML templating library
 - [Dart Sass](https://sass-lang.com) for assembling the CSS
 - [esbuild](https://esbuild.github.io) for compiling JavaScript
+
+The homepage makes use of the following client side JavaScript libraries:
+
 - [ReduxJS](https://redux.js.org) for state management
 - [GSAP](https://gsap.com) for animations
 - [d3-geo](https://d3js.org/d3-geo) & [d3-tile](https://github.com/d3/d3-tile) for geographic mapping
+- [@turf/rewind](https://turfjs.org/docs/api/rewind) to correct the GeoJSON polygon winding order from server responses
+- [Handlebars.jS](https://handlebarsjs.com) for dynamically rendering HTML markup from server responses
 
 ## Local development
 
