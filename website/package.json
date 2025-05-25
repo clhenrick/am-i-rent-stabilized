@@ -1,0 +1,69 @@
+{
+  "name": "am-i-rent-stabilized",
+  "version": "1.0.0",
+  "description": "Web app to inform New York City residents about Rent Stabilization",
+  "repository": {
+    "type": "git",
+    "url": "github.com/clhenrick/am-i-rent-stabilized"
+  },
+  "author": {
+    "name": "Chris Henrick",
+    "email": "chrishenrick@gmail.com",
+    "url": "http://clhenrick.io"
+  },
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "run-p -l clean sass:build sass:watch js:watch eleventy:serve",
+    "build": "run-s -l eleventy:build sass:build js:build",
+    "clean": "rm -rf dist",
+    "eleventy:serve": "yarn exec eleventy --serve --incremental --port=8080 --quiet",
+    "eleventy:build": "yarn exec eleventy",
+    "sass:watch": "sass --watch --update --color src/scss:dist/styles",
+    "sass:build": "sass --style=compressed src/scss:dist/styles",
+    "js:build": "node esbuild.config.js prod",
+    "js:watch": "node esbuild.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "packageManager": "yarn@4.9.1",
+  "engines": {
+    "node": ">=22.14.0",
+    "yarn": ">=4.9.1"
+  },
+  "dependencies": {
+    "@turf/rewind": "7.2.0",
+    "d3-geo": "2.0.1",
+    "d3-tile": "1.0.0",
+    "gsap": "3.12.2",
+    "handlebars": "^4.7.8",
+    "innersvg-polyfill": "^0.0.5",
+    "lodash.throttle": "4.1.1",
+    "redux": "4.0.5",
+    "redux-logger": "3.0.6",
+    "redux-thunk": "2.3.0",
+    "single-line-string": "0.0.2"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-plugin-handlebars": "^1.0.0",
+    "browserslist": "^4.24.5",
+    "browserslist-to-esbuild": "^2.1.1",
+    "esbuild": "^0.25.4",
+    "esbuild-plugin-handlebars": "^1.0.3",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.87.0"
+  },
+  "browserslist": {
+    "production": [
+      "> 0.25%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      "last 1 edge version"
+    ]
+  }
+}

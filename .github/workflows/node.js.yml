@@ -10,7 +10,7 @@ on:
 
 defaults:
   run:
-    working-directory: app
+    working-directory: website
 
 jobs:
   build:
@@ -23,6 +23,6 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 22.14.0
-    - run: npm install
-    - run: npm test
-    - run: npm run prod
+    - run: corepack enable
+    - run: yarn install
+    - run: yarn run build

@@ -1,0 +1,35 @@
+@use "../abstracts/" as *;
+
+$circle-width: 24px;
+$show-min-width: calc($slides-max-width + $circle-width);
+$show-min-height: 615px;
+
+div#progress-indicator {
+  position: absolute;
+  z-index: $z-index-min;
+  transform: translateY(-50%);
+  top: 50%;
+  left: $circle-width;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    width: $circle-width;
+    height: $circle-width;
+    margin-block-end: 0;
+    background-image: url("../../../assets/png/oval_25_blank.png");
+    background-size: $circle-width;
+    background-repeat: no-repeat;
+
+    &.active {
+      background-image: url("../../../assets/png/oval_25_filled.png");
+    }
+  }
+
+  @media (width <= $show-min-width) or (height <= $show-min-height) {
+    display: none;
+  }
+}

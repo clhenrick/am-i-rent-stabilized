@@ -1,0 +1,59 @@
+---
+layout: infopages.hbs
+---
+
+{{!-- used to render each of the org list items --}}
+{{#*inline "orgListItem"}}
+<li>
+  <a href="{{link}}">
+    {{org}}
+  </a>
+  <p>{{desc}}</p>
+</li>
+{{/inline}}
+
+{{!-- each list of orgs by their corresponding level geography --}}
+{{#*inline "resourcesByGeog"}}
+<h2 id="{{anchor}}">{{title}}</h2>
+<p>{{description}}</p>
+  <ul>
+  {{#each orgs}}
+    {{> orgListItem }}
+  {{/each}}
+  </ul>
+{{/inline}}
+
+<h1>{{resources.nongov.h1}}</h1>
+<p>{{resources.nongov.h3}}</p>
+
+{{!-- city wide orgs --}}
+{{> resourcesByGeog
+  anchor="city-wide"
+  title=resources.nongov.citywide.h3
+  description=resources.nongov.citywide.p01
+  orgs=resources.nongov.citywide.ul
+}}
+
+{{!-- borough wide orgs --}}
+{{> resourcesByGeog
+  anchor="boro"
+  title=resources.nongov.boro.h3
+  description=resources.nongov.boro.p
+  orgs=resources.nongov.boro.ul
+}}
+
+{{!-- neighborhood level orgs --}}
+{{> resourcesByGeog
+  anchor="hood"
+  title=resources.nongov.hood.h3
+  description=resources.nongov.hood.p
+  orgs=resources.nongov.hood.ul
+}}
+
+{{!-- state & city government orgs --}}
+{{> resourcesByGeog
+  anchor="gov"
+  title=resources.gov.h2
+  description=resources.gov.p
+  orgs=resources.gov.ul
+}}

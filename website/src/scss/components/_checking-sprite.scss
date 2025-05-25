@@ -1,0 +1,42 @@
+@use "../abstracts/" as *;
+
+#sprite {
+  position: relative;
+  width: 192px;
+  height: 424px;
+  margin: 0 auto;
+  background: url("../../../assets/png/checking-sprite.png") left center;
+
+  @media (prefers-reduced-motion: no-preference) {
+    @include animation($name: play);
+
+    @keyframes play {
+      from {
+        background-position: 0;
+      }
+
+      to {
+        background-position: -1920px;
+      }
+    }
+  }
+
+  @include responsive_height(medium-screens) {
+    background: url("../../../assets/png/checking-sprite-sm.png");
+    width: 128px;
+    height: 288px;
+    left: 0;
+
+    @media (prefers-reduced-motion: no-preference) {
+      @keyframes play {
+        from {
+          background-position: 0;
+        }
+
+        to {
+          background-position: -1280px;
+        }
+      }
+    }
+  }
+}

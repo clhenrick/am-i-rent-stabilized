@@ -1,0 +1,79 @@
+{
+  "nav_side": {
+    "title": "Ir a un tópico",
+    "anchors": {
+      "why": "¿Por qué es importante?",
+      "what": "¿Por qué otra razón debe importarme? ",
+      "under-attack": "Bajo Ataque",
+      "messed-up": "¡Esto es un desastre!",
+      "videos": "Videos",
+      "get-involved": "Involucrarse",
+      "not-rs": "Si no tienen renta estabilizada"
+    }
+  },
+  "why": {
+    "h2": "¿Por qué la renta estabilizada es buena para la ciudad de Nueva York?",
+    "h3": "Simplemente hay que saber que la estabilización de renta es la ley de renta más importante que mantiene a la ciudad de Nueva York costeable a sus residentes.",
+    "facts": "Aquí algunos datos:",
+    "one": "Cerca de 1 millón de apartamentos en la ciudad de Nueva York tienen la renta estabilizada. Eso es casi la mitad de todos los apartamentos en Nueva York.",
+    "two": "La estabilización de renta brinda a los arrendatarios el derecho de quedarse en su apartamento con un modesto incremento en la renta al año, usualmente entre el 2 y 6%.",
+    "three": "Protege al arrendador de ser desalojado sin una causa justa.",
+    "four": "Fortalece los derechos del arrendador para obtener servicios de primera y reparaciones en sus apartamentos, al tiempo que penaliza a los dueños negligentes."
+  },
+  "what": {
+    "h2": "¿Por qué otra razón debe importarme?",
+    "h3": "Si su apartamento tiene renta estabilizada y el propietario lo oculta, usted podría recibir su dinero de vuelta. ",
+    "p1": "Si el DHCR encuentra su denuncia válida, ellos le van a solicitar al propietario que le reembolse el dinero que legalmente se le debe.",
+    "a": "En un caso reciente un inquilino recibió $112,000 que se le habían cobrado de más durante años."
+  },
+  "under": {
+    "h2": "La renta estabilizada se encuentra bajo ataque.",
+    "h3": "La industria de bienes raíces quiere eliminar las rentas estabilizadas ya que esto les brindaría un gran margen de ganancias.",
+    "p": "Con las leyes actuales de renta, la  desestabilización puede ocurrir cuando un apartamento con renta estabilizada que pague $2,700 queda vacante. Por ejemplo, cuando un inquilino con renta estabilizada que pague $2,700 o más se muda, el propietario podría retirar el apartamento fuera de la estabilización. Entonces, el propietario podría facturar la renta del apartamento a precio del mercado y hasta  aumentar la renta cuanto crea necesario.",
+    "methods": "Métodos que los propietarios usan para desestabilizar apartamentos:",
+    "one": "Mintiendo a los nuevos inquilinos acerca del precio del apartamento e ilegalmente facturando la renta por encima del costo real.",
+    "two": "Renovando los apartamentos después que sus inquilinos se mudaron y usando los gastos como excusa para subir el precio de la renta a futuros arrendadores.",
+    "three": "Atormentando a los inquilinos forzando que se muden para hacerle mejoras al apartamento y subir el precio de la renta."
+  },
+  "messed": {
+    "h2": "¡Esto es un desastre!",
+    "h3": "Claro, esto se pone peor. Actualmente las leyes de estabilización de renta y el control de renta tienen que ser renovadas periódicamente. Cada vez que se renuevan, la industria de bienes raíces intenta debilitarlas.",
+    "p1": "La industria de bienes raíces ha tenido éxito en sus ataques. Desde 1990 ",
+    "p1_s": "la ciudad ha perdido un estimado de 300,000 apartamentos con renta estabilizada.",
+    "p2": "Los siguientes videos creados por ",
+    "a": "NY Tenants Project",
+    "p3": " explican parte de la historia acerca de la regulación de renta en la ciudad de Nueva York, y como la industria de bienes raíces la ha debilitado.  También hablan de lo que está actualmente sucediendo en tres vecindarios de la ciudad de Nueva York."
+  },
+  "videos": {
+    "title": "Videos de proyectos de inquilinos de NY",
+    "how": "¿Cómo llegamos hasta aquí?",
+    "what": "¿Qué es desocupación desregulada?",
+    "bronx": "¿Qué está pasando en el Bronx?",
+    "bushwick": "¿Qué está pasando en Bushwick?",
+    "chinatown": "¿Qué está pasando en Chinatown?"
+  },
+  "get_involved": {
+    "h2": "¿Qué puedo hacer?",
+    "h3": "Puedes ser parte de la solución:",
+    "first": "Empieza por aprender acerca de tus derechos. Asiste a un seminario de derecho de inquilinos. Los enlaces se encuentran en ",
+    "a": "la página de Recursos.",
+    "second": "Cree una asociación de inquilinos en su edificio y luego haga su asociación parte de otra ya establecida. Esta es la mejor manera de proteger su renta estabilizada y la de sus vecinos. ",
+    "third": "Haga que su voz sea escuchada. Contacte a sus representantes locales, vaya a reuniones de las junta de su comunidad, y dígale al alcalde que debe haber un énfasis en preservar viviendas económicamente accesibles. "
+  },
+  "not_rs": {
+    "h2": "¿Qué hacer si mi renta no está estabilizada?",
+    "h3": "Desafortunadamente no hay mucho que pueda hacer para prevenir que su renta suba exageradamente.",
+    "p1": {
+      "one": "Independientemente ",
+      "a": "podría tratar de negociar con el propietario de su apartamento para que no suba su renta. ",
+      "two": "A menudo es menos trabajo para ellos no aumentar su renta a tener que buscar un nuevo inquilino."
+    },
+    "p2": {
+      "s": "Usted no debe tener miedo a defenderse de un propietario negligente o abusivo. ",
+      "a1": "Contacte al 311",
+      "two": " para presentar cualquier queja relacionada con su vivienda de manera anónima. Asegúrese de ver ",
+      "a2": "la página de Recursos",
+      "three": "en este sitio web para encontrar dónde buscar ayuda."
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "nav_side": {
+    "title": "Jump to a topic:",
+    "anchors": {
+      "why": "Why is it important?",
+      "what": "Why else should I care?",
+      "under-attack": "Under Attack",
+      "messed-up": "This is Messed Up!",
+      "videos": "Videos",
+      "get-involved": "Get Involved",
+      "not-rs": "If You're Not Rent Stabilized"
+    }
+  },
+  "why": {
+    "h2": "Why is Rent Stabilization so Good For NYC?",
+    "h3": "Simply put, rent stabilization is the most important rent law that keeps NYC affordable for many of its residents",
+    "facts": "Here are some quick facts:",
+    "one": "About 1 million apartments are rent-stabilized in NYC, that's roughly half of all apartments in the city!",
+    "two": "Rent Stabilization giver renters the right to stay in their apartment with modest rent increases each year, typically between 2 - 6&#37;",
+    "three": "It protects renters from being evicted without good cause.",
+    "four": "It strengthens the rights of renters to have good services and repairs made to their apartments while penalizing negligent landlords."
+  },
+  "what": {
+    "h2": "Why else should I care?",
+    "h3": "If your landlord is lying to you about your apartment being rent-stabilized, you could be owed back rent!",
+    "p1": "If the DHCR finds a tenant's complaint to be valid, they will require the landlord to reimburse them for back rent they are legally owed. In one recent case ",
+    "a": "an NYC tenant was awarded $112,000 in back rent for being overcharged!"
+  },
+  "under": {
+    "h2": "Rent Stabilization is under attack.",
+    "h3": "The real estate industry sees a huge profit to made by eliminating all NYC rent-stabilized apartments.",
+    "p": "With the current rent laws, destabilization (also called vacancy decontrol) may happen when a rent-stabilized apartment’s monthly rent exceeds $2,700 while the apartment is vacant. For example, if a tenant who is rent-stabilized and whose rent is at $2,700 or more moves out, the landlord may then take the apartment out of stabilization. A landlord may then charge market rate to the next tenant and increase rents as they see fit.",
+    "methods": "Methods landlords use to destabilize apartments:",
+    "one": "Lying to new tenants by illegally overcharging them and hoping they won’t notice.",
+    "two": "Gutting apartments after a tenant moves out and using the expenses towards increasing the legal rent they may charge to the next tenant. Often this may involve lying about the amount of the expenses of the renovation.",
+    "three": "Illegally harassing tenants to coerce them into moving out so they can gut the apartment and charge market rate rents."
+  },
+  "messed": {
+    "h2": "This is messed up!",
+    "h3": "But it gets worse. Currently rent stabilization and rent control have to be renewed periodically, and each time they are renewed the real estate industry attempts to weaken them.",
+    "p1": "The real estate industry has succeeded at this since the 1990’s when destabilization was first introduced, and since then ",
+    "p1_s": "the city has lost an estimated 300,000 rent-stabilized apartments!",
+    "p2": "The following short videos from the ",
+    "a": "NY Tenants Project",
+    "p3": " explain some of the history about rent regulation in NYC and how it was weakened by the real estate industry, as well as what's currently happening in three NYC neighborhoods."
+  },
+  "videos": {
+    "title": "NY Tenants Project Videos",
+    "how": "How did we get here?",
+    "what": "What is Vacancy Decontrol?",
+    "bronx": "What's Happening in The Bronx",
+    "bushwick": "What's Happening in Bushwick",
+    "chinatown": "What's Happening in Chinatown"
+  },
+  "get_involved": {
+    "h2": "So what can I do?",
+    "h3": "You can get involved in several ways:",
+    "first": "First, learn about your rights. Go to a tenants rights workshop and read up. See the links in the ",
+    "a": "resources page.",
+    "second": "Start a tenants association in your building and then join a tenants union such as The Crown Heights Tenants Union. This is the best course of action in protecting the rent stabilization status of yourself and your neighbors.",
+    "third": "Make your voice heard! Contact your local representatives, go to a community board meeting, and tell the mayor that there needs to be an emphasis on preserving affordable housing."
+  },
+  "not_rs": {
+    "h2": "What if I’m not rent-stabilized?",
+    "h3": "Unfortunately there’s not much you can do to prevent your landlord from raising your rent astronomically.",
+    "p1": {
+      "one": "However, ",
+      "a": "you can attempt to negotiate with your landlord if they are raising your rent.",
+      "two": "Often it is less of a hassle for them to not increase your rent by as much as they would like, than it is for them to find a new tenant."
+    },
+    "p2": {
+      "s": "You should not be afraid to stand up to an abusive or negligent landord. ",
+      "a1": "Contact 311",
+      "two": " to file any housing related complaints anonymously. Be sure to check out the ",
+      "a2": "resources page",
+      "three": "on this site for where to get help."
+    }
+  }
+}

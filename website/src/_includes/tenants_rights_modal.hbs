@@ -1,0 +1,25 @@
+{{!-- TODO: add translation string for heading --}}
+<h2>Tenants Rights Organizations in Your Neighborhood</h2>
+{{#each trGroups}}
+  <div class="tr-org-info">
+    <h3>{{this.name}}</h3>
+    {{#if this.website}}
+      <p class="website-url"><strong>Website: </strong><a
+          target="_blank"
+          href="{{this.website}}"
+        >{{this.website}}</a></p>
+    {{/if}}
+    {{#if this.phone}}
+      <p class="phone-no"><strong>Phone: </strong>{{this.phone}}</p>
+    {{/if}}
+    {{#if this.address}}
+      <p class="address"><strong>Address: </strong>{{this.address}}</p>
+    {{/if}}
+    {{#if this.email}}
+      <p class="email"><strong>Email: </strong>{{this.email}}</p>
+    {{/if}}
+    {{#if this.description}}
+      <p class="description"><strong>Description: </strong>{{this.description}}</p>
+    {{/if}}
+  </div>
+{{/each}}
