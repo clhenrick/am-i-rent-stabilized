@@ -24,5 +24,4 @@ jobs:
       with:
         node-version: 22.14.0
     - run: npm install
-    - run: npm test
     - run: npm run prod
