@@ -1,13 +1,12 @@
-// see: https://developers.google.com/analytics/devguides/collection/upgrade/analyticsjs#measure_events
 export const logEvent = (eventName, eventParameters) => {
   if (process.env.NODE_ENV !== "development") {
-    gtag("event", eventName, eventParameters);
+    console.error("event", eventName, eventParameters);
   }
 };
 
 export const logException = (description, fatal = false) => {
   if (process.env.NODE_ENV !== "development") {
-    gtag("event", "exception", { description, fatal });
+    console.error("event", "exception", { description, fatal });
   }
 };
 
