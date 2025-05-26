@@ -20,11 +20,8 @@ jest.mock("../store", () => {
 describe("ProgressIndicator", () => {
   let element;
   let progressIndicator;
-  let spyRenderCircles;
 
   beforeAll(() => {
-    spyRenderCircles = jest.spyOn(ProgressIndicator.prototype, "renderCircles");
-
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
     element = document.querySelector("#progress-indicator");
   });

@@ -13,7 +13,7 @@ export function getRoutesForLang (currentLang, page, isHomepage = false) {
   }
   return [...langData.entries()]
     .filter(([lang]) => lang !== currentLang)
-    .map(([lang, label], i) => {
+    .map(([lang, label]) => {
       const datum = { label, lang };
       if (lang === "en") {
         datum.path = `/${page}.html`;
