@@ -19,19 +19,19 @@ describe("KeyboardNavigation", () => {
   beforeAll(() => {
     spyCurSlideIndex = jest.spyOn(
       KeyboardNavigation.prototype,
-      "curSlideIndex"
+      "curSlideIndex",
     );
     spyMaybeGoToNextSlide = jest.spyOn(
       KeyboardNavigation.prototype,
-      "maybeGoToNextSlide"
+      "maybeGoToNextSlide",
     );
     spyMaybeGoToPrevSlide = jest.spyOn(
       KeyboardNavigation.prototype,
-      "maybeGoToPrevSlide"
+      "maybeGoToPrevSlide",
     );
     spyHandleKeydown = jest.spyOn(
       KeyboardNavigation.prototype,
-      "handleKeyDown"
+      "handleKeyDown",
     );
     spyRemoveEvents = jest.spyOn(KeyboardNavigation.prototype, "removeEvents");
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
@@ -68,7 +68,7 @@ describe("KeyboardNavigation", () => {
       () =>
         new KeyboardNavigation({
           element: document.body,
-        })
+        }),
     ).toThrow("Requires redux store");
 
     expect(
@@ -76,7 +76,7 @@ describe("KeyboardNavigation", () => {
         new KeyboardNavigation({
           element: document.body,
           store: {},
-        })
+        }),
     ).toThrow("Requires redux store");
   });
 

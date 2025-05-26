@@ -26,14 +26,14 @@ export default function initApp() {
       new KeyboardNavigation({
         element: document.body,
         store,
-      })
+      }),
     );
   }
 
   // top nav menu's hamburger icon
   registry.add(
     "navMenuToggle",
-    new NavMenuToggle({ element: document.querySelector("nav.main-nav") })
+    new NavMenuToggle({ element: document.querySelector("nav.main-nav") }),
   );
 
   // progress circles
@@ -42,7 +42,7 @@ export default function initApp() {
     new ProgressIndicator({
       element: document.getElementById("progress-indicator"),
       store,
-    })
+    }),
   );
 
   // handles slide scrolling
@@ -51,7 +51,7 @@ export default function initApp() {
     new SlidesContainer({
       element: document.querySelector(".slides"),
       store,
-    })
+    }),
   );
 
   // "next" slide advance buttons
@@ -66,7 +66,7 @@ export default function initApp() {
       element: document.querySelector("p.go-step4"),
       store,
       advanceToIdx: 6,
-    })
+    }),
   );
 
   // address search form & geocoding of address input
@@ -75,7 +75,7 @@ export default function initApp() {
     new AddressSearchForm({
       element: document.querySelector("#address-form"),
       store,
-    })
+    }),
   );
 
   // toggle yes/no message for rent stabilized result
@@ -84,7 +84,7 @@ export default function initApp() {
     new VerifyRentStabilized({
       element: document.getElementById("slide-4"),
       store,
-    })
+    }),
   );
 
   registry.add(
@@ -92,7 +92,7 @@ export default function initApp() {
     new SearchResultMap({
       element: document.getElementById("map"),
       store,
-    })
+    }),
   );
 
   registry.add(
@@ -100,17 +100,17 @@ export default function initApp() {
     new StartOver({
       element: document.querySelector("button.start-over"),
       store,
-    })
+    }),
   );
 
   registry.add(
     "tenantsRightsGroups",
     new TenantsRightsGroups({
       element: document.querySelector(
-        "dialog.modal--tenants-rights .modal--content"
+        "dialog.modal--tenants-rights .modal--content",
       ),
       store,
-    })
+    }),
   );
 
   registry.add(
@@ -118,7 +118,7 @@ export default function initApp() {
     new ModalDialog({
       element: document.querySelector("dialog.modal--tenants-rights"),
       trigger: document.querySelector(".js-tr-modal-trigger"),
-    })
+    }),
   );
 
   registry.add(
@@ -126,7 +126,7 @@ export default function initApp() {
     new ModalDialog({
       element: document.querySelector("dialog.modal--rent-history"),
       trigger: document.querySelector(".js-rh-modal-trigger"),
-    })
+    }),
   );
 
   // NOTE: instantiate this component last as it does something async which sometimes prevents components instantiated after it from initializing correctly
@@ -134,6 +134,6 @@ export default function initApp() {
     "addToCalendar",
     new AddToCalendar({
       element: document.querySelector(".atc-container"),
-    })
+    }),
   );
 }

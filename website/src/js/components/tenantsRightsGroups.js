@@ -34,13 +34,13 @@ export class TenantsRightsGroups extends Component {
     this.unsubscribeSearchResult = observeStore(
       this.store,
       (state) => state.addressGeocode.searchResult,
-      this.handleSearchResultChange
+      this.handleSearchResultChange,
     );
 
     this.unsubscribeTenantsRights = observeStore(
       this.store,
       (state) => state.tenantsRights,
-      this.handleTenantsRightsChange
+      this.handleTenantsRightsChange,
     );
   }
 
@@ -48,11 +48,11 @@ export class TenantsRightsGroups extends Component {
     if (result?.features?.[0]) {
       try {
         this.store.dispatch(
-          fetchTenantsRightsGroups(this.getSearchCoords(result.features[0]))
+          fetchTenantsRightsGroups(this.getSearchCoords(result.features[0])),
         );
       } catch (error) {
         logException(
-          handleErrorObj("TenantsRightsModal.handleSearchResultChange", error)
+          handleErrorObj("TenantsRightsModal.handleSearchResultChange", error),
         );
       }
     }
@@ -74,7 +74,7 @@ export class TenantsRightsGroups extends Component {
       this.element.innerHTML = template({ trGroups });
     } catch (error) {
       logException(
-        handleErrorObj("TenantsRightsModal.renderModalContents", error)
+        handleErrorObj("TenantsRightsModal.renderModalContents", error),
       );
     }
   }

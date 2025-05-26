@@ -8,6 +8,6 @@ export default function initInfoPages() {
 
   registry.add(
     "navMenuToggle",
-    new NavMenuToggle({ element: document.querySelector("nav.main-nav") })
+    new NavMenuToggle({ element: document.querySelector("nav.main-nav") }),
   );
 }

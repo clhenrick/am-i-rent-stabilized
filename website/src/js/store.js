@@ -18,7 +18,7 @@ const preloadedState = process.env.USE_PRELOADED_STATE
 export const store = createStore(
   rootReducer,
   preloadedState,
-  composeEnhancers(applyMiddleware(...middlewares))
+  composeEnhancers(applyMiddleware(...middlewares)),
 );
 
 // code credit: https://github.com/reduxjs/redux/issues/303#issuecomment-125184409

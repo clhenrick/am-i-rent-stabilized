@@ -92,7 +92,7 @@ describe("ProgressIndicator", () => {
     expect(
       progressIndicator.list
         .querySelectorAll("li")[0]
-        .classList.contains("active")
+        .classList.contains("active"),
     ).toBe(true);
 
     store.getState.mockImplementation(() => ({
@@ -103,7 +103,7 @@ describe("ProgressIndicator", () => {
     expect(
       progressIndicator.list
         .querySelectorAll("li")[2]
-        .classList.contains("active")
+        .classList.contains("active"),
     ).toBe(true);
   });
 
@@ -115,7 +115,7 @@ describe("ProgressIndicator", () => {
     }));
     progressIndicator.appendCircle(9);
     expect(
-      progressIndicator.list.children[9].classList.contains("active")
+      progressIndicator.list.children[9].classList.contains("active"),
     ).toBe(true);
   });
 });

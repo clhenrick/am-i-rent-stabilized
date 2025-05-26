@@ -80,7 +80,8 @@ dialog[open]::backdrop {
 
 @media (prefers-reduced-motion: no-preference) {
   dialog::backdrop {
-    transition: display var(--animation-duration) allow-discrete,
+    transition:
+      display var(--animation-duration) allow-discrete,
       overlay var(--animation-duration) allow-discrete,
       background-color var(--animation-duration);
   }

@@ -14,11 +14,11 @@ describe("TenantsRightsGroups", () => {
   beforeAll(() => {
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
     element = document.querySelector(
-      "dialog.modal--tenants-rights .modal--content"
+      "dialog.modal--tenants-rights .modal--content",
     );
     spyRenderModalContents = jest.spyOn(
       TenantsRightsGroups.prototype,
-      "renderModalContents"
+      "renderModalContents",
     );
   });
 
@@ -47,7 +47,7 @@ describe("TenantsRightsGroups", () => {
     const result = tenantsRightsGroups.getSearchCoords(feature);
     expect(result).toEqual({ lon: -79, lat: 41 });
     expect(() =>
-      tenantsRightsGroups.getSearchCoords({ geometry: { coordinates: [] } })
+      tenantsRightsGroups.getSearchCoords({ geometry: { coordinates: [] } }),
     ).toThrow(new Error(ERROR_MISSING_COORDS));
   });
 
@@ -78,10 +78,10 @@ describe("TenantsRightsGroups", () => {
     };
     tenantsRightsGroups.handleTenantsRightsChange(params);
     expect(tenantsRightsGroups.containerYes.classList.contains("hidden")).toBe(
-      false
+      false,
     );
     expect(tenantsRightsGroups.containerNo.classList.contains("hidden")).toBe(
-      true
+      true,
     );
     expect(spyRenderModalContents).toHaveBeenCalledWith([{}, {}]);
   });
@@ -93,10 +93,10 @@ describe("TenantsRightsGroups", () => {
     };
     tenantsRightsGroups.handleTenantsRightsChange(params);
     expect(tenantsRightsGroups.containerYes.classList.contains("hidden")).toBe(
-      true
+      true,
     );
     expect(tenantsRightsGroups.containerNo.classList.contains("hidden")).toBe(
-      false
+      false,
     );
     expect(spyRenderModalContents).not.toHaveBeenCalled();
   });

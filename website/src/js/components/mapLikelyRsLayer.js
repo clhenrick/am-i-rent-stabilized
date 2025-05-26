@@ -67,7 +67,7 @@ export class MapLikelyRsLayer {
             fill=${LAYER_STYLES.fillColor}
             fill-opacity="${LAYER_STYLES.fillOpacity}"
             d="${this._pathGenerator(feature)}"
-          />`
+          />`,
       )
       .join("\n");
   }

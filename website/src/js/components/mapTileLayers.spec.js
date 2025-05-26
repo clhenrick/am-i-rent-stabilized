@@ -26,8 +26,8 @@ d3Tile.tile.mockImplementation(() => {
         [1206, 1540, 12],
         [1207, 1540, 12],
       ],
-      { scale: 256, translate: [-1204.9136777777776, -1539.4919590398038] }
-    )
+      { scale: 256, translate: [-1204.9136777777776, -1539.4919590398038] },
+    ),
   );
   return fn;
 });
@@ -74,14 +74,14 @@ describe("MapTileLayers", () => {
           },
         },
       }),
-      { status: 200, statusText: "OK" }
+      { status: 200, statusText: "OK" },
     );
 
     mapTileLayers = new MapTileLayers(
       new SearchResultMap({
         element,
         store,
-      })
+      }),
     );
   });
 
@@ -105,7 +105,8 @@ describe("MapTileLayers", () => {
 
   test("renderMapTiles", () => {
     const result = mapTileLayers.renderMapTiles();
-    const expected = `<image xlink:href="https://cartodb-basemaps-b.global.ssl.fastly.net/light_all/12/1204/1539.png" x="-234" y="-126" width="256" height="256"></image>
+    const expected =
+      `<image xlink:href="https://cartodb-basemaps-b.global.ssl.fastly.net/light_all/12/1204/1539.png" x="-234" y="-126" width="256" height="256"></image>
         <image xlink:href="https://cartodb-basemaps-c.global.ssl.fastly.net/light_all/12/1205/1539.png" x="22" y="-126" width="256" height="256"></image>
         <image xlink:href="https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/12/1206/1539.png" x="278" y="-126" width="256" height="256"></image>
         <image xlink:href="https://cartodb-basemaps-b.global.ssl.fastly.net/light_all/12/1207/1539.png" x="534" y="-126" width="256" height="256"></image>
@@ -114,9 +115,9 @@ describe("MapTileLayers", () => {
         <image xlink:href="https://cartodb-basemaps-b.global.ssl.fastly.net/light_all/12/1206/1540.png" x="278" y="130" width="256" height="256"></image>
         <image xlink:href="https://cartodb-basemaps-c.global.ssl.fastly.net/light_all/12/1207/1540.png" x="534" y="130" width="256" height="256"></image>
       `
-      .split("\n")
-      .map((d) => d.trim())
-      .join("");
+        .split("\n")
+        .map((d) => d.trim())
+        .join("");
     expect(result).toEqual(expected);
   });
 
@@ -135,12 +136,12 @@ describe("MapTileLayers", () => {
   test("getBasemapTileUrl", () => {
     window.devicePixelRatio = 2;
     expect(mapTileLayers.getBasemapTileUrl(40, 30, 20)).toEqual(
-      "https://cartodb-basemaps-b.global.ssl.fastly.net/light_all/20/40/30@2x.png"
+      "https://cartodb-basemaps-b.global.ssl.fastly.net/light_all/20/40/30@2x.png",
     );
 
     window.devicePixelRatio = 1;
     expect(mapTileLayers.getBasemapTileUrl(1, 2, 3)).toEqual(
-      "https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/3/1/2.png"
+      "https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/3/1/2.png",
     );
   });
 });

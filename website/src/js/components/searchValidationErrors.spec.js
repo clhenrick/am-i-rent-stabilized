@@ -19,15 +19,15 @@ describe("SearchValidationErrors", () => {
   beforeAll(() => {
     spyHideNotFound = jest.spyOn(
       SearchValidationErrors.prototype,
-      "hideNotFound"
+      "hideNotFound",
     );
     spyHideNoInput = jest.spyOn(
       SearchValidationErrors.prototype,
-      "hideNoInput"
+      "hideNoInput",
     );
     spyHideGeneric = jest.spyOn(
       SearchValidationErrors.prototype,
-      "hideGeneric"
+      "hideGeneric",
     );
 
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
@@ -65,72 +65,72 @@ describe("SearchValidationErrors", () => {
   test("showNotFound", () => {
     searchValidationErrors.showNotFound();
     expect(
-      searchValidationErrors.errorNotFound.classList.contains("hidden")
+      searchValidationErrors.errorNotFound.classList.contains("hidden"),
     ).toBe(false);
     expect(addressSearchForm.inputAddress.getAttribute("aria-invalid")).toBe(
-      "true"
+      "true",
     );
     expect(
-      addressSearchForm.inputAddress.getAttribute("aria-describedby")
+      addressSearchForm.inputAddress.getAttribute("aria-describedby"),
     ).toBe(VALIDATION_TEXT_ID.NOT_FOUND);
   });
 
   test("hideNotFound", () => {
     searchValidationErrors.hideNotFound();
     expect(
-      searchValidationErrors.errorNotFound.classList.contains("hidden")
+      searchValidationErrors.errorNotFound.classList.contains("hidden"),
     ).toBe(true);
     expect(addressSearchForm.inputAddress.getAttribute("aria-invalid")).toBe(
-      "false"
+      "false",
     );
     expect(
-      addressSearchForm.inputAddress.getAttribute("aria-describedby")
+      addressSearchForm.inputAddress.getAttribute("aria-describedby"),
     ).toBeNull();
   });
 
   test("showNoInput", () => {
     searchValidationErrors.showNoInput();
     expect(
-      searchValidationErrors.errorNoInput.classList.contains("hidden")
+      searchValidationErrors.errorNoInput.classList.contains("hidden"),
     ).toBe(false);
     expect(addressSearchForm.inputAddress.getAttribute("aria-invalid")).toBe(
-      "true"
+      "true",
     );
     expect(
-      addressSearchForm.inputAddress.getAttribute("aria-describedby")
+      addressSearchForm.inputAddress.getAttribute("aria-describedby"),
     ).toBe(VALIDATION_TEXT_ID.NO_INPUT);
   });
 
   test("hideNoInput", () => {
     searchValidationErrors.hideNoInput();
     expect(
-      searchValidationErrors.errorNoInput.classList.contains("hidden")
+      searchValidationErrors.errorNoInput.classList.contains("hidden"),
     ).toBe(true);
     expect(addressSearchForm.inputAddress.getAttribute("aria-invalid")).toBe(
-      "false"
+      "false",
     );
     expect(
-      addressSearchForm.inputAddress.getAttribute("aria-describedby")
+      addressSearchForm.inputAddress.getAttribute("aria-describedby"),
     ).toBeNull();
   });
 
   test("showGeneric", () => {
     searchValidationErrors.showGeneric();
     expect(
-      searchValidationErrors.errorGeneric.classList.contains("hidden")
+      searchValidationErrors.errorGeneric.classList.contains("hidden"),
     ).toBe(false);
     expect(
-      addressSearchForm.inputAddress.getAttribute("aria-describedby")
+      addressSearchForm.inputAddress.getAttribute("aria-describedby"),
     ).toBe(VALIDATION_TEXT_ID.GENERIC);
   });
 
   test("hideGeneric", () => {
     searchValidationErrors.hideGeneric();
     expect(
-      searchValidationErrors.errorGeneric.classList.contains("hidden")
+      searchValidationErrors.errorGeneric.classList.contains("hidden"),
     ).toBe(true);
     expect(
-      addressSearchForm.inputAddress.getAttribute("aria-describedby")
+      addressSearchForm.inputAddress.getAttribute("aria-describedby"),
     ).toBeNull();
   });
 
@@ -140,10 +140,10 @@ describe("SearchValidationErrors", () => {
     expect(spyHideNotFound).toHaveBeenCalledTimes(1);
     expect(spyHideGeneric).toHaveBeenCalledTimes(1);
     expect(
-      addressSearchForm.inputAddress.getAttribute("aria-describedby")
+      addressSearchForm.inputAddress.getAttribute("aria-describedby"),
     ).toBeNull();
     expect(addressSearchForm.inputAddress.getAttribute("aria-invalid")).toBe(
-      "false"
+      "false",
     );
   });
 });

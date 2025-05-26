@@ -34,18 +34,22 @@ describe("NavMenuToggle", () => {
   test("The component handles a click event", () => {
     document.querySelector("nav.main-nav .burger").click();
     expect(
-      navMenuToggle.element.querySelector(".burger").classList.contains("open")
+      navMenuToggle.element.querySelector(".burger").classList.contains("open"),
     ).toBe(true);
     expect(
-      navMenuToggle.element.querySelector("ul").classList.contains("responsive")
+      navMenuToggle.element
+        .querySelector("ul")
+        .classList.contains("responsive"),
     ).toBe(true);
 
     document.querySelector("nav.main-nav .burger").click();
     expect(
-      navMenuToggle.element.querySelector(".burger").classList.contains("open")
+      navMenuToggle.element.querySelector(".burger").classList.contains("open"),
     ).toBe(false);
     expect(
-      navMenuToggle.element.querySelector("ul").classList.contains("responsive")
+      navMenuToggle.element
+        .querySelector("ul")
+        .classList.contains("responsive"),
     ).toBe(false);
   });
 });

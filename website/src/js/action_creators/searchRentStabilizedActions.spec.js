@@ -16,7 +16,7 @@ const mockStore = configureMockStore([thunk]);
 describe("validateSearchResult", () => {
   test("undefined input", () => {
     expect(() => validateSearchResult(undefined)).toThrow(
-      ERROR_ADDRESS_NOT_FOUND
+      ERROR_ADDRESS_NOT_FOUND,
     );
   });
 
@@ -26,7 +26,7 @@ describe("validateSearchResult", () => {
 
   test("empty features array", () => {
     expect(() => validateSearchResult({ features: [] })).toThrow(
-      ERROR_ADDRESS_NOT_FOUND
+      ERROR_ADDRESS_NOT_FOUND,
     );
   });
 
@@ -64,7 +64,7 @@ describe("getBBL", () => {
 
   test("valid input", () => {
     expect(
-      getBBL({ properties: { addendum: { pad: { bbl: "01234" } } } })
+      getBBL({ properties: { addendum: { pad: { bbl: "01234" } } } }),
     ).toBe("01234");
   });
 });
@@ -92,7 +92,7 @@ describe("searchRentStabilized", () => {
         {
           status: 200,
           statusText: "OK",
-        }
+        },
       )
       .mockResponseOnce(JSON.stringify({ rows: [] }), {
         status: 200,
@@ -218,7 +218,7 @@ describe("searchRentStabilized", () => {
         {
           status: 200,
           statusText: "OK",
-        }
+        },
       )
       .mockReject(new Error("Server Error"));
 

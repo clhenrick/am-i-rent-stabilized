@@ -50,13 +50,13 @@ export class SearchResultMap extends Component {
     this.unsubscribeSearchResult = observeStore(
       this.store,
       (state) => state.addressGeocode.searchResult,
-      this.handleSearchResult
+      this.handleSearchResult,
     );
 
     this.unsubscribeRsGeoJson = observeStore(
       this.store,
       (state) => state.rentStabilizedGeoJson.geojson,
-      this.handleRentStabilizedGeoJson
+      this.handleRentStabilizedGeoJson,
     );
   }
 
@@ -132,7 +132,7 @@ export class SearchResultMap extends Component {
       "transform",
       `translate(${width / 2 - MAP_MARKER.WIDTH / 2}, ${
         height / 2 - MAP_MARKER.HEIGHT
-      }), scale(2)`
+      }), scale(2)`,
     );
   }
 

@@ -33,7 +33,7 @@ describe("SlidesContainer", () => {
   beforeAll(() => {
     spyScrollToActiveSlide = jest.spyOn(
       SlidesContainer.prototype,
-      "scrollToActiveSlide"
+      "scrollToActiveSlide",
     );
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
     element = document.querySelector(selector);
@@ -102,7 +102,7 @@ describe("SlidesContainer", () => {
     const activeSlideIndex = slidesContainer.activeSlideIndex;
     const activeSlide = slidesContainer.activeSlide;
     const nonActiveSlides = slidesContainer.slides.filter(
-      (slide) => !slide.classList.contains("active")
+      (slide) => !slide.classList.contains("active"),
     );
     expect(spyScrollToActiveSlide).toHaveBeenCalledTimes(1);
     expect(activeSlideIndex).toBe(5);
@@ -137,7 +137,7 @@ describe("SlidesContainer", () => {
         scrollTo: "#slide-3",
         ease: "sine.inOut",
         onComplete: slidesContainer.handleScrollComplete,
-      }
+      },
     );
   });
 

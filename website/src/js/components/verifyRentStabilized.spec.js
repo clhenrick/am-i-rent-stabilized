@@ -99,7 +99,7 @@ describe("VerifyRentStabilized", () => {
 
     verifyRentStabilized.updateMessage();
     expect(verifyRentStabilized.msgYes.classList.contains("hidden")).toBe(
-      false
+      false,
     );
     expect(verifyRentStabilized.msgNo.classList.contains("hidden")).toBe(true);
     expect(logAddressRS).toHaveBeenCalledWith("999999999");

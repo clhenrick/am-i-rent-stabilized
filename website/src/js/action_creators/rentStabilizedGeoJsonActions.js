@@ -29,35 +29,37 @@ export const rentStabilizedGeoJsonReset = () => ({
  * @param {number} object.lat - latitude of likely rs search result
  * @returns {Promise<Error|object>}
  */
-export const fetchRentStabilizedGeoJSON = ({ lon, lat }) => (dispatch) => {
-  const url = `${cartoAPIv3BaseURL}/v3/sql/carto_dw/query`;
-  const requestOptions = getCartoSqlApiAuthOptions();
+export const fetchRentStabilizedGeoJSON =
+  ({ lon, lat }) =>
+  (dispatch) => {
+    const url = `${cartoAPIv3BaseURL}/v3/sql/carto_dw/query`;
+    const requestOptions = getCartoSqlApiAuthOptions();
 
-  dispatch(rentStabilizedGeoJsonRequest());
+    dispatch(rentStabilizedGeoJsonRequest());
 
-  return fetch(
-    `${url}?q=${encodeURIComponent(rentStabilizedGeomSql({ lon, lat }))}`,
-    requestOptions
-  )
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      throw new Error("Problem fetching rent stabilized geojson");
-    })
-    .then((json) => {
-      if (Array.isArray(json?.rows) && json.rows.length) {
-        const transformed = parseTransformRsGeomQueryResult(json.rows);
-        return transformed;
-      }
-      return [];
-    })
-    .then((geojson) => {
-      dispatch(rentStabilizedGeoJsonSuccess(geojson));
-      return geojson;
-    })
-    .catch((error) => {
-      dispatch(rentStabilizedGeoJsonFailure(error));
-      return error;
-    });
-};
+    return fetch(
+      `${url}?q=${encodeURIComponent(rentStabilizedGeomSql({ lon, lat }))}`,
+      requestOptions,
+    )
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        throw new Error("Problem fetching rent stabilized geojson");
+      })
+      .then((json) => {
+        if (Array.isArray(json?.rows) && json.rows.length) {
+          const transformed = parseTransformRsGeomQueryResult(json.rows);
+          return transformed;
+        }
+        return [];
+      })
+      .then((geojson) => {
+        dispatch(rentStabilizedGeoJsonSuccess(geojson));
+        return geojson;
+      })
+      .catch((error) => {
+        dispatch(rentStabilizedGeoJsonFailure(error));
+        return error;
+      });
+  };

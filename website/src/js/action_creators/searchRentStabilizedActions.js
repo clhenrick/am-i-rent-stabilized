@@ -59,7 +59,7 @@ export const searchRentStabilized = (addressInfo) => async (dispatch) => {
       searchResult = { ...addressInfo };
     } else {
       throw new Error(
-        "param `address` must be an address (string) or object (FeatureCollection)"
+        "param `address` must be an address (string) or object (FeatureCollection)",
       );
     }
 
@@ -67,7 +67,7 @@ export const searchRentStabilized = (addressInfo) => async (dispatch) => {
 
     const searchResultFeature = searchResult.features[0];
     const rsResult = await dispatch(
-      fetchRentStabilized(getBBL(searchResultFeature))
+      fetchRentStabilized(getBBL(searchResultFeature)),
     );
 
     validateRS(rsResult);

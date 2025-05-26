@@ -21,27 +21,29 @@ export const tenantsRightsGroupsReset = () => ({
   type: types.TenantsRightsReset,
 });
 
-export const fetchTenantsRightsGroups = ({ lon, lat }) => (dispatch) => {
-  const requestOptions = getCartoSqlApiAuthOptions();
+export const fetchTenantsRightsGroups =
+  ({ lon, lat }) =>
+  (dispatch) => {
+    const requestOptions = getCartoSqlApiAuthOptions();
 
-  dispatch(tenantsRightsGroupsRequest());
+    dispatch(tenantsRightsGroupsRequest());
 
-  return fetch(
-    `${cartoAPIv3BaseURL}/v3/sql/carto_dw/query?q=${window.encodeURIComponent(
-      tenantsRightsGroupsSql({ lon, lat })
-    )}`,
-    requestOptions
-  )
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      throw new Error("Problem fetching tenants rights groups data");
-    })
-    .then((json) => {
-      dispatch(tenantsRightsGroupsSuccess(json));
-    })
-    .catch((error) => {
-      dispatch(tenantsRightsGroupsFailure(error));
-    });
-};
+    return fetch(
+      `${cartoAPIv3BaseURL}/v3/sql/carto_dw/query?q=${window.encodeURIComponent(
+        tenantsRightsGroupsSql({ lon, lat }),
+      )}`,
+      requestOptions,
+    )
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        throw new Error("Problem fetching tenants rights groups data");
+      })
+      .then((json) => {
+        dispatch(tenantsRightsGroupsSuccess(json));
+      })
+      .catch((error) => {
+        dispatch(tenantsRightsGroupsFailure(error));
+      });
+  };
