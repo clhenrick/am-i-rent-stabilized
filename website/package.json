@@ -26,7 +26,10 @@
     "js:lint": "eslint src/**/*.js",
     "js:lint-fix": "yarn js:lint --fix",
     "format": "prettier --write .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "cd .. && husky website/.husky",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable"
   },
   "packageManager": "yarn@4.9.1",
   "engines": {
@@ -58,7 +61,10 @@
     "eslint": "^9.27.0",
     "eslint-config-prettier": "^10.1.5",
     "globals": "^16.2.0",
+    "husky": ">=6",
+    "lint-staged": ">=10",
     "npm-run-all": "^4.1.5",
+    "pinst": ">=2",
     "prettier": "3.5.3",
     "sass": "^1.87.0"
   },
@@ -74,5 +80,9 @@
       "last 1 safari version",
       "last 1 edge version"
     ]
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
   }
 }
