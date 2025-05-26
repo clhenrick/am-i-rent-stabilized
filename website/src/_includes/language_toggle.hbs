@@ -1,13 +1,17 @@
 {{! LanguageToggle partial }}
 <div class="lang-toggle">
-  {{!-- TODO: add i18n string for title --}}
+  {{! TODO: add i18n string for title }}
   <h2 class="sr-only">Toggle Language</h2>
   {{!-- {{>language_toggle}} --}}
   <ul role="list">
-  {{#each localeLinks}}
-    <li>
-      <a class="button toggle-{{this.lang}}" href="{{this.path}}" lang="{{this.lang}}">{{this.label}}</a>
-    </li>
-  {{/each}}
+    {{#each localeLinks}}
+      <li>
+        <a
+          class="button toggle-{{this.lang}}"
+          href="{{this.path}}"
+          lang="{{this.lang}}"
+        >{{this.label}}</a>
+      </li>
+    {{/each}}
   </ul>
 </div>
