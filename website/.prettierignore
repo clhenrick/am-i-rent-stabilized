@@ -4,3 +4,6 @@ node_modules/
 .netlify/
 .yarn/
 yarn.lock
+
+# handlebars partials are not supported
+src/**/*.hbs
