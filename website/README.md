@@ -1,6 +1,6 @@
 # Am I Rent Stabilized Website
 
-The website for *Am I Rent Stabilized* is assembled using the following technologies:
+The website for _Am I Rent Stabilized_ is assembled using the following technologies:
 
 - [NodeJS](https://nodejs.org/en) JavaScript runtime for compiling the website
 - [Eleventy.JS (11ty)](https://www.11ty.dev) static site generator for generating HTML
@@ -58,29 +58,29 @@ This project uses ESM, with the exception of component and unit tests that utili
 
 Source code resides in the `src/` directory (in case that isn't obvious). The following directories assume `src/` as the parent directory (e.g. `_data/` is `src/_data/`).
 
-### _data/
+### \_data/
 
 Contains "global data" available for use throughout all Eleventy templates (in `src/content/`) via the "data cascade" in Eleventy.
 
-#### _data/eleventyComputed.js
+#### \_data/eleventyComputed.js
 
 Global "computed" data. Mainly used to group the `locales` JSON data by their respective language code (e.g. `en`, `es`, `zh`).
 
-#### _data/locales/
+#### \_data/locales/
 
 JSON files that contain the translations for each page in the site, as well as common translation strings used in places repeated throughout the site such as the primary site navigation.
 
 For example, `main-en.json` corresponds to the homepage in English, `why-es.json` corresponds to the `why.html` page in Spanish, `resources-zh.json` corresponds to the `resources.html` page in Chinese.
 
-### _includes/
+### \_includes/
 
 Handlebars.js partials. Think of these as "components". They are often tightly coupled to locales JSON file data structure and typically have an equivalent Sass (CSS) partial.
 
-### _layouts/
+### \_layouts/
 
 Handlebars.js layouts. Think of these as the page structure for the various pages. The "how", "why", and "resources" pages share a common layout (`infopages.hbs`). All pages share the `base.hbs` layout.
 
-### _utils/
+### \_utils/
 
 Eleventy specific utility / helper function junk drawer.
 
@@ -92,7 +92,7 @@ The site's pages are organized by language, with English pages being the default
 
 Template data is configured via `*.11tydata.js` files so that each of the site's pages may share the same markup while being rendered using the appropriate locale from `src/_data/locales/`.
 
-### content/*.11tydata.js
+### content/\*.11tydata.js
 
 These are Eleventy data files which configure the data for each page template. They use "computed data" to direct the locales JSON data from `src/_data/` to the correct page in the correct language.
 
