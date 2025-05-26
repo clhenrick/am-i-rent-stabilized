@@ -5,5 +5,9 @@ node_modules/
 .yarn/
 yarn.lock
 
-# handlebars partials are not supported
-src/**/*.hbs
+# ignore handlebars template files that cannot be formatted due to prettier limitations (e.g. no support for handlebars partial usage)
+src/_includes/modal_dialog.hbs
+src/_layouts/base.hbs
+src/_layouts/home.hbs
+src/_layouts/infopages.hbs
+src/_layouts/resources.hbs
