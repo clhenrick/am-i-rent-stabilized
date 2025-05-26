@@ -46,10 +46,14 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
     "@11ty/eleventy-plugin-handlebars": "^1.0.0",
+    "@eslint/js": "^9.27.0",
+    "@eslint/json": "^0.12.0",
     "browserslist": "^4.24.5",
     "browserslist-to-esbuild": "^2.1.1",
     "esbuild": "^0.25.4",
     "esbuild-plugin-handlebars": "^1.0.3",
+    "eslint": "^9.27.0",
+    "globals": "^16.2.0",
     "npm-run-all": "^4.1.5",
     "sass": "^1.87.0"
   },
