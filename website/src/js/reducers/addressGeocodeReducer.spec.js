@@ -15,7 +15,7 @@ describe("addressGeocode Reducer", () => {
     expect(
       addressGeocode(initialState, {
         type: types.AddressSearchRequest,
-      }),
+      })
     ).toEqual({
       status: "fetching",
       error: null,
@@ -28,7 +28,7 @@ describe("addressGeocode Reducer", () => {
     expect(
       addressGeocode(initialState, {
         type: types.AddressAutosuggestRequest,
-      }),
+      })
     ).toEqual({
       status: "fetching",
       error: null,
@@ -42,7 +42,7 @@ describe("addressGeocode Reducer", () => {
       addressGeocode(initialState, {
         type: types.AddressSearchSuccess,
         payload: { features: [] },
-      }),
+      })
     ).toEqual({
       status: "idle",
       error: null,
@@ -56,7 +56,7 @@ describe("addressGeocode Reducer", () => {
       addressGeocode(initialState, {
         type: types.AddressAutosuggestSuccess,
         payload: { features: [] },
-      }),
+      })
     ).toEqual({
       status: "idle",
       error: null,
@@ -70,7 +70,7 @@ describe("addressGeocode Reducer", () => {
       addressGeocode(initialState, {
         type: types.AddressSearchFailure,
         error: new Error(),
-      }),
+      })
     ).toEqual({
       status: "failure",
       error: new Error(),
@@ -84,7 +84,7 @@ describe("addressGeocode Reducer", () => {
       addressGeocode(initialState, {
         type: types.AddressAutosuggestFailure,
         error: new Error(),
-      }),
+      })
     ).toEqual({
       status: "failure",
       error: new Error(),
@@ -104,8 +104,8 @@ describe("addressGeocode Reducer", () => {
         },
         {
           type: types.ResetAddressState,
-        },
-      ),
+        }
+      )
     ).toEqual({
       status: "idle",
       error: null,
@@ -125,8 +125,8 @@ describe("addressGeocode Reducer", () => {
         },
         {
           type: types.ResetAppState,
-        },
-      ),
+        }
+      )
     ).toEqual({
       status: "idle",
       error: null,

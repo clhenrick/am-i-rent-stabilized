@@ -61,14 +61,14 @@ describe("AdvanceSlides", () => {
       () =>
         new AdvanceSlides({
           element,
-        }),
+        })
     ).toThrow("Requires redux store");
     expect(
       () =>
         new AdvanceSlides({
           element,
           store: {},
-        }),
+        })
     ).toThrow("Requires redux store");
   });
 

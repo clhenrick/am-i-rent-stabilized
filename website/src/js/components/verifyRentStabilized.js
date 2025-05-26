@@ -18,7 +18,7 @@ export class VerifyRentStabilized extends Component {
     this.unsubscribe = observeStore(
       this.store,
       (state) => state.rentStabilized.match,
-      this.updateMessage,
+      this.updateMessage
     );
   }
 

@@ -28,8 +28,8 @@ export function parseTransformRsGeomQueryResult(rows) {
           properties: {},
           geometry: JSON.parse(d.geojson),
         },
-        { reverse: true },
-      ),
+        { reverse: true }
+      )
     );
   return features;
 }

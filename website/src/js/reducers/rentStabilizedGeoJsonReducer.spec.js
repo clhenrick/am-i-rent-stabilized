@@ -13,7 +13,7 @@ describe("rentStabilizedGeoJson reducer", () => {
     expect(
       rentStabilizedGeoJson(initialState, {
         type: types.RentStabilizedGeoJsonRequest,
-      }),
+      })
     ).toEqual({
       ...initialState,
       status: "pending",
@@ -25,7 +25,7 @@ describe("rentStabilizedGeoJson reducer", () => {
       rentStabilizedGeoJson(initialState, {
         type: types.RentStabilizedGeoJsonSuccess,
         payload: [],
-      }),
+      })
     ).toEqual({
       ...initialState,
       status: "idle",
@@ -38,7 +38,7 @@ describe("rentStabilizedGeoJson reducer", () => {
       rentStabilizedGeoJson(initialState, {
         type: types.RentStabilizedGeoJsonFailure,
         error: new Error(),
-      }),
+      })
     ).toEqual({
       ...initialState,
       status: "error",
@@ -56,8 +56,8 @@ describe("rentStabilizedGeoJson reducer", () => {
         },
         {
           type: types.RentStabilizedGeoJsonReset,
-        },
-      ),
+        }
+      )
     ).toEqual({
       status: "idle",
       error: null,
@@ -75,8 +75,8 @@ describe("rentStabilizedGeoJson reducer", () => {
         },
         {
           type: types.ResetAppState,
-        },
-      ),
+        }
+      )
     ).toEqual({
       status: "idle",
       error: null,

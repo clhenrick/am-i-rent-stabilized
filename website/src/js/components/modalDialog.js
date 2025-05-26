@@ -2,7 +2,7 @@ import { Component } from "./_componentBase";
 
 /** does the user not care if animations are enabled on their device? */
 const reduceMotionNoPreference = window.matchMedia(
-  "(prefers-reduced-motion: no-preference)",
+  "(prefers-reduced-motion: no-preference)"
 );
 
 /** the dialog's close animation duration in milliseconds */

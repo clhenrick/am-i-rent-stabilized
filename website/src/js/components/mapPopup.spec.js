@@ -48,7 +48,7 @@ describe("MapPopup", () => {
           },
         },
       }),
-      { status: 200, statusText: "OK" },
+      { status: 200, statusText: "OK" }
     );
 
     map = new SearchResultMap({
@@ -88,7 +88,7 @@ describe("MapPopup", () => {
       zipcode: "99999",
     });
     expect(mapPopup.contentContainer.innerHTML).toEqual(
-      "<p>999 West St</p><p>Brooklyn NY 99999</p>",
+      "<p>999 West St</p><p>Brooklyn NY 99999</p>"
     );
   });
 

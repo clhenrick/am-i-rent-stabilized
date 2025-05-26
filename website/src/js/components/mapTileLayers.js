@@ -23,9 +23,9 @@ export class MapTileLayers {
     return `<image xlink:href="${this.getBasemapTileUrl(
       x,
       y,
-      z,
+      z
     )}" x="${Math.round((x + tx) * k)}" y="${Math.round(
-      (y + ty) * k,
+      (y + ty) * k
     )}" width="${k}" height="${k}"></image>`;
   }
 

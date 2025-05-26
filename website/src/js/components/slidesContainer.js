@@ -30,7 +30,7 @@ export class SlidesContainer extends Component {
     this.unsubscribe = observeStore(
       this.store,
       (state) => state.slides,
-      this.handleSlidesUpdate,
+      this.handleSlidesUpdate
     );
     this.scrollToActiveSlide();
   }

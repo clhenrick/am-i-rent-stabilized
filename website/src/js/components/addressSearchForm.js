@@ -56,7 +56,7 @@ export class AddressSearchForm extends Component {
     this.handleInputChange = throttle(
       this.handleInputChange.bind(this),
       INPUT_THROTTLE_MS,
-      { leading: true },
+      { leading: true }
     );
     this.handleFocus = this.handleFocus.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -70,13 +70,13 @@ export class AddressSearchForm extends Component {
     this.unsubscribeAG = observeStore(
       this.store,
       (state) => state.addressGeocode,
-      this.handleAGChange,
+      this.handleAGChange
     );
 
     this.unsubscribeRS = observeStore(
       this.store,
       (state) => state.rentStabilized,
-      this.handleRSChange,
+      this.handleRSChange
     );
 
     this.bindEvents();
@@ -118,7 +118,7 @@ export class AddressSearchForm extends Component {
     const autosuggestMatch =
       this.autosuggestionsList &&
       this.autosuggestionsList.find(
-        (d) => d.properties.label === anAddressString,
+        (d) => d.properties.label === anAddressString
       );
 
     if (autosuggestMatch) {
@@ -126,7 +126,7 @@ export class AddressSearchForm extends Component {
         searchRentStabilized({
           type: "FeatureCollection",
           features: [autosuggestMatch],
-        }),
+        })
       );
     } else {
       this.store.dispatch(searchRentStabilized(anAddressString));

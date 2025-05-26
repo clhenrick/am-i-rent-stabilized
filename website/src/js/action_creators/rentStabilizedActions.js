@@ -34,7 +34,7 @@ export const fetchRentStabilized = (bbl) => (dispatch) => {
 
   return fetch(
     `${url}?q=${window.encodeURIComponent(rentStabilizedBblSql(bbl))}`,
-    requestOptions,
+    requestOptions
   )
     .then((res) => {
       if (res.ok) {

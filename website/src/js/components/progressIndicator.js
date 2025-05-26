@@ -14,7 +14,7 @@ export class ProgressIndicator extends Component {
     this.unsubscribe = observeStore(
       this.store,
       (state) => state.slides.curIndex,
-      this.renderCircles,
+      this.renderCircles
     );
   }
 

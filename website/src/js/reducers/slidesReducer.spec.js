@@ -12,7 +12,7 @@ describe("slidesReducer", () => {
     expect(
       slides(undefined, {
         type: types.GoToNextSlide,
-      }),
+      })
     ).toEqual({
       curIndex: 1,
     });
@@ -26,8 +26,8 @@ describe("slidesReducer", () => {
         },
         {
           type: types.GoToPrevSlide,
-        },
-      ),
+        }
+      )
     ).toEqual({
       curIndex: 0,
     });
@@ -42,8 +42,8 @@ describe("slidesReducer", () => {
         {
           type: types.GoToSlideIdx,
           payload: 3,
-        },
-      ),
+        }
+      )
     ).toEqual({
       curIndex: 3,
     });

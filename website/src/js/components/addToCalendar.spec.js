@@ -48,7 +48,7 @@ describe("AddToCalendar", () => {
         year: "numeric",
         day: "2-digit",
         month: "2-digit",
-      },
+      }
     );
     addToCalendar.start.innerText = "";
     addToCalendar.setStartDateTime();
@@ -63,7 +63,7 @@ describe("AddToCalendar", () => {
         year: "numeric",
         day: "2-digit",
         month: "2-digit",
-      },
+      }
     );
     addToCalendar.end.innerText = "";
     addToCalendar.setEndDateTime();
@@ -79,7 +79,7 @@ describe("AddToCalendar", () => {
 
   test("daysFromNow throws", () => {
     expect(() => addToCalendar.daysFromNow(0.5)).toThrow(
-      "daysFromNow's argument should be an integer",
+      "daysFromNow's argument should be an integer"
     );
   });
 
@@ -91,7 +91,7 @@ describe("AddToCalendar", () => {
 
   test("formatDate throws", () => {
     expect(() => addToCalendar.formatDate(+new Date())).toThrow(
-      "formatDate's argument should be a Date object",
+      "formatDate's argument should be a Date object"
     );
   });
 });

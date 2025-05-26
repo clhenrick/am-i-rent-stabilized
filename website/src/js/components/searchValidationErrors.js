@@ -11,13 +11,13 @@ export class SearchValidationErrors extends Component {
   init({ searchForm }) {
     this._searchForm = searchForm;
     this.errorNotFound = this.element.querySelector(
-      `#${VALIDATION_TEXT_ID.NOT_FOUND}`,
+      `#${VALIDATION_TEXT_ID.NOT_FOUND}`
     );
     this.errorNoInput = this.element.querySelector(
-      `#${VALIDATION_TEXT_ID.NO_INPUT}`,
+      `#${VALIDATION_TEXT_ID.NO_INPUT}`
     );
     this.errorGeneric = this.element.querySelector(
-      `#${VALIDATION_TEXT_ID.GENERIC}`,
+      `#${VALIDATION_TEXT_ID.GENERIC}`
     );
   }
 

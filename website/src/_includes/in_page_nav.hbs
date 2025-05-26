@@ -1,11 +1,11 @@
-{{! Sidebar navigation for info pages }}
+{{!-- Sidebar navigation for info pages --}}
 <nav class="side-nav" aria-labelledby="side-nav-title">
   <h2 id="side-nav-title">{{nav_side.title}}</h2>
   <ul role="list">
     {{#each nav_side.anchors}}
-      <li>
-        <a href="#{{@key}}">{{this}}</a>
-      </li>
+    <li>
+      <a href="#{{@key}}">{{this}}</a>
+    </li>
     {{/each}}
   </ul>
 </nav>

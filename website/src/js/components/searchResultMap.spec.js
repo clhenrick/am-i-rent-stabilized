@@ -69,7 +69,7 @@ describe("SearchResultMap", () => {
           },
         },
       }),
-      { status: 200, statusText: "OK" },
+      { status: 200, statusText: "OK" }
     );
 
     searchResultMap = new SearchResultMap({
@@ -106,7 +106,7 @@ describe("SearchResultMap", () => {
       () =>
         new SearchResultMap({
           element,
-        }),
+        })
     ).toThrow("Requires redux store");
 
     expect(
@@ -114,7 +114,7 @@ describe("SearchResultMap", () => {
         new SearchResultMap({
           element,
           store: {},
-        }),
+        })
     ).toThrow("Requires redux store");
   });
 
@@ -270,7 +270,7 @@ describe("SearchResultMap", () => {
     searchResultMap.setMapSize();
     const result = searchResultMap.svg.getAttribute("viewBox");
     expect(result).toEqual(
-      `0 0 ${width - MAP_BORDER_WIDTH * 2} ${height - MAP_BORDER_WIDTH * 2}`,
+      `0 0 ${width - MAP_BORDER_WIDTH * 2} ${height - MAP_BORDER_WIDTH * 2}`
     );
   });
 
@@ -280,7 +280,7 @@ describe("SearchResultMap", () => {
     expect(result).toEqual(
       `translate(${
         (width - MAP_BORDER_WIDTH * 2) / 2 - MAP_MARKER.WIDTH / 2
-      }, ${(height - MAP_BORDER_WIDTH * 2) / 2 - MAP_MARKER.HEIGHT}), scale(2)`,
+      }, ${(height - MAP_BORDER_WIDTH * 2) / 2 - MAP_MARKER.HEIGHT}), scale(2)`
     );
   });
 
@@ -288,7 +288,7 @@ describe("SearchResultMap", () => {
     searchResultMap.updateProjection();
     expect(center).toHaveBeenCalledWith(MAP_CENTER.DEFAULT);
     expect(scale).toHaveBeenCalledWith(
-      Math.pow(2, MAP_ZOOM.DEFAULT) / (2 * Math.PI),
+      Math.pow(2, MAP_ZOOM.DEFAULT) / (2 * Math.PI)
     );
     expect(translate).toHaveBeenCalledWith([
       (width - MAP_BORDER_WIDTH * 2) / 2,

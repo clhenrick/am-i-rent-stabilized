@@ -8,7 +8,7 @@ describe("rentStabilizedReducer", () => {
 
   test("Should handle RentStabilizedRequest", () => {
     expect(
-      rentStabilized(initialState, { type: types.RentStabilizedRequest }),
+      rentStabilized(initialState, { type: types.RentStabilizedRequest })
     ).toEqual({
       ...initialState,
       status: "pending",
@@ -20,7 +20,7 @@ describe("rentStabilizedReducer", () => {
       rentStabilized(initialState, {
         type: types.RentStabilizedSuccess,
         payload: { features: [] },
-      }),
+      })
     ).toEqual({
       ...initialState,
       status: "idle",
@@ -33,7 +33,7 @@ describe("rentStabilizedReducer", () => {
       rentStabilized(initialState, {
         type: types.RentStabilizedFailure,
         error: new Error(),
-      }),
+      })
     ).toEqual({
       ...initialState,
       status: "error",
@@ -51,8 +51,8 @@ describe("rentStabilizedReducer", () => {
         },
         {
           type: types.RentStabilizedReset,
-        },
-      ),
+        }
+      )
     ).toEqual({
       status: "idle",
       error: null,
@@ -70,8 +70,8 @@ describe("rentStabilizedReducer", () => {
         },
         {
           type: types.ResetAppState,
-        },
-      ),
+        }
+      )
     ).toEqual({
       status: "idle",
       error: null,

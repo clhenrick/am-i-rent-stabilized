@@ -46,7 +46,7 @@ describe("crashReporter", () => {
         crashReporter(store)(next)(action);
       }).toThrow("Something bad happened");
       expect(logException).toHaveBeenCalledWith(
-        "crashReporter; Error; Something bad happened; {}",
+        "crashReporter; Error; Something bad happened; {}"
       );
     });
   });
@@ -107,7 +107,7 @@ describe("errorLogger", () => {
       const action = { type: "TEST", error };
       errorLogger(store)(next)(action);
       expect(logException).toHaveBeenCalledWith(
-        "TEST; Error; Something went wrong; {}",
+        "TEST; Error; Something went wrong; {}"
       );
     });
   });

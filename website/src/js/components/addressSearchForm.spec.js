@@ -65,7 +65,7 @@ describe("AddressSearchForm", () => {
       () =>
         new AddressSearchForm({
           element,
-        }),
+        })
     ).toThrow("Requires redux store");
 
     expect(
@@ -73,13 +73,13 @@ describe("AddressSearchForm", () => {
         new AddressSearchForm({
           element,
           store: {},
-        }),
+        })
     ).toThrow("Requires redux store");
   });
 
   test("validationErrors property is an instance of SearchValidationErrors", () => {
     expect(addressSearchForm.validationErrors).toBeInstanceOf(
-      SearchValidationErrors,
+      SearchValidationErrors
     );
   });
 
@@ -87,7 +87,7 @@ describe("AddressSearchForm", () => {
     const spy1 = jest.spyOn(addressSearchForm.element, "removeEventListener");
     const spy2 = jest.spyOn(
       addressSearchForm.inputAddress,
-      "removeEventListener",
+      "removeEventListener"
     );
     addressSearchForm.removeEvents();
     expect(spy1).toHaveBeenCalled();
@@ -190,7 +190,7 @@ describe("AddressSearchForm", () => {
     const spy1 = jest.spyOn(AddressSearchForm.prototype, "cacheSearchResult");
     const spy2 = jest.spyOn(
       AddressSearchForm.prototype,
-      "validateSearchResult",
+      "validateSearchResult"
     );
     addressSearchForm = new AddressSearchForm({
       element,
@@ -284,10 +284,10 @@ describe("AddressSearchForm", () => {
     expect(addressSearchForm.datalist.children).toBeInstanceOf(HTMLCollection);
     expect(addressSearchForm.datalist.children).toHaveLength(2);
     expect(addressSearchForm.datalist.children[0].value).toBe(
-      "111 Fake St, Brooklyn, NY",
+      "111 Fake St, Brooklyn, NY"
     );
     expect(addressSearchForm.datalist.children[1].value).toBe(
-      "666 Devil Ave, Staten Island, NY",
+      "666 Devil Ave, Staten Island, NY"
     );
   });
 
@@ -330,7 +330,7 @@ describe("AddressSearchForm", () => {
     expect(spy).toHaveBeenCalledTimes(1);
     expect(store.dispatch).not.toHaveBeenCalled();
     expect(logAddressNF).toHaveBeenCalledWith(
-      "444 Unknown Street, Staten Island",
+      "444 Unknown Street, Staten Island"
     );
     // NOTE: although the searchValidationErrors handles updating the DOM when an error occurs, the addressSearchForm focuses the input so that the error help text is announced to screen readers.
     expect(document.activeElement).toEqual(addressSearchForm.inputAddress);
@@ -340,7 +340,7 @@ describe("AddressSearchForm", () => {
     const spy = jest.spyOn(AddressSearchForm.prototype, "handleSubmit");
     const spy2 = jest.spyOn(
       AddressSearchForm.prototype,
-      "searchRentStabilized",
+      "searchRentStabilized"
     );
     const event = new Event("submit");
     event.preventDefault = jest.fn();
@@ -361,7 +361,7 @@ describe("AddressSearchForm", () => {
     const spy = jest.spyOn(SearchValidationErrors.prototype, "showNoInput");
     const spy2 = jest.spyOn(
       AddressSearchForm.prototype,
-      "searchRentStabilized",
+      "searchRentStabilized"
     );
     const event = new Event("submit");
     event.preventDefault = jest.fn();

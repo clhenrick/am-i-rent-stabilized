@@ -10,7 +10,7 @@ describe("tenantsRightsReducer", () => {
     expect(
       tenantsRights(undefined, {
         type: types.TenantsRightsRequest,
-      }),
+      })
     ).toEqual({
       status: "fetching",
       error: null,
@@ -23,7 +23,7 @@ describe("tenantsRightsReducer", () => {
       tenantsRights(undefined, {
         type: types.TenantsRightsSuccess,
         payload: { rows: [] },
-      }),
+      })
     ).toEqual({
       status: "idle",
       error: null,
@@ -36,7 +36,7 @@ describe("tenantsRightsReducer", () => {
       tenantsRights(undefined, {
         type: types.TenantsRightsFailure,
         error: new Error(),
-      }),
+      })
     ).toEqual({
       status: "error",
       error: new Error(),
@@ -48,7 +48,7 @@ describe("tenantsRightsReducer", () => {
     expect(
       tenantsRights(undefined, {
         type: types.ResetAppState,
-      }),
+      })
     ).toEqual({
       status: "idle",
       error: null,
@@ -60,7 +60,7 @@ describe("tenantsRightsReducer", () => {
     expect(
       tenantsRights(undefined, {
         type: types.tenantsRightsGroupsReset,
-      }),
+      })
     ).toEqual({
       status: "idle",
       error: null,

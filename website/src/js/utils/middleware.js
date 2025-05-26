@@ -11,8 +11,8 @@ export const crashReporter = (store) => (next) => (action) => {
   } catch (error) {
     logException(
       `${handleErrorObj("crashReporter", error)}; ${JSON.stringify(
-        store.getState(),
-      )}`,
+        store.getState()
+      )}`
     );
     throw error;
   }

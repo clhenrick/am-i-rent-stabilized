@@ -38,10 +38,10 @@ describe("ComponentRegistry", () => {
 
   test("add throws if not passed a component instance", () => {
     expect(() => registry.add("foo")).toThrow(
-      "requires component to be a Component instance",
+      "requires component to be a Component instance"
     );
     expect(() => registry.add("foo", {})).toThrow(
-      "requires component to be a Component instance",
+      "requires component to be a Component instance"
     );
   });
 

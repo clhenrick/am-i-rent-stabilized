@@ -33,7 +33,7 @@ describe("initInfoPages", () => {
   test("all component instances are added to the registry", () => {
     initInfoPages();
     expect(ComponentRegistry.prototype.add).toHaveBeenCalledTimes(
-      NUMBER_OF_COMPONENT_INSTANCES,
+      NUMBER_OF_COMPONENT_INSTANCES
     );
   });
 

@@ -6,7 +6,7 @@ const langData = langCodes.reduce((acc, cur, index) => {
 }, new Map());
 
 /** generates the necessary data for each page to link to its equivalent page in the other supported languages */
-export function getRoutesForLang(currentLang, page, isHomepage = false) {
+export function getRoutesForLang (currentLang, page, isHomepage = false) {
   // homepages are the only page that uses "index.html" as the file name, 11ty page data will show fileSlug as an empty string, so we correct it here
   if (isHomepage) {
     page = "index";
