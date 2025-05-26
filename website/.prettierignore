@@ -7,7 +7,6 @@ yarn.lock
 
 # ignore handlebars template files that cannot be formatted due to prettier limitations (e.g. no support for handlebars partial usage)
 src/_includes/modal_dialog.hbs
-src/_layouts/base.hbs
-src/_layouts/home.hbs
-src/_layouts/infopages.hbs
-src/_layouts/resources.hbs
+
+# ignore layouts templates because prettier messes up front matter
+src/_layouts/
