@@ -1,6 +1,18 @@
 # Am I Rent Stabilized Changelog
 This changelog describes significant changes to the project. It was first created on November 29, 2020 so does not account for the entire project's history.
 
+## 2025-05-25 Migrated website to use Eleventy static site generator ([#173](https://github.com/clhenrick/am-i-rent-stabilized/pull/173))
+
+Uses the existing Handlebars templates with EleventyJS to SSR the site's HTML pages rather than CSR them as was previously the case. This cuts down on the amount of client side JavaScript necessary to render the site and removes the need to fetch the JSON locales when toggling to a non-default language.
+
+- Renamed the old `app/` directory to `website_deprecated`. This directory will eventually be removed once the remaining / desired dev dependencies are added back.
+- Added a new directory `website/` for the Eleventy version of the website. Builds are now deployed from this directory.
+- Dropped usage of Webpack as the asset compiler.
+- Removed translation related JS that previously ran in the client since now all HTML pages are being generated via SSR and supported languages are rendered as separate pages in locale prefixed directories (e.g. `/es/index.html`, `/es/why.html`, etc.)
+- Only migrated dependencies necessary to run the site. Dev dependencies such as Jest, ESLint, Lint Staged, Stylelint, Autoprefixer, etc. will need to be added back in a future PR. This means the component and unit tests are currently not being run via Github Actions like they previously were.
+- Added Netlify redirects to redirect supported locales to their corresponding prefixed root level directory (e.g. a user with Spanish set as their native language in their OS and/or browser should be redirected to `/es/*.html`) and to redirect pages from the `/info/` directory to `/`.
+- Use ESBuild to compile the client side JS.
+
 ## 2025-04-20 Accessibility fixes for modal dialogs ([#164](https://github.com/clhenrick/am-i-rent-stabilized/pull/164) & [#167](https://github.com/clhenrick/am-i-rent-stabilized/pull/167))
 
 Added a proper (e.g. accessible) `ModalDialog` component that utilizes the HTML `<dialog>` element to show the sample rent history image in slide seven and tenants rights groups in slide eight. This fixes multiple accessibility issues with the previous modal implementations such as focus management, making the non-modal UI inert, using appropriate semantics, etc.
