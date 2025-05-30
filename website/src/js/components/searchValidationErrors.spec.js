@@ -12,33 +12,18 @@ describe("SearchValidationErrors", () => {
   let addressSearchForm;
   let searchValidationErrors;
 
-  let spyShowNotFound;
   let spyHideNotFound;
-  let spyShowNoInput;
   let spyHideNoInput;
-  let spyShowGeneric;
   let spyHideGeneric;
 
   beforeAll(() => {
-    spyShowNotFound = jest.spyOn(
-      SearchValidationErrors.prototype,
-      "showNotFound"
-    );
     spyHideNotFound = jest.spyOn(
       SearchValidationErrors.prototype,
       "hideNotFound"
     );
-    spyShowNoInput = jest.spyOn(
-      SearchValidationErrors.prototype,
-      "showNoInput"
-    );
     spyHideNoInput = jest.spyOn(
       SearchValidationErrors.prototype,
       "hideNoInput"
-    );
-    spyShowGeneric = jest.spyOn(
-      SearchValidationErrors.prototype,
-      "showGeneric"
     );
     spyHideGeneric = jest.spyOn(
       SearchValidationErrors.prototype,

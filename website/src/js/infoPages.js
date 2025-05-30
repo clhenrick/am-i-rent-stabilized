@@ -1,4 +1,4 @@
-import initInfoPages from './utils/initInfoPages';
+import initInfoPages from "./utils/initInfoPages";
 
 document.onreadystatechange = () => {
   if (document.readyState === "interactive") {

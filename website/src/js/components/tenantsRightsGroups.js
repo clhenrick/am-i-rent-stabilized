@@ -80,7 +80,10 @@ export class TenantsRightsGroups extends Component {
   }
 
   getSearchCoords(feature) {
-    const [lon, lat] = feature?.geometry?.coordinates;
+    if (!feature || !feature.geometry) {
+      throw new Error(ERROR_MISSING_COORDS);
+    }
+    const [lon, lat] = feature.geometry.coordinates;
     if (isFinite(lon) && isFinite(lat)) {
       return { lon, lat };
     }

@@ -181,7 +181,7 @@ export class SearchResultMap extends Component {
         state: region_a,
         zipcode: postalcode,
       };
-    } catch (error) {
+    } catch {
       return false;
     }
   }

@@ -23,7 +23,13 @@
     "sass:build": "sass --style=compressed src/scss:dist/styles",
     "js:build": "node esbuild.config.js prod",
     "js:watch": "node esbuild.config.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "js:lint": "eslint src/**/*.js",
+    "js:lint-fix": "yarn js:lint --fix",
+    "format": "prettier --write .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "cd .. && husky website/.husky",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable"
   },
   "packageManager": "yarn@4.9.1",
   "engines": {
@@ -46,11 +52,20 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
     "@11ty/eleventy-plugin-handlebars": "^1.0.0",
+    "@eslint/js": "^9.27.0",
+    "@eslint/json": "^0.12.0",
     "browserslist": "^4.24.5",
     "browserslist-to-esbuild": "^2.1.1",
     "esbuild": "^0.25.4",
     "esbuild-plugin-handlebars": "^1.0.3",
+    "eslint": "^9.27.0",
+    "eslint-config-prettier": "^10.1.5",
+    "globals": "^16.2.0",
+    "husky": ">=6",
+    "lint-staged": ">=10",
     "npm-run-all": "^4.1.5",
+    "pinst": ">=2",
+    "prettier": "3.5.3",
     "sass": "^1.87.0"
   },
   "browserslist": {
@@ -65,5 +80,9 @@
       "last 1 safari version",
       "last 1 edge version"
     ]
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
   }
 }

@@ -105,7 +105,8 @@ describe("MapTileLayers", () => {
 
   test("renderMapTiles", () => {
     const result = mapTileLayers.renderMapTiles();
-    const expected = `<image xlink:href="https://cartodb-basemaps-b.global.ssl.fastly.net/light_all/12/1204/1539.png" x="-234" y="-126" width="256" height="256"></image>
+    const expected =
+      `<image xlink:href="https://cartodb-basemaps-b.global.ssl.fastly.net/light_all/12/1204/1539.png" x="-234" y="-126" width="256" height="256"></image>
         <image xlink:href="https://cartodb-basemaps-c.global.ssl.fastly.net/light_all/12/1205/1539.png" x="22" y="-126" width="256" height="256"></image>
         <image xlink:href="https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/12/1206/1539.png" x="278" y="-126" width="256" height="256"></image>
         <image xlink:href="https://cartodb-basemaps-b.global.ssl.fastly.net/light_all/12/1207/1539.png" x="534" y="-126" width="256" height="256"></image>
@@ -114,9 +115,9 @@ describe("MapTileLayers", () => {
         <image xlink:href="https://cartodb-basemaps-b.global.ssl.fastly.net/light_all/12/1206/1540.png" x="278" y="130" width="256" height="256"></image>
         <image xlink:href="https://cartodb-basemaps-c.global.ssl.fastly.net/light_all/12/1207/1540.png" x="534" y="130" width="256" height="256"></image>
       `
-      .split("\n")
-      .map((d) => d.trim())
-      .join("");
+        .split("\n")
+        .map((d) => d.trim())
+        .join("");
     expect(result).toEqual(expected);
   });
 

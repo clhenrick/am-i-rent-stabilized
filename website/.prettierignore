@@ -1,0 +1,12 @@
+assets/
+dist/
+node_modules/
+.netlify/
+.yarn/
+yarn.lock
+
+# ignore handlebars template files that cannot be formatted due to prettier limitations (e.g. no support for handlebars partial usage)
+src/_includes/modal_dialog.hbs
+
+# ignore layouts templates because prettier messes up front matter
+src/_layouts/

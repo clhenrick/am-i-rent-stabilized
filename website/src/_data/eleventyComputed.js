@@ -20,4 +20,4 @@ export default {
   en: ({ locales }) => getLocalesByLang(locales, "en"),
   es: ({ locales }) => getLocalesByLang(locales, "es"),
   zh: ({ locales }) => getLocalesByLang(locales, "zh"),
-}
+};
