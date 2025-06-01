@@ -26,7 +26,7 @@
     "js:lint": "eslint src/**/*.js",
     "js:lint-fix": "yarn js:lint --fix",
     "format": "prettier --write .",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "yarn node --experimental-vm-modules $(yarn bin jest)",
     "postinstall": "cd .. && husky website/.husky",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable"
@@ -52,20 +52,36 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
     "@11ty/eleventy-plugin-handlebars": "^1.0.0",
+    "@babel/core": "^7.27.4",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.9.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-async-to-generator": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.9.6",
+    "@babel/preset-env": "^7.27.2",
+    "@babel/runtime": "^7.27.4",
     "@eslint/js": "^9.27.0",
     "@eslint/json": "^0.12.0",
+    "babel-jest": "^26.3.0",
+    "babel-plugin-dynamic-import-node": "^2.3.3",
     "browserslist": "^4.24.5",
     "browserslist-to-esbuild": "^2.1.1",
+    "core-js": "3.6.4",
     "esbuild": "^0.25.4",
     "esbuild-plugin-handlebars": "^1.0.3",
     "eslint": "^9.27.0",
     "eslint-config-prettier": "^10.1.5",
     "globals": "^16.2.0",
     "husky": ">=6",
+    "jest": "26",
+    "jest-environment-jsdom": "26",
+    "jest-fetch-mock": "^3.0.3",
+    "jest-handlebars": "^1.0.1",
     "lint-staged": ">=10",
     "npm-run-all": "^4.1.5",
     "pinst": ">=2",
     "prettier": "3.5.3",
+    "redux-mock-store": "^1.5.4",
     "sass": "^1.87.0"
   },
   "browserslist": {
@@ -84,5 +100,25 @@
   "lint-staged": {
     "*.js": "eslint --cache --fix",
     "*.{js,css,md}": "prettier --write"
+  },
+  "jest": {
+    "automock": false,
+    "rootDir": ".",
+    "setupFiles": [
+      "<rootDir>/setupJest.js"
+    ],
+    "testMatch": [
+      "<rootDir>/src/js/**/*spec.js"
+    ],
+    "transform": {
+      "^.js$": "babel-jest",
+      "\\.hbs$": "jest-handlebars"
+    },
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/gsap/",
+      "<rootDir>/node_modules/d3-array/",
+      "<rootDir>/node_modules/d3-tile/",
+      "<rootDir>/node_modules/d3-geo/"
+    ]
   }
 }

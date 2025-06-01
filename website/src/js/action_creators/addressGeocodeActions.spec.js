@@ -1,14 +1,17 @@
-import configureMockStore from "redux-mock-store";
+import { configureStore } from "redux-mock-store";
 import thunk from "redux-thunk";
+import fetchMock from "jest-fetch-mock";
 import * as actions from "./addressGeocodeActions";
 import * as types from "../constants/actionTypes";
 
+fetchMock.enableMocks();
+
 const middlewares = [thunk];
-const mockStore = configureMockStore(middlewares);
+const mockStore = configureStore(middlewares);
 
 describe("addressGeocodeActions", () => {
   beforeEach(() => {
-    fetch.resetMocks();
+    fetchMock.resetMocks();
   });
 
   test("should create an action to reset the address state slice", () => {
@@ -39,7 +42,7 @@ describe("addressGeocodeActions", () => {
   });
 
   test("creates AddressSearchSuccess when fetching address search is done", () => {
-    fetch.mockResponse(JSON.stringify({ features: [] }), {
+    fetchMock.mockResponse(JSON.stringify({ features: [] }), {
       status: 200,
       statusText: "OK",
     });
@@ -102,7 +105,7 @@ describe("addressGeocodeActions", () => {
   });
 
   test("creates AddressAutosuggestSuccess when fetching address autosuggestions is done", () => {
-    fetch.mockResponse(JSON.stringify({ features: [] }), {
+    fetchMock.mockResponse(JSON.stringify({ features: [] }), {
       status: 200,
       statusText: "OK",
     });
@@ -123,7 +126,7 @@ describe("addressGeocodeActions", () => {
   });
 
   test("creates AddressAutosuggestFailure when fetching address autosuggestions errors", () => {
-    fetch.mockReject(new Error("Something bad happened"));
+    fetchMock.mockReject(new Error("Something bad happened"));
 
     const expectedActions = [
       { type: types.AddressAutosuggestRequest },
