@@ -9,7 +9,7 @@ $map-aspect-ratio-mobile: math.div(
   8,
   5
 ); // gives a bit more vertical space for popup
-$pop-up-box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
+$pop-up-box-shadow: 0 3px 14px rgb(0 0 0 / 40%);
 
 figure#map {
   display: flex;

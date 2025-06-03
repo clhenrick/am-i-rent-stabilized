@@ -32,6 +32,7 @@
   // orange rounded buttons
   &--primary {
     @extend .button;
+
     min-width: 170px;
     background-color: map.get($palette, "darkorange");
     margin: 0 auto;
@@ -46,6 +47,7 @@
   // secondary rounded buttons
   &--secondary {
     @extend .button;
+
     padding: map.get($spacing, "sm") map.get($spacing, "med2");
     border-radius: map.get($border-radius, "xl");
     border: 2px solid map.get($palette, "green");
@@ -61,6 +63,7 @@
   // the "Next" buttons with the downward facing chevron icon
   &--go-next {
     @extend .button;
+
     color: map.get($palette, "darkorange");
     display: flex;
     flex-direction: column;

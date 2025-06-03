@@ -4,5 +4,6 @@
 @use "../layouts/nav_main";
 @use "../components/buttons"; // used by primary navigation
 @use "../components/language_toggle";
+
 // NOTE: utility classes should override default styles, include them last
 @use "../utilities/utility-classes";

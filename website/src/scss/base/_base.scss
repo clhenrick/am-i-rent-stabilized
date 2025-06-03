@@ -27,7 +27,8 @@
     --fs-xxl: #{map.get($fs, "mobile-xxl")};
     --fs-xxxl: #{map.get($fs, "mobile-xxxl")};
   }
-  @media screen and (min-width: 1280px) {
+
+  @media screen and (width >= 1280px) {
     :root {
       --fs-sm: #{map.get($fs, "sm")};
       --fs-base: #{map.get($fs, "base")};
@@ -41,7 +42,7 @@
 }
 
 *:focus-visible {
-  @include focus-indicator();
+  @include focus-indicator;
 }
 
 html {

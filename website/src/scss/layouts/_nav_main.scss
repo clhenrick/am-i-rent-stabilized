@@ -5,6 +5,7 @@ $nav-padding-inline: map.get($spacing, "lg");
 $nav-padding-inline-narrow: map.get($spacing, "base");
 
 // FIXME: why is 1rem == 16px here?
+
 /* where all navigation child text items almost start to collide on narrower viewports */
 $narrow-breakpoint: 73.125rem; // 1170px
 

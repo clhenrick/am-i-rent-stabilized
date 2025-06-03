@@ -17,8 +17,8 @@
 
   // Prevent font size inflation
   html {
-    -moz-text-size-adjust: none;
-    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    text-size-adjust: none;
     text-size-adjust: none;
   }
 
@@ -86,7 +86,7 @@
   // A elements that don't have a class get default styles
   a:not([class]) {
     text-decoration-skip-ink: auto;
-    color: currentColor;
+    color: currentcolor;
   }
 
   // Make media easier to work with
