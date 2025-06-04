@@ -21,7 +21,7 @@
     }
   }
 
-  @include responsive_height(medium-screens) {
+  @include responsive-height(medium-screens) {
     background: url("../../../assets/png/checking-sprite-sm.png");
     width: 128px;
     height: 288px;

@@ -22,7 +22,7 @@
   overflow: hidden;
   padding: map.get($spacing, "med2");
 
-  @include responsive_height(medium-screens) {
+  @include responsive-height(medium-screens) {
     justify-content: space-between;
     padding: map.get($spacing, "sm");
   }

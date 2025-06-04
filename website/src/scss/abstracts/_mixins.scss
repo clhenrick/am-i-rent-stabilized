@@ -19,90 +19,13 @@
 
 @mixin columns($width, $number: 2, $gap: 0) {
   columns: $width $number;
-  columns: $width $number;
-  columns: $width $number;
-  column-gap: $gap;
-  column-gap: $gap;
   column-gap: $gap;
   column-rule: 1px solid map.get($palette, "light-grey");
-  column-rule: 1px solid map.get($palette, "light-grey");
-  column-rule: 1px solid map.get($palette, "light-grey");
-}
-
-@mixin translateY($value) {
-  transform: translateY($value);
-  transform: translateY($value);
-  transform: translateY($value);
-  transform: translateY($value);
-  transform: translateY($value);
-}
-
-// background size for images
-@mixin background-size($width, $height) {
-  background-size: $width $height;
-  background-size: $width $height;
-  background-size: $width $height;
 }
 
 // animations
 @mixin animation($name, $interval: 0.8s, $steps: 10, $length: infinite) {
   animation: $name $interval steps($steps) $length;
-  animation: $name $interval steps($steps) $length;
-  animation: $name $interval steps($steps) $length;
-  animation: $name $interval steps($steps) $length;
-  animation: $name $interval steps($steps) $length;
-}
-
-@mixin keyframes($name, $to, $from: 0) {
-  @keyframes $name {
-    from {
-      background-position: $from;
-    }
-
-    to {
-      background-position: $to;
-    }
-  }
-
-  @keyframes $name {
-    from {
-      background-position: $from;
-    }
-
-    to {
-      background-position: $to;
-    }
-  }
-
-  @keyframes $name {
-    from {
-      background-position: $from;
-    }
-
-    to {
-      background-position: $to;
-    }
-  }
-
-  @keyframes $name {
-    from {
-      background-position: $from;
-    }
-
-    to {
-      background-position: $to;
-    }
-  }
-
-  @keyframes $name {
-    from {
-      background-position: $from;
-    }
-
-    to {
-      background-position: $to;
-    }
-  }
 }
 
 // media queries for screen width
@@ -123,7 +46,7 @@
 }
 
 // media queries for screen height
-@mixin responsive_height($height) {
+@mixin responsive-height($height) {
   @if $height == tall-screens {
     @media only screen and (max-height: $height-lg) {
       @content;
@@ -139,7 +62,7 @@
   }
 }
 
-@mixin responsive_mobile_landscape() {
+@mixin responsive-mobile-landscape() {
   @media only screen and (orientation: landscape) and (height <= $height-sm) {
     @content;
   }

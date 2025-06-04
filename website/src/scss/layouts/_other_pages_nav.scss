@@ -38,7 +38,7 @@ nav.side-nav {
     display: none;
   }
 
-  @include responsive_mobile_landscape {
+  @include responsive-mobile-landscape {
     display: none;
   }
 }
