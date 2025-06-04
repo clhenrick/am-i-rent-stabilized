@@ -5,6 +5,7 @@
 **/coverage/
 tmp/
 .eslintcache
+.stylelintcache
 
 # Local Netlify folder
 .netlify

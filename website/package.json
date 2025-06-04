@@ -15,12 +15,15 @@
   "type": "module",
   "scripts": {
     "start": "run-p -l clean sass:build sass:watch js:watch eleventy:serve",
-    "build": "run-s -l eleventy:build sass:build js:build",
+    "build": "run-s -l eleventy:build sass:build prefix:css js:build",
     "clean": "rm -rf dist",
     "eleventy:serve": "yarn exec eleventy --serve --incremental --port=8080 --quiet",
     "eleventy:build": "yarn exec eleventy",
     "sass:watch": "sass --watch --update --color src/scss:dist/styles",
-    "sass:build": "sass --style=compressed src/scss:dist/styles",
+    "sass:build": "sass --style=compressed --no-source-map src/scss:dist/styles",
+    "sass:lint": "stylelint src/scss/**/*.scss",
+    "sass:lint-fix": "yarn sass:lint --fix",
+    "prefix:css": "postcss dist/styles/**/*.css --no-map --use autoprefixer -r",
     "js:build": "node esbuild.config.js prod",
     "js:watch": "node esbuild.config.js",
     "js:lint": "eslint src/**/*.js",
@@ -54,6 +57,7 @@
     "@11ty/eleventy-plugin-handlebars": "^1.0.0",
     "@eslint/js": "^9.27.0",
     "@eslint/json": "^0.12.0",
+    "autoprefixer": "^10.4.21",
     "browserslist": "^4.24.5",
     "browserslist-to-esbuild": "^2.1.1",
     "esbuild": "^0.25.4",
@@ -65,12 +69,16 @@
     "lint-staged": ">=10",
     "npm-run-all": "^4.1.5",
     "pinst": ">=2",
+    "postcss": "^8.5.4",
+    "postcss-cli": "^11.0.1",
     "prettier": "3.5.3",
-    "sass": "^1.87.0"
+    "sass": "^1.87.0",
+    "stylelint": "^16.20.0",
+    "stylelint-config-standard-scss": "^15.0.1"
   },
   "browserslist": {
     "production": [
-      "> 0.25%",
+      "> 0.2%",
       "not dead",
       "not op_mini all"
     ],
@@ -83,6 +91,7 @@
   },
   "lint-staged": {
     "*.js": "eslint --cache --fix",
-    "*.{js,css,md}": "prettier --write"
+    "*.scss": "stylelint --cache --fix",
+    "*.{js,css,scss,md}": "prettier --write"
   }
 }

@@ -17,15 +17,18 @@
 
   // Prevent font size inflation
   html {
-    -moz-text-size-adjust: none;
-    -webkit-text-size-adjust: none;
     text-size-adjust: none;
   }
 
-  // disable subpixel antialiasing
-  // see: https://www.joshwcomeau.com/css/custom-css-reset/#five-improve-text-rendering-6
   body {
+    // disable subpixel antialiasing
+    // see: https://www.joshwcomeau.com/css/custom-css-reset/#five-improve-text-rendering-6
     -webkit-font-smoothing: antialiased;
+
+    // Set core body defaults
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    line-height: $normal-text-line-height;
   }
 
   // Remove default margin in favour of better control in authored CSS
@@ -47,13 +50,6 @@
   ul[role="list"],
   ol[role="list"] {
     list-style: none;
-  }
-
-  // Set core body defaults
-  body {
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
-    line-height: $normal-text-line-height;
   }
 
   // Set shorter line heights on headings and interactive elements
@@ -86,7 +82,7 @@
   // A elements that don't have a class get default styles
   a:not([class]) {
     text-decoration-skip-ink: auto;
-    color: currentColor;
+    color: currentcolor;
   }
 
   // Make media easier to work with

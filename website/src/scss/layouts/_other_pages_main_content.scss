@@ -22,6 +22,7 @@ html {
   flex-wrap: wrap;
   gap: map.get($spacing, "lg");
   margin-block-start: $nav-main-height;
+
   // NOTE: container query used for fluid type scale
   container-type: inline-size;
   padding: 0 map.get($spacing, "base");
@@ -33,6 +34,7 @@ aside.info-pages {
   flex-basis: $sidebar-ideal-width;
   flex-grow: 1;
   align-self: flex-start;
+
   // NOTE: so when aside stacks on main, the space between them is reduced (due to large `gap` value in #wrapper)
   margin-block-end: calc(-1 * #{map.get($spacing, "med2")});
   background-color: map.get($palette, "white");
