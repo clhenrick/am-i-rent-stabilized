@@ -15,7 +15,7 @@
   "type": "module",
   "scripts": {
     "start": "run-p -l clean sass:build sass:watch js:watch eleventy:serve",
-    "build": "run-s -l eleventy:build sass:build js:build",
+    "build": "run-s -l eleventy:build sass:build prefix:css js:build",
     "clean": "rm -rf dist",
     "eleventy:serve": "yarn exec eleventy --serve --incremental --port=8080 --quiet",
     "eleventy:build": "yarn exec eleventy",
@@ -23,6 +23,7 @@
     "sass:build": "sass --style=compressed src/scss:dist/styles",
     "sass:lint": "stylelint src/scss/**/*.scss",
     "sass:lint-fix": "yarn sass:lint --fix",
+    "prefix:css": "postcss dist/styles/**/*.css --use autoprefixer -r",
     "js:build": "node esbuild.config.js prod",
     "js:watch": "node esbuild.config.js",
     "js:lint": "eslint src/**/*.js",
