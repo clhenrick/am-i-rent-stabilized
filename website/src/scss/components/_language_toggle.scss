@@ -12,33 +12,12 @@
   left: map.get($spacing, "xs");
   z-index: $z-index-min;
 
-  // sidebar on info pages
-  aside.info-pages & {
-    position: static;
-  }
-
   // buttons for "mobile" width viewports on homepage
   .mobile & {
     display: none;
     position: absolute;
     top: map.get($spacing, "sm");
     left: map.get($spacing, "sm");
-  }
-
-  ul {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  aside.info-pages & {
-    ul {
-      flex-direction: row;
-    }
-  }
-
-  li {
-    margin-block-end: 0;
   }
 
   a[lang] {
@@ -58,7 +37,24 @@
     }
   }
 
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  li {
+    margin-block-end: 0;
+  }
+
+  // sidebar on info pages
   aside.info-pages & {
+    position: static;
+
+    ul {
+      flex-direction: row;
+    }
+
     a[lang] {
       padding-inline: 0;
     }

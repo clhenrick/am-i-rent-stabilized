@@ -76,6 +76,7 @@ nav.main-nav {
 
   li {
     margin-block: 0;
+    line-height: 0;
   }
 
   @media only screen and (width <= $narrow-breakpoint) {
@@ -93,10 +94,6 @@ nav.main-nav {
       background-color: map.get($palette, "gray");
       padding: map.get($spacing, "lg") map.get($spacing, "sm");
     }
-  }
-
-  li {
-    line-height: 0;
   }
 }
 
