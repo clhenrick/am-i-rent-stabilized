@@ -82,15 +82,20 @@ The locales JSON files and Handlebars layout templates files are utilized in the
 
 [Eleventy directory specific data files](https://www.11ty.dev/docs/data-template-dir/) are used to set the appropriate locale strings for each page in the website. For example, the [`es.11tydata.js`](./website/src/content/es/es.11tydata.js) data file sets Spanish strings for the site's primary navigation, homepage, info pages (how, why, resources), etc when the user is visiting the site at `/es/[page].html`. These strings are treated as "data" and "cascade" to the designated Eleventy template and/or Handlebars partial.
 
-Each page template file is a simple Markdown file with front matter that states which Handlebars layout file to use. For example, the `src/content/zh/index.md` file contains `layout: home.hbs` which means it uses the `src/_layouts/home.hbs` file to render the page's content.
+Each page template file is a simple Markdown file with front matter that states which Handlebars layout file to use. For example, the [`src/content/zh/index.md`](./website/src/content/zh/index.md) file's front matter contains `layout: home.hbs` which instructs it to use the [`src/_layouts/home.hbs`](./website/src/_layouts/home.hbs) file to render the page's content.
+
+This separation of concerns prevents having to repeat the HTML markup for each page in every supported locale.
 
 ### Adding a New Translation
 
 Adding a new language translation will require:
 
 1. New `locale` JSON files for each corresponding HTML page in [`website/src/_data/locales/`](./website/src/_data/locales/)
-2. Page template files in [`website/src/content/[lang]/`](./website/src/content/) for each HTML page in the new language
+
+2. New page template files in [`website/src/content/[lang]/`](./website/src/content/) for each HTML page in the new language
+
 3. Updating the Netlify redirects settings in [`website/netlify.toml`](./website/netlify.toml)
+
 4. Updating the UI to display the new language option on each page (See [`website/src/_includes/language_toggle.hbs`](./website/src/_includes/language_toggle.hbs) and [`website/src/_utils/localeLinks.js`](./website/src/_utils/localeLinks.js)).
 
 > [!WARNING]
