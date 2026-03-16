@@ -25,6 +25,7 @@ export class TenantsRightsGroups extends Component {
 
     this.containerYes = document.querySelector("p.yes-local-tr");
     this.containerNo = document.querySelector("p.no-local-tr");
+    this.modalTrigger = document.querySelector(".js-tr-modal-trigger");
 
     this.handleTenantsRightsChange = this.handleTenantsRightsChange.bind(this);
     this.handleSearchResultChange = this.handleSearchResultChange.bind(this);
@@ -62,10 +63,13 @@ export class TenantsRightsGroups extends Component {
     if (status === "idle" && results?.rows?.length) {
       this.containerYes.classList.remove("hidden");
       this.containerNo.classList.add("hidden");
+      this.modalTrigger.classList.remove("hidden");
       this.renderModalContents(results.rows);
     } else {
       this.containerYes.classList.add("hidden");
       this.containerNo.classList.remove("hidden");
+      this.modalTrigger.classList.add("hidden");
+      this.element.innerHTML = "";
     }
   }
 
