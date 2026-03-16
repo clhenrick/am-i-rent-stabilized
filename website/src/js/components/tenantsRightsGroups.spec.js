@@ -8,6 +8,7 @@ jest.mock("../store");
 
 describe("TenantsRightsGroups", () => {
   let element;
+  let modalTrigger;
   let tenantsRightsGroups;
   let spyRenderModalContents;
 
@@ -16,6 +17,7 @@ describe("TenantsRightsGroups", () => {
     element = document.querySelector(
       "dialog.modal--tenants-rights .modal--content"
     );
+    modalTrigger = document.querySelector(".js-tr-modal-trigger");
     spyRenderModalContents = jest.spyOn(
       TenantsRightsGroups.prototype,
       "renderModalContents"
@@ -83,6 +85,7 @@ describe("TenantsRightsGroups", () => {
     expect(tenantsRightsGroups.containerNo.classList.contains("hidden")).toBe(
       true
     );
+    expect(modalTrigger.classList.contains("hidden")).toBe(false);
     expect(spyRenderModalContents).toHaveBeenCalledWith([{}, {}]);
   });
 
@@ -98,6 +101,8 @@ describe("TenantsRightsGroups", () => {
     expect(tenantsRightsGroups.containerNo.classList.contains("hidden")).toBe(
       false
     );
+    expect(modalTrigger.classList.contains("hidden")).toBe(true);
+    expect(element.innerHTML).toBe("");
     expect(spyRenderModalContents).not.toHaveBeenCalled();
   });
 });
