@@ -1,5 +1,44 @@
 # Am I Rent Stabilized Changelog
+
 This changelog describes significant changes to the project. It was first created on November 29, 2020 so does not account for the entire project's history.
+
+## 2026-03-18 Migrated website test suite from Jest to Vitest ([#197](https://github.com/clhenrick/am-i-rent-stabilized/pull/197))
+
+Replaced the previously non-functional Jest setup with [Vitest](https://vitest.dev/). Jest had never been properly installed or configured in the `website/` directory, and the codebase's use of ES modules (`"type": "module"`) made Jest incompatible without significant Babel configuration. Vitest handles ESM natively and integrates with the existing Vite/esbuild toolchain.
+
+All 32 spec files now run successfully (240 tests pass, 4 skipped).
+
+These changes were made using [Claude Code](https://claude.com/product/claude-code).
+
+### Key changes
+
+- Added `vitest.config.js` with `globals: true`, `environment: "jsdom"`, and an inline Handlebars Vite plugin that compiles `.hbs` imports into callable template functions for use in tests.
+
+- Added `src/js/test-setup.js` — registers Handlebars partials, defines `getMainHtml()` / `setDocumentHtml()` globals (compiling `base.hbs` wrapping `home.hbs` to produce a complete DOM), mocks browser APIs (`window.matchMedia`, `window.gtag`, `window.addeventatc`, `ResizeObserver`), and enables `vitest-fetch-mock`.
+
+- Added `src/js/test-helpers.js` — exports `createTestStore(initialState)`, a lightweight Redux store with thunk middleware and a recorder that captures dispatched actions via `store.getActions()`, replacing the `redux-mock-store` dependency.
+
+- Added `"test": "vitest run"` and `"test:watch": "vitest"` npm scripts to `package.json`.
+
+- Added devDependencies: `vitest`, `jsdom`, `vitest-fetch-mock`.
+
+- Fixed all extension-less local imports across `src/js/` source and spec files (Vitest's ESM context requires explicit `.js` extensions unlike esbuild).
+
+- Rewrote `middleware.spec.js` to use `vi.doMock` with async factory + dynamic `import()` (replacing the `jest.doMock` + `require()` pattern).
+
+- Removed dead imports and tests for `translate.js` and `languageToggle.js` (modules no longer present in the codebase) from `initApp.spec.js` and `initInfoPages.spec.js`.
+
+- Updated `eslint.config.js` to use `globals.vitest` instead of `globals.jest`.
+
+## 2026-03-17 Bug fix: Node env setting & preloaded state ([#196](https://github.com/clhenrick/am-i-rent-stabilized/pull/196))
+
+Fixed the missing `process.env.NODE_ENV` in the `esbuild` configuration, removed usage of `require()` in `store.js`, added an npm script for running the website in dev mode with preloaded state in the Redux store. This was necessary for migrating the JavaScript tests from Jest to Vitest ([related issue #177](https://github.com/clhenrick/am-i-rent-stabilized/issues/177)).
+
+## 2026-03-16 Bug fix: TenantsRightsGroups empty modal content ([#195](https://github.com/clhenrick/am-i-rent-stabilized/pull/195))
+
+Fixed a bug where the tenants rights modal's trigger button remained visible and operable even when no local TR groups were found for a searched address, resulting in an empty modal when the trigger button was clicked. The button now starts hidden and is only shown when results exist. Stale modal content is also cleared when app state resets.
+
+These changes were made using [Claude Code](https://claude.com/product/claude-code).
 
 ## 2025-05-25 Migrated website to use Eleventy static site generator ([#173](https://github.com/clhenrick/am-i-rent-stabilized/pull/173))
 
