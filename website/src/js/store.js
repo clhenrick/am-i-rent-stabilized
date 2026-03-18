@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import { rootReducer } from "./reducers";
 import { middlewares } from "./utils/middleware";
+import { preloadedState } from "./preloaded-state";
 
 const reduxDevToolsPresent =
   typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
@@ -10,14 +11,14 @@ const composeEnhancers =
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     : compose;
 
-// enabled via npm script "start:preloaded-state"
-const preloadedState = process.env.USE_PRELOADED_STATE
-  ? require("./preloaded-state").preloadedState
+// NOTE: preloaded state is enabled via npm script "start:preloaded-state" in package.json
+const preloadedStateResolved = process.env.USE_PRELOADED_STATE
+  ? preloadedState
   : {};
 
 export const store = createStore(
   rootReducer,
-  preloadedState,
+  preloadedStateResolved,
   composeEnhancers(applyMiddleware(...middlewares))
 );
 
