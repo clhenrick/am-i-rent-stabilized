@@ -19,6 +19,9 @@ const targets = isProdMode ? browserslist.production : browserslist.development;
 const options = {
   bundle: true,
   define: {
+    "process.env.NODE_ENV": isProdMode
+      ? JSON.stringify("production")
+      : JSON.stringify("development"),
     "process.env.USE_PRELOADED_STATE":
       JSON.stringify(process.env.USE_PRELOADED_STATE) ?? "false",
     "process.env.USE_REDUX_LOGGER":
