@@ -30,7 +30,8 @@
     "js:lint": "eslint src/**/*.js",
     "js:lint-fix": "yarn js:lint --fix",
     "format": "prettier --write .",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "postinstall": "cd .. && husky website/.husky",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable"
