@@ -15,6 +15,7 @@
   "type": "module",
   "scripts": {
     "start": "run-p -l clean sass:build sass:watch js:watch eleventy:serve",
+    "start:preloaded-state": "USE_PRELOADED_STATE=true && yarn start",
     "build": "run-s -l eleventy:build sass:build prefix:css js:build",
     "clean": "rm -rf dist",
     "eleventy:serve": "yarn exec eleventy --serve --incremental --port=8080 --quiet",
