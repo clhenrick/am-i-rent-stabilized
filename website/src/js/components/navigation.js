@@ -1,4 +1,4 @@
-import { Component } from "./_componentBase";
+import { Component } from "./_componentBase.js";
 
 export class NavMenuToggle extends Component {
   constructor(props) {

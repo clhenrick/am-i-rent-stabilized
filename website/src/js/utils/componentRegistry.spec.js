@@ -1,8 +1,8 @@
-import { ComponentRegistry } from "./componentRegistry";
-import { Component } from "../components/_componentBase";
+import { ComponentRegistry } from "./componentRegistry.js";
+import { Component } from "../components/_componentBase.js";
 
 describe("ComponentRegistry", () => {
-  const spyCleanUp = jest.spyOn(Component.prototype, "cleanUp");
+  const spyCleanUp = vi.spyOn(Component.prototype, "cleanUp");
   let one;
   let two;
   let registry;
@@ -20,11 +20,11 @@ describe("ComponentRegistry", () => {
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   afterAll(() => {
-    jest.resetModules();
+    vi.resetModules();
   });
 
   test("add stores a component instance", () => {

@@ -1,7 +1,7 @@
-import { StartOver } from "./startOver";
-import { store } from "../store";
+import { StartOver } from "./startOver.js";
+import { store } from "../store.js";
 
-jest.mock("../store");
+vi.mock("../store");
 
 describe("StartOver", () => {
   let element;
@@ -12,8 +12,8 @@ describe("StartOver", () => {
   beforeAll(() => {
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
     element = document.querySelector(".button--primary.start-over");
-    spyBindEvents = jest.spyOn(StartOver.prototype, "bindEvents");
-    spyHandleClick = jest.spyOn(StartOver.prototype, "handleClick");
+    spyBindEvents = vi.spyOn(StartOver.prototype, "bindEvents");
+    spyHandleClick = vi.spyOn(StartOver.prototype, "handleClick");
   });
 
   beforeEach(() => {
@@ -24,11 +24,11 @@ describe("StartOver", () => {
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   afterAll(() => {
-    jest.resetModules();
+    vi.resetModules();
   });
 
   test("The component's HTML exists", () => {
@@ -49,7 +49,7 @@ describe("StartOver", () => {
   });
 
   test("handleClick", () => {
-    startOver.handleClick({ preventDefault: jest.fn() });
+    startOver.handleClick({ preventDefault: vi.fn() });
     expect(store.dispatch).toHaveBeenCalledWith({ type: "ResetAppState" });
   });
 });

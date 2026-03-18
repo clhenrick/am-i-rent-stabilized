@@ -1,4 +1,4 @@
-import { resetAppState } from "./globalActions";
+import { resetAppState } from "./globalActions.js";
 
 describe("global action creators", () => {
   test("resetAppState", () => {

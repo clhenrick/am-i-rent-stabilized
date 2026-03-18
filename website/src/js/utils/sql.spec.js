@@ -1,8 +1,8 @@
-import * as sql from "./sql";
+import * as sql from "./sql.js";
 import {
   cartoV3RentStabilizedTableName,
   cartoV3TenantsRightsServiceAreasTable,
-} from "../constants/config";
+} from "../constants/config.js";
 
 describe("utils/sql", () => {
   test("rentStabilizedBblSql", () => {

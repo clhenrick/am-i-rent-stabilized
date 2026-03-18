@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from "redux";
-import { rootReducer } from "./reducers";
-import { middlewares } from "./utils/middleware";
-import { preloadedState } from "./preloaded-state";
+import { rootReducer } from "./reducers/index.js";
+import { middlewares } from "./utils/middleware.js";
+import { preloadedState } from "./preloaded-state.js";
 
 const reduxDevToolsPresent =
   typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;

@@ -1,17 +1,13 @@
-import configureMockStore from "redux-mock-store";
-import thunk from "redux-thunk";
-import * as types from "../constants/actionTypes";
-import * as actions from "./rentStabilizedActions";
-
-const middlewares = [thunk];
-const mockStore = configureMockStore(middlewares);
+import * as types from "../constants/actionTypes.js";
+import * as actions from "./rentStabilizedActions.js";
+import { createTestStore } from "../test-helpers.js";
 
 describe("rentStabilizedActions", () => {
   let store;
 
   beforeEach(() => {
     fetch.resetMocks();
-    store = mockStore({
+    store = createTestStore({
       rentStabilized: {
         status: "idle",
         error: null,

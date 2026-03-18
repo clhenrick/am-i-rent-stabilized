@@ -1,4 +1,4 @@
-import { cartoApiKey } from "../constants/config";
+import { cartoApiKey } from "../constants/config.js";
 
 /**
  * creates the expected fetch request options for Carto SQL API calls

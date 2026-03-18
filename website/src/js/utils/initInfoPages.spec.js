@@ -1,33 +1,28 @@
-import initInfoPages from "./initInfoPages";
-import { ComponentRegistry } from "./componentRegistry";
-import { NavMenuToggle } from "../components/navigation";
-import { LanguageToggle } from "../components/languageToggle";
-import { initLang } from "./translate";
+import initInfoPages from "./initInfoPages.js";
+import { ComponentRegistry } from "./componentRegistry.js";
+import { NavMenuToggle } from "../components/navigation.js";
 
-jest.mock("./translate");
-jest.mock("./componentRegistry");
-jest.mock("../components/navigation");
-jest.mock("../components/languageToggle");
+vi.mock("./componentRegistry");
+vi.mock("../components/navigation");
 
 describe("initInfoPages", () => {
-  const NUMBER_OF_COMPONENT_INSTANCES = 2;
+  const NUMBER_OF_COMPONENT_INSTANCES = 1;
 
   beforeAll(() => {
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   afterAll(() => {
-    jest.resetModules();
+    vi.resetModules();
   });
 
   test("it creates component instances", () => {
     initInfoPages();
     expect(NavMenuToggle).toHaveBeenCalled();
-    expect(LanguageToggle).toHaveBeenCalled();
   });
 
   test("all component instances are added to the registry", () => {
@@ -40,10 +35,5 @@ describe("initInfoPages", () => {
   test("any prior component instances are removed from the registry", () => {
     initInfoPages();
     expect(ComponentRegistry.prototype.removeAll).toHaveBeenCalled();
-  });
-
-  test("the page's locale is set to the stored or default language", () => {
-    initInfoPages();
-    expect(initLang).toHaveBeenCalledTimes(1);
   });
 });

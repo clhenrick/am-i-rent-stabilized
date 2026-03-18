@@ -1,10 +1,6 @@
-import configureMockStore from "redux-mock-store";
-import thunk from "redux-thunk";
-import * as actions from "./addressGeocodeActions";
-import * as types from "../constants/actionTypes";
-
-const middlewares = [thunk];
-const mockStore = configureMockStore(middlewares);
+import * as actions from "./addressGeocodeActions.js";
+import * as types from "../constants/actionTypes.js";
+import { createTestStore } from "../test-helpers.js";
 
 describe("addressGeocodeActions", () => {
   beforeEach(() => {
@@ -48,7 +44,7 @@ describe("addressGeocodeActions", () => {
       { type: types.AddressSearchRequest },
       { type: types.AddressSearchSuccess, payload: { features: [] } },
     ];
-    const store = mockStore({
+    const store = createTestStore({
       addressGeocode: { searchResult: null, status: "idle", error: null },
     });
 
@@ -69,7 +65,7 @@ describe("addressGeocodeActions", () => {
         error: new Error("Something bad happened"),
       },
     ];
-    const store = mockStore({
+    const store = createTestStore({
       addressGeocode: { searchResult: null, status: "idle", error: null },
     });
 
@@ -111,7 +107,7 @@ describe("addressGeocodeActions", () => {
       { type: types.AddressAutosuggestRequest },
       { type: types.AddressAutosuggestSuccess, payload: { features: [] } },
     ];
-    const store = mockStore({
+    const store = createTestStore({
       addressGeocode: { autosuggestions: null, status: "idle", error: null },
     });
 
@@ -132,7 +128,7 @@ describe("addressGeocodeActions", () => {
         error: new Error("Something bad happened"),
       },
     ];
-    const store = mockStore({
+    const store = createTestStore({
       addressGeocode: { autosuggestions: null, status: "idle", error: null },
     });
 

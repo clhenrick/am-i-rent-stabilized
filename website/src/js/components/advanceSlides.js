@@ -1,5 +1,5 @@
-import { Component } from "./_componentBase";
-import { goToNextSlide, goToSlideIdx } from "../action_creators";
+import { Component } from "./_componentBase.js";
+import { goToNextSlide, goToSlideIdx } from "../action_creators/index.js";
 
 export class AdvanceSlides extends Component {
   constructor(props) {

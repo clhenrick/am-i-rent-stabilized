@@ -1,5 +1,5 @@
-import { ComponentRegistry } from "./componentRegistry";
-import { NavMenuToggle } from "../components/navigation";
+import { ComponentRegistry } from "./componentRegistry.js";
+import { NavMenuToggle } from "../components/navigation.js";
 
 const registry = new ComponentRegistry();
 

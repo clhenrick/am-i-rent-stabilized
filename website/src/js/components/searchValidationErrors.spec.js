@@ -1,11 +1,11 @@
 import {
   SearchValidationErrors,
   VALIDATION_TEXT_ID,
-} from "./searchValidationErrors";
-import { AddressSearchForm } from "./addressSearchForm";
-import { store } from "../store";
+} from "./searchValidationErrors.js";
+import { AddressSearchForm } from "./addressSearchForm.js";
+import { store } from "../store.js";
 
-jest.mock("../store");
+vi.mock("../store");
 
 describe("SearchValidationErrors", () => {
   let element;
@@ -17,18 +17,12 @@ describe("SearchValidationErrors", () => {
   let spyHideGeneric;
 
   beforeAll(() => {
-    spyHideNotFound = jest.spyOn(
+    spyHideNotFound = vi.spyOn(
       SearchValidationErrors.prototype,
       "hideNotFound"
     );
-    spyHideNoInput = jest.spyOn(
-      SearchValidationErrors.prototype,
-      "hideNoInput"
-    );
-    spyHideGeneric = jest.spyOn(
-      SearchValidationErrors.prototype,
-      "hideGeneric"
-    );
+    spyHideNoInput = vi.spyOn(SearchValidationErrors.prototype, "hideNoInput");
+    spyHideGeneric = vi.spyOn(SearchValidationErrors.prototype, "hideGeneric");
 
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
 
@@ -47,11 +41,11 @@ describe("SearchValidationErrors", () => {
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   afterAll(() => {
-    jest.resetModules();
+    vi.resetModules();
   });
 
   test("The component's HTML exists", () => {

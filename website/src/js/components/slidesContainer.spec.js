@@ -1,26 +1,26 @@
 import { gsap } from "gsap";
-import { SlidesContainer, SCROLL_DURATION_SECONDS } from "./slidesContainer";
-import { store, observeStore } from "../store";
+import { SlidesContainer, SCROLL_DURATION_SECONDS } from "./slidesContainer.js";
+import { store, observeStore } from "../store.js";
 
-jest.mock("../store", () => {
+vi.mock("../store", () => {
   return {
     __esModule: true,
     store: {
-      getState: jest.fn(() => ({
+      getState: vi.fn(() => ({
         slides: {
           curIndex: 0,
         },
       })),
-      subscribe: jest.fn((cb) => cb()),
-      dispatch: jest.fn(),
+      subscribe: vi.fn((cb) => cb()),
+      dispatch: vi.fn(),
     },
-    observeStore: jest.fn(),
+    observeStore: vi.fn(),
   };
 });
 
-jest.mock("gsap");
+vi.mock("gsap");
 
-const mockMatchMedia = (window.matchMedia = jest.fn(() => ({
+const mockMatchMedia = (window.matchMedia = vi.fn(() => ({
   matches: false,
 })));
 
@@ -31,7 +31,7 @@ describe("SlidesContainer", () => {
   let spyScrollToActiveSlide;
 
   beforeAll(() => {
-    spyScrollToActiveSlide = jest.spyOn(
+    spyScrollToActiveSlide = vi.spyOn(
       SlidesContainer.prototype,
       "scrollToActiveSlide"
     );
@@ -47,11 +47,11 @@ describe("SlidesContainer", () => {
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   afterAll(() => {
-    jest.resetModules();
+    vi.resetModules();
   });
 
   test("The component's HTML exists", () => {

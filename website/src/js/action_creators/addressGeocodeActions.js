@@ -1,5 +1,5 @@
-import * as types from "../constants/actionTypes";
-import { geosearchApiVersion } from "../constants/config";
+import * as types from "../constants/actionTypes.js";
+import { geosearchApiVersion } from "../constants/config.js";
 
 export const resetAddressState = () => ({
   type: types.ResetAddressState,

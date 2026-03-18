@@ -1,8 +1,8 @@
 import Handlebars from "handlebars";
-import { observeStore } from "../store";
-import { Component } from "./_componentBase";
-import { fetchTenantsRightsGroups } from "../action_creators/tenantsRightsGroupsActions";
-import { logException, handleErrorObj } from "../utils/logging";
+import { observeStore } from "../store.js";
+import { Component } from "./_componentBase.js";
+import { fetchTenantsRightsGroups } from "../action_creators/tenantsRightsGroupsActions.js";
+import { logException, handleErrorObj } from "../utils/logging.js";
 import template from "../../_includes/tenants_rights_modal.hbs";
 
 Handlebars.registerPartial("trGroups", template);

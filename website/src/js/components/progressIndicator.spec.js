@@ -1,19 +1,19 @@
-import { ProgressIndicator } from "./progressIndicator";
-import { store, observeStore } from "../store";
+import { ProgressIndicator } from "./progressIndicator.js";
+import { store, observeStore } from "../store.js";
 
-jest.mock("../store", () => {
+vi.mock("../store", () => {
   return {
     __esModule: true,
     store: {
-      getState: jest.fn(() => ({
+      getState: vi.fn(() => ({
         slides: {
           curIndex: 0,
         },
       })),
-      subscribe: jest.fn((cb) => cb()),
-      dispatch: jest.fn(),
+      subscribe: vi.fn((cb) => cb()),
+      dispatch: vi.fn(),
     },
-    observeStore: jest.fn(),
+    observeStore: vi.fn(),
   };
 });
 
@@ -34,11 +34,11 @@ describe("ProgressIndicator", () => {
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   afterAll(() => {
-    jest.resetModules();
+    vi.resetModules();
   });
 
   test("The component's HTML exists", () => {
@@ -65,14 +65,11 @@ describe("ProgressIndicator", () => {
   });
 
   test("uses observeStore to watch for redux state changes", () => {
-    const store = require("../store");
-    const spy = jest.spyOn(store, "observeStore");
-    expect(spy).toHaveBeenCalledTimes(1);
-    spy.mockRestore();
+    expect(observeStore).toHaveBeenCalledTimes(1);
   });
 
   test("responds to redux state changes of slides.curIndex", () => {
-    const spy = jest.spyOn(ProgressIndicator.prototype, "renderCircles");
+    const spy = vi.spyOn(ProgressIndicator.prototype, "renderCircles");
 
     observeStore.mockImplementation((store, stateSlice, cb) => {
       stateSlice = (state) => state.slides.curIndex;

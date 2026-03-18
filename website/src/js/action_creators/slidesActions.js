@@ -1,4 +1,4 @@
-import * as types from "../constants/actionTypes";
+import * as types from "../constants/actionTypes.js";
 
 export const goToNextSlide = () => ({
   type: types.GoToNextSlide,

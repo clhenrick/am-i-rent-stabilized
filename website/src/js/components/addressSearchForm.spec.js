@@ -1,22 +1,26 @@
-import { AddressSearchForm } from "./addressSearchForm";
-import { SearchValidationErrors } from "./searchValidationErrors";
-import { store, observeStore } from "../store";
-import { searchRentStabilized } from "../action_creators/searchRentStabilizedActions";
-import { logAddressSearch, logAddressNF, logException } from "../utils/logging";
+import { AddressSearchForm } from "./addressSearchForm.js";
+import { SearchValidationErrors } from "./searchValidationErrors.js";
+import { store, observeStore } from "../store.js";
+import { searchRentStabilized } from "../action_creators/searchRentStabilizedActions.js";
+import {
+  logAddressSearch,
+  logAddressNF,
+  logException,
+} from "../utils/logging.js";
 import throttle from "lodash.throttle";
 
-jest.mock("lodash.throttle");
-jest.mock("../store");
-jest.mock("../action_creators/searchRentStabilizedActions");
-jest.mock("../utils/logging");
-jest.mock("./searchValidationErrors");
+vi.mock("lodash.throttle");
+vi.mock("../store");
+vi.mock("../action_creators/searchRentStabilizedActions");
+vi.mock("../utils/logging");
+vi.mock("./searchValidationErrors");
 
 describe("AddressSearchForm", () => {
   let element;
   let addressSearchForm;
 
   throttle.mockImplementation((cb) => {
-    cb.cancel = jest.fn();
+    cb.cancel = vi.fn();
     return cb;
   });
 
@@ -45,11 +49,11 @@ describe("AddressSearchForm", () => {
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   afterAll(() => {
-    jest.resetModules();
+    vi.resetModules();
   });
 
   test("The component's HTML exists", () => {
@@ -84,8 +88,8 @@ describe("AddressSearchForm", () => {
   });
 
   test("removeEvents", () => {
-    const spy1 = jest.spyOn(addressSearchForm.element, "removeEventListener");
-    const spy2 = jest.spyOn(
+    const spy1 = vi.spyOn(addressSearchForm.element, "removeEventListener");
+    const spy2 = vi.spyOn(
       addressSearchForm.inputAddress,
       "removeEventListener"
     );
@@ -95,7 +99,7 @@ describe("AddressSearchForm", () => {
   });
 
   test("handleInputChange responds to address input event", () => {
-    const spy = jest.spyOn(AddressSearchForm.prototype, "handleInputChange");
+    const spy = vi.spyOn(AddressSearchForm.prototype, "handleInputChange");
     addressSearchForm = new AddressSearchForm({
       element,
       store,
@@ -108,7 +112,11 @@ describe("AddressSearchForm", () => {
   });
 
   test("handleInputChange hides validation error messages if present", () => {
-    addressSearchForm.validationErrors.areHidden = false;
+    vi.spyOn(
+      addressSearchForm.validationErrors,
+      "areHidden",
+      "get"
+    ).mockReturnValue(false);
     addressSearchForm.handleInputChange({ target: { value: "555 2nd Ave" } });
     expect(addressSearchForm.validationErrors.hideAll).toHaveBeenCalled();
   });
@@ -140,7 +148,7 @@ describe("AddressSearchForm", () => {
   });
 
   test("responds to changes in state.addressGeocode", () => {
-    const spy = jest.spyOn(AddressSearchForm.prototype, "handleAGChange");
+    const spy = vi.spyOn(AddressSearchForm.prototype, "handleAGChange");
     observeStore.mockImplementation((store, stateSlice, cb) => {
       stateSlice = (state) => state.addressGeocode;
       cb();
@@ -154,7 +162,7 @@ describe("AddressSearchForm", () => {
   });
 
   test("responds to changes in state.rentStabilized", () => {
-    const spy = jest.spyOn(AddressSearchForm.prototype, "handleRSChange");
+    const spy = vi.spyOn(AddressSearchForm.prototype, "handleRSChange");
     observeStore.mockImplementation((store, stateSlice, cb) => {
       stateSlice = (state) => state.rentStabilized;
       cb();
@@ -168,7 +176,7 @@ describe("AddressSearchForm", () => {
   });
 
   test("handleAGChange appropriately calls updateDataListItems", () => {
-    const spy = jest.spyOn(AddressSearchForm.prototype, "updateDataListItems");
+    const spy = vi.spyOn(AddressSearchForm.prototype, "updateDataListItems");
     addressSearchForm = new AddressSearchForm({
       element,
       store,
@@ -187,11 +195,8 @@ describe("AddressSearchForm", () => {
   });
 
   test("handleAGChange responds to a searchResult value", () => {
-    const spy1 = jest.spyOn(AddressSearchForm.prototype, "cacheSearchResult");
-    const spy2 = jest.spyOn(
-      AddressSearchForm.prototype,
-      "validateSearchResult"
-    );
+    const spy1 = vi.spyOn(AddressSearchForm.prototype, "cacheSearchResult");
+    const spy2 = vi.spyOn(AddressSearchForm.prototype, "validateSearchResult");
     addressSearchForm = new AddressSearchForm({
       element,
       store,
@@ -212,7 +217,7 @@ describe("AddressSearchForm", () => {
   });
 
   test("handleAGChange appropriately calls handleFetchError", () => {
-    const spy = jest.spyOn(AddressSearchForm.prototype, "handleFetchError");
+    const spy = vi.spyOn(AddressSearchForm.prototype, "handleFetchError");
     addressSearchForm = new AddressSearchForm({
       element,
       store,
@@ -237,7 +242,7 @@ describe("AddressSearchForm", () => {
   });
 
   test("handleRSChange", async () => {
-    const spy = jest.spyOn(AddressSearchForm.prototype, "handleFetchError");
+    const spy = vi.spyOn(AddressSearchForm.prototype, "handleFetchError");
     addressSearchForm = new AddressSearchForm({
       element,
       store,
@@ -292,7 +297,7 @@ describe("AddressSearchForm", () => {
   });
 
   test("validateSearchResult success", () => {
-    const spyBlur = jest.spyOn(addressSearchForm.inputAddress, "blur");
+    const spyBlur = vi.spyOn(addressSearchForm.inputAddress, "blur");
     store.getState.mockImplementation(() => ({
       addressGeocode: {
         status: "idle",
@@ -311,7 +316,7 @@ describe("AddressSearchForm", () => {
   });
 
   test("validateSearchResult not found", () => {
-    const spy = jest.spyOn(SearchValidationErrors.prototype, "showNotFound");
+    const spy = vi.spyOn(SearchValidationErrors.prototype, "showNotFound");
     addressSearchForm = new AddressSearchForm({
       element: document.querySelector("#address-form"),
       store,
@@ -337,13 +342,10 @@ describe("AddressSearchForm", () => {
   });
 
   test("handleSubmit", () => {
-    const spy = jest.spyOn(AddressSearchForm.prototype, "handleSubmit");
-    const spy2 = jest.spyOn(
-      AddressSearchForm.prototype,
-      "searchRentStabilized"
-    );
+    const spy = vi.spyOn(AddressSearchForm.prototype, "handleSubmit");
+    const spy2 = vi.spyOn(AddressSearchForm.prototype, "searchRentStabilized");
     const event = new Event("submit");
-    event.preventDefault = jest.fn();
+    event.preventDefault = vi.fn();
     addressSearchForm = new AddressSearchForm({
       element,
       store,
@@ -358,13 +360,10 @@ describe("AddressSearchForm", () => {
   });
 
   test("handleSubmit no user input", () => {
-    const spy = jest.spyOn(SearchValidationErrors.prototype, "showNoInput");
-    const spy2 = jest.spyOn(
-      AddressSearchForm.prototype,
-      "searchRentStabilized"
-    );
+    const spy = vi.spyOn(SearchValidationErrors.prototype, "showNoInput");
+    const spy2 = vi.spyOn(AddressSearchForm.prototype, "searchRentStabilized");
     const event = new Event("submit");
-    event.preventDefault = jest.fn();
+    event.preventDefault = vi.fn();
     addressSearchForm = new AddressSearchForm({
       element,
       store,
@@ -432,7 +431,7 @@ describe("AddressSearchForm", () => {
   });
 
   test("handleFetchError", () => {
-    const spy = jest.spyOn(SearchValidationErrors.prototype, "showGeneric");
+    const spy = vi.spyOn(SearchValidationErrors.prototype, "showGeneric");
     addressSearchForm = new AddressSearchForm({
       element,
       store,
@@ -445,13 +444,13 @@ describe("AddressSearchForm", () => {
   });
 
   test("cleanUp", () => {
-    const spy3 = jest.spyOn(AddressSearchForm.prototype, "removeEvents");
+    const spy3 = vi.spyOn(AddressSearchForm.prototype, "removeEvents");
     addressSearchForm = new AddressSearchForm({
       element,
       store,
     });
-    const spy1 = (addressSearchForm.unsubscribeAG = jest.fn());
-    const spy2 = (addressSearchForm.unsubscribeRS = jest.fn());
+    const spy1 = (addressSearchForm.unsubscribeAG = vi.fn());
+    const spy2 = (addressSearchForm.unsubscribeRS = vi.fn());
     addressSearchForm.cleanUp();
     expect(spy1).toHaveBeenCalled();
     expect(spy2).toHaveBeenCalled();

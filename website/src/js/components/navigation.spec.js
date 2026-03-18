@@ -1,4 +1,4 @@
-import { NavMenuToggle } from "./navigation";
+import { NavMenuToggle } from "./navigation.js";
 
 describe("NavMenuToggle", () => {
   let navMenuToggle;
@@ -16,11 +16,11 @@ describe("NavMenuToggle", () => {
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   afterAll(() => {
-    jest.resetModules();
+    vi.resetModules();
   });
 
   test("The components HTML exists", () => {

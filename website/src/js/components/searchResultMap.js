@@ -1,15 +1,15 @@
 import { geoMercator } from "d3-geo";
-import { Component } from "./_componentBase";
-import { MapTileLayers } from "./mapTileLayers";
-import { MapPopup } from "./mapPopup";
-import { MapLikelyRsLayer } from "./mapLikelyRsLayer";
-import { observeStore } from "../store";
+import { Component } from "./_componentBase.js";
+import { MapTileLayers } from "./mapTileLayers.js";
+import { MapPopup } from "./mapPopup.js";
+import { MapLikelyRsLayer } from "./mapLikelyRsLayer.js";
+import { observeStore } from "../store.js";
 import {
   MAP_ZOOM,
   MAP_CENTER,
   MAP_MARKER,
   MAP_BORDER_WIDTH,
-} from "../constants/app";
+} from "../constants/app.js";
 
 export class SearchResultMap extends Component {
   constructor(props) {

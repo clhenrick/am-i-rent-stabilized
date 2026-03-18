@@ -13,7 +13,7 @@ export default defineConfig([
   {
     files: ["**/*.{js,mjs,cjs}"],
     languageOptions: {
-      globals: { ...globals.browser, ...globals.node, ...globals.jest },
+      globals: { ...globals.browser, ...globals.node, ...globals.vitest },
     },
   },
   {

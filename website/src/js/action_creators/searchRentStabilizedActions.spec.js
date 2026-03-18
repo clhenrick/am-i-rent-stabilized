@@ -1,5 +1,3 @@
-import configureMockStore from "redux-mock-store";
-import thunk from "redux-thunk";
 import {
   validateSearchResult,
   validateRS,
@@ -8,10 +6,9 @@ import {
   ERROR_ADDRESS_NOT_FOUND,
   ERROR_RS,
   ERROR_MISSING_BBL,
-} from "./searchRentStabilizedActions";
-import * as types from "../constants/actionTypes";
-
-const mockStore = configureMockStore([thunk]);
+} from "./searchRentStabilizedActions.js";
+import * as types from "../constants/actionTypes.js";
+import { createTestStore } from "../test-helpers.js";
 
 describe("validateSearchResult", () => {
   test("undefined input", () => {
@@ -73,7 +70,7 @@ describe("searchRentStabilized", () => {
   let store;
 
   beforeEach(() => {
-    store = mockStore({
+    store = createTestStore({
       addressGeocode: { autosuggestions: null, status: "idle", error: null },
       rentStabilized: { status: "idle", match: null, error: null },
     });

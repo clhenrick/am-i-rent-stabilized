@@ -2,7 +2,7 @@ import sls from "single-line-string";
 import {
   cartoV3RentStabilizedTableName,
   cartoV3TenantsRightsServiceAreasTable,
-} from "../constants/config";
+} from "../constants/config.js";
 
 const searchResultBufferDistance = 500; // meters
 

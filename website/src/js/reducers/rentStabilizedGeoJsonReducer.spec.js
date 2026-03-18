@@ -1,8 +1,8 @@
-import * as types from "../constants/actionTypes";
+import * as types from "../constants/actionTypes.js";
 import {
   rentStabilizedGeoJson,
   initialState,
-} from "./rentStabilizedGeoJsonReducer";
+} from "./rentStabilizedGeoJsonReducer.js";
 
 describe("rentStabilizedGeoJson reducer", () => {
   test("Should return the default state", () => {

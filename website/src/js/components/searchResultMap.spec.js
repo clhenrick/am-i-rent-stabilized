@@ -1,26 +1,26 @@
 import { geoMercator } from "d3-geo";
-import { store, observeStore } from "../store";
-import { SearchResultMap } from "./searchResultMap";
+import { store, observeStore } from "../store.js";
+import { SearchResultMap } from "./searchResultMap.js";
 import {
   MAP_ZOOM,
   MAP_CENTER,
   MAP_MARKER,
   MAP_BORDER_WIDTH,
-} from "../constants/app";
-import { MapPopup } from "./mapPopup";
-import { MapTileLayers } from "./mapTileLayers";
+} from "../constants/app.js";
+import { MapPopup } from "./mapPopup.js";
+import { MapTileLayers } from "./mapTileLayers.js";
 
-jest.mock("../store");
-jest.mock("./mapTileLayers");
+vi.mock("../store");
+vi.mock("./mapTileLayers");
 
-jest.mock("d3-geo");
+vi.mock("d3-geo");
 
-const center = jest.fn().mockReturnThis();
-const scale = jest.fn().mockReturnThis();
-const translate = jest.fn().mockReturnThis();
+const center = vi.fn().mockReturnThis();
+const scale = vi.fn().mockReturnThis();
+const translate = vi.fn().mockReturnThis();
 
 geoMercator.mockImplementation(() => {
-  const fn = jest.fn();
+  const fn = vi.fn();
   fn.center = center;
   fn.scale = scale;
   fn.translate = translate;
@@ -78,18 +78,18 @@ describe("SearchResultMap", () => {
     });
     width = 500;
     height = 400;
-    searchResultMap.element.getBoundingClientRect = jest.fn(() => ({
+    searchResultMap.element.getBoundingClientRect = vi.fn(() => ({
       width,
       height,
     }));
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   afterAll(() => {
-    jest.resetModules();
+    vi.resetModules();
   });
 
   test("The component's HTML exists", () => {
@@ -118,15 +118,15 @@ describe("SearchResultMap", () => {
     ).toThrow("Requires redux store");
   });
 
-  test("uses observeStore to watch for redux state changes", () => {
-    const store = require("../store");
-    const spy = jest.spyOn(store, "observeStore");
+  test("uses observeStore to watch for redux state changes", async () => {
+    const store = await import("../store");
+    const spy = vi.spyOn(store, "observeStore");
     expect(spy).toHaveBeenCalledTimes(2);
     spy.mockRestore();
   });
 
   test("responds to redux state changes of addressGeocode.searchResult", () => {
-    const spy = jest.spyOn(SearchResultMap.prototype, "handleSearchResult");
+    const spy = vi.spyOn(SearchResultMap.prototype, "handleSearchResult");
     observeStore.mockImplementation((store, stateSlice, cb) => {
       stateSlice = (state) => state.addressGeocode.searchResult;
       cb();
@@ -136,7 +136,7 @@ describe("SearchResultMap", () => {
   });
 
   test("handleSearchResult", () => {
-    const spy = jest.spyOn(SearchResultMap.prototype, "updateMapView");
+    const spy = vi.spyOn(SearchResultMap.prototype, "updateMapView");
     const instance = new SearchResultMap({ element, store });
     store.getState.mockImplementation(() => ({
       addressGeocode: {
@@ -176,19 +176,19 @@ describe("SearchResultMap", () => {
   });
 
   test("handleSearchResult with no searchResult", () => {
-    const spy = jest.spyOn(SearchResultMap.prototype, "updateMapView");
+    const spy = vi.spyOn(SearchResultMap.prototype, "updateMapView");
     const instance = new SearchResultMap({ element, store });
     instance.handleSearchResult();
     expect(spy).not.toHaveBeenCalled();
   });
 
   test("updateMapView", () => {
-    const spy1 = jest.spyOn(MapPopup.prototype, "setContent");
-    const spy2 = jest.spyOn(MapPopup.prototype, "show");
-    const spy6 = jest.spyOn(MapPopup.prototype, "setPosition");
-    const spy3 = jest.spyOn(SearchResultMap.prototype, "showMarker");
-    const spy4 = jest.spyOn(SearchResultMap.prototype, "renderMap");
-    const spy5 = jest.spyOn(SearchResultMap.prototype, "setMarkerPosition");
+    const spy1 = vi.spyOn(MapPopup.prototype, "setContent");
+    const spy2 = vi.spyOn(MapPopup.prototype, "show");
+    const spy6 = vi.spyOn(MapPopup.prototype, "setPosition");
+    const spy3 = vi.spyOn(SearchResultMap.prototype, "showMarker");
+    const spy4 = vi.spyOn(SearchResultMap.prototype, "renderMap");
+    const spy5 = vi.spyOn(SearchResultMap.prototype, "setMarkerPosition");
     const instance = new SearchResultMap({ element, store });
     store.getState.mockImplementation(() => ({
       addressGeocode: {
@@ -240,12 +240,12 @@ describe("SearchResultMap", () => {
   });
 
   test("updateMapView with no searchResultDetails", () => {
-    const spy1 = jest.spyOn(MapPopup.prototype, "setContent");
-    const spy2 = jest.spyOn(MapPopup.prototype, "show");
-    const spy6 = jest.spyOn(MapPopup.prototype, "setPosition");
-    const spy3 = jest.spyOn(SearchResultMap.prototype, "showMarker");
-    const spy4 = jest.spyOn(SearchResultMap.prototype, "renderMap");
-    const spy5 = jest.spyOn(SearchResultMap.prototype, "setMarkerPosition");
+    const spy1 = vi.spyOn(MapPopup.prototype, "setContent");
+    const spy2 = vi.spyOn(MapPopup.prototype, "show");
+    const spy6 = vi.spyOn(MapPopup.prototype, "setPosition");
+    const spy3 = vi.spyOn(SearchResultMap.prototype, "showMarker");
+    const spy4 = vi.spyOn(SearchResultMap.prototype, "renderMap");
+    const spy5 = vi.spyOn(SearchResultMap.prototype, "setMarkerPosition");
     new SearchResultMap({ element, store });
     expect(spy1).not.toHaveBeenCalled();
     expect(spy2).not.toHaveBeenCalled();
@@ -255,10 +255,10 @@ describe("SearchResultMap", () => {
     expect(spy6).not.toHaveBeenCalled();
   });
 
-  test("renderMap", () => {
+  test("renderMap", async () => {
     MapTileLayers.mockRestore();
-    const { SearchResultMap } = require("./searchResultMap");
-    const spy = jest.spyOn(SearchResultMap.prototype, "setMapSize");
+    const { SearchResultMap } = await import("./searchResultMap");
+    const spy = vi.spyOn(SearchResultMap.prototype, "setMapSize");
     const instance = new SearchResultMap({ element, store });
     instance.renderMap();
     expect(spy).toHaveBeenCalledTimes(2);
@@ -309,9 +309,9 @@ describe("SearchResultMap", () => {
   });
 
   test("resetMap", () => {
-    const spy1 = jest.spyOn(SearchResultMap.prototype, "hideMarker");
-    const spy2 = jest.spyOn(SearchResultMap.prototype, "renderMap");
-    const spy3 = jest.spyOn(MapPopup.prototype, "hide");
+    const spy1 = vi.spyOn(SearchResultMap.prototype, "hideMarker");
+    const spy2 = vi.spyOn(SearchResultMap.prototype, "renderMap");
+    const spy3 = vi.spyOn(MapPopup.prototype, "hide");
     const instance = new SearchResultMap({ store, element });
     instance.resetMap();
     expect(spy1).toHaveBeenCalledTimes(2);

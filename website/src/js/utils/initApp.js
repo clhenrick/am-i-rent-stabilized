@@ -1,17 +1,17 @@
-import { store } from "../store";
-import { ComponentRegistry } from "./componentRegistry";
-import { NavMenuToggle } from "../components/navigation";
-import { AdvanceSlides } from "../components/advanceSlides";
-import { SlidesContainer } from "../components/slidesContainer";
-import { KeyboardNavigation } from "../components/keyboardNavigation";
-import { AddressSearchForm } from "../components/addressSearchForm";
-import { ProgressIndicator } from "../components/progressIndicator";
-import { VerifyRentStabilized } from "../components/verifyRentStabilized";
-import { SearchResultMap } from "../components/searchResultMap";
-import { AddToCalendar } from "../components/addToCalendar";
-import { StartOver } from "../components/startOver";
-import { TenantsRightsGroups } from "../components/tenantsRightsGroups";
-import { ModalDialog } from "../components/modalDialog";
+import { store } from "../store.js";
+import { ComponentRegistry } from "./componentRegistry.js";
+import { NavMenuToggle } from "../components/navigation.js";
+import { AdvanceSlides } from "../components/advanceSlides.js";
+import { SlidesContainer } from "../components/slidesContainer.js";
+import { KeyboardNavigation } from "../components/keyboardNavigation.js";
+import { AddressSearchForm } from "../components/addressSearchForm.js";
+import { ProgressIndicator } from "../components/progressIndicator.js";
+import { VerifyRentStabilized } from "../components/verifyRentStabilized.js";
+import { SearchResultMap } from "../components/searchResultMap.js";
+import { AddToCalendar } from "../components/addToCalendar.js";
+import { StartOver } from "../components/startOver.js";
+import { TenantsRightsGroups } from "../components/tenantsRightsGroups.js";
+import { ModalDialog } from "../components/modalDialog.js";
 
 const registry = new ComponentRegistry();
 

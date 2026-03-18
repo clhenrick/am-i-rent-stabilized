@@ -1,7 +1,7 @@
-import { KeyboardNavigation } from "./keyboardNavigation";
-import { store } from "../store";
+import { KeyboardNavigation } from "./keyboardNavigation.js";
+import { store } from "../store.js";
 
-jest.mock("../store");
+vi.mock("../store");
 store.getState.mockImplementation(() => ({
   slides: {
     curIndex: 0,
@@ -17,23 +17,17 @@ describe("KeyboardNavigation", () => {
   let spyRemoveEvents;
 
   beforeAll(() => {
-    spyCurSlideIndex = jest.spyOn(
-      KeyboardNavigation.prototype,
-      "curSlideIndex"
-    );
-    spyMaybeGoToNextSlide = jest.spyOn(
+    spyCurSlideIndex = vi.spyOn(KeyboardNavigation.prototype, "curSlideIndex");
+    spyMaybeGoToNextSlide = vi.spyOn(
       KeyboardNavigation.prototype,
       "maybeGoToNextSlide"
     );
-    spyMaybeGoToPrevSlide = jest.spyOn(
+    spyMaybeGoToPrevSlide = vi.spyOn(
       KeyboardNavigation.prototype,
       "maybeGoToPrevSlide"
     );
-    spyHandleKeydown = jest.spyOn(
-      KeyboardNavigation.prototype,
-      "handleKeyDown"
-    );
-    spyRemoveEvents = jest.spyOn(KeyboardNavigation.prototype, "removeEvents");
+    spyHandleKeydown = vi.spyOn(KeyboardNavigation.prototype, "handleKeyDown");
+    spyRemoveEvents = vi.spyOn(KeyboardNavigation.prototype, "removeEvents");
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
   });
 
@@ -45,11 +39,11 @@ describe("KeyboardNavigation", () => {
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   afterAll(() => {
-    jest.resetModules();
+    vi.resetModules();
   });
 
   test("The components HTML exists", () => {
@@ -129,10 +123,10 @@ describe("KeyboardNavigation", () => {
   test("handleKeyDown ignores event when not emitted from body", () => {
     const event = {
       target: {
-        matches: jest.fn(() => false),
+        matches: vi.fn(() => false),
       },
       code: "ArrowDown",
-      preventDefault: jest.fn(),
+      preventDefault: vi.fn(),
     };
     keyboardNavigation.handleKeyDown(event);
     expect(spyMaybeGoToNextSlide).not.toHaveBeenCalled();
@@ -142,13 +136,13 @@ describe("KeyboardNavigation", () => {
   test("handleKeyDown calls class methods when receiving correct key code", () => {
     keyboardNavigation.handleKeyDown({
       code: "ArrowDown",
-      preventDefault: jest.fn(),
+      preventDefault: vi.fn(),
     });
     expect(spyMaybeGoToNextSlide).toHaveBeenCalled();
 
     keyboardNavigation.handleKeyDown({
       code: "ArrowUp",
-      preventDefault: jest.fn(),
+      preventDefault: vi.fn(),
     });
     expect(spyMaybeGoToPrevSlide).toHaveBeenCalled();
   });

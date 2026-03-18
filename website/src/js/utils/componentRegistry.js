@@ -1,4 +1,4 @@
-import { Component } from "../components/_componentBase";
+import { Component } from "../components/_componentBase.js";
 
 export class ComponentRegistry {
   constructor() {

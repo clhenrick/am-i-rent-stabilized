@@ -1,4 +1,4 @@
-import { AddToCalendar } from "./addToCalendar";
+import { AddToCalendar } from "./addToCalendar.js";
 
 describe("AddToCalendar", () => {
   let element;
@@ -15,11 +15,11 @@ describe("AddToCalendar", () => {
   });
 
   afterAll(() => {
-    jest.resetModules();
+    vi.resetModules();
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   test("The component's HTML exists", () => {
@@ -32,8 +32,8 @@ describe("AddToCalendar", () => {
 
   test("setStartEndText", () => {
     window.addeventatc.refresh.mockClear();
-    const spy1 = jest.spyOn(AddToCalendar.prototype, "setStartDateTime");
-    const spy2 = jest.spyOn(AddToCalendar.prototype, "setEndDateTime");
+    const spy1 = vi.spyOn(AddToCalendar.prototype, "setStartDateTime");
+    const spy2 = vi.spyOn(AddToCalendar.prototype, "setEndDateTime");
     atcFactory();
     expect(spy1).toHaveBeenCalledTimes(1);
     expect(spy2).toHaveBeenCalledTimes(1);

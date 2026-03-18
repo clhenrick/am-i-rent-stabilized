@@ -1,17 +1,17 @@
-import { AdvanceSlides } from "./advanceSlides";
-import { store } from "../store";
+import { AdvanceSlides } from "./advanceSlides.js";
+import { store } from "../store.js";
 
-jest.mock("../store", () => {
+vi.mock("../store", () => {
   return {
     __esModule: true,
     store: {
-      getState: jest.fn(() => ({
+      getState: vi.fn(() => ({
         slides: {
           curIndex: 0,
         },
       })),
-      dispatch: jest.fn(),
-      subscribe: jest.fn(),
+      dispatch: vi.fn(),
+      subscribe: vi.fn(),
     },
   };
 });
@@ -23,13 +23,13 @@ describe("AdvanceSlides", () => {
   let spyButton;
   let spyAdvanceToSlide;
   let element;
-  const mockClickEvent = { preventDefault: jest.fn() };
+  const mockClickEvent = { preventDefault: vi.fn() };
 
   beforeAll(() => {
     setDocumentHtml(getMainHtml()); // eslint-disable-line no-undef
     element = document.querySelector(selector);
-    spyButton = jest.spyOn(AdvanceSlides.prototype, "handleClick");
-    spyAdvanceToSlide = jest.spyOn(AdvanceSlides.prototype, "advanceToSlide");
+    spyButton = vi.spyOn(AdvanceSlides.prototype, "handleClick");
+    spyAdvanceToSlide = vi.spyOn(AdvanceSlides.prototype, "advanceToSlide");
   });
 
   beforeEach(() => {
@@ -41,11 +41,11 @@ describe("AdvanceSlides", () => {
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   afterAll(() => {
-    jest.resetModules();
+    vi.resetModules();
   });
 
   test("The component's HTML exists", () => {
