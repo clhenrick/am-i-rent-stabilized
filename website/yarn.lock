@@ -1012,7 +1012,7 @@ __metadata:
     prettier: "npm:3.5.3"
     redux: "npm:4.0.5"
     redux-logger: "npm:3.0.6"
-    redux-thunk: "npm:2.3.0"
+    redux-thunk: "npm:3.1.0"
     sass: "npm:^1.87.0"
     single-line-string: "npm:0.0.2"
     stylelint: "npm:^16.20.0"
@@ -4759,10 +4759,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"redux-thunk@npm:2.3.0":
-  version: 2.3.0
-  resolution: "redux-thunk@npm:2.3.0"
-  checksum: 10c0/fbf342e56809240af5f41257eee0dbba1b8165b611a1dd96d6d2831f84046e30f037a7e90cbff5636cd6e053d53237c4ed3287403f2c6d28fa1ad26543d7a016
+"redux-thunk@npm:3.1.0":
+  version: 3.1.0
+  resolution: "redux-thunk@npm:3.1.0"
+  peerDependencies:
+    redux: ^5.0.0
+  checksum: 10c0/21557f6a30e1b2e3e470933247e51749be7f1d5a9620069a3125778675ce4d178d84bdee3e2a0903427a5c429e3aeec6d4df57897faf93eb83455bc1ef7b66fd
   languageName: node
   linkType: hard
 
