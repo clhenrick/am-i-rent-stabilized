@@ -1,5 +1,5 @@
-import * as types from "../constants/actionTypes";
-import { addressGeocode, initialState } from "./addressGeocodeReducer";
+import * as types from "../constants/actionTypes.js";
+import { addressGeocode, initialState } from "./addressGeocodeReducer.js";
 
 describe("addressGeocode Reducer", () => {
   test("Should return the initial state", () => {

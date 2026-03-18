@@ -1,5 +1,5 @@
-import { Component } from "./_componentBase";
-import { MAP_BORDER_WIDTH, MAP_MARKER } from "../constants/app";
+import { Component } from "./_componentBase.js";
+import { MAP_BORDER_WIDTH, MAP_MARKER } from "../constants/app.js";
 
 export class MapPopup extends Component {
   constructor(props) {

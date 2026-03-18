@@ -1,9 +1,9 @@
-import { MapPopup } from "./mapPopup";
-import { SearchResultMap } from "./searchResultMap";
-import { store } from "../store";
+import { MapPopup } from "./mapPopup.js";
+import { SearchResultMap } from "./searchResultMap.js";
+import { store } from "../store.js";
 
-jest.mock("../store");
-jest.mock("./searchResultMap");
+vi.mock("../store");
+vi.mock("./searchResultMap");
 
 describe("MapPopup", () => {
   let element;
@@ -59,11 +59,11 @@ describe("MapPopup", () => {
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   afterAll(() => {
-    jest.resetModules();
+    vi.resetModules();
   });
 
   test("The component's HTML exists", () => {

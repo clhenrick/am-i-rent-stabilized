@@ -1,5 +1,5 @@
-import * as types from "../constants/actionTypes";
-import { tenantsRights, initialState } from "./tenantsRightsReducer";
+import * as types from "../constants/actionTypes.js";
+import { tenantsRights, initialState } from "./tenantsRightsReducer.js";
 
 describe("tenantsRightsReducer", () => {
   test("Returns the default state", () => {

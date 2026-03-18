@@ -1,5 +1,5 @@
-import { Component } from "./_componentBase";
-import { observeStore } from "../store";
+import { Component } from "./_componentBase.js";
+import { observeStore } from "../store.js";
 
 export class ProgressIndicator extends Component {
   constructor(props) {

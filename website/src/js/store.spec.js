@@ -1,7 +1,7 @@
-import { store, observeStore } from "./store";
+import { store, observeStore } from "./store.js";
 
-const spyGetState = jest.spyOn(store, "getState");
-const spySubscribe = jest.spyOn(store, "subscribe");
+const spyGetState = vi.spyOn(store, "getState");
+const spySubscribe = vi.spyOn(store, "subscribe");
 
 describe("observeStore", () => {
   let select;
@@ -9,17 +9,17 @@ describe("observeStore", () => {
   let unsubscribe;
 
   beforeEach(() => {
-    select = jest.fn((state) => state.addressGeocode);
-    handleChange = jest.fn();
+    select = vi.fn((state) => state.addressGeocode);
+    handleChange = vi.fn();
     unsubscribe = observeStore(store, select, handleChange);
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   afterAll(() => {
-    jest.resetModules();
+    vi.resetModules();
   });
 
   test("responds correctly when first invoked", () => {

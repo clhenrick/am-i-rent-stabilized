@@ -1,5 +1,5 @@
-import { rentStabilized, initialState } from "./rentStabilizedReducer";
-import * as types from "../constants/actionTypes";
+import { rentStabilized, initialState } from "./rentStabilizedReducer.js";
+import * as types from "../constants/actionTypes.js";
 
 describe("rentStabilizedReducer", () => {
   test("Should return the default state", () => {

@@ -1,4 +1,4 @@
-import { Component } from "./_componentBase";
+import { Component } from "./_componentBase.js";
 
 /** HTML id attribute values for validation text */
 export const VALIDATION_TEXT_ID = {

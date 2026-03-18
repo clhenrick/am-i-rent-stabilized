@@ -1,16 +1,13 @@
-import configureMockStore from "redux-mock-store";
-import thunk from "redux-thunk";
-import * as types from "../constants/actionTypes";
-import * as actions from "./tenantsRightsGroupsActions";
-
-const mockStore = configureMockStore([thunk]);
+import * as types from "../constants/actionTypes.js";
+import * as actions from "./tenantsRightsGroupsActions.js";
+import { createTestStore } from "../test-helpers.js";
 
 describe("tenantsRightsSearchActions", () => {
   let store;
 
   beforeEach(() => {
     fetch.resetMocks();
-    store = mockStore({
+    store = createTestStore({
       tenantsRights: {
         status: "idle",
         error: null,

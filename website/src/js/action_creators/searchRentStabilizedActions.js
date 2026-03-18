@@ -1,15 +1,15 @@
 import {
   fetchRentStabilized,
   rentStabilizedFailure,
-} from "./rentStabilizedActions";
+} from "./rentStabilizedActions.js";
 import {
   addressSearchFetch,
   addressSearchSuccess,
-} from "./addressGeocodeActions";
-import { goToSlideIdx } from "./slidesActions";
-import { delay } from "../utils/delay";
-import { RS_SEARCH_DELAY_MS } from "../constants/app";
-import { fetchRentStabilizedGeoJSON } from "./rentStabilizedGeoJsonActions";
+} from "./addressGeocodeActions.js";
+import { goToSlideIdx } from "./slidesActions.js";
+import { delay } from "../utils/delay.js";
+import { RS_SEARCH_DELAY_MS } from "../constants/app.js";
+import { fetchRentStabilizedGeoJSON } from "./rentStabilizedGeoJsonActions.js";
 
 export const ERROR_ADDRESS_NOT_FOUND = "Address search result not found";
 export const ERROR_MISSING_BBL =

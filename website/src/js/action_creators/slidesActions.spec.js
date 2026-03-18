@@ -1,4 +1,4 @@
-import { goToNextSlide, goToPrevSlide, goToSlideIdx } from "./slidesActions";
+import { goToNextSlide, goToPrevSlide, goToSlideIdx } from "./slidesActions.js";
 
 describe("slidesActions", () => {
   test("goToNextSlide", () => {

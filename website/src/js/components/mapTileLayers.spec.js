@@ -1,19 +1,19 @@
-import { store } from "../store";
-import { MapTileLayers } from "./mapTileLayers";
-import { SearchResultMap } from "./searchResultMap";
-import { handleErrorObj } from "../utils/logging";
-const d3Tile = require("d3-tile");
+import { store } from "../store.js";
+import { MapTileLayers } from "./mapTileLayers.js";
+import { SearchResultMap } from "./searchResultMap.js";
+import { handleErrorObj } from "../utils/logging.js";
+import * as d3Tile from "d3-tile";
 
-jest.mock("../store");
-jest.mock("../utils/logging");
+vi.mock("../store");
+vi.mock("../utils/logging");
 
-jest.mock("d3-tile");
+vi.mock("d3-tile");
 d3Tile.tile.mockImplementation(() => {
-  const fn = jest.fn();
-  fn.tile = jest.fn().mockReturnThis();
-  fn.size = jest.fn().mockReturnThis();
-  fn.scale = jest.fn().mockReturnThis();
-  fn.translate = jest.fn().mockReturnThis();
+  const fn = vi.fn();
+  fn.tile = vi.fn().mockReturnThis();
+  fn.size = vi.fn().mockReturnThis();
+  fn.scale = vi.fn().mockReturnThis();
+  fn.translate = vi.fn().mockReturnThis();
   fn.mockImplementation(() =>
     Object.assign(
       [
@@ -86,11 +86,11 @@ describe("MapTileLayers", () => {
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   afterAll(() => {
-    jest.resetModules();
+    vi.resetModules();
   });
 
   test("The component's HTML exists", () => {

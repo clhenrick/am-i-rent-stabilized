@@ -1,4 +1,4 @@
-import { Component } from "./_componentBase";
+import { Component } from "./_componentBase.js";
 
 /** does the user not care if animations are enabled on their device? */
 const reduceMotionNoPreference = window.matchMedia(

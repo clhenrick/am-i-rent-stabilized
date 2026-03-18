@@ -1,9 +1,9 @@
-import { VerifyRentStabilized } from "./verifyRentStabilized";
-import { store, observeStore } from "../store";
-import { logAddressRS } from "../utils/logging";
+import { VerifyRentStabilized } from "./verifyRentStabilized.js";
+import { store, observeStore } from "../store.js";
+import { logAddressRS } from "../utils/logging.js";
 
-jest.mock("../store");
-jest.mock("../utils/logging");
+vi.mock("../store");
+vi.mock("../utils/logging");
 
 describe("VerifyRentStabilized", () => {
   let element;
@@ -15,7 +15,7 @@ describe("VerifyRentStabilized", () => {
   });
 
   afterEach(() => {
-    jest.resetAllMocks();
+    vi.resetAllMocks();
   });
 
   test("The component's HTML exists", () => {
@@ -54,7 +54,7 @@ describe("VerifyRentStabilized", () => {
   });
 
   test("responds to changes in state.rentStabilized.match", () => {
-    const spy = jest.spyOn(VerifyRentStabilized.prototype, "updateMessage");
+    const spy = vi.spyOn(VerifyRentStabilized.prototype, "updateMessage");
 
     store.getState.mockImplementation(() => ({
       rentStabilized: {

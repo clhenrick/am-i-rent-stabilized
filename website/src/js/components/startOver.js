@@ -1,5 +1,5 @@
-import { Component } from "./_componentBase";
-import { resetAppState } from "../action_creators";
+import { Component } from "./_componentBase.js";
+import { resetAppState } from "../action_creators/index.js";
 
 export class StartOver extends Component {
   constructor(props) {

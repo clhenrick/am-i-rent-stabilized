@@ -1,4 +1,7 @@
-import { Component } from "./_componentBase";
+import { Component } from "./_componentBase.js";
+import { store } from "../store.js";
+
+vi.mock("../store");
 
 describe("Component", () => {
   let props;
@@ -7,7 +10,7 @@ describe("Component", () => {
 
   beforeAll(() => {
     document.body.innerHTML = "<div></div>";
-    spy = jest.spyOn(Component.prototype, "init");
+    spy = vi.spyOn(Component.prototype, "init");
   });
 
   beforeEach(() => {
@@ -16,12 +19,12 @@ describe("Component", () => {
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
     spy.mockClear();
   });
 
   afterAll(() => {
-    jest.resetAllModules();
+    vi.resetModules();
   });
 
   test("The consumer should be able to call new() on Component", () => {
@@ -63,9 +66,6 @@ describe("Component", () => {
   });
 
   test("The component accepts a valid redux store", () => {
-    const { store } = require("../store");
-    jest.mock("../store");
-
     let instance = new Component({
       ...props,
       store: {},
@@ -87,7 +87,7 @@ describe("Component", () => {
   });
 
   test("cleanUp", () => {
-    const spy = jest.spyOn(Component.prototype, "unsubscribe");
+    const spy = vi.spyOn(Component.prototype, "unsubscribe");
     component = new Component(props);
     component.cleanUp();
     expect(spy).toHaveBeenCalledTimes(1);

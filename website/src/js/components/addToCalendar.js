@@ -1,4 +1,4 @@
-import { Component } from "./_componentBase";
+import { Component } from "./_componentBase.js";
 
 // Wrapper component for add-to-calendar-button widget
 // https://www.addevent.com/add-to-calendar-button

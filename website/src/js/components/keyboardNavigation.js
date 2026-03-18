@@ -1,5 +1,5 @@
-import { goToNextSlide, goToPrevSlide } from "../action_creators";
-import { Component } from "./_componentBase";
+import { goToNextSlide, goToPrevSlide } from "../action_creators/index.js";
+import { Component } from "./_componentBase.js";
 
 export class KeyboardNavigation extends Component {
   constructor(props) {

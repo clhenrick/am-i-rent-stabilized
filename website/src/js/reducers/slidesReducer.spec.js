@@ -1,5 +1,5 @@
-import { slides } from "./slidesReducer";
-import * as types from "../constants/actionTypes";
+import { slides } from "./slidesReducer.js";
+import * as types from "../constants/actionTypes.js";
 
 describe("slidesReducer", () => {
   test("Should return the initial state", () => {

@@ -1,6 +1,6 @@
-import { Component } from "./_componentBase";
-import { observeStore } from "../store";
-import { logAddressRS } from "../utils/logging";
+import { Component } from "./_componentBase.js";
+import { observeStore } from "../store.js";
+import { logAddressRS } from "../utils/logging.js";
 
 export class VerifyRentStabilized extends Component {
   constructor(props) {

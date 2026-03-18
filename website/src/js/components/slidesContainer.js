@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import { Component } from "./_componentBase";
-import { observeStore } from "../store";
+import { Component } from "./_componentBase.js";
+import { observeStore } from "../store.js";
 
 // NOTE: this is required for GSAP plugins to work with module bundlers
 gsap.registerPlugin(ScrollToPlugin);

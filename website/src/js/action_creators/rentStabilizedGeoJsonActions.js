@@ -1,8 +1,8 @@
-import * as types from "../constants/actionTypes";
-import { cartoAPIv3BaseURL } from "../constants/config";
-import { getCartoSqlApiAuthOptions } from "../utils/cartoSqlApiAuth";
-import { rentStabilizedGeomSql } from "../utils/sql";
-import { parseTransformRsGeomQueryResult } from "../utils/geoUtils";
+import * as types from "../constants/actionTypes.js";
+import { cartoAPIv3BaseURL } from "../constants/config.js";
+import { getCartoSqlApiAuthOptions } from "../utils/cartoSqlApiAuth.js";
+import { rentStabilizedGeomSql } from "../utils/sql.js";
+import { parseTransformRsGeomQueryResult } from "../utils/geoUtils.js";
 
 export const rentStabilizedGeoJsonRequest = () => ({
   type: types.RentStabilizedGeoJsonRequest,

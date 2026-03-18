@@ -1,6 +1,6 @@
 import { thunk } from "redux-thunk";
 import logger from "redux-logger";
-import { logException, handleErrorObj } from "./logging";
+import { logException, handleErrorObj } from "./logging.js";
 
 const USE_LOGGER = process.env.USE_REDUX_LOGGER;
 const middlewares = [thunk];

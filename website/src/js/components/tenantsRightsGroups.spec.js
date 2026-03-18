@@ -1,10 +1,10 @@
 import {
   TenantsRightsGroups,
   ERROR_MISSING_COORDS,
-} from "./tenantsRightsGroups";
-import { store } from "../store";
+} from "./tenantsRightsGroups.js";
+import { store } from "../store.js";
 
-jest.mock("../store");
+vi.mock("../store");
 
 describe("TenantsRightsGroups", () => {
   let element;
@@ -18,7 +18,7 @@ describe("TenantsRightsGroups", () => {
       "dialog.modal--tenants-rights .modal--content"
     );
     modalTrigger = document.querySelector(".js-tr-modal-trigger");
-    spyRenderModalContents = jest.spyOn(
+    spyRenderModalContents = vi.spyOn(
       TenantsRightsGroups.prototype,
       "renderModalContents"
     );
@@ -29,7 +29,7 @@ describe("TenantsRightsGroups", () => {
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   test("The component's HTML exists", () => {

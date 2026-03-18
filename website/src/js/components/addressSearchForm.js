@@ -1,21 +1,21 @@
 import throttle from "lodash.throttle";
-import { Component } from "./_componentBase";
-import { SearchValidationErrors } from "./searchValidationErrors";
+import { Component } from "./_componentBase.js";
+import { SearchValidationErrors } from "./searchValidationErrors.js";
 import {
   searchRentStabilized,
   addressAutosuggestFetch,
   goToSlideIdx,
   rentStabilizedReset,
-} from "../action_creators";
-import { observeStore } from "../store";
-import { delay } from "../utils/delay";
-import { RS_SEARCH_DELAY_MS } from "../constants/app";
+} from "../action_creators/index.js";
+import { observeStore } from "../store.js";
+import { delay } from "../utils/delay.js";
+import { RS_SEARCH_DELAY_MS } from "../constants/app.js";
 import {
   logAddressSearch,
   logAddressNF,
   logException,
   handleErrorObj,
-} from "../utils/logging";
+} from "../utils/logging.js";
 
 const INPUT_THROTTLE_MS = 350;
 const MIN_SEARCH_TEXT_LENGTH = 1;

@@ -1,7 +1,7 @@
-import * as types from "../constants/actionTypes";
-import { cartoAPIv3BaseURL } from "../constants/config";
-import { getCartoSqlApiAuthOptions } from "../utils/cartoSqlApiAuth";
-import { tenantsRightsGroupsSql } from "../utils/sql";
+import * as types from "../constants/actionTypes.js";
+import { cartoAPIv3BaseURL } from "../constants/config.js";
+import { getCartoSqlApiAuthOptions } from "../utils/cartoSqlApiAuth.js";
+import { tenantsRightsGroupsSql } from "../utils/sql.js";
 
 export const tenantsRightsGroupsRequest = () => ({
   type: types.TenantsRightsRequest,
