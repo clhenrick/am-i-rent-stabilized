@@ -68,7 +68,17 @@ export class SlidesContainer extends Component {
   }
 
   handleScrollComplete() {
-    this.activeSlide.focus();
+    const target = this.activeSlide;
+    this.slides.forEach((slide) => {
+      if (slide === target) {
+        slide.removeAttribute("inert");
+        slide.removeAttribute("aria-hidden");
+        slide.focus();
+      } else {
+        slide.setAttribute("inert", true);
+        slide.setAttribute("aria-hidden", true);
+      }
+    });
   }
 
   handleMotionQuery() {
@@ -78,17 +88,13 @@ export class SlidesContainer extends Component {
     }
   }
 
-  /** updates a slide in the document to be the "active" one and all other slides to be "inactive" */
+  /** updates the target slide to have a class of "active" */
   set activeSlide(target) {
     this.slides.forEach((slide) => {
       if (slide === target) {
         slide.classList.add("active");
-        slide.removeAttribute("inert");
-        slide.setAttribute("aria-hidden", false);
       } else {
         slide.classList.remove("active");
-        slide.setAttribute("inert", true);
-        slide.setAttribute("aria-hidden", true);
       }
     });
   }
