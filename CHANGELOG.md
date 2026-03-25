@@ -2,7 +2,21 @@
 
 This changelog describes significant changes to the project. It was first created on November 29, 2020 so does not account for the entire project's history.
 
+## 2026-03-24 Bugfix: Improve accessibly hiding and showing slides on homepage
+
+Addresses issue [(#201)](https://github.com/clhenrick/am-i-rent-stabilized/issues/201).
+
+Once the non-active to active slide transition has finished (either with or without the animation), the `inert` attribute is removed from the newly active slide and then it is focused, then the previously active slide is made `inert`. This fixes a bug reported in the Chrome dev tools console where a slide with a focused child (e.g. the "next" slide button) was given the `aria-hidden="true"` attribute while the element still had focus.
+
+- Removes usage of `aria-label` and `aria-roledescription` on slides container (was causing an overly verbose description of the slide each time the active slide changed)
+
+- Removes usage of `aria-hidden` on non-active / non-visible slides since `inert` is being applied, using `aria-hidden` is redundant.
+
+Manually tested with VoiceOver on Mac OS and VoiceOver on iOS. Needs testing on NVDA, JAWS, TalkBack.
+
 ## 2026-03-18 Migrated website test suite from Jest to Vitest ([#197](https://github.com/clhenrick/am-i-rent-stabilized/pull/197))
+
+Addresses issue [Fix UI component & unit tests (#177)](https://github.com/clhenrick/am-i-rent-stabilized/issues/177)
 
 Replaced the previously non-functional Jest setup with [Vitest](https://vitest.dev/). Jest had never been properly installed or configured in the `website/` directory, and the codebase's use of ES modules (`"type": "module"`) made Jest incompatible without significant Babel configuration. Vitest handles ESM natively and integrates with the existing Vite/esbuild toolchain.
 
