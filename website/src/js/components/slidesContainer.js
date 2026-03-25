@@ -72,11 +72,9 @@ export class SlidesContainer extends Component {
     this.slides.forEach((slide) => {
       if (slide === target) {
         slide.removeAttribute("inert");
-        slide.removeAttribute("aria-hidden");
         slide.focus();
       } else {
-        slide.setAttribute("inert", true);
-        slide.setAttribute("aria-hidden", true);
+        slide.setAttribute("inert", "");
       }
     });
   }
