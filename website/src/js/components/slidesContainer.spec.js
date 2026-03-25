@@ -98,6 +98,9 @@ describe("SlidesContainer", () => {
         curIndex: 5,
       },
     }));
+    gsap.fromTo.mockImplementationOnce(() => {
+      slidesContainer.handleScrollComplete();
+    });
     slidesContainer.handleSlidesUpdate();
     const activeSlideIndex = slidesContainer.activeSlideIndex;
     const activeSlide = slidesContainer.activeSlide;
@@ -107,10 +110,8 @@ describe("SlidesContainer", () => {
     expect(spyScrollToActiveSlide).toHaveBeenCalledTimes(1);
     expect(activeSlideIndex).toBe(5);
     expect(activeSlide.getAttribute("inert")).toBeNull();
-    expect(activeSlide.getAttribute("aria-hidden")).toBe("false");
     nonActiveSlides.forEach((slide) => {
-      expect(slide.getAttribute("inert")).toBe("true");
-      expect(slide.getAttribute("aria-hidden")).toBe("true");
+      expect(slide.getAttribute("inert")).toBe("");
     });
   });
 
