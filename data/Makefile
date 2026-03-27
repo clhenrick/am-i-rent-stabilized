@@ -49,7 +49,7 @@ ifneq ($(strip $(shell docker ps -a | grep airs-data-421a)),)
 > docker stop airs-data-421a && docker rm airs-data-421a
 endif
 ifneq ($(strip $(shell docker images -a | grep clhenrick/python)),)
-> docker image rm clhenrick/python:3.7-slim
+> docker image rm clhenrick/python:3.14-slim
 endif
 
 .PHONY: clean-db
@@ -130,10 +130,10 @@ db-service/data/j51_exemptions.csv:
 > @echo "Running Docker container for 421a-service to create $@..."
 > cd ./421a-service
 > chmod +x init.sh
-> docker run --name airs-data-421a -it --rm -v $$(pwd):/home/data clhenrick/python:3.7-slim
+> docker run --name airs-data-421a -it --rm -v $$(pwd):/home/data clhenrick/python:3.14-slim
 > cd ..
 
 421a-service/.build.sentinel:
 > @echo "Buiding Docker image for 421a-service..."
-> docker build -t clhenrick/python:3.7-slim -f ./421a-service/Dockerfile ./421a-service
+> docker build -t clhenrick/python:3.14-slim -f ./421a-service/Dockerfile ./421a-service
 > touch $@
