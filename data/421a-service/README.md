@@ -7,7 +7,7 @@ This service gathers data on NYC buildings that have a 421a tax exemption status
 To build the image using Docker:
 
 ```bash
-docker build -t clhenrick/python:3.7-slim .
+docker build -t clhenrick/python:3.14-slim .
 ```
 
 To run the container from the image:
@@ -17,5 +17,5 @@ To run the container from the image:
 chmod +ux init.sh
 
 # run the container using a bind volume, output files will be in data/
-docker run -it --rm -v $(pwd):/home/data clhenrick/python:3.7-slim
+docker run -it --rm -v $(pwd):/home/data clhenrick/python:3.14-slim
 ```
