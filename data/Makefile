@@ -6,7 +6,7 @@ SHELL := bash
 MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
 
-# tell Make to use `>` instead of tabs to specify indentation 
+# tell Make to use `>` instead of tabs to specify indentation
 # see: https://tech.davis-hansson.com/p/make/
 ifeq ($(origin .RECIPEPREFIX), undefined)
   $(error This Make does not support .RECIPEPREFIX. Please use GNU Make 4.0 or later)
@@ -17,9 +17,9 @@ endif
 # NOTE: "archived" versions of the data follow a slightly different naming convention then current releases
 # e.g. nyc_mappluto_<version>_arc_shp.zip
 # so if the mappluto data download fails, then check to make sure the version hasn't been archived.
-MAPPLUTO_DATA_VERSION := "20v8"
+MAPPLUTO_DATA_VERSION := "25v4"
 MAPPLUTO_DATA_FILE := "nyc_mappluto_$(MAPPLUTO_DATA_VERSION)_shp.zip"
-MAPPLUTO_DATA_URI := "https://www1.nyc.gov/assets/planning/download/zip/data-maps/open-data/$(MAPPLUTO_DATA_FILE)"
+MAPPLUTO_DATA_URI := "https://s-media.nyc.gov/agencies/dcp/assets/files/zip/data-tools/bytes/mappluto/$(MAPPLUTO_DATA_FILE)"
 
 # J51 exemption data
 J51_DATA_URI := "https://data.cityofnewyork.us/api/views/y7az-s7wc/rows.csv?accessType=DOWNLOAD"
