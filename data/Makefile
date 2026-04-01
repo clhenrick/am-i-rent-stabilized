@@ -21,6 +21,12 @@ MAPPLUTO_DATA_VERSION := "25v4"
 MAPPLUTO_DATA_FILE := "nyc_mappluto_$(MAPPLUTO_DATA_VERSION)_shp.zip"
 MAPPLUTO_DATA_URI := "https://s-media.nyc.gov/agencies/dcp/assets/files/zip/data-tools/bytes/mappluto/$(MAPPLUTO_DATA_FILE)"
 
+# 421a and J51 tax exemptions data from the Furman Center
+SUBSIDIES_INTERMEDIATE_FILE_NAME := FC_SHD_subsidy_analysis_2025-05-13.csv
+SUBSIDIES_FILE_NAME := $(basename $(SUBSIDIES_INTERMEDIATE_FILE_NAME))_utf8.csv
+SUBSIDIES_DATA_URL := https://furmancenter.org/files/CoreData/$(SUBSIDIES_INTERMEDIATE_FILE_NAME)
+
+
 # J51 exemption data
 J51_DATA_URI := "https://data.cityofnewyork.us/api/views/y7az-s7wc/rows.csv?accessType=DOWNLOAD"
 
@@ -31,7 +37,7 @@ POSTGRES_DB := "airs"
 
 # db-service/.build.sentinel has a lot of dependencies, listing them here for readability
 DB_SERVICE_BUILD_DEPS := db-service/.volume.sentinel db-service/data/MapPLUTO.shp
-DB_SERVICE_BUILD_DEPS += 421a-service/data/421a.csv db-service/data/j51_exemptions.csv
+DB_SERVICE_BUILD_DEPS += db-service/data/FC_SHD_subsidy_analysis_2025-05-13_utf8.csv
 
 .PHONY: all
 all: db-service/.run.sentinel
@@ -113,6 +119,19 @@ db-service/data/$(MAPPLUTO_DATA_FILE): db-service/data/.data.sentinel
 db-service/data/.data.sentinel:
 > mkdir -p db-service/data
 > touch db-service/data/.data.sentinel
+
+##########################################################################################
+# 421a & J51 tax subsidies data sourcing
+##########################################################################################
+
+db-service/data/$(SUBSIDIES_FILE_NAME): db-service/data/$(SUBSIDIES_INTERMEDIATE_FILE_NAME)
+> @echo "fixing encoding of subsidies CSV file..."
+> iconv -f latin1 -t utf-8 $< > $@
+
+.INTERMEDIATE: db-service/data/$(SUBSIDIES_INTERMEDIATE_FILE_NAME)
+db-service/data/$(SUBSIDIES_INTERMEDIATE_FILE_NAME):
+> @echo "downloading $(notdir $@)..."
+> wget --no-use-server-timestamps $(SUBSIDIES_DATA_URL) -O $@
 
 ##########################################################################################
 # J51 data sourcing and processing
