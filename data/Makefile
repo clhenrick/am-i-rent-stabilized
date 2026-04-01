@@ -26,10 +26,6 @@ SUBSIDIES_INTERMEDIATE_FILE_NAME := FC_SHD_subsidy_analysis_2025-05-13.csv
 SUBSIDIES_FILE_NAME := $(basename $(SUBSIDIES_INTERMEDIATE_FILE_NAME))_utf8.csv
 SUBSIDIES_DATA_URL := https://furmancenter.org/files/CoreData/$(SUBSIDIES_INTERMEDIATE_FILE_NAME)
 
-
-# J51 exemption data
-J51_DATA_URI := "https://data.cityofnewyork.us/api/views/y7az-s7wc/rows.csv?accessType=DOWNLOAD"
-
 # Postgres
 POSTGRES_PASSWORD := "postgres"
 POSTGRES_USER := "postgres"
@@ -43,20 +39,7 @@ DB_SERVICE_BUILD_DEPS += db-service/data/FC_SHD_subsidy_analysis_2025-05-13_utf8
 all: db-service/.run.sentinel
 
 .PHONY: clean
-clean: clean-421a clean-db
-
-.PHONY: clean-421a
-clean-421a:
-> @echo "Cleaning 421a service..."
-> rm -rf ./421a-service/data/*
-> rm -rf ./421a-service/__pycache__
-> rm -f ./421a-service/.build.sentinel
-ifneq ($(strip $(shell docker ps -a | grep airs-data-421a)),)
-> docker stop airs-data-421a && docker rm airs-data-421a
-endif
-ifneq ($(strip $(shell docker images -a | grep clhenrick/python)),)
-> docker image rm clhenrick/python:3.14-slim
-endif
+clean: clean-db
 
 .PHONY: clean-db
 clean-db:
@@ -132,27 +115,3 @@ db-service/data/$(SUBSIDIES_FILE_NAME): db-service/data/$(SUBSIDIES_INTERMEDIATE
 db-service/data/$(SUBSIDIES_INTERMEDIATE_FILE_NAME):
 > @echo "downloading $(notdir $@)..."
 > wget --no-use-server-timestamps $(SUBSIDIES_DATA_URL) -O $@
-
-##########################################################################################
-# J51 data sourcing and processing
-##########################################################################################
-
-db-service/data/j51_exemptions.csv:
-> @echo "downloading $(notdir $@)..."
-> wget --no-use-server-timestamps $(J51_DATA_URI) -O $@
-
-##########################################################################################
-# 421a data sourcing and processing
-##########################################################################################
-
-421a-service/data/421a.csv: 421a-service/.build.sentinel
-> @echo "Running Docker container for 421a-service to create $@..."
-> cd ./421a-service
-> chmod +x init.sh
-> docker run --name airs-data-421a -it --rm -v $$(pwd):/home/data clhenrick/python:3.14-slim
-> cd ..
-
-421a-service/.build.sentinel:
-> @echo "Buiding Docker image for 421a-service..."
-> docker build -t clhenrick/python:3.14-slim -f ./421a-service/Dockerfile ./421a-service
-> touch $@
