@@ -4,9 +4,7 @@ WORKDIR /home/data
 
 # copy data files
 
-COPY ./421a-service/data/421a.csv .
-
-COPY ./db-service/data/j51_exemptions.csv .
+COPY ./db-service/data/FC_SHD_subsidy_analysis_2025-05-13_utf8.csv /home/data/
 
 COPY ./db-service/data/MapPLUTO.* /home/data/
 
