@@ -1,6 +1,6 @@
 # "Am I Rent Stabilized?" Data Processing
 
-This repository contains procedural code for generating data on New York City properties that are _likely_ to have rent-stabilized apartments (the word "likely" is important as there is no official public / government sanctioned data set on NYC apartments that have rent stabilized units).
+This directory contains procedural code for generating data on New York City residential properties that are _likely_ to have rent-stabilized apartments (the word "likely" is important as there is no official public / government sanctioned data on NYC apartments that have rent stabilized units).
 
 This data is used for the backend database of the ["Am I Rent Stabilized?" website](https://amirentstabilized.com). As such the data is created and stored in a PostgreSQL database with the PostGIS extension, but may be exported from the database as an SQL or CSV file to be used elsewhere.
 
@@ -14,7 +14,7 @@ The goal of this ETL pipeline is to reduce the number of dependencies that are r
 
 Requirements:
 
-- Docker (Community Edition) >= v19.x
+- Docker Desktop >= v4.66.0
 
 - `wget` for downloading MapPLUTO data
 
@@ -52,8 +52,4 @@ The `likely_rs_table_dump.sql` file may then be used to create the `likely_rs` t
 
 ## Data Processing Notes
 
-- Note that when the `airs-data-db` container is first run it will take some time to create the db table `likely_rs`. Subsequent container runs should be much shorter given that the data will be persisted in the `airs-data-db` volume.
-
-## Acknowledgements
-
-- Python scripts for downloading and parsing data on buildings with 421a tax exemptions courtesy of [Atul Varma's nyc-421a-xls repo](https://github.com/toolness/nyc-421a-xls).
+Note that when the `airs-data-db` container is first run it will take some time to create the db table `likely_rs`. Subsequent container runs should be much shorter given that the data will be persisted in the `airs-data-db` volume.
