@@ -46,7 +46,7 @@
     "d3-geo": "2.0.1",
     "d3-tile": "1.0.0",
     "gsap": "3.12.2",
-    "handlebars": "^4.7.8",
+    "handlebars": "^4.7.9",
     "innersvg-polyfill": "^0.0.5",
     "lodash.throttle": "4.1.1",
     "redux": "4.0.5",
