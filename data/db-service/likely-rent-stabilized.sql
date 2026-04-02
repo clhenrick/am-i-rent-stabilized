@@ -1,7 +1,7 @@
 BEGIN;
 DROP TABLE IF EXISTS likely_rs;
 CREATE TABLE likely_rs (
-  bbl bigint primary key,
+  bbl numeric primary key,
   address varchar,
   unitsres integer,
   borough varchar,
@@ -20,7 +20,7 @@ CREATE TABLE likely_rs (
 -- not in a building that is a co-op or contains condos.
 INSERT INTO likely_rs
 SELECT
-  bbl :: bigint,
+  bbl,
   address,
   unitsres,
   borough,
@@ -51,12 +51,13 @@ FROM (
       ) as a
   ) as _;
 
--- 421a
--- Match the BBLs from 421a tax exempt properties with
--- those from MapPLUTO and not already in the likely_rs table
+-- TODO: combine the following two insert statements into a single statement,
+-- requires fixing an error on conflict update
+-- Match the BBLs from properties with a 421a tax exemption
+-- with those from MapPLUTO and not already in the likely_rs table
 INSERT INTO likely_rs
 SELECT
-  bbl :: bigint,
+  bbl,
   address,
   unitsres,
   borough,
@@ -70,7 +71,7 @@ SELECT
   exemptions
 FROM (
     SELECT
-      a.bbl :: bigint,
+      a.bbl,
       address,
       unitsres,
       borough,
@@ -81,27 +82,26 @@ FROM (
       cd,
       council,
       FALSE as registered,
-      '421a' as exemptions
+      '421-a Tax Incentive Program' as exemptions
     FROM mappluto a,
       (
         SELECT
-          DISTINCT bbl
-        FROM exemptions_421a
+          DISTINCT ref_bbl as bbl
+        FROM tax_subsidies
         WHERE
-          bbl IS NOT NULL
+          sub_subsidy_name = '421-a Tax Incentive Program'
       ) b
     WHERE
-      substring (a.bbl :: text, 1, 10) = b.bbl
+      a.bbl = b.bbl
   ) as _
   ON CONFLICT (bbl)
-  DO UPDATE SET exemptions = '421a';
+  DO UPDATE SET exemptions = '421-a Tax Incentive Program';
 
--- J51
--- Match the BBLs from properties with a J51 tax exemption with
--- those from MapPLUTO and not already in the likely_rs table
+-- Match the BBLs from properties with a J51 tax exemption
+-- with those from MapPLUTO and not already in the likely_rs table
 INSERT INTO likely_rs
 SELECT
-  bbl :: bigint,
+  bbl,
   address,
   unitsres,
   borough,
@@ -115,7 +115,7 @@ SELECT
   exemptions
 FROM (
     SELECT
-      a.bbl :: bigint,
+      a.bbl,
       address,
       unitsres,
       borough,
@@ -126,21 +126,20 @@ FROM (
       cd,
       council,
       FALSE as registered,
-      'J51' as exemptions
+      'J-51 Tax Incentive' as exemptions
     FROM mappluto a,
       (
         SELECT
-        DISTINCT bbl
-        FROM j51_exemptions
-        WHERE (init_year + ex_years) >= date_part('year', CURRENT_DATE)
-        AND init_year != 9999
-        AND ex_years > 0
+          DISTINCT ref_bbl as bbl
+        FROM tax_subsidies
+        WHERE
+          sub_subsidy_name = 'J-51 Tax Incentive'
       ) b
     WHERE
-      substring (a.bbl :: text, 1, 10) = b.bbl
-) as _
-ON CONFLICT (bbl)
-DO UPDATE SET exemptions = 'J51';
+      a.bbl = b.bbl
+  ) as _
+  ON CONFLICT (bbl)
+  DO UPDATE SET exemptions = 'J-51 Tax Incentive';
 
 CREATE INDEX likely_rs_bbl_idx ON "likely_rs" (bbl);
 CREATE INDEX likely_rs_geom_idx ON "likely_rs" USING GIST ("geom");
