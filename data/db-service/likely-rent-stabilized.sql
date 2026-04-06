@@ -51,10 +51,7 @@ FROM (
       ) as a
   ) as _;
 
--- TODO: combine the following two insert statements into a single statement,
--- requires fixing an error on conflict update
--- Match the BBLs from properties with a 421a tax exemption
--- with those from MapPLUTO and not already in the likely_rs table
+--- insert and update tax subsidized properties
 INSERT INTO likely_rs
 SELECT
   bbl,
@@ -70,76 +67,21 @@ SELECT
   registered,
   exemptions
 FROM (
-    SELECT
-      a.bbl,
-      address,
-      unitsres,
-      borough,
-      ownername,
-      zipcode,
-      yearbuilt,
-      geom,
-      cd,
-      council,
-      FALSE as registered,
-      '421-a Tax Incentive Program' as exemptions
-    FROM mappluto a,
-      (
-        SELECT
-          DISTINCT ref_bbl as bbl
-        FROM tax_subsidies
-        WHERE
-          sub_subsidy_name = '421-a Tax Incentive Program'
-      ) b
-    WHERE
-      a.bbl = b.bbl
-  ) as _
-  ON CONFLICT (bbl)
-  DO UPDATE SET exemptions = '421-a Tax Incentive Program';
-
--- Match the BBLs from properties with a J51 tax exemption
--- with those from MapPLUTO and not already in the likely_rs table
-INSERT INTO likely_rs
-SELECT
-  bbl,
-  address,
-  unitsres,
-  borough,
-  ownername,
-  zipcode,
-  yearbuilt,
-  geom,
-  cd,
-  council,
-  registered,
-  exemptions
-FROM (
-    SELECT
-      a.bbl,
-      address,
-      unitsres,
-      borough,
-      ownername,
-      zipcode,
-      yearbuilt,
-      geom,
-      cd,
-      council,
-      FALSE as registered,
-      'J-51 Tax Incentive' as exemptions
-    FROM mappluto a,
-      (
-        SELECT
-          DISTINCT ref_bbl as bbl
-        FROM tax_subsidies
-        WHERE
-          sub_subsidy_name = 'J-51 Tax Incentive'
-      ) b
-    WHERE
-      a.bbl = b.bbl
-  ) as _
-  ON CONFLICT (bbl)
-  DO UPDATE SET exemptions = 'J-51 Tax Incentive';
+  SELECT
+    a.*,
+    FALSE as registered,
+    sub_subsidy_name as exemptions
+  FROM mappluto a,
+  (
+    SELECT DISTINCT ON (ref_bbl) ref_bbl, sub_subsidy_name, end_date
+    FROM tax_subsidies
+    WHERE sub_subsidy_name IN ('421-a Tax Incentive Program', 'J-51 Tax Incentive')
+    ORDER BY ref_bbl, end_date desc
+  ) b
+  WHERE a.bbl = b.ref_bbl
+) as _
+ON CONFLICT (bbl)
+DO UPDATE SET exemptions = EXCLUDED.exemptions;
 
 CREATE INDEX likely_rs_bbl_idx ON "likely_rs" (bbl);
 CREATE INDEX likely_rs_geom_idx ON "likely_rs" USING GIST ("geom");
