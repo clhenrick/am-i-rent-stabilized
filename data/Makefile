@@ -63,8 +63,10 @@ endif
 db-service/.run.sentinel: db-service/.build.sentinel
 > @echo "Running Docker container for db-service..."
 > docker run \
+> --platform=linux/amd64 \
+> --detach \
 > --name airs-data-db \
-> --publish 5433:5432 \
+> --publish 127.0.0.1:5433:5432 \
 > --env POSTGRES_PASSWORD=$(POSTGRES_PASSWORD) \
 > --env POSTGRES_USER=$(POSTGRES_USER) \
 > --env POSTGRES_DB=$(POSTGRES_DB) \
@@ -75,7 +77,7 @@ db-service/.run.sentinel: db-service/.build.sentinel
 
 db-service/.build.sentinel: $(DB_SERVICE_BUILD_DEPS)
 > @echo "Building Docker container for db-service..."
-> docker build -t clhenrick/airs-data-db -f ./db-service/Dockerfile .
+> docker build --platform=linux/amd64 --no-cache -t clhenrick/airs-data-db -f ./db-service/Dockerfile .
 > touch $@
 
 db-service/.volume.sentinel:
