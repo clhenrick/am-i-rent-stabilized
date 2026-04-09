@@ -21,12 +21,12 @@ MAPPLUTO_DATA_VERSION := "25v4"
 MAPPLUTO_DATA_FILE := "nyc_mappluto_$(MAPPLUTO_DATA_VERSION)_shp.zip"
 MAPPLUTO_DATA_URI := "https://s-media.nyc.gov/agencies/dcp/assets/files/zip/data-tools/bytes/mappluto/$(MAPPLUTO_DATA_FILE)"
 
-# 421a and J51 tax exemptions data from the Furman Center
+# tax exemptions data from the NYU Furman Center
 SUBSIDIES_INTERMEDIATE_FILE_NAME := FC_SHD_subsidy_analysis_2025-05-13.csv
 SUBSIDIES_FILE_NAME := $(basename $(SUBSIDIES_INTERMEDIATE_FILE_NAME))_utf8.csv
 SUBSIDIES_DATA_URL := https://furmancenter.org/files/CoreData/$(SUBSIDIES_INTERMEDIATE_FILE_NAME)
 
-# Postgres
+# Postgres env vars
 POSTGRES_PASSWORD := "postgres"
 POSTGRES_USER := "postgres"
 POSTGRES_DB := "airs"
@@ -77,7 +77,7 @@ db-service/.run.sentinel: db-service/.build.sentinel
 
 db-service/.build.sentinel: $(DB_SERVICE_BUILD_DEPS)
 > @echo "Building Docker container for db-service..."
-> docker build --platform=linux/amd64 --no-cache -t clhenrick/airs-data-db -f ./db-service/Dockerfile .
+> docker build --platform=linux/amd64 -t clhenrick/airs-data-db -f ./db-service/Dockerfile .
 > touch $@
 
 db-service/.volume.sentinel:
