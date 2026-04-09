@@ -40,19 +40,45 @@ To clean up / remove everything do:
 make clean
 ```
 
-### Data Extraction
+### Copying data to your local machine
 
-To get a copy of the `likely_rs` table from the `airs-data-db` Docker container after it is created do:
+Here are two methods for getting the likely rent-stabilized (`likely_rs`) table out of the running `airs-data-db` Docker container to your local machine.
 
-```bash
-# 1. create the likely_rs_table_dump.sql in the container
-docker exec -i airs-data-db bash -c "pg_dump -U postgres -d airs -t likely_rs > likely_rs_table_dump.sql"
+Note that you may also connect directly to the Docker container's PostgreSQL database using software such as [QGIS](https://qgis.org). There is a [tutorial on OSGeo](https://video.osgeo.org/w/9cZiX3fMCtpPwhZgRw3oqa) which demonstrates how to do this.
 
-# 2. copy likely_rs_table_dump.sql to the host machine's current directory
-docker cp airs-data-db:/home/data/likely_rs_table_dump.sql $(pwd)
-```
+#### Method 1: SQL Dump
+
+To get a copy of the `likely_rs` table in SQL format from the `airs-data-db` Docker container after it has been created:
+
+1. Create the `likely_rs_table_dump.sql` in the `airs-data-db` Docker container using `pg_dump`
+
+   ```bash
+   docker exec -i airs-data-db bash -c "pg_dump -U postgres -d airs -t likely_rs > likely_rs_table_dump.sql"
+   ```
+
+2. Copy the `likely_rs_table_dump.sql` file to the host machine's current directory
+
+   ```bash
+   docker cp airs-data-db:/home/data/likely_rs_table_dump.sql $(pwd)
+   ```
 
 The `likely_rs_table_dump.sql` file may then be used to create the `likely_rs` table in the desired PostgreSQL, PostGIS enabled database. It assumes that the db schema is `public` and the db owner is `postgres`.
+
+#### Method 2: Shapefile Dump
+
+To get a copy of the `likely_rs` table in Shapefile format from the `airs-data-db` Docker container after it has been created:
+
+1. Create the Shapefile in the `airs-data-db` Docker container using `pgsql2shp`
+
+   ```bash
+   docker exec -i airs-data-db bash -c "pgsql2shp -f nyc_likely_rs_2025.shp -u postgres airs 'select * from likely_rs'"
+   ```
+
+2. Copy the Shapefile from the `airs-data-db` Docker container to the host machine's current directory
+
+   ```bash
+   docker exec airs-data-db bash -c "ls /home/data/nyc_likely_rs*" | while read line; do docker cp airs-data-db:/$line $(pwd); done
+   ```
 
 ## Other Data Processing Notes
 
