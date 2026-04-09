@@ -2,6 +2,23 @@
 
 This changelog describes significant changes to the project. It was first created on November 29, 2020 so does not account for the entire project's history.
 
+## 2026-04-09 Feature: Update likely rent-stabilized data ([#209](https://github.com/clhenrick/am-i-rent-stabilized/pull/209) & [#212](https://github.com/clhenrick/am-i-rent-stabilized/pull/212))
+
+Updated the "likely rent-stabilized" data with the current [MapPLUTO data from NYC.gov](https://www.nyc.gov/content/planning/pages/resources/datasets/mappluto-pluto-change) and tax abatement data from the [NYU Furman Center](https://www.furmancenter.org).
+
+Data changes:
+
+- use tax subsidy data from the NYU Furman Center (CSV file sourced from [this NYCDB PR](https://github.com/nycdb/nycdb/pull/397))
+- use version 25v4 of MapPLUTO data
+- update Dockerfile to use official PostGIS Docker image
+- remove scripts, SQL, and Makefile targets for prior 421a & J51 data sources
+- update data ETL documentation
+
+Website changes:
+
+- use the 2025 likely rent stabilized data from PR #209
+- link to a [new map of likely rs tax lots in CARTO](https://clausa.app.carto.com/map/a6c57a6e-25a0-48ba-8943-859248f3c639)
+
 ## 2026-03-24 Bugfix: Improve accessibly hiding and showing slides on homepage
 
 Addresses issue [(#201)](https://github.com/clhenrick/am-i-rent-stabilized/issues/201).
