@@ -119,6 +119,8 @@ The processed dataset is hosted and [publicly available for download on CARTO.co
 
 - [John Krauss](http://blog.johnkrauss.com/) provided data for NYC properties that should have rent-stabilized apartments due to receiving tax exemptions from state programs such as 421a. (You can learn more on the the repo for [nyc-stabilization-unit-counts](https://github.com/talos/nyc-stabilization-unit-counts)).
 
+- [NYU Furman Center](https://www.furmancenter.org) for providing compiled data on NYC properties with tax subsidies.
+
 ### Fullscreen Slides with GSAP's TweenLite, CSSPlugin and ScrollToPlugin Credit
 
 Forked from [Chrysto](http://codepen.io/bassta/)'s Pen [Fullscreen slides with TweenLite, CSSPlugin and ScrollToPlugin](http://codepen.io/bassta/pen/kDvmC/).

@@ -1,7 +1,7 @@
 BEGIN;
 DROP TABLE IF EXISTS likely_rs;
 CREATE TABLE likely_rs (
-  bbl bigint primary key,
+  bbl numeric primary key,
   address varchar,
   unitsres integer,
   borough varchar,
@@ -20,7 +20,7 @@ CREATE TABLE likely_rs (
 -- not in a building that is a co-op or contains condos.
 INSERT INTO likely_rs
 SELECT
-  bbl :: bigint,
+  bbl,
   address,
   unitsres,
   borough,
@@ -51,12 +51,10 @@ FROM (
       ) as a
   ) as _;
 
--- 421a
--- Match the BBLs from 421a tax exempt properties with
--- those from MapPLUTO and not already in the likely_rs table
+--- insert and update tax subsidized properties
 INSERT INTO likely_rs
 SELECT
-  bbl :: bigint,
+  bbl,
   address,
   unitsres,
   borough,
@@ -69,78 +67,22 @@ SELECT
   registered,
   exemptions
 FROM (
-    SELECT
-      a.bbl :: bigint,
-      address,
-      unitsres,
-      borough,
-      ownername,
-      zipcode,
-      yearbuilt,
-      geom,
-      cd,
-      council,
-      FALSE as registered,
-      '421a' as exemptions
-    FROM mappluto a,
-      (
-        SELECT
-          DISTINCT bbl
-        FROM exemptions_421a
-        WHERE
-          bbl IS NOT NULL
-      ) b
-    WHERE
-      substring (a.bbl :: text, 1, 10) = b.bbl
-  ) as _
-  ON CONFLICT (bbl)
-  DO UPDATE SET exemptions = '421a';
-
--- J51
--- Match the BBLs from properties with a J51 tax exemption with
--- those from MapPLUTO and not already in the likely_rs table
-INSERT INTO likely_rs
-SELECT
-  bbl :: bigint,
-  address,
-  unitsres,
-  borough,
-  ownername,
-  zipcode,
-  yearbuilt,
-  geom,
-  cd,
-  council,
-  registered,
-  exemptions
-FROM (
-    SELECT
-      a.bbl :: bigint,
-      address,
-      unitsres,
-      borough,
-      ownername,
-      zipcode,
-      yearbuilt,
-      geom,
-      cd,
-      council,
-      FALSE as registered,
-      'J51' as exemptions
-    FROM mappluto a,
-      (
-        SELECT
-        DISTINCT bbl
-        FROM j51_exemptions
-        WHERE (init_year + ex_years) >= date_part('year', CURRENT_DATE)
-        AND init_year != 9999
-        AND ex_years > 0
-      ) b
-    WHERE
-      substring (a.bbl :: text, 1, 10) = b.bbl
+  SELECT
+    a.*,
+    FALSE as registered,
+    sub_subsidy_name as exemptions
+  FROM mappluto a,
+  (
+    SELECT DISTINCT ON (ref_bbl) ref_bbl, sub_subsidy_name, end_date
+    FROM tax_subsidies
+    WHERE sub_subsidy_name IN ('421-a Tax Incentive Program', 'J-51 Tax Incentive')
+    AND end_date > 20270101
+    ORDER BY ref_bbl, end_date desc
+  ) b
+  WHERE a.bbl = b.ref_bbl
 ) as _
 ON CONFLICT (bbl)
-DO UPDATE SET exemptions = 'J51';
+DO UPDATE SET exemptions = EXCLUDED.exemptions;
 
 CREATE INDEX likely_rs_bbl_idx ON "likely_rs" (bbl);
 CREATE INDEX likely_rs_geom_idx ON "likely_rs" USING GIST ("geom");
