@@ -76,6 +76,7 @@ FROM (
     SELECT DISTINCT ON (ref_bbl) ref_bbl, sub_subsidy_name, end_date
     FROM tax_subsidies
     WHERE sub_subsidy_name IN ('421-a Tax Incentive Program', 'J-51 Tax Incentive')
+    AND end_date > 20270101
     ORDER BY ref_bbl, end_date desc
   ) b
   WHERE a.bbl = b.ref_bbl
