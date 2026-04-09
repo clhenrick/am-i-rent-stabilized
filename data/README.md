@@ -8,7 +8,11 @@ This data is used for the backend database of the ["Am I Rent Stabilized?" websi
 
 The following assumes that you are familiar with using the following software: terminal / command line interface, Docker, and PostgreSQL.
 
-NOTE: The Docker commands in the Makefile assume `--platform=linux/amd64` for compatibility with Apple Silicon hardware. If you are on a different OS you will likely need to change this.
+> [!NOTE]
+> The Docker commands in the Makefile assume `--platform=linux/amd64` for compatibility with Apple Silicon hardware. If you are on a different OS or Mac Intel then you will likely need to change this.
+
+> [!NOTE]
+> The Docker [`postgis/postgis` image](https://hub.docker.com/r/postgis/postgis/) builds off the official Docker [`postgres` image](https://hub.docker.com/_/postgres). According to the documentation for the `postgres` image, any executable shell scripts placed in the `/docker-entrypoint-initdb.d` directory will be run after the PostgreSQL database starts up. For this reason the `init-db.sh` script is copied to this directory and made executable so that the `likely_rs` table may be built at the appropriate time after the `airs-data-db` Docker container has been created and the PostgreSQL database has been started. Attempting to run the `init-db.sh` script using `CMD` or `ENTRYPOINT` in the Dockerfile will interfere with starting the PostgreSQL database.
 
 ### System Requirements
 
