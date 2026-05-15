@@ -36,7 +36,7 @@
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable"
   },
-  "packageManager": "yarn@4.9.1",
+  "packageManager": "yarn@4.14.1",
   "engines": {
     "node": ">=22.14.0",
     "yarn": ">=4.9.1"
