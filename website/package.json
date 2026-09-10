@@ -78,7 +78,7 @@
     "sass": "^1.98.0",
     "stylelint": "^16.26.1",
     "stylelint-config-standard-scss": "^15.0.1",
-    "vitest": "^4.1.0",
+    "vitest": "^4.1.11",
     "vitest-fetch-mock": "^0.4.5"
   },
   "browserslist": {
